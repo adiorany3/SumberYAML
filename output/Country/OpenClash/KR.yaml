@@ -30,7 +30,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: 🇰🇷KR-152.67.218.38-0154
+  - name: 🇰🇷KR-152.67.218.38-0198
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -46,23 +46,7 @@ proxies:
       headers:
         Host: 152.67.218.38
     udp: true
-  - name: 🇰🇷KR-152.67.208.31-0214
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: 81d5cac4-d039-4874-9a20-c391f580012d
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: chuncheon03.zgjok.com
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: chuncheon03.zgjok.com
-    udp: true
-  - name: "@v2rayngzendegimamad🕊️ 4480"
+  - name: "@v2rayngzendegimamad🕊️ 2451"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -77,7 +61,7 @@ proxies:
       headers:
         Host: afrcloud22.mmv.kr
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 7592"
+  - name: "@v2rayngzendegimamad🕊️ 8752"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -92,7 +76,7 @@ proxies:
       headers:
         Host: afrcloud22.mmv.kr
     udp: true
-  - name: "@CUSTOMVPNSERVER 4056"
+  - name: "@CUSTOMVPNSERVER 5658"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -107,7 +91,7 @@ proxies:
       headers:
         Host: afrcloud1.c01.kr
     udp: true
-  - name: "@CUSTOMVPNSERVER 5072"
+  - name: "@CUSTOMVPNSERVER 6967"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -137,7 +121,7 @@ proxies:
       headers:
         Host: 172.67.73.14
     udp: true
-  - name: "@CUSTOMVPNSERVER 6571"
+  - name: "@CUSTOMVPNSERVER 6246"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -152,7 +136,7 @@ proxies:
       headers:
         Host: afrcloud1.c01.kr
     udp: true
-  - name: "@CUSTOMVPNSERVER 4394"
+  - name: "@CUSTOMVPNSERVER 7597"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -167,7 +151,7 @@ proxies:
       headers:
         Host: afrcloud1.c01.kr
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 1743"
+  - name: "@v2rayngzendegimamad🕊️ 3744"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -187,16 +171,15 @@ proxy-groups:
   - name: URL-TEST KR - South Korea
     type: url-test
     proxies:
-      - 🇰🇷KR-152.67.218.38-0154
-      - 🇰🇷KR-152.67.208.31-0214
-      - "@v2rayngzendegimamad🕊️ 4480"
-      - "@v2rayngzendegimamad🕊️ 7592"
-      - "@CUSTOMVPNSERVER 4056"
-      - "@CUSTOMVPNSERVER 5072"
+      - 🇰🇷KR-152.67.218.38-0198
+      - "@v2rayngzendegimamad🕊️ 2451"
+      - "@v2rayngzendegimamad🕊️ 8752"
+      - "@CUSTOMVPNSERVER 5658"
+      - "@CUSTOMVPNSERVER 6967"
       - "Join@v2rayngzendegimamad&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=afrcloud22.mmv.kr#@v2rayngzendegimamad🕊️"
-      - "@CUSTOMVPNSERVER 6571"
-      - "@CUSTOMVPNSERVER 4394"
-      - "@v2rayngzendegimamad🕊️ 1743"
+      - "@CUSTOMVPNSERVER 6246"
+      - "@CUSTOMVPNSERVER 7597"
+      - "@v2rayngzendegimamad🕊️ 3744"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

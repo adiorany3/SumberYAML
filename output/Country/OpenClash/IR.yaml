@@ -30,18 +30,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇮🇷28897 | ⚡️Telegram = t.me/SOSkeyNET"
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: 7d951c02-05f0-46a4-a5d8-b6fa967bbef0
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: 185.231.181.62
-    network: tcp
-    udp: true
   - name: "🇽🇽 XX | VMESS | @ir_netproxy #1"
     type: vmess
     server: 104.17.3.81
@@ -58,6 +46,93 @@ proxies:
       headers:
         Host: ophelia.mom
     udp: true
+  - name: "🇮🇷28897 | ⚡️Telegram = t.me/SOSkeyNET"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 7d951c02-05f0-46a4-a5d8-b6fa967bbef0
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 185.231.181.62
+    network: tcp
+    udp: true
+  - name: "🇽🇽 XX | VLESS | @freev2flyng #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 08c41e17-9d1c-4d4a-9edc-242d3d71c1ac
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 188.114.97.3
+    ws-opts:
+      path: /
+      headers:
+        Host: 188.114.97.3
+    udp: true
+  - name: "🇽🇽 XX | VLESS | @kesslervpn #2"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 0f705100-9799-4e7e-be81-cfcfc6835630
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 104.18.12.149
+    ws-opts:
+      path: /
+      headers:
+        Host: 104.18.12.149
+    udp: true
+  - name: "🇮🇷 IR | VLESS | @lax_vpn #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 97dce074-7db1-4d59-99ca-0ef8311e2425
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: s19.speedyconnect.pro
+    ws-opts:
+      path: /downloader/10005?ed=2048
+      headers:
+        Host: s19.speedyconnect.pro
+    udp: true
+  - name: "🇽🇽 XX | VLESS | @v2rayng3 #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9e13716d-c43d-48b3-8cab-65e02d938ab5
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: chatgpt.com
+    ws-opts:
+      path: /
+      headers:
+        Host: chatgpt.com
+    udp: true
+  - name: "🇮🇷 IR | VLESS | @v2rayopen #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 601ed233-56e7-4f7a-b486-06ed55f1cec0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 185.143.233.5
+    ws-opts:
+      path: /chat?ed=128
+      headers:
+        Host: 185.143.233.5
+    udp: true
   - name: "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:253.43ms"
     server: 104.17.3.81
     port: 443
@@ -73,7 +148,7 @@ proxies:
       headers:
         Host: g4.podro.store
     udp: true
-  - name: "Telegram : @V2ynpv 4055"
+  - name: "Telegram : @V2ynpv 2495"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -148,7 +223,7 @@ proxies:
       headers:
         Host: fxl1.parhamm1.ir
     udp: true
-  - name: "Telegram : @V2ynpv 6895"
+  - name: "Telegram : @V2ynpv 5313"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -253,7 +328,7 @@ proxies:
       headers:
         Host: apif.parhamm2.ir
     udp: true
-  - name: "@langbox جوین بشید 8728"
+  - name: "@langbox جوین بشید 9684"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -268,7 +343,7 @@ proxies:
       headers:
         Host: alaedin6.8lack.ir
     udp: true
-  - name: "Telegram : @V2ynpv 3808"
+  - name: "Telegram : @V2ynpv 9716"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -283,7 +358,7 @@ proxies:
       headers:
         Host: pmeli.express-servers.ir
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 9631"
+  - name: "@v2rayngzendegimamad🕊️ 1552"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -313,7 +388,7 @@ proxies:
       headers:
         Host: alaedin8.8lack.ir
     udp: true
-  - name: "@icv2ray 3082"
+  - name: "@icv2ray 8438"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -358,7 +433,7 @@ proxies:
       headers:
         Host: cdn.fars-rehan.ir
     udp: true
-  - name: "@langbox جوین بشید 5130"
+  - name: "@langbox جوین بشید 3227"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -463,7 +538,7 @@ proxies:
       headers:
         Host: afrcloud22.mmv.kr
     udp: true
-  - name: "Telegram : @V2ynpv 6747"
+  - name: "Telegram : @V2ynpv 9161"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -493,7 +568,7 @@ proxies:
       headers:
         Host: mitivpn-s1.global.ssl.fastly.net
     udp: true
-  - name: "برای اتصال دائمی جوین شو🗾 prrofile_purple@ 3683"
+  - name: "برای اتصال دائمی جوین شو🗾 prrofile_purple@ 1815"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -508,7 +583,7 @@ proxies:
       headers:
         Host: dll1.darkping.ir
     udp: true
-  - name: "@icv2ray 3584"
+  - name: "@icv2ray 4628"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -538,7 +613,7 @@ proxies:
       headers:
         Host: dev.nestandneighbours.com
     udp: true
-  - name: "@canfigiop 9358"
+  - name: "@canfigiop 5471"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -553,82 +628,7 @@ proxies:
       headers:
         Host: alaedin6.8lack.ir
     udp: true
-  - name: "🇽🇽 XX | VLESS | @freev2flyng #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 08c41e17-9d1c-4d4a-9edc-242d3d71c1ac
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: 188.114.97.3
-    ws-opts:
-      path: /
-      headers:
-        Host: 188.114.97.3
-    udp: true
-  - name: "🇽🇽 XX | VLESS | @kesslervpn #2"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 0f705100-9799-4e7e-be81-cfcfc6835630
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: 104.18.12.149
-    ws-opts:
-      path: /
-      headers:
-        Host: 104.18.12.149
-    udp: true
-  - name: "🇮🇷 IR | VLESS | @lax_vpn #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 97dce074-7db1-4d59-99ca-0ef8311e2425
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: s19.speedyconnect.pro
-    ws-opts:
-      path: /downloader/10005?ed=2048
-      headers:
-        Host: s19.speedyconnect.pro
-    udp: true
-  - name: "🇽🇽 XX | VLESS | @v2rayng3 #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 9e13716d-c43d-48b3-8cab-65e02d938ab5
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: chatgpt.com
-    ws-opts:
-      path: /
-      headers:
-        Host: chatgpt.com
-    udp: true
-  - name: "🇮🇷 IR | VLESS | @v2rayopen #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 601ed233-56e7-4f7a-b486-06ed55f1cec0
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: 185.143.233.5
-    ws-opts:
-      path: /chat?ed=128
-      headers:
-        Host: 185.143.233.5
-    udp: true
-  - name: "@electvpn0 9955"
+  - name: "@electvpn0 4688"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -703,7 +703,7 @@ proxies:
       headers:
         Host: tunnel.alphavip.dpdns.org
     udp: true
-  - name: "@canfigiop 4447"
+  - name: "@canfigiop 4264"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -733,7 +733,7 @@ proxies:
       headers:
         Host: alaedin1.8lack.ir
     udp: true
-  - name: "@langbox ممه ابی 1649"
+  - name: "@langbox ممه ابی 9081"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -748,7 +748,7 @@ proxies:
       headers:
         Host: alaedin7.8lack.ir
     udp: true
-  - name: "@GozargahAzad|🇮🇷 6676"
+  - name: "@GozargahAzad|🇮🇷 9061"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -812,55 +812,55 @@ proxy-groups:
   - name: URL-TEST IR - Iran
     type: url-test
     proxies:
-      - "🇮🇷28897 | ⚡️Telegram = t.me/SOSkeyNET"
       - "🇽🇽 XX | VMESS | @ir_netproxy #1"
+      - "🇮🇷28897 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇽🇽 XX | VLESS | @freev2flyng #1"
+      - "🇽🇽 XX | VLESS | @kesslervpn #2"
+      - "🇮🇷 IR | VLESS | @lax_vpn #1"
+      - "🇽🇽 XX | VLESS | @v2rayng3 #1"
+      - "🇮🇷 IR | VLESS | @v2rayopen #1"
       - "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:253.43ms"
-      - "Telegram : @V2ynpv 4055"
+      - "Telegram : @V2ynpv 2495"
       - "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:39.94ms"
       - "برای اتصال دائمی جوین شو🗾 prrofile_purple@"
       - "IR-@V2rayAlpha-8"
       - filembad-79
-      - "Telegram : @V2ynpv 6895"
+      - "Telegram : @V2ynpv 5313"
       - "@filembad"
       - "اختصا۱ی کانال |Hunnter_VPN"
       - "@langbox رایگان وصل شو"
       - "@langbox جوین بشید"
       - "@langbox وصل بشین"
       - "@GozargahAzad|🇮🇷"
-      - "@langbox جوین بشید 8728"
-      - "Telegram : @V2ynpv 3808"
-      - "@v2rayngzendegimamad🕊️ 9631"
+      - "@langbox جوین بشید 9684"
+      - "Telegram : @V2ynpv 9716"
+      - "@v2rayngzendegimamad🕊️ 1552"
       - "@hi_proxy_iran :👈کانال تلگرام"
-      - "@icv2ray 3082"
+      - "@icv2ray 8438"
       - "IR-@V2rayAlpha-10"
       - "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:68.58ms"
-      - "@langbox جوین بشید 5130"
+      - "@langbox جوین بشید 3227"
       - "@electvpn0"
       - "🇮🇷26642 | ⚡️Telegram = t.me/SOSkeyNET"
       - "🇮🇷28806 | ⚡️Telegram = t.me/SOSkeyNET"
       - "🔵@chillguy_vpn"
       - "@langbox ممه صورتی"
       - "IR-@V2rayAlpha-11"
-      - "Telegram : @V2ynpv 6747"
+      - "Telegram : @V2ynpv 9161"
       - "@v2rayconfigamir 7106"
-      - "برای اتصال دائمی جوین شو🗾 prrofile_purple@ 3683"
-      - "@icv2ray 3584"
+      - "برای اتصال دائمی جوین شو🗾 prrofile_purple@ 1815"
+      - "@icv2ray 4628"
       - "IR-@V2rayAlpha-13"
-      - "@canfigiop 9358"
-      - "🇽🇽 XX | VLESS | @freev2flyng #1"
-      - "🇽🇽 XX | VLESS | @kesslervpn #2"
-      - "🇮🇷 IR | VLESS | @lax_vpn #1"
-      - "🇽🇽 XX | VLESS | @v2rayng3 #1"
-      - "🇮🇷 IR | VLESS | @v2rayopen #1"
-      - "@electvpn0 9955"
+      - "@canfigiop 5471"
+      - "@electvpn0 4688"
       - "@langbox ممه ابی"
       - "🇮🇷29003 | ⚡️Telegram = t.me/SOSkeyNET"
       - "@langbox ممه بنفش"
       - "🇮🇷28992 | ⚡️Telegram = t.me/SOSkeyNET"
-      - "@canfigiop 4447"
+      - "@canfigiop 4264"
       - "@langbox ممه سبز"
-      - "@langbox ممه ابی 1649"
-      - "@GozargahAzad|🇮🇷 6676"
+      - "@langbox ممه ابی 9081"
+      - "@GozargahAzad|🇮🇷 9061"
       - "🇮🇷29004 | ⚡️Telegram = t.me/SOSkeyNET"
       - "🇮🇷28979 | ⚡️Telegram = t.me/SOSkeyNET"
       - "🇽🇽 XX | TROJAN | @outline_ir #1"

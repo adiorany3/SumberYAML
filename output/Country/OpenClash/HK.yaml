@@ -30,23 +30,23 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: 🇭🇰HK-8.210.239.58-0455
+  - name: 🇭🇰HK-47.238.82.7-5145
     type: vmess
     server: 104.17.3.81
     port: 443
-    uuid: 5fdc6ab1-8347-411c-9bbf-fbc3ea853d2f
+    uuid: 37b20639-0d6e-46f2-9db5-472201b10cdd
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: n1761296889.4u9ma.icu
+    servername: n1753356378.4u9ma.icu
     network: ws
     ws-opts:
       path: /
       headers:
-        Host: n1761296889.4u9ma.icu
+        Host: n1753356378.4u9ma.icu
     udp: true
-  - name: 🇭🇰HK-47.76.254.70-0189
+  - name: 🇭🇰HK-47.76.254.70-0197
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -61,22 +61,6 @@ proxies:
       path: /
       headers:
         Host: n1753101277.4u9ma.icu
-    udp: true
-  - name: "🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰"
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: 78f61544-3393-4e6b-9c77-5deaa0c7471d
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: n1761296878.4u9ma.icu
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: n1761296878.4u9ma.icu
     udp: true
   - name: "🇭🇰 HK | VMESS | @freev2rays #1"
     type: vmess
@@ -94,6 +78,22 @@ proxies:
       headers:
         Host: hk2.lrzdx.uk
     udp: true
+  - name: "🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 78f61544-3393-4e6b-9c77-5deaa0c7471d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: n1761296878.4u9ma.icu
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: n1761296878.4u9ma.icu
+    udp: true
   - name: ">>@v2ray_configs_pool::HK"
     server: 104.17.3.81
     port: 443
@@ -109,7 +109,7 @@ proxies:
       headers:
         Host: dabaius2.sylu.net
     udp: true
-  - name: ">>@v2ray_configs_pool::HK 6394"
+  - name: ">>@v2ray_configs_pool::HK 4081"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -129,12 +129,12 @@ proxy-groups:
   - name: URL-TEST HK - Hong Kong
     type: url-test
     proxies:
-      - 🇭🇰HK-8.210.239.58-0455
-      - 🇭🇰HK-47.76.254.70-0189
-      - "🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰"
+      - 🇭🇰HK-47.238.82.7-5145
+      - 🇭🇰HK-47.76.254.70-0197
       - "🇭🇰 HK | VMESS | @freev2rays #1"
+      - "🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰"
       - ">>@v2ray_configs_pool::HK"
-      - ">>@v2ray_configs_pool::HK 6394"
+      - ">>@v2ray_configs_pool::HK 4081"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

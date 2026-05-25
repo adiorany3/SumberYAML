@@ -30,7 +30,23 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: 🏁RELAY-104.19.45.116-0235
+  - name: 🏁RELAY-104.18.7.138-0211
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 3b5e258e-8c5e-45d3-b7d2-02c8f5fc0bb2
+    alterId: 64
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: cdnde.irteyz.today
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: cdnde.irteyz.today
+    udp: true
+  - name: 🏁RELAY-104.19.45.116-0224
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -45,6 +61,22 @@ proxies:
       path: /
       headers:
         Host: 35044ac9a120f4dd5.spbohk.com
+    udp: true
+  - name: "🇽🇽 XX | VMESS | @iranvpnet #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: mute-math-d64e.0e503992ad7026.woRKERS.DeV
+    network: ws
+    ws-opts:
+      path: /aveiror.com:443/linkvws
+      headers:
+        Host: mute-math-d64e.0e503992ad7026.woRKERS.DeV
     udp: true
   - name: "Telegram:@config_proxy 🔥"
     type: vmess
@@ -74,7 +106,7 @@ proxies:
       headers:
         Host: fapeng.org
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 2326"
+  - name: "@v2rayngzendegimamad🕊️ 2203"
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -102,7 +134,7 @@ proxies:
     servername: 94.183.241.233
     network: tcp
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 7620"
+  - name: "@v2rayngzendegimamad🕊️ 1564"
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -118,34 +150,19 @@ proxies:
       headers:
         Host: pelang.org
     udp: true
-  - name: "🇽🇽 XX | VMESS | @iranvpnet #1"
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: mute-math-d64e.0e503992ad7026.woRKERS.DeV
-    network: ws
-    ws-opts:
-      path: /aveiror.com:443/linkvws
-      headers:
-        Host: mute-math-d64e.0e503992ad7026.woRKERS.DeV
-    udp: true
 
 proxy-groups:
   - name: URL-TEST UNKNOWN
     type: url-test
     proxies:
-      - 🏁RELAY-104.19.45.116-0235
+      - 🏁RELAY-104.18.7.138-0211
+      - 🏁RELAY-104.19.45.116-0224
+      - "🇽🇽 XX | VMESS | @iranvpnet #1"
       - "Telegram:@config_proxy 🔥"
       - "@v2rayngzendegimamad🕊️"
-      - "@v2rayngzendegimamad🕊️ 2326"
+      - "@v2rayngzendegimamad🕊️ 2203"
       - "@BOMB_SERVER ❤️🔥جوین بده"
-      - "@v2rayngzendegimamad🕊️ 7620"
-      - "🇽🇽 XX | VMESS | @iranvpnet #1"
+      - "@v2rayngzendegimamad🕊️ 1564"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
