@@ -1,4 +1,5 @@
 import base64, binascii, csv, json, random
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs, unquote, urlunparse
 import requests
@@ -11,6 +12,11 @@ VMESS_SERVER_OVERRIDE = '104.17.3.81'
 VLESS_SERVER_OVERRIDE = '104.17.3.81'
 TROJAN_SERVER_OVERRIDE = '104.17.3.81'
 PROTOCOLS = ['vmess', 'vless', 'trojan']
+OPENCLASH_OUTPUT_FILE = 'lengkap.yaml'
+URL_TEST_URL = 'http://www.gstatic.com/generate_204'
+URL_TEST_INTERVAL = 300
+URL_TEST_TOLERANCE = 50
+FETCH_WORKERS = 10
 BASE64_LINKS = [
     'https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/app/sub.txt',
     'https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_1.txt',
@@ -67,6 +73,26 @@ def fetch(url, is_b64=False):
         return b64_bytes(r.content) if is_b64 else r.text
     except requests.RequestException:
         return ''
+
+
+def fetch_all_sources():
+    tasks = []
+    for url in BASE64_LINKS:
+        tasks.append((url, True))
+    for url in DIRECT_LINKS:
+        tasks.append((url, False))
+
+    contents = []
+    with ThreadPoolExecutor(max_workers=FETCH_WORKERS) as executor:
+        future_map = {
+            executor.submit(fetch, url, is_b64): (url, is_b64)
+            for url, is_b64 in tasks
+        }
+        for future in as_completed(future_map):
+            data = future.result()
+            if data:
+                contents.append(data)
+    return contents
 
 def protocol(line):
     for p, pref in PREFIX.items():
@@ -182,7 +208,7 @@ def vmess_yaml(c):
   port: {c['port']}
   uuid: {c['uuid']}
   alterId: {c['alterId']}
-  cipher: zero
+  cipher: auto
   tls: true
   skip-cert-verify: true
   servername: {yq(c['servername'])}
@@ -219,7 +245,7 @@ def trojan_yaml(c):
   server: {yq(c['server'])}
   port: {c['port']}
   type: trojan
-  password: {c['password']}
+  password: {yq(c['password'])}
   tls: true
   skip-cert-verify: true
   network: {c['network']}
@@ -384,13 +410,12 @@ def add_proxies_header(items):
         out = 'proxies:\n' + '\n'.join('  ' + line if line.strip() else line for line in out.splitlines())
     return out
 
-def convert_protocol(p, links):
+def convert_protocol(p, links, used_names):
     parser = {'vmess': parse_vmess, 'vless': parse_vless, 'trojan': parse_trojan}[p]
     yaml_func = {'vmess': vmess_yaml, 'vless': vless_yaml, 'trojan': trojan_yaml}[p]
     override = {'vmess': VMESS_SERVER_OVERRIDE, 'vless': VLESS_SERVER_OVERRIDE, 'trojan': TROJAN_SERVER_OVERRIDE}[p]
-    yaml_items, txt_items, invalid, duplicates, renamed = [], [], [], [], []
+    yaml_items, txt_items, invalid, duplicates, renamed, configs = [], [], [], [], [], []
     seen_accounts = {}
-    used_names = set()
     for link in links:
         c = parser(link)
         ok, reasons = valid(p, c)
@@ -421,6 +446,7 @@ def convert_protocol(p, links):
                 'raw': link,
             })
         c['name'] = new_name
+        c['protocol'] = p
 
         if p == 'vmess':
             c['server'] = clean(override, c['server'])
@@ -431,47 +457,184 @@ def convert_protocol(p, links):
             txt_items.append(replace_server(renamed_link, override))
             c['server'] = clean(override, c['server'])
             yaml_items.append(yaml_func(c))
-    return yaml_items, txt_items, invalid, duplicates, renamed
+        configs.append(c)
+    return yaml_items, txt_items, invalid, duplicates, renamed, configs
+
+
+def indent_block(text, spaces=2):
+    prefix = ' ' * spaces
+    return '\n'.join(prefix + line if line.strip() else line for line in text.splitlines())
+
+
+def yaml_name_list(names, spaces=4):
+    prefix = ' ' * spaces
+    if not names:
+        return prefix + '- DIRECT'
+    return '\n'.join(prefix + '- ' + yq(name) for name in names)
+
+
+def make_url_test_group(group_name, proxy_names):
+    if not proxy_names:
+        return ''
+    return f'''- name: {yq(group_name)}
+  type: url-test
+  proxies:
+{yaml_name_list(proxy_names, 4)}
+  url: {URL_TEST_URL}
+  interval: {URL_TEST_INTERVAL}
+  tolerance: {URL_TEST_TOLERANCE}'''
+
+
+def make_select_group(group_name, entries):
+    if not entries:
+        entries = ['DIRECT']
+    return f'''- name: {yq(group_name)}
+  type: select
+  proxies:
+{yaml_name_list(entries, 4)}'''
+
+
+def build_openclash_yaml(all_yaml_items, protocol_proxy_names):
+    all_proxy_names = []
+    for p in PROTOCOLS:
+        all_proxy_names.extend(protocol_proxy_names.get(p, []))
+
+    groups = []
+    protocol_group_names = []
+    for p in PROTOCOLS:
+        names = protocol_proxy_names.get(p, [])
+        if not names:
+            continue
+        group_name = f'URL-TEST {p.upper()}'
+        protocol_group_names.append(group_name)
+        groups.append(make_url_test_group(group_name, names))
+
+    if all_proxy_names:
+        groups.append(make_url_test_group('URL-TEST GABUNGAN', all_proxy_names))
+
+    select_entries = []
+    if all_proxy_names:
+        select_entries.append('URL-TEST GABUNGAN')
+    select_entries.extend(protocol_group_names)
+    select_entries.append('DIRECT')
+    groups.append(make_select_group('PROXY', select_entries))
+
+    proxies_part = 'proxies:\n'
+    if all_yaml_items:
+        proxies_part += indent_block('\n'.join(all_yaml_items), 2)
+    else:
+        proxies_part += '  []'
+
+    groups_part = 'proxy-groups:\n'
+    if groups:
+        groups_part += indent_block('\n\n'.join(g for g in groups if g), 2)
+    else:
+        groups_part += '  []'
+
+    return f'''# Auto generated OpenClash config
+# Output: output/{OPENCLASH_OUTPUT_FILE}
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+{proxies_part}
+
+{groups_part}
+
+rules:
+  - MATCH,PROXY
+'''
 
 def generate():
-    contents = []
-    for url in BASE64_LINKS:
-        data = fetch(url, True)
-        if data:
-            contents.append(data)
-    for url in DIRECT_LINKS:
-        data = fetch(url, False)
-        if data:
-            contents.append(data)
+    contents = fetch_all_sources()
     mapped = map_protocols(contents)
     summary, all_invalid, all_duplicates, all_renamed = [], [], [], []
+    all_yaml_items = []
+    protocol_proxy_names = {p: [] for p in PROTOCOLS}
+    used_names = set()
+
     for p in PROTOCOLS:
         raw_links = mapped.get(p, [])
-        yaml_items, txt_items, invalid, duplicates, renamed = convert_protocol(p, raw_links)
+        yaml_items, txt_items, invalid, duplicates, renamed, configs = convert_protocol(p, raw_links, used_names)
+
         write(OUTPUT_DIR / 'Yaml' / f'{p}.yaml', add_proxies_header(yaml_items))
         write(OUTPUT_DIR / 'Txt' / f'{p}.txt', '\n'.join(txt_items))
         write(OUTPUT_DIR / 'Raw' / f'{p}.txt', '\n'.join(raw_links))
         write_invalid(OUTPUT_DIR / 'Invalid' / f'{p}_invalid.csv', invalid)
         write_duplicates(OUTPUT_DIR / 'Duplicate' / f'{p}_duplicates.csv', duplicates)
         write_renamed(OUTPUT_DIR / 'Renamed' / f'{p}_renamed.csv', renamed)
+
+        all_yaml_items.extend(yaml_items)
+        protocol_proxy_names[p] = [c['name'] for c in configs]
+
         summary.append({
-            'protocol': p, 'raw_count': len(raw_links), 'yaml_valid_count': len(yaml_items),
-            'txt_valid_count': len(txt_items), 'invalid_count': len(invalid),
-            'duplicate_count': len(duplicates), 'renamed_count': len(renamed),
-            'yaml_file': f'output/Yaml/{p}.yaml', 'txt_file': f'output/Txt/{p}.txt',
+            'protocol': p,
+            'raw_count': len(raw_links),
+            'yaml_valid_count': len(yaml_items),
+            'txt_valid_count': len(txt_items),
+            'invalid_count': len(invalid),
+            'duplicate_count': len(duplicates),
+            'renamed_count': len(renamed),
+            'yaml_file': f'output/Yaml/{p}.yaml',
+            'txt_file': f'output/Txt/{p}.txt',
             'raw_file': f'output/Raw/{p}.txt'
         })
         all_invalid.extend(invalid)
         all_duplicates.extend(duplicates)
         all_renamed.extend(renamed)
+
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    openclash_yaml = build_openclash_yaml(all_yaml_items, protocol_proxy_names)
+    write(OUTPUT_DIR / OPENCLASH_OUTPUT_FILE, openclash_yaml)
+
     with (OUTPUT_DIR / 'summary_protocol.csv').open('w', encoding='utf-8', newline='') as f:
-        fields = ['protocol','raw_count','yaml_valid_count','txt_valid_count','invalid_count','duplicate_count','renamed_count','yaml_file','txt_file','raw_file']
-        w = csv.DictWriter(f, fieldnames=fields); w.writeheader(); w.writerows(summary)
+        fields = [
+            'protocol',
+            'raw_count',
+            'yaml_valid_count',
+            'txt_valid_count',
+            'invalid_count',
+            'duplicate_count',
+            'renamed_count',
+            'yaml_file',
+            'txt_file',
+            'raw_file'
+        ]
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        w.writerows(summary)
+
     write_invalid(OUTPUT_DIR / 'Invalid' / 'all_invalid.csv', all_invalid)
     write_duplicates(OUTPUT_DIR / 'Duplicate' / 'all_duplicates.csv', all_duplicates)
     write_renamed(OUTPUT_DIR / 'Renamed' / 'all_renamed.csv', all_renamed)
+
     print('Done. Output folder:', OUTPUT_DIR)
+    print('OpenClash file:', OUTPUT_DIR / OPENCLASH_OUTPUT_FILE)
 
 if __name__ == '__main__':
     generate()
