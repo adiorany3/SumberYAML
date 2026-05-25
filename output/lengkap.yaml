@@ -1,4 +1,491 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
 proxies:
+  - name: ">>@v2nodes::US::US::US::US::US::US::US::US::US::US::US::US::US"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 96d21cfe-b264-4bf3-8349-fb076d40837e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sanjose01.zgjok.com
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: sanjose01.zgjok.com
+    udp: true
+  - name: ">>@v2ray_configs_pool::US::US::US::US::US::US::US::US::US::XX::US::XX::XX::XX::XX::US::XX::XX::XX::XX::XX::XX::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: e7d72a8d-26f2-4b54-b366-0c43e0bcba7d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 165.140.216.141
+    network: tcp
+    udp: true
+  - name: 🇨🇦CA-134.195.198.147-6951
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: inna.cfd
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: inna.cfd
+    udp: true
+  - name: 🇨🇦CA-23.162.200.227-6949
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 23.162.200.227
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: 23.162.200.227
+    udp: true
+  - name: 🇭🇰HK-8.210.239.58-0455
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 5fdc6ab1-8347-411c-9bbf-fbc3ea853d2f
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: n1761296889.4u9ma.icu
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: n1761296889.4u9ma.icu
+    udp: true
+  - name: 🇭🇰HK-47.76.254.70-0189
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 6ea48dfe-7de2-45dc-9267-d4d9effad9fc
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: n1753101277.4u9ma.icu
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: n1753101277.4u9ma.icu
+    udp: true
+  - name: 🇰🇷KR-152.67.218.38-0154
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: b5e9480a-b7aa-40a4-f9a7-5299b5e363b4
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 152.67.218.38
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: 152.67.218.38
+    udp: true
+  - name: 🇨🇦CA-23.162.200.227-0128
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 23.162.200.227
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: 23.162.200.227
+    udp: true
+  - name: 🇰🇷KR-152.67.208.31-0214
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 81d5cac4-d039-4874-9a20-c391f580012d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: chuncheon03.zgjok.com
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: chuncheon03.zgjok.com
+    udp: true
+  - name: 🏁RELAY-104.18.42.54-0215
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: d5c27b66-7d26-48ac-9fc1-2c0884406c18
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: suspected-deployment-studios-popular.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: suspected-deployment-studios-popular.trycloudflare.com
+    udp: true
+  - name: 🇨🇦CA-134.195.198.147-0101
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: inna.cfd
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: inna.cfd
+    udp: true
+  - name: 🏁RELAY-104.19.45.116-0235
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: dbb1253f-c663-42b0-a3bf-ceae0e8d0e46
+    alterId: 4
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 35044ac9a120f4dd5.spbohk.com
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: 35044ac9a120f4dd5.spbohk.com
+    udp: true
+  - name: "@v2rayngzendegimamad🕊️"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: fapeng.org
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: fapeng.org
+    udp: true
+  - name: "@v2rayngzendegimamad🕊️ 2761"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: serkat.org
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: Join---v2rayngzendegimamad
+    udp: true
+  - name: "@BOMB_SERVER ❤️🔥جوین بده"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: a749f26c-4d8e-400c-b766-c4b2f19d595a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 94.183.241.233
+    network: tcp
+    udp: true
+  - name: "Telegram : @V2ynpv"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: ffece2a9-0296-46a9-8db8-742d29d240ff
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: bedrid.denizhosting.me
+    network: ws
+    ws-opts:
+      path: /ISwpYVR8SjxXcUZEUzVfNURTUC8lV29DXSgsKH1SN0g1JVpDHU1cWigKAC8QRltMCi86ABw4JV14HVMn
+      headers:
+        Host: bedrid.denizhosting.me
+    udp: true
+  - name: "@v2rayngzendegimamad🕊️ 5427"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: pelang.org
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: pelang.org
+    udp: true
+  - name: BOMB_SERVER 🇩🇪🩵چنل ما رو جوین بدین
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: b8fb59fc-0ee5-4b01-8c17-bcc493b324ae
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: victory.devmatt.ir
+    network: tcp
+    udp: true
+  - name: "🇮🇷28897 | ⚡️Telegram = t.me/SOSkeyNET"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 7d951c02-05f0-46a4-a5d8-b6fa967bbef0
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 185.231.181.62
+    network: tcp
+    udp: true
+  - name: "🇭🇰 HK | VMESS | @freev2rays #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: db69d5bc-d36c-4903-f471-74b98c5cefe5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: hk2.lrzdx.uk
+    network: ws
+    ws-opts:
+      path: /register
+      headers:
+        Host: hk2.lrzdx.uk
+    udp: true
+  - name: "🇺🇸 US | VMESS | @freev2rays #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: d9863037-0463-4615-e972-36ba9662d1e9
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: xcf037.facai2024.com
+    network: ws
+    ws-opts:
+      path: /d9863037
+      headers:
+        Host: xcf037.facai2024.com
+    udp: true
+  - name: "🇧🇾 BY | VMESS | @ir_netproxy #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: d20e38ef-1a4d-4009-a00d-2f0d44e3c65a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: internet.life.com.by
+    network: tcp
+    udp: true
+  - name: "🇽🇽 XX | VMESS | @ir_netproxy #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 1
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: ophelia.mom
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: ophelia.mom
+    udp: true
+  - name: "🇽🇽 XX | VMESS | @iranvpnet #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: mute-math-d64e.0e503992ad7026.woRKERS.DeV
+    network: ws
+    ws-opts:
+      path: /aveiror.com:443/linkvws
+      headers:
+        Host: mute-math-d64e.0e503992ad7026.woRKERS.DeV
+    udp: true
+  - name: "🇩🇪 DE | VMESS | @magickey_shop #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 168.119.174.229
+    network: tcp
+    udp: true
+  - name: "🇽🇽 XX | VMESS | @mi_pn_official #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 76221bfb-e92f-4e80-81c5-6fe48f50ac0b
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: glweidf.sbs
+    network: ws
+    ws-opts:
+      path: /linkws
+      headers:
+        Host: glweidf.sbs
+    udp: true
+  - name: "🇺🇸 US | VMESS | @prooxyk #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 17b2a313-37a0-4945-a8e4-e63375506b4a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 77.v2ray1.xyz
+    network: ws
+    ws-opts:
+      path: /A2DJOPFT
+      headers:
+        Host: 77.v2ray1.xyz
+    udp: true
+  - name: "🇺🇸 US | VMESS | @proxy48 #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: f584de15-2034-4170-a723-f48c2bae5e0f
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: afrhms16v.bestxray.buzz
+    network: ws
+    ws-opts:
+      path: /linkws
+      headers:
+        Host: afrhms16v.bestxray.buzz
+    udp: true
+  - name: "🇺🇸 US | VMESS | @v2ray4win #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: ee30d3ff-da14-4ea8-bcd2-02e8ee3667de
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: hstr1675520106270.aidapp.life
+    network: ws
+    ws-opts:
+      path: /aidapp.lifevws
+      headers:
+        Host: hstr1675520106270.aidapp.life
+    udp: true
+  - name: "🇺🇸 US | VMESS | @vpngate_config #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: ea4909ef-7ca6-4b46-bf2e-6c07896ef338
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: cold-dawn-9246.fly.dev
+    network: ws
+    ws-opts:
+      path: /ea4909ef-7ca6-4b46-bf2e-6c07896ef338-vm
+      headers:
+        Host: cold-dawn-9246.fly.dev
+    udp: true
   - name: "🧔‍♂️54@oneclickvpnkeys"
     server: 104.17.3.81
     port: 443
@@ -4334,3 +4821,1130 @@ proxies:
       headers:
         Host: sublink.darkping.ir
     udp: true
+  - name: ">>@v2ray_configs_pool::US 9549"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 2399fe0a-b359-40a9-a3f0-b70c3c177a01
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: aa.beijng.dpdns.org
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: aa.beijng.dpdns.org
+    udp: true
+  - name: ">>@oneclickvpnkeys::US 6990"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: sni.111000.dynv6.net
+    ws-opts:
+      path: /?proxyip=ip.111000.de5.net:443
+      headers:
+        Host: sni.111000.dynv6.net
+    udp: true
+  - name: ">>@oneclickvpnkeys::US 8172"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: sni.111000.dynv6.net
+    ws-opts:
+      path: /
+      headers:
+        Host: sni.111000.dynv6.net
+    udp: true
+  - name: ">>@oneclickvpnkeys::US 8126"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 1710442808
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: subb.nrshop198.workers.dev
+    ws-opts:
+      path: /
+      headers:
+        Host: subb.nrshop198.workers.dev
+    udp: true
+  - name: ">>@oneclickvpnkeys::US 5163"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: "A4u^p(_UR*F6"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: 027.eLECTROcelLCO-cf-027.WorKerS.Dev
+    ws-opts:
+      path: /eyJqdW5rIjoidDJ0UDljR2ZIaVBQakg2byIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+      headers:
+        Host: 027.electrocellco-cf-027.workers.dev
+    udp: true
+  - name: ">>@oneclickvpnkeys::NL 5602"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: JaFKnqNcvnBT63t3rquidGsln
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: HL-FREEDOM-1.UNDEF.NETWORK
+    ws-opts:
+      path: /
+      headers:
+        Host: HL-FREEDOM-1.UNDEF.NETWORK
+    udp: true
+  - name: ">>@oneclickvpnkeys::PL"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.creationlong.org
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.creationlong.org
+    udp: true
+  - name: ">>@oneclickvpnkeys::FR"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.calmloud.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.calmloud.com
+    udp: true
+  - name: ">>@oneclickvpnkeys::NL 4442"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.multiplydose.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.multiplydose.com
+    udp: true
+  - name: ">>@v2line::NL"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.gossipglove.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.gossipglove.com
+    udp: true
+  - name: ">>@outline_vpn::FR"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.calmlunch.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.calmlunch.com
+    udp: true
+  - name: ">>@oneclickvpnkeys::NL 8055"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.multiplydose.com
+    ws-opts:
+      path: //assignment
+      headers:
+        Host: www.multiplydose.com
+    udp: true
+  - name: ">>@oneclickvpnkeys::FR 6299"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.ignitelimit.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: ">>@oneclickvpnkeys::XX"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: mSzFVhUczD
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: abest.api-tel.xyz
+    ws-opts:
+      path: /
+      headers:
+        Host: abest.api-tel.xyz
+    udp: true
+  - name: "10 🇩🇪 @V2ngFast"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 1111
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: v2ngfast-v2ngfast-v2ngfast-v2ngfast.pifirib369.workers.dev
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: v2ngfast-v2ngfast-v2ngfast-v2ngfast.pifirib369.workers.dev
+    udp: true
+  - name: "4 🇩🇪 @V2ngFast"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 1111
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: v2ngfast-v2ngfast-v2ngfast-v2ngfast.jayag42786.workers.dev
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: v2ngfast-v2ngfast-v2ngfast-v2ngfast.jayag42786.workers.dev
+    udp: true
+  - name: "8 🇩🇪 @V2ngFast"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 1111
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: v2ngfast-v2ngfast-v2ngfast-v2ngfast.cetih83556.workers.dev
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: v2ngfast-v2ngfast-v2ngfast-v2ngfast.cetih83556.workers.dev
+    udp: true
+  - name: "2 🇩🇪 @V2ngFast 6132"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 1111
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: v2ngfast-v2ngfast-v2ngfast-v2ngfast.sobehab951.workers.dev
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: v2ngfast-v2ngfast-v2ngfast-v2ngfast.sobehab951.workers.dev
+    udp: true
+  - name: "@Confixio"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 2a599135-886f-4359-bf68-0993baa990f1
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: wow-game-server-gb-nb-d.world-of-warcraft-game-server.cfd
+    ws-opts:
+      path: /1000/10/b449693f-1869-4379-946d-279f2ad95021
+      headers:
+        Host: wow-game-server-gb-nb-d.world-of-warcraft-game-server.cfd
+    udp: true
+  - name: "6 🇩🇪 @V2ngFast"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 7964
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: v2ngfast-v2ngfast-v2ngfast-v2ngfast.novaye6130.workers.dev
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: v2ngfast-v2ngfast-v2ngfast-v2ngfast.novaye6130.workers.dev
+    udp: true
+  - name: "@v2rayconfigamir 2919"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: OVsFRZT5jG
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: web.teama.tk
+    ws-opts:
+      path: /
+      headers:
+        Host: web.teama.tk
+    udp: true
+  - name: "🇯🇵 JP | TROJAN | @free4allvpn #1"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: FDIypSwe64a3DA7un2R8DFjYXZO3NS05gKZTTOC8SxO0Fy3cqYg3EaFDA3ABaEYKNx39D
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: kuame.missionsec.us
+    ws-opts:
+      path: /
+      headers:
+        Host: kuame.missionsec.us
+    udp: true
+  - name: "🇽🇽 XX | TROJAN | @outline_ir #1"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: ")5,9FW.Kk166"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: irancell.buzzmuzzpanel.online
+    ws-opts:
+      path: /eyJqdW5rIjoiU2oxczB0b0tSIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560
+      headers:
+        Host: irancell.buzzmuzzpanel.online
+    udp: true
+  - name: "🇽🇽 XX | TROJAN | @teamvpnpro #1"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 22f86840-bcac-11ee-abea-1239d0255272
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: chatbuzzteambhm.chatbuzzt7150.workers.dev
+    ws-opts:
+      path: /
+      headers:
+        Host: chatbuzzteambhm.chatbuzzt7150.workers.dev
+    udp: true
+  - name: "🇽🇽 XX | TROJAN | @teamvpnpro #2"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: c7f9b8f0-bfdb-11ee-a15c-1239d0255272
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: chatbuzzteambhm.chatbuzzt7150.workers.dev
+    ws-opts:
+      path: /
+      headers:
+        Host: chatbuzzteambhm.chatbuzzt7150.workers.dev
+    udp: true
+  - name: "🇽🇽 XX | TROJAN | @vmesc #1"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: 172.64.152.23
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: 172.64.152.23
+    udp: true
+  - name: "🇽🇽 XX | TROJAN | @vpnv2raytop #1"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 51410d3cb2931a01b366bb5c868264bf
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: persiancdn.top
+    ws-opts:
+      path: /api/live/stream/region-de/feed
+      headers:
+        Host: persiancdn.top
+    udp: true
+  - name: "🎖ترکیبی @kakajan"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 733a3ab1-5ad0-4f09-96ea-071c1f2b9176
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: morning-glitter-3e3b.gooorb-d.workers.dev
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: morning-glitter-3e3b.gooorb-d.workers.dev
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST VMESS
+    type: url-test
+    proxies:
+      - ">>@v2nodes::US::US::US::US::US::US::US::US::US::US::US::US::US"
+      - ">>@v2ray_configs_pool::US::US::US::US::US::US::US::US::US::XX::US::XX::XX::XX::XX::US::XX::XX::XX::XX::XX::XX::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US"
+      - 🇨🇦CA-134.195.198.147-6951
+      - 🇨🇦CA-23.162.200.227-6949
+      - 🇭🇰HK-8.210.239.58-0455
+      - 🇭🇰HK-47.76.254.70-0189
+      - 🇰🇷KR-152.67.218.38-0154
+      - 🇨🇦CA-23.162.200.227-0128
+      - 🇰🇷KR-152.67.208.31-0214
+      - 🏁RELAY-104.18.42.54-0215
+      - 🇨🇦CA-134.195.198.147-0101
+      - 🏁RELAY-104.19.45.116-0235
+      - "@v2rayngzendegimamad🕊️"
+      - "@v2rayngzendegimamad🕊️ 2761"
+      - "@BOMB_SERVER ❤️🔥جوین بده"
+      - "Telegram : @V2ynpv"
+      - "@v2rayngzendegimamad🕊️ 5427"
+      - BOMB_SERVER 🇩🇪🩵چنل ما رو جوین بدین
+      - "🇮🇷28897 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇭🇰 HK | VMESS | @freev2rays #1"
+      - "🇺🇸 US | VMESS | @freev2rays #1"
+      - "🇧🇾 BY | VMESS | @ir_netproxy #1"
+      - "🇽🇽 XX | VMESS | @ir_netproxy #1"
+      - "🇽🇽 XX | VMESS | @iranvpnet #1"
+      - "🇩🇪 DE | VMESS | @magickey_shop #1"
+      - "🇽🇽 XX | VMESS | @mi_pn_official #1"
+      - "🇺🇸 US | VMESS | @prooxyk #1"
+      - "🇺🇸 US | VMESS | @proxy48 #1"
+      - "🇺🇸 US | VMESS | @v2ray4win #1"
+      - "🇺🇸 US | VMESS | @vpngate_config #1"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: URL-TEST VLESS
+    type: url-test
+    proxies:
+      - "🧔‍♂️54@oneclickvpnkeys"
+      - "🌞59@oneclickvpnkeys"
+      - "🦜15@oneclickvpnkeys"
+      - v2ray_dalghak
+      - "🕳️24@oneclickvpnkeys"
+      - v2ray_dalghak 7964
+      - "👽36@oneclickvpnkeys"
+      - "آموزش ایجاد سریع کانفیگ شخصی : https://telegraph.rayan.dpdns.org/persian"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : http://telegraph.rayan-config.workers.dev/translate"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : http://telegraph.rayan-config.workers.dev/translate 8220"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : http://telegraph.rayan-config.workers.dev/translate 6548"
+      - "@Rayan_Config 5.55"
+      - "@Rayan_Config 5.5"
+      - "@Rayan_Config 9.9"
+      - "@Rayan_Config 9.99"
+      - "آموزش ایجاد سریع کانفیگ شخصی : https://telegraph.rayan.dpdns.org/persian 8792"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : https://telegraph.rayan.dpdns.org/translate"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : https://telegraph.rayan.dpdns.org/translate 3757"
+      - "@Rayan_Config 8.8"
+      - "@Rayan_Config 8.88"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : https://telegraph.rayan-config.workers.dev/translate"
+      - "@Rayan_Config 2.2"
+      - "@Rayan_Config 2.22"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : https://telegraph.rayan-config.workers.dev/translate 1680"
+      - "آموزش ایجاد سریع کانفیگ شخصی : https://telegraph.rayan-config.workers.dev/persian"
+      - "آموزش ایجاد سریع کانفیگ شخصی : https://telegraph.rayan-config.workers.dev/persian 9092"
+      - "@Rayan_Config 3.3"
+      - "@Rayan_Config 3.33"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : https://telegraph.rayan-config.workers.dev/translate 2502"
+      - ">>@oneclickvpnkeys::US"
+      - ">>@oneclickvpnkeys::US 8883"
+      - ">>@oneclickvpnkeys::US 9947"
+      - ">>@oneclickvpnkeys::US 1957"
+      - ">>@oneclickvpnkeys::US 6423"
+      - ">>@v2ray_configs_pool::HK"
+      - ">>@v2nodes::NL"
+      - ">>@oneclickvpnkeys::US 7894"
+      - ">>@oneclickvpnkeys::US 3182"
+      - ">>@oneclickvpnkeys::US 4104"
+      - ">>@oneclickvpnkeys::US 8424"
+      - ">>@oneclickvpnkeys::US 3454"
+      - ">>@v2ray1_ng::US"
+      - ">>@oneclickvpnkeys::US 5777"
+      - ">>@oneclickvpnkeys::US 9055"
+      - ">>@oneclickvpnkeys::US 3803"
+      - ">>@configshub2::US"
+      - ">>@oneclickvpnkeys::US 7277"
+      - ">>@oneclickvpnkeys::DE"
+      - ">>@v2ray_configs_pool::DE"
+      - ">>@oneclickvpnkeys::US 1931"
+      - ">>@oneclickvpnkeys::US 3492"
+      - ">>@outline_vpn::DE"
+      - ">>@oneclickvpnkeys::NL"
+      - ">>@oneclickvpnkeys::NL 3148"
+      - ">>@oneclickvpnkeys::NL 9648"
+      - ">>@oneclickvpnkeys::GB"
+      - ">>@oneclickvpnkeys::US 6686"
+      - ">>@oneclickvpnkeys::US 5508"
+      - ">>@oneclickvpnkeys::US 8589"
+      - ">>@configshub2::DE"
+      - ">>@oneclickvpnkeys::US 8043"
+      - ">>@oneclickvpnkeys::US 7048"
+      - ">>@oneclickvpnkeys::GB 1383"
+      - ">>@oneclickvpnkeys::US 6202"
+      - ">>@oneclickvpnkeys::US 2282"
+      - ">>@v2nodes::PL"
+      - ">>@oneclickvpnkeys::US 5673"
+      - ">>@oneclickvpnkeys::US 8783"
+      - ">>@configshub2::JP"
+      - ">>@v2nodes::GB"
+      - ">>@oneclickvpnkeys::US 9239"
+      - ">>@oneclickvpnkeys::US 9358"
+      - ">>@oneclickvpnkeys::US 9829"
+      - ">>@oneclickvpnkeys::US 5179"
+      - ">>@v2nodes::US"
+      - ">>@oneclickvpnkeys::US 5612"
+      - ">>@oneclickvpnkeys::US 1467"
+      - ">>@oneclickvpnkeys::US 3587"
+      - ">>@oneclickvpnkeys::US 5913"
+      - ">>@v2ray_configs_pool::SG"
+      - ">>@v2ray_configs_pool::GB"
+      - ">>@oneclickvpnkeys::NL 9414"
+      - ">>@oneclickvpnkeys::NL 6162"
+      - ">>@oneclickvpnkeys::NL 2536"
+      - ">>@v2ray_configs_pool::US"
+      - ">>@v2ray_configs_pool::NL"
+      - ">>@v2ray_configs_pool::US 4974"
+      - ">>@oneclickvpnkeys::US 5934"
+      - ">>@v2ray_configs_pool::JP"
+      - ">>@configshub2::OM"
+      - ">>@v2ray_configs_pool::TW"
+      - ">>@oneclickvpnkeys::DE 7893"
+      - ">>@v2ray_configs_pool::HK 2098"
+      - ">>@oneclickvpnkeys::GB 2784"
+      - ">>@oneclickvpnkeys::BE"
+      - ">>@oneclickvpnkeys::EE"
+      - ">>@oneclickvpnkeys::US 3177"
+      - ">>@oneclickvpnkeys::US 7325"
+      - ">>@oneclickvpnkeys::US 9854"
+      - ">>@ISVvpn::US"
+      - ">>@oneclickvpnkeys::US 8373"
+      - ">>@oneclickvpnkeys::US 8432"
+      - ">>@oneclickvpnkeys::US 6228"
+      - ">>@oneclickvpnkeys::US 8846"
+      - ">>@oneclickvpnkeys::GB 4740"
+      - ">>@v2rayngvpn::US"
+      - ">>@oneclickvpnkeys::US 1552"
+      - ">>@oneclickvpnkeys::US 1133"
+      - ">>@oneclickvpnkeys::AT"
+      - ">>@oneclickvpnkeys::US 3170"
+      - "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:253.43ms"
+      - "3 🇩🇪 @V2ngFast"
+      - "@NETMelliAnti"
+      - "Telegram : @V2ynpv 1214"
+      - "@v2rayconfigamir 1531"
+      - "@v2rayconfigamir 2195"
+      - "@v2rayconfigamir 5916"
+      - "⏳@Proxy_Vpney (5)"
+      - "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:39.94ms"
+      - "⏳@Proxy_Vpney (3)"
+      - "برای اتصال دائمی جوین شو🗾 prrofile_purple@"
+      - "IR-@V2rayAlpha-8"
+      - filembad-79
+      - "2 🇩🇪 @av2ngFast"
+      - "Telegram : @V2ynpv 6555"
+      - "Germany+vip+🇩🇪+Telgram:+@Sobi_vpn"
+      - "@v2rayngzendegimamad🕊️ 9177"
+      - "3 🇩🇪 @V2ngFast 6194"
+      - "@CUSTOMVPNSERVER"
+      - "@Ahvaz_vpn"
+      - "@filembad"
+      - "تلگرام : V2ynpv @"
+      - "1 🇩🇪 @V2ngFast"
+      - "اختصا۱ی کانال |Hunnter_VPN"
+      - "@v2rayngzendegimamad🕊️ 1097"
+      - "@canfigiop"
+      - "@filembad 9033"
+      - "@langbox رایگان وصل شو"
+      - "@canfigiop 6182"
+      - "@v2rayconfigamir 7152"
+      - "@langbox جوین بشید"
+      - "3 🇩🇪 @av2ngFast"
+      - "4  🇩🇪 @V2ngFast"
+      - "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦"
+      - "[63516] - Telegram : @V2All"
+      - "[63525] - Telegram : @V2All"
+      - "⏳@Proxy_Vpney (2)"
+      - "هلند 🇳🇱 ملی | ۵۱۲ م.ب | #144"
+      - "@icv2ray"
+      - "@v2rayngzendegimamad🕊️ 1615"
+      - "@langbox وصل بشین"
+      - "@v2rayngzendegimamad🕊️ 8997"
+      - "@GozargahAzad|🇮🇷"
+      - "@langbox جوین بشید 6388"
+      - "@@FreeConffning"
+      - "⏳@Proxy_Vpney (1)"
+      - "@v2rayconfigamir 2931"
+      - "4  🇩🇪 @V2ngFast 7272"
+      - "Telegram : @V2ynpv 3190"
+      - "@Evay_vpn"
+      - 1875rc5g-1.00GB📊-30D⏳  ✔️کاملا متصل،
+      - "Telegram : @V2ynpv 9850"
+      - 🇬🇧 t.me/Natrixo BB
+      - 🇳🇱 t.me/Natrixo BB
+      - 🇳🇱 t.me/Natrixo BB 3548
+      - 🇵🇱 t.me/Natrixo BB
+      - 🇬🇧 t.me/Natrixo BB 1850
+      - "@v2rayngzendegimamad🕊️ 5092"
+      - "⏳@Proxy_Vpney (7)"
+      - "@hi_proxy_iran :👈کانال تلگرام"
+      - "@icv2ray 1485"
+      - "@v2rayngzendegimamad🕊️ 6135"
+      - "IR-@V2rayAlpha-10"
+      - "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:68.58ms"
+      - "4  🇩🇪 @av2ngFast"
+      - "5 🇩🇪 @V2ngFast"
+      - "2 🇩🇪 @V2ngFast"
+      - "@langbox جوین بشید 3467"
+      - "@electvpn0"
+      - "@NETMelliAnti 2533"
+      - "🇮🇷26642 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "@canfigiop 8667"
+      - "🇮🇷28806 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "@aloconfig_com"
+      - "@CUSTOMVPNSERVER 7620"
+      - "🔵@chillguy_vpn"
+      - "@vmesskhodam"
+      - "@v2rayconfigamir 9890"
+      - "5  🇩🇪 @av2ngFast"
+      - "@langbox ممه صورتی"
+      - "@EVAY_VPN"
+      - "@CUSTOMVPNSERVER 4734"
+      - "Join@v2rayngzendegimamad&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=afrcloud22.mmv.kr#@v2rayngzendegimamad🕊️"
+      - "IR-@V2rayAlpha-11"
+      - "Telegram : @V2ynpv 3485"
+      - "Telegram : @V2ynpv 8570"
+      - "Telegram : @V2ynpv 9311"
+      - "@v2rayconfigamir 7106"
+      - "@icv2ray 2007"
+      - "@CUSTOMVPNSERVER 4781"
+      - "@CUSTOMVPNSERVER 3903"
+      - "🛡️86@oneclickvpnkeys"
+      - https://t.me/ConfigX2ray
+      - "برای اتصال دائمی جوین شو🗾 prrofile_purple@ 9186"
+      - "@icv2ray 6016"
+      - "@v2rayngzendegimamad🕊️ 2181"
+      - "1 🇩🇪 @av2ngFast"
+      - "IR-@V2rayAlpha-13"
+      - "@CUSTOMVPNSERVER 9483"
+      - "@canfigiop 1668"
+      - t.me/ConfigFori  -  Config 73744
+      - همکاری_ملی
+      - "🇸🇨 SC | VLESS | @arv2ray #1"
+      - "🇽🇽 XX | VLESS | @buffalo_vpn #1"
+      - "🇺🇸 US | VLESS | @buffalo_vpn #1"
+      - "🇽🇽 XX | VLESS | @evay_vpn #2"
+      - "🇰🇿 KZ | VLESS | @filterk0sh #1"
+      - "🇽🇽 XX | VLESS | @free4allvpn #1"
+      - "🇽🇽 XX | VLESS | @freev2flyng #1"
+      - "🇽🇽 XX | VLESS | @garnet_free #2"
+      - "🇽🇽 XX | VLESS | @gervpn #1"
+      - "🇽🇽 XX | VLESS | @goldenshiinevpn #1"
+      - "🇽🇽 XX | VLESS | @iran_access #1"
+      - "🇽🇽 XX | VLESS | @iranproxypro #1"
+      - "🇽🇽 XX | VLESS | @iranproxypro #2"
+      - "🇺🇸 US | VLESS | @iranvipnet #1"
+      - "🇺🇸 US | VLESS | @kafing_2 #1"
+      - "🇽🇽 XX | VLESS | @kesslervpn #1"
+      - "🇽🇽 XX | VLESS | @kesslervpn #2"
+      - "🇽🇽 XX | VLESS | @kilid_stor #1"
+      - "🇮🇷 IR | VLESS | @lax_vpn #1"
+      - "🇽🇽 XX | VLESS | @manstervpn #1"
+      - "🇽🇽 XX | VLESS | @merdesert #1"
+      - "🇽🇽 XX | VLESS | @mester_v2ray #1"
+      - "🇽🇽 XX | VLESS | @mester_v2ray #2"
+      - "🇩🇪 DE | VLESS | @minovpnch #1"
+      - "🇺🇸 US | VLESS | @minovpnch #1"
+      - "🇽🇽 XX | VLESS | @miov2ray #1"
+      - "🇽🇽 XX | VLESS | @miov2ray #2"
+      - "🇸🇨 SC | VLESS | @mpproxy #1"
+      - "🇽🇽 XX | VLESS | @mt_proxy #1"
+      - "🇽🇽 XX | VLESS | @nepo_v2ray #2"
+      - "🇽🇽 XX | VLESS | @netmellianti #1"
+      - "🇸🇪 SE | VLESS | @proxyfn #1"
+      - "🇨🇭 CH | VLESS | @proxyfn #1"
+      - "🇽🇽 XX | VLESS | @renetvpn #1"
+      - "🇽🇽 XX | VLESS | @tobevasl #1"
+      - "🇺🇸 US | VLESS | @v2aryng_vpn #1"
+      - "🇽🇽 XX | VLESS | @v2ra_ng_iran #1"
+      - "🇽🇽 XX | VLESS | @v2ray4win #1"
+      - "🇳🇱 NL | VLESS | @v2ray_collector #1"
+      - "🇫🇷 FR | VLESS | @v2ray_collector #1"
+      - "🇩🇪 DE | VLESS | @v2raych #1"
+      - "🇸🇬 SG | VLESS | @v2rayexpress #1"
+      - "🇽🇽 XX | VLESS | @v2rayng3 #1"
+      - "🇽🇽 XX | VLESS | @v2rayngalpha #1"
+      - "🇮🇷 IR | VLESS | @v2rayopen #1"
+      - "🇽🇽 XX | VLESS | @v2rayy_vpn13 #1"
+      - "🇽🇽 XX | VLESS | @v2rayy_vpn13 #2"
+      - "🇽🇽 XX | VLESS | @v2rayza #1"
+      - "🇺🇸 US | VLESS | @vboxpanel #1"
+      - "🇽🇽 XX | VLESS | @vip_vpn_2022 #2"
+      - "🇽🇽 XX | VLESS | @vipnetmeli #1"
+      - "🇽🇽 XX | VLESS | @vipnetmeli #2"
+      - "🇩🇪 DE | VLESS | @vipv2rey #1"
+      - "🇽🇽 XX | VLESS | @vpn_ocean #1"
+      - "🇽🇽 XX | VLESS | @vpnowl #1"
+      - "🇽🇽 XX | VLESS | @vpnv2raytop #1"
+      - "🇽🇽 XX | VLESS | @wbrovers #1"
+      - "🇮🇷28610 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🛡️55@oneclickvpnkeys"
+      - "🦉@FreeConfigForYou"
+      - "[63445] - Telegram : @V2All"
+      - t.me/FlashTunnelx❄💎
+      - "@v2rayconfigamir 7475"
+      - "🇮🇷28606 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇮🇷28592 | ⚡️Telegram = t.me/SOSkeyNET"
+      - 🇵🇱 t.me/Natrixo BB 3520
+      - "🛡️36@oneclickvpnkeys"
+      - "[63425] - Telegram : @V2All"
+      - V2rayng_Fast
+      - "Telegram | @ProxyEliteVPN"
+      - "Telegram | @ProxyEliteVPN 6888"
+      - "🇮🇷28700 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇮🇷28740 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇮🇷28741 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "@Badfazi"
+      - "🇮🇷28724 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇮🇷 IR | VLESS | @prrofile_purple #2"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: URL-TEST TROJAN
+    type: url-test
+    proxies:
+      - ">>@v2ray_configs_pool::US 9549"
+      - ">>@oneclickvpnkeys::US 6990"
+      - ">>@oneclickvpnkeys::US 8172"
+      - ">>@oneclickvpnkeys::US 8126"
+      - ">>@oneclickvpnkeys::US 5163"
+      - ">>@oneclickvpnkeys::NL 5602"
+      - ">>@oneclickvpnkeys::PL"
+      - ">>@oneclickvpnkeys::FR"
+      - ">>@oneclickvpnkeys::NL 4442"
+      - ">>@v2line::NL"
+      - ">>@outline_vpn::FR"
+      - ">>@oneclickvpnkeys::NL 8055"
+      - ">>@oneclickvpnkeys::FR 6299"
+      - ">>@oneclickvpnkeys::XX"
+      - "10 🇩🇪 @V2ngFast"
+      - "4 🇩🇪 @V2ngFast"
+      - "8 🇩🇪 @V2ngFast"
+      - "2 🇩🇪 @V2ngFast 6132"
+      - "@Confixio"
+      - "6 🇩🇪 @V2ngFast"
+      - "@v2rayconfigamir 2919"
+      - "🇯🇵 JP | TROJAN | @free4allvpn #1"
+      - "🇽🇽 XX | TROJAN | @outline_ir #1"
+      - "🇽🇽 XX | TROJAN | @teamvpnpro #1"
+      - "🇽🇽 XX | TROJAN | @teamvpnpro #2"
+      - "🇽🇽 XX | TROJAN | @vmesc #1"
+      - "🇽🇽 XX | TROJAN | @vpnv2raytop #1"
+      - "🎖ترکیبی @kakajan"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: URL-TEST GABUNGAN
+    type: url-test
+    proxies:
+      - ">>@v2nodes::US::US::US::US::US::US::US::US::US::US::US::US::US"
+      - ">>@v2ray_configs_pool::US::US::US::US::US::US::US::US::US::XX::US::XX::XX::XX::XX::US::XX::XX::XX::XX::XX::XX::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US::US"
+      - 🇨🇦CA-134.195.198.147-6951
+      - 🇨🇦CA-23.162.200.227-6949
+      - 🇭🇰HK-8.210.239.58-0455
+      - 🇭🇰HK-47.76.254.70-0189
+      - 🇰🇷KR-152.67.218.38-0154
+      - 🇨🇦CA-23.162.200.227-0128
+      - 🇰🇷KR-152.67.208.31-0214
+      - 🏁RELAY-104.18.42.54-0215
+      - 🇨🇦CA-134.195.198.147-0101
+      - 🏁RELAY-104.19.45.116-0235
+      - "@v2rayngzendegimamad🕊️"
+      - "@v2rayngzendegimamad🕊️ 2761"
+      - "@BOMB_SERVER ❤️🔥جوین بده"
+      - "Telegram : @V2ynpv"
+      - "@v2rayngzendegimamad🕊️ 5427"
+      - BOMB_SERVER 🇩🇪🩵چنل ما رو جوین بدین
+      - "🇮🇷28897 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇭🇰 HK | VMESS | @freev2rays #1"
+      - "🇺🇸 US | VMESS | @freev2rays #1"
+      - "🇧🇾 BY | VMESS | @ir_netproxy #1"
+      - "🇽🇽 XX | VMESS | @ir_netproxy #1"
+      - "🇽🇽 XX | VMESS | @iranvpnet #1"
+      - "🇩🇪 DE | VMESS | @magickey_shop #1"
+      - "🇽🇽 XX | VMESS | @mi_pn_official #1"
+      - "🇺🇸 US | VMESS | @prooxyk #1"
+      - "🇺🇸 US | VMESS | @proxy48 #1"
+      - "🇺🇸 US | VMESS | @v2ray4win #1"
+      - "🇺🇸 US | VMESS | @vpngate_config #1"
+      - "🧔‍♂️54@oneclickvpnkeys"
+      - "🌞59@oneclickvpnkeys"
+      - "🦜15@oneclickvpnkeys"
+      - v2ray_dalghak
+      - "🕳️24@oneclickvpnkeys"
+      - v2ray_dalghak 7964
+      - "👽36@oneclickvpnkeys"
+      - "آموزش ایجاد سریع کانفیگ شخصی : https://telegraph.rayan.dpdns.org/persian"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : http://telegraph.rayan-config.workers.dev/translate"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : http://telegraph.rayan-config.workers.dev/translate 8220"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : http://telegraph.rayan-config.workers.dev/translate 6548"
+      - "@Rayan_Config 5.55"
+      - "@Rayan_Config 5.5"
+      - "@Rayan_Config 9.9"
+      - "@Rayan_Config 9.99"
+      - "آموزش ایجاد سریع کانفیگ شخصی : https://telegraph.rayan.dpdns.org/persian 8792"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : https://telegraph.rayan.dpdns.org/translate"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : https://telegraph.rayan.dpdns.org/translate 3757"
+      - "@Rayan_Config 8.8"
+      - "@Rayan_Config 8.88"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : https://telegraph.rayan-config.workers.dev/translate"
+      - "@Rayan_Config 2.2"
+      - "@Rayan_Config 2.22"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : https://telegraph.rayan-config.workers.dev/translate 1680"
+      - "آموزش ایجاد سریع کانفیگ شخصی : https://telegraph.rayan-config.workers.dev/persian"
+      - "آموزش ایجاد سریع کانفیگ شخصی : https://telegraph.rayan-config.workers.dev/persian 9092"
+      - "@Rayan_Config 3.3"
+      - "@Rayan_Config 3.33"
+      - "Fast Deploy Your Own Worker For Creation Of Configs : https://telegraph.rayan-config.workers.dev/translate 2502"
+      - ">>@oneclickvpnkeys::US"
+      - ">>@oneclickvpnkeys::US 8883"
+      - ">>@oneclickvpnkeys::US 9947"
+      - ">>@oneclickvpnkeys::US 1957"
+      - ">>@oneclickvpnkeys::US 6423"
+      - ">>@v2ray_configs_pool::HK"
+      - ">>@v2nodes::NL"
+      - ">>@oneclickvpnkeys::US 7894"
+      - ">>@oneclickvpnkeys::US 3182"
+      - ">>@oneclickvpnkeys::US 4104"
+      - ">>@oneclickvpnkeys::US 8424"
+      - ">>@oneclickvpnkeys::US 3454"
+      - ">>@v2ray1_ng::US"
+      - ">>@oneclickvpnkeys::US 5777"
+      - ">>@oneclickvpnkeys::US 9055"
+      - ">>@oneclickvpnkeys::US 3803"
+      - ">>@configshub2::US"
+      - ">>@oneclickvpnkeys::US 7277"
+      - ">>@oneclickvpnkeys::DE"
+      - ">>@v2ray_configs_pool::DE"
+      - ">>@oneclickvpnkeys::US 1931"
+      - ">>@oneclickvpnkeys::US 3492"
+      - ">>@outline_vpn::DE"
+      - ">>@oneclickvpnkeys::NL"
+      - ">>@oneclickvpnkeys::NL 3148"
+      - ">>@oneclickvpnkeys::NL 9648"
+      - ">>@oneclickvpnkeys::GB"
+      - ">>@oneclickvpnkeys::US 6686"
+      - ">>@oneclickvpnkeys::US 5508"
+      - ">>@oneclickvpnkeys::US 8589"
+      - ">>@configshub2::DE"
+      - ">>@oneclickvpnkeys::US 8043"
+      - ">>@oneclickvpnkeys::US 7048"
+      - ">>@oneclickvpnkeys::GB 1383"
+      - ">>@oneclickvpnkeys::US 6202"
+      - ">>@oneclickvpnkeys::US 2282"
+      - ">>@v2nodes::PL"
+      - ">>@oneclickvpnkeys::US 5673"
+      - ">>@oneclickvpnkeys::US 8783"
+      - ">>@configshub2::JP"
+      - ">>@v2nodes::GB"
+      - ">>@oneclickvpnkeys::US 9239"
+      - ">>@oneclickvpnkeys::US 9358"
+      - ">>@oneclickvpnkeys::US 9829"
+      - ">>@oneclickvpnkeys::US 5179"
+      - ">>@v2nodes::US"
+      - ">>@oneclickvpnkeys::US 5612"
+      - ">>@oneclickvpnkeys::US 1467"
+      - ">>@oneclickvpnkeys::US 3587"
+      - ">>@oneclickvpnkeys::US 5913"
+      - ">>@v2ray_configs_pool::SG"
+      - ">>@v2ray_configs_pool::GB"
+      - ">>@oneclickvpnkeys::NL 9414"
+      - ">>@oneclickvpnkeys::NL 6162"
+      - ">>@oneclickvpnkeys::NL 2536"
+      - ">>@v2ray_configs_pool::US"
+      - ">>@v2ray_configs_pool::NL"
+      - ">>@v2ray_configs_pool::US 4974"
+      - ">>@oneclickvpnkeys::US 5934"
+      - ">>@v2ray_configs_pool::JP"
+      - ">>@configshub2::OM"
+      - ">>@v2ray_configs_pool::TW"
+      - ">>@oneclickvpnkeys::DE 7893"
+      - ">>@v2ray_configs_pool::HK 2098"
+      - ">>@oneclickvpnkeys::GB 2784"
+      - ">>@oneclickvpnkeys::BE"
+      - ">>@oneclickvpnkeys::EE"
+      - ">>@oneclickvpnkeys::US 3177"
+      - ">>@oneclickvpnkeys::US 7325"
+      - ">>@oneclickvpnkeys::US 9854"
+      - ">>@ISVvpn::US"
+      - ">>@oneclickvpnkeys::US 8373"
+      - ">>@oneclickvpnkeys::US 8432"
+      - ">>@oneclickvpnkeys::US 6228"
+      - ">>@oneclickvpnkeys::US 8846"
+      - ">>@oneclickvpnkeys::GB 4740"
+      - ">>@v2rayngvpn::US"
+      - ">>@oneclickvpnkeys::US 1552"
+      - ">>@oneclickvpnkeys::US 1133"
+      - ">>@oneclickvpnkeys::AT"
+      - ">>@oneclickvpnkeys::US 3170"
+      - "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:253.43ms"
+      - "3 🇩🇪 @V2ngFast"
+      - "@NETMelliAnti"
+      - "Telegram : @V2ynpv 1214"
+      - "@v2rayconfigamir 1531"
+      - "@v2rayconfigamir 2195"
+      - "@v2rayconfigamir 5916"
+      - "⏳@Proxy_Vpney (5)"
+      - "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:39.94ms"
+      - "⏳@Proxy_Vpney (3)"
+      - "برای اتصال دائمی جوین شو🗾 prrofile_purple@"
+      - "IR-@V2rayAlpha-8"
+      - filembad-79
+      - "2 🇩🇪 @av2ngFast"
+      - "Telegram : @V2ynpv 6555"
+      - "Germany+vip+🇩🇪+Telgram:+@Sobi_vpn"
+      - "@v2rayngzendegimamad🕊️ 9177"
+      - "3 🇩🇪 @V2ngFast 6194"
+      - "@CUSTOMVPNSERVER"
+      - "@Ahvaz_vpn"
+      - "@filembad"
+      - "تلگرام : V2ynpv @"
+      - "1 🇩🇪 @V2ngFast"
+      - "اختصا۱ی کانال |Hunnter_VPN"
+      - "@v2rayngzendegimamad🕊️ 1097"
+      - "@canfigiop"
+      - "@filembad 9033"
+      - "@langbox رایگان وصل شو"
+      - "@canfigiop 6182"
+      - "@v2rayconfigamir 7152"
+      - "@langbox جوین بشید"
+      - "3 🇩🇪 @av2ngFast"
+      - "4  🇩🇪 @V2ngFast"
+      - "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦"
+      - "[63516] - Telegram : @V2All"
+      - "[63525] - Telegram : @V2All"
+      - "⏳@Proxy_Vpney (2)"
+      - "هلند 🇳🇱 ملی | ۵۱۲ م.ب | #144"
+      - "@icv2ray"
+      - "@v2rayngzendegimamad🕊️ 1615"
+      - "@langbox وصل بشین"
+      - "@v2rayngzendegimamad🕊️ 8997"
+      - "@GozargahAzad|🇮🇷"
+      - "@langbox جوین بشید 6388"
+      - "@@FreeConffning"
+      - "⏳@Proxy_Vpney (1)"
+      - "@v2rayconfigamir 2931"
+      - "4  🇩🇪 @V2ngFast 7272"
+      - "Telegram : @V2ynpv 3190"
+      - "@Evay_vpn"
+      - 1875rc5g-1.00GB📊-30D⏳  ✔️کاملا متصل،
+      - "Telegram : @V2ynpv 9850"
+      - 🇬🇧 t.me/Natrixo BB
+      - 🇳🇱 t.me/Natrixo BB
+      - 🇳🇱 t.me/Natrixo BB 3548
+      - 🇵🇱 t.me/Natrixo BB
+      - 🇬🇧 t.me/Natrixo BB 1850
+      - "@v2rayngzendegimamad🕊️ 5092"
+      - "⏳@Proxy_Vpney (7)"
+      - "@hi_proxy_iran :👈کانال تلگرام"
+      - "@icv2ray 1485"
+      - "@v2rayngzendegimamad🕊️ 6135"
+      - "IR-@V2rayAlpha-10"
+      - "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:68.58ms"
+      - "4  🇩🇪 @av2ngFast"
+      - "5 🇩🇪 @V2ngFast"
+      - "2 🇩🇪 @V2ngFast"
+      - "@langbox جوین بشید 3467"
+      - "@electvpn0"
+      - "@NETMelliAnti 2533"
+      - "🇮🇷26642 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "@canfigiop 8667"
+      - "🇮🇷28806 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "@aloconfig_com"
+      - "@CUSTOMVPNSERVER 7620"
+      - "🔵@chillguy_vpn"
+      - "@vmesskhodam"
+      - "@v2rayconfigamir 9890"
+      - "5  🇩🇪 @av2ngFast"
+      - "@langbox ممه صورتی"
+      - "@EVAY_VPN"
+      - "@CUSTOMVPNSERVER 4734"
+      - "Join@v2rayngzendegimamad&security=tls&encryption=none&insecure=0&host=afrcloud22.mmv.kr&fp=chrome&type=ws&allowInsecure=0&sni=afrcloud22.mmv.kr#@v2rayngzendegimamad🕊️"
+      - "IR-@V2rayAlpha-11"
+      - "Telegram : @V2ynpv 3485"
+      - "Telegram : @V2ynpv 8570"
+      - "Telegram : @V2ynpv 9311"
+      - "@v2rayconfigamir 7106"
+      - "@icv2ray 2007"
+      - "@CUSTOMVPNSERVER 4781"
+      - "@CUSTOMVPNSERVER 3903"
+      - "🛡️86@oneclickvpnkeys"
+      - https://t.me/ConfigX2ray
+      - "برای اتصال دائمی جوین شو🗾 prrofile_purple@ 9186"
+      - "@icv2ray 6016"
+      - "@v2rayngzendegimamad🕊️ 2181"
+      - "1 🇩🇪 @av2ngFast"
+      - "IR-@V2rayAlpha-13"
+      - "@CUSTOMVPNSERVER 9483"
+      - "@canfigiop 1668"
+      - t.me/ConfigFori  -  Config 73744
+      - همکاری_ملی
+      - "🇸🇨 SC | VLESS | @arv2ray #1"
+      - "🇽🇽 XX | VLESS | @buffalo_vpn #1"
+      - "🇺🇸 US | VLESS | @buffalo_vpn #1"
+      - "🇽🇽 XX | VLESS | @evay_vpn #2"
+      - "🇰🇿 KZ | VLESS | @filterk0sh #1"
+      - "🇽🇽 XX | VLESS | @free4allvpn #1"
+      - "🇽🇽 XX | VLESS | @freev2flyng #1"
+      - "🇽🇽 XX | VLESS | @garnet_free #2"
+      - "🇽🇽 XX | VLESS | @gervpn #1"
+      - "🇽🇽 XX | VLESS | @goldenshiinevpn #1"
+      - "🇽🇽 XX | VLESS | @iran_access #1"
+      - "🇽🇽 XX | VLESS | @iranproxypro #1"
+      - "🇽🇽 XX | VLESS | @iranproxypro #2"
+      - "🇺🇸 US | VLESS | @iranvipnet #1"
+      - "🇺🇸 US | VLESS | @kafing_2 #1"
+      - "🇽🇽 XX | VLESS | @kesslervpn #1"
+      - "🇽🇽 XX | VLESS | @kesslervpn #2"
+      - "🇽🇽 XX | VLESS | @kilid_stor #1"
+      - "🇮🇷 IR | VLESS | @lax_vpn #1"
+      - "🇽🇽 XX | VLESS | @manstervpn #1"
+      - "🇽🇽 XX | VLESS | @merdesert #1"
+      - "🇽🇽 XX | VLESS | @mester_v2ray #1"
+      - "🇽🇽 XX | VLESS | @mester_v2ray #2"
+      - "🇩🇪 DE | VLESS | @minovpnch #1"
+      - "🇺🇸 US | VLESS | @minovpnch #1"
+      - "🇽🇽 XX | VLESS | @miov2ray #1"
+      - "🇽🇽 XX | VLESS | @miov2ray #2"
+      - "🇸🇨 SC | VLESS | @mpproxy #1"
+      - "🇽🇽 XX | VLESS | @mt_proxy #1"
+      - "🇽🇽 XX | VLESS | @nepo_v2ray #2"
+      - "🇽🇽 XX | VLESS | @netmellianti #1"
+      - "🇸🇪 SE | VLESS | @proxyfn #1"
+      - "🇨🇭 CH | VLESS | @proxyfn #1"
+      - "🇽🇽 XX | VLESS | @renetvpn #1"
+      - "🇽🇽 XX | VLESS | @tobevasl #1"
+      - "🇺🇸 US | VLESS | @v2aryng_vpn #1"
+      - "🇽🇽 XX | VLESS | @v2ra_ng_iran #1"
+      - "🇽🇽 XX | VLESS | @v2ray4win #1"
+      - "🇳🇱 NL | VLESS | @v2ray_collector #1"
+      - "🇫🇷 FR | VLESS | @v2ray_collector #1"
+      - "🇩🇪 DE | VLESS | @v2raych #1"
+      - "🇸🇬 SG | VLESS | @v2rayexpress #1"
+      - "🇽🇽 XX | VLESS | @v2rayng3 #1"
+      - "🇽🇽 XX | VLESS | @v2rayngalpha #1"
+      - "🇮🇷 IR | VLESS | @v2rayopen #1"
+      - "🇽🇽 XX | VLESS | @v2rayy_vpn13 #1"
+      - "🇽🇽 XX | VLESS | @v2rayy_vpn13 #2"
+      - "🇽🇽 XX | VLESS | @v2rayza #1"
+      - "🇺🇸 US | VLESS | @vboxpanel #1"
+      - "🇽🇽 XX | VLESS | @vip_vpn_2022 #2"
+      - "🇽🇽 XX | VLESS | @vipnetmeli #1"
+      - "🇽🇽 XX | VLESS | @vipnetmeli #2"
+      - "🇩🇪 DE | VLESS | @vipv2rey #1"
+      - "🇽🇽 XX | VLESS | @vpn_ocean #1"
+      - "🇽🇽 XX | VLESS | @vpnowl #1"
+      - "🇽🇽 XX | VLESS | @vpnv2raytop #1"
+      - "🇽🇽 XX | VLESS | @wbrovers #1"
+      - "🇮🇷28610 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🛡️55@oneclickvpnkeys"
+      - "🦉@FreeConfigForYou"
+      - "[63445] - Telegram : @V2All"
+      - t.me/FlashTunnelx❄💎
+      - "@v2rayconfigamir 7475"
+      - "🇮🇷28606 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇮🇷28592 | ⚡️Telegram = t.me/SOSkeyNET"
+      - 🇵🇱 t.me/Natrixo BB 3520
+      - "🛡️36@oneclickvpnkeys"
+      - "[63425] - Telegram : @V2All"
+      - V2rayng_Fast
+      - "Telegram | @ProxyEliteVPN"
+      - "Telegram | @ProxyEliteVPN 6888"
+      - "🇮🇷28700 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇮🇷28740 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇮🇷28741 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "@Badfazi"
+      - "🇮🇷28724 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "🇮🇷 IR | VLESS | @prrofile_purple #2"
+      - ">>@v2ray_configs_pool::US 9549"
+      - ">>@oneclickvpnkeys::US 6990"
+      - ">>@oneclickvpnkeys::US 8172"
+      - ">>@oneclickvpnkeys::US 8126"
+      - ">>@oneclickvpnkeys::US 5163"
+      - ">>@oneclickvpnkeys::NL 5602"
+      - ">>@oneclickvpnkeys::PL"
+      - ">>@oneclickvpnkeys::FR"
+      - ">>@oneclickvpnkeys::NL 4442"
+      - ">>@v2line::NL"
+      - ">>@outline_vpn::FR"
+      - ">>@oneclickvpnkeys::NL 8055"
+      - ">>@oneclickvpnkeys::FR 6299"
+      - ">>@oneclickvpnkeys::XX"
+      - "10 🇩🇪 @V2ngFast"
+      - "4 🇩🇪 @V2ngFast"
+      - "8 🇩🇪 @V2ngFast"
+      - "2 🇩🇪 @V2ngFast 6132"
+      - "@Confixio"
+      - "6 🇩🇪 @V2ngFast"
+      - "@v2rayconfigamir 2919"
+      - "🇯🇵 JP | TROJAN | @free4allvpn #1"
+      - "🇽🇽 XX | TROJAN | @outline_ir #1"
+      - "🇽🇽 XX | TROJAN | @teamvpnpro #1"
+      - "🇽🇽 XX | TROJAN | @teamvpnpro #2"
+      - "🇽🇽 XX | TROJAN | @vmesc #1"
+      - "🇽🇽 XX | TROJAN | @vpnv2raytop #1"
+      - "🎖ترکیبی @kakajan"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST GABUNGAN
+      - URL-TEST VMESS
+      - URL-TEST VLESS
+      - URL-TEST TROJAN
+      - DIRECT
+
+rules:
+  - MATCH,PROXY
