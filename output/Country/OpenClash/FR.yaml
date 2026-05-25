@@ -75,35 +75,6 @@ proxies:
       headers:
         Host: 141.11.203.139
     udp: true
-  - name: "🇫🇷 France Paris | ⚡210KB/s | ⏱804ms | @NamazVPN"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 30acff0f-547e-48a5-9bf6-1ba6f37620e5
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alaedin1.8lack.ir
-    ws-opts:
-      path: "/@alaedin?ed=128"
-      headers:
-        Host: alaedin1.8lack.ir
-    udp: true
-  - name: ">>@oneclickvpnkeys::FR"
-    server: 104.17.3.81
-    port: 443
-    type: trojan
-    password: humanity
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: www.calmloud.com
-    ws-opts:
-      path: /assignment
-      headers:
-        Host: www.calmloud.com
-    udp: true
   - name: ">>@outline_vpn::FR"
     server: 104.17.3.81
     port: 443
@@ -118,7 +89,7 @@ proxies:
       headers:
         Host: www.calmlunch.com
     udp: true
-  - name: ">>@oneclickvpnkeys::FR 6085"
+  - name: ">>@oneclickvpnkeys::FR"
     server: 104.17.3.81
     port: 443
     type: trojan
@@ -140,10 +111,8 @@ proxy-groups:
       - "@Rayan_Config 3.3"
       - "@Rayan_Config 3.33"
       - "🇫🇷 FR | VLESS | @v2ray_collector #1"
-      - "🇫🇷 France Paris | ⚡210KB/s | ⏱804ms | @NamazVPN"
-      - ">>@oneclickvpnkeys::FR"
       - ">>@outline_vpn::FR"
-      - ">>@oneclickvpnkeys::FR 6085"
+      - ">>@oneclickvpnkeys::FR"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
