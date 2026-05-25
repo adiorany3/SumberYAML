@@ -1,0 +1,97 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "🇽🇽 XX | VLESS | @kilid_stor #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: ecb790d4-36ca-4dfc-a142-b3a395d1c50d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: codepen.io
+    ws-opts:
+      path: /ld?ed=2048
+      headers:
+        Host: codepen.io
+    udp: true
+  - name: "@v2rayngzendegimamad🕊️ 1595"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 3321a819-889d-40b3-b8fa-f34208827ef1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: o00o.snip.qzz.io
+    ws-opts:
+      path: "/Tel-@v2rayngzendegimamad@v2rayngzendegimamad"
+      headers:
+        Host: o00o.snip.qzz.io
+    udp: true
+  - name: V2rayng_Fast
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: b1badb73-e1e5-4846-856c-8ed6450a299e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: shopify.tabriz.qzz.io
+    ws-opts:
+      path: /
+      headers:
+        Host: shopify.tabriz.qzz.io
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST IO - British Indian Ocean Territory
+    type: url-test
+    proxies:
+      - "🇽🇽 XX | VLESS | @kilid_stor #1"
+      - "@v2rayngzendegimamad🕊️ 1595"
+      - V2rayng_Fast
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST IO - British Indian Ocean Territory
+      - DIRECT
+
+rules:
+  - MATCH,PROXY

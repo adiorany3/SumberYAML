@@ -1,0 +1,65 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "🇸🇪 SE | VLESS | @proxyfn #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: fd2c95b1-f48e-4d44-9b53-f5560f2eaae4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 16.170.148.222
+    ws-opts:
+      path: /
+      headers:
+        Host: 16.170.148.222
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST SE - Sweden
+    type: url-test
+    proxies:
+      - "🇸🇪 SE | VLESS | @proxyfn #1"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST SE - Sweden
+      - DIRECT
+
+rules:
+  - MATCH,PROXY

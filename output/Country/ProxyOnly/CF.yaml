@@ -1,0 +1,17 @@
+proxies:
+  - name: 🏁RELAY-104.18.42.54-0215
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: d5c27b66-7d26-48ac-9fc1-2c0884406c18
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: suspected-deployment-studios-popular.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: suspected-deployment-studios-popular.trycloudflare.com
+    udp: true

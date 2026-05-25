@@ -1,0 +1,66 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: 🏁RELAY-104.18.42.54-0215
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: d5c27b66-7d26-48ac-9fc1-2c0884406c18
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: suspected-deployment-studios-popular.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: suspected-deployment-studios-popular.trycloudflare.com
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST CF - Central African Republic
+    type: url-test
+    proxies:
+      - 🏁RELAY-104.18.42.54-0215
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST CF - Central African Republic
+      - DIRECT
+
+rules:
+  - MATCH,PROXY

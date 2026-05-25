@@ -1,0 +1,66 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "🇽🇽 XX | VMESS | @mi_pn_official #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 76221bfb-e92f-4e80-81c5-6fe48f50ac0b
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: glweidf.sbs
+    network: ws
+    ws-opts:
+      path: /linkws
+      headers:
+        Host: glweidf.sbs
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST PN - Pitcairn Islands
+    type: url-test
+    proxies:
+      - "🇽🇽 XX | VMESS | @mi_pn_official #1"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST PN - Pitcairn Islands
+      - DIRECT
+
+rules:
+  - MATCH,PROXY

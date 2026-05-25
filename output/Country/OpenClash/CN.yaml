@@ -1,0 +1,113 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "[63525] - Telegram : @V2All"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.111000.v6.navy
+    ws-opts:
+      path: "/?telegram🇨🇳@wangcai2="
+      headers:
+        Host: sni.111000.v6.navy
+    udp: true
+  - name: "🪲13@oneclickvpnkeys"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.my111000.tech
+    ws-opts:
+      path: "/Telegram🇨🇳@WangCai2/"
+      headers:
+        Host: sni.my111000.tech
+    udp: true
+  - name: "⏳@Proxy_Vpney (2)"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.111000.v6.rocks
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.111000.v6.rocks
+    udp: true
+  - name: "@v2rayconfigamir 7475"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.111000.dns.army
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.111000.dns.army
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST CN - China
+    type: url-test
+    proxies:
+      - "[63525] - Telegram : @V2All"
+      - "🪲13@oneclickvpnkeys"
+      - "⏳@Proxy_Vpney (2)"
+      - "@v2rayconfigamir 7475"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST CN - China
+      - DIRECT
+
+rules:
+  - MATCH,PROXY

@@ -1,0 +1,15 @@
+proxies:
+  - name: "@v2rayconfigamir 2919"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: OVsFRZT5jG
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: web.teama.tk
+    ws-opts:
+      path: /
+      headers:
+        Host: web.teama.tk
+    udp: true

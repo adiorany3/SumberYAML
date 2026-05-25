@@ -1,0 +1,114 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "Telegram : @V2ynpv"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: ffece2a9-0296-46a9-8db8-742d29d240ff
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: bedrid.denizhosting.me
+    network: ws
+    ws-opts:
+      path: /ISwpYVR8SjxXcUZEUzVfNURTUC8lV29DXSgsKH1SN0g1JVpDHU1cWigKAC8QRltMCi86ABw4JV14HVMn
+      headers:
+        Host: bedrid.denizhosting.me
+    udp: true
+  - name: https://t.me/ConfigX2ray
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: eee985e4-219f-4f53-8fc4-ae5837af0842
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: alaedin4.8lack.ir
+    ws-opts:
+      path: "/@alaedin?ed=128"
+      headers:
+        Host: alaedin4.8lack.ir
+    udp: true
+  - name: t.me/ConfigFori  -  Config 73744
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: telegram-dickiriptorbot
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 3.173.21.63
+    ws-opts:
+      path: /
+      headers:
+        Host: dbw9jfe94rh28.cloudfront.net
+    udp: true
+  - name: t.me/FlashTunnelx❄💎
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 54c47dee-eaee-417c-9b3c-339c5e00eeb7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: trex.docos.tech
+    ws-opts:
+      path: /vless-ws
+      headers:
+        Host: trex.docos.tech
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST ME - Montenegro
+    type: url-test
+    proxies:
+      - "Telegram : @V2ynpv"
+      - https://t.me/ConfigX2ray
+      - t.me/ConfigFori  -  Config 73744
+      - t.me/FlashTunnelx❄💎
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST ME - Montenegro
+      - DIRECT
+
+rules:
+  - MATCH,PROXY

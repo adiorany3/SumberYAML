@@ -1,0 +1,16 @@
+proxies:
+  - name: "🛡️55@oneclickvpnkeys"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 0c9c3d36-c93c-4d1b-bdff-8038c3ed78a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: fl-7-direct.djarbnet.ru
+    ws-opts:
+      path: /getupdates
+      headers:
+        Host: fl-7-direct.djarbnet.ru
+    udp: true

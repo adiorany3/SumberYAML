@@ -1,0 +1,129 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "🇸🇬 SG | VLESS | @v2rayexpress #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9d33dc91-fb84-4f96-d9b1-fe28a230a94f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 5.223.42.211
+    ws-opts:
+      path: /
+      headers:
+        Host: 5.223.42.211
+    udp: true
+  - name: "🇸🇬 Join+Telegram:@Farah_VPN 🇸🇬"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.latonyamadeline.ndjp.net
+    ws-opts:
+      path: /?https://t.me/wangcai2🇨🇳=
+      headers:
+        Host: sni.latonyamadeline.ndjp.net
+    udp: true
+  - name: "@Rayan_Config 9.9"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 55b0463c-e27f-455b-a25a-70123297b9f4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: rAyAn-cOnFiG-sg-1.pAriSa.dPdNs.oRg
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-sg-1.pAriSa.dPdNs.oRg
+    udp: true
+  - name: "@Rayan_Config 9.99"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 55b0463c-e27f-455b-a25a-70123297b9f4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: rAyAn-cOnFiG-sg-1.pArSa.dPdNs.oRg
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-sg-1.pArSa.dPdNs.oRg
+    udp: true
+  - name: ">>@v2ray_configs_pool::SG"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: bafacd98-136a-4530-838d-4e5c51838dac
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: juzi8186.qea.ccwu.cc
+    ws-opts:
+      path: /ad/juzibaipiao?ed=2560
+      headers:
+        Host: juzi8186.qea.ccwu.cc
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST SG - Singapore
+    type: url-test
+    proxies:
+      - "🇸🇬 SG | VLESS | @v2rayexpress #1"
+      - "🇸🇬 Join+Telegram:@Farah_VPN 🇸🇬"
+      - "@Rayan_Config 9.9"
+      - "@Rayan_Config 9.99"
+      - ">>@v2ray_configs_pool::SG"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST SG - Singapore
+      - DIRECT
+
+rules:
+  - MATCH,PROXY

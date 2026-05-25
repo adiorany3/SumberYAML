@@ -1,0 +1,97 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "🇽🇽 XX | VLESS | @garnet_free #2"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: a75cb418-c1d6-476a-9464-ad1bd5181e3c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: discord.gg
+    ws-opts:
+      path: /
+      headers:
+        Host: discord.gg
+    udp: true
+  - name: "🇽🇽 XX | VLESS | @v2rayy_vpn13 #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: f7e08961-ba18-4ac8-aac0-e925107417af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: discord.gg
+    ws-opts:
+      path: /
+      headers:
+        Host: discord.gg
+    udp: true
+  - name: "🇽🇽 XX | VLESS | @v2rayy_vpn13 #2"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 76fb76eb-7a07-48b2-8c2b-5dec9ffaa80c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: discord.gg
+    ws-opts:
+      path: /
+      headers:
+        Host: discord.gg
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST GG - Guernsey
+    type: url-test
+    proxies:
+      - "🇽🇽 XX | VLESS | @garnet_free #2"
+      - "🇽🇽 XX | VLESS | @v2rayy_vpn13 #1"
+      - "🇽🇽 XX | VLESS | @v2rayy_vpn13 #2"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST GG - Guernsey
+      - DIRECT
+
+rules:
+  - MATCH,PROXY

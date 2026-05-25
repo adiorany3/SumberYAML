@@ -1,0 +1,16 @@
+proxies:
+  - name: "🇨🇭 CH | VLESS | @proxyfn #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: cdb38f5b-12c3-414b-eacd-a635dc633701
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 193.168.144.46
+    ws-opts:
+      path: /
+      headers:
+        Host: 193.168.144.46
+    udp: true

@@ -1,0 +1,176 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: 🇬🇧 t.me/Natrixo BB
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9010efd8-fa95-465b-b041-c4774703b0ce
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: alaedin10.8lack.ir
+    ws-opts:
+      path: "/@alaedin?ed=128"
+      headers:
+        Host: alaedin10.8lack.ir
+    udp: true
+  - name: 🇬🇧 t.me/Natrixo BB 8596
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9010efd8-fa95-465b-b041-c4774703b0ce
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: alaedin9.8lack.ir
+    ws-opts:
+      path: "/@alaedin?ed=128"
+      headers:
+        Host: alaedin9.8lack.ir
+    udp: true
+  - name: ">>@oneclickvpnkeys::GB"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.111000.v6.rocks
+    ws-opts:
+      path: /
+      headers:
+        Host: sni.111000.v6.rocks
+    udp: true
+  - name: ">>@v2nodes::GB"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 8f25d191-c31c-4d07-86ec-db01fe1085d9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: london.ap221.com
+    ws-opts:
+      path: /
+      headers:
+        Host: london.ap221.com
+    udp: true
+  - name: ">>@v2ray_configs_pool::GB"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: bafacd98-136a-4530-838d-4e5c51838dac
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: juzi8186.qea.ccwu.cc
+    ws-opts:
+      path: /lessons/dload/juzibaipiao?ed=2560
+      headers:
+        Host: juzi8186.qea.ccwu.cc
+    udp: true
+  - name: ">>@oneclickvpnkeys::GB 6026"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 3-7gj.pages.dev
+    ws-opts:
+      path: /
+      headers:
+        Host: 3-7gj.pages.dev
+    udp: true
+  - name: ">>@oneclickvpnkeys::GB 4993"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 3-7gj.pages.dev
+    ws-opts:
+      path: "/socks5=gogo:gogo@185.184.70.120:50088"
+      headers:
+        Host: 3-7gj.pages.dev
+    udp: true
+  - name: "@Confixio"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 2a599135-886f-4359-bf68-0993baa990f1
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: wow-game-server-gb-nb-d.world-of-warcraft-game-server.cfd
+    ws-opts:
+      path: /1000/10/b449693f-1869-4379-946d-279f2ad95021
+      headers:
+        Host: wow-game-server-gb-nb-d.world-of-warcraft-game-server.cfd
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST GB - United Kingdom
+    type: url-test
+    proxies:
+      - 🇬🇧 t.me/Natrixo BB
+      - 🇬🇧 t.me/Natrixo BB 8596
+      - ">>@oneclickvpnkeys::GB"
+      - ">>@v2nodes::GB"
+      - ">>@v2ray_configs_pool::GB"
+      - ">>@oneclickvpnkeys::GB 6026"
+      - ">>@oneclickvpnkeys::GB 4993"
+      - "@Confixio"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST GB - United Kingdom
+      - DIRECT
+
+rules:
+  - MATCH,PROXY

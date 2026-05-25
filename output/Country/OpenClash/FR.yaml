@@ -1,0 +1,97 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "🇫🇷 FR | VLESS | @v2ray_collector #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 401374e6-df77-41fb-f638-dad8184f175b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 141.11.203.139
+    ws-opts:
+      path: /
+      headers:
+        Host: 141.11.203.139
+    udp: true
+  - name: "@Rayan_Config 3.3"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: e65a5cbc-5663-4f7d-ad7d-800e86ba487d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: rAyAn-cOnFiG-fr-1.pAriSa.dPdNs.oRg
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-fr-1.pAriSa.dPdNs.oRg
+    udp: true
+  - name: "@Rayan_Config 3.33"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: e65a5cbc-5663-4f7d-ad7d-800e86ba487d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: rAyAn-cOnFiG-fr-1.pArSa.dPdNs.oRg
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-fr-1.pArSa.dPdNs.oRg
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST FR - France
+    type: url-test
+    proxies:
+      - "🇫🇷 FR | VLESS | @v2ray_collector #1"
+      - "@Rayan_Config 3.3"
+      - "@Rayan_Config 3.33"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST FR - France
+      - DIRECT
+
+rules:
+  - MATCH,PROXY

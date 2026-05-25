@@ -1,0 +1,65 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "🇽🇽 XX | VLESS | @evay_vpn #2"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6e3046df-37d2-40e2-af24-281ec3a6ec9f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 188.114.98.0
+    ws-opts:
+      path: /
+      headers:
+        Host: 188.114.98.0
+    udp: true
+
+proxy-groups:
+  - name: URL-TEST BD - Bangladesh
+    type: url-test
+    proxies:
+      - "🇽🇽 XX | VLESS | @evay_vpn #2"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: PROXY
+    type: select
+    proxies:
+      - URL-TEST BD - Bangladesh
+      - DIRECT
+
+rules:
+  - MATCH,PROXY
