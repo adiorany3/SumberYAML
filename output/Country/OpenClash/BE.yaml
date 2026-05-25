@@ -30,43 +30,27 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇽🇽 XX | VLESS | @kilid_stor #1"
+  - name: ">>@oneclickvpnkeys::BE"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: ecb790d4-36ca-4dfc-a142-b3a395d1c50d
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: codepen.io
+    servername: 1-jk1.pages.dev
     ws-opts:
-      path: /ld?ed=2048
+      path: /
       headers:
-        Host: codepen.io
-    udp: true
-  - name: "@v2rayngzendegimamad🕊️ 6604"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 3321a819-889d-40b3-b8fa-f34208827ef1
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: o00o.snip.qzz.io
-    ws-opts:
-      path: "/Tel-@v2rayngzendegimamad@v2rayngzendegimamad"
-      headers:
-        Host: o00o.snip.qzz.io
+        Host: 1-jk1.pages.dev
     udp: true
 
 proxy-groups:
-  - name: URL-TEST IO - British Indian Ocean Territory
+  - name: URL-TEST BE - Belgium
     type: url-test
     proxies:
-      - "🇽🇽 XX | VLESS | @kilid_stor #1"
-      - "@v2rayngzendegimamad🕊️ 6604"
+      - ">>@oneclickvpnkeys::BE"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -74,7 +58,7 @@ proxy-groups:
   - name: PROXY
     type: select
     proxies:
-      - URL-TEST IO - British Indian Ocean Territory
+      - URL-TEST BE - Belgium
       - DIRECT
 
 rules:
