@@ -30,27 +30,27 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🛡️55@oneclickvpnkeys"
+  - name: "[63600] - Telegram : @V2All"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 0c9c3d36-c93c-4d1b-bdff-8038c3ed78a2
+    uuid: 4259cd49-5ad0-432d-a078-29159dc999d0
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: fl-7-direct.djarbnet.ru
+    servername: fl-3-direct.djarbnet.ru
     ws-opts:
       path: /getupdates
       headers:
-        Host: fl-7-direct.djarbnet.ru
+        Host: fl-3-direct.djarbnet.ru
     udp: true
 
 proxy-groups:
   - name: URL-TEST RU - Russia
     type: url-test
     proxies:
-      - "🛡️55@oneclickvpnkeys"
+      - "[63600] - Telegram : @V2All"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
