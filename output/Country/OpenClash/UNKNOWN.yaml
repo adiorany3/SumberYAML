@@ -30,22 +30,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: 🏁RELAY-104.19.45.116-0235
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: dbb1253f-c663-42b0-a3bf-ceae0e8d0e46
-    alterId: 4
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: 35044ac9a120f4dd5.spbohk.com
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 35044ac9a120f4dd5.spbohk.com
-    udp: true
   - name: "🇽🇽 XX | VMESS | @iranvpnet #1"
     type: vmess
     server: 104.17.3.81
@@ -61,6 +45,22 @@ proxies:
       path: /aveiror.com:443/linkvws
       headers:
         Host: mute-math-d64e.0e503992ad7026.woRKERS.DeV
+    udp: true
+  - name: 🏁RELAY-104.19.45.116-0235
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: dbb1253f-c663-42b0-a3bf-ceae0e8d0e46
+    alterId: 4
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 35044ac9a120f4dd5.spbohk.com
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: 35044ac9a120f4dd5.spbohk.com
     udp: true
   - name: "@v2rayngzendegimamad🕊️"
     type: vmess
@@ -78,7 +78,7 @@ proxies:
       headers:
         Host: fapeng.org
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 3916"
+  - name: "@v2rayngzendegimamad🕊️ 8723"
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -106,7 +106,7 @@ proxies:
     servername: 94.183.241.233
     network: tcp
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 1220"
+  - name: "@v2rayngzendegimamad🕊️ 6397"
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -127,12 +127,12 @@ proxy-groups:
   - name: URL-TEST UNKNOWN
     type: url-test
     proxies:
-      - 🏁RELAY-104.19.45.116-0235
       - "🇽🇽 XX | VMESS | @iranvpnet #1"
+      - 🏁RELAY-104.19.45.116-0235
       - "@v2rayngzendegimamad🕊️"
-      - "@v2rayngzendegimamad🕊️ 3916"
+      - "@v2rayngzendegimamad🕊️ 8723"
       - "@BOMB_SERVER ❤️🔥جوین بده"
-      - "@v2rayngzendegimamad🕊️ 1220"
+      - "@v2rayngzendegimamad🕊️ 6397"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

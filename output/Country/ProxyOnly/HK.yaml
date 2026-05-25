@@ -1,4 +1,20 @@
 proxies:
+  - name: "🇭🇰 HK | VMESS | @freev2rays #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: db69d5bc-d36c-4903-f471-74b98c5cefe5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: hk2.lrzdx.uk
+    network: ws
+    ws-opts:
+      path: /register
+      headers:
+        Host: hk2.lrzdx.uk
+    udp: true
   - name: 🇭🇰HK-8.210.239.58-0455
     type: vmess
     server: 104.17.3.81
@@ -31,22 +47,6 @@ proxies:
       headers:
         Host: n1753101277.4u9ma.icu
     udp: true
-  - name: "🇭🇰 HK | VMESS | @freev2rays #1"
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: db69d5bc-d36c-4903-f471-74b98c5cefe5
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: hk2.lrzdx.uk
-    network: ws
-    ws-opts:
-      path: /register
-      headers:
-        Host: hk2.lrzdx.uk
-    udp: true
   - name: "🇭🇰 Join+Telegram:@Farah_VPN 🇭🇰"
     type: vmess
     server: 104.17.3.81
@@ -78,7 +78,7 @@ proxies:
       headers:
         Host: dabaius2.sylu.net
     udp: true
-  - name: ">>@v2ray_configs_pool::HK 8615"
+  - name: ">>@v2ray_configs_pool::HK 9369"
     server: 104.17.3.81
     port: 443
     type: vless

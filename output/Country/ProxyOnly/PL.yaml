@@ -1,19 +1,4 @@
 proxies:
-  - name: ">>@v2nodes::PL"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 6d916d55-fead-4ff3-a3a9-83e175ea8ad7
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: pl74.mechvpn.online
-    ws-opts:
-      path: /
-      headers:
-        Host: pl74.mechvpn.online
-    udp: true
   - name: 🇵🇱 t.me/Natrixo BB
     server: 104.17.3.81
     port: 443
@@ -29,6 +14,21 @@ proxies:
       headers:
         Host: alaedin7.8lack.ir
     udp: true
+  - name: ">>@v2nodes::PL"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6d916d55-fead-4ff3-a3a9-83e175ea8ad7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: pl74.mechvpn.online
+    ws-opts:
+      path: /
+      headers:
+        Host: pl74.mechvpn.online
+    udp: true
   - name: "🇵🇱 Poland Warsaw | ⚡151KB/s | ⏱2551ms | @NamazVPN"
     server: 104.17.3.81
     port: 443
@@ -43,18 +43,4 @@ proxies:
       path: "/@alaedin?ed=128"
       headers:
         Host: alaedin7.8lack.ir
-    udp: true
-  - name: ">>@oneclickvpnkeys::PL"
-    server: 104.17.3.81
-    port: 443
-    type: trojan
-    password: humanity
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: www.creationlong.org
-    ws-opts:
-      path: /assignment
-      headers:
-        Host: www.creationlong.org
     udp: true

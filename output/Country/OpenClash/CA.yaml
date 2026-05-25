@@ -103,11 +103,71 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
+    servername: sni.111000.dynv6.net
+    ws-opts:
+      path: /?proxyip=ip.111000.de5.net:443
+      headers:
+        Host: sni.111000.dynv6.net
+    udp: true
+  - name: "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦 8274"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
     servername: sni.111000.v6.navy
     ws-opts:
       path: "/?Telegram🇨🇳 @WangCai2="
       headers:
         Host: sni.111000.v6.navy
+    udp: true
+  - name: "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦 2265"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.111000.indevs.in
+    ws-opts:
+      path: /
+      headers:
+        Host: sni.111000.indevs.in
+    udp: true
+  - name: "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦 6009"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 8b5acf77-2c2e-4eed-9ad1-be81851b99ea
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: e1-f55.pages.dev
+    ws-opts:
+      path: /
+      headers:
+        Host: e1-f55.pages.dev
+    udp: true
+  - name: "👉🆔@v2ray_configs_pool📡🇨🇦®️Canada©️Toronto🅿️ping:46.79ms"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: a01daac7-1e65-4645-854d-b47d226f6b08
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: y6-3cj.PAgES.DEV
+    ws-opts:
+      path: /
+      headers:
+        Host: y6-3cj.PAgES.DEV
     udp: true
 
 proxy-groups:
@@ -119,6 +179,10 @@ proxy-groups:
       - 🇨🇦CA-23.162.200.227-0128
       - 🇨🇦CA-134.195.198.147-0101
       - "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦"
+      - "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦 8274"
+      - "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦 2265"
+      - "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦 6009"
+      - "👉🆔@v2ray_configs_pool📡🇨🇦®️Canada©️Toronto🅿️ping:46.79ms"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

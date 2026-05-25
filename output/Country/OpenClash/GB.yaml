@@ -30,6 +30,36 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: 🇬🇧 t.me/Natrixo BB
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9010efd8-fa95-465b-b041-c4774703b0ce
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: alaedin10.8lack.ir
+    ws-opts:
+      path: "/@alaedin?ed=128"
+      headers:
+        Host: alaedin10.8lack.ir
+    udp: true
+  - name: 🇬🇧 t.me/Natrixo BB 4844
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9010efd8-fa95-465b-b041-c4774703b0ce
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: alaedin9.8lack.ir
+    ws-opts:
+      path: "/@alaedin?ed=128"
+      headers:
+        Host: alaedin9.8lack.ir
+    udp: true
   - name: ">>@oneclickvpnkeys::GB"
     server: 104.17.3.81
     port: 443
@@ -42,21 +72,6 @@ proxies:
     servername: sni.111000.v6.rocks
     ws-opts:
       path: /
-      headers:
-        Host: sni.111000.v6.rocks
-    udp: true
-  - name: ">>@oneclickvpnkeys::GB 8621"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: sni.111000.v6.rocks
-    ws-opts:
-      path: /?https://t.me/WangCai2🇨🇳=
       headers:
         Host: sni.111000.v6.rocks
     udp: true
@@ -90,7 +105,7 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: ">>@oneclickvpnkeys::GB 5461"
+  - name: ">>@oneclickvpnkeys::GB 9937"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -105,7 +120,7 @@ proxies:
       headers:
         Host: 3-7gj.pages.dev
     udp: true
-  - name: ">>@oneclickvpnkeys::GB 2880"
+  - name: ">>@oneclickvpnkeys::GB 1664"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -119,36 +134,6 @@ proxies:
       path: "/socks5=gogo:gogo@185.184.70.120:50088"
       headers:
         Host: 3-7gj.pages.dev
-    udp: true
-  - name: 🇬🇧 t.me/Natrixo BB
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 9010efd8-fa95-465b-b041-c4774703b0ce
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alaedin10.8lack.ir
-    ws-opts:
-      path: "/@alaedin?ed=128"
-      headers:
-        Host: alaedin10.8lack.ir
-    udp: true
-  - name: 🇬🇧 t.me/Natrixo BB 1638
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 9010efd8-fa95-465b-b041-c4774703b0ce
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alaedin9.8lack.ir
-    ws-opts:
-      path: "/@alaedin?ed=128"
-      headers:
-        Host: alaedin9.8lack.ir
     udp: true
   - name: "🇬🇧 United Kingdom London | ⚡555KB/s | ⏱1120ms | @NamazVPN"
     server: 104.17.3.81
@@ -184,14 +169,13 @@ proxy-groups:
   - name: URL-TEST GB - United Kingdom
     type: url-test
     proxies:
+      - 🇬🇧 t.me/Natrixo BB
+      - 🇬🇧 t.me/Natrixo BB 4844
       - ">>@oneclickvpnkeys::GB"
-      - ">>@oneclickvpnkeys::GB 8621"
       - ">>@v2nodes::GB"
       - ">>@v2ray_configs_pool::GB"
-      - ">>@oneclickvpnkeys::GB 5461"
-      - ">>@oneclickvpnkeys::GB 2880"
-      - 🇬🇧 t.me/Natrixo BB
-      - 🇬🇧 t.me/Natrixo BB 1638
+      - ">>@oneclickvpnkeys::GB 9937"
+      - ">>@oneclickvpnkeys::GB 1664"
       - "🇬🇧 United Kingdom London | ⚡555KB/s | ⏱1120ms | @NamazVPN"
       - "@Confixio"
     url: http://www.gstatic.com/generate_204
