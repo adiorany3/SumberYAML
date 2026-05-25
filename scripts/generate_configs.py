@@ -1,4 +1,4 @@
-import base64, binascii, csv, json, random
+import base64, binascii, csv, json, random, re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs, unquote, urlunparse
@@ -17,6 +17,73 @@ URL_TEST_URL = 'http://www.gstatic.com/generate_204'
 URL_TEST_INTERVAL = 300
 URL_TEST_TOLERANCE = 50
 FETCH_WORKERS = 10
+COUNTRY_OUTPUT_DIR = 'Country'
+UNKNOWN_COUNTRY_CODE = 'UNKNOWN'
+COUNTRY_NAMES = {
+    'AD': 'Andorra', 'AE': 'United Arab Emirates', 'AF': 'Afghanistan', 'AG': 'Antigua and Barbuda',
+    'AI': 'Anguilla', 'AL': 'Albania', 'AM': 'Armenia', 'AO': 'Angola', 'AQ': 'Antarctica',
+    'AR': 'Argentina', 'AS': 'American Samoa', 'AT': 'Austria', 'AU': 'Australia', 'AW': 'Aruba',
+    'AX': 'Aland Islands', 'AZ': 'Azerbaijan', 'BA': 'Bosnia and Herzegovina', 'BB': 'Barbados',
+    'BD': 'Bangladesh', 'BE': 'Belgium', 'BF': 'Burkina Faso', 'BG': 'Bulgaria', 'BH': 'Bahrain',
+    'BI': 'Burundi', 'BJ': 'Benin', 'BL': 'Saint Barthelemy', 'BM': 'Bermuda', 'BN': 'Brunei',
+    'BO': 'Bolivia', 'BQ': 'Caribbean Netherlands', 'BR': 'Brazil', 'BS': 'Bahamas', 'BT': 'Bhutan',
+    'BV': 'Bouvet Island', 'BW': 'Botswana', 'BY': 'Belarus', 'BZ': 'Belize', 'CA': 'Canada',
+    'CC': 'Cocos Islands', 'CD': 'Congo Kinshasa', 'CF': 'Central African Republic', 'CG': 'Congo Brazzaville',
+    'CH': 'Switzerland', 'CI': 'Cote d Ivoire', 'CK': 'Cook Islands', 'CL': 'Chile', 'CM': 'Cameroon',
+    'CN': 'China', 'CO': 'Colombia', 'CR': 'Costa Rica', 'CU': 'Cuba', 'CV': 'Cape Verde',
+    'CW': 'Curacao', 'CX': 'Christmas Island', 'CY': 'Cyprus', 'CZ': 'Czech Republic', 'DE': 'Germany',
+    'DJ': 'Djibouti', 'DK': 'Denmark', 'DM': 'Dominica', 'DO': 'Dominican Republic', 'DZ': 'Algeria',
+    'EC': 'Ecuador', 'EE': 'Estonia', 'EG': 'Egypt', 'EH': 'Western Sahara', 'ER': 'Eritrea',
+    'ES': 'Spain', 'ET': 'Ethiopia', 'FI': 'Finland', 'FJ': 'Fiji', 'FK': 'Falkland Islands',
+    'FM': 'Micronesia', 'FO': 'Faroe Islands', 'FR': 'France', 'GA': 'Gabon', 'GB': 'United Kingdom',
+    'GD': 'Grenada', 'GE': 'Georgia', 'GF': 'French Guiana', 'GG': 'Guernsey', 'GH': 'Ghana',
+    'GI': 'Gibraltar', 'GL': 'Greenland', 'GM': 'Gambia', 'GN': 'Guinea', 'GP': 'Guadeloupe',
+    'GQ': 'Equatorial Guinea', 'GR': 'Greece', 'GS': 'South Georgia and South Sandwich Islands',
+    'GT': 'Guatemala', 'GU': 'Guam', 'GW': 'Guinea Bissau', 'GY': 'Guyana', 'HK': 'Hong Kong',
+    'HM': 'Heard Island and McDonald Islands', 'HN': 'Honduras', 'HR': 'Croatia', 'HT': 'Haiti',
+    'HU': 'Hungary', 'ID': 'Indonesia', 'IE': 'Ireland', 'IL': 'Israel', 'IM': 'Isle of Man',
+    'IN': 'India', 'IO': 'British Indian Ocean Territory', 'IQ': 'Iraq', 'IR': 'Iran', 'IS': 'Iceland',
+    'IT': 'Italy', 'JE': 'Jersey', 'JM': 'Jamaica', 'JO': 'Jordan', 'JP': 'Japan', 'KE': 'Kenya',
+    'KG': 'Kyrgyzstan', 'KH': 'Cambodia', 'KI': 'Kiribati', 'KM': 'Comoros', 'KN': 'Saint Kitts and Nevis',
+    'KP': 'North Korea', 'KR': 'South Korea', 'KW': 'Kuwait', 'KY': 'Cayman Islands', 'KZ': 'Kazakhstan',
+    'LA': 'Laos', 'LB': 'Lebanon', 'LC': 'Saint Lucia', 'LI': 'Liechtenstein', 'LK': 'Sri Lanka',
+    'LR': 'Liberia', 'LS': 'Lesotho', 'LT': 'Lithuania', 'LU': 'Luxembourg', 'LV': 'Latvia',
+    'LY': 'Libya', 'MA': 'Morocco', 'MC': 'Monaco', 'MD': 'Moldova', 'ME': 'Montenegro',
+    'MF': 'Saint Martin', 'MG': 'Madagascar', 'MH': 'Marshall Islands', 'MK': 'North Macedonia',
+    'ML': 'Mali', 'MM': 'Myanmar', 'MN': 'Mongolia', 'MO': 'Macao', 'MP': 'Northern Mariana Islands',
+    'MQ': 'Martinique', 'MR': 'Mauritania', 'MS': 'Montserrat', 'MT': 'Malta', 'MU': 'Mauritius',
+    'MV': 'Maldives', 'MW': 'Malawi', 'MX': 'Mexico', 'MY': 'Malaysia', 'MZ': 'Mozambique',
+    'NA': 'Namibia', 'NC': 'New Caledonia', 'NE': 'Niger', 'NF': 'Norfolk Island', 'NG': 'Nigeria',
+    'NI': 'Nicaragua', 'NL': 'Netherlands', 'NO': 'Norway', 'NP': 'Nepal', 'NR': 'Nauru',
+    'NU': 'Niue', 'NZ': 'New Zealand', 'OM': 'Oman', 'PA': 'Panama', 'PE': 'Peru',
+    'PF': 'French Polynesia', 'PG': 'Papua New Guinea', 'PH': 'Philippines', 'PK': 'Pakistan',
+    'PL': 'Poland', 'PM': 'Saint Pierre and Miquelon', 'PN': 'Pitcairn Islands', 'PR': 'Puerto Rico',
+    'PS': 'Palestine', 'PT': 'Portugal', 'PW': 'Palau', 'PY': 'Paraguay', 'QA': 'Qatar',
+    'RE': 'Reunion', 'RO': 'Romania', 'RS': 'Serbia', 'RU': 'Russia', 'RW': 'Rwanda',
+    'SA': 'Saudi Arabia', 'SB': 'Solomon Islands', 'SC': 'Seychelles', 'SD': 'Sudan', 'SE': 'Sweden',
+    'SG': 'Singapore', 'SH': 'Saint Helena', 'SI': 'Slovenia', 'SJ': 'Svalbard and Jan Mayen',
+    'SK': 'Slovakia', 'SL': 'Sierra Leone', 'SM': 'San Marino', 'SN': 'Senegal', 'SO': 'Somalia',
+    'SR': 'Suriname', 'SS': 'South Sudan', 'ST': 'Sao Tome and Principe', 'SV': 'El Salvador',
+    'SX': 'Sint Maarten', 'SY': 'Syria', 'SZ': 'Eswatini', 'TC': 'Turks and Caicos Islands',
+    'TD': 'Chad', 'TF': 'French Southern Territories', 'TG': 'Togo', 'TH': 'Thailand', 'TJ': 'Tajikistan',
+    'TK': 'Tokelau', 'TL': 'Timor Leste', 'TM': 'Turkmenistan', 'TN': 'Tunisia', 'TO': 'Tonga',
+    'TR': 'Turkey', 'TT': 'Trinidad and Tobago', 'TV': 'Tuvalu', 'TW': 'Taiwan', 'TZ': 'Tanzania',
+    'UA': 'Ukraine', 'UG': 'Uganda', 'UM': 'United States Minor Outlying Islands', 'US': 'United States',
+    'UY': 'Uruguay', 'UZ': 'Uzbekistan', 'VA': 'Vatican City', 'VC': 'Saint Vincent and the Grenadines',
+    'VE': 'Venezuela', 'VG': 'British Virgin Islands', 'VI': 'United States Virgin Islands', 'VN': 'Vietnam',
+    'VU': 'Vanuatu', 'WF': 'Wallis and Futuna', 'WS': 'Samoa', 'YE': 'Yemen', 'YT': 'Mayotte',
+    'ZA': 'South Africa', 'ZM': 'Zambia', 'ZW': 'Zimbabwe',
+}
+COUNTRY_ALIASES = {
+    'usa': 'US', 'united states': 'US', 'america': 'US', 'uk': 'GB', 'united kingdom': 'GB',
+    'england': 'GB', 'britain': 'GB', 'germany': 'DE', 'deutschland': 'DE', 'singapore': 'SG',
+    'sgp': 'SG', 'japan': 'JP', 'korea': 'KR', 'south korea': 'KR', 'hong kong': 'HK',
+    'taiwan': 'TW', 'china': 'CN', 'netherlands': 'NL', 'holland': 'NL', 'france': 'FR',
+    'canada': 'CA', 'australia': 'AU', 'indonesia': 'ID', 'india': 'IN', 'iran': 'IR',
+    'turkey': 'TR', 'türkiye': 'TR', 'russia': 'RU', 'vietnam': 'VN', 'thailand': 'TH',
+    'malaysia': 'MY', 'philippines': 'PH', 'brazil': 'BR', 'poland': 'PL', 'sweden': 'SE',
+    'finland': 'FI', 'norway': 'NO', 'denmark': 'DK', 'spain': 'ES', 'italy': 'IT',
+}
 BASE64_LINKS = [
     'https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/app/sub.txt',
     'https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_1.txt',
@@ -344,6 +411,64 @@ def account_key(p, c):
     return '|'.join(parts)
 
 
+def flag_to_country_code(text):
+    """Ambil kode negara dari emoji bendera, contoh 🇸🇬 -> SG."""
+    chars = list(clean(text))
+    for i in range(len(chars) - 1):
+        a = ord(chars[i])
+        b = ord(chars[i + 1])
+        if 0x1F1E6 <= a <= 0x1F1FF and 0x1F1E6 <= b <= 0x1F1FF:
+            code = chr(a - 0x1F1E6 + ord('A')) + chr(b - 0x1F1E6 + ord('A'))
+            if code in COUNTRY_NAMES:
+                return code
+    return ''
+
+
+def detect_country_from_text(text):
+    text = clean(text)
+    if not text:
+        return UNKNOWN_COUNTRY_CODE
+
+    flag_code = flag_to_country_code(text)
+    if flag_code:
+        return flag_code
+
+    # Format umum pada nama proxy: (SG), [US], {DE}, - JP -, | NL |, dll.
+    for match in re.finditer(r'(?<![A-Z0-9])([A-Z]{2})(?![A-Z0-9])', text.upper()):
+        code = match.group(1)
+        if code in COUNTRY_NAMES:
+            return code
+
+    lower_text = text.lower()
+    for alias, code in COUNTRY_ALIASES.items():
+        if re.search(r'(?<![a-z0-9])' + re.escape(alias) + r'(?![a-z0-9])', lower_text):
+            return code
+
+    return UNKNOWN_COUNTRY_CODE
+
+
+def detect_country(c):
+    """Deteksi negara dari name, raw fragment, host, servername, dan server asli.
+    Prioritas utama tetap name karena biasanya berisi kode/emoji negara dari sumber config.
+    """
+    parts = [
+        clean(c.get('name')),
+        clean(c.get('raw')),
+        clean(c.get('host')),
+        clean(c.get('servername')),
+        clean(c.get('sni')),
+        clean(c.get('server')),
+    ]
+    text = ' '.join(parts)
+    return detect_country_from_text(text)
+
+
+def country_label(code):
+    if code == UNKNOWN_COUNTRY_CODE:
+        return 'UNKNOWN'
+    return f'{code} - {COUNTRY_NAMES.get(code, code)}'
+
+
 def make_unique_name(name, used_names):
     """Jika name sudah dipakai, tambahkan angka acak di belakangnya sampai unik."""
     base_name = clean(name, 'Proxy')
@@ -447,16 +572,20 @@ def convert_protocol(p, links, used_names):
             })
         c['name'] = new_name
         c['protocol'] = p
+        c['country'] = detect_country(c)
 
         if p == 'vmess':
             c['server'] = clean(override, c['server'])
             txt_items.append(encode_vmess(c))
-            yaml_items.append(yaml_func(c))
+            yaml_text = yaml_func(c)
+            yaml_items.append(yaml_text)
         else:
             renamed_link = update_link_name(link, p, c['name'])
             txt_items.append(replace_server(renamed_link, override))
             c['server'] = clean(override, c['server'])
-            yaml_items.append(yaml_func(c))
+            yaml_text = yaml_func(c)
+            yaml_items.append(yaml_text)
+        c['yaml_text'] = yaml_text
         configs.append(c)
     return yaml_items, txt_items, invalid, duplicates, renamed, configs
 
@@ -494,13 +623,15 @@ def make_select_group(group_name, entries):
 {yaml_name_list(entries, 4)}'''
 
 
-def build_openclash_yaml(all_yaml_items, protocol_proxy_names):
+def build_openclash_yaml(all_yaml_items, protocol_proxy_names, country_proxy_names=None):
     all_proxy_names = []
     for p in PROTOCOLS:
         all_proxy_names.extend(protocol_proxy_names.get(p, []))
 
+    country_proxy_names = country_proxy_names or {}
     groups = []
     protocol_group_names = []
+    country_group_names = []
     for p in PROTOCOLS:
         names = protocol_proxy_names.get(p, [])
         if not names:
@@ -512,10 +643,19 @@ def build_openclash_yaml(all_yaml_items, protocol_proxy_names):
     if all_proxy_names:
         groups.append(make_url_test_group('URL-TEST GABUNGAN', all_proxy_names))
 
+    for country_code in sorted(country_proxy_names):
+        names = country_proxy_names.get(country_code, [])
+        if not names:
+            continue
+        group_name = f'URL-TEST {country_label(country_code)}'
+        country_group_names.append(group_name)
+        groups.append(make_url_test_group(group_name, names))
+
     select_entries = []
     if all_proxy_names:
         select_entries.append('URL-TEST GABUNGAN')
     select_entries.extend(protocol_group_names)
+    select_entries.extend(country_group_names)
     select_entries.append('DIRECT')
     groups.append(make_select_group('PROXY', select_entries))
 
@@ -570,12 +710,30 @@ rules:
   - MATCH,PROXY
 '''
 
+def build_country_openclash_yaml(country_code, country_yaml_items, country_proxy_names):
+    return build_openclash_yaml(
+        country_yaml_items,
+        {p: [] for p in PROTOCOLS},
+        {country_code: country_proxy_names},
+    )
+
+
+def write_country_summary(path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('w', encoding='utf-8', newline='') as f:
+        fields = ['country_code', 'country_name', 'proxy_count', 'openclash_file', 'proxy_only_file']
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader(); w.writerows(rows)
+
+
 def generate():
     contents = fetch_all_sources()
     mapped = map_protocols(contents)
     summary, all_invalid, all_duplicates, all_renamed = [], [], [], []
     all_yaml_items = []
     protocol_proxy_names = {p: [] for p in PROTOCOLS}
+    country_yaml_items = {}
+    country_proxy_names = {}
     used_names = set()
 
     for p in PROTOCOLS:
@@ -592,6 +750,11 @@ def generate():
         all_yaml_items.extend(yaml_items)
         protocol_proxy_names[p] = [c['name'] for c in configs]
 
+        for c in configs:
+            country_code = c.get('country', UNKNOWN_COUNTRY_CODE)
+            country_yaml_items.setdefault(country_code, []).append(c.get('yaml_text', ''))
+            country_proxy_names.setdefault(country_code, []).append(c.get('name', ''))
+
         summary.append({
             'protocol': p,
             'raw_count': len(raw_links),
@@ -600,6 +763,7 @@ def generate():
             'invalid_count': len(invalid),
             'duplicate_count': len(duplicates),
             'renamed_count': len(renamed),
+            'country_count': len(set(c.get('country', UNKNOWN_COUNTRY_CODE) for c in configs)),
             'yaml_file': f'output/Yaml/{p}.yaml',
             'txt_file': f'output/Txt/{p}.txt',
             'raw_file': f'output/Raw/{p}.txt'
@@ -609,8 +773,26 @@ def generate():
         all_renamed.extend(renamed)
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    openclash_yaml = build_openclash_yaml(all_yaml_items, protocol_proxy_names)
+    openclash_yaml = build_openclash_yaml(all_yaml_items, protocol_proxy_names, country_proxy_names)
     write(OUTPUT_DIR / OPENCLASH_OUTPUT_FILE, openclash_yaml)
+
+    country_summary = []
+    for country_code in sorted(country_yaml_items):
+        items = country_yaml_items.get(country_code, [])
+        names = country_proxy_names.get(country_code, [])
+        if not items:
+            continue
+        proxy_only_path = OUTPUT_DIR / COUNTRY_OUTPUT_DIR / 'ProxyOnly' / f'{country_code}.yaml'
+        openclash_path = OUTPUT_DIR / COUNTRY_OUTPUT_DIR / 'OpenClash' / f'{country_code}.yaml'
+        write(proxy_only_path, add_proxies_header(items))
+        write(openclash_path, build_country_openclash_yaml(country_code, items, names))
+        country_summary.append({
+            'country_code': country_code,
+            'country_name': COUNTRY_NAMES.get(country_code, 'Unknown'),
+            'proxy_count': len(names),
+            'openclash_file': str(openclash_path).replace('\\', '/'),
+            'proxy_only_file': str(proxy_only_path).replace('\\', '/'),
+        })
 
     with (OUTPUT_DIR / 'summary_protocol.csv').open('w', encoding='utf-8', newline='') as f:
         fields = [
@@ -621,6 +803,7 @@ def generate():
             'invalid_count',
             'duplicate_count',
             'renamed_count',
+            'country_count',
             'yaml_file',
             'txt_file',
             'raw_file'
@@ -632,6 +815,7 @@ def generate():
     write_invalid(OUTPUT_DIR / 'Invalid' / 'all_invalid.csv', all_invalid)
     write_duplicates(OUTPUT_DIR / 'Duplicate' / 'all_duplicates.csv', all_duplicates)
     write_renamed(OUTPUT_DIR / 'Renamed' / 'all_renamed.csv', all_renamed)
+    write_country_summary(OUTPUT_DIR / COUNTRY_OUTPUT_DIR / 'summary_country.csv', country_summary)
 
     print('Done. Output folder:', OUTPUT_DIR)
     print('OpenClash file:', OUTPUT_DIR / OPENCLASH_OUTPUT_FILE)
