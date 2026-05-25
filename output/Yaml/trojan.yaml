@@ -1,4 +1,18 @@
 proxies:
+  - name: "@flyv2ray"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.multiplydose.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.multiplydose.com
+    udp: true
   - name: "10 🇩🇪 @V2ngFast"
     server: 104.17.3.81
     port: 443
