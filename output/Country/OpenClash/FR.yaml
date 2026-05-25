@@ -89,7 +89,21 @@ proxies:
       headers:
         Host: www.calmloud.com
     udp: true
-  - name: ">>@oneclickvpnkeys::FR 7505"
+  - name: ">>@outline_vpn::FR"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.calmlunch.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.calmlunch.com
+    udp: true
+  - name: ">>@oneclickvpnkeys::FR 5953"
     server: 104.17.3.81
     port: 443
     type: trojan
@@ -112,7 +126,8 @@ proxy-groups:
       - "@Rayan_Config 3.3"
       - "@Rayan_Config 3.33"
       - ">>@oneclickvpnkeys::FR"
-      - ">>@oneclickvpnkeys::FR 7505"
+      - ">>@outline_vpn::FR"
+      - ">>@oneclickvpnkeys::FR 5953"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
