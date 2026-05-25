@@ -273,6 +273,50 @@ def valid(p, c):
         reasons.append('network bukan ws')
     return len(reasons) == 0, reasons
 
+
+def norm_key(v):
+    return clean(v).strip().lower()
+
+def account_key(p, c):
+    """Kunci untuk mendeteksi duplikat akun setelah config berhasil diparse.
+    Nama config dan raw link tidak dipakai supaya config yang sama dari source berbeda tetap dianggap duplikat.
+    Server asli juga tidak dipakai karena output server akan dioverride menjadi satu server yang sama.
+    """
+    if p == 'vmess':
+        parts = [
+            p,
+            norm_key(c.get('uuid')),
+            norm_key(c.get('alterId')),
+            norm_key(c.get('network')),
+            norm_key(c.get('path')),
+            norm_key(c.get('host')),
+            norm_key(c.get('servername')),
+            norm_key(c.get('port')),
+        ]
+    elif p == 'vless':
+        parts = [
+            p,
+            norm_key(c.get('uuid')),
+            norm_key(c.get('network')),
+            norm_key(c.get('path')),
+            norm_key(c.get('host')),
+            norm_key(c.get('servername')),
+            norm_key(c.get('port')),
+        ]
+    elif p == 'trojan':
+        parts = [
+            p,
+            norm_key(c.get('password')),
+            norm_key(c.get('network')),
+            norm_key(c.get('path')),
+            norm_key(c.get('host')),
+            norm_key(c.get('sni')),
+            norm_key(c.get('port')),
+        ]
+    else:
+        parts = [p, norm_key(c.get('raw'))]
+    return '|'.join(parts)
+
 def write(path, content):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding='utf-8')
@@ -281,6 +325,14 @@ def write_invalid(path, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open('w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=['protocol', 'reason', 'raw'])
+        w.writeheader(); w.writerows(rows)
+
+
+def write_duplicates(path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('w', encoding='utf-8', newline='') as f:
+        fields = ['protocol', 'duplicate_key', 'kept_name', 'duplicate_name', 'raw']
+        w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader(); w.writerows(rows)
 
 def add_proxies_header(items):
@@ -293,13 +345,27 @@ def convert_protocol(p, links):
     parser = {'vmess': parse_vmess, 'vless': parse_vless, 'trojan': parse_trojan}[p]
     yaml_func = {'vmess': vmess_yaml, 'vless': vless_yaml, 'trojan': trojan_yaml}[p]
     override = {'vmess': VMESS_SERVER_OVERRIDE, 'vless': VLESS_SERVER_OVERRIDE, 'trojan': TROJAN_SERVER_OVERRIDE}[p]
-    yaml_items, txt_items, invalid = [], [], []
+    yaml_items, txt_items, invalid, duplicates = [], [], [], []
+    seen_accounts = {}
     for link in links:
         c = parser(link)
         ok, reasons = valid(p, c)
         if not ok:
             invalid.append({'protocol': p, 'reason': '; '.join(reasons), 'raw': link})
             continue
+
+        key = account_key(p, c)
+        if key in seen_accounts:
+            duplicates.append({
+                'protocol': p,
+                'duplicate_key': key,
+                'kept_name': seen_accounts[key],
+                'duplicate_name': clean(c.get('name')),
+                'raw': link,
+            })
+            continue
+        seen_accounts[key] = clean(c.get('name'))
+
         if p == 'vmess':
             c['server'] = clean(override, c['server'])
             txt_items.append(encode_vmess(c))
@@ -308,7 +374,7 @@ def convert_protocol(p, links):
             txt_items.append(replace_server(link, override))
             c['server'] = clean(override, c['server'])
             yaml_items.append(yaml_func(c))
-    return yaml_items, txt_items, invalid
+    return yaml_items, txt_items, invalid, duplicates
 
 def generate():
     contents = []
@@ -321,26 +387,30 @@ def generate():
         if data:
             contents.append(data)
     mapped = map_protocols(contents)
-    summary, all_invalid = [], []
+    summary, all_invalid, all_duplicates = [], [], []
     for p in PROTOCOLS:
         raw_links = mapped.get(p, [])
-        yaml_items, txt_items, invalid = convert_protocol(p, raw_links)
+        yaml_items, txt_items, invalid, duplicates = convert_protocol(p, raw_links)
         write(OUTPUT_DIR / 'Yaml' / f'{p}.yaml', add_proxies_header(yaml_items))
         write(OUTPUT_DIR / 'Txt' / f'{p}.txt', '\n'.join(txt_items))
         write(OUTPUT_DIR / 'Raw' / f'{p}.txt', '\n'.join(raw_links))
         write_invalid(OUTPUT_DIR / 'Invalid' / f'{p}_invalid.csv', invalid)
+        write_duplicates(OUTPUT_DIR / 'Duplicate' / f'{p}_duplicates.csv', duplicates)
         summary.append({
             'protocol': p, 'raw_count': len(raw_links), 'yaml_valid_count': len(yaml_items),
             'txt_valid_count': len(txt_items), 'invalid_count': len(invalid),
+            'duplicate_count': len(duplicates),
             'yaml_file': f'output/Yaml/{p}.yaml', 'txt_file': f'output/Txt/{p}.txt',
             'raw_file': f'output/Raw/{p}.txt'
         })
         all_invalid.extend(invalid)
+        all_duplicates.extend(duplicates)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     with (OUTPUT_DIR / 'summary_protocol.csv').open('w', encoding='utf-8', newline='') as f:
-        fields = ['protocol','raw_count','yaml_valid_count','txt_valid_count','invalid_count','yaml_file','txt_file','raw_file']
+        fields = ['protocol','raw_count','yaml_valid_count','txt_valid_count','invalid_count','duplicate_count','yaml_file','txt_file','raw_file']
         w = csv.DictWriter(f, fieldnames=fields); w.writeheader(); w.writerows(summary)
     write_invalid(OUTPUT_DIR / 'Invalid' / 'all_invalid.csv', all_invalid)
+    write_duplicates(OUTPUT_DIR / 'Duplicate' / 'all_duplicates.csv', all_duplicates)
     print('Done. Output folder:', OUTPUT_DIR)
 
 if __name__ == '__main__':
