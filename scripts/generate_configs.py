@@ -1,4 +1,4 @@
-import base64, binascii, csv, json
+import base64, binascii, csv, json, random
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs, unquote, urlunparse
 import requests
@@ -317,6 +317,42 @@ def account_key(p, c):
         parts = [p, norm_key(c.get('raw'))]
     return '|'.join(parts)
 
+
+def make_unique_name(name, used_names):
+    """Jika name sudah dipakai, tambahkan angka acak di belakangnya sampai unik."""
+    base_name = clean(name, 'Proxy')
+    if base_name not in used_names:
+        used_names.add(base_name)
+        return base_name, ''
+
+    for _ in range(1000):
+        random_number = random.randint(1000, 9999)
+        new_name = f'{base_name} {random_number}'
+        if new_name not in used_names:
+            used_names.add(new_name)
+            return new_name, str(random_number)
+
+    # Fallback sangat jarang, untuk mencegah loop berhenti tanpa hasil.
+    suffix = len(used_names) + 1
+    new_name = f'{base_name} {suffix}'
+    while new_name in used_names:
+        suffix += 1
+        new_name = f'{base_name} {suffix}'
+    used_names.add(new_name)
+    return new_name, str(suffix)
+
+def update_link_name(link, protocol_name, new_name):
+    """Update nama/fragment pada link TXT vless/trojan agar sama dengan YAML.
+    VMess tidak memakai fungsi ini karena nama disimpan dalam payload base64 dan dibuat ulang oleh encode_vmess().
+    """
+    if protocol_name == 'vmess':
+        return link
+    try:
+        u = urlparse(link)
+        return urlunparse(u._replace(fragment=new_name))
+    except Exception:
+        return link
+
 def write(path, content):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding='utf-8')
@@ -335,6 +371,13 @@ def write_duplicates(path, rows):
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader(); w.writerows(rows)
 
+def write_renamed(path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('w', encoding='utf-8', newline='') as f:
+        fields = ['protocol', 'old_name', 'new_name', 'random_number', 'raw']
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader(); w.writerows(rows)
+
 def add_proxies_header(items):
     out = '\n'.join(items)
     if INCLUDE_PROXIES_HEADER and out:
@@ -345,8 +388,9 @@ def convert_protocol(p, links):
     parser = {'vmess': parse_vmess, 'vless': parse_vless, 'trojan': parse_trojan}[p]
     yaml_func = {'vmess': vmess_yaml, 'vless': vless_yaml, 'trojan': trojan_yaml}[p]
     override = {'vmess': VMESS_SERVER_OVERRIDE, 'vless': VLESS_SERVER_OVERRIDE, 'trojan': TROJAN_SERVER_OVERRIDE}[p]
-    yaml_items, txt_items, invalid, duplicates = [], [], [], []
+    yaml_items, txt_items, invalid, duplicates, renamed = [], [], [], [], []
     seen_accounts = {}
+    used_names = set()
     for link in links:
         c = parser(link)
         ok, reasons = valid(p, c)
@@ -366,15 +410,28 @@ def convert_protocol(p, links):
             continue
         seen_accounts[key] = clean(c.get('name'))
 
+        old_name = clean(c.get('name'), {'vmess': 'VMess', 'vless': 'VLESS', 'trojan': 'Trojan'}[p])
+        new_name, random_number = make_unique_name(old_name, used_names)
+        if new_name != old_name:
+            renamed.append({
+                'protocol': p,
+                'old_name': old_name,
+                'new_name': new_name,
+                'random_number': random_number,
+                'raw': link,
+            })
+        c['name'] = new_name
+
         if p == 'vmess':
             c['server'] = clean(override, c['server'])
             txt_items.append(encode_vmess(c))
             yaml_items.append(yaml_func(c))
         else:
-            txt_items.append(replace_server(link, override))
+            renamed_link = update_link_name(link, p, c['name'])
+            txt_items.append(replace_server(renamed_link, override))
             c['server'] = clean(override, c['server'])
             yaml_items.append(yaml_func(c))
-    return yaml_items, txt_items, invalid, duplicates
+    return yaml_items, txt_items, invalid, duplicates, renamed
 
 def generate():
     contents = []
@@ -387,30 +444,33 @@ def generate():
         if data:
             contents.append(data)
     mapped = map_protocols(contents)
-    summary, all_invalid, all_duplicates = [], [], []
+    summary, all_invalid, all_duplicates, all_renamed = [], [], [], []
     for p in PROTOCOLS:
         raw_links = mapped.get(p, [])
-        yaml_items, txt_items, invalid, duplicates = convert_protocol(p, raw_links)
+        yaml_items, txt_items, invalid, duplicates, renamed = convert_protocol(p, raw_links)
         write(OUTPUT_DIR / 'Yaml' / f'{p}.yaml', add_proxies_header(yaml_items))
         write(OUTPUT_DIR / 'Txt' / f'{p}.txt', '\n'.join(txt_items))
         write(OUTPUT_DIR / 'Raw' / f'{p}.txt', '\n'.join(raw_links))
         write_invalid(OUTPUT_DIR / 'Invalid' / f'{p}_invalid.csv', invalid)
         write_duplicates(OUTPUT_DIR / 'Duplicate' / f'{p}_duplicates.csv', duplicates)
+        write_renamed(OUTPUT_DIR / 'Renamed' / f'{p}_renamed.csv', renamed)
         summary.append({
             'protocol': p, 'raw_count': len(raw_links), 'yaml_valid_count': len(yaml_items),
             'txt_valid_count': len(txt_items), 'invalid_count': len(invalid),
-            'duplicate_count': len(duplicates),
+            'duplicate_count': len(duplicates), 'renamed_count': len(renamed),
             'yaml_file': f'output/Yaml/{p}.yaml', 'txt_file': f'output/Txt/{p}.txt',
             'raw_file': f'output/Raw/{p}.txt'
         })
         all_invalid.extend(invalid)
         all_duplicates.extend(duplicates)
+        all_renamed.extend(renamed)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     with (OUTPUT_DIR / 'summary_protocol.csv').open('w', encoding='utf-8', newline='') as f:
-        fields = ['protocol','raw_count','yaml_valid_count','txt_valid_count','invalid_count','duplicate_count','yaml_file','txt_file','raw_file']
+        fields = ['protocol','raw_count','yaml_valid_count','txt_valid_count','invalid_count','duplicate_count','renamed_count','yaml_file','txt_file','raw_file']
         w = csv.DictWriter(f, fieldnames=fields); w.writeheader(); w.writerows(summary)
     write_invalid(OUTPUT_DIR / 'Invalid' / 'all_invalid.csv', all_invalid)
     write_duplicates(OUTPUT_DIR / 'Duplicate' / 'all_duplicates.csv', all_duplicates)
+    write_renamed(OUTPUT_DIR / 'Renamed' / 'all_renamed.csv', all_renamed)
     print('Done. Output folder:', OUTPUT_DIR)
 
 if __name__ == '__main__':
