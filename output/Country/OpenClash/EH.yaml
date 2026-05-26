@@ -45,12 +45,28 @@ proxies:
       headers:
         Host: sni.111000.v6.rocks
     udp: true
+  - name: "🌞79@oneclickvpnkeys"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: bafacd98-136a-4530-838d-4e5c51838dac
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: juzi8186.qea.ccwu.cc
+    ws-opts:
+      path: /hot/juzibaipiao
+      headers:
+        Host: juzi8186.qea.ccwu.cc
+    udp: true
 
 proxy-groups:
   - name: URL-TEST EH - Western Sahara
     type: url-test
     proxies:
       - "🐞94@oneclickvpnkeys"
+      - "🌞79@oneclickvpnkeys"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
