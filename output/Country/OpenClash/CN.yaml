@@ -30,7 +30,37 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🪲17@oneclickvpnkeys"
+  - name: "[63793] - Telegram : @V2All"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.latonyamadeline.ndjp.net
+    ws-opts:
+      path: /?https://t.me/wangcai2🇨🇳=
+      headers:
+        Host: sni.latonyamadeline.ndjp.net
+    udp: true
+  - name: "@v2rayconfigamir 1187"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.latonyamadeline.ndjp.net
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.latonyamadeline.ndjp.net
+    udp: true
+  - name: "⛳7@oneclickvpnkeys"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -44,6 +74,36 @@ proxies:
       path: "/?Telegram🇨🇳 @WangCai2="
       headers:
         Host: sni.111000.v6.navy
+    udp: true
+  - name: "[63775] - Telegram : @V2All"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.111000.cc.cd
+    ws-opts:
+      path: /?https://t.me/wangcai2🇨🇳=
+      headers:
+        Host: sni.111000.cc.cd
+    udp: true
+  - name: "@GozargahAzad|🏁"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.111000.v6.army
+    ws-opts:
+      path: /?https://t.me/wangcai2🇨🇳=
+      headers:
+        Host: sni.111000.v6.army
     udp: true
   - name: "🪲52@oneclickvpnkeys"
     server: 104.17.3.81
@@ -105,32 +165,20 @@ proxies:
       headers:
         Host: sni.111000.v6.rocks
     udp: true
-  - name: "@v2rayconfigamir 1187"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: sni.latonyamadeline.ndjp.net
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: sni.latonyamadeline.ndjp.net
-    udp: true
 
 proxy-groups:
   - name: URL-TEST CN - China
     type: url-test
     proxies:
-      - "🪲17@oneclickvpnkeys"
+      - "[63793] - Telegram : @V2All"
+      - "@v2rayconfigamir 1187"
+      - "⛳7@oneclickvpnkeys"
+      - "[63775] - Telegram : @V2All"
+      - "@GozargahAzad|🏁"
       - "🪲52@oneclickvpnkeys"
       - "🪲13@oneclickvpnkeys"
       - "⏳@Proxy_Vpney (2)"
       - "🪲6@oneclickvpnkeys"
-      - "@v2rayconfigamir 1187"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

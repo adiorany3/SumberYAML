@@ -30,6 +30,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: 🇳🇱 t.me/Natrixo BB
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: a01daac7-1e65-4645-854d-b47d226f6b08
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: y6-3cj.PAgES.DEV
+    ws-opts:
+      path: /
+      headers:
+        Host: y6-3cj.PAgES.DEV
+    udp: true
   - name: ">>@configshub2::NL"
     server: 104.17.3.81
     port: 443
@@ -60,7 +75,7 @@ proxies:
       headers:
         Host: sni.111000.indevs.in
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 5350"
+  - name: ">>@oneclickvpnkeys::NL 1650"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -75,7 +90,7 @@ proxies:
       headers:
         Host: sni.111000.v6.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 1635"
+  - name: ">>@oneclickvpnkeys::NL 1257"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -90,7 +105,7 @@ proxies:
       headers:
         Host: sni.111000.dns.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 2614"
+  - name: ">>@oneclickvpnkeys::NL 1568"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -105,7 +120,7 @@ proxies:
       headers:
         Host: sni.111000.dns.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 3512"
+  - name: ">>@oneclickvpnkeys::NL 8021"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -120,7 +135,7 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 9684"
+  - name: ">>@oneclickvpnkeys::NL 3932"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -132,6 +147,21 @@ proxies:
     servername: juzi8186.qea.ccwu.cc
     ws-opts:
       path: /shows/register/juzibaipiao
+      headers:
+        Host: juzi8186.qea.ccwu.cc
+    udp: true
+  - name: ">>@oneclickvpnkeys::NL 4865"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: bafacd98-136a-4530-838d-4e5c51838dac
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: juzi8186.qea.ccwu.cc
+    ws-opts:
+      path: /hot/juzibaipiao
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
@@ -150,34 +180,21 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 8118"
-    server: 104.17.3.81
-    port: 443
-    type: trojan
-    password: humanity
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: www.multiplydose.com
-    ws-opts:
-      path: /assignment
-      headers:
-        Host: www.multiplydose.com
-    udp: true
 
 proxy-groups:
   - name: URL-TEST NL - Netherlands
     type: url-test
     proxies:
+      - 🇳🇱 t.me/Natrixo BB
       - ">>@configshub2::NL"
       - ">>@oneclickvpnkeys::NL"
-      - ">>@oneclickvpnkeys::NL 5350"
-      - ">>@oneclickvpnkeys::NL 1635"
-      - ">>@oneclickvpnkeys::NL 2614"
-      - ">>@oneclickvpnkeys::NL 3512"
-      - ">>@oneclickvpnkeys::NL 9684"
+      - ">>@oneclickvpnkeys::NL 1650"
+      - ">>@oneclickvpnkeys::NL 1257"
+      - ">>@oneclickvpnkeys::NL 1568"
+      - ">>@oneclickvpnkeys::NL 8021"
+      - ">>@oneclickvpnkeys::NL 3932"
+      - ">>@oneclickvpnkeys::NL 4865"
       - ">>@v2ray_configs_pool::NL"
-      - ">>@oneclickvpnkeys::NL 8118"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

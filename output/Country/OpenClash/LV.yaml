@@ -30,7 +30,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦"
+  - name: "@GozargahAzad|🇱🇻"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -39,18 +39,18 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: sni.111000.indevs.in
+    servername: sni.111000.v6.navy
     ws-opts:
-      path: /
+      path: /?ed=2560
       headers:
-        Host: sni.111000.indevs.in
+        Host: sni.111000.v6.navy
     udp: true
 
 proxy-groups:
-  - name: URL-TEST CA - Canada
+  - name: URL-TEST LV - Latvia
     type: url-test
     proxies:
-      - "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦"
+      - "@GozargahAzad|🇱🇻"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -58,7 +58,7 @@ proxy-groups:
   - name: PROXY
     type: select
     proxies:
-      - URL-TEST CA - Canada
+      - URL-TEST LV - Latvia
       - DIRECT
 
 rules:
