@@ -30,27 +30,26 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: ">>@v2nodes::PL"
+  - name: ">>@oneclickvpnkeys::PL"
     server: 104.17.3.81
     port: 443
-    type: vless
-    uuid: 6d916d55-fead-4ff3-a3a9-83e175ea8ad7
-    cipher: none
+    type: trojan
+    password: humanity
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: pl74.mechvpn.online
+    sni: www.creationlong.org
     ws-opts:
-      path: /
+      path: /assignment
       headers:
-        Host: pl74.mechvpn.online
+        Host: www.creationlong.org
     udp: true
 
 proxy-groups:
   - name: URL-TEST PL - Poland
     type: url-test
     proxies:
-      - ">>@v2nodes::PL"
+      - ">>@oneclickvpnkeys::PL"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
