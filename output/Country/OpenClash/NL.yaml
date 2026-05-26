@@ -30,6 +30,36 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "🇳🇱 NL | VLESS | @v2ray_collector #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: c931b432-cbab-47f4-ae30-917b17e5fb1f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 208.67.105.196
+    ws-opts:
+      path: /
+      headers:
+        Host: 208.67.105.196
+    udp: true
+  - name: ">>@v2nodes::NL"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 45e55198-a5ad-4f19-bb39-236822141d25
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: cdn.tracker.yandex.net
+    ws-opts:
+      path: /stream/updates/b66b78d7/019dfd7f-0777-6283-7287-911777c3720f4
+      headers:
+        Host: cdn.lovecrafty.link
+    udp: true
   - name: ">>@configshub2::NL"
     server: 104.17.3.81
     port: 443
@@ -60,7 +90,7 @@ proxies:
       headers:
         Host: sni.111000.indevs.in
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 8169"
+  - name: ">>@oneclickvpnkeys::NL 8786"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -75,7 +105,7 @@ proxies:
       headers:
         Host: sni.111000.v6.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 1277"
+  - name: ">>@oneclickvpnkeys::NL 2257"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -90,7 +120,7 @@ proxies:
       headers:
         Host: sni.111000.dns.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 9940"
+  - name: ">>@oneclickvpnkeys::NL 2354"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -105,7 +135,7 @@ proxies:
       headers:
         Host: sni.111000.dns.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 8885"
+  - name: ">>@oneclickvpnkeys::NL 4856"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -120,7 +150,7 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 1405"
+  - name: ">>@oneclickvpnkeys::NL 1393"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -150,19 +180,97 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
+  - name: "هلند 🇳🇱 ملی | ۵۱۲ م.ب | #144"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 65333935-6133-4339-a563-643462656263
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: cdn1.ufduiudud.site
+    ws-opts:
+      path: /l/w/agwLcwY69t1iM8Re?ed=2047
+      headers:
+        Host: cdn1.ufduiudud.site
+    udp: true
+  - name: ">>@oneclickvpnkeys::NL 5056"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: JaFKnqNcvnBT63t3rquidGsln
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: HL-FREEDOM-1.UNDEF.NETWORK
+    ws-opts:
+      path: /
+      headers:
+        Host: HL-FREEDOM-1.UNDEF.NETWORK
+    udp: true
+  - name: ">>@oneclickvpnkeys::NL 4881"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.multiplydose.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.multiplydose.com
+    udp: true
+  - name: ">>@v2line::NL"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.gossipglove.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.gossipglove.com
+    udp: true
+  - name: ">>@oneclickvpnkeys::NL 1663"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.multiplydose.com
+    ws-opts:
+      path: //assignment
+      headers:
+        Host: www.multiplydose.com
+    udp: true
 
 proxy-groups:
   - name: URL-TEST NL - Netherlands
     type: url-test
     proxies:
+      - "🇳🇱 NL | VLESS | @v2ray_collector #1"
+      - ">>@v2nodes::NL"
       - ">>@configshub2::NL"
       - ">>@oneclickvpnkeys::NL"
-      - ">>@oneclickvpnkeys::NL 8169"
-      - ">>@oneclickvpnkeys::NL 1277"
-      - ">>@oneclickvpnkeys::NL 9940"
-      - ">>@oneclickvpnkeys::NL 8885"
-      - ">>@oneclickvpnkeys::NL 1405"
+      - ">>@oneclickvpnkeys::NL 8786"
+      - ">>@oneclickvpnkeys::NL 2257"
+      - ">>@oneclickvpnkeys::NL 2354"
+      - ">>@oneclickvpnkeys::NL 4856"
+      - ">>@oneclickvpnkeys::NL 1393"
       - ">>@v2ray_configs_pool::NL"
+      - "هلند 🇳🇱 ملی | ۵۱۲ م.ب | #144"
+      - ">>@oneclickvpnkeys::NL 5056"
+      - ">>@oneclickvpnkeys::NL 4881"
+      - ">>@v2line::NL"
+      - ">>@oneclickvpnkeys::NL 1663"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
