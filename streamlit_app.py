@@ -1537,60 +1537,200 @@ with best_col2:
             st.error(str(exc))
         st.rerun()
 
+
+def render_best_ping_component_html(best_data: dict, best_rows: list, summary: dict) -> str:
+    """Render panel Best Ping lewat components.html agar HTML tidak tampil sebagai teks."""
+    source_label = escape(str(best_data.get("source_label", "Indonesia")))
+    source_path = escape(str(best_data.get("source_path", "-")))
+    country_filter = escape(str(best_data.get("country_filter") or "Semua negara"))
+    yaml_proxy_count = int(best_data.get("yaml_proxy_count", 0) or 0)
+    alive_count = escape(str(summary.get("alive", best_data.get("all_alive_count", 0))))
+    dead_count = escape(str(summary.get("dead", "-")))
+    untested_count = escape(str(summary.get("untested", "-")))
+
+    if not best_rows:
+        return f"""
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+    html, body {{ margin:0; padding:0; background:transparent; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:#eef6ff; }}
+    .empty-card {{ box-sizing:border-box; width:100%; padding:18px; border-radius:24px; background:linear-gradient(180deg, rgba(99,247,180,0.12), rgba(82,230,255,0.055)); border:1px solid rgba(99,247,180,0.18); text-align:center; line-height:1.5; }}
+    .title {{ font-weight:900; margin-bottom:6px; }}
+    .sub {{ color:rgba(238,246,255,.76); font-size:13px; }}
+</style>
+</head>
+<body>
+    <div class="empty-card">
+        <div class="title">📡 Best Ping From {source_label}</div>
+        <div class="sub">Belum ada data proxy alive. Klik <b>Test + Update Ping</b> atau kirim <b>/test</b> di Telegram.</div>
+    </div>
+</body>
+</html>
+"""
+
+    top = best_rows[0]
+    top_name = escape(str(top.get("name", "-")))
+    top_protocol = escape(str(top.get("protocol", "-")).upper())
+    top_country = escape(str(top.get("country", "-")))
+    top_delay = escape(str(top.get("delay_ms", "-")))
+
+    rows_html = []
+    for idx, row in enumerate(best_rows, start=1):
+        name = escape(str(row.get("name", "-")))
+        protocol = escape(str(row.get("protocol", "-")).upper())
+        country = escape(str(row.get("country", "-")))
+        server = escape(str(row.get("server", "-")))
+        port = escape(str(row.get("port", "-")))
+        delay = escape(str(row.get("delay_ms", "-")))
+        rows_html.append(
+            f"""
+            <div class="best-ping-row">
+                <div class="best-ping-rank">#{idx}</div>
+                <div class="best-ping-info">
+                    <div class="best-ping-name" title="{name}">{name}</div>
+                    <div class="best-ping-sub">{protocol} · {country} · {server}:{port}</div>
+                </div>
+                <div class="best-ping-delay">{delay} ms</div>
+            </div>
+            """
+        )
+
+    return f"""
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+    html, body {{
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        color: #eef6ff;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }}
+    * {{ box-sizing: border-box; }}
+    .best-ping-card {{
+        width: 100%;
+        padding: 16px;
+        border-radius: 24px;
+        background: linear-gradient(180deg, rgba(99,247,180,0.12), rgba(82,230,255,0.055));
+        border: 1px solid rgba(99,247,180,0.18);
+        box-shadow: 0 18px 42px rgba(0,0,0,0.20);
+        color: #eef6ff;
+        overflow: hidden;
+    }}
+    .best-ping-top {{
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }}
+    .best-ping-title {{
+        font-size: 15px;
+        font-weight: 900;
+        letter-spacing: 0.2px;
+    }}
+    .best-ping-main-delay {{
+        white-space: nowrap;
+        font-size: 20px;
+        font-weight: 900;
+        color: #63f7b4;
+    }}
+    .best-ping-meta {{
+        color: rgba(238,246,255,0.74);
+        font-size: 13px;
+        line-height: 1.5;
+    }}
+    .best-ping-meta code {{
+        color: #dffaff;
+        background: rgba(255,255,255,0.08);
+        padding: 1px 5px;
+        border-radius: 6px;
+    }}
+    .best-ping-list {{
+        margin-top: 10px;
+        display: grid;
+        gap: 8px;
+    }}
+    .best-ping-row {{
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 12px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.055);
+        border: 1px solid rgba(255,255,255,0.08);
+    }}
+    .best-ping-rank {{
+        font-weight: 900;
+        color: #63f7b4;
+    }}
+    .best-ping-info {{ min-width: 0; }}
+    .best-ping-name {{
+        font-weight: 800;
+        font-size: 13px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }}
+    .best-ping-sub {{
+        color: rgba(238,246,255,0.66);
+        font-size: 12px;
+        margin-top: 2px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }}
+    .best-ping-delay {{
+        white-space: nowrap;
+        font-size: 14px;
+        font-weight: 900;
+        color: #63f7b4;
+    }}
+</style>
+</head>
+<body>
+    <div class="best-ping-card">
+        <div class="best-ping-top">
+            <div>
+                <div class="best-ping-title">🏆 Tercepat dari {source_label}</div>
+                <div class="best-ping-meta">{top_name} · {top_protocol} · {top_country}</div>
+            </div>
+            <div class="best-ping-main-delay">{top_delay} ms</div>
+        </div>
+        <div class="best-ping-meta">
+            Sumber data: <code>{source_path}</code><br>
+            Proxy di <code>output/lengkap.yaml</code>: <b>{yaml_proxy_count}</b><br>
+            Alive: <b>{alive_count}</b> · Dead: <b>{dead_count}</b> · Untested: <b>{untested_count}</b><br>
+            Filter negara: <b>{country_filter}</b>
+        </div>
+        <div class="best-ping-list">
+            {''.join(rows_html)}
+        </div>
+    </div>
+</body>
+</html>
+"""
+
+
 try:
     best_data = load_best_ping_data(limit=BEST_PING_LIMIT)
     best_rows = best_data.get("rows", [])
     summary = best_data.get("summary", {}) or {}
 
-    if best_rows:
-        top = best_rows[0]
-        source_label = escape(best_data.get("source_label", "Indonesia"))
-        source_path = escape(best_data.get("source_path", "-"))
-        country_filter = best_data.get("country_filter") or "Semua negara"
-        country_filter = escape(country_filter)
-
-        rows_html = []
-        for idx, row in enumerate(best_rows, start=1):
-            rows_html.append(
-                f'''
-                <div class="best-ping-row">
-                    <div class="best-ping-rank">#{idx}</div>
-                    <div>
-                        <div class="best-ping-name">{escape(row["name"])}</div>
-                        <div class="best-ping-sub">{escape(row["protocol"].upper())} · {escape(row["country"])} · {escape(row["server"])}:{escape(row["port"])}</div>
-                    </div>
-                    <div class="best-ping-delay">{row["delay_ms"]} ms</div>
-                </div>
-                '''
-            )
-
-        st.markdown(
-            f'''
-            <div class="best-ping-card">
-                <div class="best-ping-top">
-                    <div>
-                        <div class="best-ping-title">🏆 Tercepat dari {source_label}</div>
-                        <div class="best-ping-meta">{escape(top["name"])} · {escape(top["protocol"].upper())} · {escape(top["country"])}</div>
-                    </div>
-                    <div class="best-ping-delay">{top["delay_ms"]} ms</div>
-                </div>
-                <div class="best-ping-meta">
-                    Sumber data: <code>{source_path}</code><br>
-                    Proxy di <code>output/lengkap.yaml</code>: <b>{best_data.get("yaml_proxy_count", 0)}</b><br>
-                    Alive: <b>{summary.get("alive", best_data.get("all_alive_count", 0))}</b> · Dead: <b>{summary.get("dead", "-")}</b> · Untested: <b>{summary.get("untested", "-")}</b><br>
-                    Filter negara: <b>{country_filter}</b>
-                </div>
-                <div class="best-ping-list">
-                    {''.join(rows_html)}
-                </div>
-            </div>
-            ''',
-            unsafe_allow_html=True,
-        )
-    else:
-        st.info(
-            "Belum ada data proxy alive dari output/Alive. Klik Test + Update Ping atau kirim /test di Telegram."
-        )
+    # Jangan pakai st.markdown untuk HTML kompleks ini. components.html mencegah HTML muncul sebagai teks.
+    component_height = 240 + max(1, len(best_rows)) * 68
+    components.html(
+        render_best_ping_component_html(best_data, best_rows, summary),
+        height=min(component_height, 860),
+        scrolling=True,
+    )
 except Exception as exc:
     st.info(
         "Best ping belum bisa ditampilkan. Pastikan output/Alive/check_result.csv atau output/Alive/alive.csv sudah ada di GitHub."
