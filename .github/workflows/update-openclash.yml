@@ -8,7 +8,7 @@ on:
         required: false
         default: manual
       mode:
-        description: update atau test
+        description: update, update_ping, test, atau test_ping
         required: false
         default: update
       enable_proxy_test:
@@ -92,6 +92,7 @@ jobs:
       - name: Notify Telegram success
         if: success()
         env:
+          RUN_MODE: ${{ github.event.inputs.mode || 'schedule' }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_SEND_OUTPUT_FILE: ${{ vars.TELEGRAM_SEND_OUTPUT_FILE || 'true' }}
@@ -100,6 +101,7 @@ jobs:
       - name: Notify Telegram failure
         if: failure()
         env:
+          RUN_MODE: ${{ github.event.inputs.mode || 'schedule' }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python tools/telegram_notify.py --stage failure
