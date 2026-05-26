@@ -211,6 +211,19 @@ def normalize_workflow_id(value: str) -> str:
 WORKFLOW_ID = normalize_workflow_id(GITHUB_WORKFLOW_FILE)
 
 
+BOT_COMMANDS = [
+    {"command": "update", "description": "Update config + test ping + rebuild lengkap.yaml"},
+    {"command": "update_ping", "description": "Update ping + rebuild BALANCE TOP 10 INDONESIA"},
+    {"command": "test", "description": "Cek proxy hidup/mati"},
+    {"command": "test_ping", "description": "Test ping dan update laporan Alive/Dead"},
+    {"command": "best", "description": "Tampilkan 10 ping tercepat"},
+    {"command": "status", "description": "Cek workflow GitHub terakhir"},
+    {"command": "check", "description": "Cek konfigurasi token/repo/workflow"},
+    {"command": "id", "description": "Tampilkan chat ID"},
+    {"command": "help", "description": "Tampilkan bantuan"},
+]
+
+
 class BotState:
     def __init__(self):
         self.lock = threading.Lock()
@@ -243,14 +256,19 @@ def telegram_url(method: str) -> str:
     return f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/{method}"
 
 
-def telegram_request(method: str, data=None, timeout: int = 60):
+def telegram_request(method: str, data=None, json_data=None, timeout: int = 60):
     if not TELEGRAM_BOT_TOKEN:
         raise RuntimeError("TELEGRAM_BOT_TOKEN belum diisi di Streamlit Secrets.")
 
+    kwargs = {"timeout": timeout}
+    if json_data is not None:
+        kwargs["json"] = json_data
+    else:
+        kwargs["data"] = data or {}
+
     response = requests.post(
         telegram_url(method),
-        data=data or {},
-        timeout=timeout,
+        **kwargs,
     )
     response.raise_for_status()
     payload = response.json()
@@ -276,6 +294,22 @@ def send_message(chat_id, text: str):
             },
             timeout=30,
         )
+
+
+def register_bot_commands():
+    """Daftarkan command agar muncul di menu slash Telegram.
+
+    Telegram kadang perlu chat ditutup/dibuka ulang setelah setMyCommands.
+    Command tetap bisa diketik manual walaupun menu slash belum refresh.
+    """
+    if not TELEGRAM_BOT_TOKEN:
+        return None
+
+    return telegram_request(
+        "setMyCommands",
+        json_data={"commands": BOT_COMMANDS},
+        timeout=30,
+    )
 
 
 def allowed_chat(chat_id) -> bool:
@@ -778,13 +812,26 @@ def handle_help(chat_id):
     send_message(
         chat_id,
         "<b>Command tersedia:</b>\n"
-        "/update - jalankan update via GitHub Actions\n"
+        "/update - update config + test ping + rebuild lengkap.yaml\n"
+        "/update_ping - update ping + rebuild BALANCE TOP 10 INDONESIA\n"
         "/test - cek proxy hidup/mati via GitHub Actions\n"
-        "/best - tampilkan best ping dari output/lengkap.yaml\n"
+        "/test_ping - test ping saja dan update laporan Alive/Dead\n"
+        "/best - tampilkan 10 ping tercepat\n"
+        "/commands - refresh menu command Telegram\n"
         "/status - cek workflow GitHub terakhir\n"
         "/check - cek konfigurasi token/repo/workflow\n"
         "/id - tampilkan chat ID\n"
         "/help - bantuan",
+    )
+
+
+def handle_commands(chat_id):
+    register_bot_commands()
+    send_message(
+        chat_id,
+        "✅ <b>Menu command Telegram sudah didaftarkan ulang.</b>\n\n"
+        "Kalau <code>/update_ping</code> dan <code>/test_ping</code> belum terlihat di menu slash, "
+        "tutup chat bot lalu buka lagi, atau ketik command secara manual.",
     )
 
 
@@ -800,6 +847,8 @@ def handle_command(chat_id, text: str):
         return handle_test(chat_id)
     if command in ("/test_ping", "/testping", "/ping"):
         return handle_test_ping(chat_id)
+    if command in ("/commands", "/setcommands", "/menu"):
+        return handle_commands(chat_id)
     if command == "/status":
         return handle_status(chat_id)
     if command == "/best":
@@ -875,6 +924,12 @@ def polling_loop():
 
 @st.cache_resource(show_spinner=False)
 def start_bot_once():
+    try:
+        register_bot_commands()
+    except Exception as exc:
+        BOT_STATE.set(last_error=f"Gagal register command Telegram: {exc}")
+        print("Register commands error:", exc)
+
     thread = threading.Thread(
         target=polling_loop,
         name="telegram-github-dispatcher",
@@ -1872,7 +1927,7 @@ if ensure_admin_authenticated():
         st.rerun()
 
     st.markdown(
-        '<div class="pet-small-note">Mode admin aktif. Telegram tetap aktif di background: /check, /update, /test, /best, /status, /id, /help.</div>',
+        '<div class="pet-small-note">Mode admin aktif. Telegram tetap aktif di background: /check, /update, /update_ping, /test, /test_ping, /best, /status, /id, /help.</div>',
         unsafe_allow_html=True,
     )
 else:
