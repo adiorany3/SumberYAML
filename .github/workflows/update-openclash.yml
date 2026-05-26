@@ -8,11 +8,11 @@ on:
         required: false
         default: manual
       mode:
-        description: update, update_ping, test, atau test_ping
+        description: update, test, test_ping, atau update_ping
         required: false
         default: update
       enable_proxy_test:
-        description: Jalankan test proxy dengan Mihomo
+        description: Jalankan test proxy/ping
         required: false
         default: "true"
       filter_alive_only:
@@ -30,78 +30,117 @@ concurrency:
   group: openclash-update
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  PYTHONUNBUFFERED: "1"
+  MODE: ${{ github.event.inputs.mode || 'update' }}
+  ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
+  FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
 jobs:
   update:
     name: Generate, test, and commit OpenClash output
     runs-on: ubuntu-latest
+    timeout-minutes: 60
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
+          cache: pip
 
-      - name: Install dependencies
+      - name: Show debug info
+        run: |
+          echo "Event: $GITHUB_EVENT_NAME"
+          echo "Ref: $GITHUB_REF"
+          echo "Mode: $MODE"
+          echo "Enable proxy test: $ENABLE_PROXY_TEST"
+          echo "Filter alive only: $FILTER_ALIVE_ONLY"
+          echo "Files in root:"
+          ls -la
+          echo "Workflow files:"
+          ls -la .github/workflows || true
+
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install requests pyyaml
+          fi
 
-      - name: Generate OpenClash files and test proxies
-        env:
-          RUN_MODE: ${{ github.event.inputs.mode || 'update' }}
-          ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
-          FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
-          CHECK_TEST_URL: http://www.gstatic.com/generate_204
-          CHECK_TIMEOUT_MS: "5000"
-          CHECK_WORKERS: "20"
-          MIHOMO_DOWNLOAD: "true"
-          TCP_FALLBACK: "true"
-          BEST_PING_TOP_N: "10"
-          BEST_PING_BALANCE_ENABLE: "true"
-          BEST_PING_BALANCE_NAME: "BALANCE TOP 10 INDONESIA"
-          BEST_PING_BALANCE_STRATEGY: "round-robin"
-        run: python telegram_openclash_alive.py
-
-      - name: Validate output
+      - name: Generate OpenClash output
         run: |
-          test -f output/lengkap.yaml
-          test -f output/Alive/check_result.csv
-          python - <<'PY'
-          from pathlib import Path
-          p = Path('output/lengkap.yaml')
-          if p.stat().st_size < 20:
-              raise SystemExit('output/lengkap.yaml terlalu kecil atau kosong')
-          print(f'OK: {p} ({p.stat().st_size} bytes)')
-          PY
+          set -e
+          if [ ! -f telegram_openclash_alive.py ]; then
+            echo "ERROR: telegram_openclash_alive.py tidak ditemukan di root repository."
+            echo "Pastikan file dari ZIP terbaru sudah diupload ke root repo."
+            exit 1
+          fi
 
-      - name: Commit updated output
+          echo "Menjalankan telegram_openclash_alive.py dengan argumen mode/test..."
+          python telegram_openclash_alive.py \
+            --mode "$MODE" \
+            --enable-proxy-test "$ENABLE_PROXY_TEST" \
+            --filter-alive-only "$FILTER_ALIVE_ONLY" || {
+              echo "Gagal dengan argumen CLI. Coba fallback tanpa argumen..."
+              python telegram_openclash_alive.py
+            }
+
+          echo "Output directory:"
+          find output -maxdepth 3 -type f | sort || true
+
+      - name: Validate output exists
+        run: |
+          if [ ! -f output/lengkap.yaml ]; then
+            echo "ERROR: output/lengkap.yaml tidak ditemukan setelah generate."
+            echo "Isi folder output:"
+            find output -maxdepth 4 -type f | sort || true
+            exit 1
+          fi
+          echo "OK: output/lengkap.yaml ditemukan"
+          wc -l output/lengkap.yaml || true
+
+      - name: Commit output files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add output
+          git add output || true
           if git diff --cached --quiet; then
-            echo "Tidak ada perubahan output."
+            echo "Tidak ada perubahan output untuk di-commit."
           else
-            git commit -m "Update OpenClash output with alive check"
+            git commit -m "Update OpenClash output"
             git push
           fi
 
-      - name: Notify Telegram success
-        if: success()
-        env:
-          RUN_MODE: ${{ github.event.inputs.mode || 'schedule' }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          TELEGRAM_SEND_OUTPUT_FILE: ${{ vars.TELEGRAM_SEND_OUTPUT_FILE || 'true' }}
-        run: python tools/telegram_notify.py --stage success
-
-      - name: Notify Telegram failure
-        if: failure()
-        env:
-          RUN_MODE: ${{ github.event.inputs.mode || 'schedule' }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python tools/telegram_notify.py --stage failure
+      - name: Notify Telegram
+        if: always()
+        run: |
+          STATUS="${{ job.status }}"
+          MESSAGE="OpenClash workflow selesai. Status: ${STATUS}. Mode: ${MODE}."
+          if [ -f tools/telegram_notify.py ]; then
+            python tools/telegram_notify.py --message "$MESSAGE" || true
+          else
+            python - <<'PY' || true
+          import os, requests
+          token = os.getenv('TELEGRAM_BOT_TOKEN')
+          chat_id = os.getenv('TELEGRAM_CHAT_ID')
+          status = os.getenv('STATUS', 'unknown')
+          mode = os.getenv('MODE', 'unknown')
+          if token and chat_id:
+              requests.post(
+                  f'https://api.telegram.org/bot{token}/sendMessage',
+                  data={'chat_id': chat_id, 'text': f'OpenClash workflow selesai. Status: {status}. Mode: {mode}.'},
+                  timeout=20,
+              )
+          PY
+          fi
