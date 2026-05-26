@@ -15,6 +15,46 @@ proxies:
       headers:
         Host: ophelia.mom
     udp: true
+  - name: "🇮🇷 IR | VMESS | @khoneproxy #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: d12bc882-43c7-415e-87c5-2a7fdc8371c0
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 37.32.23.122
+    network: ws
+    ws-opts:
+      path: /websocket/
+      headers:
+        Host: 37.32.23.122
+    udp: true
+  - name: "🇮🇷29573 | ⚡️Telegram = t.me/SOSkeyNET"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 8a469566-7606-4d66-9969-52ec1848ff38
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: SW.IPSENTER.NET
+    network: tcp
+    udp: true
+  - name: "🇮🇷29584 | ⚡️Telegram = t.me/SOSkeyNET"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 8a469566-7606-4d66-9969-52ec1848ff38
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 78.157.53.232
+    network: tcp
+    udp: true
   - name: "🇽🇽 XX | VLESS | @freev2flyng #1"
     server: 104.17.3.81
     port: 443
@@ -60,6 +100,51 @@ proxies:
       headers:
         Host: s19.speedyconnect.pro
     udp: true
+  - name: "🇽🇽 XX | VLESS | @parsashonam #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: Telegram-Parsashonam
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 104.16.7.70
+    ws-opts:
+      path: /
+      headers:
+        Host: 104.16.7.70
+    udp: true
+  - name: "🇽🇽 XX | VLESS | @parsashonam #2"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: Telegram-Parsashonam
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 104.16.80.73
+    ws-opts:
+      path: /
+      headers:
+        Host: 104.16.80.73
+    udp: true
+  - name: "🇮🇷 IR | VLESS | @v2ray_free_conf #2"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 4a5ee365-2414-47e8-9285-9d57ff7cf66e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 185.143.233.5
+    ws-opts:
+      path: /
+      headers:
+        Host: 185.143.233.5
+    udp: true
   - name: "🇽🇽 XX | VLESS | @v2rayng3 #1"
     server: 104.17.3.81
     port: 443
@@ -90,67 +175,22 @@ proxies:
       headers:
         Host: 185.143.233.5
     udp: true
-  - name: "🇮🇷29080 | ⚡️Telegram = t.me/SOSkeyNET"
+  - name: "🇮🇷 IR | VLESS | @vip_vpn_2022 #1"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 00d164bd-a417-4fe2-a272-6a0ee1763f8b
+    uuid: 1a83df32-42f2-4395-97bb-1fb91822c630
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: g4.podro.store
-    ws-opts:
-      path: /chat?ed=128
-      headers:
-        Host: g4.podro.store
-    udp: true
-  - name: "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:253.43ms"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 0373f1c4-867c-4d72-920c-b06785c4930e
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: g4.podro.store
-    ws-opts:
-      path: /chat?ed=128
-      headers:
-        Host: g4.podro.store
-    udp: true
-  - name: "🇮🇷29107 | ⚡️Telegram = t.me/SOSkeyNET"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 086b5064-b6bb-4aaa-bfba-a89ba6661bd6
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: fiarsh.parhamm2.ir
+    servername: 185.143.233.5
     ws-opts:
       path: /
       headers:
-        Host: fiarsh.parhamm2.ir
+        Host: 185.143.233.5
     udp: true
-  - name: "🇮🇷29060 | ⚡️Telegram = t.me/SOSkeyNET"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 0df1bb84-62b6-4dcf-b5b6-c30fd6b23b2a
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: hostioko.online
-    ws-opts:
-      path: /dbGTBHVoYGtWdfd3qZFvMYsFYZgAtRVNDe?ed=2560
-      headers:
-        Host: hostioko.online
-    udp: true
-  - name: "Telegram : @V2ynpv 8253"
+  - name: "Telegram : @V2ynpv 4566"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -165,11 +205,11 @@ proxies:
       headers:
         Host: craftedrpg.ir
     udp: true
-  - name: "🇮🇷29121 | ⚡️Telegram = t.me/SOSkeyNET"
+  - name: "🇮🇷29609 | ⚡️Telegram = t.me/SOSkeyNET"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 1ac6d1c9-8ca6-4120-80a0-81ec867bb1d3
+    uuid: 1c51eec5-dece-44d8-8c29-9efbd689b1dd
     cipher: none
     tls: true
     skip-cert-verify: true
@@ -179,36 +219,6 @@ proxies:
       path: /chat?ed=128
       headers:
         Host: g4.podro.store
-    udp: true
-  - name: "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:39.94ms"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 1c58f546-f1b9-4ae4-b5fb-7011a3e71ba6
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: g1.podro.store
-    ws-opts:
-      path: /chat?ed=127
-      headers:
-        Host: g1.podro.store
-    udp: true
-  - name: "برای اتصال دائمی جوین شو🗾 prrofile_purple@"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 1e42fc46-0155-496f-9633-59973ed5b81d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: payment.behtarinoo.com
-    ws-opts:
-      path: /3555
-      headers:
-        Host: s7.snapp.ir
     udp: true
   - name: "IR-@V2rayAlpha-8"
     server: 104.17.3.81
@@ -225,52 +235,22 @@ proxies:
       headers:
         Host: afrcloud22.mmv.kr
     udp: true
-  - name: "🇮🇷29103 | ⚡️Telegram = t.me/SOSkeyNET"
+  - name: "@V2rayng_Fast"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 231783dd-f6a7-4706-9914-c3b887847e91
+    uuid: 27d6de57-240b-400e-a036-192608ae0459
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: vpn.alphavip.dpdns.org
-    ws-opts:
-      path: /sub/v1
-      headers:
-        Host: vpn.alphavip.dpdns.org
-    udp: true
-  - name: "🇮🇷29114 | ⚡️Telegram = t.me/SOSkeyNET"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 289569ab-15e3-4b14-9508-f2bd1bfc28f8
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: g4.podro.store
-    ws-opts:
-      path: /chat?ed=128
-      headers:
-        Host: g4.podro.store
-    udp: true
-  - name: "@filembad"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 290c5032-023a-431e-9499-3b3433a33ea4
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: dallas1.shahvip.lol
+    servername: tino.protag.ir
     ws-opts:
       path: /
       headers:
-        Host: dallas1.shahvip.lol
+        Host: tino.protag.ir
     udp: true
-  - name: "Telegram : @V2ynpv 6857"
+  - name: "Telegram : @V2ynpv 9025"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -285,7 +265,22 @@ proxies:
       headers:
         Host: harro-likeh2.sdcards1.ir
     udp: true
-  - name: "@sogoandfuckyourlove"
+  - name: "🇮🇷29494 | ⚡️Telegram = t.me/SOSkeyNET"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 3d354181-0eae-4b63-a945-23736735c932
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: b.bandfig.shop
+    ws-opts:
+      path: /
+      headers:
+        Host: b.bandfig.shop
+    udp: true
+  - name: "🦉@FreeConfigForYou"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -330,7 +325,7 @@ proxies:
       headers:
         Host: alaedin5.8lack.ir
     udp: true
-  - name: "@filembad 4691"
+  - name: Vpn_jet
     server: 104.17.3.81
     port: 443
     type: vless
@@ -345,65 +340,35 @@ proxies:
       headers:
         Host: apolodiscount.johnmorgan.ir
     udp: true
-  - name: "@langbox رایگان وصل شو"
+  - name: "🇮🇷29465 | ⚡️Telegram = t.me/SOSkeyNET"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 4f36819c-9083-4057-ac06-29d48d805584
+    uuid: 5802bad8-7e89-4fcd-bcc5-22ea4affcd31
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: alaedin3.8lack.ir
+    servername: m.configserver.ir
     ws-opts:
-      path: "/@alaedin?ed=128"
+      path: /wss
       headers:
-        Host: alaedin3.8lack.ir
+        Host: m.configserver.ir
     udp: true
-  - name: "@langbox جوین بشید"
+  - name: "🇮🇷29468 | ⚡️Telegram = t.me/SOSkeyNET"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 56a34b7f-72d2-4581-8400-5a2dc4bf5707
+    uuid: 5802bad8-7e89-4fcd-bcc5-22ea4affcd31
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: alaedin10.8lack.ir
+    servername: p.configserver.ir
     ws-opts:
-      path: "/@alaedin?ed=128"
+      path: /wss
       headers:
-        Host: alaedin10.8lack.ir
-    udp: true
-  - name: "@langbox وصل بشین"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 6dba4a8d-0bc1-49fe-bcdc-34d42447bf63
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alaedin4.8lack.ir
-    ws-opts:
-      path: "/@alaedin?ed=128"
-      headers:
-        Host: alaedin4.8lack.ir
-    udp: true
-  - name: "@langbox ممه ابی"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 71006313-4e85-40d0-8e35-ee14c9365241
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alaedin1.8lack.ir
-    ws-opts:
-      path: "/@alaedin?ed=128"
-      headers:
-        Host: alaedin1.8lack.ir
+        Host: p.configserver.ir
     udp: true
   - name: "بیا روبیکا وصل شو @wizardxray"
     server: 104.17.3.81
@@ -420,22 +385,37 @@ proxies:
       headers:
         Host: apif.parhamm2.ir
     udp: true
-  - name: "@langbox جوین بشید 4483"
+  - name: filembad-169
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 76924df8-00f4-4be8-a834-d777e59be33a
+    uuid: 77fddd8c-b39b-4fff-b5f0-6b898a8e4f11
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: alaedin6.8lack.ir
+    servername: nimisv2.pbvsrk.carnagesv.top
     ws-opts:
-      path: "/@alaedin?ed=128"
+      path: /
       headers:
-        Host: alaedin6.8lack.ir
+        Host: nimisv2.pbvsrk.carnagesv.top
     udp: true
-  - name: "Telegram : @V2ynpv 8937"
+  - name: "🇮🇷29636 | ⚡️Telegram = t.me/SOSkeyNET"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 800338da-76fe-47f9-97c1-c596d0cb208a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: smart.powercloudsm.ir
+    ws-opts:
+      path: /
+      headers:
+        Host: smart.powercloudsm.ir
+    udp: true
+  - name: "Telegram : @V2ynpv 5349"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -450,37 +430,7 @@ proxies:
       headers:
         Host: pmeli.express-servers.ir
     udp: true
-  - name: "🇮🇷29055 | ⚡️Telegram = t.me/SOSkeyNET"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 8c2b2659-8fb3-49df-8c4b-6ec1bbe51b6e
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: payment.behtarinoo.com
-    ws-opts:
-      path: /7602
-      headers:
-        Host: s7.snapp.ir
-    udp: true
-  - name: "@langbox ممه بنفش"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 8dee99f5-470f-418b-83ff-44adbe9dd81a
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alaedin1.8lack.ir
-    ws-opts:
-      path: "/@alaedin?ed=128"
-      headers:
-        Host: alaedin1.8lack.ir
-    udp: true
-  - name: "@v2rayngzendegimamad🕊️ 7143"
+  - name: "@v2rayngzendegimamad🕊️ 2931"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -495,7 +445,7 @@ proxies:
       headers:
         Host: t86y6leiyaph7tsvb170x7vfx0-3dvh3.vrezht08.workers.dev
     udp: true
-  - name: "@canfigiop 9063"
+  - name: "@canfigiop 9007"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -510,22 +460,22 @@ proxies:
       headers:
         Host: alaedin1.8lack.ir
     udp: true
-  - name: "@hi_proxy_iran :👈کانال تلگرام"
+  - name: "@SoonTeam"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: a3d9a604-6a11-4ece-a8b4-eaf41379ede2
+    uuid: a0ae4e44-480c-4282-b526-f1bdf749e0d1
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: alaedin8.8lack.ir
+    servername: c.downloadphysics.ir
     ws-opts:
-      path: "/@alaedin?ed=128"
+      path: /
       headers:
-        Host: alaedin8.8lack.ir
+        Host: c.downloadphysics.ir
     udp: true
-  - name: "@icv2ray 7105"
+  - name: "@icv2ray 2757"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -555,96 +505,6 @@ proxies:
       headers:
         Host: afrcloud22.mmv.kr
     udp: true
-  - name: "@langbox ممه سبز"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: ab629ee1-a3c3-4664-bb97-af501d291a5b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alaedin1.8lack.ir
-    ws-opts:
-      path: "/@alaedin?ed=128"
-      headers:
-        Host: alaedin1.8lack.ir
-    udp: true
-  - name: "👉🆔@v2ray_configs_pool📡🇮🇷®️Iran©️Tehrān🅿️ping:68.58ms"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: abbff0f3-741b-f33f-8773-ebbb65ae8d8d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: cdn.fars-rehan.ir
-    ws-opts:
-      path: /
-      headers:
-        Host: cdn.fars-rehan.ir
-    udp: true
-  - name: "🇮🇷29194 | ⚡️Telegram = t.me/SOSkeyNET"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: ae080dff-7455-4b46-b37a-d7ca11e34cd8
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: dallas1.shahvip.lol
-    ws-opts:
-      path: /
-      headers:
-        Host: dallas1.shahvip.lol
-    udp: true
-  - name: "@langbox جوین بشید 1153"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: b3076647-a86a-43f0-8226-d14a4f11d2ba
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alaedin4.8lack.ir
-    ws-opts:
-      path: "/@alaedin?ed=128"
-      headers:
-        Host: alaedin4.8lack.ir
-    udp: true
-  - name: "🇮🇷29102 | ⚡️Telegram = t.me/SOSkeyNET"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: b4616933-0ffc-47dc-852b-90b258d6252d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alb.parhamm2.ir
-    ws-opts:
-      path: /
-      headers:
-        Host: alb.parhamm2.ir
-    udp: true
-  - name: "@electvpn0 1114"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: b4e6c21d-3931-4907-b739-00224db4299c
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: ir120-assets.boornakood.ir
-    ws-opts:
-      path: /sites/brn/backup.zip
-      headers:
-        Host: ir120-assets.boornakood.ir
-    udp: true
   - name: "🇮🇷26642 | ⚡️Telegram = t.me/SOSkeyNET"
     server: 104.17.3.81
     port: 443
@@ -659,36 +519,6 @@ proxies:
       path: /
       headers:
         Host: h.goodphilips.ir
-    udp: true
-  - name: "@GozargahAzad|🇮🇷"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: be1fab42-7703-4f8c-9e63-1daec6d002d5
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: rec.yaraghfit.ir
-    ws-opts:
-      path: /
-      headers:
-        Host: rec.yaraghfit.ir
-    udp: true
-  - name: "@langbox ممه ابی 7355"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: c1243173-fb96-4af1-bdd7-22129d330bea
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alaedin7.8lack.ir
-    ws-opts:
-      path: "/@alaedin?ed=128"
-      headers:
-        Host: alaedin7.8lack.ir
     udp: true
   - name: "🔵@chillguy_vpn"
     server: 104.17.3.81
@@ -705,65 +535,20 @@ proxies:
       headers:
         Host: alef.ir.oadeflantrogm.mapircdn.com
     udp: true
-  - name: "🇮🇷29106 | ⚡️Telegram = t.me/SOSkeyNET"
+  - name: "🇮🇷29552 | ⚡️Telegram = t.me/SOSkeyNET"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: c23335f8-3fac-4345-9058-b2c0a032aa58
+    uuid: c96d7ed9-67b3-4bc4-bce8-ba65066a6529
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: g4.podro.store
-    ws-opts:
-      path: /chat?ed=128
-      headers:
-        Host: g4.podro.store
-    udp: true
-  - name: V2rayng_Fast
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: c387b0f2-5d9e-4c95-882d-1d5eeb443ce2
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: nginx-3b1e7ed824-abol.apps.ir-central1.arvancaas.ir
-    ws-opts:
-      path: /movie
-      headers:
-        Host: nginx-3b1e7ed824-abol.apps.ir-central1.arvancaas.ir
-    udp: true
-  - name: miuu
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: cc06d694-3d3f-4149-97de-4693ce3478f8
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: fiarsh.parhamm2.ir
+    servername: dl15.bale.lovlytehran.ir
     ws-opts:
       path: /
       headers:
-        Host: fiarsh.parhamm2.ir
-    udp: true
-  - name: "@langbox ممه صورتی"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: d2871786-3ca4-4cb0-af7a-9a47d293cbef
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: alaedin9.8lack.ir
-    ws-opts:
-      path: "/@alaedin?ed=128"
-      headers:
-        Host: alaedin9.8lack.ir
+        Host: dl15.bale.lovlytehran.ir
     udp: true
   - name: "IR-@V2rayAlpha-11"
     server: 104.17.3.81
@@ -780,7 +565,7 @@ proxies:
       headers:
         Host: afrcloud22.mmv.kr
     udp: true
-  - name: "Telegram : @V2ynpv 9010"
+  - name: "Telegram : @V2ynpv 3578"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -810,11 +595,11 @@ proxies:
       headers:
         Host: mitivpn-s1.global.ssl.fastly.net
     udp: true
-  - name: "🇮🇷29111 | ⚡️Telegram = t.me/SOSkeyNET"
+  - name: "🇮🇷29610 | ⚡️Telegram = t.me/SOSkeyNET"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: f098f276-d0ee-4b69-8550-b7973dd9a66f
+    uuid: e32e66f8-7b0b-4b73-89d4-b8db069168fe
     cipher: none
     tls: true
     skip-cert-verify: true
@@ -825,7 +610,7 @@ proxies:
       headers:
         Host: g4.podro.store
     udp: true
-  - name: "@icv2ray 8763"
+  - name: "@icv2ray 3893"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -839,21 +624,6 @@ proxies:
       path: /
       headers:
         Host: nimisv2.pbvsrk.carnagesv.top
-    udp: true
-  - name: "🇮🇷29073 | ⚡️Telegram = t.me/SOSkeyNET"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: fbd57f06-e37c-4cd3-901c-e26127802cf5
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: g4.podro.store
-    ws-opts:
-      path: /chat?ed=128
-      headers:
-        Host: g4.podro.store
     udp: true
   - name: "IR-@V2rayAlpha-13"
     server: 104.17.3.81
@@ -870,20 +640,50 @@ proxies:
       headers:
         Host: dev.nestandneighbours.com
     udp: true
-  - name: "@canfigiop 5879"
+  - name: "🇽🇽 XX | VLESS | @parsashonam #1 3036"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: ff3db28c-43a2-4b16-adcf-33182f0f684a
+    uuid: Telegram-Parsashonam
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: alaedin6.8lack.ir
+    servername: 104.19.229.21
     ws-opts:
-      path: "/@alaedin?ed=128"
+      path: /
       headers:
-        Host: alaedin6.8lack.ir
+        Host: 104.19.229.21
+    udp: true
+  - name: "🇮🇷 IR | VLESS | @v2rayngvpn_1 #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9e08aa78-561c-44ee-87da-a8d10eaa0f83
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 194.145.119.7
+    ws-opts:
+      path: /
+      headers:
+        Host: 194.145.119.7
+    udp: true
+  - name: "🇮🇷 IR | VLESS | @vpnfree85 #2"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: ea470142-10c6-4b1f-a8e6-0ddcc78a4058
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: protectnet.cloudinohost.com
+    ws-opts:
+      path: /
+      headers:
+        Host: protectnet.cloudinohost.com
     udp: true
   - name: "🇽🇽 XX | TROJAN | @outline_ir #1"
     server: 104.17.3.81

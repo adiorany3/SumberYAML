@@ -45,6 +45,36 @@ proxies:
       headers:
         Host: sni.111000.v6.rocks
     udp: true
+  - name: ">>@oneclickvpnkeys::GB 6369"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.111000.v6.rocks
+    ws-opts:
+      path: /?https://t.me/WangCai2🇨🇳=
+      headers:
+        Host: sni.111000.v6.rocks
+    udp: true
+  - name: ">>@v2nodes::GB"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 8f25d191-c31c-4d07-86ec-db01fe1085d9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: london.ap221.com
+    ws-opts:
+      path: /
+      headers:
+        Host: london.ap221.com
+    udp: true
   - name: ">>@v2ray_configs_pool::GB"
     server: 104.17.3.81
     port: 443
@@ -60,13 +90,47 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
+  - name: ">>@oneclickvpnkeys::GB 5823"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 3-7gj.pages.dev
+    ws-opts:
+      path: /
+      headers:
+        Host: 3-7gj.pages.dev
+    udp: true
+  - name: ">>@oneclickvpnkeys::GB 8372"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 3-7gj.pages.dev
+    ws-opts:
+      path: "/socks5=gogo:gogo@185.184.70.120:50088"
+      headers:
+        Host: 3-7gj.pages.dev
+    udp: true
 
 proxy-groups:
   - name: URL-TEST GB - United Kingdom
     type: url-test
     proxies:
       - ">>@oneclickvpnkeys::GB"
+      - ">>@oneclickvpnkeys::GB 6369"
+      - ">>@v2nodes::GB"
       - ">>@v2ray_configs_pool::GB"
+      - ">>@oneclickvpnkeys::GB 5823"
+      - ">>@oneclickvpnkeys::GB 8372"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

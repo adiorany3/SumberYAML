@@ -75,6 +75,20 @@ proxies:
       headers:
         Host: discord.gg
     udp: true
+  - name: "🕊️@Proxy_Vpney (3)"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: 5c923a18-f249-466c-a315-e58aabc689ef
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: star.vipco-gg.workers.dev
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: star.vipco-gg.workers.dev
+    udp: true
 
 proxy-groups:
   - name: URL-TEST GG - Guernsey
@@ -83,6 +97,7 @@ proxy-groups:
       - "🇽🇽 XX | VLESS | @garnet_free #2"
       - "🇽🇽 XX | VLESS | @v2rayy_vpn13 #1"
       - "🇽🇽 XX | VLESS | @v2rayy_vpn13 #2"
+      - "🕊️@Proxy_Vpney (3)"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

@@ -30,43 +30,41 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇸🇨 SC | VLESS | @arv2ray #1"
+  - name: "🇽🇽 XX | TROJAN | @spikevpn #1"
     server: 104.17.3.81
     port: 443
-    type: vless
-    uuid: telegram-id-Arfilter
-    cipher: none
+    type: trojan
+    password: "8r<[9'l6hAO#8ZQi"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: 156.243.83.167
+    sni: 104.16.7.70
     ws-opts:
-      path: "/-Arfilter-TEL--@Arfilter-TEL--@Arfilter-TEL--@ArFilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@ArFilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEl--@Arfilter?ed=2048"
+      path: /tr
       headers:
-        Host: 156.243.83.167
+        Host: 104.16.7.70
     udp: true
-  - name: "🇸🇨 Seychelles | ⚡1.0MB/s | ⏱1407ms | @NamazVPN"
+  - name: "🇽🇽 XX | TROJAN | @spikevpn #2"
     server: 104.17.3.81
     port: 443
-    type: vless
-    uuid: cd9146ae-9cc4-49e2-80e9-eb1b194c7054
-    cipher: none
+    type: trojan
+    password: "8r<[9'l6hAO#8ZQi"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: PrO.nImBaHa.InFo
+    sni: 104.18.109.147
     ws-opts:
-      path: /
+      path: /tr
       headers:
-        Host: pro.nimbaha.info
+        Host: 104.18.109.147
     udp: true
 
 proxy-groups:
-  - name: URL-TEST SC - Seychelles
+  - name: URL-TEST TR - Turkey
     type: url-test
     proxies:
-      - "🇸🇨 SC | VLESS | @arv2ray #1"
-      - "🇸🇨 Seychelles | ⚡1.0MB/s | ⏱1407ms | @NamazVPN"
+      - "🇽🇽 XX | TROJAN | @spikevpn #1"
+      - "🇽🇽 XX | TROJAN | @spikevpn #2"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -74,7 +72,7 @@ proxy-groups:
   - name: PROXY
     type: select
     proxies:
-      - URL-TEST SC - Seychelles
+      - URL-TEST TR - Turkey
       - DIRECT
 
 rules:

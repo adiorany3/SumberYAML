@@ -14,3 +14,18 @@ proxies:
       headers:
         Host: 91.244.70.205
     udp: true
+  - name: "@DeamNet 7795"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: @deamnet-@deamnet-@deamnet
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: yandex.samen12.at.eu.org
+    ws-opts:
+      path: /deamnet
+      headers:
+        Host: yandex.samen12.at.eu.org
+    udp: true

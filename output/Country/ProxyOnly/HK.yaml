@@ -1,4 +1,36 @@
 proxies:
+  - name: 🇭🇰HK-47.238.82.7-0233
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 37b20639-0d6e-46f2-9db5-472201b10cdd
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: n1753356378.4u9ma.icu
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: n1753356378.4u9ma.icu
+    udp: true
+  - name: 🇭🇰HK-47.76.254.70-0252
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 6ea48dfe-7de2-45dc-9267-d4d9effad9fc
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: n1753101277.4u9ma.icu
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: n1753101277.4u9ma.icu
+    udp: true
   - name: "🇭🇰 HK | VMESS | @freev2rays #1"
     type: vmess
     server: 104.17.3.81
@@ -15,38 +47,6 @@ proxies:
       headers:
         Host: hk2.lrzdx.uk
     udp: true
-  - name: 🇭🇰HK-47.238.82.7-5145
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: 37b20639-0d6e-46f2-9db5-472201b10cdd
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: n1753356378.4u9ma.icu
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: n1753356378.4u9ma.icu
-    udp: true
-  - name: 🇭🇰HK-47.76.254.70-0197
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: 6ea48dfe-7de2-45dc-9267-d4d9effad9fc
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: n1753101277.4u9ma.icu
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: n1753101277.4u9ma.icu
-    udp: true
   - name: ">>@v2ray_configs_pool::HK"
     server: 104.17.3.81
     port: 443
@@ -62,7 +62,7 @@ proxies:
       headers:
         Host: dabaius2.sylu.net
     udp: true
-  - name: ">>@v2ray_configs_pool::HK 2406"
+  - name: ">>@v2ray_configs_pool::HK 9177"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -76,4 +76,19 @@ proxies:
       path: /fp=chrome
       headers:
         Host: gogo10.kmj.qzz.io
+    udp: true
+  - name: "23⛳@oneclickvpnkeys"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: pagescm.freen22.cc.cd
+    ws-opts:
+      path: /
+      headers:
+        Host: pagescm.freen22.cc.cd
     udp: true

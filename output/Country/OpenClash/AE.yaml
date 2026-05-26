@@ -30,42 +30,27 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: ">>@v2nodes::PL"
+  - name: "🇦🇪 AE | VLESS | @vmesskhodam #1"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 6d916d55-fead-4ff3-a3a9-83e175ea8ad7
+    uuid: 24323a9a-5962-47f0-ae60-7b12f4503dea
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: pl74.mechvpn.online
+    servername: nl3.freekeysh110.online
     ws-opts:
       path: /
       headers:
-        Host: pl74.mechvpn.online
-    udp: true
-  - name: ">>@oneclickvpnkeys::PL"
-    server: 104.17.3.81
-    port: 443
-    type: trojan
-    password: humanity
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: www.creationlong.org
-    ws-opts:
-      path: /assignment
-      headers:
-        Host: www.creationlong.org
+        Host: nl3.freekeysh110.online
     udp: true
 
 proxy-groups:
-  - name: URL-TEST PL - Poland
+  - name: URL-TEST AE - United Arab Emirates
     type: url-test
     proxies:
-      - ">>@v2nodes::PL"
-      - ">>@oneclickvpnkeys::PL"
+      - "🇦🇪 AE | VLESS | @vmesskhodam #1"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -73,7 +58,7 @@ proxy-groups:
   - name: PROXY
     type: select
     proxies:
-      - URL-TEST PL - Poland
+      - URL-TEST AE - United Arab Emirates
       - DIRECT
 
 rules:

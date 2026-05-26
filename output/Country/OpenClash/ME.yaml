@@ -30,6 +30,54 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "Telegram : @V2ynpv"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: ffece2a9-0296-46a9-8db8-742d29d240ff
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: bedrid.denizhosting.me
+    network: ws
+    ws-opts:
+      path: /ISwpYVR8SjxXcUZEUzVfNURTUC8lV29DXSgsKH1SN0g1JVpDHU1cWigKAC8QRltMCi86ABw4JV14HVMn
+      headers:
+        Host: bedrid.denizhosting.me
+    udp: true
+  - name: t.me/arisping
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 67f79907-6163-475c-b5ba-2a3faa0c02c5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: de.arisping-ir.click
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: a25.arisping-ir.click
+    udp: true
+  - name: t.me/arisping Free
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 67f79907-6163-475c-b5ba-2a3faa0c02c5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: cdn.arisping-ir.store
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: cdn.arisping-ir.store
+    udp: true
   - name: "Pro 15 @Outline_Vpn"
     server: 104.17.3.81
     port: 443
@@ -45,12 +93,47 @@ proxies:
       headers:
         Host: sni.latonyamadeline.ndjp.net
     udp: true
+  - name: 🛡https://t.me/ConfigX2ray
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 91d951eb-930e-46e2-bb3e-82ce23029804
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: Ky.ourbiti.xyz
+    ws-opts:
+      path: /
+      headers:
+        Host: Ky.ourbiti.xyz
+    udp: true
+  - name: t.me/ConfigFori  -  Config 73744
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: telegram-dickiriptorbot
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 3.173.21.63
+    ws-opts:
+      path: /
+      headers:
+        Host: dbw9jfe94rh28.cloudfront.net
+    udp: true
 
 proxy-groups:
   - name: URL-TEST ME - Montenegro
     type: url-test
     proxies:
+      - "Telegram : @V2ynpv"
+      - t.me/arisping
+      - t.me/arisping Free
       - "Pro 15 @Outline_Vpn"
+      - 🛡https://t.me/ConfigX2ray
+      - t.me/ConfigFori  -  Config 73744
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

@@ -30,27 +30,79 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦"
+  - name: 🇨🇦CA-134.195.198.147-7040
+    type: vmess
     server: 104.17.3.81
     port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
     tls: true
     skip-cert-verify: true
+    servername: inna.cfd
     network: ws
-    servername: sni.111000.indevs.in
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: inna.cfd
+    udp: true
+  - name: 🇨🇦CA-23.162.200.227-7038
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 23.162.200.227
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: 23.162.200.227
+    udp: true
+  - name: 🇨🇦CA-23.162.200.227-0146
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 23.162.200.227
+    network: ws
     ws-opts:
       path: /
       headers:
-        Host: sni.111000.indevs.in
+        Host: 23.162.200.227
+    udp: true
+  - name: 🇨🇦CA-134.195.198.147-0124
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: inna.cfd
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: inna.cfd
     udp: true
 
 proxy-groups:
   - name: URL-TEST CA - Canada
     type: url-test
     proxies:
-      - "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦"
+      - 🇨🇦CA-134.195.198.147-7040
+      - 🇨🇦CA-23.162.200.227-7038
+      - 🇨🇦CA-23.162.200.227-0146
+      - 🇨🇦CA-134.195.198.147-0124
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

@@ -1,0 +1,16 @@
+proxies:
+  - name: "@DeamNet"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: @deamnet-@deamnet-@deamnet
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: actually-road.bn-chanll.cf
+    ws-opts:
+      path: /deamnet
+      headers:
+        Host: actually-road.bn-chanll.cf
+    udp: true
