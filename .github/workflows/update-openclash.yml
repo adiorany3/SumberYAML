@@ -59,6 +59,10 @@ jobs:
           CHECK_WORKERS: "20"
           MIHOMO_DOWNLOAD: "true"
           TCP_FALLBACK: "true"
+          BEST_PING_TOP_N: "10"
+          BEST_PING_BALANCE_ENABLE: "true"
+          BEST_PING_BALANCE_NAME: "BALANCE TOP 10 INDONESIA"
+          BEST_PING_BALANCE_STRATEGY: "round-robin"
         run: python telegram_openclash_alive.py
 
       - name: Validate output
