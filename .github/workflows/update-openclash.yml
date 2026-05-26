@@ -51,6 +51,7 @@ jobs:
 
       - name: Generate OpenClash files and test proxies
         env:
+          RUN_MODE: ${{ github.event.inputs.mode || 'update' }}
           ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
           FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
           CHECK_TEST_URL: http://www.gstatic.com/generate_204
