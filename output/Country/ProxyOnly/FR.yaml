@@ -1,4 +1,19 @@
 proxies:
+  - name: "🇫🇷 FR | VLESS | @v2ray_collector #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 401374e6-df77-41fb-f638-dad8184f175b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 141.11.203.139
+    ws-opts:
+      path: /
+      headers:
+        Host: 141.11.203.139
+    udp: true
   - name: "@Rayan_Config 3.3"
     server: 104.17.3.81
     port: 443
@@ -29,36 +44,7 @@ proxies:
       headers:
         Host: rAyAn-cOnFiG-fr-1.pArSa.dPdNs.oRg
     udp: true
-  - name: "🇫🇷 FR | VLESS | @v2ray_collector #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 401374e6-df77-41fb-f638-dad8184f175b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: 141.11.203.139
-    ws-opts:
-      path: /
-      headers:
-        Host: 141.11.203.139
-    udp: true
   - name: ">>@oneclickvpnkeys::FR"
-    server: 104.17.3.81
-    port: 443
-    type: trojan
-    password: humanity
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: www.calmloud.com
-    ws-opts:
-      path: /assignment
-      headers:
-        Host: www.calmloud.com
-    udp: true
-  - name: ">>@oneclickvpnkeys::FR 2061"
     server: 104.17.3.81
     port: 443
     type: trojan

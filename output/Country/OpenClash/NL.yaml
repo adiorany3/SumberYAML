@@ -30,6 +30,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "🇳🇱 NL | VLESS | @v2ray_collector #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: c931b432-cbab-47f4-ae30-917b17e5fb1f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 208.67.105.196
+    ws-opts:
+      path: /
+      headers:
+        Host: 208.67.105.196
+    udp: true
   - name: ">>@v2nodes::NL"
     server: 104.17.3.81
     port: 443
@@ -75,7 +90,7 @@ proxies:
       headers:
         Host: sni.111000.indevs.in
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 8643"
+  - name: ">>@oneclickvpnkeys::NL 9295"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -90,7 +105,7 @@ proxies:
       headers:
         Host: sni.111000.v6.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 9118"
+  - name: ">>@oneclickvpnkeys::NL 6868"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -105,7 +120,7 @@ proxies:
       headers:
         Host: sni.111000.dns.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 4726"
+  - name: ">>@oneclickvpnkeys::NL 3196"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -120,7 +135,7 @@ proxies:
       headers:
         Host: sni.111000.dns.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 8708"
+  - name: ">>@oneclickvpnkeys::NL 2626"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -135,7 +150,7 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 4345"
+  - name: ">>@oneclickvpnkeys::NL 3321"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -150,7 +165,7 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 8308"
+  - name: ">>@oneclickvpnkeys::NL 6827"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -180,21 +195,6 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: "🇳🇱 NL | VLESS | @v2ray_collector #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: c931b432-cbab-47f4-ae30-917b17e5fb1f
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: 208.67.105.196
-    ws-opts:
-      path: /
-      headers:
-        Host: 208.67.105.196
-    udp: true
   - name: "هلند 🇳🇱 ملی | ۵۱۲ م.ب | #144"
     server: 104.17.3.81
     port: 443
@@ -210,7 +210,7 @@ proxies:
       headers:
         Host: cdn1.ufduiudud.site
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 8826"
+  - name: ">>@oneclickvpnkeys::NL 9544"
     server: 104.17.3.81
     port: 443
     type: trojan
@@ -224,7 +224,7 @@ proxies:
       headers:
         Host: HL-FREEDOM-1.UNDEF.NETWORK
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 8795"
+  - name: ">>@oneclickvpnkeys::NL 8988"
     server: 104.17.3.81
     port: 443
     type: trojan
@@ -238,7 +238,7 @@ proxies:
       headers:
         Host: www.multiplydose.com
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 9836"
+  - name: ">>@oneclickvpnkeys::NL 6951"
     server: 104.17.3.81
     port: 443
     type: trojan
@@ -257,21 +257,21 @@ proxy-groups:
   - name: URL-TEST NL - Netherlands
     type: url-test
     proxies:
+      - "🇳🇱 NL | VLESS | @v2ray_collector #1"
       - ">>@v2nodes::NL"
       - ">>@configshub2::NL"
       - ">>@oneclickvpnkeys::NL"
-      - ">>@oneclickvpnkeys::NL 8643"
-      - ">>@oneclickvpnkeys::NL 9118"
-      - ">>@oneclickvpnkeys::NL 4726"
-      - ">>@oneclickvpnkeys::NL 8708"
-      - ">>@oneclickvpnkeys::NL 4345"
-      - ">>@oneclickvpnkeys::NL 8308"
+      - ">>@oneclickvpnkeys::NL 9295"
+      - ">>@oneclickvpnkeys::NL 6868"
+      - ">>@oneclickvpnkeys::NL 3196"
+      - ">>@oneclickvpnkeys::NL 2626"
+      - ">>@oneclickvpnkeys::NL 3321"
+      - ">>@oneclickvpnkeys::NL 6827"
       - ">>@v2ray_configs_pool::NL"
-      - "🇳🇱 NL | VLESS | @v2ray_collector #1"
       - "هلند 🇳🇱 ملی | ۵۱۲ م.ب | #144"
-      - ">>@oneclickvpnkeys::NL 8826"
-      - ">>@oneclickvpnkeys::NL 8795"
-      - ">>@oneclickvpnkeys::NL 9836"
+      - ">>@oneclickvpnkeys::NL 9544"
+      - ">>@oneclickvpnkeys::NL 8988"
+      - ">>@oneclickvpnkeys::NL 6951"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
