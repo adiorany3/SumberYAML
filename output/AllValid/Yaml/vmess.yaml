@@ -1,4 +1,16 @@
 proxies:
+  - name: "@V2raysCollector 🌶"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: e7d72a8d-26f2-4b54-b366-0c43e0bcba7d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 165.140.216.141
+    network: tcp
+    udp: true
   - name: 🇨🇦CA-134.195.198.147-6946
     type: vmess
     server: 104.17.3.81
@@ -126,18 +138,6 @@ proxies:
       path: /
       headers:
         Host: 35044ac9a120f4dd5.spbohk.com
-    udp: true
-  - name: "@V2raysCollector 🌶"
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: e7d72a8d-26f2-4b54-b366-0c43e0bcba7d
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: 165.140.216.141
-    network: tcp
     udp: true
   - name: "🇭🇰 HK | VMESS | @freev2rays #1"
     type: vmess
@@ -307,6 +307,22 @@ proxies:
       headers:
         Host: cold-dawn-9246.fly.dev
     udp: true
+  - name: ">>@v2nodes::US::US::US::US::US::US::US::US::US::US::US::US::US"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 96d21cfe-b264-4bf3-8349-fb076d40837e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: sanjose01.zgjok.com
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: sanjose01.zgjok.com
+    udp: true
   - name: "@v2rayngzendegimamad🕊️"
     type: vmess
     server: 104.17.3.81
@@ -323,7 +339,7 @@ proxies:
       headers:
         Host: fapeng.org
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 9844"
+  - name: "@v2rayngzendegimamad🕊️ 5267"
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -367,7 +383,7 @@ proxies:
       headers:
         Host: bedrid.denizhosting.me
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 4502"
+  - name: "@v2rayngzendegimamad🕊️ 9694"
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -394,20 +410,4 @@ proxies:
     skip-cert-verify: true
     servername: victory.devmatt.ir
     network: tcp
-    udp: true
-  - name: ">>@v2nodes::US::US::US::US::US::US::US::US::US::US::US::US::US"
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: 96d21cfe-b264-4bf3-8349-fb076d40837e
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: sanjose01.zgjok.com
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: sanjose01.zgjok.com
     udp: true

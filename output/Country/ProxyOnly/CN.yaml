@@ -1,4 +1,19 @@
 proxies:
+  - name: "@v2rayconfigamir 1187"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.latonyamadeline.ndjp.net
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.latonyamadeline.ndjp.net
+    udp: true
   - name: "🪲17@oneclickvpnkeys"
     server: 104.17.3.81
     port: 443
@@ -28,49 +43,4 @@ proxies:
       path: "/?telegram🇨🇳@wangcai2="
       headers:
         Host: sni.111000.v6.navy
-    udp: true
-  - name: "🪲13@oneclickvpnkeys"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: sni.my111000.tech
-    ws-opts:
-      path: "/Telegram🇨🇳@WangCai2/"
-      headers:
-        Host: sni.my111000.tech
-    udp: true
-  - name: "⏳@Proxy_Vpney (2)"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: sni.111000.v6.rocks
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: sni.111000.v6.rocks
-    udp: true
-  - name: "@v2rayconfigamir 1187"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: sni.latonyamadeline.ndjp.net
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: sni.latonyamadeline.ndjp.net
     udp: true
