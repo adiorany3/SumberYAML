@@ -1,4 +1,20 @@
 proxies:
+  - name: "[🇨🇦]t.me/ConfigsHub"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: seribus.org
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: seribus.org
+    udp: true
   - name: 🇨🇦CA-134.195.198.147-6946
     type: vmess
     server: 104.17.3.81
@@ -47,19 +63,18 @@ proxies:
       headers:
         Host: 23.162.200.227
     udp: true
-  - name: "[🇨🇦]t.me/ConfigsHub"
-    type: vmess
+  - name: "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦"
     server: 104.17.3.81
     port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: seribus.org
     network: ws
+    servername: sni.111000.v6.rocks
     ws-opts:
-      path: /linkvws
+      path: /?ed=2560
       headers:
-        Host: seribus.org
+        Host: sni.111000.v6.rocks
     udp: true

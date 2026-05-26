@@ -30,6 +30,18 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "@V2raysCollector 🌶"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: e7d72a8d-26f2-4b54-b366-0c43e0bcba7d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 165.140.216.141
+    network: tcp
+    udp: true
   - name: 🏁RELAY-104.18.7.138-0211
     type: vmess
     server: 104.17.3.81
@@ -61,18 +73,6 @@ proxies:
       path: /
       headers:
         Host: 35044ac9a120f4dd5.spbohk.com
-    udp: true
-  - name: "@V2raysCollector 🌶"
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: e7d72a8d-26f2-4b54-b366-0c43e0bcba7d
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: 165.140.216.141
-    network: tcp
     udp: true
   - name: "🇽🇽 XX | VMESS | @iranvpnet #1"
     type: vmess
@@ -106,7 +106,7 @@ proxies:
       headers:
         Host: fapeng.org
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 9970"
+  - name: "@v2rayngzendegimamad🕊️ 4547"
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -134,7 +134,7 @@ proxies:
     servername: 94.183.241.233
     network: tcp
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 5515"
+  - name: "@v2rayngzendegimamad🕊️ 5789"
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -155,14 +155,14 @@ proxy-groups:
   - name: URL-TEST UNKNOWN
     type: url-test
     proxies:
+      - "@V2raysCollector 🌶"
       - 🏁RELAY-104.18.7.138-0211
       - 🏁RELAY-104.19.45.116-0224
-      - "@V2raysCollector 🌶"
       - "🇽🇽 XX | VMESS | @iranvpnet #1"
       - "@v2rayngzendegimamad🕊️"
-      - "@v2rayngzendegimamad🕊️ 9970"
+      - "@v2rayngzendegimamad🕊️ 4547"
       - "@BOMB_SERVER ❤️🔥جوین بده"
-      - "@v2rayngzendegimamad🕊️ 5515"
+      - "@v2rayngzendegimamad🕊️ 5789"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
