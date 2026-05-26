@@ -9,6 +9,7 @@ from urllib.parse import quote
 
 import requests
 import streamlit as st
+import streamlit.components.v1 as components
 
 
 # =========================
@@ -619,12 +620,116 @@ thread = start_bot_once()
 BOT_STATE.set(thread_alive=thread.is_alive())
 
 # Tampilan publik: robot animasi saja.
-st.markdown(
-    """
+# Pakai components.html agar SVG tidak muncul sebagai teks biasa di Streamlit.
+ROBOT_HTML = """
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: transparent;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .robot-stage {
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: transparent;
+    }
+
+    .robot-wrap {
+        width: min(54vw, 320px);
+        max-width: 320px;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        animation: robot-float 3s ease-in-out infinite;
+    }
+
+    .robot-glow {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        border-radius: 999px;
+        background: rgba(70, 155, 255, 0.16);
+        filter: blur(32px);
+        animation: glow-pulse 2.4s ease-in-out infinite;
+    }
+
+    .robot-svg {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 24px 42px rgba(0, 0, 0, 0.45));
+    }
+
+    .robot-eye {
+        animation: eye-blink 4s ease-in-out infinite;
+        transform-origin: center;
+    }
+
+    .robot-antenna-light {
+        animation: light-pulse 1.4s ease-in-out infinite;
+    }
+
+    .robot-arm-left {
+        transform-origin: 58px 145px;
+        animation: arm-wave-left 2.4s ease-in-out infinite;
+    }
+
+    .robot-arm-right {
+        transform-origin: 222px 145px;
+        animation: arm-wave-right 2.4s ease-in-out infinite;
+    }
+
+    @keyframes robot-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-14px); }
+    }
+
+    @keyframes glow-pulse {
+        0%, 100% { opacity: 0.58; transform: scale(0.96); }
+        50% { opacity: 1; transform: scale(1.08); }
+    }
+
+    @keyframes eye-blink {
+        0%, 44%, 52%, 100% { transform: scaleY(1); opacity: 1; }
+        48% { transform: scaleY(0.12); opacity: 0.85; }
+    }
+
+    @keyframes light-pulse {
+        0%, 100% { opacity: 0.45; }
+        50% { opacity: 1; }
+    }
+
+    @keyframes arm-wave-left {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(-8deg); }
+    }
+
+    @keyframes arm-wave-right {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(8deg); }
+    }
+</style>
+</head>
+<body>
     <div class="robot-stage" aria-label="Animated robot">
         <div class="robot-wrap">
             <div class="robot-glow"></div>
-            <svg class="robot-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" role="img">
+            <svg class="robot-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Robot animation">
                 <defs>
                     <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
                         <stop offset="0%" stop-color="#f7fbff"/>
@@ -665,6 +770,12 @@ st.markdown(
             </svg>
         </div>
     </div>
-    """,
-    unsafe_allow_html=True,
+</body>
+</html>
+"""
+
+components.html(
+    ROBOT_HTML,
+    height=540,
+    scrolling=False,
 )
