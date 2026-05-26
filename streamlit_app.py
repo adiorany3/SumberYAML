@@ -1,11 +1,16 @@
+import base64
+import csv
+import io
 import json
 import os
+import re
 import posixpath
 import threading
 import time
 import traceback
 from datetime import datetime, timezone
 from urllib.parse import quote
+from html import escape
 
 import requests
 import streamlit as st
@@ -179,6 +184,13 @@ if GITHUB_REPOSITORY and "/" in GITHUB_REPOSITORY:
 
 GITHUB_REF = get_setting("GITHUB_REF", "main")
 GITHUB_WORKFLOW_FILE = get_setting("GITHUB_WORKFLOW_FILE", "update-openclash.yml")
+
+# Panel Best Ping di Streamlit dan command Telegram /best.
+BEST_PING_SOURCE_LABEL = get_setting("BEST_PING_SOURCE_LABEL", "Indonesia")
+BEST_PING_LIMIT = get_int_setting("BEST_PING_LIMIT", 8)
+# Opsional: isi ID jika hanya ingin menampilkan server negara Indonesia.
+# Kosongkan agar menampilkan proxy alive tercepat dari semua negara.
+BEST_PING_COUNTRY_FILTER = get_setting("BEST_PING_COUNTRY_FILTER", "").upper()
 
 
 # =========================
@@ -406,6 +418,203 @@ def latest_workflow_run():
     return runs[0] if runs else None
 
 
+
+# =========================
+# BEST PING HELPERS
+# =========================
+def github_contents_url(path: str) -> str:
+    clean_path = quote(path.strip('/'), safe='/')
+    return f"{github_base()}/contents/{clean_path}"
+
+
+def fetch_github_file_text(path: str) -> str:
+    """Ambil file output dari repo GitHub.
+
+    Menggunakan GitHub Contents API agar tetap bisa membaca repo private selama token benar.
+    Jika gagal, fallback ke raw.githubusercontent.com untuk repo public.
+    """
+    api_error = None
+
+    try:
+        response = requests.get(
+            github_contents_url(path),
+            headers=github_headers(),
+            params={"ref": GITHUB_REF},
+            timeout=30,
+        )
+
+        if response.ok:
+            data = response.json()
+            content = data.get("content", "")
+            encoding = data.get("encoding", "")
+
+            if encoding == "base64" and content:
+                return base64.b64decode(content).decode("utf-8", errors="replace")
+
+            download_url = data.get("download_url")
+            if download_url:
+                raw_response = requests.get(download_url, timeout=30)
+                raw_response.raise_for_status()
+                return raw_response.text
+
+            raise RuntimeError(f"File {path} ditemukan, tetapi content kosong.")
+
+        api_error = parse_github_error(response)
+    except Exception as exc:
+        api_error = str(exc)
+
+    raw_url = f"https://raw.githubusercontent.com/{GITHUB_OWNER}/{GITHUB_REPO}/{GITHUB_REF}/{path.strip('/')}"
+    raw_response = requests.get(raw_url, timeout=30)
+
+    if raw_response.ok:
+        return raw_response.text
+
+    raise RuntimeError(
+        f"Gagal membaca {path}.\n"
+        f"API error: {api_error}\n"
+        f"Raw status: {raw_response.status_code}"
+    )
+
+
+def parse_delay_ms(value):
+    if value is None:
+        return None
+
+    value_text = str(value).strip().lower()
+    if not value_text:
+        return None
+
+    match = re.search(r"\d+", value_text)
+    if not match:
+        return None
+
+    try:
+        return int(match.group(0))
+    except Exception:
+        return None
+
+
+def normalize_csv_row(row: dict) -> dict:
+    delay = parse_delay_ms(row.get("delay_ms"))
+    return {
+        "protocol": str(row.get("protocol", "-")).strip() or "-",
+        "name": str(row.get("name", "-")).strip() or "-",
+        "country": str(row.get("country", "-")).strip() or "-",
+        "server": str(row.get("server", "-")).strip() or "-",
+        "port": str(row.get("port", "-")).strip() or "-",
+        "network": str(row.get("network", "-")).strip() or "-",
+        "status": str(row.get("status", "-")).strip().lower() or "-",
+        "delay_ms": delay,
+        "reason": str(row.get("reason", "")).strip(),
+    }
+
+
+def parse_check_csv(csv_text: str):
+    reader = csv.DictReader(io.StringIO(csv_text or ""))
+    rows = []
+
+    for row in reader:
+        rows.append(normalize_csv_row(row))
+
+    return rows
+
+
+def count_proxy_names_from_lengkap_yaml() -> int:
+    try:
+        yaml_text = fetch_github_file_text("output/lengkap.yaml")
+    except Exception:
+        return 0
+
+    matches = re.findall(r"(?m)^\s*-\s+name:\s*.+$", yaml_text)
+    return len(matches)
+
+
+@st.cache_data(ttl=60, show_spinner=False)
+def load_best_ping_data(limit: int = None):
+    limit = int(limit or BEST_PING_LIMIT or 8)
+    paths = [
+        "output/Alive/alive.csv",
+        "output/Alive/check_result.csv",
+    ]
+
+    last_error = None
+    rows = []
+    source_path = "-"
+
+    for path in paths:
+        try:
+            csv_text = fetch_github_file_text(path)
+            rows = parse_check_csv(csv_text)
+            source_path = path
+            break
+        except Exception as exc:
+            last_error = exc
+
+    if not rows and last_error:
+        raise RuntimeError(str(last_error))
+
+    alive_rows = [
+        row for row in rows
+        if row.get("status") == "alive" and row.get("delay_ms") is not None
+    ]
+
+    if BEST_PING_COUNTRY_FILTER:
+        alive_rows = [
+            row for row in alive_rows
+            if row.get("country", "").upper() == BEST_PING_COUNTRY_FILTER
+        ]
+
+    alive_rows.sort(key=lambda item: item.get("delay_ms") or 999999)
+
+    summary = {}
+    try:
+        summary_text = fetch_github_file_text("output/Alive/summary_alive.json")
+        summary = json.loads(summary_text)
+    except Exception:
+        summary = {}
+
+    return {
+        "rows": alive_rows[:limit],
+        "all_alive_count": len(alive_rows),
+        "source_path": source_path,
+        "summary": summary,
+        "yaml_proxy_count": count_proxy_names_from_lengkap_yaml(),
+        "source_label": BEST_PING_SOURCE_LABEL or "Indonesia",
+        "country_filter": BEST_PING_COUNTRY_FILTER,
+    }
+
+
+def best_ping_text_for_telegram(limit: int = 10) -> str:
+    data = load_best_ping_data(limit=limit)
+    rows = data.get("rows", [])
+    source_label = data.get("source_label", "Indonesia")
+    country_filter = data.get("country_filter", "")
+
+    if not rows:
+        filter_text = f" untuk negara {country_filter}" if country_filter else ""
+        return (
+            f"📡 <b>Best Ping From {escape(source_label)}</b>\n"
+            f"Belum ada data proxy alive{filter_text}.\n\n"
+            "Jalankan <code>/test</code> atau <code>/update</code> dulu, lalu coba <code>/best</code> lagi."
+        )
+
+    lines = [
+        f"🏆 <b>Best Ping From {escape(source_label)}</b>",
+        f"Sumber: <code>{escape(data.get('source_path', '-'))}</code>",
+        f"Proxy di lengkap.yaml: <code>{data.get('yaml_proxy_count', 0)}</code>",
+        "",
+    ]
+
+    for idx, row in enumerate(rows, start=1):
+        lines.append(
+            f"{idx}. <b>{escape(row['name'])}</b>\n"
+            f"   Delay: <code>{row['delay_ms']} ms</code> | "
+            f"{escape(row['protocol'])} | {escape(row['country'])} | "
+            f"<code>{escape(row['server'])}:{escape(row['port'])}</code>"
+        )
+
+    return "\n".join(lines)
+
 # =========================
 # COMMAND HANDLERS
 # =========================
@@ -513,12 +722,17 @@ def handle_check(chat_id):
     )
 
 
+def handle_best(chat_id):
+    send_message(chat_id, best_ping_text_for_telegram(limit=10))
+
+
 def handle_help(chat_id):
     send_message(
         chat_id,
         "<b>Command tersedia:</b>\n"
         "/update - jalankan update via GitHub Actions\n"
         "/test - cek proxy hidup/mati via GitHub Actions\n"
+        "/best - tampilkan best ping dari output/lengkap.yaml\n"
         "/status - cek workflow GitHub terakhir\n"
         "/check - cek konfigurasi token/repo/workflow\n"
         "/id - tampilkan chat ID\n"
@@ -536,6 +750,8 @@ def handle_command(chat_id, text: str):
         return handle_test(chat_id)
     if command == "/status":
         return handle_status(chat_id)
+    if command == "/best":
+        return handle_best(chat_id)
     if command == "/check":
         return handle_check(chat_id)
     if command == "/id":
@@ -622,7 +838,6 @@ BOT_STATE.set(thread_alive=thread.is_alive())
 # =========================
 # TAMAGOTCHI ROBOT UI
 # =========================
-from html import escape
 
 PET_DEFAULTS = {
     "hunger": 82,
@@ -1140,6 +1355,79 @@ st.markdown(
             margin: 10px 0 2px;
             text-align: center;
         }
+
+        .best-ping-card {
+            margin-top: 12px;
+            padding: 16px;
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(99,247,180,0.12), rgba(82,230,255,0.055));
+            border: 1px solid rgba(99,247,180,0.18);
+            box-shadow: 0 18px 42px rgba(0,0,0,0.20);
+            color: #eef6ff;
+        }
+
+        .best-ping-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .best-ping-title {
+            font-size: 15px;
+            font-weight: 900;
+            letter-spacing: 0.2px;
+        }
+
+        .best-ping-delay {
+            white-space: nowrap;
+            font-size: 20px;
+            font-weight: 900;
+            color: #63f7b4;
+        }
+
+        .best-ping-meta {
+            color: rgba(238,246,255,0.74);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .best-ping-list {
+            margin-top: 10px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .best-ping-row {
+            display: grid;
+            grid-template-columns: 34px 1fr auto;
+            gap: 10px;
+            align-items: center;
+            padding: 10px 12px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.055);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .best-ping-rank {
+            font-weight: 900;
+            color: #63f7b4;
+        }
+
+        .best-ping-name {
+            font-weight: 800;
+            font-size: 13px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .best-ping-sub {
+            color: rgba(238,246,255,0.66);
+            font-size: 12px;
+            margin-top: 2px;
+        }
     </style>
     """,
     unsafe_allow_html=True,
@@ -1227,7 +1515,90 @@ with bot_col2:
             st.error(str(exc))
         st.rerun()
 
+st.markdown('<div class="pet-section-title">Best Ping From Indonesia</div>', unsafe_allow_html=True)
+
+best_col1, best_col2 = st.columns(2)
+with best_col1:
+    if st.button("📡 Refresh Best Ping", use_container_width=True):
+        try:
+            load_best_ping_data.clear()
+        except Exception:
+            pass
+        st.rerun()
+with best_col2:
+    if st.button("🏆 Test + Update Ping", use_container_width=True):
+        try:
+            dispatch_workflow(mode="test", enable_proxy_test="true", filter_alive_only="false")
+            set_pet_action("Best ping sedang dites ulang lewat GitHub Actions.")
+            st.success("Test ping berhasil dipicu. Tunggu output Alive/Dead diperbarui.")
+            add_xp(12)
+        except Exception as exc:
+            set_pet_action("Aku gagal memicu test best ping. Cek workflow dan secrets.")
+            st.error(str(exc))
+        st.rerun()
+
+try:
+    best_data = load_best_ping_data(limit=BEST_PING_LIMIT)
+    best_rows = best_data.get("rows", [])
+    summary = best_data.get("summary", {}) or {}
+
+    if best_rows:
+        top = best_rows[0]
+        source_label = escape(best_data.get("source_label", "Indonesia"))
+        source_path = escape(best_data.get("source_path", "-"))
+        country_filter = best_data.get("country_filter") or "Semua negara"
+        country_filter = escape(country_filter)
+
+        rows_html = []
+        for idx, row in enumerate(best_rows, start=1):
+            rows_html.append(
+                f'''
+                <div class="best-ping-row">
+                    <div class="best-ping-rank">#{idx}</div>
+                    <div>
+                        <div class="best-ping-name">{escape(row["name"])}</div>
+                        <div class="best-ping-sub">{escape(row["protocol"].upper())} · {escape(row["country"])} · {escape(row["server"])}:{escape(row["port"])}</div>
+                    </div>
+                    <div class="best-ping-delay">{row["delay_ms"]} ms</div>
+                </div>
+                '''
+            )
+
+        st.markdown(
+            f'''
+            <div class="best-ping-card">
+                <div class="best-ping-top">
+                    <div>
+                        <div class="best-ping-title">🏆 Tercepat dari {source_label}</div>
+                        <div class="best-ping-meta">{escape(top["name"])} · {escape(top["protocol"].upper())} · {escape(top["country"])}</div>
+                    </div>
+                    <div class="best-ping-delay">{top["delay_ms"]} ms</div>
+                </div>
+                <div class="best-ping-meta">
+                    Sumber data: <code>{source_path}</code><br>
+                    Proxy di <code>output/lengkap.yaml</code>: <b>{best_data.get("yaml_proxy_count", 0)}</b><br>
+                    Alive: <b>{summary.get("alive", best_data.get("all_alive_count", 0))}</b> · Dead: <b>{summary.get("dead", "-")}</b> · Untested: <b>{summary.get("untested", "-")}</b><br>
+                    Filter negara: <b>{country_filter}</b>
+                </div>
+                <div class="best-ping-list">
+                    {''.join(rows_html)}
+                </div>
+            </div>
+            ''',
+            unsafe_allow_html=True,
+        )
+    else:
+        st.info(
+            "Belum ada data proxy alive dari output/Alive. Klik Test + Update Ping atau kirim /test di Telegram."
+        )
+except Exception as exc:
+    st.info(
+        "Best ping belum bisa ditampilkan. Pastikan output/Alive/check_result.csv atau output/Alive/alive.csv sudah ada di GitHub."
+    )
+    with st.expander("Detail error best ping"):
+        st.code(str(exc))
+
 st.markdown(
-    '<div class="pet-small-note">Telegram tetap aktif di background: /check, /update, /test, /status, /id, /help.</div>',
+    '<div class="pet-small-note">Telegram tetap aktif di background: /check, /update, /test, /best, /status, /id, /help.</div>',
     unsafe_allow_html=True,
 )
