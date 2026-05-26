@@ -30,6 +30,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "🇽🇽 XX | VLESS | @v2ra_ng_iran #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 5e1306ff-3ffa-4166-89ab-1a06ff42eca6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: www.speedtest.net
+    ws-opts:
+      path: /Telegram-mtmvpn_mtmvpn?ed=512
+      headers:
+        Host: www.speedtest.net
+    udp: true
   - name: ">>@v2ray1_ng::US"
     server: 104.17.3.81
     port: 443
@@ -50,6 +65,7 @@ proxy-groups:
   - name: URL-TEST NG - Nigeria
     type: url-test
     proxies:
+      - "🇽🇽 XX | VLESS | @v2ra_ng_iran #1"
       - ">>@v2ray1_ng::US"
     url: http://www.gstatic.com/generate_204
     interval: 300
