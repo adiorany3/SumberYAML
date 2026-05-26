@@ -619,16 +619,193 @@ def start_bot_once():
 thread = start_bot_once()
 BOT_STATE.set(thread_alive=thread.is_alive())
 
-# Tampilan publik: robot animasi saja.
-# Pakai components.html agar SVG tidak muncul sebagai teks biasa di Streamlit.
-ROBOT_HTML = """
+# =========================
+# TAMAGOTCHI ROBOT UI
+# =========================
+from html import escape
+
+PET_DEFAULTS = {
+    "hunger": 82,
+    "energy": 78,
+    "happiness": 84,
+    "hygiene": 76,
+    "level": 1,
+    "xp": 0,
+    "last_tick": time.time(),
+    "last_action_text": "Halo! Aku Yamlku Bot. Rawat aku sambil aku jaga update config kamu.",
+}
+
+
+def clamp(value, minimum=0, maximum=100):
+    return max(minimum, min(maximum, int(round(value))))
+
+
+def init_pet_state():
+    if "pet" not in st.session_state:
+        st.session_state.pet = dict(PET_DEFAULTS)
+
+
+def decay_pet_state():
+    pet = st.session_state.pet
+    now = time.time()
+    elapsed = max(0, now - float(pet.get("last_tick", now)))
+
+    # Decay pelan, terasa seperti Tamagotchi tanpa terlalu cepat rusak.
+    pet["hunger"] = clamp(pet.get("hunger", 80) - elapsed / 210)
+    pet["energy"] = clamp(pet.get("energy", 80) - elapsed / 260)
+    pet["happiness"] = clamp(pet.get("happiness", 80) - elapsed / 320)
+    pet["hygiene"] = clamp(pet.get("hygiene", 80) - elapsed / 420)
+    pet["last_tick"] = now
+
+
+def add_xp(amount: int):
+    pet = st.session_state.pet
+    pet["xp"] = int(pet.get("xp", 0)) + amount
+
+    while pet["xp"] >= 100:
+        pet["xp"] -= 100
+        pet["level"] = int(pet.get("level", 1)) + 1
+        pet["last_action_text"] = f"Naik level! Sekarang aku level {pet['level']}."
+
+
+def set_pet_action(message: str):
+    st.session_state.pet["last_action_text"] = message
+    st.session_state.pet["last_tick"] = time.time()
+
+
+def action_feed():
+    pet = st.session_state.pet
+    pet["hunger"] = clamp(pet["hunger"] + 30)
+    pet["happiness"] = clamp(pet["happiness"] + 7)
+    pet["energy"] = clamp(pet["energy"] - 3)
+    pet["hygiene"] = clamp(pet["hygiene"] - 3)
+    set_pet_action("Nyam! Baterai data proxy makin siap diproses.")
+    add_xp(12)
+
+
+def action_play():
+    pet = st.session_state.pet
+    pet["happiness"] = clamp(pet["happiness"] + 28)
+    pet["energy"] = clamp(pet["energy"] - 14)
+    pet["hunger"] = clamp(pet["hunger"] - 9)
+    pet["hygiene"] = clamp(pet["hygiene"] - 6)
+    set_pet_action("Asik! Aku main sambil scan config.")
+    add_xp(16)
+
+
+def action_sleep():
+    pet = st.session_state.pet
+    pet["energy"] = clamp(pet["energy"] + 36)
+    pet["hunger"] = clamp(pet["hunger"] - 5)
+    pet["happiness"] = clamp(pet["happiness"] + 3)
+    set_pet_action("Mode tidur aktif. Sistem adem, siap update lagi.")
+    add_xp(9)
+
+
+def action_clean():
+    pet = st.session_state.pet
+    pet["hygiene"] = clamp(pet["hygiene"] + 38)
+    pet["happiness"] = clamp(pet["happiness"] + 5)
+    set_pet_action("Bersih! Cache debu digital sudah dibuang.")
+    add_xp(10)
+
+
+def action_charge():
+    pet = st.session_state.pet
+    pet["energy"] = clamp(pet["energy"] + 26)
+    pet["hunger"] = clamp(pet["hunger"] - 2)
+    set_pet_action("Charging selesai. Antena Telegram siap standby.")
+    add_xp(10)
+
+
+def action_reset():
+    st.session_state.pet = dict(PET_DEFAULTS)
+    st.session_state.pet["last_tick"] = time.time()
+
+
+def pet_mood():
+    pet = st.session_state.pet
+    if pet["energy"] < 20:
+        return "sleepy", "Mengantuk"
+    if pet["hunger"] < 22:
+        return "hungry", "Lapar"
+    if pet["hygiene"] < 22:
+        return "dirty", "Kotor"
+    if pet["happiness"] < 24:
+        return "sad", "Sedih"
+    avg = (pet["hunger"] + pet["energy"] + pet["happiness"] + pet["hygiene"]) / 4
+    if avg >= 78:
+        return "happy", "Bahagia"
+    return "normal", "Normal"
+
+
+def render_robot_html(mood: str, mood_label: str, message: str, level: int, xp: int) -> str:
+    accent = {
+        "happy": "#63f7b4",
+        "normal": "#52e6ff",
+        "sleepy": "#b9a7ff",
+        "hungry": "#ffd166",
+        "dirty": "#b5c09a",
+        "sad": "#8fc3ff",
+    }.get(mood, "#52e6ff")
+
+    glow = {
+        "happy": "rgba(99,247,180,0.25)",
+        "normal": "rgba(82,230,255,0.20)",
+        "sleepy": "rgba(185,167,255,0.22)",
+        "hungry": "rgba(255,209,102,0.22)",
+        "dirty": "rgba(181,192,154,0.18)",
+        "sad": "rgba(143,195,255,0.17)",
+    }.get(mood, "rgba(82,230,255,0.20)")
+
+    if mood == "sleepy":
+        eyes = f'''
+            <path class="robot-eye" d="M111 124 Q120 118 129 124" fill="none" stroke="{accent}" stroke-width="6" stroke-linecap="round"/>
+            <path class="robot-eye" d="M151 124 Q160 118 169 124" fill="none" stroke="{accent}" stroke-width="6" stroke-linecap="round"/>
+        '''
+        mouth = f'<path d="M124 145 Q140 149 156 145" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round"/>'
+        extra = '<text x="190" y="88" class="zzz">Zz</text><text x="212" y="66" class="zzz small">z</text>'
+    elif mood == "sad":
+        eyes = f'''
+            <circle class="robot-eye" cx="120" cy="124" r="8" fill="{accent}"/>
+            <circle class="robot-eye" cx="160" cy="124" r="8" fill="{accent}"/>
+        '''
+        mouth = f'<path d="M124 149 Q140 137 156 149" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round"/>'
+        extra = f'<path class="tear" d="M170 132 C180 145 170 152 164 144 C162 139 166 135 170 132Z" fill="{accent}" opacity="0.72"/>'
+    elif mood == "hungry":
+        eyes = f'''
+            <circle class="robot-eye" cx="120" cy="124" r="8" fill="{accent}"/>
+            <circle class="robot-eye" cx="160" cy="124" r="8" fill="{accent}"/>
+        '''
+        mouth = f'<circle cx="140" cy="146" r="7" fill="none" stroke="{accent}" stroke-width="5"/>'
+        extra = '<text x="193" y="88" class="food">0101</text>'
+    else:
+        eyes = f'''
+            <circle class="robot-eye" cx="120" cy="124" r="9" fill="{accent}"/>
+            <circle class="robot-eye" cx="160" cy="124" r="9" fill="{accent}"/>
+        '''
+        mouth = f'<path d="M124 145 Q140 158 156 145" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round"/>'
+        extra = ''
+
+    dirt = ''
+    if mood == "dirty":
+        dirt = '''
+            <circle cx="97" cy="84" r="5" fill="#7c806d" opacity="0.55"/>
+            <circle cx="190" cy="176" r="6" fill="#7c806d" opacity="0.45"/>
+            <circle cx="87" cy="166" r="4" fill="#7c806d" opacity="0.50"/>
+        '''
+
+    safe_message = escape(message)
+    safe_mood_label = escape(mood_label)
+
+    return f"""
 <!doctype html>
 <html lang="id">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-    html, body {
+    html, body {{
         margin: 0;
         padding: 0;
         width: 100%;
@@ -636,146 +813,421 @@ ROBOT_HTML = """
         overflow: hidden;
         background: transparent;
         font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+        color: #eef6ff;
+    }}
 
-    .robot-stage {
-        min-height: 520px;
+    .pet-card {{
+        width: min(94vw, 720px);
+        margin: 0 auto;
+        padding: 22px 18px 18px;
+        border-radius: 32px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
+        border: 1px solid rgba(255,255,255,0.13);
+        box-shadow: 0 28px 80px rgba(0,0,0,0.32);
+        backdrop-filter: blur(18px);
+    }}
+
+    .robot-stage {{
+        min-height: 345px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        background: transparent;
-    }
+        position: relative;
+    }}
 
-    .robot-wrap {
-        width: min(54vw, 320px);
-        max-width: 320px;
+    .robot-wrap {{
+        width: min(62vw, 285px);
+        max-width: 285px;
         aspect-ratio: 1;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
         animation: robot-float 3s ease-in-out infinite;
-    }
+    }}
 
-    .robot-glow {
+    .robot-wrap.happy {{ animation: robot-happy 1.45s ease-in-out infinite; }}
+    .robot-wrap.sleepy {{ animation: robot-sleepy 4s ease-in-out infinite; }}
+    .robot-wrap.hungry {{ animation: robot-shake 0.9s ease-in-out infinite; }}
+    .robot-wrap.sad {{ animation: robot-sad 3.2s ease-in-out infinite; }}
+
+    .robot-glow {{
         position: absolute;
-        width: 80%;
-        height: 80%;
+        width: 84%;
+        height: 84%;
         border-radius: 999px;
-        background: rgba(70, 155, 255, 0.16);
-        filter: blur(32px);
+        background: {glow};
+        filter: blur(34px);
         animation: glow-pulse 2.4s ease-in-out infinite;
-    }
+    }}
 
-    .robot-svg {
+    .robot-svg {{
         position: relative;
         width: 100%;
         height: 100%;
         filter: drop-shadow(0 24px 42px rgba(0, 0, 0, 0.45));
-    }
+    }}
 
-    .robot-eye {
+    .robot-eye {{
         animation: eye-blink 4s ease-in-out infinite;
         transform-origin: center;
-    }
+    }}
 
-    .robot-antenna-light {
+    .robot-antenna-light {{
         animation: light-pulse 1.4s ease-in-out infinite;
-    }
+    }}
 
-    .robot-arm-left {
+    .robot-arm-left {{
         transform-origin: 58px 145px;
         animation: arm-wave-left 2.4s ease-in-out infinite;
-    }
+    }}
 
-    .robot-arm-right {
+    .robot-arm-right {{
         transform-origin: 222px 145px;
         animation: arm-wave-right 2.4s ease-in-out infinite;
-    }
+    }}
 
-    @keyframes robot-float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-14px); }
-    }
+    .speech {{
+        margin: -10px auto 0;
+        width: min(92%, 540px);
+        padding: 14px 16px;
+        border-radius: 20px;
+        background: rgba(5, 12, 24, 0.62);
+        border: 1px solid rgba(255,255,255,0.12);
+        text-align: center;
+        line-height: 1.45;
+    }}
 
-    @keyframes glow-pulse {
-        0%, 100% { opacity: 0.58; transform: scale(0.96); }
-        50% { opacity: 1; transform: scale(1.08); }
-    }
+    .title {{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        font-weight: 800;
+        letter-spacing: 0.3px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }}
 
-    @keyframes eye-blink {
-        0%, 44%, 52%, 100% { transform: scaleY(1); opacity: 1; }
-        48% { transform: scaleY(0.12); opacity: 0.85; }
-    }
+    .pill {{
+        font-size: 12px;
+        font-weight: 700;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.10);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: {accent};
+    }}
 
-    @keyframes light-pulse {
-        0%, 100% { opacity: 0.45; }
-        50% { opacity: 1; }
-    }
+    .zzz, .food {{
+        fill: {accent};
+        font-weight: 800;
+        font-size: 22px;
+        opacity: 0.85;
+        animation: float-text 2.1s ease-in-out infinite;
+    }}
+    .zzz.small {{ font-size: 14px; animation-delay: 0.35s; }}
+    .tear {{ animation: tear-drop 1.8s ease-in-out infinite; }}
 
-    @keyframes arm-wave-left {
-        0%, 100% { transform: rotate(0deg); }
-        50% { transform: rotate(-8deg); }
-    }
+    @keyframes robot-float {{
+        0%, 100% {{ transform: translateY(0); }}
+        50% {{ transform: translateY(-13px); }}
+    }}
 
-    @keyframes arm-wave-right {
-        0%, 100% { transform: rotate(0deg); }
-        50% { transform: rotate(8deg); }
-    }
+    @keyframes robot-happy {{
+        0%, 100% {{ transform: translateY(0) rotate(-1deg); }}
+        50% {{ transform: translateY(-18px) rotate(1deg); }}
+    }}
+
+    @keyframes robot-sleepy {{
+        0%, 100% {{ transform: translateY(0) rotate(-2deg); opacity: 0.86; }}
+        50% {{ transform: translateY(3px) rotate(2deg); opacity: 1; }}
+    }}
+
+    @keyframes robot-shake {{
+        0%, 100% {{ transform: translateX(0); }}
+        25% {{ transform: translateX(-3px); }}
+        75% {{ transform: translateX(3px); }}
+    }}
+
+    @keyframes robot-sad {{
+        0%, 100% {{ transform: translateY(8px); }}
+        50% {{ transform: translateY(1px); }}
+    }}
+
+    @keyframes glow-pulse {{
+        0%, 100% {{ opacity: 0.58; transform: scale(0.96); }}
+        50% {{ opacity: 1; transform: scale(1.08); }}
+    }}
+
+    @keyframes eye-blink {{
+        0%, 44%, 52%, 100% {{ transform: scaleY(1); opacity: 1; }}
+        48% {{ transform: scaleY(0.12); opacity: 0.85; }}
+    }}
+
+    @keyframes light-pulse {{
+        0%, 100% {{ opacity: 0.45; }}
+        50% {{ opacity: 1; }}
+    }}
+
+    @keyframes arm-wave-left {{
+        0%, 100% {{ transform: rotate(0deg); }}
+        50% {{ transform: rotate(-9deg); }}
+    }}
+
+    @keyframes arm-wave-right {{
+        0%, 100% {{ transform: rotate(0deg); }}
+        50% {{ transform: rotate(9deg); }}
+    }}
+
+    @keyframes float-text {{
+        0%, 100% {{ transform: translateY(0); opacity: .58; }}
+        50% {{ transform: translateY(-7px); opacity: 1; }}
+    }}
+
+    @keyframes tear-drop {{
+        0%, 100% {{ transform: translateY(0); opacity: .45; }}
+        50% {{ transform: translateY(8px); opacity: 1; }}
+    }}
 </style>
 </head>
 <body>
-    <div class="robot-stage" aria-label="Animated robot">
-        <div class="robot-wrap">
-            <div class="robot-glow"></div>
-            <svg class="robot-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Robot animation">
-                <defs>
-                    <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#f7fbff"/>
-                        <stop offset="100%" stop-color="#9fb8d9"/>
-                    </linearGradient>
-                    <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#17233c"/>
-                        <stop offset="100%" stop-color="#07101f"/>
-                    </linearGradient>
-                </defs>
-
-                <ellipse cx="140" cy="242" rx="68" ry="14" fill="rgba(0,0,0,0.28)"/>
-
-                <line x1="140" y1="62" x2="140" y2="36" stroke="#b7c8df" stroke-width="8" stroke-linecap="round"/>
-                <circle class="robot-antenna-light" cx="140" cy="28" r="11" fill="#4dd5ff"/>
-
-                <g class="robot-arm-left">
-                    <rect x="35" y="128" width="42" height="24" rx="12" fill="#8ca6c9"/>
-                    <circle cx="34" cy="140" r="12" fill="#c8d8ec"/>
-                </g>
-
-                <g class="robot-arm-right">
-                    <rect x="203" y="128" width="42" height="24" rx="12" fill="#8ca6c9"/>
-                    <circle cx="246" cy="140" r="12" fill="#c8d8ec"/>
-                </g>
-
-                <rect x="72" y="68" width="136" height="130" rx="38" fill="url(#bodyGrad)"/>
-                <rect x="91" y="95" width="98" height="58" rx="24" fill="url(#screenGrad)"/>
-
-                <circle class="robot-eye" cx="120" cy="124" r="9" fill="#52e6ff"/>
-                <circle class="robot-eye" cx="160" cy="124" r="9" fill="#52e6ff"/>
-                <path d="M124 145 Q140 157 156 145" fill="none" stroke="#52e6ff" stroke-width="5" stroke-linecap="round"/>
-
-                <rect x="105" y="170" width="70" height="16" rx="8" fill="#dce8f7"/>
-                <circle cx="119" cy="178" r="4" fill="#6d87aa"/>
-                <circle cx="140" cy="178" r="4" fill="#6d87aa"/>
-                <circle cx="161" cy="178" r="4" fill="#6d87aa"/>
-            </svg>
+    <div class="pet-card">
+        <div class="title">
+            <span>🤖 YAMLKU BOT PET</span>
+            <span class="pill">{safe_mood_label}</span>
+            <span class="pill">LV {level}</span>
+            <span class="pill">XP {xp}/100</span>
         </div>
+        <div class="robot-stage" aria-label="Tamagotchi robot">
+            <div class="robot-wrap {mood}">
+                <div class="robot-glow"></div>
+                <svg class="robot-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Robot pet animation">
+                    <defs>
+                        <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#f7fbff"/>
+                            <stop offset="100%" stop-color="#9fb8d9"/>
+                        </linearGradient>
+                        <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#17233c"/>
+                            <stop offset="100%" stop-color="#07101f"/>
+                        </linearGradient>
+                    </defs>
+
+                    <ellipse cx="140" cy="242" rx="68" ry="14" fill="rgba(0,0,0,0.28)"/>
+
+                    <line x1="140" y1="62" x2="140" y2="36" stroke="#b7c8df" stroke-width="8" stroke-linecap="round"/>
+                    <circle class="robot-antenna-light" cx="140" cy="28" r="11" fill="{accent}"/>
+
+                    <g class="robot-arm-left">
+                        <rect x="35" y="128" width="42" height="24" rx="12" fill="#8ca6c9"/>
+                        <circle cx="34" cy="140" r="12" fill="#c8d8ec"/>
+                    </g>
+
+                    <g class="robot-arm-right">
+                        <rect x="203" y="128" width="42" height="24" rx="12" fill="#8ca6c9"/>
+                        <circle cx="246" cy="140" r="12" fill="#c8d8ec"/>
+                    </g>
+
+                    <rect x="72" y="68" width="136" height="130" rx="38" fill="url(#bodyGrad)"/>
+                    {dirt}
+                    <rect x="91" y="95" width="98" height="58" rx="24" fill="url(#screenGrad)"/>
+
+                    {eyes}
+                    {mouth}
+                    {extra}
+
+                    <rect x="105" y="170" width="70" height="16" rx="8" fill="#dce8f7"/>
+                    <circle cx="119" cy="178" r="4" fill="#6d87aa"/>
+                    <circle cx="140" cy="178" r="4" fill="#6d87aa"/>
+                    <circle cx="161" cy="178" r="4" fill="#6d87aa"/>
+                </svg>
+            </div>
+        </div>
+        <div class="speech">{safe_message}</div>
     </div>
 </body>
 </html>
 """
 
+
+def render_metric(label: str, value: int, icon: str):
+    st.markdown(
+        f"""
+        <div class="pet-metric">
+            <div class="pet-metric-head"><span>{icon} {label}</span><strong>{value}%</strong></div>
+            <div class="pet-bar"><div class="pet-fill" style="width: {value}%;"></div></div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+st.markdown(
+    """
+    <style>
+        .block-container {
+            max-width: 760px !important;
+            padding: 28px 14px 44px !important;
+            margin: 0 auto !important;
+        }
+
+        .stButton > button {
+            width: 100%;
+            min-height: 46px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.16);
+            background: rgba(255,255,255,0.08);
+            color: #eef6ff;
+            font-weight: 700;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+        }
+
+        .stButton > button:hover {
+            border-color: rgba(100, 230, 255, 0.55);
+            background: rgba(82,230,255,0.12);
+            color: #ffffff;
+        }
+
+        .pet-panel {
+            margin-top: 14px;
+            padding: 16px;
+            border-radius: 24px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(18px);
+        }
+
+        .pet-metric {
+            margin: 9px 0;
+        }
+
+        .pet-metric-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #eaf4ff;
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .pet-bar {
+            height: 12px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.10);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .pet-fill {
+            height: 100%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #52e6ff, #63f7b4);
+            box-shadow: 0 0 18px rgba(82,230,255,0.35);
+        }
+
+        .pet-small-note {
+            color: rgba(238,246,255,0.72);
+            text-align: center;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .pet-section-title {
+            color: #eef6ff;
+            font-weight: 800;
+            margin: 10px 0 2px;
+            text-align: center;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+init_pet_state()
+decay_pet_state()
+pet = st.session_state.pet
+mood, mood_label = pet_mood()
+
 components.html(
-    ROBOT_HTML,
-    height=540,
+    render_robot_html(
+        mood=mood,
+        mood_label=mood_label,
+        message=pet.get("last_action_text", "Halo!"),
+        level=int(pet.get("level", 1)),
+        xp=int(pet.get("xp", 0)),
+    ),
+    height=520,
     scrolling=False,
+)
+
+st.markdown('<div class="pet-panel">', unsafe_allow_html=True)
+left, right = st.columns(2)
+with left:
+    render_metric("Kenyang", int(pet["hunger"]), "🍜")
+    render_metric("Bahagia", int(pet["happiness"]), "🎮")
+with right:
+    render_metric("Energi", int(pet["energy"]), "🔋")
+    render_metric("Bersih", int(pet["hygiene"]), "🧼")
+st.markdown('</div>', unsafe_allow_html=True)
+
+st.markdown('<div class="pet-section-title">Rawat robot</div>', unsafe_allow_html=True)
+col1, col2, col3 = st.columns(3)
+with col1:
+    if st.button("🍜 Makan", use_container_width=True):
+        action_feed()
+        st.rerun()
+with col2:
+    if st.button("🎮 Main", use_container_width=True):
+        action_play()
+        st.rerun()
+with col3:
+    if st.button("😴 Tidur", use_container_width=True):
+        action_sleep()
+        st.rerun()
+
+col4, col5, col6 = st.columns(3)
+with col4:
+    if st.button("🧼 Bersihkan", use_container_width=True):
+        action_clean()
+        st.rerun()
+with col5:
+    if st.button("🔋 Charge", use_container_width=True):
+        action_charge()
+        st.rerun()
+with col6:
+    if st.button("🔁 Reset", use_container_width=True):
+        action_reset()
+        st.rerun()
+
+st.markdown('<div class="pet-section-title">Aksi bot</div>', unsafe_allow_html=True)
+bot_col1, bot_col2 = st.columns(2)
+with bot_col1:
+    if st.button("🔄 Update Config", use_container_width=True):
+        try:
+            dispatch_workflow(mode="update", enable_proxy_test="true", filter_alive_only="true")
+            set_pet_action("Update config berhasil dipicu. Aku menunggu hasil GitHub Actions.")
+            st.success("Update GitHub Actions berhasil dipicu.")
+            add_xp(18)
+        except Exception as exc:
+            set_pet_action("Aku gagal memicu update. Cek token/repo/workflow ya.")
+            st.error(str(exc))
+        st.rerun()
+with bot_col2:
+    if st.button("🧪 Test Proxy", use_container_width=True):
+        try:
+            dispatch_workflow(mode="test", enable_proxy_test="true", filter_alive_only="false")
+            set_pet_action("Test proxy berhasil dipicu. Aku akan tunggu laporan alive/dead.")
+            st.success("Test proxy GitHub Actions berhasil dipicu.")
+            add_xp(18)
+        except Exception as exc:
+            set_pet_action("Aku gagal memicu test proxy. Cek workflow input dan secrets.")
+            st.error(str(exc))
+        st.rerun()
+
+st.markdown(
+    '<div class="pet-small-note">Telegram tetap aktif di background: /check, /update, /test, /status, /id, /help.</div>',
+    unsafe_allow_html=True,
 )
