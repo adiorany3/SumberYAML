@@ -1,0 +1,100 @@
+name: Update OpenClash
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Trigger source
+        required: false
+        default: manual
+      mode:
+        description: update atau test
+        required: false
+        default: update
+      enable_proxy_test:
+        description: Jalankan test proxy dengan Mihomo
+        required: false
+        default: "true"
+      filter_alive_only:
+        description: lengkap.yaml hanya berisi proxy hidup
+        required: false
+        default: "true"
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: openclash-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Generate, test, and commit OpenClash output
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate OpenClash files and test proxies
+        env:
+          ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
+          FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
+          CHECK_TEST_URL: http://www.gstatic.com/generate_204
+          CHECK_TIMEOUT_MS: "5000"
+          CHECK_WORKERS: "20"
+          MIHOMO_DOWNLOAD: "true"
+          TCP_FALLBACK: "true"
+        run: python telegram_openclash_alive.py
+
+      - name: Validate output
+        run: |
+          test -f output/lengkap.yaml
+          test -f output/Alive/check_result.csv
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('output/lengkap.yaml')
+          if p.stat().st_size < 20:
+              raise SystemExit('output/lengkap.yaml terlalu kecil atau kosong')
+          print(f'OK: {p} ({p.stat().st_size} bytes)')
+          PY
+
+      - name: Commit updated output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output
+          if git diff --cached --quiet; then
+            echo "Tidak ada perubahan output."
+          else
+            git commit -m "Update OpenClash output with alive check"
+            git push
+          fi
+
+      - name: Notify Telegram success
+        if: success()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_SEND_OUTPUT_FILE: ${{ vars.TELEGRAM_SEND_OUTPUT_FILE || 'true' }}
+        run: python tools/telegram_notify.py --stage success
+
+      - name: Notify Telegram failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python tools/telegram_notify.py --stage failure
