@@ -12,16 +12,16 @@ import streamlit as st
 
 
 # =========================
-# STREAMLIT BLANK UI SETUP
+# STREAMLIT ROBOT UI SETUP
 # =========================
 st.set_page_config(
-    page_title="",
-    page_icon="⚙️",
+    page_title="Yamlku Bot",
+    page_icon="🤖",
     layout="centered",
     initial_sidebar_state="collapsed",
 )
 
-# Hide Streamlit default UI so the page looks empty/minimal.
+# Tampilan hanya robot animasi. Bot Telegram tetap berjalan di background.
 st.markdown(
     """
     <style>
@@ -31,7 +31,103 @@ st.markdown(
         [data-testid="stToolbar"] {visibility: hidden;}
         [data-testid="stDecoration"] {visibility: hidden;}
         [data-testid="stStatusWidget"] {visibility: hidden;}
-        .block-container {padding-top: 0rem; padding-bottom: 0rem;}
+
+        html, body, [data-testid="stAppViewContainer"] {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% 25%, rgba(85, 160, 255, 0.18), transparent 32%),
+                linear-gradient(180deg, #070b16 0%, #0a1020 48%, #05070d 100%);
+        }
+
+        .block-container {
+            max-width: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .robot-stage {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .robot-wrap {
+            width: min(48vw, 280px);
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: robot-float 3s ease-in-out infinite;
+        }
+
+        .robot-glow {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            border-radius: 999px;
+            background: rgba(70, 155, 255, 0.16);
+            filter: blur(32px);
+            animation: glow-pulse 2.4s ease-in-out infinite;
+        }
+
+        .robot-svg {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 24px 42px rgba(0, 0, 0, 0.45));
+        }
+
+        .robot-eye {
+            animation: eye-blink 4s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        .robot-antenna-light {
+            animation: light-pulse 1.4s ease-in-out infinite;
+        }
+
+        .robot-arm-left {
+            transform-origin: 58px 145px;
+            animation: arm-wave-left 2.4s ease-in-out infinite;
+        }
+
+        .robot-arm-right {
+            transform-origin: 222px 145px;
+            animation: arm-wave-right 2.4s ease-in-out infinite;
+        }
+
+        @keyframes robot-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.58; transform: scale(0.96); }
+            50% { opacity: 1; transform: scale(1.08); }
+        }
+
+        @keyframes eye-blink {
+            0%, 44%, 52%, 100% { transform: scaleY(1); opacity: 1; }
+            48% { transform: scaleY(0.12); opacity: 0.85; }
+        }
+
+        @keyframes light-pulse {
+            0%, 100% { opacity: 0.45; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes arm-wave-left {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-8deg); }
+        }
+
+        @keyframes arm-wave-right {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(8deg); }
+        }
     </style>
     """,
     unsafe_allow_html=True,
@@ -522,4 +618,53 @@ def start_bot_once():
 thread = start_bot_once()
 BOT_STATE.set(thread_alive=thread.is_alive())
 
-# Page intentionally left blank.
+# Tampilan publik: robot animasi saja.
+st.markdown(
+    """
+    <div class="robot-stage" aria-label="Animated robot">
+        <div class="robot-wrap">
+            <div class="robot-glow"></div>
+            <svg class="robot-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" role="img">
+                <defs>
+                    <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#f7fbff"/>
+                        <stop offset="100%" stop-color="#9fb8d9"/>
+                    </linearGradient>
+                    <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#17233c"/>
+                        <stop offset="100%" stop-color="#07101f"/>
+                    </linearGradient>
+                </defs>
+
+                <ellipse cx="140" cy="242" rx="68" ry="14" fill="rgba(0,0,0,0.28)"/>
+
+                <line x1="140" y1="62" x2="140" y2="36" stroke="#b7c8df" stroke-width="8" stroke-linecap="round"/>
+                <circle class="robot-antenna-light" cx="140" cy="28" r="11" fill="#4dd5ff"/>
+
+                <g class="robot-arm-left">
+                    <rect x="35" y="128" width="42" height="24" rx="12" fill="#8ca6c9"/>
+                    <circle cx="34" cy="140" r="12" fill="#c8d8ec"/>
+                </g>
+
+                <g class="robot-arm-right">
+                    <rect x="203" y="128" width="42" height="24" rx="12" fill="#8ca6c9"/>
+                    <circle cx="246" cy="140" r="12" fill="#c8d8ec"/>
+                </g>
+
+                <rect x="72" y="68" width="136" height="130" rx="38" fill="url(#bodyGrad)"/>
+                <rect x="91" y="95" width="98" height="58" rx="24" fill="url(#screenGrad)"/>
+
+                <circle class="robot-eye" cx="120" cy="124" r="9" fill="#52e6ff"/>
+                <circle class="robot-eye" cx="160" cy="124" r="9" fill="#52e6ff"/>
+                <path d="M124 145 Q140 157 156 145" fill="none" stroke="#52e6ff" stroke-width="5" stroke-linecap="round"/>
+
+                <rect x="105" y="170" width="70" height="16" rx="8" fill="#dce8f7"/>
+                <circle cx="119" cy="178" r="4" fill="#6d87aa"/>
+                <circle cx="140" cy="178" r="4" fill="#6d87aa"/>
+                <circle cx="161" cy="178" r="4" fill="#6d87aa"/>
+            </svg>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
