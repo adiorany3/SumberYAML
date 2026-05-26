@@ -30,44 +30,27 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "Telegram : @V2ynpv"
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: ffece2a9-0296-46a9-8db8-742d29d240ff
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: bedrid.denizhosting.me
-    network: ws
-    ws-opts:
-      path: /ISwpYVR8SjxXcUZEUzVfNURTUC8lV29DXSgsKH1SN0g1JVpDHU1cWigKAC8QRltMCi86ABw4JV14HVMn
-      headers:
-        Host: bedrid.denizhosting.me
-    udp: true
-  - name: t.me/ConfigFori  -  Config 73744
+  - name: "Pro 15 @Outline_Vpn"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: telegram-dickiriptorbot
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: 3.173.21.63
+    servername: sni.latonyamadeline.ndjp.net
     ws-opts:
-      path: /
+      path: /?https://t.me/wangcai2🇨🇳=
       headers:
-        Host: dbw9jfe94rh28.cloudfront.net
+        Host: sni.latonyamadeline.ndjp.net
     udp: true
 
 proxy-groups:
   - name: URL-TEST ME - Montenegro
     type: url-test
     proxies:
-      - "Telegram : @V2ynpv"
-      - t.me/ConfigFori  -  Config 73744
+      - "Pro 15 @Outline_Vpn"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

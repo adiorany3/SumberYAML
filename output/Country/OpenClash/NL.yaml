@@ -30,21 +30,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: 🇳🇱 t.me/Natrixo BB
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: a01daac7-1e65-4645-854d-b47d226f6b08
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: y6-3cj.PAgES.DEV
-    ws-opts:
-      path: /
-      headers:
-        Host: y6-3cj.PAgES.DEV
-    udp: true
   - name: ">>@configshub2::NL"
     server: 104.17.3.81
     port: 443
@@ -75,7 +60,7 @@ proxies:
       headers:
         Host: sni.111000.indevs.in
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 1650"
+  - name: ">>@oneclickvpnkeys::NL 8029"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -90,7 +75,7 @@ proxies:
       headers:
         Host: sni.111000.v6.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 1257"
+  - name: ">>@oneclickvpnkeys::NL 4689"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -105,7 +90,7 @@ proxies:
       headers:
         Host: sni.111000.dns.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 1568"
+  - name: ">>@oneclickvpnkeys::NL 4826"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -120,7 +105,7 @@ proxies:
       headers:
         Host: sni.111000.dns.army
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 8021"
+  - name: ">>@oneclickvpnkeys::NL 4063"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -135,7 +120,7 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 3932"
+  - name: ">>@oneclickvpnkeys::NL 4389"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -150,7 +135,7 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: ">>@oneclickvpnkeys::NL 4865"
+  - name: ">>@oneclickvpnkeys::NL 7075"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -180,21 +165,35 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
+  - name: ">>@oneclickvpnkeys::NL 5332"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.multiplydose.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.multiplydose.com
+    udp: true
 
 proxy-groups:
   - name: URL-TEST NL - Netherlands
     type: url-test
     proxies:
-      - 🇳🇱 t.me/Natrixo BB
       - ">>@configshub2::NL"
       - ">>@oneclickvpnkeys::NL"
-      - ">>@oneclickvpnkeys::NL 1650"
-      - ">>@oneclickvpnkeys::NL 1257"
-      - ">>@oneclickvpnkeys::NL 1568"
-      - ">>@oneclickvpnkeys::NL 8021"
-      - ">>@oneclickvpnkeys::NL 3932"
-      - ">>@oneclickvpnkeys::NL 4865"
+      - ">>@oneclickvpnkeys::NL 8029"
+      - ">>@oneclickvpnkeys::NL 4689"
+      - ">>@oneclickvpnkeys::NL 4826"
+      - ">>@oneclickvpnkeys::NL 4063"
+      - ">>@oneclickvpnkeys::NL 4389"
+      - ">>@oneclickvpnkeys::NL 7075"
       - ">>@v2ray_configs_pool::NL"
+      - ">>@oneclickvpnkeys::NL 5332"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

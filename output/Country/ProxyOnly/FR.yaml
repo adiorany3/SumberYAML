@@ -7,6 +7,34 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
+    sni: www.calmloud.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.calmloud.com
+    udp: true
+  - name: ">>@outline_vpn::FR"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.calmlunch.com
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.calmlunch.com
+    udp: true
+  - name: ">>@oneclickvpnkeys::FR 2559"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
     sni: www.ignitelimit.com
     ws-opts:
       path: /assignment
