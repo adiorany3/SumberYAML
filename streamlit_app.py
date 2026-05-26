@@ -250,7 +250,7 @@ def get_workflow():
     return response.json()
 
 
-def dispatch_workflow():
+def dispatch_workflow(mode='update', enable_proxy_test='true', filter_alive_only='true'):
     workflow_info = get_workflow()
 
     if workflow_info.get("state") != "active":
@@ -264,7 +264,10 @@ def dispatch_workflow():
     payload = {
         "ref": GITHUB_REF,
         "inputs": {
-            "source": "telegram-streamlit"
+            "source": "telegram-streamlit",
+            "mode": mode,
+            "enable_proxy_test": enable_proxy_test,
+            "filter_alive_only": filter_alive_only,
         },
     }
 
@@ -401,6 +404,8 @@ def handle_command(chat_id, text: str):
 
     if command == "/update":
         return handle_update(chat_id)
+    if command == "/test":
+        return handle_test(chat_id)
     if command == "/status":
         return handle_status(chat_id)
     if command == "/check":
