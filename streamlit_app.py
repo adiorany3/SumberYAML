@@ -1491,52 +1491,102 @@ with col6:
         action_reset()
         st.rerun()
 
-st.markdown('<div class="pet-section-title">Aksi bot</div>', unsafe_allow_html=True)
-bot_col1, bot_col2 = st.columns(2)
-with bot_col1:
-    if st.button("🔄 Update Config", use_container_width=True):
-        try:
-            dispatch_workflow(mode="update", enable_proxy_test="true", filter_alive_only="true")
-            set_pet_action("Update config berhasil dipicu. Aku menunggu hasil GitHub Actions.")
-            st.success("Update GitHub Actions berhasil dipicu.")
-            add_xp(18)
-        except Exception as exc:
-            set_pet_action("Aku gagal memicu update. Cek token/repo/workflow ya.")
-            st.error(str(exc))
-        st.rerun()
-with bot_col2:
-    if st.button("🧪 Test Proxy", use_container_width=True):
-        try:
-            dispatch_workflow(mode="test", enable_proxy_test="true", filter_alive_only="false")
-            set_pet_action("Test proxy berhasil dipicu. Aku akan tunggu laporan alive/dead.")
-            st.success("Test proxy GitHub Actions berhasil dipicu.")
-            add_xp(18)
-        except Exception as exc:
-            set_pet_action("Aku gagal memicu test proxy. Cek workflow input dan secrets.")
-            st.error(str(exc))
-        st.rerun()
 
-st.markdown('<div class="pet-section-title">Best Ping From Indonesia</div>', unsafe_allow_html=True)
+# =========================
+# ADMIN PAGE
+# =========================
+# Bagian Aksi Bot dan Best Ping disembunyikan dari halaman publik.
+# Buka dengan: https://yamlku.streamlit.app/?admin=1
+ADMIN_PASSWORD = get_setting("ADMIN_PASSWORD", "")
+ADMIN_QUERY_KEY = get_setting("ADMIN_QUERY_KEY", "admin") or "admin"
+ADMIN_QUERY_VALUE = get_setting("ADMIN_QUERY_VALUE", "1") or "1"
 
-best_col1, best_col2 = st.columns(2)
-with best_col1:
-    if st.button("📡 Refresh Best Ping", use_container_width=True):
+
+def get_query_param_value(key: str, default: str = "") -> str:
+    """Kompatibel untuk Streamlit versi lama dan baru."""
+    try:
+        value = st.query_params.get(key, default)
+        if isinstance(value, list):
+            return str(value[0]) if value else default
+        return str(value)
+    except Exception:
         try:
-            load_best_ping_data.clear()
+            params = st.experimental_get_query_params()
+            value = params.get(key, [default])
+            if isinstance(value, list):
+                return str(value[0]) if value else default
+            return str(value)
         except Exception:
-            pass
-        st.rerun()
-with best_col2:
-    if st.button("🏆 Test + Update Ping", use_container_width=True):
-        try:
-            dispatch_workflow(mode="test", enable_proxy_test="true", filter_alive_only="false")
-            set_pet_action("Best ping sedang dites ulang lewat GitHub Actions.")
-            st.success("Test ping berhasil dipicu. Tunggu output Alive/Dead diperbarui.")
-            add_xp(12)
-        except Exception as exc:
-            set_pet_action("Aku gagal memicu test best ping. Cek workflow dan secrets.")
-            st.error(str(exc))
-        st.rerun()
+            return default
+
+
+def is_admin_route() -> bool:
+    value = get_query_param_value(ADMIN_QUERY_KEY, "").strip().lower()
+    allowed_values = {
+        ADMIN_QUERY_VALUE.strip().lower(),
+        "1",
+        "true",
+        "yes",
+        "admin",
+    }
+    return bool(value) and value in allowed_values
+
+
+def ensure_admin_authenticated() -> bool:
+    if not is_admin_route():
+        return False
+
+    if not ADMIN_PASSWORD:
+        st.warning(
+            "Halaman admin terkunci. Isi ADMIN_PASSWORD di Streamlit Secrets dulu."
+        )
+        st.code('ADMIN_PASSWORD = "password_admin_anda"')
+        return False
+
+    if st.session_state.get("admin_authenticated") is True:
+        return True
+
+    st.markdown('<div class="pet-section-title">Admin Login</div>', unsafe_allow_html=True)
+    with st.form("admin_login_form"):
+        password = st.text_input("Password admin", type="password")
+        submitted = st.form_submit_button("Masuk Admin")
+
+    if submitted:
+        if password == ADMIN_PASSWORD:
+            st.session_state.admin_authenticated = True
+            set_pet_action("Mode admin aktif. Panel kontrol sudah dibuka.")
+            st.rerun()
+        else:
+            st.error("Password admin salah.")
+
+    return False
+
+
+def render_admin_actions():
+    st.markdown('<div class="pet-section-title">Aksi bot</div>', unsafe_allow_html=True)
+    bot_col1, bot_col2 = st.columns(2)
+    with bot_col1:
+        if st.button("🔄 Update Config", use_container_width=True):
+            try:
+                dispatch_workflow(mode="update", enable_proxy_test="true", filter_alive_only="true")
+                set_pet_action("Update config berhasil dipicu. Aku menunggu hasil GitHub Actions.")
+                st.success("Update GitHub Actions berhasil dipicu.")
+                add_xp(18)
+            except Exception as exc:
+                set_pet_action("Aku gagal memicu update. Cek token/repo/workflow ya.")
+                st.error(str(exc))
+            st.rerun()
+    with bot_col2:
+        if st.button("🧪 Test Proxy", use_container_width=True):
+            try:
+                dispatch_workflow(mode="test", enable_proxy_test="true", filter_alive_only="false")
+                set_pet_action("Test proxy berhasil dipicu. Aku akan tunggu laporan alive/dead.")
+                st.success("Test proxy GitHub Actions berhasil dipicu.")
+                add_xp(18)
+            except Exception as exc:
+                set_pet_action("Aku gagal memicu test proxy. Cek workflow input dan secrets.")
+                st.error(str(exc))
+            st.rerun()
 
 
 def render_best_ping_component_html(best_data: dict, best_rows: list, summary: dict) -> str:
@@ -1720,26 +1770,62 @@ def render_best_ping_component_html(best_data: dict, best_rows: list, summary: d
 """
 
 
-try:
-    best_data = load_best_ping_data(limit=BEST_PING_LIMIT)
-    best_rows = best_data.get("rows", [])
-    summary = best_data.get("summary", {}) or {}
+def render_admin_best_ping():
+    st.markdown('<div class="pet-section-title">Best Ping From Indonesia</div>', unsafe_allow_html=True)
 
-    # Jangan pakai st.markdown untuk HTML kompleks ini. components.html mencegah HTML muncul sebagai teks.
-    component_height = 240 + max(1, len(best_rows)) * 68
-    components.html(
-        render_best_ping_component_html(best_data, best_rows, summary),
-        height=min(component_height, 860),
-        scrolling=True,
-    )
-except Exception as exc:
-    st.info(
-        "Best ping belum bisa ditampilkan. Pastikan output/Alive/check_result.csv atau output/Alive/alive.csv sudah ada di GitHub."
-    )
-    with st.expander("Detail error best ping"):
-        st.code(str(exc))
+    best_col1, best_col2 = st.columns(2)
+    with best_col1:
+        if st.button("📡 Refresh Best Ping", use_container_width=True):
+            try:
+                load_best_ping_data.clear()
+            except Exception:
+                pass
+            st.rerun()
+    with best_col2:
+        if st.button("🏆 Test + Update Ping", use_container_width=True):
+            try:
+                dispatch_workflow(mode="test", enable_proxy_test="true", filter_alive_only="false")
+                set_pet_action("Best ping sedang dites ulang lewat GitHub Actions.")
+                st.success("Test ping berhasil dipicu. Tunggu output Alive/Dead diperbarui.")
+                add_xp(12)
+            except Exception as exc:
+                set_pet_action("Aku gagal memicu test best ping. Cek workflow dan secrets.")
+                st.error(str(exc))
+            st.rerun()
 
-st.markdown(
-    '<div class="pet-small-note">Telegram tetap aktif di background: /check, /update, /test, /best, /status, /id, /help.</div>',
-    unsafe_allow_html=True,
-)
+    try:
+        best_data = load_best_ping_data(limit=BEST_PING_LIMIT)
+        best_rows = best_data.get("rows", [])
+        summary = best_data.get("summary", {}) or {}
+
+        # Jangan pakai st.markdown untuk HTML kompleks ini. components.html mencegah HTML muncul sebagai teks.
+        component_height = 240 + max(1, len(best_rows)) * 68
+        components.html(
+            render_best_ping_component_html(best_data, best_rows, summary),
+            height=min(component_height, 860),
+            scrolling=True,
+        )
+    except Exception as exc:
+        st.info(
+            "Best ping belum bisa ditampilkan. Pastikan output/Alive/check_result.csv atau output/Alive/alive.csv sudah ada di GitHub."
+        )
+        with st.expander("Detail error best ping"):
+            st.code(str(exc))
+
+
+if ensure_admin_authenticated():
+    render_admin_actions()
+    render_admin_best_ping()
+    if st.button("🚪 Keluar Admin", use_container_width=True):
+        st.session_state.admin_authenticated = False
+        st.rerun()
+
+    st.markdown(
+        '<div class="pet-small-note">Mode admin aktif. Telegram tetap aktif di background: /check, /update, /test, /best, /status, /id, /help.</div>',
+        unsafe_allow_html=True,
+    )
+else:
+    st.markdown(
+        '<div class="pet-small-note">Mode publik. Panel Aksi Bot dan Best Ping hanya tersedia di halaman admin.</div>',
+        unsafe_allow_html=True,
+    )
