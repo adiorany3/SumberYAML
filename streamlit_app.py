@@ -327,6 +327,36 @@ def handle_update(chat_id):
     return result
 
 
+def handle_test(chat_id):
+    """Trigger GitHub Actions untuk menjalankan test proxy hidup/mati.
+
+    Bedanya dengan /update:
+    - /test tetap membuat laporan Alive/Dead.
+    - /test tidak memaksa output utama hanya proxy hidup, supaya aman untuk diagnosis.
+    - Notifikasi final tetap dikirim oleh GitHub Actions setelah workflow selesai.
+    """
+    result = dispatch_workflow(
+        mode="test",
+        enable_proxy_test="true",
+        filter_alive_only="false",
+    )
+
+    send_message(
+        chat_id,
+        "🧪 <b>Test proxy berhasil dipicu dari Streamlit</b>\n"
+        f"Repo: <code>{GITHUB_OWNER}/{GITHUB_REPO}</code>\n"
+        f"Workflow: <code>{WORKFLOW_ID}</code>\n"
+        f"Branch/ref: <code>{GITHUB_REF}</code>\n\n"
+        "GitHub Actions akan membuat laporan:\n"
+        "- <code>output/Alive/check_result.csv</code>\n"
+        "- <code>output/Alive/alive.csv</code>\n"
+        "- <code>output/Alive/dead.csv</code>\n\n"
+        "Tunggu notifikasi final dari GitHub Actions.",
+    )
+
+    return result
+
+
 def handle_status(chat_id):
     run = latest_workflow_run()
 
@@ -391,6 +421,7 @@ def handle_help(chat_id):
         chat_id,
         "<b>Command tersedia:</b>\n"
         "/update - jalankan update via GitHub Actions\n"
+        "/test - cek proxy hidup/mati via GitHub Actions\n"
         "/status - cek workflow GitHub terakhir\n"
         "/check - cek konfigurasi token/repo/workflow\n"
         "/id - tampilkan chat ID\n"
