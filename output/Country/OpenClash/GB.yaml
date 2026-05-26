@@ -30,21 +30,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇬🇧 Join+Telegram:@Farah_VPN 🇬🇧"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: sni.111000.indevs.in
-    ws-opts:
-      path: /
-      headers:
-        Host: sni.111000.indevs.in
-    udp: true
   - name: ">>@oneclickvpnkeys::GB"
     server: 104.17.3.81
     port: 443
@@ -90,7 +75,7 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: ">>@oneclickvpnkeys::GB 8904"
+  - name: ">>@oneclickvpnkeys::GB 9807"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -105,7 +90,7 @@ proxies:
       headers:
         Host: 3-7gj.pages.dev
     udp: true
-  - name: ">>@oneclickvpnkeys::GB 8548"
+  - name: ">>@oneclickvpnkeys::GB 7287"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -139,12 +124,11 @@ proxy-groups:
   - name: URL-TEST GB - United Kingdom
     type: url-test
     proxies:
-      - "🇬🇧 Join+Telegram:@Farah_VPN 🇬🇧"
       - ">>@oneclickvpnkeys::GB"
       - ">>@v2nodes::GB"
       - ">>@v2ray_configs_pool::GB"
-      - ">>@oneclickvpnkeys::GB 8904"
-      - ">>@oneclickvpnkeys::GB 8548"
+      - ">>@oneclickvpnkeys::GB 9807"
+      - ">>@oneclickvpnkeys::GB 7287"
       - "@Confixio"
     url: http://www.gstatic.com/generate_204
     interval: 300

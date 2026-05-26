@@ -30,6 +30,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "🇸🇬 SG | VLESS | @v2rayexpress #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9d33dc91-fb84-4f96-d9b1-fe28a230a94f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 5.223.42.211
+    ws-opts:
+      path: /
+      headers:
+        Host: 5.223.42.211
+    udp: true
   - name: "@Rayan_Config 9.9"
     server: 104.17.3.81
     port: 443
@@ -75,21 +90,6 @@ proxies:
       headers:
         Host: juzi8186.qea.ccwu.cc
     udp: true
-  - name: "🇸🇬 SG | VLESS | @v2rayexpress #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 9d33dc91-fb84-4f96-d9b1-fe28a230a94f
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: 5.223.42.211
-    ws-opts:
-      path: /
-      headers:
-        Host: 5.223.42.211
-    udp: true
   - name: "🇸🇬 Join+Telegram:@Farah_VPN 🇸🇬"
     server: 104.17.3.81
     port: 443
@@ -110,10 +110,10 @@ proxy-groups:
   - name: URL-TEST SG - Singapore
     type: url-test
     proxies:
+      - "🇸🇬 SG | VLESS | @v2rayexpress #1"
       - "@Rayan_Config 9.9"
       - "@Rayan_Config 9.99"
       - ">>@v2ray_configs_pool::SG"
-      - "🇸🇬 SG | VLESS | @v2rayexpress #1"
       - "🇸🇬 Join+Telegram:@Farah_VPN 🇸🇬"
     url: http://www.gstatic.com/generate_204
     interval: 300

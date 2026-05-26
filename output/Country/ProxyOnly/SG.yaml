@@ -1,4 +1,19 @@
 proxies:
+  - name: "🇸🇬 SG | VLESS | @v2rayexpress #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9d33dc91-fb84-4f96-d9b1-fe28a230a94f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 5.223.42.211
+    ws-opts:
+      path: /
+      headers:
+        Host: 5.223.42.211
+    udp: true
   - name: "@Rayan_Config 9.9"
     server: 104.17.3.81
     port: 443
@@ -43,21 +58,6 @@ proxies:
       path: /ad/juzibaipiao?ed=2560
       headers:
         Host: juzi8186.qea.ccwu.cc
-    udp: true
-  - name: "🇸🇬 SG | VLESS | @v2rayexpress #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 9d33dc91-fb84-4f96-d9b1-fe28a230a94f
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: 5.223.42.211
-    ws-opts:
-      path: /
-      headers:
-        Host: 5.223.42.211
     udp: true
   - name: "🇸🇬 Join+Telegram:@Farah_VPN 🇸🇬"
     server: 104.17.3.81
