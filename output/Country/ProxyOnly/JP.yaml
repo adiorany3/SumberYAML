@@ -1,19 +1,4 @@
 proxies:
-  - name: ">>@configshub2::JP"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 8d5e7f2a-3c1b-4d9e-a6f8-2b5c0e7d4a19
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: dongjing4.zqjsqapi.com
-    ws-opts:
-      path: /proxy
-      headers:
-        Host: dongjing4.zqjsqapi.com
-    udp: true
   - name: ">>@v2ray_configs_pool::JP"
     server: 104.17.3.81
     port: 443
@@ -28,18 +13,4 @@ proxies:
       path: /
       headers:
         Host: gsgsdgreyrehjsrteargsfhtrhsrwrhtruiekghmg.pages.dev
-    udp: true
-  - name: "🇯🇵 JP | TROJAN | @free4allvpn #1"
-    server: 104.17.3.81
-    port: 443
-    type: trojan
-    password: FDIypSwe64a3DA7un2R8DFjYXZO3NS05gKZTTOC8SxO0Fy3cqYg3EaFDA3ABaEYKNx39D
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: kuame.missionsec.us
-    ws-opts:
-      path: /
-      headers:
-        Host: kuame.missionsec.us
     udp: true
