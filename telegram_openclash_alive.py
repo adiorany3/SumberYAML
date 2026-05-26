@@ -18,10 +18,19 @@ URL_TEST_INTERVAL = 300
 URL_TEST_TOLERANCE = 50
 FETCH_WORKERS = 10
 
+# Top 10 tercepat dari hasil test delay.
+# Catatan: lokasi test mengikuti tempat workflow/script dijalankan.
+# Jika ingin benar-benar dari Indonesia, jalankan workflow di runner/VPS Indonesia.
+BEST_PING_TOP_N = int(os.getenv('BEST_PING_TOP_N', '10'))
+BEST_PING_BALANCE_ENABLE_RAW = os.getenv('BEST_PING_BALANCE_ENABLE', 'true')
+BEST_PING_BALANCE_NAME = os.getenv('BEST_PING_BALANCE_NAME', 'BALANCE TOP 10 INDONESIA')
+BEST_PING_BALANCE_STRATEGY = os.getenv('BEST_PING_BALANCE_STRATEGY', 'round-robin')
+
 def env_bool(name, default=False):
     value = str(os.getenv(name, str(default))).strip().lower()
     return value in ['1', 'true', 'yes', 'y', 'on']
 
+BEST_PING_BALANCE_ENABLE = str(BEST_PING_BALANCE_ENABLE_RAW).strip().lower() in ['1', 'true', 'yes', 'y', 'on']
 ENABLE_PROXY_TEST = env_bool('ENABLE_PROXY_TEST', True)
 FILTER_ALIVE_ONLY = env_bool('FILTER_ALIVE_ONLY', True)
 CHECK_TEST_URL = os.getenv('CHECK_TEST_URL', URL_TEST_URL)
@@ -634,6 +643,18 @@ def make_url_test_group(group_name, proxy_names):
   tolerance: {URL_TEST_TOLERANCE}'''
 
 
+def make_load_balance_group(group_name, proxy_names):
+    if not proxy_names:
+        return ''
+    return f'''- name: {yq(group_name)}
+  type: load-balance
+  strategy: {BEST_PING_BALANCE_STRATEGY}
+  proxies:
+{yaml_name_list(proxy_names, 4)}
+  url: {URL_TEST_URL}
+  interval: {URL_TEST_INTERVAL}'''
+
+
 def make_select_group(group_name, entries):
     if not entries:
         entries = ['DIRECT']
@@ -643,15 +664,25 @@ def make_select_group(group_name, entries):
 {yaml_name_list(entries, 4)}'''
 
 
-def build_openclash_yaml(all_yaml_items, protocol_proxy_names, country_proxy_names=None, external_controller='0.0.0.0:9090'):
+def build_openclash_yaml(
+    all_yaml_items,
+    protocol_proxy_names,
+    country_proxy_names=None,
+    external_controller='0.0.0.0:9090',
+    best_balance_names=None,
+):
     all_proxy_names = []
     for p in PROTOCOLS:
         all_proxy_names.extend(protocol_proxy_names.get(p, []))
 
     country_proxy_names = country_proxy_names or {}
+    best_balance_names = best_balance_names or []
     groups = []
     protocol_group_names = []
     country_group_names = []
+
+    if BEST_PING_BALANCE_ENABLE and best_balance_names:
+        groups.append(make_load_balance_group(BEST_PING_BALANCE_NAME, best_balance_names))
     for p in PROTOCOLS:
         names = protocol_proxy_names.get(p, [])
         if not names:
@@ -672,6 +703,8 @@ def build_openclash_yaml(all_yaml_items, protocol_proxy_names, country_proxy_nam
         groups.append(make_url_test_group(group_name, names))
 
     select_entries = []
+    if BEST_PING_BALANCE_ENABLE and best_balance_names:
+        select_entries.append(BEST_PING_BALANCE_NAME)
     if all_proxy_names:
         select_entries.append('URL-TEST GABUNGAN')
     select_entries.extend(protocol_group_names)
@@ -786,6 +819,62 @@ def write_test_summary(path, summary):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open('w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
+
+
+def delay_sort_value(c):
+    try:
+        return int(c.get('delay_ms'))
+    except Exception:
+        return 999999999
+
+
+def get_best_ping_configs(configs, limit=None):
+    limit = int(limit or BEST_PING_TOP_N or 10)
+    alive = [
+        c for c in configs
+        if c.get('status') == 'alive' and clean(c.get('name')) and delay_sort_value(c) < 999999999
+    ]
+    alive.sort(key=lambda item: (delay_sort_value(item), clean(item.get('name'))))
+    return alive[:limit]
+
+
+def write_best_ping_outputs(best_configs):
+    best_dir = OUTPUT_DIR / 'BestPing'
+    best_dir.mkdir(parents=True, exist_ok=True)
+
+    rows = []
+    for idx, c in enumerate(best_configs, start=1):
+        row = config_row(c)
+        row['rank'] = idx
+        row['balance_group'] = BEST_PING_BALANCE_NAME
+        rows.append(row)
+
+    fields = [
+        'rank', 'protocol', 'name', 'country', 'server', 'original_server', 'port',
+        'network', 'status', 'delay_ms', 'reason', 'balance_group', 'raw'
+    ]
+    with (best_dir / 'top10_indonesia.csv').open('w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        w.writerows(rows)
+
+    write(
+        best_dir / 'top10_indonesia.yaml',
+        add_proxies_header([c.get('yaml_text', '') for c in best_configs if c.get('yaml_text')]),
+    )
+
+    write_test_summary(
+        best_dir / 'summary_top10_indonesia.json',
+        {
+            'label': 'Best Ping From Indonesia',
+            'note': 'Delay mengikuti lokasi runner tempat test dijalankan. Gunakan runner/VPS Indonesia untuk hasil benar-benar dari Indonesia.',
+            'balance_group': BEST_PING_BALANCE_NAME,
+            'balance_strategy': BEST_PING_BALANCE_STRATEGY,
+            'top_n': BEST_PING_TOP_N,
+            'count': len(best_configs),
+            'names': [c.get('name') for c in best_configs],
+        },
+    )
 
 
 def tcp_check(c):
@@ -1144,6 +1233,16 @@ def generate():
     write(OUTPUT_DIR / 'Alive' / 'alive.yaml', add_proxies_header(alive_yaml))
     write(OUTPUT_DIR / 'Alive' / 'dead.yaml', add_proxies_header(dead_yaml))
 
+    best_configs = get_best_ping_configs(all_configs, BEST_PING_TOP_N)
+    best_balance_names = [c.get('name') for c in best_configs if c.get('name')]
+    test_summary['best_ping_top_n'] = BEST_PING_TOP_N
+    test_summary['best_ping_balance_group'] = BEST_PING_BALANCE_NAME
+    test_summary['best_ping_balance_strategy'] = BEST_PING_BALANCE_STRATEGY
+    test_summary['best_ping_count'] = len(best_configs)
+    test_summary['best_ping_names'] = best_balance_names
+    write_test_summary(OUTPUT_DIR / 'Alive' / 'summary_alive.json', test_summary)
+    write_best_ping_outputs(best_configs)
+
     collections = rebuild_collections(final_configs)
 
     # Output utama mengikuti hasil filter alive jika test berhasil dan ada proxy alive.
@@ -1155,6 +1254,7 @@ def generate():
         collections['yaml_items'],
         collections['protocol_proxy_names'],
         collections['country_proxy_names'],
+        best_balance_names=best_balance_names,
     )
     write(OUTPUT_DIR / OPENCLASH_OUTPUT_FILE, openclash_yaml)
 

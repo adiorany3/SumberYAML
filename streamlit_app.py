@@ -187,7 +187,7 @@ GITHUB_WORKFLOW_FILE = get_setting("GITHUB_WORKFLOW_FILE", "update-openclash.yml
 
 # Panel Best Ping di Streamlit dan command Telegram /best.
 BEST_PING_SOURCE_LABEL = get_setting("BEST_PING_SOURCE_LABEL", "Indonesia")
-BEST_PING_LIMIT = get_int_setting("BEST_PING_LIMIT", 8)
+BEST_PING_LIMIT = get_int_setting("BEST_PING_LIMIT", 10)
 # Opsional: isi ID jika hanya ingin menampilkan server negara Indonesia.
 # Kosongkan agar menampilkan proxy alive tercepat dari semua negara.
 BEST_PING_COUNTRY_FILTER = get_setting("BEST_PING_COUNTRY_FILTER", "").upper()
@@ -531,7 +531,7 @@ def count_proxy_names_from_lengkap_yaml() -> int:
 
 @st.cache_data(ttl=60, show_spinner=False)
 def load_best_ping_data(limit: int = None):
-    limit = int(limit or BEST_PING_LIMIT or 8)
+    limit = int(limit or BEST_PING_LIMIT or 10)
     paths = [
         "output/Alive/alive.csv",
         "output/Alive/check_result.csv",
@@ -602,6 +602,7 @@ def best_ping_text_for_telegram(limit: int = 10) -> str:
         f"🏆 <b>Best Ping From {escape(source_label)}</b>",
         f"Sumber: <code>{escape(data.get('source_path', '-'))}</code>",
         f"Proxy di lengkap.yaml: <code>{data.get('yaml_proxy_count', 0)}</code>",
+        "Group balance: <code>BALANCE TOP 10 INDONESIA</code>",
         "",
     ]
 
