@@ -75,6 +75,21 @@ proxies:
       headers:
         Host: sni.111000.v6.rocks
     udp: true
+  - name: ">>@outline_vpn::DE"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: sni.111000.indevs.in
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.111000.indevs.in
+    udp: true
   - name: ">>@configshub2::DE"
     server: 104.17.3.81
     port: 443
@@ -113,6 +128,7 @@ proxy-groups:
       - "2 🇩🇪 @av2ngFast"
       - "🇩🇪 Join+Telegram:@Farah_VPN 🇩🇪"
       - ">>@v2ray_configs_pool::DE"
+      - ">>@outline_vpn::DE"
       - ">>@configshub2::DE"
       - ">>@oneclickvpnkeys::DE"
     url: http://www.gstatic.com/generate_204
