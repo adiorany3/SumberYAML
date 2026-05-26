@@ -1,4 +1,19 @@
 proxies:
+  - name: ">>@v2nodes::PL"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 6d916d55-fead-4ff3-a3a9-83e175ea8ad7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: pl74.mechvpn.online
+    ws-opts:
+      path: /
+      headers:
+        Host: pl74.mechvpn.online
+    udp: true
   - name: ">>@oneclickvpnkeys::PL"
     server: 104.17.3.81
     port: 443

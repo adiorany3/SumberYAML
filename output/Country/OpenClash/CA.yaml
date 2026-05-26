@@ -30,6 +30,70 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "[🇨🇦]t.me/ConfigsHub"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: seribus.org
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: seribus.org
+    udp: true
+  - name: 🇨🇦CA-134.195.198.147-6946
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: inna.cfd
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: inna.cfd
+    udp: true
+  - name: 🇨🇦CA-23.162.200.227-6944
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 23.162.200.227
+    network: ws
+    ws-opts:
+      path: /linkvws
+      headers:
+        Host: 23.162.200.227
+    udp: true
+  - name: 🇨🇦CA-23.162.200.227-0122
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 23.162.200.227
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: 23.162.200.227
+    udp: true
   - name: "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦"
     server: 104.17.3.81
     port: 443
@@ -50,6 +114,10 @@ proxy-groups:
   - name: URL-TEST CA - Canada
     type: url-test
     proxies:
+      - "[🇨🇦]t.me/ConfigsHub"
+      - 🇨🇦CA-134.195.198.147-6946
+      - 🇨🇦CA-23.162.200.227-6944
+      - 🇨🇦CA-23.162.200.227-0122
       - "🇨🇦 Join+Telegram:@Farah_VPN 🇨🇦"
     url: http://www.gstatic.com/generate_204
     interval: 300
