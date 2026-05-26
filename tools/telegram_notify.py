@@ -8,6 +8,15 @@ import requests
 TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '').strip()
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '').strip()
 SEND_FILE = os.getenv('TELEGRAM_SEND_OUTPUT_FILE', 'true').strip().lower() in ['1','true','yes','y','on']
+RUN_MODE = os.getenv('RUN_MODE', '').strip().lower()
+
+
+def mode_title():
+    if RUN_MODE in ['test', 'test_ping']:
+        return '🧪 <b>Test ping selesai</b>'
+    if RUN_MODE in ['update_ping', 'ping_update']:
+        return '🏆 <b>Update ping selesai</b>'
+    return '✅ <b>Update OpenClash selesai</b>'
 
 
 def tg(method):
@@ -58,11 +67,22 @@ def read_protocol_rows():
         return list(csv.DictReader(f))
 
 
+def read_top10_rows():
+    p = Path('output/BestPing/top10_indonesia.csv')
+    if not p.exists():
+        return []
+    try:
+        with p.open(encoding='utf-8', newline='') as f:
+            return list(csv.DictReader(f))[:10]
+    except Exception:
+        return []
+
+
 def success_message():
     s = read_summary()
     rows = read_protocol_rows()
     lines = [
-        '✅ <b>Update OpenClash selesai</b>',
+        mode_title(),
         '',
         f'Total valid: <code>{s.get("total", "-")}</code>',
         f'Hidup: <code>{s.get("alive", "-")}</code>',
@@ -70,6 +90,7 @@ def success_message():
         f'Untested: <code>{s.get("untested", "-")}</code>',
         f'Tester: <code>{s.get("tester", "-")}</code>',
         f'Filter alive only: <code>{s.get("filter_alive_only", "-")}</code>',
+        f'Run mode: <code>{s.get("run_mode", RUN_MODE or "-")}</code>',
         '',
     ]
     if rows:
@@ -81,6 +102,15 @@ def success_message():
                 f'dead <code>{r.get("dead_count", "0")}</code>, '
                 f'output <code>{r.get("final_output_count", "0")}</code>'
             )
+    top10 = read_top10_rows()
+    if top10:
+        lines.extend(['', '<b>Top 10 Balance:</b>'])
+        for idx, row in enumerate(top10, start=1):
+            lines.append(
+                f'- #{idx} {row.get("name", "-")} '
+                f'(<code>{row.get("delay_ms", "-")} ms</code>, {row.get("protocol", "-").upper()}, {row.get("country", "-")})'
+            )
+
     msg = s.get('tester_message')
     if msg:
         lines.extend(['', f'<b>Info:</b> <code>{msg[:500]}</code>'])
@@ -107,6 +137,8 @@ def main():
         send_document('output/Alive/check_result.csv', '📊 <b>check_result.csv</b>')
         send_document('output/Alive/alive.csv', '✅ <b>alive.csv</b>')
         send_document('output/Alive/dead.csv', '❌ <b>dead.csv</b>')
+        send_document('output/BestPing/top10_indonesia.csv', '🏆 <b>top10_indonesia.csv</b>')
+        send_document('output/BestPing/top10_indonesia.yaml', '🏆 <b>top10_indonesia.yaml</b>')
 
 
 if __name__ == '__main__':

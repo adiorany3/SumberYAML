@@ -664,6 +664,53 @@ def handle_test(chat_id):
     return result
 
 
+def handle_update_ping(chat_id):
+    """Command khusus untuk update hasil ping dan rebuild balance top 10 di lengkap.yaml."""
+    result = dispatch_workflow(
+        mode="update_ping",
+        enable_proxy_test="true",
+        filter_alive_only="true",
+    )
+
+    send_message(
+        chat_id,
+        "🏆 <b>Update ping berhasil dipicu dari Telegram</b>\n"
+        f"Repo: <code>{GITHUB_OWNER}/{GITHUB_REPO}</code>\n"
+        f"Workflow: <code>{WORKFLOW_ID}</code>\n"
+        f"Branch/ref: <code>{GITHUB_REF}</code>\n\n"
+        "GitHub Actions akan menjalankan test ping, memperbarui laporan Alive/Dead, "
+        "dan memasukkan 10 ping tercepat ke grup <code>BALANCE TOP 10 INDONESIA</code> di <code>output/lengkap.yaml</code>.\n\n"
+        "Tunggu notifikasi final dari GitHub Actions.",
+    )
+
+    return result
+
+
+def handle_test_ping(chat_id):
+    """Alias eksplisit untuk test ping tanpa memfilter output utama."""
+    result = dispatch_workflow(
+        mode="test_ping",
+        enable_proxy_test="true",
+        filter_alive_only="false",
+    )
+
+    send_message(
+        chat_id,
+        "🧪 <b>Test ping berhasil dipicu dari Telegram</b>\n"
+        f"Repo: <code>{GITHUB_OWNER}/{GITHUB_REPO}</code>\n"
+        f"Workflow: <code>{WORKFLOW_ID}</code>\n"
+        f"Branch/ref: <code>{GITHUB_REF}</code>\n\n"
+        "GitHub Actions akan membuat/memperbarui laporan ping:\n"
+        "- <code>output/Alive/check_result.csv</code>\n"
+        "- <code>output/Alive/alive.csv</code>\n"
+        "- <code>output/Alive/dead.csv</code>\n"
+        "- <code>output/BestPing/top10_indonesia.csv</code>\n\n"
+        "Tunggu notifikasi final dari GitHub Actions.",
+    )
+
+    return result
+
+
 def handle_status(chat_id):
     run = latest_workflow_run()
 
@@ -747,8 +794,12 @@ def handle_command(chat_id, text: str):
 
     if command == "/update":
         return handle_update(chat_id)
+    if command in ("/update_ping", "/updateping", "/ping_update", "/pingupdate"):
+        return handle_update_ping(chat_id)
     if command == "/test":
         return handle_test(chat_id)
+    if command in ("/test_ping", "/testping", "/ping"):
+        return handle_test_ping(chat_id)
     if command == "/status":
         return handle_status(chat_id)
     if command == "/best":

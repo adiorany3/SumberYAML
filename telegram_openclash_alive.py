@@ -17,6 +17,7 @@ URL_TEST_URL = 'http://www.gstatic.com/generate_204'
 URL_TEST_INTERVAL = 300
 URL_TEST_TOLERANCE = 50
 FETCH_WORKERS = 10
+RUN_MODE = os.getenv('RUN_MODE', 'update').strip().lower() or 'update'
 
 # Top 10 tercepat dari hasil test delay.
 # Catatan: lokasi test mengikuti tempat workflow/script dijalankan.
@@ -1097,6 +1098,7 @@ def run_tcp_fallback_tests(configs, reason_prefix=''):
 
 def apply_alive_tests(configs):
     summary = {
+        'run_mode': RUN_MODE,
         'enable_proxy_test': ENABLE_PROXY_TEST,
         'filter_alive_only': FILTER_ALIVE_ONLY,
         'test_url': CHECK_TEST_URL,
