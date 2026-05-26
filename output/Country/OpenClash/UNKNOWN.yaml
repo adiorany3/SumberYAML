@@ -30,22 +30,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇽🇽 XX | VMESS | @iranvpnet #1"
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: mute-math-d64e.0e503992ad7026.woRKERS.DeV
-    network: ws
-    ws-opts:
-      path: /aveiror.com:443/linkvws
-      headers:
-        Host: mute-math-d64e.0e503992ad7026.woRKERS.DeV
-    udp: true
   - name: 🏁RELAY-104.18.7.138-0211
     type: vmess
     server: 104.17.3.81
@@ -78,6 +62,22 @@ proxies:
       headers:
         Host: 35044ac9a120f4dd5.spbohk.com
     udp: true
+  - name: "🇽🇽 XX | VMESS | @iranvpnet #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: mute-math-d64e.0e503992ad7026.woRKERS.DeV
+    network: ws
+    ws-opts:
+      path: /aveiror.com:443/linkvws
+      headers:
+        Host: mute-math-d64e.0e503992ad7026.woRKERS.DeV
+    udp: true
   - name: "@v2rayngzendegimamad🕊️"
     type: vmess
     server: 104.17.3.81
@@ -94,7 +94,7 @@ proxies:
       headers:
         Host: fapeng.org
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 9838"
+  - name: "@v2rayngzendegimamad🕊️ 8520"
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -122,7 +122,7 @@ proxies:
     servername: 94.183.241.233
     network: tcp
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 2436"
+  - name: "@v2rayngzendegimamad🕊️ 5059"
     type: vmess
     server: 104.17.3.81
     port: 443
@@ -143,13 +143,13 @@ proxy-groups:
   - name: URL-TEST UNKNOWN
     type: url-test
     proxies:
-      - "🇽🇽 XX | VMESS | @iranvpnet #1"
       - 🏁RELAY-104.18.7.138-0211
       - 🏁RELAY-104.19.45.116-0224
+      - "🇽🇽 XX | VMESS | @iranvpnet #1"
       - "@v2rayngzendegimamad🕊️"
-      - "@v2rayngzendegimamad🕊️ 9838"
+      - "@v2rayngzendegimamad🕊️ 8520"
       - "@BOMB_SERVER ❤️🔥جوین بده"
-      - "@v2rayngzendegimamad🕊️ 2436"
+      - "@v2rayngzendegimamad🕊️ 5059"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

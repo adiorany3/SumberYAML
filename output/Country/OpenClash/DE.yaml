@@ -114,7 +114,7 @@ proxies:
       headers:
         Host: sni.111000.indevs.in
     udp: true
-  - name: ">>@oneclickvpnkeys::DE 7630"
+  - name: ">>@oneclickvpnkeys::DE 3970"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -128,6 +128,36 @@ proxies:
       path: /
       headers:
         Host: 3-2h8.pages.dev
+    udp: true
+  - name: "@Rayan_Config 2.2"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9ccd06a2-5616-47e3-9763-f9696959d7ad
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: rAyAn-cOnFiG-de-1.pAriSa.dPdNs.oRg
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-de-1.pAriSa.dPdNs.oRg
+    udp: true
+  - name: "@Rayan_Config 2.22"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: 9ccd06a2-5616-47e3-9763-f9696959d7ad
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: rAyAn-cOnFiG-de-1.pArSa.dPdNs.oRg
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-de-1.pArSa.dPdNs.oRg
     udp: true
   - name: "🇩🇪 DE | VLESS | @minovpnch #1"
     server: 104.17.3.81
@@ -174,36 +204,6 @@ proxies:
       headers:
         Host: 49.13.135.58
     udp: true
-  - name: "@Rayan_Config 2.2"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 9ccd06a2-5616-47e3-9763-f9696959d7ad
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: rAyAn-cOnFiG-de-1.pAriSa.dPdNs.oRg
-    ws-opts:
-      path: /ws
-      headers:
-        Host: rAyAn-cOnFiG-de-1.pAriSa.dPdNs.oRg
-    udp: true
-  - name: "@Rayan_Config 2.22"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 9ccd06a2-5616-47e3-9763-f9696959d7ad
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: rAyAn-cOnFiG-de-1.pArSa.dPdNs.oRg
-    ws-opts:
-      path: /ws
-      headers:
-        Host: rAyAn-cOnFiG-de-1.pArSa.dPdNs.oRg
-    udp: true
   - name: "3 🇩🇪 @V2ngFast"
     server: 104.17.3.81
     port: 443
@@ -249,7 +249,7 @@ proxies:
       headers:
         Host: moeinzp.com
     udp: true
-  - name: "3 🇩🇪 @V2ngFast 6688"
+  - name: "3 🇩🇪 @V2ngFast 9136"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -309,7 +309,7 @@ proxies:
       headers:
         Host: royal-limit-4b1c.rosomo9596.workers.dev
     udp: true
-  - name: "4  🇩🇪 @V2ngFast 8655"
+  - name: "4  🇩🇪 @V2ngFast 6355"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -455,7 +455,7 @@ proxies:
       headers:
         Host: v2ngfast-v2ngfast-v2ngfast-v2ngfast.cetih83556.workers.dev
     udp: true
-  - name: "2 🇩🇪 @V2ngFast 1628"
+  - name: "2 🇩🇪 @V2ngFast 4897"
     server: 104.17.3.81
     port: 443
     type: trojan
@@ -494,20 +494,20 @@ proxy-groups:
       - ">>@v2ray_configs_pool::DE"
       - ">>@outline_vpn::DE"
       - ">>@configshub2::DE"
-      - ">>@oneclickvpnkeys::DE 7630"
+      - ">>@oneclickvpnkeys::DE 3970"
+      - "@Rayan_Config 2.2"
+      - "@Rayan_Config 2.22"
       - "🇩🇪 DE | VLESS | @minovpnch #1"
       - "🇩🇪 DE | VLESS | @v2raych #1"
       - "🇩🇪 DE | VLESS | @vipv2rey #1"
-      - "@Rayan_Config 2.2"
-      - "@Rayan_Config 2.22"
       - "3 🇩🇪 @V2ngFast"
       - "2 🇩🇪 @av2ngFast"
       - "Germany+vip+🇩🇪+Telgram:+@Sobi_vpn"
-      - "3 🇩🇪 @V2ngFast 6688"
+      - "3 🇩🇪 @V2ngFast 9136"
       - "1 🇩🇪 @V2ngFast"
       - "3 🇩🇪 @av2ngFast"
       - "4  🇩🇪 @V2ngFast"
-      - "4  🇩🇪 @V2ngFast 8655"
+      - "4  🇩🇪 @V2ngFast 6355"
       - "4  🇩🇪 @av2ngFast"
       - "5 🇩🇪 @V2ngFast"
       - "2 🇩🇪 @V2ngFast"
@@ -517,7 +517,7 @@ proxy-groups:
       - "10 🇩🇪 @V2ngFast"
       - "4 🇩🇪 @V2ngFast"
       - "8 🇩🇪 @V2ngFast"
-      - "2 🇩🇪 @V2ngFast 1628"
+      - "2 🇩🇪 @V2ngFast 4897"
       - "6 🇩🇪 @V2ngFast"
     url: http://www.gstatic.com/generate_204
     interval: 300
