@@ -30,6 +30,22 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "🇭🇰 HK | VMESS | @freev2rays #1"
+    type: vmess
+    server: 104.17.3.81
+    port: 443
+    uuid: db69d5bc-d36c-4903-f471-74b98c5cefe5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: hk2.lrzdx.uk
+    network: ws
+    ws-opts:
+      path: /register
+      headers:
+        Host: hk2.lrzdx.uk
+    udp: true
   - name: 🇭🇰HK-47.238.82.7-5145
     type: vmess
     server: 104.17.3.81
@@ -62,22 +78,6 @@ proxies:
       headers:
         Host: n1753101277.4u9ma.icu
     udp: true
-  - name: "🇭🇰 HK | VMESS | @freev2rays #1"
-    type: vmess
-    server: 104.17.3.81
-    port: 443
-    uuid: db69d5bc-d36c-4903-f471-74b98c5cefe5
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: hk2.lrzdx.uk
-    network: ws
-    ws-opts:
-      path: /register
-      headers:
-        Host: hk2.lrzdx.uk
-    udp: true
   - name: ">>@v2ray_configs_pool::HK"
     server: 104.17.3.81
     port: 443
@@ -93,7 +93,7 @@ proxies:
       headers:
         Host: dabaius2.sylu.net
     udp: true
-  - name: ">>@v2ray_configs_pool::HK 7633"
+  - name: ">>@v2ray_configs_pool::HK 2770"
     server: 104.17.3.81
     port: 443
     type: vless
@@ -113,11 +113,11 @@ proxy-groups:
   - name: URL-TEST HK - Hong Kong
     type: url-test
     proxies:
+      - "🇭🇰 HK | VMESS | @freev2rays #1"
       - 🇭🇰HK-47.238.82.7-5145
       - 🇭🇰HK-47.76.254.70-0197
-      - "🇭🇰 HK | VMESS | @freev2rays #1"
       - ">>@v2ray_configs_pool::HK"
-      - ">>@v2ray_configs_pool::HK 7633"
+      - ">>@v2ray_configs_pool::HK 2770"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
