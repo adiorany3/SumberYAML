@@ -142,15 +142,48 @@ jobs:
 
       - name: Commit output files
         run: |
+          set -e
+          BRANCH="${GITHUB_REF_NAME:-main}"
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          echo "Sinkronisasi branch sebelum commit: $BRANCH"
+          git fetch origin "$BRANCH"
+          git checkout "$BRANCH" || git checkout -B "$BRANCH" "origin/$BRANCH"
+
+          # Ambil perubahan terbaru dari remote sebelum menambahkan output.
+          # Ini mencegah error: rejected / fetch first / non-fast-forward.
+          git pull --rebase --autostash origin "$BRANCH"
+
           git add output || true
           if git diff --cached --quiet; then
             echo "Tidak ada perubahan output untuk di-commit."
-          else
-            git commit -m "Update OpenClash output"
-            git push
+            exit 0
           fi
+
+          git commit -m "Update OpenClash output"
+
+          # Retry push jika ada commit baru masuk beberapa detik sebelum push.
+          for attempt in 1 2 3; do
+            echo "Push attempt $attempt..."
+            if git push origin "HEAD:$BRANCH"; then
+              echo "Push berhasil."
+              exit 0
+            fi
+
+            echo "Push gagal karena remote berubah. Rebase ulang lalu coba lagi..."
+            git fetch origin "$BRANCH"
+            git pull --rebase --autostash origin "$BRANCH" || {
+              echo "Rebase gagal. Abort rebase lalu keluar agar output tidak memaksa overwrite remote."
+              git rebase --abort || true
+              exit 1
+            }
+            sleep 5
+          done
+
+          echo "Push tetap gagal setelah 3 percobaan."
+          exit 1
 
       - name: Notify Telegram
         if: always()
