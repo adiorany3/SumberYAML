@@ -3,143 +3,176 @@ import csv
 import json
 import os
 from pathlib import Path
+
 import requests
 
-TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '').strip()
-CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '').strip()
-SEND_FILE = os.getenv('TELEGRAM_SEND_OUTPUT_FILE', 'true').strip().lower() in ['1','true','yes','y','on']
-RUN_MODE = os.getenv('RUN_MODE', '').strip().lower()
+
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+SEND_FILE = os.getenv("TELEGRAM_SEND_OUTPUT_FILE", "true").strip().lower() in [
+    "1",
+    "true",
+    "yes",
+    "y",
+    "on",
+]
+RUN_MODE = os.getenv("RUN_MODE", "").strip().lower()
 
 
 def mode_title():
-    if RUN_MODE in ['test', 'test_ping']:
-        return '🧪 <b>Test ping selesai</b>'
-    if RUN_MODE in ['update_ping', 'ping_update']:
-        return '🏆 <b>Update ping selesai</b>'
-    return '✅ <b>Update OpenClash selesai</b>'
+    if RUN_MODE in ["test", "test_ping"]:
+        return "🧪 Test ping selesai"
+    if RUN_MODE in ["update_ping", "ping_update"]:
+        return "🏆 Update ping selesai"
+    return "✅ Update OpenClash selesai"
 
 
 def tg(method):
-    return f'https://api.telegram.org/bot{TOKEN}/{method}'
+    return f"https://api.telegram.org/bot{TOKEN}/{method}"
 
 
 def send_message(text):
     if not TOKEN or not CHAT_ID:
-        print('Telegram token/chat id kosong, skip notify')
+        print("Telegram token/chat id kosong, skip notify")
         return
-    for part in [text[i:i+3900] for i in range(0, len(text), 3900)] or ['']:
-        r = requests.post(tg('sendMessage'), data={
-            'chat_id': CHAT_ID,
-            'text': part,
-            'parse_mode': 'HTML',
-            'disable_web_page_preview': True,
-        }, timeout=30)
-        print(r.status_code, r.text[:200])
+
+    parts = [text[i:i + 3900] for i in range(0, len(text), 3900)] or [""]
+    for part in parts:
+        response = requests.post(
+            tg("sendMessage"),
+            data={
+                "chat_id": CHAT_ID,
+                "text": part,
+                "parse_mode": "HTML",
+                "disable_web_page_preview": True,
+            },
+            timeout=30,
+        )
+        print(response.status_code, response.text[:200])
 
 
-def send_document(path, caption=''):
+def send_document(path, caption=""):
     if not TOKEN or not CHAT_ID or not Path(path).exists():
         return
-    with open(path, 'rb') as f:
-        r = requests.post(tg('sendDocument'), data={
-            'chat_id': CHAT_ID,
-            'caption': caption,
-            'parse_mode': 'HTML',
-        }, files={'document': f}, timeout=120)
-        print(r.status_code, r.text[:200])
+
+    with open(path, "rb") as file:
+        response = requests.post(
+            tg("sendDocument"),
+            data={
+                "chat_id": CHAT_ID,
+                "caption": caption,
+                "parse_mode": "HTML",
+            },
+            files={"document": file},
+            timeout=120,
+        )
+        print(response.status_code, response.text[:200])
 
 
 def read_summary():
-    p = Path('output/Alive/summary_alive.json')
-    if not p.exists():
+    path = Path("output/Alive/summary_alive.json")
+    if not path.exists():
         return {}
+
     try:
-        return json.loads(p.read_text(encoding='utf-8'))
+        return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return {}
 
 
 def read_protocol_rows():
-    p = Path('output/summary_protocol.csv')
-    if not p.exists():
+    path = Path("output/summary_protocol.csv")
+    if not path.exists():
         return []
-    with p.open(encoding='utf-8', newline='') as f:
-        return list(csv.DictReader(f))
+
+    with path.open(encoding="utf-8", newline="") as file:
+        return list(csv.DictReader(file))
 
 
 def read_top10_rows():
-    p = Path('output/BestPing/top10_indonesia.csv')
-    if not p.exists():
+    path = Path("output/BestPing/top10_indonesia.csv")
+    if not path.exists():
         return []
+
     try:
-        with p.open(encoding='utf-8', newline='') as f:
-            return list(csv.DictReader(f))[:10]
+        with path.open(encoding="utf-8", newline="") as file:
+            return list(csv.DictReader(file))[:10]
     except Exception:
         return []
 
 
 def success_message():
-    s = read_summary()
-    rows = read_protocol_rows()
+    summary = read_summary()
+    protocol_rows = read_protocol_rows()
+
     lines = [
         mode_title(),
-        '',
-        f'Total valid: <code>{s.get("total", "-")}</code>',
-        f'Hidup: <code>{s.get("alive", "-")}</code>',
-        f'Mati: <code>{s.get("dead", "-")}</code>',
-        f'Untested: <code>{s.get("untested", "-")}</code>',
-        f'Tester: <code>{s.get("tester", "-")}</code>',
-        f'Filter alive only: <code>{s.get("filter_alive_only", "-")}</code>',
-        f'Run mode: <code>{s.get("run_mode", RUN_MODE or "-")}</code>',
-        '',
+        "",
+        f"Total valid: `{summary.get('total', '-')}`",
+        f"Hidup: `{summary.get('alive', '-')}`",
+        f"Mati: `{summary.get('dead', '-')}`",
+        f"Untested: `{summary.get('untested', '-')}`",
+        f"Tester: `{summary.get('tester', '-')}`",
+        f"Filter alive only: `{summary.get('filter_alive_only', '-')}`",
+        f"Run mode: `{summary.get('run_mode', RUN_MODE or '-')}`",
+        "",
     ]
-    if rows:
-        lines.append('<b>Per protokol:</b>')
-        for r in rows:
+
+    if protocol_rows:
+        lines.append("Per protokol:")
+        for row in protocol_rows:
             lines.append(
-                f'- {r.get("protocol", "-").upper()}: '
-                f'alive <code>{r.get("alive_count", "0")}</code>, '
-                f'dead <code>{r.get("dead_count", "0")}</code>, '
-                f'output <code>{r.get("final_output_count", "0")}</code>'
-            )
-    top10 = read_top10_rows()
-    if top10:
-        lines.extend(['', '<b>Top 10 Balance:</b>'])
-        for idx, row in enumerate(top10, start=1):
-            lines.append(
-                f'- #{idx} {row.get("name", "-")} '
-                f'(<code>{row.get("delay_ms", "-")} ms</code>, {row.get("protocol", "-").upper()}, {row.get("country", "-")})'
+                f"- {row.get('protocol', '-').upper()}: "
+                f"alive `{row.get('alive_count', '0')}`, "
+                f"dead `{row.get('dead_count', '0')}`, "
+                f"output `{row.get('final_output_count', '0')}`"
             )
 
-    msg = s.get('tester_message')
-    if msg:
-        lines.extend(['', f'<b>Info:</b> <code>{msg[:500]}</code>'])
-    lines.extend([
-        '',
-        'File utama: <code>output/lengkap.yaml</code>',
-        'Laporan: <code>output/Alive/check_result.csv</code>',
-    ])
-    return '\n'.join(lines)
+    top10_rows = read_top10_rows()
+    if top10_rows:
+        lines.extend(["", "Top 10 Balance:"])
+        for idx, row in enumerate(top10_rows, start=1):
+            lines.append(
+                f"- #{idx} {row.get('name', '-')} "
+                f"(`{row.get('delay_ms', '-')} ms`, "
+                f"{row.get('protocol', '-').upper()}, "
+                f"{row.get('country', '-')})"
+            )
+
+    tester_message = summary.get("tester_message")
+    if tester_message:
+        lines.extend(["", f"Info: `{tester_message[:500]}`"])
+
+    lines.extend(
+        [
+            "",
+            "File utama: `output/lengkap.yaml`",
+            "Laporan: `output/Alive/check_result.csv`",
+        ]
+    )
+
+    return "\n".join(lines)
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--stage', choices=['success', 'failure'], required=True)
+    parser.add_argument("--stage", choices=["success", "failure"], required=True)
     args = parser.parse_args()
 
-    if args.stage == 'failure':
-        send_message('❌ <b>Update OpenClash gagal</b>\nCek log di GitHub Actions.')
+    if args.stage == "failure":
+        send_message("❌ Update OpenClash gagal\nCek log di GitHub Actions.")
         return
 
     send_message(success_message())
+
     if SEND_FILE:
-        send_document('output/lengkap.yaml', '✅ <b>lengkap.yaml</b> terbaru')
-        send_document('output/Alive/check_result.csv', '📊 <b>check_result.csv</b>')
-        send_document('output/Alive/alive.csv', '✅ <b>alive.csv</b>')
-        send_document('output/Alive/dead.csv', '❌ <b>dead.csv</b>')
-        send_document('output/BestPing/top10_indonesia.csv', '🏆 <b>top10_indonesia.csv</b>')
-        send_document('output/BestPing/top10_indonesia.yaml', '🏆 <b>top10_indonesia.yaml</b>')
+        send_document("output/lengkap.yaml", "✅ lengkap.yaml terbaru")
+        send_document("output/Alive/check_result.csv", "🧪 check_result.csv")
+        send_document("output/Alive/alive.csv", "✅ alive.csv")
+        send_document("output/Alive/dead.csv", "❌ dead.csv")
+        send_document("output/BestPing/top10_indonesia.csv", "🏆 top10_indonesia.csv")
+        send_document("output/BestPing/top10_indonesia.yaml", "🏆 top10_indonesia.yaml")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

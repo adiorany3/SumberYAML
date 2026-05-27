@@ -1,4 +1,5 @@
 import base64, binascii, csv, json, random, re, os, sys, time, shutil, socket, gzip, tarfile, zipfile, subprocess, tempfile
+import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs, unquote, urlunparse, quote
@@ -140,9 +141,56 @@ def yq(v):
     v = clean(v)
     if not v:
         return '""'
-    if any(c in v for c in [': ', '#', '{', '}', '[', ']', ',', '&', '*', '!', '|', '>', "'", '"', '%', '@', '`']):
-        return '"' + v.replace('"', '\\"') + '"'
-    return v
+    # Quote semua scalar string agar YAML OpenClash lebih aman.
+    # Sekaligus buang karakter kontrol/newline yang bisa merusak import.
+    v = ''.join(ch if not unicodedata.category(ch).startswith('C') else ' ' for ch in v)
+    v = re.sub(r'\s+', ' ', v).strip()
+    return '"' + v.replace('\\', '\\\\').replace('\"', '\\"') + '"'
+
+
+def flag_pair_to_country_code_for_name(text):
+    """Ubah emoji bendera menjadi kode negara ASCII, contoh 🇸🇬 -> SG."""
+    chars = list(clean(text))
+    out = []
+    i = 0
+    while i < len(chars):
+        if i + 1 < len(chars):
+            a = ord(chars[i])
+            b = ord(chars[i + 1])
+            if 0x1F1E6 <= a <= 0x1F1FF and 0x1F1E6 <= b <= 0x1F1FF:
+                out.append(' ' + chr(a - 0x1F1E6 + ord('A')) + chr(b - 0x1F1E6 + ord('A')) + ' ')
+                i += 2
+                continue
+        out.append(chars[i])
+        i += 1
+    return ''.join(out)
+
+
+def sanitize_proxy_name(name, fallback='Proxy', max_len=80):
+    """Bersihkan nama proxy agar aman untuk OpenClash/Mihomo YAML.
+
+    Karakter yang sering membuat import gagal seperti emoji, karakter kontrol,
+    zero-width character, newline, kutip, kurung YAML, koma, pipe, backtick,
+    dan simbol aneh akan dihapus/diganti spasi. Nama dibuat ASCII agar stabil
+    saat dipakai di proxies, proxy-groups, file TXT, dan API delay test.
+    """
+    value = clean(name, fallback)
+    value = flag_pair_to_country_code_for_name(value)
+    value = unicodedata.normalize('NFKD', value)
+    value = ''.join(ch if not unicodedata.category(ch).startswith('C') else ' ' for ch in value)
+    value = value.encode('ascii', 'ignore').decode('ascii', errors='ignore')
+    value = re.sub(r'[^A-Za-z0-9._() -]+', ' ', value)
+    value = re.sub(r'\s+', ' ', value).strip(' ._-()')
+
+    if not value:
+        value = clean(fallback, 'Proxy')
+        value = re.sub(r'[^A-Za-z0-9._() -]+', ' ', value)
+        value = re.sub(r'\s+', ' ', value).strip(' ._-()') or 'Proxy'
+
+    if len(value) > max_len:
+        value = value[:max_len].rstrip(' ._-()') or 'Proxy'
+
+    return value
 
 def b64_bytes(data):
     for enc in ['utf-8', 'iso-8859-1']:
@@ -497,7 +545,7 @@ def country_label(code):
 
 def make_unique_name(name, used_names):
     """Jika name sudah dipakai, tambahkan angka acak di belakangnya sampai unik."""
-    base_name = clean(name, 'Proxy')
+    base_name = sanitize_proxy_name(name, 'Proxy')
     if base_name not in used_names:
         used_names.add(base_name)
         return base_name, ''
@@ -526,7 +574,7 @@ def update_link_name(link, protocol_name, new_name):
         return link
     try:
         u = urlparse(link)
-        return urlunparse(u._replace(fragment=new_name))
+        return urlunparse(u._replace(fragment=quote(new_name, safe='._-()')))
     except Exception:
         return link
 
@@ -683,7 +731,7 @@ def build_openclash_yaml(
     country_group_names = []
 
     if BEST_PING_BALANCE_ENABLE and best_balance_names:
-        groups.append(make_load_balance_group(BEST_PING_BALANCE_NAME, best_balance_names))
+        groups.append(make_load_balance_group(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'BALANCE TOP 10 INDONESIA'), best_balance_names))
     for p in PROTOCOLS:
         names = protocol_proxy_names.get(p, [])
         if not names:
@@ -705,7 +753,7 @@ def build_openclash_yaml(
 
     select_entries = []
     if BEST_PING_BALANCE_ENABLE and best_balance_names:
-        select_entries.append(BEST_PING_BALANCE_NAME)
+        select_entries.append(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'BALANCE TOP 10 INDONESIA'))
     if all_proxy_names:
         select_entries.append('URL-TEST GABUNGAN')
     select_entries.extend(protocol_group_names)

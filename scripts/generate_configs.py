@@ -1,7 +1,8 @@
-import base64, binascii, csv, json, random, re
+import base64, binascii, csv, json, random, re, os, sys, time, shutil, socket, gzip, tarfile, zipfile, subprocess, tempfile
+import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from urllib.parse import urlparse, parse_qs, unquote, urlunparse
+from urllib.parse import urlparse, parse_qs, unquote, urlunparse, quote
 import requests
 
 TIMEOUT = 10
@@ -17,6 +18,32 @@ URL_TEST_URL = 'http://www.gstatic.com/generate_204'
 URL_TEST_INTERVAL = 300
 URL_TEST_TOLERANCE = 50
 FETCH_WORKERS = 10
+RUN_MODE = os.getenv('RUN_MODE', 'update').strip().lower() or 'update'
+
+# Top 10 tercepat dari hasil test delay.
+# Catatan: lokasi test mengikuti tempat workflow/script dijalankan.
+# Jika ingin benar-benar dari Indonesia, jalankan workflow di runner/VPS Indonesia.
+BEST_PING_TOP_N = int(os.getenv('BEST_PING_TOP_N', '10'))
+BEST_PING_BALANCE_ENABLE_RAW = os.getenv('BEST_PING_BALANCE_ENABLE', 'true')
+BEST_PING_BALANCE_NAME = os.getenv('BEST_PING_BALANCE_NAME', 'BALANCE TOP 10 INDONESIA')
+BEST_PING_BALANCE_STRATEGY = os.getenv('BEST_PING_BALANCE_STRATEGY', 'round-robin')
+
+def env_bool(name, default=False):
+    value = str(os.getenv(name, str(default))).strip().lower()
+    return value in ['1', 'true', 'yes', 'y', 'on']
+
+BEST_PING_BALANCE_ENABLE = str(BEST_PING_BALANCE_ENABLE_RAW).strip().lower() in ['1', 'true', 'yes', 'y', 'on']
+ENABLE_PROXY_TEST = env_bool('ENABLE_PROXY_TEST', True)
+FILTER_ALIVE_ONLY = env_bool('FILTER_ALIVE_ONLY', True)
+CHECK_TEST_URL = os.getenv('CHECK_TEST_URL', URL_TEST_URL)
+CHECK_TIMEOUT_MS = int(os.getenv('CHECK_TIMEOUT_MS', '5000'))
+CHECK_WORKERS = int(os.getenv('CHECK_WORKERS', '20'))
+MIHOMO_API_HOST = os.getenv('MIHOMO_API_HOST', '127.0.0.1')
+MIHOMO_API_PORT = int(os.getenv('MIHOMO_API_PORT', '9092'))
+MIHOMO_DOWNLOAD = env_bool('MIHOMO_DOWNLOAD', True)
+MIHOMO_BIN = os.getenv('MIHOMO_BIN', '').strip()
+TCP_FALLBACK = env_bool('TCP_FALLBACK', True)
+WRITE_ALL_VALID_BACKUP = env_bool('WRITE_ALL_VALID_BACKUP', True)
 COUNTRY_OUTPUT_DIR = 'Country'
 UNKNOWN_COUNTRY_CODE = 'UNKNOWN'
 COUNTRY_NAMES = {
@@ -91,8 +118,6 @@ BASE64_LINKS = [
     'https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_3.txt',
     'https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_4.txt',
     'https://raw.githubusercontent.com/Surfboardv2ray/TGParse/main/splitted/mixed',
-    'https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Splitted-By-Protocol/vless.txt',
-    'https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Splitted-By-Protocol/trojan.txt',
 ]
 DIRECT_LINKS = [
     'https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix',
@@ -103,16 +128,6 @@ DIRECT_LINKS = [
     'https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt',
     'https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt',
     'https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt',
-    'https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Splitted-By-Protocol/trojan.txt',
-    'https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/protocols/vl.txt',
-    'https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt',
-    'https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/protocols/vless.txt',
-    'https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/v2ray/all_sub.txt',
-    'https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/All_Configs_Sub.txt',
-    'https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vless_configs.txt',
-    'https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/V2Ray-Config-By-EbraSha-All-Type.txt',
-    'https://raw.githubusercontent.com/F0rc3Run/F0rc3Run/refs/heads/main/splitted-by-protocol/vless.txt',
-    'https://raw.githubusercontent.com/shabane/kamaji/master/hub/SG.txt',
 ]
 PREFIX = {'vmess': 'vmess://', 'vless': 'vless://', 'trojan': 'trojan://'}
 
@@ -126,9 +141,56 @@ def yq(v):
     v = clean(v)
     if not v:
         return '""'
-    if any(c in v for c in [': ', '#', '{', '}', '[', ']', ',', '&', '*', '!', '|', '>', "'", '"', '%', '@', '`']):
-        return '"' + v.replace('"', '\\"') + '"'
-    return v
+    # Quote semua scalar string agar YAML OpenClash lebih aman.
+    # Sekaligus buang karakter kontrol/newline yang bisa merusak import.
+    v = ''.join(ch if not unicodedata.category(ch).startswith('C') else ' ' for ch in v)
+    v = re.sub(r'\s+', ' ', v).strip()
+    return '"' + v.replace('\\', '\\\\').replace('\"', '\\"') + '"'
+
+
+def flag_pair_to_country_code_for_name(text):
+    """Ubah emoji bendera menjadi kode negara ASCII, contoh 🇸🇬 -> SG."""
+    chars = list(clean(text))
+    out = []
+    i = 0
+    while i < len(chars):
+        if i + 1 < len(chars):
+            a = ord(chars[i])
+            b = ord(chars[i + 1])
+            if 0x1F1E6 <= a <= 0x1F1FF and 0x1F1E6 <= b <= 0x1F1FF:
+                out.append(' ' + chr(a - 0x1F1E6 + ord('A')) + chr(b - 0x1F1E6 + ord('A')) + ' ')
+                i += 2
+                continue
+        out.append(chars[i])
+        i += 1
+    return ''.join(out)
+
+
+def sanitize_proxy_name(name, fallback='Proxy', max_len=80):
+    """Bersihkan nama proxy agar aman untuk OpenClash/Mihomo YAML.
+
+    Karakter yang sering membuat import gagal seperti emoji, karakter kontrol,
+    zero-width character, newline, kutip, kurung YAML, koma, pipe, backtick,
+    dan simbol aneh akan dihapus/diganti spasi. Nama dibuat ASCII agar stabil
+    saat dipakai di proxies, proxy-groups, file TXT, dan API delay test.
+    """
+    value = clean(name, fallback)
+    value = flag_pair_to_country_code_for_name(value)
+    value = unicodedata.normalize('NFKD', value)
+    value = ''.join(ch if not unicodedata.category(ch).startswith('C') else ' ' for ch in value)
+    value = value.encode('ascii', 'ignore').decode('ascii', errors='ignore')
+    value = re.sub(r'[^A-Za-z0-9._() -]+', ' ', value)
+    value = re.sub(r'\s+', ' ', value).strip(' ._-()')
+
+    if not value:
+        value = clean(fallback, 'Proxy')
+        value = re.sub(r'[^A-Za-z0-9._() -]+', ' ', value)
+        value = re.sub(r'\s+', ' ', value).strip(' ._-()') or 'Proxy'
+
+    if len(value) > max_len:
+        value = value[:max_len].rstrip(' ._-()') or 'Proxy'
+
+    return value
 
 def b64_bytes(data):
     for enc in ['utf-8', 'iso-8859-1']:
@@ -483,7 +545,7 @@ def country_label(code):
 
 def make_unique_name(name, used_names):
     """Jika name sudah dipakai, tambahkan angka acak di belakangnya sampai unik."""
-    base_name = clean(name, 'Proxy')
+    base_name = sanitize_proxy_name(name, 'Proxy')
     if base_name not in used_names:
         used_names.add(base_name)
         return base_name, ''
@@ -512,7 +574,7 @@ def update_link_name(link, protocol_name, new_name):
         return link
     try:
         u = urlparse(link)
-        return urlunparse(u._replace(fragment=new_name))
+        return urlunparse(u._replace(fragment=quote(new_name, safe='._-()')))
     except Exception:
         return link
 
@@ -585,18 +647,22 @@ def convert_protocol(p, links, used_names):
         c['name'] = new_name
         c['protocol'] = p
         c['country'] = detect_country(c)
+        c['original_server'] = clean(c.get('server'))
 
         if p == 'vmess':
             c['server'] = clean(override, c['server'])
-            txt_items.append(encode_vmess(c))
+            txt_link = encode_vmess(c)
+            txt_items.append(txt_link)
             yaml_text = yaml_func(c)
             yaml_items.append(yaml_text)
         else:
             renamed_link = update_link_name(link, p, c['name'])
-            txt_items.append(replace_server(renamed_link, override))
+            txt_link = replace_server(renamed_link, override)
+            txt_items.append(txt_link)
             c['server'] = clean(override, c['server'])
             yaml_text = yaml_func(c)
             yaml_items.append(yaml_text)
+        c['txt_link'] = txt_link
         c['yaml_text'] = yaml_text
         configs.append(c)
     return yaml_items, txt_items, invalid, duplicates, renamed, configs
@@ -626,6 +692,18 @@ def make_url_test_group(group_name, proxy_names):
   tolerance: {URL_TEST_TOLERANCE}'''
 
 
+def make_load_balance_group(group_name, proxy_names):
+    if not proxy_names:
+        return ''
+    return f'''- name: {yq(group_name)}
+  type: load-balance
+  strategy: {BEST_PING_BALANCE_STRATEGY}
+  proxies:
+{yaml_name_list(proxy_names, 4)}
+  url: {URL_TEST_URL}
+  interval: {URL_TEST_INTERVAL}'''
+
+
 def make_select_group(group_name, entries):
     if not entries:
         entries = ['DIRECT']
@@ -635,15 +713,25 @@ def make_select_group(group_name, entries):
 {yaml_name_list(entries, 4)}'''
 
 
-def build_openclash_yaml(all_yaml_items, protocol_proxy_names, country_proxy_names=None):
+def build_openclash_yaml(
+    all_yaml_items,
+    protocol_proxy_names,
+    country_proxy_names=None,
+    external_controller='0.0.0.0:9090',
+    best_balance_names=None,
+):
     all_proxy_names = []
     for p in PROTOCOLS:
         all_proxy_names.extend(protocol_proxy_names.get(p, []))
 
     country_proxy_names = country_proxy_names or {}
+    best_balance_names = best_balance_names or []
     groups = []
     protocol_group_names = []
     country_group_names = []
+
+    if BEST_PING_BALANCE_ENABLE and best_balance_names:
+        groups.append(make_load_balance_group(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'BALANCE TOP 10 INDONESIA'), best_balance_names))
     for p in PROTOCOLS:
         names = protocol_proxy_names.get(p, [])
         if not names:
@@ -664,6 +752,8 @@ def build_openclash_yaml(all_yaml_items, protocol_proxy_names, country_proxy_nam
         groups.append(make_url_test_group(group_name, names))
 
     select_entries = []
+    if BEST_PING_BALANCE_ENABLE and best_balance_names:
+        select_entries.append(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'BALANCE TOP 10 INDONESIA'))
     if all_proxy_names:
         select_entries.append('URL-TEST GABUNGAN')
     select_entries.extend(protocol_group_names)
@@ -696,7 +786,7 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
-external-controller: 0.0.0.0:9090
+external-controller: {external_controller}
 
 profile:
   store-selected: true
@@ -738,40 +828,428 @@ def write_country_summary(path, rows):
         w.writeheader(); w.writerows(rows)
 
 
+
+def safe_int(v, default=0):
+    try:
+        return int(v)
+    except Exception:
+        return default
+
+
+def config_row(c, status='', delay_ms='', reason=''):
+    return {
+        'protocol': clean(c.get('protocol')),
+        'name': clean(c.get('name')),
+        'country': clean(c.get('country')),
+        'server': clean(c.get('server')),
+        'original_server': clean(c.get('original_server')),
+        'port': clean(c.get('port')),
+        'network': clean(c.get('network')),
+        'status': clean(status or c.get('status')),
+        'delay_ms': clean(delay_ms if delay_ms != '' else c.get('delay_ms')),
+        'reason': clean(reason or c.get('reason')),
+        'raw': clean(c.get('raw')),
+    }
+
+
+def write_check_results(path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fields = [
+        'protocol', 'name', 'country', 'server', 'original_server', 'port',
+        'network', 'status', 'delay_ms', 'reason', 'raw'
+    ]
+    with path.open('w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        w.writerows(rows)
+
+
+def write_test_summary(path, summary):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('w', encoding='utf-8') as f:
+        json.dump(summary, f, ensure_ascii=False, indent=2)
+
+
+def delay_sort_value(c):
+    try:
+        return int(c.get('delay_ms'))
+    except Exception:
+        return 999999999
+
+
+def get_best_ping_configs(configs, limit=None):
+    limit = int(limit or BEST_PING_TOP_N or 10)
+    alive = [
+        c for c in configs
+        if c.get('status') == 'alive' and clean(c.get('name')) and delay_sort_value(c) < 999999999
+    ]
+    alive.sort(key=lambda item: (delay_sort_value(item), clean(item.get('name'))))
+    return alive[:limit]
+
+
+def write_best_ping_outputs(best_configs):
+    best_dir = OUTPUT_DIR / 'BestPing'
+    best_dir.mkdir(parents=True, exist_ok=True)
+
+    rows = []
+    for idx, c in enumerate(best_configs, start=1):
+        row = config_row(c)
+        row['rank'] = idx
+        row['balance_group'] = BEST_PING_BALANCE_NAME
+        rows.append(row)
+
+    fields = [
+        'rank', 'protocol', 'name', 'country', 'server', 'original_server', 'port',
+        'network', 'status', 'delay_ms', 'reason', 'balance_group', 'raw'
+    ]
+    with (best_dir / 'top10_indonesia.csv').open('w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        w.writerows(rows)
+
+    write(
+        best_dir / 'top10_indonesia.yaml',
+        add_proxies_header([c.get('yaml_text', '') for c in best_configs if c.get('yaml_text')]),
+    )
+
+    write_test_summary(
+        best_dir / 'summary_top10_indonesia.json',
+        {
+            'label': 'Best Ping From Indonesia',
+            'note': 'Delay mengikuti lokasi runner tempat test dijalankan. Gunakan runner/VPS Indonesia untuk hasil benar-benar dari Indonesia.',
+            'balance_group': BEST_PING_BALANCE_NAME,
+            'balance_strategy': BEST_PING_BALANCE_STRATEGY,
+            'top_n': BEST_PING_TOP_N,
+            'count': len(best_configs),
+            'names': [c.get('name') for c in best_configs],
+        },
+    )
+
+
+def tcp_check(c):
+    host = clean(c.get('server'))
+    port = safe_int(c.get('port'), 443)
+    started = time.perf_counter()
+    try:
+        with socket.create_connection((host, port), timeout=CHECK_TIMEOUT_MS / 1000):
+            delay = int((time.perf_counter() - started) * 1000)
+            return 'alive', delay, 'tcp connect ok'
+    except Exception as exc:
+        return 'dead', '', f'tcp error: {exc}'
+
+
+def find_local_mihomo_binary():
+    candidates = []
+    if MIHOMO_BIN:
+        candidates.append(MIHOMO_BIN)
+    candidates.extend(['mihomo', 'clash-meta', 'clash'])
+    for item in candidates:
+        path = shutil.which(item) if not os.path.isabs(item) else item
+        if path and Path(path).exists():
+            return path
+    return ''
+
+
+def extract_mihomo_binary(download_path, target_path):
+    name = download_path.name.lower()
+    if name.endswith('.gz') and not name.endswith('.tar.gz'):
+        with gzip.open(download_path, 'rb') as src, open(target_path, 'wb') as dst:
+            shutil.copyfileobj(src, dst)
+        target_path.chmod(0o755)
+        return str(target_path)
+
+    if name.endswith('.zip'):
+        with zipfile.ZipFile(download_path) as zf:
+            for member in zf.namelist():
+                if member.endswith('/'):
+                    continue
+                lower = member.lower()
+                if 'mihomo' in lower or 'clash' in lower:
+                    with zf.open(member) as src, open(target_path, 'wb') as dst:
+                        shutil.copyfileobj(src, dst)
+                    target_path.chmod(0o755)
+                    return str(target_path)
+
+    if name.endswith('.tar.gz') or name.endswith('.tgz'):
+        with tarfile.open(download_path, 'r:gz') as tf:
+            for member in tf.getmembers():
+                if not member.isfile():
+                    continue
+                lower = member.name.lower()
+                if 'mihomo' in lower or 'clash' in lower:
+                    src = tf.extractfile(member)
+                    if src:
+                        with src, open(target_path, 'wb') as dst:
+                            shutil.copyfileobj(src, dst)
+                        target_path.chmod(0o755)
+                        return str(target_path)
+    return ''
+
+
+def download_mihomo_binary(work_dir):
+    if not MIHOMO_DOWNLOAD:
+        return ''
+    if not sys.platform.startswith('linux'):
+        return ''
+
+    api = 'https://api.github.com/repos/MetaCubeX/mihomo/releases/latest'
+    try:
+        release = requests.get(api, timeout=30).json()
+    except Exception:
+        return ''
+
+    assets = release.get('assets', []) if isinstance(release, dict) else []
+    preferred = []
+    fallback = []
+    for asset in assets:
+        name = asset.get('name', '')
+        url = asset.get('browser_download_url', '')
+        lower = name.lower()
+        if not url or 'sha256' in lower or 'checksum' in lower:
+            continue
+        if 'linux' in lower and 'amd64' in lower:
+            fallback.append((name, url))
+            if 'compatible' in lower:
+                preferred.append((name, url))
+
+    selected = (preferred or fallback)
+    if not selected:
+        return ''
+
+    name, url = selected[0]
+    download_path = Path(work_dir) / name
+    target_path = Path(work_dir) / 'mihomo'
+    try:
+        with requests.get(url, stream=True, timeout=120) as response:
+            response.raise_for_status()
+            with open(download_path, 'wb') as f:
+                for chunk in response.iter_content(chunk_size=1024 * 1024):
+                    if chunk:
+                        f.write(chunk)
+        return extract_mihomo_binary(download_path, target_path)
+    except Exception:
+        return ''
+
+
+def wait_mihomo_api(base_url, timeout_seconds=20):
+    deadline = time.time() + timeout_seconds
+    last_error = ''
+    while time.time() < deadline:
+        try:
+            r = requests.get(f'{base_url}/proxies', timeout=3)
+            if r.ok:
+                return True, ''
+            last_error = f'http {r.status_code}: {r.text[:120]}'
+        except Exception as exc:
+            last_error = str(exc)
+        time.sleep(1)
+    return False, last_error
+
+
+def run_mihomo_delay_tests(configs):
+    if not configs:
+        return False, 'Tidak ada config untuk dites.'
+
+    work_dir = tempfile.mkdtemp(prefix='mihomo-check-')
+    process = None
+    try:
+        mihomo_bin = find_local_mihomo_binary() or download_mihomo_binary(work_dir)
+        if not mihomo_bin:
+            return False, 'Mihomo/Clash binary tidak ditemukan dan gagal download otomatis.'
+
+        yaml_items = [c.get('yaml_text', '') for c in configs if c.get('yaml_text')]
+        protocol_names = {p: [] for p in PROTOCOLS}
+        country_names = {}
+        for c in configs:
+            protocol_names.setdefault(c.get('protocol'), []).append(c.get('name'))
+            country_names.setdefault(c.get('country', UNKNOWN_COUNTRY_CODE), []).append(c.get('name'))
+
+        controller = f'{MIHOMO_API_HOST}:{MIHOMO_API_PORT}'
+        temp_config = Path(work_dir) / 'check.yaml'
+        temp_config.write_text(
+            build_openclash_yaml(
+                yaml_items,
+                protocol_names,
+                country_names,
+                external_controller=controller,
+            ),
+            encoding='utf-8',
+        )
+
+        process = subprocess.Popen(
+            [mihomo_bin, '-f', str(temp_config), '-d', work_dir],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+        )
+
+        base_url = f'http://{controller}'
+        ok, err = wait_mihomo_api(base_url)
+        if not ok:
+            output = ''
+            try:
+                if process.stdout:
+                    output = process.stdout.read(1000)
+            except Exception:
+                pass
+            return False, f'Mihomo API tidak aktif: {err}. {output[:500]}'
+
+        def one(c):
+            name = clean(c.get('name'))
+            url = (
+                f'{base_url}/proxies/{quote(name, safe="")}/delay'
+                f'?timeout={CHECK_TIMEOUT_MS}&url={quote(CHECK_TEST_URL, safe="")}'
+            )
+            try:
+                response = requests.get(url, timeout=(CHECK_TIMEOUT_MS / 1000) + 5)
+                if response.ok:
+                    data = response.json()
+                    delay = data.get('delay')
+                    if isinstance(delay, int) and delay > 0:
+                        return c, 'alive', delay, 'proxy delay ok'
+                    return c, 'dead', '', json.dumps(data, ensure_ascii=False)[:200]
+                return c, 'dead', '', f'api http {response.status_code}: {response.text[:200]}'
+            except Exception as exc:
+                return c, 'dead', '', f'proxy test error: {exc}'
+
+        with ThreadPoolExecutor(max_workers=CHECK_WORKERS) as executor:
+            futures = [executor.submit(one, c) for c in configs]
+            for future in as_completed(futures):
+                c, status, delay, reason = future.result()
+                c['status'] = status
+                c['delay_ms'] = delay
+                c['reason'] = reason
+        return True, 'Mihomo proxy delay test selesai.'
+    finally:
+        if process and process.poll() is None:
+            process.terminate()
+            try:
+                process.wait(timeout=5)
+            except Exception:
+                process.kill()
+        shutil.rmtree(work_dir, ignore_errors=True)
+
+
+def run_tcp_fallback_tests(configs, reason_prefix=''):
+    def one(c):
+        status, delay, reason = tcp_check(c)
+        c['status'] = status
+        c['delay_ms'] = delay
+        c['reason'] = f'{reason_prefix} | {reason}'.strip(' |')
+        return c
+
+    with ThreadPoolExecutor(max_workers=CHECK_WORKERS) as executor:
+        futures = [executor.submit(one, c) for c in configs]
+        for future in as_completed(futures):
+            future.result()
+
+
+def apply_alive_tests(configs):
+    summary = {
+        'run_mode': RUN_MODE,
+        'enable_proxy_test': ENABLE_PROXY_TEST,
+        'filter_alive_only': FILTER_ALIVE_ONLY,
+        'test_url': CHECK_TEST_URL,
+        'timeout_ms': CHECK_TIMEOUT_MS,
+        'workers': CHECK_WORKERS,
+        'tester': 'none',
+        'tester_ok': False,
+        'tester_message': '',
+        'total': len(configs),
+        'alive': 0,
+        'dead': 0,
+        'untested': 0,
+    }
+
+    if not ENABLE_PROXY_TEST:
+        for c in configs:
+            c['status'] = 'untested'
+            c['delay_ms'] = ''
+            c['reason'] = 'ENABLE_PROXY_TEST=false'
+        summary['untested'] = len(configs)
+        return configs, summary
+
+    ok, message = run_mihomo_delay_tests(configs)
+    summary['tester'] = 'mihomo-delay'
+    summary['tester_ok'] = ok
+    summary['tester_message'] = message
+
+    if not ok:
+        if TCP_FALLBACK:
+            summary['tester'] = 'tcp-fallback'
+            run_tcp_fallback_tests(configs, f'mihomo unavailable: {message}')
+        else:
+            for c in configs:
+                c['status'] = 'untested'
+                c['delay_ms'] = ''
+                c['reason'] = message
+
+    summary['alive'] = sum(1 for c in configs if c.get('status') == 'alive')
+    summary['dead'] = sum(1 for c in configs if c.get('status') == 'dead')
+    summary['untested'] = sum(1 for c in configs if c.get('status') == 'untested')
+
+    if FILTER_ALIVE_ONLY and summary['alive'] > 0:
+        return [c for c in configs if c.get('status') == 'alive'], summary
+
+    if FILTER_ALIVE_ONLY and summary['alive'] == 0:
+        summary['tester_message'] += ' | Tidak ada proxy alive, output utama tetap memakai semua config valid agar file tidak kosong.'
+
+    return configs, summary
+
+
+def rebuild_collections(configs):
+    yaml_items = [c.get('yaml_text', '') for c in configs if c.get('yaml_text')]
+    txt_items_by_protocol = {p: [] for p in PROTOCOLS}
+    yaml_items_by_protocol = {p: [] for p in PROTOCOLS}
+    protocol_proxy_names = {p: [] for p in PROTOCOLS}
+    country_yaml_items = {}
+    country_proxy_names = {}
+
+    for c in configs:
+        p = c.get('protocol')
+        if p in PROTOCOLS:
+            txt_items_by_protocol[p].append(c.get('txt_link', ''))
+            yaml_items_by_protocol[p].append(c.get('yaml_text', ''))
+            protocol_proxy_names[p].append(c.get('name', ''))
+        country_code = c.get('country', UNKNOWN_COUNTRY_CODE)
+        country_yaml_items.setdefault(country_code, []).append(c.get('yaml_text', ''))
+        country_proxy_names.setdefault(country_code, []).append(c.get('name', ''))
+
+    return {
+        'yaml_items': yaml_items,
+        'txt_items_by_protocol': txt_items_by_protocol,
+        'yaml_items_by_protocol': yaml_items_by_protocol,
+        'protocol_proxy_names': protocol_proxy_names,
+        'country_yaml_items': country_yaml_items,
+        'country_proxy_names': country_proxy_names,
+    }
+
+
 def generate():
     contents = fetch_all_sources()
     mapped = map_protocols(contents)
     summary, all_invalid, all_duplicates, all_renamed = [], [], [], []
-    all_yaml_items = []
-    protocol_proxy_names = {p: [] for p in PROTOCOLS}
-    country_yaml_items = {}
-    country_proxy_names = {}
+    all_configs = []
     used_names = set()
 
     for p in PROTOCOLS:
         raw_links = mapped.get(p, [])
         yaml_items, txt_items, invalid, duplicates, renamed, configs = convert_protocol(p, raw_links, used_names)
 
-        write(OUTPUT_DIR / 'Yaml' / f'{p}.yaml', add_proxies_header(yaml_items))
-        write(OUTPUT_DIR / 'Txt' / f'{p}.txt', '\n'.join(txt_items))
         write(OUTPUT_DIR / 'Raw' / f'{p}.txt', '\n'.join(raw_links))
         write_invalid(OUTPUT_DIR / 'Invalid' / f'{p}_invalid.csv', invalid)
         write_duplicates(OUTPUT_DIR / 'Duplicate' / f'{p}_duplicates.csv', duplicates)
         write_renamed(OUTPUT_DIR / 'Renamed' / f'{p}_renamed.csv', renamed)
 
-        all_yaml_items.extend(yaml_items)
-        protocol_proxy_names[p] = [c['name'] for c in configs]
+        if WRITE_ALL_VALID_BACKUP:
+            write(OUTPUT_DIR / 'AllValid' / 'Yaml' / f'{p}.yaml', add_proxies_header(yaml_items))
+            write(OUTPUT_DIR / 'AllValid' / 'Txt' / f'{p}.txt', '\n'.join(txt_items))
 
-        for c in configs:
-            country_code = c.get('country', UNKNOWN_COUNTRY_CODE)
-            country_yaml_items.setdefault(country_code, []).append(c.get('yaml_text', ''))
-            country_proxy_names.setdefault(country_code, []).append(c.get('name', ''))
-
+        all_configs.extend(configs)
         summary.append({
             'protocol': p,
             'raw_count': len(raw_links),
-            'yaml_valid_count': len(yaml_items),
-            'txt_valid_count': len(txt_items),
+            'valid_before_test_count': len(configs),
             'invalid_count': len(invalid),
             'duplicate_count': len(duplicates),
             'renamed_count': len(renamed),
@@ -785,13 +1263,55 @@ def generate():
         all_renamed.extend(renamed)
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    openclash_yaml = build_openclash_yaml(all_yaml_items, protocol_proxy_names, country_proxy_names)
+
+    final_configs, test_summary = apply_alive_tests(all_configs)
+    final_names = set(c.get('name') for c in final_configs)
+
+    # Tulis laporan alive/dead lengkap.
+    all_rows = [config_row(c) for c in all_configs]
+    alive_rows = [config_row(c) for c in all_configs if c.get('status') == 'alive']
+    dead_rows = [config_row(c) for c in all_configs if c.get('status') == 'dead']
+    untested_rows = [config_row(c) for c in all_configs if c.get('status') == 'untested']
+    write_check_results(OUTPUT_DIR / 'Alive' / 'check_result.csv', all_rows)
+    write_check_results(OUTPUT_DIR / 'Alive' / 'alive.csv', alive_rows)
+    write_check_results(OUTPUT_DIR / 'Alive' / 'dead.csv', dead_rows)
+    write_check_results(OUTPUT_DIR / 'Alive' / 'untested.csv', untested_rows)
+    write_test_summary(OUTPUT_DIR / 'Alive' / 'summary_alive.json', test_summary)
+
+    alive_yaml = [c.get('yaml_text', '') for c in all_configs if c.get('status') == 'alive']
+    dead_yaml = [c.get('yaml_text', '') for c in all_configs if c.get('status') == 'dead']
+    write(OUTPUT_DIR / 'Alive' / 'alive.yaml', add_proxies_header(alive_yaml))
+    write(OUTPUT_DIR / 'Alive' / 'dead.yaml', add_proxies_header(dead_yaml))
+
+    best_configs = get_best_ping_configs(all_configs, BEST_PING_TOP_N)
+    best_balance_names = [c.get('name') for c in best_configs if c.get('name')]
+    test_summary['best_ping_top_n'] = BEST_PING_TOP_N
+    test_summary['best_ping_balance_group'] = BEST_PING_BALANCE_NAME
+    test_summary['best_ping_balance_strategy'] = BEST_PING_BALANCE_STRATEGY
+    test_summary['best_ping_count'] = len(best_configs)
+    test_summary['best_ping_names'] = best_balance_names
+    write_test_summary(OUTPUT_DIR / 'Alive' / 'summary_alive.json', test_summary)
+    write_best_ping_outputs(best_configs)
+
+    collections = rebuild_collections(final_configs)
+
+    # Output utama mengikuti hasil filter alive jika test berhasil dan ada proxy alive.
+    for p in PROTOCOLS:
+        write(OUTPUT_DIR / 'Yaml' / f'{p}.yaml', add_proxies_header(collections['yaml_items_by_protocol'].get(p, [])))
+        write(OUTPUT_DIR / 'Txt' / f'{p}.txt', '\n'.join(collections['txt_items_by_protocol'].get(p, [])))
+
+    openclash_yaml = build_openclash_yaml(
+        collections['yaml_items'],
+        collections['protocol_proxy_names'],
+        collections['country_proxy_names'],
+        best_balance_names=best_balance_names,
+    )
     write(OUTPUT_DIR / OPENCLASH_OUTPUT_FILE, openclash_yaml)
 
     country_summary = []
-    for country_code in sorted(country_yaml_items):
-        items = country_yaml_items.get(country_code, [])
-        names = country_proxy_names.get(country_code, [])
+    for country_code in sorted(collections['country_yaml_items']):
+        items = collections['country_yaml_items'].get(country_code, [])
+        names = collections['country_proxy_names'].get(country_code, [])
         if not items:
             continue
         proxy_only_path = OUTPUT_DIR / COUNTRY_OUTPUT_DIR / 'ProxyOnly' / f'{country_code}.yaml'
@@ -806,16 +1326,38 @@ def generate():
             'proxy_only_file': str(proxy_only_path).replace('\\', '/'),
         })
 
+    # Tambahkan jumlah akhir setelah test ke summary protocol.
+    final_by_protocol = {p: 0 for p in PROTOCOLS}
+    alive_by_protocol = {p: 0 for p in PROTOCOLS}
+    dead_by_protocol = {p: 0 for p in PROTOCOLS}
+    for c in all_configs:
+        p = c.get('protocol')
+        if p in PROTOCOLS:
+            if c.get('status') == 'alive':
+                alive_by_protocol[p] += 1
+            elif c.get('status') == 'dead':
+                dead_by_protocol[p] += 1
+            if c.get('name') in final_names:
+                final_by_protocol[p] += 1
+
+    for row in summary:
+        p = row['protocol']
+        row['alive_count'] = alive_by_protocol.get(p, 0)
+        row['dead_count'] = dead_by_protocol.get(p, 0)
+        row['final_output_count'] = final_by_protocol.get(p, 0)
+
     with (OUTPUT_DIR / 'summary_protocol.csv').open('w', encoding='utf-8', newline='') as f:
         fields = [
             'protocol',
             'raw_count',
-            'yaml_valid_count',
-            'txt_valid_count',
+            'valid_before_test_count',
             'invalid_count',
             'duplicate_count',
             'renamed_count',
             'country_count',
+            'alive_count',
+            'dead_count',
+            'final_output_count',
             'yaml_file',
             'txt_file',
             'raw_file'
@@ -831,6 +1373,7 @@ def generate():
 
     print('Done. Output folder:', OUTPUT_DIR)
     print('OpenClash file:', OUTPUT_DIR / OPENCLASH_OUTPUT_FILE)
+    print('Proxy test summary:', json.dumps(test_summary, ensure_ascii=False))
 
 if __name__ == '__main__':
     generate()

@@ -1,4 +1,4 @@
-import base64, binascii, csv, json, os, random, re, sys, threading, time, traceback
+import base64, binascii, csv, json, random, re
 import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -20,26 +20,6 @@ URL_TEST_TOLERANCE = 50
 FETCH_WORKERS = 10
 COUNTRY_OUTPUT_DIR = 'Country'
 UNKNOWN_COUNTRY_CODE = 'UNKNOWN'
-
-# =========================
-# Telegram Bot Integration
-# =========================
-# Isi lewat environment variable, jangan hardcode token di file.
-# Windows PowerShell:
-#   $env:TELEGRAM_BOT_TOKEN="123456:ABC..."
-#   $env:TELEGRAM_ALLOWED_CHAT_ID="123456789"
-# macOS/Linux:
-#   export TELEGRAM_BOT_TOKEN="123456:ABC..."
-#   export TELEGRAM_ALLOWED_CHAT_ID="123456789"
-# Jalankan bot:
-#   python telegram_openclash_bot.py --bot
-TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '').strip()
-TELEGRAM_ALLOWED_CHAT_ID = os.getenv('TELEGRAM_ALLOWED_CHAT_ID', '').strip()
-TELEGRAM_POLL_TIMEOUT = int(os.getenv('TELEGRAM_POLL_TIMEOUT', '30'))
-TELEGRAM_SEND_OUTPUT_FILE = os.getenv('TELEGRAM_SEND_OUTPUT_FILE', 'true').strip().lower() in ['1', 'true', 'yes', 'y', 'on']
-TELEGRAM_API_BASE = 'https://api.telegram.org/bot'
-UPDATE_LOCK = threading.Lock()
-
 COUNTRY_NAMES = {
     'AD': 'Andorra', 'AE': 'United Arab Emirates', 'AF': 'Afghanistan', 'AG': 'Antigua and Barbuda',
     'AI': 'Anguilla', 'AL': 'Albania', 'AM': 'Armenia', 'AO': 'Angola', 'AQ': 'Antarctica',
@@ -112,6 +92,8 @@ BASE64_LINKS = [
     'https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_3.txt',
     'https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_4.txt',
     'https://raw.githubusercontent.com/Surfboardv2ray/TGParse/main/splitted/mixed',
+    'https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Splitted-By-Protocol/vless.txt',
+    'https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Splitted-By-Protocol/trojan.txt',
 ]
 DIRECT_LINKS = [
     'https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix',
@@ -122,6 +104,16 @@ DIRECT_LINKS = [
     'https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt',
     'https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt',
     'https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt',
+    'https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Splitted-By-Protocol/trojan.txt',
+    'https://raw.githubusercontent.com/sevcator/5ubscrpt10n/main/protocols/vl.txt',
+    'https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt',
+    'https://raw.githubusercontent.com/Delta-Kronecker/V2ray-Config/main/config/protocols/vless.txt',
+    'https://raw.githubusercontent.com/MatinGhanbari/v2ray-configs/main/subscriptions/v2ray/all_sub.txt',
+    'https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/All_Configs_Sub.txt',
+    'https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vless_configs.txt',
+    'https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/V2Ray-Config-By-EbraSha-All-Type.txt',
+    'https://raw.githubusercontent.com/F0rc3Run/F0rc3Run/refs/heads/main/splitted-by-protocol/vless.txt',
+    'https://raw.githubusercontent.com/shabane/kamaji/master/hub/SG.txt',
 ]
 PREFIX = {'vmess': 'vmess://', 'vless': 'vless://', 'trojan': 'trojan://'}
 
@@ -885,256 +877,8 @@ def generate():
     write_renamed(OUTPUT_DIR / 'Renamed' / 'all_renamed.csv', all_renamed)
     write_country_summary(OUTPUT_DIR / COUNTRY_OUTPUT_DIR / 'summary_country.csv', country_summary)
 
-    result = {
-        'output_dir': str(OUTPUT_DIR),
-        'openclash_file': str(OUTPUT_DIR / OPENCLASH_OUTPUT_FILE),
-        'summary_protocol_file': str(OUTPUT_DIR / 'summary_protocol.csv'),
-        'summary_country_file': str(OUTPUT_DIR / COUNTRY_OUTPUT_DIR / 'summary_country.csv'),
-        'protocol_summary': summary,
-        'country_summary': country_summary,
-        'total_raw': sum(row['raw_count'] for row in summary),
-        'total_valid': sum(row['yaml_valid_count'] for row in summary),
-        'total_invalid': len(all_invalid),
-        'total_duplicates': len(all_duplicates),
-        'total_renamed': len(all_renamed),
-        'total_countries': len(country_summary),
-    }
-
     print('Done. Output folder:', OUTPUT_DIR)
     print('OpenClash file:', OUTPUT_DIR / OPENCLASH_OUTPUT_FILE)
-    print('Valid proxies:', result['total_valid'])
-    print('Countries:', result['total_countries'])
-    return result
-
-
-def telegram_api_url(method):
-    return f'{TELEGRAM_API_BASE}{TELEGRAM_BOT_TOKEN}/{method}'
-
-
-def telegram_request(method, data=None, files=None, timeout=60):
-    if not TELEGRAM_BOT_TOKEN:
-        raise RuntimeError('TELEGRAM_BOT_TOKEN belum diisi.')
-    response = requests.post(
-        telegram_api_url(method),
-        data=data or {},
-        files=files,
-        timeout=timeout,
-    )
-    response.raise_for_status()
-    payload = response.json()
-    if not payload.get('ok'):
-        raise RuntimeError(f'Telegram API error: {payload}')
-    return payload
-
-
-def telegram_send_message(chat_id, text):
-    max_len = 3900
-    parts = [text[i:i + max_len] for i in range(0, len(text), max_len)] or ['']
-    for part in parts:
-        telegram_request(
-            'sendMessage',
-            data={
-                'chat_id': chat_id,
-                'text': part,
-                'parse_mode': 'HTML',
-                'disable_web_page_preview': True,
-            },
-            timeout=30,
-        )
-
-
-def telegram_send_document(chat_id, file_path, caption=''):
-    path = Path(file_path)
-    if not path.exists() or not path.is_file():
-        return False
-    with path.open('rb') as f:
-        telegram_request(
-            'sendDocument',
-            data={
-                'chat_id': chat_id,
-                'caption': caption[:1000],
-            },
-            files={'document': (path.name, f)},
-            timeout=120,
-        )
-    return True
-
-
-def allowed_chat(chat_id):
-    allowed = clean(TELEGRAM_ALLOWED_CHAT_ID)
-    if not allowed:
-        return True
-    allowed_ids = {item.strip() for item in allowed.split(',') if item.strip()}
-    return str(chat_id) in allowed_ids
-
-
-def format_update_result(result, elapsed_seconds):
-    protocol_lines = []
-    for row in result.get('protocol_summary', []):
-        protocol_lines.append(
-            f"- {row['protocol'].upper()}: valid {row['yaml_valid_count']} | raw {row['raw_count']} | invalid {row['invalid_count']} | duplikat {row['duplicate_count']} | rename {row['renamed_count']}"
-        )
-    protocol_text = '\n'.join(protocol_lines) if protocol_lines else '- Tidak ada data protocol.'
-
-    return (
-        '✅ <b>Update OpenClash selesai</b>\n\n'
-        f"File utama: <code>{result.get('openclash_file')}</code>\n"
-        f"Total valid: <b>{result.get('total_valid', 0)}</b> proxy\n"
-        f"Total negara: <b>{result.get('total_countries', 0)}</b>\n"
-        f"Duplikat dihapus: <b>{result.get('total_duplicates', 0)}</b>\n"
-        f"Name direname: <b>{result.get('total_renamed', 0)}</b>\n"
-        f"Invalid: <b>{result.get('total_invalid', 0)}</b>\n"
-        f"Durasi: <b>{elapsed_seconds:.1f}</b> detik\n\n"
-        '<b>Ringkasan protocol:</b>\n'
-        f'{protocol_text}'
-    )
-
-
-def run_update_job(chat_id):
-    start = time.time()
-    telegram_send_message(chat_id, '⏳ <b>Update dimulai</b>\nSedang mengambil source, menghapus duplikat, rename name yang sama, membuat URL test, dan memisahkan negara.')
-    try:
-        result = generate()
-        elapsed = time.time() - start
-        telegram_send_message(chat_id, format_update_result(result, elapsed))
-
-        if TELEGRAM_SEND_OUTPUT_FILE:
-            sent = telegram_send_document(
-                chat_id,
-                result.get('openclash_file'),
-                caption='lengkap.yaml hasil update terbaru',
-            )
-            if not sent:
-                telegram_send_message(chat_id, '⚠️ File lengkap.yaml belum ditemukan, tetapi proses update sudah selesai.')
-    except Exception as exc:
-        error_text = traceback.format_exc()
-        telegram_send_message(
-            chat_id,
-            '❌ <b>Update gagal</b>\n'
-            f'<code>{str(exc)}</code>\n\n'
-            'Cek log terminal/server untuk detail lengkap.'
-        )
-        print(error_text)
-    finally:
-        UPDATE_LOCK.release()
-
-
-def handle_update_command(chat_id):
-    if not UPDATE_LOCK.acquire(blocking=False):
-        telegram_send_message(chat_id, '⏳ Update masih berjalan. Tunggu notifikasi selesai terlebih dahulu.')
-        return
-
-    thread = threading.Thread(target=run_update_job, args=(chat_id,), daemon=True)
-    thread.start()
-
-
-def handle_status_command(chat_id):
-    if UPDATE_LOCK.locked():
-        telegram_send_message(chat_id, '⏳ Status: update sedang berjalan.')
-        return
-
-    main_file = OUTPUT_DIR / OPENCLASH_OUTPUT_FILE
-    if main_file.exists():
-        modified_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(main_file.stat().st_mtime))
-        size_kb = main_file.stat().st_size / 1024
-        telegram_send_message(
-            chat_id,
-            '✅ Status: bot aktif dan tidak sedang update.\n'
-            f'File: <code>{main_file}</code>\n'
-            f'Terakhir dibuat/diubah: <b>{modified_time}</b>\n'
-            f'Ukuran: <b>{size_kb:.1f} KB</b>'
-        )
-    else:
-        telegram_send_message(chat_id, '✅ Status: bot aktif. File lengkap.yaml belum ada. Jalankan /update.')
-
-
-def handle_files_command(chat_id):
-    main_file = OUTPUT_DIR / OPENCLASH_OUTPUT_FILE
-    if not main_file.exists():
-        telegram_send_message(chat_id, 'File lengkap.yaml belum ada. Jalankan /update terlebih dahulu.')
-        return
-    telegram_send_document(chat_id, main_file, caption='lengkap.yaml terbaru')
-
-
-def handle_id_command(chat_id):
-    telegram_send_message(chat_id, f'Chat ID Anda: <code>{chat_id}</code>')
-
-
-def handle_help_command(chat_id):
-    telegram_send_message(
-        chat_id,
-        '<b>Command tersedia:</b>\n'
-        '/update - update semua file output dan kirim notifikasi selesai\n'
-        '/id - tampilkan chat_id Telegram Anda\n'
-        '/status - cek status bot dan file lengkap.yaml\n'
-        '/files - kirim file lengkap.yaml terbaru\n'
-        '/help - tampilkan bantuan'
-    )
-
-
-def run_telegram_bot():
-    if not TELEGRAM_BOT_TOKEN:
-        raise SystemExit('TELEGRAM_BOT_TOKEN belum diisi. Isi token dari BotFather terlebih dahulu.')
-
-    print('Telegram bot aktif. Command: /update, /id, /status, /files, /help')
-    offset = None
-
-    while True:
-        try:
-            data = {
-                'timeout': TELEGRAM_POLL_TIMEOUT,
-                'allowed_updates': json.dumps(['message']),
-            }
-            if offset is not None:
-                data['offset'] = offset
-
-            payload = telegram_request(
-                'getUpdates',
-                data=data,
-                timeout=TELEGRAM_POLL_TIMEOUT + 15,
-            )
-
-            for update in payload.get('result', []):
-                offset = update.get('update_id', 0) + 1
-                message = update.get('message') or {}
-                chat = message.get('chat') or {}
-                chat_id = chat.get('id')
-                text = clean(message.get('text'))
-
-                if not chat_id or not text:
-                    continue
-
-                if not allowed_chat(chat_id):
-                    print(f'Ignored unauthorized chat_id: {chat_id}')
-                    continue
-
-                command = text.split()[0].split('@')[0].lower()
-                if command == '/update':
-                    handle_update_command(chat_id)
-                elif command == '/id':
-                    handle_id_command(chat_id)
-                elif command == '/status':
-                    handle_status_command(chat_id)
-                elif command == '/files':
-                    handle_files_command(chat_id)
-                elif command in ['/start', '/help']:
-                    handle_help_command(chat_id)
-                else:
-                    telegram_send_message(chat_id, 'Command tidak dikenal. Gunakan /help.')
-        except KeyboardInterrupt:
-            print('Bot dihentikan.')
-            break
-        except Exception as exc:
-            print('Polling error:', exc)
-            time.sleep(5)
-
-
-def main():
-    if len(sys.argv) > 1 and sys.argv[1] in ['--bot', 'bot', 'telegram']:
-        run_telegram_bot()
-    else:
-        generate()
-
 
 if __name__ == '__main__':
-    main()
+    generate()
