@@ -2,29 +2,59 @@
   "run_mode": "test",
   "enable_proxy_test": true,
   "filter_alive_only": false,
+  "strict_alive_only": true,
+  "test_rounds": 3,
+  "require_success_rounds": 3,
+  "strict_max_delay_ms": 3000,
+  "tcp_fallback_enabled": false,
+  "tcp_only_output_disabled": true,
   "test_url": "http://www.gstatic.com/generate_204",
   "timeout_ms": 5000,
   "workers": 20,
-  "tester": "mihomo-delay",
+  "tester": "strict-mihomo-delay",
   "tester_ok": true,
-  "tester_message": "Mihomo proxy delay test selesai.",
+  "tester_message": "STRICT_ALIVE_ONLY aktif: node harus lolos 3/3 ronde URL delay Mihomo dengan delay <= 3000ms. TCP fallback tidak dipakai untuk output strict.",
+  "rounds": [
+    {
+      "round": 1,
+      "tester": "mihomo-delay",
+      "tester_ok": true,
+      "alive": 8,
+      "message": "Mihomo proxy delay test selesai."
+    },
+    {
+      "round": 2,
+      "tester": "mihomo-delay",
+      "tester_ok": true,
+      "alive": 9,
+      "message": "Mihomo proxy delay test selesai."
+    },
+    {
+      "round": 3,
+      "tester": "mihomo-delay",
+      "tester_ok": true,
+      "alive": 33,
+      "message": "Mihomo proxy delay test selesai."
+    }
+  ],
   "max_delay_ms": 3000,
   "filter_max_delay_for_output": true,
-  "total": 1328,
-  "alive": 11,
-  "dead": 1317,
+  "total": 1362,
+  "alive": 2,
+  "strict_alive": 2,
+  "dead": 1360,
   "untested": 0,
+  "final_output_filter": "strict alive 3/3 <= 3000ms",
   "best_ping_top_n": 5,
   "best_ping_country_filter": "ID",
   "best_ping_fallback_global_if_empty": true,
   "best_ping_url_test_group": "URL-TEST TOP 5 INDONESIA",
   "best_ping_group_type": "url-test",
-  "best_ping_count": 5,
+  "best_ping_count": 2,
   "best_ping_names": [
-    "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 9414",
-    "WS-TLS Express_alaki src ConfigV2rayNG",
-    "AliXTso 2545",
-    "2 DE av2ngFast",
-    "SoonTeam 6724"
-  ]
+    "filtershekan_channel 1",
+    "FI t.me Natrixo AA"
+  ],
+  "strict_output_file": "output/strict_alive.yaml",
+  "strict_output_count": 2
 }
