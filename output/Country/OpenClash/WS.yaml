@@ -64,7 +64,22 @@ proxies:
       headers:
         Host: "sni.skylee4.cloudns.ch"
     udp: true
-  - name: "AliXTso 1102"
+  - name: "30 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9d27a374-26d9-46df-9895-312a2062bc47
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "uin-ape.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "uin-ape.pages.dev"
+    udp: true
+  - name: "AliXTso 5657"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -79,7 +94,7 @@ proxies:
       headers:
         Host: "afrcloud2.c01.kr"
     udp: true
-  - name: "AliXTso 1095"
+  - name: "AliXTso 1919"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -94,22 +109,7 @@ proxies:
       headers:
         Host: "afrcloud2.c01.kr"
     udp: true
-  - name: "AliXTso 3334"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "afrcloud2.c01.kr"
-    ws-opts:
-      path: "/2.56.204.183:443"
-      headers:
-        Host: "afrcloud2.c01.kr"
-    udp: true
-  - name: "25 oneclickvpnkeys"
+  - name: "appsooner"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -138,6 +138,50 @@ proxies:
       path: "/season/sort/specialfp=chrome"
       headers:
         Host: "pagescm.freen6.de5.net"
+    udp: true
+  - name: "17 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "28 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f86f5a03-3872-46b5-bf03-a50388a0261d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "a1-tss.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "a1-tss.pages.dev"
+    udp: true
+  - name: "appsooner 8416"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "2238e2f3-1a01-485e-8c22-24b65764c68b"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "gzjx.dpdns.org"
+    ws-opts:
+      path: "/51.91.253.83"
+      headers:
+        Host: "gzjx.dpdns.org"
     udp: true
 
 proxy-groups:
