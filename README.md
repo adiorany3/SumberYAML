@@ -182,3 +182,57 @@ python scripts/validate_openclash_outputs.py output/lengkap.yaml output/lengkap_
 ```
 
 Jika validasi gagal, workflow GitHub Actions akan berhenti sebelum commit agar file rusak tidak masuk repository.
+
+## Optimasi tambahan terbaru
+
+Fitur berikut sudah ditambahkan untuk memperingan OpenClash dan membuat update lebih stabil:
+
+1. **`output/lite.yaml`**
+   - File ringan untuk router kecil.
+   - Isi default: Top 5 Indonesia, Top 10 global alive, `FALLBACK`, dan rule dasar.
+   - Cocok dipakai jika `lengkap.yaml` terlalu berat.
+
+2. **Dedup fingerprint lebih kuat**
+   - Duplikat tidak hanya dilihat dari nama/link mentah.
+   - Fingerprint dibuat dari identitas akun seperti protocol, UUID/password, port, network, SNI, host, path, TLS/security, dan flow.
+   - Hasil fingerprint dicatat di laporan CSV.
+
+3. **Ranking stabilitas sederhana**
+   - Ranking Best Ping sekarang memakai `rank_score`, bukan delay mentah saja.
+   - Hasil TCP fallback diberi penalti agar tidak mengalahkan node yang benar-benar lolos URL delay test.
+   - Fallback global dari filter negara juga diberi penalti.
+
+4. **Cache source**
+   - Sumber yang berhasil diambil akan disimpan di:
+     `output/Cache/sources/`
+   - Jika suatu URL sumber sedang down, generator mencoba memakai cache terakhir agar output tidak langsung kosong.
+   - Status cache terlihat di:
+     `output/Source/source_status.csv`
+
+5. **Notifikasi Telegram ringkas**
+   - Setelah workflow selesai, Telegram mengirim ringkasan: total valid, alive, dead, Lite YAML, invalid UUID, blacklist, source cache, validasi YAML, dan Top 5.
+   - File yang dikirim juga mencakup `lengkap.yaml`, `lengkap_alive.yaml`, `lite.yaml`, laporan ping, BestPing, dan source status.
+
+6. **Rules custom terpisah**
+   - Rule tambahan bisa ditulis di:
+     `rules/custom_rules.yaml`
+   - Generator akan memasukkannya sebelum rule akhir `MATCH,PROXY`.
+
+### Environment tambahan
+
+```text
+SOURCE_CACHE_ENABLE=true
+SOURCE_CACHE_DIR=output/Cache/sources
+LITE_OUTPUT_FILE=lite.yaml
+LITE_GLOBAL_TOP_N=10
+LITE_MAX_TOTAL=25
+CUSTOM_RULES_FILE=rules/custom_rules.yaml
+RANK_TCP_FALLBACK_PENALTY=300
+RANK_GLOBAL_FALLBACK_PENALTY=1000
+```
+
+### Validasi manual terbaru
+
+```bash
+python scripts/validate_openclash_outputs.py output/lengkap.yaml output/lengkap_alive.yaml output/lite.yaml
+```

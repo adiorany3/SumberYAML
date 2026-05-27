@@ -69,52 +69,107 @@ def send_document(path, caption=""):
         print(response.status_code, response.text[:200])
 
 
-def read_summary():
-    path = Path("output/Alive/summary_alive.json")
+def read_json(path):
+    path = Path(path)
     if not path.exists():
         return {}
-
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return {}
 
 
-def read_protocol_rows():
-    path = Path("output/summary_protocol.csv")
+def read_csv_rows(path, limit=None):
+    path = Path(path)
     if not path.exists():
         return []
+    try:
+        with path.open(encoding="utf-8", newline="") as file:
+            rows = list(csv.DictReader(file))
+        return rows[:limit] if limit else rows
+    except Exception:
+        return []
 
-    with path.open(encoding="utf-8", newline="") as file:
-        return list(csv.DictReader(file))
+
+def read_summary():
+    return read_json("output/Alive/summary_alive.json")
+
+
+def read_protocol_rows():
+    return read_csv_rows("output/summary_protocol.csv")
 
 
 def read_top5_rows():
-    path = Path("output/BestPing/top5_best_ping.csv")
-    if not path.exists():
-        return []
+    for path in [
+        "output/BestPing/top5_indonesia_ping.csv",
+        "output/BestPing/top5_best_ping.csv",
+    ]:
+        rows = read_csv_rows(path, limit=5)
+        if rows:
+            return rows
+    return []
 
-    try:
-        with path.open(encoding="utf-8", newline="") as file:
-            return list(csv.DictReader(file))[:5]
-    except Exception:
-        return []
+
+def count_invalid_reasons():
+    rows = read_csv_rows("output/Invalid/all_invalid.csv")
+    result = {
+        "invalid_total": len(rows),
+        "invalid_uuid": 0,
+        "blacklist": 0,
+    }
+    for row in rows:
+        reason = (row.get("reason") or "").lower()
+        if "uuid" in reason:
+            result["invalid_uuid"] += 1
+        if "blacklist" in reason:
+            result["blacklist"] += 1
+    return result
+
+
+def source_cache_summary():
+    rows = read_csv_rows("output/Source/source_status.csv")
+    return {
+        "source_total": len(rows),
+        "source_ok": sum(1 for row in rows if row.get("status") == "ok"),
+        "source_cached": sum(1 for row in rows if row.get("status") == "cached" or row.get("cache_used") == "true"),
+        "source_failed": sum(1 for row in rows if row.get("status") == "failed"),
+    }
+
+
+def validation_summary():
+    report = read_json("output/Validation/validation_report.json")
+    files = report.get("files", []) if isinstance(report, dict) else []
+    ok_files = [item for item in files if item.get("ok")]
+    return {
+        "ok": report.get("ok", False) if isinstance(report, dict) else False,
+        "file_count": len(files),
+        "ok_count": len(ok_files),
+    }
 
 
 def success_message():
     summary = read_summary()
     protocol_rows = read_protocol_rows()
+    invalid = count_invalid_reasons()
+    sources = source_cache_summary()
+    validation = validation_summary()
+    lite = read_json("output/Lite/summary_lite.json")
 
     lines = [
         mode_title(),
         "",
-        f"Total valid: `{summary.get('total', '-')}`",
-        f"Hidup: `{summary.get('alive', '-')}`",
-        f"Mati: `{summary.get('dead', '-')}`",
-        f"Untested: `{summary.get('untested', '-')}`",
-        f"Tester: `{summary.get('tester', '-')}`",
-        f"Filter alive only: `{summary.get('filter_alive_only', '-')}`",
-        f"Run mode: `{summary.get('run_mode', RUN_MODE or '-')}`",
+        f"Total valid: <code>{summary.get('total', '-')}</code>",
+        f"Alive: <code>{summary.get('alive', '-')}</code>",
+        f"Dead: <code>{summary.get('dead', '-')}</code>",
+        f"Untested: <code>{summary.get('untested', '-')}</code>",
+        f"Tester: <code>{summary.get('tester', '-')}</code>",
+        f"Filter output: <code>{summary.get('final_output_filter', '-')}</code>",
+        f"Best Ping: <code>{summary.get('best_ping_count', '-')}</code> node",
+        f"Lite YAML: <code>{lite.get('proxy_count', 0)}</code> node",
+        f"Invalid total: <code>{invalid['invalid_total']}</code> | UUID: <code>{invalid['invalid_uuid']}</code> | Blacklist: <code>{invalid['blacklist']}</code>",
+        f"Source: OK <code>{sources['source_ok']}</code> | Cache <code>{sources['source_cached']}</code> | Failed <code>{sources['source_failed']}</code>",
+        f"YAML validation: <code>{'OK' if validation['ok'] else 'CHECK'}</code> ({validation['ok_count']}/{validation['file_count']})",
+        f"Run mode: <code>{summary.get('run_mode', RUN_MODE or '-')}</code>",
         "",
     ]
 
@@ -123,31 +178,33 @@ def success_message():
         for row in protocol_rows:
             lines.append(
                 f"- {row.get('protocol', '-').upper()}: "
-                f"alive `{row.get('alive_count', '0')}`, "
-                f"dead `{row.get('dead_count', '0')}`, "
-                f"output `{row.get('final_output_count', '0')}`"
+                f"alive <code>{row.get('alive_count', '0')}</code>, "
+                f"dead <code>{row.get('dead_count', '0')}</code>, "
+                f"output <code>{row.get('final_output_count', '0')}</code>"
             )
 
     top5_rows = read_top5_rows()
     if top5_rows:
         lines.extend(["", "Top 5 URL-Test:"])
         for idx, row in enumerate(top5_rows, start=1):
+            score = row.get("rank_score") or row.get("delay_ms") or "-"
             lines.append(
                 f"- #{idx} {row.get('name', '-')} "
-                f"(`{row.get('delay_ms', '-')} ms`, "
-                f"{row.get('protocol', '-').upper()}, "
-                f"{row.get('country', '-')})"
+                f"(<code>{row.get('delay_ms', '-')} ms</code>, score <code>{score}</code>, "
+                f"{row.get('protocol', '-').upper()}, {row.get('country', '-')})"
             )
 
     tester_message = summary.get("tester_message")
     if tester_message:
-        lines.extend(["", f"Info: `{tester_message[:500]}`"])
+        lines.extend(["", f"Info: <code>{str(tester_message)[:500]}</code>"])
 
     lines.extend(
         [
             "",
-            "File utama: `output/lengkap.yaml`",
-            "Laporan: `output/Alive/check_result.csv`",
+            "File utama: <code>output/lengkap.yaml</code>",
+            "File alive: <code>output/lengkap_alive.yaml</code>",
+            "File ringan: <code>output/lite.yaml</code>",
+            "Laporan: <code>output/Alive/check_result.csv</code>",
         ]
     )
 
@@ -167,11 +224,14 @@ def main():
 
     if SEND_FILE:
         send_document("output/lengkap.yaml", "✅ lengkap.yaml terbaru")
+        send_document("output/lengkap_alive.yaml", "✅ lengkap_alive.yaml")
+        send_document("output/lite.yaml", "⚡ lite.yaml")
         send_document("output/Alive/check_result.csv", "🧪 check_result.csv")
         send_document("output/Alive/alive.csv", "✅ alive.csv")
         send_document("output/Alive/dead.csv", "❌ dead.csv")
-        send_document("output/BestPing/top5_best_ping.csv", "🏆 top5_best_ping.csv")
-        send_document("output/BestPing/top5_best_ping.yaml", "🏆 top5_best_ping.yaml")
+        send_document("output/BestPing/top5_indonesia_ping.csv", "🏆 top5_indonesia_ping.csv")
+        send_document("output/BestPing/top5_indonesia_ping.yaml", "🏆 top5_indonesia_ping.yaml")
+        send_document("output/Source/source_status.csv", "📡 source_status.csv")
 
 
 if __name__ == "__main__":

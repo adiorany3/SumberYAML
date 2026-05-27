@@ -1,4 +1,4 @@
-import base64, binascii, csv, json, random, re, os, sys, time, shutil, socket, gzip, tarfile, zipfile, subprocess, tempfile, argparse
+import base64, binascii, csv, json, random, re, os, sys, time, shutil, socket, gzip, tarfile, zipfile, subprocess, tempfile, argparse, hashlib
 import unicodedata
 import uuid as uuidlib
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -40,6 +40,14 @@ BEST_PING_FALLBACK_GLOBAL = env_bool('BEST_PING_FALLBACK_GLOBAL', True)
 MAX_DELAY_MS = int(os.getenv('MAX_DELAY_MS', '3000'))
 FILTER_MAX_DELAY_FOR_OUTPUT = env_bool('FILTER_MAX_DELAY_FOR_OUTPUT', True)
 BLACKLIST_FILE = os.getenv('BLACKLIST_FILE', 'blacklist.txt').strip()
+SOURCE_CACHE_ENABLE = env_bool('SOURCE_CACHE_ENABLE', True)
+SOURCE_CACHE_DIR = Path(os.getenv('SOURCE_CACHE_DIR', 'output/Cache/sources'))
+LITE_OUTPUT_FILE = os.getenv('LITE_OUTPUT_FILE', 'lite.yaml').strip() or 'lite.yaml'
+LITE_GLOBAL_TOP_N = int(os.getenv('LITE_GLOBAL_TOP_N', '10'))
+LITE_MAX_TOTAL = int(os.getenv('LITE_MAX_TOTAL', '25'))
+CUSTOM_RULES_FILE = os.getenv('CUSTOM_RULES_FILE', 'rules/custom_rules.yaml').strip()
+RANK_TCP_FALLBACK_PENALTY = int(os.getenv('RANK_TCP_FALLBACK_PENALTY', '300'))
+RANK_GLOBAL_FALLBACK_PENALTY = int(os.getenv('RANK_GLOBAL_FALLBACK_PENALTY', '1000'))
 SOURCE_STATUS_ROWS = []
 ENABLE_PROXY_TEST = env_bool('ENABLE_PROXY_TEST', True)
 FILTER_ALIVE_ONLY = env_bool('FILTER_ALIVE_ONLY', True)
@@ -246,6 +254,72 @@ def count_protocol_links(text):
     return counts
 
 
+def source_cache_key(url, is_b64=False):
+    raw = f'{"base64" if is_b64 else "direct"}|{url}'
+    return hashlib.sha1(raw.encode('utf-8')).hexdigest()
+
+
+def source_cache_paths(url, is_b64=False):
+    key = source_cache_key(url, is_b64)
+    return SOURCE_CACHE_DIR / f'{key}.txt', SOURCE_CACHE_DIR / f'{key}.json'
+
+
+def fill_source_counts(row, text):
+    counts = count_protocol_links(text)
+    row['chars'] = len(text or '')
+    row['total_found'] = sum(counts.values())
+    row['vmess_found'] = counts.get('vmess', 0)
+    row['vless_found'] = counts.get('vless', 0)
+    row['trojan_found'] = counts.get('trojan', 0)
+
+
+def write_source_cache(url, is_b64, text, row):
+    if not SOURCE_CACHE_ENABLE or not text:
+        return
+    try:
+        data_path, meta_path = source_cache_paths(url, is_b64)
+        data_path.parent.mkdir(parents=True, exist_ok=True)
+        data_path.write_text(text, encoding='utf-8')
+        meta = {
+            'url': url,
+            'source_type': 'base64' if is_b64 else 'direct',
+            'updated_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+            'http_status': row.get('http_status', ''),
+            'total_found': row.get('total_found', 0),
+        }
+        meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding='utf-8')
+    except Exception:
+        pass
+
+
+def read_source_cache(url, is_b64, row, error_text=''):
+    if not SOURCE_CACHE_ENABLE:
+        return ''
+    try:
+        data_path, meta_path = source_cache_paths(url, is_b64)
+        if not data_path.exists():
+            return ''
+        text = data_path.read_text(encoding='utf-8', errors='replace')
+        if not text:
+            return ''
+        fill_source_counts(row, text)
+        row['status'] = 'cached'
+        row['cache_used'] = 'true'
+        row['cache_file'] = str(data_path).replace('\\', '/')
+        row['error'] = error_text
+        if meta_path.exists():
+            try:
+                meta = json.loads(meta_path.read_text(encoding='utf-8'))
+                row['cache_updated_at'] = meta.get('updated_at', '')
+            except Exception:
+                pass
+        return text
+    except Exception as exc:
+        row['cache_used'] = 'false'
+        row['error'] = f'{error_text} | cache error: {exc}'.strip(' |')
+        return ''
+
+
 def fetch_source_payload(url, is_b64=False):
     row = {
         'url': url,
@@ -257,6 +331,9 @@ def fetch_source_payload(url, is_b64=False):
         'vless_found': 0,
         'trojan_found': 0,
         'chars': 0,
+        'cache_used': 'false',
+        'cache_file': '',
+        'cache_updated_at': '',
         'error': '',
     }
     try:
@@ -264,16 +341,16 @@ def fetch_source_payload(url, is_b64=False):
         row['http_status'] = r.status_code
         r.raise_for_status()
         text = b64_bytes(r.content) if is_b64 else r.text
-        counts = count_protocol_links(text)
+        fill_source_counts(row, text)
         row['status'] = 'ok' if text else 'empty'
-        row['chars'] = len(text or '')
-        row['total_found'] = sum(counts.values())
-        row['vmess_found'] = counts.get('vmess', 0)
-        row['vless_found'] = counts.get('vless', 0)
-        row['trojan_found'] = counts.get('trojan', 0)
+        write_source_cache(url, is_b64, text, row)
         return text, row
     except Exception as exc:
-        row['error'] = str(exc)
+        error_text = str(exc)
+        cached_text = read_source_cache(url, is_b64, row, error_text)
+        if cached_text:
+            return cached_text, row
+        row['error'] = error_text
         return '', row
 
 
@@ -520,45 +597,60 @@ def valid(p, c):
 def norm_key(v):
     return clean(v).strip().lower()
 
+def normalized_path_for_key(value):
+    value = norm_key(value)
+    if not value:
+        return '/'
+    return value if value.startswith('/') else '/' + value
+
+
 def account_key(p, c):
-    """Kunci untuk mendeteksi duplikat akun setelah config berhasil diparse.
-    Nama config dan raw link tidak dipakai supaya config yang sama dari source berbeda tetap dianggap duplikat.
-    Server asli juga tidak dipakai karena output server akan dioverride menjadi satu server yang sama.
+    """Fingerprint kuat untuk dedup akun.
+
+    Nama config tidak dipakai. Server output yang dioverride juga tidak dipakai, tetapi
+    identitas tunnel seperti UUID/password, port, network, SNI, host, path, TLS/security,
+    dan flow tetap dipakai agar akun yang sama dari source berbeda tidak dobel.
     """
     if p == 'vmess':
         parts = [
             p,
             norm_key(c.get('uuid')),
             norm_key(c.get('alterId')),
+            norm_key(c.get('cipher') or 'auto'),
             norm_key(c.get('network')),
-            norm_key(c.get('path')),
+            normalized_path_for_key(c.get('path')),
             norm_key(c.get('host')),
-            norm_key(c.get('servername')),
+            norm_key(c.get('servername') or c.get('sni')),
             norm_key(c.get('port')),
         ]
     elif p == 'vless':
         parts = [
             p,
             norm_key(c.get('uuid')),
+            norm_key(c.get('encryption') or 'none'),
+            norm_key(c.get('flow')),
+            norm_key(c.get('security') or 'tls'),
             norm_key(c.get('network')),
-            norm_key(c.get('path')),
+            normalized_path_for_key(c.get('path')),
             norm_key(c.get('host')),
-            norm_key(c.get('servername')),
+            norm_key(c.get('servername') or c.get('sni')),
             norm_key(c.get('port')),
         ]
     elif p == 'trojan':
         parts = [
             p,
             norm_key(c.get('password')),
+            norm_key(c.get('security') or 'tls'),
             norm_key(c.get('network')),
-            norm_key(c.get('path')),
+            normalized_path_for_key(c.get('path')),
             norm_key(c.get('host')),
-            norm_key(c.get('sni')),
+            norm_key(c.get('sni') or c.get('servername')),
             norm_key(c.get('port')),
         ]
     else:
         parts = [p, norm_key(c.get('raw'))]
-    return '|'.join(parts)
+    raw_key = '|'.join(parts)
+    return hashlib.sha256(raw_key.encode('utf-8')).hexdigest()[:24]
 
 
 def flag_to_country_code(text):
@@ -691,7 +783,8 @@ def write_source_status(path, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
     fields = [
         'url', 'source_type', 'status', 'http_status', 'total_found',
-        'vmess_found', 'vless_found', 'trojan_found', 'chars', 'error'
+        'vmess_found', 'vless_found', 'trojan_found', 'chars',
+        'cache_used', 'cache_file', 'cache_updated_at', 'error'
     ]
     with path.open('w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -750,6 +843,7 @@ def convert_protocol(p, links, used_names, blacklist_terms=None):
             continue
 
         key = account_key(p, c)
+        c['fingerprint'] = key
         if key in seen_accounts:
             duplicates.append({
                 'protocol': p,
@@ -776,6 +870,7 @@ def convert_protocol(p, links, used_names, blacklist_terms=None):
         c['country'] = detect_country(c)
         c['original_server'] = clean(c.get('server'))
 
+        c['rank_penalty'] = 0
         if p == 'vmess':
             c['server'] = clean(override, c['server'])
             txt_link = encode_vmess(c)
@@ -878,6 +973,34 @@ def make_select_group(group_name, entries):
 {yaml_name_list(entries, 4, fallback=['DIRECT', 'REJECT'])}'''
 
 
+def load_custom_rules():
+    if not CUSTOM_RULES_FILE:
+        return []
+    path = Path(CUSTOM_RULES_FILE)
+    if not path.exists():
+        return []
+    rules = []
+    try:
+        for line in path.read_text(encoding='utf-8').splitlines():
+            item = line.strip()
+            if not item or item.startswith('#'):
+                continue
+            if item.startswith('- '):
+                item = item[2:].strip()
+            if item:
+                rules.append(item)
+    except Exception:
+        return []
+    return rules
+
+
+def render_rules_section():
+    rules = load_custom_rules()
+    if 'MATCH,PROXY' not in [rule.upper() for rule in rules]:
+        rules.append('MATCH,PROXY')
+    return 'rules:\n' + '\n'.join('  - ' + rule for rule in rules)
+
+
 def build_openclash_yaml(
     all_yaml_items,
     protocol_proxy_names,
@@ -940,6 +1063,8 @@ def build_openclash_yaml(
     else:
         groups_part += '  []'
 
+    rules_part = render_rules_section()
+
     return f'''# Auto generated OpenClash config
 # Output: output/{OPENCLASH_OUTPUT_FILE}
 
@@ -975,8 +1100,7 @@ dns:
 
 {groups_part}
 
-rules:
-  - MATCH,PROXY
+{rules_part}
 '''
 
 def build_country_openclash_yaml(country_code, country_yaml_items, country_proxy_names):
@@ -1014,6 +1138,8 @@ def config_row(c, status='', delay_ms='', reason=''):
         'network': clean(c.get('network')),
         'status': clean(status or c.get('status')),
         'delay_ms': clean(delay_ms if delay_ms != '' else c.get('delay_ms')),
+        'rank_score': clean(c.get('rank_score')),
+        'fingerprint': clean(c.get('fingerprint')),
         'reason': clean(reason or c.get('reason')),
         'raw': clean(c.get('raw')),
     }
@@ -1023,7 +1149,7 @@ def write_check_results(path, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
     fields = [
         'protocol', 'name', 'country', 'server', 'original_server', 'port',
-        'network', 'status', 'delay_ms', 'reason', 'raw'
+        'network', 'status', 'delay_ms', 'rank_score', 'fingerprint', 'reason', 'raw'
     ]
     with path.open('w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -1044,12 +1170,31 @@ def delay_sort_value(c):
         return 999999999
 
 
-def get_best_ping_configs(configs, limit=None, country_filter=None):
-    """Ambil Top N ping tercepat.
+def rank_score(c, preferred_country=None):
+    """Skor ranking: makin kecil makin baik.
 
-    Default: hanya proxy yang terdeteksi sebagai Indonesia (country == ID).
-    Jika BEST_PING_FALLBACK_GLOBAL=true dan tidak ada proxy Indonesia alive,
-    script fallback ke Top N global agar grup URL-Test tidak kosong.
+    Dasar skor adalah delay. Ditambah penalti bila hasil hanya TCP fallback
+    atau bila sistem harus fallback global dari filter negara.
+    """
+    delay = delay_sort_value(c)
+    if delay >= 999999999:
+        return delay
+    score = delay + int(c.get('rank_penalty') or 0)
+    reason = clean(c.get('reason')).lower()
+    tester = clean(c.get('tester')).lower()
+    if 'tcp' in reason or 'tcp' in tester:
+        score += RANK_TCP_FALLBACK_PENALTY
+    country = clean(preferred_country).upper()
+    if country and clean(c.get('country')).upper() != country:
+        score += RANK_GLOBAL_FALLBACK_PENALTY
+    return score
+
+
+def get_best_ping_configs(configs, limit=None, country_filter=None):
+    """Ambil Top N dengan skor stabilitas sederhana.
+
+    Default: proxy country == ID lebih diprioritaskan. Jika kosong dan
+    BEST_PING_FALLBACK_GLOBAL=true, fallback ke global agar grup tidak kosong.
     """
     limit = int(limit or BEST_PING_TOP_N or 10)
     alive = [
@@ -1061,15 +1206,24 @@ def get_best_ping_configs(configs, limit=None, country_filter=None):
     ]
 
     country = clean(country_filter if country_filter is not None else BEST_PING_COUNTRY_FILTER).upper()
+    preferred_country_for_score = ''
     if country:
         country_alive = [
             c for c in alive
             if clean(c.get('country')).upper() == country
         ]
-        if country_alive or not BEST_PING_FALLBACK_GLOBAL:
+        if country_alive:
             alive = country_alive
+            preferred_country_for_score = country
+        elif not BEST_PING_FALLBACK_GLOBAL:
+            alive = []
+        else:
+            preferred_country_for_score = country
 
-    alive.sort(key=lambda item: (delay_sort_value(item), clean(item.get('name'))))
+    for c in alive:
+        c['rank_score'] = rank_score(c, preferred_country_for_score)
+
+    alive.sort(key=lambda item: (safe_int(item.get('rank_score'), 999999999), delay_sort_value(item), clean(item.get('name'))))
     return alive[:limit]
 
 
@@ -1087,7 +1241,7 @@ def write_best_ping_outputs(best_configs):
 
     fields = [
         'rank', 'protocol', 'name', 'country', 'country_filter', 'server', 'original_server', 'port',
-        'network', 'status', 'delay_ms', 'reason', 'url_test_group', 'raw'
+        'network', 'status', 'delay_ms', 'rank_score', 'fingerprint', 'reason', 'url_test_group', 'raw'
     ]
     with (best_dir / 'top5_best_ping.csv').open('w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -1132,6 +1286,109 @@ def write_best_ping_outputs(best_configs):
     write_test_summary(best_dir / 'summary_top5_best_ping.json', summary_payload)
     if BEST_PING_COUNTRY_FILTER == 'ID':
         write_test_summary(best_dir / 'summary_top5_indonesia_ping.json', summary_payload)
+
+
+def unique_configs_by_name(configs):
+    seen = set()
+    result = []
+    for c in configs or []:
+        name = clean(c.get('name'))
+        if not name or name in seen:
+            continue
+        result.append(c)
+        seen.add(name)
+    return result
+
+
+def build_lite_openclash_yaml(lite_configs, top_country_names=None, top_global_names=None):
+    lite_configs = unique_configs_by_name(lite_configs)
+    yaml_items = [c.get('yaml_text', '') for c in lite_configs if c.get('yaml_text')]
+    all_names = [c.get('name') for c in lite_configs if c.get('name')]
+    top_country_names = clean_group_proxy_names(top_country_names or [], allow_direct_reject=False)
+    top_global_names = clean_group_proxy_names(top_global_names or [], allow_direct_reject=False)
+    all_names = clean_group_proxy_names(all_names, allow_direct_reject=False)
+
+    groups = []
+    select_entries = []
+    if top_country_names:
+        groups.append(make_url_test_group(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 INDONESIA'), top_country_names))
+        select_entries.append(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 INDONESIA'))
+    if top_global_names:
+        groups.append(make_url_test_group('URL-TEST TOP GLOBAL', top_global_names))
+        select_entries.append('URL-TEST TOP GLOBAL')
+    if all_names:
+        groups.append(make_fallback_group('FALLBACK', all_names))
+        select_entries.append('FALLBACK')
+    select_entries.append('DIRECT')
+    groups.append(make_select_group('PROXY', select_entries))
+
+    proxies_part = 'proxies:\n'
+    proxies_part += indent_block('\n'.join(yaml_items), 2) if yaml_items else '  []'
+    groups_part = 'proxy-groups:\n'
+    groups_part += indent_block('\n\n'.join(g for g in groups if g), 2) if groups else '  []'
+    rules_part = render_rules_section()
+
+    return f'''# Auto generated Lite OpenClash config
+# Output: output/{LITE_OUTPUT_FILE}
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+{proxies_part}
+
+{groups_part}
+
+{rules_part}
+'''
+
+
+def write_lite_output(alive_usable_configs, best_country_configs):
+    best_country_configs = list(best_country_configs or [])
+    alive_usable_configs = list(alive_usable_configs or [])
+    global_best = get_best_ping_configs(alive_usable_configs, LITE_GLOBAL_TOP_N, country_filter='')
+    picked = unique_configs_by_name(list(best_country_configs or []) + list(global_best or []))
+    if LITE_MAX_TOTAL > 0:
+        picked = picked[:LITE_MAX_TOTAL]
+    lite_yaml = build_lite_openclash_yaml(
+        picked,
+        top_country_names=[c.get('name') for c in best_country_configs if c.get('name')],
+        top_global_names=[c.get('name') for c in global_best if c.get('name')],
+    )
+    write(OUTPUT_DIR / LITE_OUTPUT_FILE, lite_yaml)
+    write_test_summary(OUTPUT_DIR / 'Lite' / 'summary_lite.json', {
+        'file': f'output/{LITE_OUTPUT_FILE}',
+        'proxy_count': len(picked),
+        'top_country_count': len(best_country_configs or []),
+        'top_global_count': len(global_best or []),
+        'lite_global_top_n': LITE_GLOBAL_TOP_N,
+        'lite_max_total': LITE_MAX_TOTAL,
+        'names': [c.get('name') for c in picked],
+    })
 
 
 def tcp_check(c):
@@ -1525,8 +1782,9 @@ def generate():
     )
     write(OUTPUT_DIR / 'lengkap_alive.yaml', lengkap_alive_yaml)
 
-    best_configs = get_best_ping_configs(all_configs, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
+    best_configs = get_best_ping_configs(alive_usable_configs, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
     best_balance_names = [c.get('name') for c in best_configs if c.get('name')]
+    write_lite_output(alive_usable_configs, best_configs)
     test_summary['best_ping_top_n'] = BEST_PING_TOP_N
     test_summary['best_ping_country_filter'] = BEST_PING_COUNTRY_FILTER or 'GLOBAL'
     test_summary['best_ping_fallback_global_if_empty'] = BEST_PING_FALLBACK_GLOBAL
