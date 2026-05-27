@@ -52,17 +52,36 @@ env:
   BEST_PING_TOP_N: "5"
   BEST_PING_COUNTRY_FILTER: "ID"
   BEST_PING_URL_TEST_NAME: "URL-TEST TOP 5 INDONESIA"
+  URL_TEST_INTERVAL: "120"
+  URL_TEST_TOLERANCE: "30"
+  URL_TEST_LAZY: "false"
   MAX_DELAY_MS: "8000"
   FILTER_MAX_DELAY_FOR_OUTPUT: "false"
+  ENABLE_COUNTRY_URL_TEST_GROUPS: "false"
   BLACKLIST_FILE: "blacklist.txt"
   SOURCE_CACHE_ENABLE: "true"
   SOURCE_CACHE_DIR: "output/Cache/sources"
+  USE_PREVIOUS_OUTPUT_IF_EMPTY: "true"
+  FAST_REUSE_WHEN_NO_SOURCE_CHANGE: "true"
+  PREVIOUS_OUTPUT_DIR: ".previous_output"
   LITE_OUTPUT_FILE: "lite.yaml"
   LITE_GLOBAL_TOP_N: "10"
   LITE_MAX_TOTAL: "25"
   CUSTOM_RULES_FILE: "rules/custom_rules.yaml"
   RANK_TCP_FALLBACK_PENALTY: "300"
   RANK_GLOBAL_FALLBACK_PENALTY: "1000"
+  RESPONSIVE_MAX_AVG_DELAY_MS: "8000"
+  RESPONSIVE_MAX_JITTER_MS: "5000"
+  RESPONSIVE_MIN_SUCCESS_RATE: "0.50"
+  RESPONSIVE_TOP_N: "15"
+  RESPONSIVE_COMBINED_MAX: "30"
+  RESPONSIVE_JITTER_WEIGHT: "0.35"
+  RESPONSIVE_FAILURE_PENALTY: "1500"
+  FAST_OUTPUT_FILE: "fast.yaml"
+  FAST_MAX_TOTAL: "20"
+  FAST_FALLBACK_NAME: "FALLBACK CEPAT"
+  ENABLE_FAST_FALLBACK_GROUP: "true"
+  ENABLE_PERFORMANCE_OPTIONS: "true"
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
@@ -108,6 +127,20 @@ jobs:
             pip install requests streamlit pyyaml
           fi
 
+      - name: Backup previous output for fallback
+        run: |
+          set -e
+          rm -rf .previous_output
+          mkdir -p .previous_output
+          if [ -d output ]; then
+            echo "Backup output sebelumnya ke .previous_output"
+            cp -a output/. .previous_output/
+            echo "Jumlah file backup output sebelumnya:"
+            find .previous_output -type f | wc -l
+          else
+            echo "Belum ada folder output sebelumnya. Fallback previous output tidak tersedia."
+          fi
+
       - name: Generate OpenClash output
         run: |
           set -e
@@ -136,11 +169,15 @@ jobs:
           fi
           echo "OK: output/lengkap.yaml ditemukan"
           wc -l output/lengkap.yaml || true
+          if [ -f output/Reuse/reuse_previous_output.json ]; then
+            echo "Fallback output sebelumnya aktif:"
+            cat output/Reuse/reuse_previous_output.json || true
+          fi
 
       - name: Validate OpenClash YAML
         run: |
           set -e
-          python scripts/validate_openclash_outputs.py output/lengkap.yaml output/lengkap_alive.yaml output/strict_alive.yaml output/lite.yaml
+          python scripts/validate_openclash_outputs.py output/lengkap.yaml output/lengkap_alive.yaml output/strict_alive.yaml output/lite.yaml output/fast.yaml
 
       - name: Commit output files
         run: |
