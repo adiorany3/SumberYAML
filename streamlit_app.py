@@ -565,60 +565,124 @@ def count_proxy_names_from_lengkap_yaml() -> int:
 
 @st.cache_data(ttl=60, show_spinner=False)
 def load_best_ping_data(limit: int = None):
-    limit = int(limit or BEST_PING_LIMIT or 10)
-    paths = [
-        "output/Alive/alive.csv",
-        "output/Alive/check_result.csv",
+    """Ambil data Best Ping untuk panel Streamlit dan command Telegram /best.
+
+    Prioritas baru:
+    1. output/BestPing/top5_indonesia_ping.csv
+    2. output/BestPing/top5_best_ping.csv
+    3. output/Alive/alive.csv
+    4. output/Alive/check_result.csv
+
+    Catatan penting:
+    - File di output/BestPing sudah hasil filter Top 5 dari generator, jadi jangan difilter ulang.
+      Kalau difilter ulang, data fallback global bisa kosong di panel.
+    - File di output/Alive masih perlu difilter status=alive dan country=ID.
+    """
+    limit = int(limit or BEST_PING_LIMIT or 5)
+
+    candidates = [
+        {
+            "csv": "output/BestPing/top5_indonesia_ping.csv",
+            "summary": "output/BestPing/summary_top5_indonesia_ping.json",
+            "prefiltered": True,
+        },
+        {
+            "csv": "output/BestPing/top5_best_ping.csv",
+            "summary": "output/BestPing/summary_top5_best_ping.json",
+            "prefiltered": True,
+        },
+        {
+            "csv": "output/Alive/alive.csv",
+            "summary": "output/Alive/summary_alive.json",
+            "prefiltered": False,
+        },
+        {
+            "csv": "output/Alive/check_result.csv",
+            "summary": "output/Alive/summary_alive.json",
+            "prefiltered": False,
+        },
     ]
 
     last_error = None
     rows = []
     source_path = "-"
+    summary_path = ""
+    used_prefiltered = False
 
-    for path in paths:
+    for item in candidates:
+        path = item["csv"]
         try:
             csv_text = fetch_github_file_text(path)
-            rows = parse_check_csv(csv_text)
-            source_path = path
-            break
+            parsed_rows = parse_check_csv(csv_text)
+
+            if item["prefiltered"]:
+                usable_rows = [
+                    row for row in parsed_rows
+                    if row.get("delay_ms") is not None and row.get("name")
+                ]
+            else:
+                usable_rows = [
+                    row for row in parsed_rows
+                    if row.get("status") == "alive" and row.get("delay_ms") is not None
+                ]
+                if BEST_PING_COUNTRY_FILTER:
+                    usable_rows = [
+                        row for row in usable_rows
+                        if row.get("country", "").upper() == BEST_PING_COUNTRY_FILTER
+                    ]
+
+            if usable_rows:
+                rows = usable_rows
+                source_path = path
+                summary_path = item.get("summary", "")
+                used_prefiltered = bool(item["prefiltered"])
+                break
+
+            # File ada tetapi kosong. Simpan sumbernya untuk pesan diagnostik.
+            if source_path == "-":
+                source_path = path
+                summary_path = item.get("summary", "")
+                used_prefiltered = bool(item["prefiltered"])
         except Exception as exc:
             last_error = exc
 
-    if not rows and last_error:
+    if not rows and last_error and source_path == "-":
         raise RuntimeError(str(last_error))
 
-    alive_rows = [
-        row for row in rows
-        if row.get("status") == "alive" and row.get("delay_ms") is not None
-    ]
-
-    if BEST_PING_COUNTRY_FILTER:
-        alive_rows = [
-            row for row in alive_rows
-            if row.get("country", "").upper() == BEST_PING_COUNTRY_FILTER
-        ]
-
-    alive_rows.sort(key=lambda item: item.get("delay_ms") or 999999)
+    rows.sort(key=lambda item: item.get("delay_ms") or 999999)
 
     summary = {}
-    try:
-        summary_text = fetch_github_file_text("output/Alive/summary_alive.json")
-        summary = json.loads(summary_text)
-    except Exception:
-        summary = {}
+    if summary_path:
+        try:
+            summary_text = fetch_github_file_text(summary_path)
+            summary = json.loads(summary_text)
+        except Exception:
+            summary = {}
+
+    # Jika summary BestPing tidak punya alive/dead, ambil ringkasan Alive sebagai pelengkap.
+    if not summary.get("alive"):
+        try:
+            alive_summary_text = fetch_github_file_text("output/Alive/summary_alive.json")
+            alive_summary = json.loads(alive_summary_text)
+            for key in ["alive", "dead", "untested", "tested", "total"]:
+                if key not in summary and key in alive_summary:
+                    summary[key] = alive_summary[key]
+        except Exception:
+            pass
 
     return {
-        "rows": alive_rows[:limit],
-        "all_alive_count": len(alive_rows),
+        "rows": rows[:limit],
+        "all_alive_count": len(rows),
         "source_path": source_path,
         "summary": summary,
         "yaml_proxy_count": count_proxy_names_from_lengkap_yaml(),
         "source_label": BEST_PING_SOURCE_LABEL or "Indonesia",
         "country_filter": BEST_PING_COUNTRY_FILTER,
+        "used_prefiltered_bestping": used_prefiltered,
     }
 
 
-def best_ping_text_for_telegram(limit: int = 10) -> str:
+def best_ping_text_for_telegram(limit: int = 5) -> str:
     data = load_best_ping_data(limit=limit)
     rows = data.get("rows", [])
     source_label = data.get("source_label", "Indonesia")
@@ -805,7 +869,7 @@ def handle_check(chat_id):
 
 
 def handle_best(chat_id):
-    send_message(chat_id, best_ping_text_for_telegram(limit=10))
+    send_message(chat_id, best_ping_text_for_telegram(limit=BEST_PING_LIMIT))
 
 
 def handle_help(chat_id):
@@ -1913,7 +1977,7 @@ def render_admin_best_ping():
         )
     except Exception as exc:
         st.info(
-            "Best ping belum bisa ditampilkan. Pastikan output/Alive/check_result.csv atau output/Alive/alive.csv sudah ada di GitHub."
+            "Best ping belum bisa ditampilkan. Pastikan output/BestPing/top5_indonesia_ping.csv sudah ada. Jika belum, jalankan /update_ping atau tombol Test + Update Ping."
         )
         with st.expander("Detail error best ping"):
             st.code(str(exc))

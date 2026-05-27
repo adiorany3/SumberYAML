@@ -1105,14 +1105,22 @@ def write_best_ping_outputs(best_configs):
             w.writerows(rows)
         write(best_dir / 'top5_indonesia_ping.yaml', yaml_payload)
 
+    fallback_global_used = bool(
+        BEST_PING_COUNTRY_FILTER
+        and best_configs
+        and not any(clean(c.get('country')).upper() == BEST_PING_COUNTRY_FILTER for c in best_configs)
+    )
+
     summary_payload = {
         'label': 'Best Ping Top 5 Indonesia' if BEST_PING_COUNTRY_FILTER == 'ID' else 'Best Ping Top 5',
         'note': (
             'Default mengambil proxy country == ID. Delay tetap mengikuti lokasi runner/tempat test dijalankan. '
+            'Jika tidak ada proxy ID alive dan BEST_PING_FALLBACK_GLOBAL=true, sistem memakai Top 5 global agar grup tidak kosong. '
             'Hasil Top 5 dimasukkan ke grup URL-Test di lengkap.yaml.'
         ),
         'country_filter': BEST_PING_COUNTRY_FILTER or 'GLOBAL',
         'fallback_global_if_empty': BEST_PING_FALLBACK_GLOBAL,
+        'fallback_global_used': fallback_global_used,
         'url_test_group': BEST_PING_BALANCE_NAME,
         'group_type': 'url-test',
         'top_n': BEST_PING_TOP_N,
