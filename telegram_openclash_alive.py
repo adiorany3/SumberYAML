@@ -1,4 +1,4 @@
-import base64, binascii, csv, json, random, re, os, sys, time, shutil, socket, gzip, tarfile, zipfile, subprocess, tempfile
+import base64, binascii, csv, json, random, re, os, sys, time, shutil, socket, gzip, tarfile, zipfile, subprocess, tempfile, argparse
 import unicodedata
 import uuid as uuidlib
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -37,6 +37,10 @@ def env_bool(name, default=False):
 
 BEST_PING_BALANCE_ENABLE = str(BEST_PING_BALANCE_ENABLE_RAW).strip().lower() in ['1', 'true', 'yes', 'y', 'on']
 BEST_PING_FALLBACK_GLOBAL = env_bool('BEST_PING_FALLBACK_GLOBAL', True)
+MAX_DELAY_MS = int(os.getenv('MAX_DELAY_MS', '3000'))
+FILTER_MAX_DELAY_FOR_OUTPUT = env_bool('FILTER_MAX_DELAY_FOR_OUTPUT', True)
+BLACKLIST_FILE = os.getenv('BLACKLIST_FILE', 'blacklist.txt').strip()
+SOURCE_STATUS_ROWS = []
 ENABLE_PROXY_TEST = env_bool('ENABLE_PROXY_TEST', True)
 FILTER_ALIVE_ONLY = env_bool('FILTER_ALIVE_ONLY', True)
 CHECK_TEST_URL = os.getenv('CHECK_TEST_URL', URL_TEST_URL)
@@ -231,13 +235,46 @@ def b64_text(txt):
     except Exception:
         return ''
 
-def fetch(url, is_b64=False):
+def count_protocol_links(text):
+    counts = {p: 0 for p in PROTOCOLS}
+    for line in clean(text).splitlines():
+        line = line.strip()
+        for p, pref in PREFIX.items():
+            if line.startswith(pref):
+                counts[p] += 1
+                break
+    return counts
+
+
+def fetch_source_payload(url, is_b64=False):
+    row = {
+        'url': url,
+        'source_type': 'base64' if is_b64 else 'direct',
+        'status': 'failed',
+        'http_status': '',
+        'total_found': 0,
+        'vmess_found': 0,
+        'vless_found': 0,
+        'trojan_found': 0,
+        'chars': 0,
+        'error': '',
+    }
     try:
         r = requests.get(url, timeout=TIMEOUT)
+        row['http_status'] = r.status_code
         r.raise_for_status()
-        return b64_bytes(r.content) if is_b64 else r.text
-    except requests.RequestException:
-        return ''
+        text = b64_bytes(r.content) if is_b64 else r.text
+        counts = count_protocol_links(text)
+        row['status'] = 'ok' if text else 'empty'
+        row['chars'] = len(text or '')
+        row['total_found'] = sum(counts.values())
+        row['vmess_found'] = counts.get('vmess', 0)
+        row['vless_found'] = counts.get('vless', 0)
+        row['trojan_found'] = counts.get('trojan', 0)
+        return text, row
+    except Exception as exc:
+        row['error'] = str(exc)
+        return '', row
 
 
 def fetch_all_sources():
@@ -248,13 +285,15 @@ def fetch_all_sources():
         tasks.append((url, False))
 
     contents = []
+    SOURCE_STATUS_ROWS.clear()
     with ThreadPoolExecutor(max_workers=FETCH_WORKERS) as executor:
         future_map = {
-            executor.submit(fetch, url, is_b64): (url, is_b64)
+            executor.submit(fetch_source_payload, url, is_b64): (url, is_b64)
             for url, is_b64 in tasks
         }
         for future in as_completed(future_map):
-            data = future.result()
+            data, row = future.result()
+            SOURCE_STATUS_ROWS.append(row)
             if data:
                 contents.append(data)
     return contents
@@ -615,6 +654,51 @@ def update_link_name(link, protocol_name, new_name):
     except Exception:
         return link
 
+def load_blacklist_terms():
+    if not BLACKLIST_FILE:
+        return []
+    path = Path(BLACKLIST_FILE)
+    if not path.exists():
+        return []
+    terms = []
+    for line in path.read_text(encoding='utf-8', errors='ignore').splitlines():
+        item = line.strip()
+        if not item or item.startswith('#'):
+            continue
+        terms.append(item.lower())
+    return terms
+
+
+def blacklist_hit(c, terms):
+    if not terms:
+        return ''
+    haystack = ' '.join([
+        clean(c.get('name')),
+        clean(c.get('raw')),
+        clean(c.get('host')),
+        clean(c.get('servername')),
+        clean(c.get('sni')),
+        clean(c.get('original_server')),
+        clean(c.get('server')),
+    ]).lower()
+    for term in terms:
+        if term and term in haystack:
+            return term
+    return ''
+
+
+def write_source_status(path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fields = [
+        'url', 'source_type', 'status', 'http_status', 'total_found',
+        'vmess_found', 'vless_found', 'trojan_found', 'chars', 'error'
+    ]
+    with path.open('w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        w.writerows(rows)
+
+
 def write(path, content):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding='utf-8')
@@ -646,17 +730,23 @@ def add_proxies_header(items):
         out = 'proxies:\n' + '\n'.join('  ' + line if line.strip() else line for line in out.splitlines())
     return out
 
-def convert_protocol(p, links, used_names):
+def convert_protocol(p, links, used_names, blacklist_terms=None):
     parser = {'vmess': parse_vmess, 'vless': parse_vless, 'trojan': parse_trojan}[p]
     yaml_func = {'vmess': vmess_yaml, 'vless': vless_yaml, 'trojan': trojan_yaml}[p]
     override = {'vmess': VMESS_SERVER_OVERRIDE, 'vless': VLESS_SERVER_OVERRIDE, 'trojan': TROJAN_SERVER_OVERRIDE}[p]
     yaml_items, txt_items, invalid, duplicates, renamed, configs = [], [], [], [], [], []
     seen_accounts = {}
+    blacklist_terms = blacklist_terms or []
     for link in links:
         c = parser(link)
         ok, reasons = valid(p, c)
         if not ok:
             invalid.append({'protocol': p, 'reason': '; '.join(reasons), 'raw': link})
+            continue
+
+        hit = blacklist_hit(c, blacklist_terms)
+        if hit:
+            invalid.append({'protocol': p, 'reason': f'blacklist: {hit}', 'raw': link})
             continue
 
         key = account_key(p, c)
@@ -764,6 +854,18 @@ def make_load_balance_group(group_name, proxy_names):
     return make_url_test_group(group_name, proxy_names)
 
 
+def make_fallback_group(group_name, proxy_names):
+    proxy_names = clean_group_proxy_names(proxy_names, allow_direct_reject=False)
+    if not proxy_names:
+        return ''
+    return f'''- name: {yq(group_name)}
+  type: fallback
+  proxies:
+{yaml_name_list(proxy_names, 4)}
+  url: {URL_TEST_URL}
+  interval: {URL_TEST_INTERVAL}'''
+
+
 def make_select_group(group_name, entries):
     entries = clean_group_proxy_names(entries, allow_direct_reject=True)
     if 'DIRECT' not in entries:
@@ -805,6 +907,7 @@ def build_openclash_yaml(
 
     if all_proxy_names:
         groups.append(make_url_test_group('URL-TEST GABUNGAN', all_proxy_names))
+        groups.append(make_fallback_group('FALLBACK', all_proxy_names))
 
     for country_code in sorted(country_proxy_names):
         names = country_proxy_names.get(country_code, [])
@@ -819,6 +922,7 @@ def build_openclash_yaml(
         select_entries.append(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 INDONESIA'))
     if all_proxy_names:
         select_entries.append('URL-TEST GABUNGAN')
+        select_entries.append('FALLBACK')
     select_entries.extend(protocol_group_names)
     select_entries.extend(country_group_names)
     select_entries.append('DIRECT')
@@ -950,7 +1054,10 @@ def get_best_ping_configs(configs, limit=None, country_filter=None):
     limit = int(limit or BEST_PING_TOP_N or 10)
     alive = [
         c for c in configs
-        if c.get('status') == 'alive' and clean(c.get('name')) and delay_sort_value(c) < 999999999
+        if c.get('status') == 'alive'
+        and clean(c.get('name'))
+        and delay_sort_value(c) < 999999999
+        and delay_sort_value(c) <= MAX_DELAY_MS
     ]
 
     country = clean(country_filter if country_filter is not None else BEST_PING_COUNTRY_FILTER).upper()
@@ -1009,6 +1116,7 @@ def write_best_ping_outputs(best_configs):
         'url_test_group': BEST_PING_BALANCE_NAME,
         'group_type': 'url-test',
         'top_n': BEST_PING_TOP_N,
+        'max_delay_ms': MAX_DELAY_MS,
         'count': len(best_configs),
         'names': [c.get('name') for c in best_configs],
     }
@@ -1247,6 +1355,8 @@ def apply_alive_tests(configs):
         'tester': 'none',
         'tester_ok': False,
         'tester_message': '',
+        'max_delay_ms': MAX_DELAY_MS,
+        'filter_max_delay_for_output': FILTER_MAX_DELAY_FOR_OUTPUT,
         'total': len(configs),
         'alive': 0,
         'dead': 0,
@@ -1281,6 +1391,16 @@ def apply_alive_tests(configs):
     summary['untested'] = sum(1 for c in configs if c.get('status') == 'untested')
 
     if FILTER_ALIVE_ONLY and summary['alive'] > 0:
+        usable_alive = [
+            c for c in configs
+            if c.get('status') == 'alive'
+            and (not FILTER_MAX_DELAY_FOR_OUTPUT or delay_sort_value(c) <= MAX_DELAY_MS)
+        ]
+        if usable_alive:
+            summary['final_output_filter'] = f'alive <= {MAX_DELAY_MS}ms' if FILTER_MAX_DELAY_FOR_OUTPUT else 'alive only'
+            return usable_alive, summary
+        summary['tester_message'] += f' | Ada proxy alive, tetapi tidak ada yang delay <= {MAX_DELAY_MS}ms. Output utama memakai semua proxy alive agar tidak kosong.'
+        summary['final_output_filter'] = 'alive only fallback because max delay filter empty'
         return [c for c in configs if c.get('status') == 'alive'], summary
 
     if FILTER_ALIVE_ONLY and summary['alive'] == 0:
@@ -1318,15 +1438,18 @@ def rebuild_collections(configs):
 
 
 def generate():
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     contents = fetch_all_sources()
+    write_source_status(OUTPUT_DIR / 'Source' / 'source_status.csv', sorted(SOURCE_STATUS_ROWS, key=lambda item: item.get('url', '')))
     mapped = map_protocols(contents)
+    blacklist_terms = load_blacklist_terms()
     summary, all_invalid, all_duplicates, all_renamed = [], [], [], []
     all_configs = []
     used_names = set()
 
     for p in PROTOCOLS:
         raw_links = mapped.get(p, [])
-        yaml_items, txt_items, invalid, duplicates, renamed, configs = convert_protocol(p, raw_links, used_names)
+        yaml_items, txt_items, invalid, duplicates, renamed, configs = convert_protocol(p, raw_links, used_names, blacklist_terms)
 
         write(OUTPUT_DIR / 'Raw' / f'{p}.txt', '\n'.join(raw_links))
         write_invalid(OUTPUT_DIR / 'Invalid' / f'{p}_invalid.csv', invalid)
@@ -1370,10 +1493,29 @@ def generate():
     write_check_results(OUTPUT_DIR / 'Alive' / 'untested.csv', untested_rows)
     write_test_summary(OUTPUT_DIR / 'Alive' / 'summary_alive.json', test_summary)
 
+    alive_usable_configs = [
+        c for c in all_configs
+        if c.get('status') == 'alive'
+        and (not FILTER_MAX_DELAY_FOR_OUTPUT or delay_sort_value(c) <= MAX_DELAY_MS)
+    ]
+    if not alive_usable_configs:
+        alive_usable_configs = [c for c in all_configs if c.get('status') == 'alive']
+
     alive_yaml = [c.get('yaml_text', '') for c in all_configs if c.get('status') == 'alive']
     dead_yaml = [c.get('yaml_text', '') for c in all_configs if c.get('status') == 'dead']
     write(OUTPUT_DIR / 'Alive' / 'alive.yaml', add_proxies_header(alive_yaml))
     write(OUTPUT_DIR / 'Alive' / 'dead.yaml', add_proxies_header(dead_yaml))
+
+    alive_collections = rebuild_collections(alive_usable_configs)
+    alive_best_configs = get_best_ping_configs(alive_usable_configs, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
+    alive_best_names = [c.get('name') for c in alive_best_configs if c.get('name')]
+    lengkap_alive_yaml = build_openclash_yaml(
+        alive_collections['yaml_items'],
+        alive_collections['protocol_proxy_names'],
+        alive_collections['country_proxy_names'],
+        best_balance_names=alive_best_names,
+    )
+    write(OUTPUT_DIR / 'lengkap_alive.yaml', lengkap_alive_yaml)
 
     best_configs = get_best_ping_configs(all_configs, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
     best_balance_names = [c.get('name') for c in best_configs if c.get('name')]
@@ -1439,6 +1581,8 @@ def generate():
         row['alive_count'] = alive_by_protocol.get(p, 0)
         row['dead_count'] = dead_by_protocol.get(p, 0)
         row['final_output_count'] = final_by_protocol.get(p, 0)
+        row['max_delay_ms'] = MAX_DELAY_MS
+        row['blacklist_terms_count'] = len(blacklist_terms)
 
     with (OUTPUT_DIR / 'summary_protocol.csv').open('w', encoding='utf-8', newline='') as f:
         fields = [
@@ -1452,6 +1596,8 @@ def generate():
             'alive_count',
             'dead_count',
             'final_output_count',
+            'max_delay_ms',
+            'blacklist_terms_count',
             'yaml_file',
             'txt_file',
             'raw_file'
@@ -1469,5 +1615,24 @@ def generate():
     print('OpenClash file:', OUTPUT_DIR / OPENCLASH_OUTPUT_FILE)
     print('Proxy test summary:', json.dumps(test_summary, ensure_ascii=False))
 
-if __name__ == '__main__':
+def parse_bool_text(value):
+    return str(value).strip().lower() in ['1', 'true', 'yes', 'y', 'on']
+
+
+def main():
+    global RUN_MODE, ENABLE_PROXY_TEST, FILTER_ALIVE_ONLY
+
+    parser = argparse.ArgumentParser(description='Generate OpenClash YAML output.')
+    parser.add_argument('--mode', default=RUN_MODE)
+    parser.add_argument('--enable-proxy-test', default=str(ENABLE_PROXY_TEST).lower())
+    parser.add_argument('--filter-alive-only', default=str(FILTER_ALIVE_ONLY).lower())
+    args = parser.parse_args()
+
+    RUN_MODE = clean(args.mode, RUN_MODE).lower()
+    ENABLE_PROXY_TEST = parse_bool_text(args.enable_proxy_test)
+    FILTER_ALIVE_ONLY = parse_bool_text(args.filter_alive_only)
     generate()
+
+
+if __name__ == '__main__':
+    main()
