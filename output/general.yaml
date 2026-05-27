@@ -1,0 +1,214 @@
+# Auto generated usage profile OpenClash config
+# Output: output/general.yaml
+# Profile group: GENERAL STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "98 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pagescm.freen14.cc.cd"
+    ws-opts:
+      path: "/shop"
+      headers:
+        Host: "pagescm.freen14.cc.cd"
+    udp: true
+  - name: "US 31537 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pagescm.freen11.cc.cd"
+    ws-opts:
+      path: "/friend"
+      headers:
+        Host: "pagescm.freen11.cc.cd"
+    udp: true
+  - name: "AliXTso 1095"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "afrcloud2.c01.kr"
+    ws-opts:
+      path: "/2.56.206.114:8443"
+      headers:
+        Host: "afrcloud2.c01.kr"
+    udp: true
+  - name: "23 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pagescm.freen22.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "pagescm.freen22.cc.cd"
+    udp: true
+  - name: "25 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pagescm.freen6.de5.net"
+    ws-opts:
+      path: "/help/jumping"
+      headers:
+        Host: "pagescm.freen6.de5.net"
+    udp: true
+  - name: "CA 31502 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pagescm.freen23.cc.cd"
+    ws-opts:
+      path: "/file"
+      headers:
+        Host: "pagescm.freen23.cc.cd"
+    udp: true
+  - name: "US Join Telegram Farah_VPN US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pagescm.freen5.cc.cd"
+    ws-opts:
+      path: "/showfp=chrome"
+      headers:
+        Host: "pagescm.freen5.cc.cd"
+    udp: true
+  - name: "CA 31643 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "2238e2f3-1a01-485e-8c22-24b65764c68b"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "gzjx.dpdns.org"
+    ws-opts:
+      path: "/51.91.253.83"
+      headers:
+        Host: "gzjx.dpdns.org"
+    udp: true
+  - name: "v2rayconfigamir 5341"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.skylee4.cloudns.ch"
+    ws-opts:
+      path: "/proxyip=ProxyIP.CMLiussss.net"
+      headers:
+        Host: "sni.skylee4.cloudns.ch"
+    udp: true
+  - name: "11 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pagescm.freen15.cc.cd"
+    ws-opts:
+      path: "/album/bt"
+      headers:
+        Host: "pagescm.freen15.cc.cd"
+    udp: true
+
+proxy-groups:
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "98 oneclickvpnkeys"
+      - "US 31537 Telegram t.me SOSkeyNET"
+      - "AliXTso 1095"
+      - "23 oneclickvpnkeys"
+      - "25 oneclickvpnkeys"
+      - "CA 31502 Telegram t.me SOSkeyNET"
+      - "US Join Telegram Farah_VPN US"
+      - "CA 31643 Telegram t.me SOSkeyNET"
+      - "v2rayconfigamir 5341"
+      - "11 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 120
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GENERAL STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

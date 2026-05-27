@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -30,7 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys FR 6282"
+  - name: "oneclickvpnkeys FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 1844"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -46,18 +64,9 @@ proxies:
     udp: true
 
 proxy-groups:
-  - name: "URL-TEST FR - France"
-    type: url-test
-    proxies:
-      - "oneclickvpnkeys FR 6282"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST FR - France"
       - "DIRECT"
       - "REJECT"
 
