@@ -78,6 +78,66 @@ proxies:
       headers:
         Host: "cdn.arisping-ir.store"
     udp: true
+  - name: "0 -https t.me MrXbin-97"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "o.metuji.com"
+    udp: true
+  - name: "https t.me aifenxiang2020"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: f4ef14c4-d811-455c-a4c3-c63dfeffb0a6
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "vfly3.win"
+    network: ws
+    ws-opts:
+      path: "/myblog"
+      headers:
+        Host: "vfly3.win"
+    udp: true
+  - name: "t.me kutoproxy DE"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 2060af6e-73c5-4090-b09a-bd4114365135
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "m.zoom.us"
+    network: ws
+    ws-opts:
+      path: "/worryfree"
+      headers:
+        Host: "m.zoom.us"
+    udp: true
+  - name: "t.me v_p_lv"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "168.119.167.204"
+    network: tcp
+    udp: true
   - name: "https t.me VIPV2rayNGNP"
     server: "104.17.3.81"
     port: 443
@@ -93,6 +153,21 @@ proxies:
       headers:
         Host: "afrcloud5.c01.kr"
     udp: true
+  - name: "T.me i10VPN"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "joinProxyVPN11.afrcloud22.mmv.kr"
+    ws-opts:
+      path: "/150.109.11.223=443"
+      headers:
+        Host: "afrcloud22.mmv.kr"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST ME - Montenegro"
@@ -101,7 +176,12 @@ proxy-groups:
       - "Telegram V2ynpv"
       - "t.me arisping"
       - "t.me arisping Free"
+      - "0 -https t.me MrXbin-97"
+      - "https t.me aifenxiang2020"
+      - "t.me kutoproxy DE"
+      - "t.me v_p_lv"
       - "https t.me VIPV2rayNGNP"
+      - "T.me i10VPN"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

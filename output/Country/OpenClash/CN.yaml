@@ -75,7 +75,7 @@ proxies:
       headers:
         Host: "sni.latonyamadeline.ndjp.net"
     udp: true
-  - name: "SE t.me Natrixo BB 3568"
+  - name: "SE t.me Natrixo BB 2332"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -119,6 +119,20 @@ proxies:
       headers:
         Host: "cchh2.pages.dev"
     udp: true
+  - name: "US US4"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8r<[9'l6hAO#8ZQi"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "Koma-YT.PAGeS.Dev"
+    ws-opts:
+      path: "/trTelegram🇨🇳 @WangCai2"
+      headers:
+        Host: "Koma-YT.PAGeS.Dev"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST CN - China"
@@ -127,9 +141,10 @@ proxy-groups:
       - "Proxy_Vpney (3"
       - "SE t.me Natrixo BB"
       - "v2rayconfigamir 1187"
-      - "SE t.me Natrixo BB 3568"
+      - "SE t.me Natrixo BB 2332"
       - "64357 - Telegram V2All"
       - "37 oneclickvpnkeys"
+      - "US US4"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

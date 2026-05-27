@@ -1,0 +1,80 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "Channel id ShadowProxy66 DE"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "kapelleng.com"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "kapelleng.com"
+    udp: true
+  - name: "ConfigV2RayNG"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "91.107.195.173"
+    network: tcp
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST ID - Indonesia"
+    type: url-test
+    proxies:
+      - "Channel id ShadowProxy66 DE"
+      - "ConfigV2RayNG"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST ID - Indonesia"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

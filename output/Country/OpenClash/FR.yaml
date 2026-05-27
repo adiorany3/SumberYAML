@@ -30,6 +30,38 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "FR DE OVH"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "serkat.org"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "serkat.org"
+    udp: true
+  - name: "FR hichkas mci"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: b3db746a-c63a-4b57-9d61-9bdec6d08141
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "51.77.200.137"
+    network: ws
+    ws-opts:
+      path: "/vmess"
+      headers:
+        Host: "51.77.200.137"
+    udp: true
   - name: "Rayan_Config 3.3"
     server: "104.17.3.81"
     port: 443
@@ -75,6 +107,21 @@ proxies:
       headers:
         Host: "141.11.203.139"
     udp: true
+  - name: "FR WS-Reality DeamNet_proxy"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 621a845a-48ea-35f0-9b9a-ca499c647ade
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dabaihk.webn.cc"
+    ws-opts:
+      path: "/db1024e9df2f990b"
+      headers:
+        Host: "dabaihk.webn.cc"
+    udp: true
   - name: "oneclickvpnkeys FR"
     server: "104.17.3.81"
     port: 443
@@ -103,7 +150,7 @@ proxies:
       headers:
         Host: "www.calmlunch.com"
     udp: true
-  - name: "oneclickvpnkeys FR 8572"
+  - name: "oneclickvpnkeys FR 9524"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -117,17 +164,35 @@ proxies:
       headers:
         Host: "www.ignitelimit.com"
     udp: true
+  - name: "FR _FR_trojan Sp3eDVp content-provider5.cdn-delivery.akamaicd.com 443 FR _FR_tro"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "origin"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "content-provider26.cdn-delivery.akamaicd.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "content-provider26.cdn-delivery.akamaicd.com"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST FR - France"
     type: url-test
     proxies:
+      - "FR DE OVH"
+      - "FR hichkas mci"
       - "Rayan_Config 3.3"
       - "Rayan_Config 3.33"
       - "FR FR VLESS v2ray_collector 1"
+      - "FR WS-Reality DeamNet_proxy"
       - "oneclickvpnkeys FR"
       - "outline_vpn FR"
-      - "oneclickvpnkeys FR 8572"
+      - "oneclickvpnkeys FR 9524"
+      - "FR _FR_trojan Sp3eDVp content-provider5.cdn-delivery.akamaicd.com 443 FR _FR_tro"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

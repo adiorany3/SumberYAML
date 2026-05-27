@@ -1,0 +1,16 @@
+proxies:
+  - name: "v2ray_ar v2ray_ar oorg_ar"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f0b09670-9e9a-48f2-acd5-5b6cc33c83c5
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdir-0304.wlfvip.shop"
+    ws-opts:
+      path: "/vlws?ed=2048"
+      headers:
+        Host: "cdir-0304.wlfvip.shop"
+    udp: true

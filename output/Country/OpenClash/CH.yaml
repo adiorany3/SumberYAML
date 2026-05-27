@@ -60,6 +60,51 @@ proxies:
       headers:
         Host: "sn1.skylee5.cloudns.ch"
     udp: true
+  - name: "Free_VPN_CH"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ca7709bd-7ff1-4edc-9f1d-679d17bcd150
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "afrcloud22.mmv.kr"
+    ws-opts:
+      path: "/45.77.25.6=48828"
+      headers:
+        Host: "afrcloud22.mmv.kr"
+    udp: true
+  - name: "Free_VPN_CH 7578"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "joinProxyVPN11.afrcloud22.mmv.kr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "afrcloud22.mmv.kr"
+    udp: true
+  - name: "Free_VPN_CH 5810"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d85ea913-7dfa-44b0-bd66-33414e897991
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "afrcloud22.mmv.kr"
+    ws-opts:
+      path: "/35.230.79.26=443#TELEGRAM-anotherme_night---#TELEGRAM-anotherme_night---#TELEGRAM-anotherme_night---#TELEGRAM-anotherme_night---#TELEGRAM-anotherme_night"
+      headers:
+        Host: "afrcloud22.mmv.kr"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST CH - Switzerland"
@@ -67,6 +112,9 @@ proxy-groups:
     proxies:
       - "CH CH VLESS proxyfn 1"
       - "v2rayconfigamir 3194"
+      - "Free_VPN_CH"
+      - "Free_VPN_CH 7578"
+      - "Free_VPN_CH 5810"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

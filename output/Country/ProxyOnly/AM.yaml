@@ -1,0 +1,16 @@
+proxies:
+  - name: "v2Meli 6609"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d5c1abb8-2024-4fc0-9810-09dc10a5b948
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "am.digikala-aparat-zula.com"
+    ws-opts:
+      path: "/admin"
+      headers:
+        Host: "am.digikala-aparat-zula.com"
+    udp: true

@@ -1,0 +1,66 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "v2Meli 6609"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d5c1abb8-2024-4fc0-9810-09dc10a5b948
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "am.digikala-aparat-zula.com"
+    ws-opts:
+      path: "/admin"
+      headers:
+        Host: "am.digikala-aparat-zula.com"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST AM - Armenia"
+    type: url-test
+    proxies:
+      - "v2Meli 6609"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST AM - Armenia"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

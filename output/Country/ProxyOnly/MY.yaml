@@ -1,0 +1,16 @@
+proxies:
+  - name: "MY Malaysia"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 297df885-9161-46cb-94d4-90a8a8489645
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.128.54.17"
+    ws-opts:
+      path: "/dahuqpws"
+      headers:
+        Host: "45.128.54.17"
+    udp: true

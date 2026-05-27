@@ -30,6 +30,18 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "oneclickvpnkeys AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 44537595-9ccc-4b83-8936-5f9ad3229019
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "89.31.120.192"
+    network: tcp
+    udp: true
   - name: "AE AE VLESS vmesskhodam 1"
     server: "104.17.3.81"
     port: 443
@@ -50,6 +62,7 @@ proxy-groups:
   - name: "URL-TEST AE - United Arab Emirates"
     type: url-test
     proxies:
+      - "oneclickvpnkeys AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE"
       - "AE AE VLESS vmesskhodam 1"
     url: http://www.gstatic.com/generate_204
     interval: 300

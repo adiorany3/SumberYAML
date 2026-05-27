@@ -1,0 +1,29 @@
+proxies:
+  - name: "Channel id ShadowProxy66 DE"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "kapelleng.com"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "kapelleng.com"
+    udp: true
+  - name: "ConfigV2RayNG"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "91.107.195.173"
+    network: tcp
+    udp: true

@@ -1,0 +1,31 @@
+proxies:
+  - name: "Proxy_sh 0797"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "Pulavpn11.afrcloud22.mmv.kr"
+    ws-opts:
+      path: "/43.218.77.16=1443"
+      headers:
+        Host: "afrcloud22.mmv.kr"
+    udp: true
+  - name: "Proxy_sh 3410"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 425ef0c5-4e79-4aa5-bf9e-b847a0f73601
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "telegram.vpnazadie.store"
+    ws-opts:
+      path: "/vless-tls"
+      headers:
+        Host: "vpnazadie.store"
+    udp: true

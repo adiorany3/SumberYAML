@@ -1,0 +1,66 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "v2ray_ar v2ray_ar oorg_ar"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f0b09670-9e9a-48f2-acd5-5b6cc33c83c5
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdir-0304.wlfvip.shop"
+    ws-opts:
+      path: "/vlws?ed=2048"
+      headers:
+        Host: "cdir-0304.wlfvip.shop"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST AR - Argentina"
+    type: url-test
+    proxies:
+      - "v2ray_ar v2ray_ar oorg_ar"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST AR - Argentina"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

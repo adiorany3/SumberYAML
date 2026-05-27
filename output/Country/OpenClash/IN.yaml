@@ -30,7 +30,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2rayconfigamir 5727"
+  - name: "Telegram KIA_NET"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -41,7 +41,7 @@ proxies:
     network: ws
     servername: "sni.111000.indevs.in"
     ws-opts:
-      path: "/?ed=2560"
+      path: "/?ed"
       headers:
         Host: "sni.111000.indevs.in"
     udp: true
@@ -50,7 +50,7 @@ proxy-groups:
   - name: "URL-TEST IN - India"
     type: url-test
     proxies:
-      - "v2rayconfigamir 5727"
+      - "Telegram KIA_NET"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
