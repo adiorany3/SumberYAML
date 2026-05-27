@@ -30,43 +30,59 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "filtershekan_channel 1"
+  - name: "oneclickvpnkeys EE"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "pagescm.freen32.cc.cd"
+    servername: "1-gjo.pages.dev"
     ws-opts:
-      path: "/play/settings"
+      path: "/"
       headers:
-        Host: "pagescm.freen32.cc.cd"
+        Host: "1-gjo.pages.dev"
     udp: true
-  - name: "FI t.me Natrixo AA"
+  - name: "filembad-38"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 4d70a474-aa93-457b-a2fb-98b05272ce25
+    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "finland.blackkwolff.com"
+    servername: "sni.skylee4.cloudns.ch"
     ws-opts:
-      path: "/cf"
+      path: "/"
       headers:
-        Host: "finland.blackkwolff.com"
+        Host: "sni.skylee4.cloudns.ch"
+    udp: true
+  - name: "v2rayconfigamir 5341"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.skylee4.cloudns.ch"
+    ws-opts:
+      path: "/proxyip=ProxyIP.CMLiussss.net"
+      headers:
+        Host: "sni.skylee4.cloudns.ch"
     udp: true
 
 proxy-groups:
   - name: "URL-TEST TOP 5 INDONESIA"
     type: url-test
     proxies:
-      - "filtershekan_channel 1"
-      - "FI t.me Natrixo AA"
+      - "oneclickvpnkeys EE"
+      - "filembad-38"
+      - "v2rayconfigamir 5341"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -74,8 +90,9 @@ proxy-groups:
   - name: "URL-TEST TOP GLOBAL"
     type: url-test
     proxies:
-      - "filtershekan_channel 1"
-      - "FI t.me Natrixo AA"
+      - "oneclickvpnkeys EE"
+      - "filembad-38"
+      - "v2rayconfigamir 5341"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -83,8 +100,9 @@ proxy-groups:
   - name: "FALLBACK"
     type: fallback
     proxies:
-      - "filtershekan_channel 1"
-      - "FI t.me Natrixo AA"
+      - "oneclickvpnkeys EE"
+      - "filembad-38"
+      - "v2rayconfigamir 5341"
     url: http://www.gstatic.com/generate_204
     interval: 300
 
