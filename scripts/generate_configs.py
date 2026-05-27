@@ -16,8 +16,9 @@ TROJAN_SERVER_OVERRIDE = '104.17.3.81'
 PROTOCOLS = ['vmess', 'vless', 'trojan']
 OPENCLASH_OUTPUT_FILE = 'lengkap.yaml'
 URL_TEST_URL = 'http://www.gstatic.com/generate_204'
-URL_TEST_INTERVAL = 300
-URL_TEST_TOLERANCE = 50
+URL_TEST_INTERVAL = int(os.getenv('URL_TEST_INTERVAL', '120'))
+URL_TEST_TOLERANCE = int(os.getenv('URL_TEST_TOLERANCE', '30'))
+URL_TEST_LAZY = os.getenv('URL_TEST_LAZY', 'false').strip().lower() in ['1', 'true', 'yes', 'y', 'on']
 FETCH_WORKERS = 10
 RUN_MODE = os.getenv('RUN_MODE', 'update').strip().lower() or 'update'
 
@@ -67,6 +68,20 @@ CUSTOM_RULES_FILE = os.getenv('CUSTOM_RULES_FILE', 'rules/custom_rules.yaml').st
 RANK_TCP_FALLBACK_PENALTY = int(os.getenv('RANK_TCP_FALLBACK_PENALTY', '300'))
 RANK_GLOBAL_FALLBACK_PENALTY = int(os.getenv('RANK_GLOBAL_FALLBACK_PENALTY', '1000'))
 SOURCE_STATUS_ROWS = []
+
+# Optimasi responsivitas: pilih akun yang bukan hanya hidup, tetapi stabil.
+RESPONSIVE_MAX_AVG_DELAY_MS = int(os.getenv('RESPONSIVE_MAX_AVG_DELAY_MS', '8000'))
+RESPONSIVE_MAX_JITTER_MS = int(os.getenv('RESPONSIVE_MAX_JITTER_MS', '5000'))
+RESPONSIVE_MIN_SUCCESS_RATE = float(os.getenv('RESPONSIVE_MIN_SUCCESS_RATE', '0.50'))
+RESPONSIVE_TOP_N = int(os.getenv('RESPONSIVE_TOP_N', '15'))
+RESPONSIVE_COMBINED_MAX = int(os.getenv('RESPONSIVE_COMBINED_MAX', '30'))
+RESPONSIVE_JITTER_WEIGHT = float(os.getenv('RESPONSIVE_JITTER_WEIGHT', '0.35'))
+RESPONSIVE_FAILURE_PENALTY = int(os.getenv('RESPONSIVE_FAILURE_PENALTY', '1500'))
+FAST_OUTPUT_FILE = os.getenv('FAST_OUTPUT_FILE', 'fast.yaml').strip() or 'fast.yaml'
+FAST_MAX_TOTAL = int(os.getenv('FAST_MAX_TOTAL', '20'))
+FAST_FALLBACK_NAME = sanitize_name_for_yaml(os.getenv('FAST_FALLBACK_NAME', 'FALLBACK CEPAT')) if 'sanitize_name_for_yaml' in globals() else os.getenv('FAST_FALLBACK_NAME', 'FALLBACK CEPAT')
+ENABLE_FAST_FALLBACK_GROUP = env_bool('ENABLE_FAST_FALLBACK_GROUP', True)
+ENABLE_PERFORMANCE_OPTIONS = env_bool('ENABLE_PERFORMANCE_OPTIONS', True)
 
 # Reuse output sebelumnya agar hasil tidak kosong dan update lebih cepat
 # jika semua sumber kosong/tidak ada akun baru. PREVIOUS_OUTPUT_DIR diisi workflow
@@ -968,7 +983,8 @@ def make_url_test_group(group_name, proxy_names):
 {yaml_name_list(proxy_names, 4)}
   url: {URL_TEST_URL}
   interval: {URL_TEST_INTERVAL}
-  tolerance: {URL_TEST_TOLERANCE}'''
+  tolerance: {URL_TEST_TOLERANCE}
+  lazy: {str(URL_TEST_LAZY).lower()}'''
 
 
 def make_load_balance_group(group_name, proxy_names):
@@ -985,7 +1001,8 @@ def make_fallback_group(group_name, proxy_names):
   proxies:
 {yaml_name_list(proxy_names, 4)}
   url: {URL_TEST_URL}
-  interval: {URL_TEST_INTERVAL}'''
+  interval: {URL_TEST_INTERVAL}
+  lazy: {str(URL_TEST_LAZY).lower()}'''
 
 
 def make_select_group(group_name, entries):
@@ -1034,6 +1051,7 @@ def build_openclash_yaml(
     country_proxy_names=None,
     external_controller='0.0.0.0:9090',
     best_balance_names=None,
+    responsive_names=None,
 ):
     all_proxy_names = []
     for p in PROTOCOLS:
@@ -1041,12 +1059,15 @@ def build_openclash_yaml(
 
     country_proxy_names = country_proxy_names or {}
     best_balance_names = best_balance_names or []
+    responsive_names = clean_group_proxy_names(responsive_names or [], allow_direct_reject=False)
     groups = []
     protocol_group_names = []
     country_group_names = []
 
     if BEST_PING_BALANCE_ENABLE and best_balance_names:
         groups.append(make_load_balance_group(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 INDONESIA'), best_balance_names))
+    if ENABLE_FAST_FALLBACK_GROUP and responsive_names:
+        groups.append(make_fallback_group(sanitize_proxy_name(FAST_FALLBACK_NAME, 'FALLBACK CEPAT'), responsive_names))
     for p in PROTOCOLS:
         names = protocol_proxy_names.get(p, [])
         if not names:
@@ -1056,8 +1077,12 @@ def build_openclash_yaml(
         groups.append(make_url_test_group(group_name, names))
 
     if all_proxy_names:
-        groups.append(make_url_test_group('URL-TEST GABUNGAN', all_proxy_names))
-        groups.append(make_fallback_group('FALLBACK', all_proxy_names))
+        combined_names = clean_group_proxy_names(all_proxy_names, allow_direct_reject=False)
+        if RESPONSIVE_COMBINED_MAX > 0:
+            combined_names = combined_names[:RESPONSIVE_COMBINED_MAX]
+        fallback_names = responsive_names or combined_names
+        groups.append(make_url_test_group('URL-TEST GABUNGAN', combined_names))
+        groups.append(make_fallback_group('FALLBACK', fallback_names))
 
     if ENABLE_COUNTRY_URL_TEST_GROUPS:
         for country_code in sorted(country_proxy_names):
@@ -1071,6 +1096,8 @@ def build_openclash_yaml(
     select_entries = []
     if BEST_PING_BALANCE_ENABLE and best_balance_names:
         select_entries.append(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 INDONESIA'))
+    if ENABLE_FAST_FALLBACK_GROUP and responsive_names:
+        select_entries.append(sanitize_proxy_name(FAST_FALLBACK_NAME, 'FALLBACK CEPAT'))
     if all_proxy_names:
         select_entries.append('URL-TEST GABUNGAN')
         select_entries.append('FALLBACK')
@@ -1106,6 +1133,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: {external_controller}
 
 profile:
@@ -1167,6 +1198,12 @@ def config_row(c, status='', delay_ms='', reason=''):
         'status': clean(status or c.get('status')),
         'delay_ms': clean(delay_ms if delay_ms != '' else c.get('delay_ms')),
         'rank_score': clean(c.get('rank_score')),
+        'responsive_score': clean(c.get('responsive_score')),
+        'min_delay_ms': clean(c.get('min_delay_ms')),
+        'avg_delay_ms': clean(c.get('avg_delay_ms')),
+        'max_delay_ms': clean(c.get('max_delay_ms')),
+        'jitter_ms': clean(c.get('jitter_ms')),
+        'success_rate': clean(c.get('success_rate')),
         'strict_success_rounds': clean(c.get('strict_success_rounds')),
         'strict_test_rounds': clean(c.get('strict_test_rounds')),
         'strict_required_rounds': clean(c.get('strict_required_rounds')),
@@ -1180,8 +1217,10 @@ def write_check_results(path, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
     fields = [
         'protocol', 'name', 'country', 'server', 'original_server', 'port',
-        'network', 'status', 'delay_ms', 'rank_score', 'strict_success_rounds',
-        'strict_test_rounds', 'strict_required_rounds', 'fingerprint', 'reason', 'raw'
+        'network', 'status', 'delay_ms', 'rank_score', 'responsive_score',
+        'min_delay_ms', 'avg_delay_ms', 'max_delay_ms', 'jitter_ms', 'success_rate',
+        'strict_success_rounds', 'strict_test_rounds', 'strict_required_rounds',
+        'fingerprint', 'reason', 'raw'
     ]
     with path.open('w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -1202,23 +1241,72 @@ def delay_sort_value(c):
         return 999999999
 
 
-def rank_score(c, preferred_country=None):
-    """Skor ranking: makin kecil makin baik.
+def delay_stats(values, test_rounds=None):
+    delays = [safe_int(v, 0) for v in values if safe_int(v, 0) > 0]
+    success = len(delays)
+    rounds = max(1, safe_int(test_rounds, success or 1))
+    if not delays:
+        return {
+            'min_delay_ms': '',
+            'avg_delay_ms': '',
+            'max_delay_ms': '',
+            'jitter_ms': '',
+            'success_rate': 0.0,
+        }
+    minimum = min(delays)
+    maximum = max(delays)
+    average = int(sum(delays) / len(delays))
+    return {
+        'min_delay_ms': minimum,
+        'avg_delay_ms': average,
+        'max_delay_ms': maximum,
+        'jitter_ms': maximum - minimum,
+        'success_rate': round(success / rounds, 3),
+    }
 
-    Dasar skor adalah delay. Ditambah penalti bila hasil hanya TCP fallback
-    atau bila sistem harus fallback global dari filter negara.
+
+def apply_delay_stats(c, delays=None, test_rounds=None):
+    if delays is None:
+        delays = c.get('_strict_delays') or []
+        if not delays and delay_sort_value(c) < 999999999:
+            delays = [delay_sort_value(c)]
+    stats = delay_stats(delays, test_rounds or c.get('strict_test_rounds') or TEST_ROUNDS)
+    c.update(stats)
+    return stats
+
+
+def rank_score(c, preferred_country=None):
+    """Skor responsivitas: makin kecil makin baik.
+
+    Score memperhitungkan delay rata-rata, jitter, success-rate, TCP fallback,
+    dan penalti fallback global. Ini membuat node yang stabil lebih unggul
+    daripada node dengan ping kecil tapi sering timeout.
     """
-    delay = delay_sort_value(c)
-    if delay >= 999999999:
-        return delay
-    score = delay + int(c.get('rank_penalty') or 0)
+    apply_delay_stats(c)
+    avg_delay = safe_int(c.get('avg_delay_ms'), 0)
+    base_delay = avg_delay if avg_delay > 0 else delay_sort_value(c)
+    if base_delay >= 999999999:
+        return base_delay
+
+    jitter = safe_int(c.get('jitter_ms'), 0)
+    success_rate = float(c.get('success_rate') or 0)
+    score = int(base_delay + (jitter * RESPONSIVE_JITTER_WEIGHT))
+
+    if success_rate < 1:
+        score += int((1 - success_rate) * RESPONSIVE_FAILURE_PENALTY)
+
+    score += int(c.get('rank_penalty') or 0)
     reason = clean(c.get('reason')).lower()
     tester = clean(c.get('tester')).lower()
     if 'tcp' in reason or 'tcp' in tester:
         score += RANK_TCP_FALLBACK_PENALTY
+
     country = clean(preferred_country).upper()
     if country and clean(c.get('country')).upper() != country:
         score += RANK_GLOBAL_FALLBACK_PENALTY
+
+    c['responsive_score'] = score
+    c['rank_score'] = score
     return score
 
 
@@ -1255,8 +1343,55 @@ def get_best_ping_configs(configs, limit=None, country_filter=None):
     for c in alive:
         c['rank_score'] = rank_score(c, preferred_country_for_score)
 
-    alive.sort(key=lambda item: (safe_int(item.get('rank_score'), 999999999), delay_sort_value(item), clean(item.get('name'))))
+    alive.sort(key=lambda item: (safe_int(item.get('responsive_score') or item.get('rank_score'), 999999999), safe_int(item.get('avg_delay_ms'), delay_sort_value(item)), safe_int(item.get('jitter_ms'), 999999), clean(item.get('name'))))
     return alive[:limit]
+
+
+def get_responsive_configs(configs, limit=None, country_filter=None, allow_fallback=True):
+    """Ambil node paling responsif untuk group aktif.
+
+    Filter ini sengaja longgar. Jika kriteria responsif tidak menemukan hasil,
+    fungsi akan fallback ke daftar alive terbaik agar output tetap berisi akun.
+    """
+    limit = int(limit or RESPONSIVE_TOP_N or 15)
+    pool = []
+    for c in configs or []:
+        if c.get('status') != 'alive' or not clean(c.get('name')):
+            continue
+        apply_delay_stats(c)
+        avg_delay = safe_int(c.get('avg_delay_ms'), delay_sort_value(c))
+        jitter = safe_int(c.get('jitter_ms'), 0)
+        success_rate = float(c.get('success_rate') or (1.0 if delay_sort_value(c) < 999999999 else 0.0))
+        if avg_delay <= RESPONSIVE_MAX_AVG_DELAY_MS and jitter <= RESPONSIVE_MAX_JITTER_MS and success_rate >= RESPONSIVE_MIN_SUCCESS_RATE:
+            pool.append(c)
+
+    country = clean(country_filter if country_filter is not None else BEST_PING_COUNTRY_FILTER).upper()
+    preferred_country_for_score = ''
+    if country:
+        country_pool = [c for c in pool if clean(c.get('country')).upper() == country]
+        if country_pool:
+            pool = country_pool
+            preferred_country_for_score = country
+        elif not BEST_PING_FALLBACK_GLOBAL:
+            pool = []
+        else:
+            preferred_country_for_score = country
+
+    if not pool and allow_fallback:
+        pool = [c for c in configs or [] if c.get('status') == 'alive' and clean(c.get('name'))]
+        if country:
+            country_pool = [c for c in pool if clean(c.get('country')).upper() == country]
+            if country_pool:
+                pool = country_pool
+                preferred_country_for_score = country
+            else:
+                preferred_country_for_score = country
+
+    for c in pool:
+        rank_score(c, preferred_country_for_score)
+
+    pool.sort(key=lambda item: (safe_int(item.get('responsive_score') or item.get('rank_score'), 999999999), safe_int(item.get('avg_delay_ms'), delay_sort_value(item)), safe_int(item.get('jitter_ms'), 999999), clean(item.get('name'))))
+    return unique_configs_by_name(pool)[:limit]
 
 
 def write_best_ping_outputs(best_configs):
@@ -1273,8 +1408,10 @@ def write_best_ping_outputs(best_configs):
 
     fields = [
         'rank', 'protocol', 'name', 'country', 'country_filter', 'server', 'original_server', 'port',
-        'network', 'status', 'delay_ms', 'rank_score', 'strict_success_rounds',
-        'strict_test_rounds', 'strict_required_rounds', 'fingerprint', 'reason', 'url_test_group', 'raw'
+        'network', 'status', 'delay_ms', 'rank_score', 'responsive_score',
+        'min_delay_ms', 'avg_delay_ms', 'max_delay_ms', 'jitter_ms', 'success_rate',
+        'strict_success_rounds', 'strict_test_rounds', 'strict_required_rounds',
+        'fingerprint', 'reason', 'url_test_group', 'raw'
     ]
     with (best_dir / 'top5_best_ping.csv').open('w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -1374,6 +1511,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -1400,17 +1541,116 @@ dns:
 '''
 
 
-def write_lite_output(alive_usable_configs, best_country_configs):
+def build_compact_openclash_yaml(output_file, compact_configs, top_country_names=None, top_global_names=None, responsive_names=None):
+    compact_configs = unique_configs_by_name(compact_configs)
+    yaml_items = [c.get('yaml_text', '') for c in compact_configs if c.get('yaml_text')]
+    all_names = clean_group_proxy_names([c.get('name') for c in compact_configs if c.get('name')], allow_direct_reject=False)
+    top_country_names = clean_group_proxy_names(top_country_names or [], allow_direct_reject=False)
+    top_global_names = clean_group_proxy_names(top_global_names or [], allow_direct_reject=False)
+    responsive_names = clean_group_proxy_names(responsive_names or [], allow_direct_reject=False)
+    combined_names = all_names[:RESPONSIVE_COMBINED_MAX] if RESPONSIVE_COMBINED_MAX > 0 else all_names
+
+    groups = []
+    select_entries = []
+
+    if top_country_names:
+        group_name = sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 INDONESIA')
+        groups.append(make_url_test_group(group_name, top_country_names))
+        select_entries.append(group_name)
+
+    if ENABLE_FAST_FALLBACK_GROUP and responsive_names:
+        fast_group = sanitize_proxy_name(FAST_FALLBACK_NAME, 'FALLBACK CEPAT')
+        groups.append(make_fallback_group(fast_group, responsive_names))
+        select_entries.append(fast_group)
+
+    if top_global_names:
+        groups.append(make_url_test_group('URL-TEST TOP GLOBAL', top_global_names))
+        select_entries.append('URL-TEST TOP GLOBAL')
+
+    if combined_names:
+        groups.append(make_url_test_group('URL-TEST GABUNGAN', combined_names))
+        select_entries.append('URL-TEST GABUNGAN')
+
+    fallback_names = responsive_names or combined_names or all_names
+    if fallback_names:
+        groups.append(make_fallback_group('FALLBACK', fallback_names))
+        select_entries.append('FALLBACK')
+
+    select_entries.append('DIRECT')
+    groups.append(make_select_group('PROXY', select_entries))
+
+    proxies_part = 'proxies:\n'
+    proxies_part += indent_block('\n'.join(yaml_items), 2) if yaml_items else '  []'
+    groups_part = 'proxy-groups:\n'
+    groups_part += indent_block('\n\n'.join(g for g in groups if g), 2) if groups else '  []'
+    rules_part = render_rules_section()
+
+    return f"""# Auto generated compact OpenClash config
+# Output: output/{output_file}
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+{proxies_part}
+
+{groups_part}
+
+{rules_part}
+"""
+
+
+def build_lite_openclash_yaml(lite_configs, top_country_names=None, top_global_names=None, responsive_names=None):
+    return build_compact_openclash_yaml(
+        LITE_OUTPUT_FILE,
+        lite_configs,
+        top_country_names=top_country_names,
+        top_global_names=top_global_names,
+        responsive_names=responsive_names,
+    )
+
+
+def write_lite_output(alive_usable_configs, best_country_configs, responsive_configs=None):
     best_country_configs = list(best_country_configs or [])
+    responsive_configs = list(responsive_configs or [])
     alive_usable_configs = list(alive_usable_configs or [])
     global_best = get_best_ping_configs(alive_usable_configs, LITE_GLOBAL_TOP_N, country_filter='')
-    picked = unique_configs_by_name(list(best_country_configs or []) + list(global_best or []))
+    picked = unique_configs_by_name(list(best_country_configs or []) + list(responsive_configs or []) + list(global_best or []))
     if LITE_MAX_TOTAL > 0:
         picked = picked[:LITE_MAX_TOTAL]
     lite_yaml = build_lite_openclash_yaml(
         picked,
         top_country_names=[c.get('name') for c in best_country_configs if c.get('name')],
         top_global_names=[c.get('name') for c in global_best if c.get('name')],
+        responsive_names=[c.get('name') for c in responsive_configs if c.get('name')],
     )
     write(OUTPUT_DIR / LITE_OUTPUT_FILE, lite_yaml)
     write_test_summary(OUTPUT_DIR / 'Lite' / 'summary_lite.json', {
@@ -1418,9 +1658,49 @@ def write_lite_output(alive_usable_configs, best_country_configs):
         'proxy_count': len(picked),
         'top_country_count': len(best_country_configs or []),
         'top_global_count': len(global_best or []),
+        'responsive_count': len(responsive_configs or []),
         'lite_global_top_n': LITE_GLOBAL_TOP_N,
         'lite_max_total': LITE_MAX_TOTAL,
+        'combined_group_max': RESPONSIVE_COMBINED_MAX,
         'names': [c.get('name') for c in picked],
+    })
+
+
+def write_fast_output(alive_usable_configs, best_country_configs, responsive_configs=None):
+    best_country_configs = list(best_country_configs or [])
+    responsive_configs = list(responsive_configs or [])
+    source = unique_configs_by_name(list(best_country_configs) + list(responsive_configs))
+    if not source:
+        source = get_responsive_configs(alive_usable_configs, FAST_MAX_TOTAL, country_filter='', allow_fallback=True)
+    if FAST_MAX_TOTAL > 0:
+        source = source[:FAST_MAX_TOTAL]
+
+    fast_yaml = build_compact_openclash_yaml(
+        FAST_OUTPUT_FILE,
+        source,
+        top_country_names=[c.get('name') for c in best_country_configs if c.get('name')],
+        top_global_names=[],
+        responsive_names=[c.get('name') for c in responsive_configs if c.get('name')],
+    )
+    write(OUTPUT_DIR / FAST_OUTPUT_FILE, fast_yaml)
+
+    fast_dir = OUTPUT_DIR / 'Fast'
+    fast_dir.mkdir(parents=True, exist_ok=True)
+    write_check_results(fast_dir / 'fast.csv', [config_row(c) for c in source])
+    write(fast_dir / 'fast_proxies.yaml', add_proxies_header([c.get('yaml_text', '') for c in source if c.get('yaml_text')]))
+    write_test_summary(fast_dir / 'summary_fast.json', {
+        'file': f'output/{FAST_OUTPUT_FILE}',
+        'proxy_count': len(source),
+        'best_country_count': len(best_country_configs),
+        'responsive_count': len(responsive_configs),
+        'fast_max_total': FAST_MAX_TOTAL,
+        'responsive_top_n': RESPONSIVE_TOP_N,
+        'responsive_max_avg_delay_ms': RESPONSIVE_MAX_AVG_DELAY_MS,
+        'responsive_max_jitter_ms': RESPONSIVE_MAX_JITTER_MS,
+        'responsive_min_success_rate': RESPONSIVE_MIN_SUCCESS_RATE,
+        'combined_group_max': RESPONSIVE_COMBINED_MAX,
+        'fallback_group': sanitize_proxy_name(FAST_FALLBACK_NAME, 'FALLBACK CEPAT'),
+        'names': [c.get('name') for c in source],
     })
 
 
@@ -1617,6 +1897,8 @@ def run_mihomo_delay_tests(configs):
                 c['status'] = status
                 c['delay_ms'] = delay
                 c['reason'] = reason
+                if status == 'alive' and delay:
+                    apply_delay_stats(c, [delay], 1)
         return True, 'Mihomo proxy delay test selesai.'
     finally:
         if process and process.poll() is None:
@@ -1634,6 +1916,8 @@ def run_tcp_fallback_tests(configs, reason_prefix=''):
         c['status'] = status
         c['delay_ms'] = delay
         c['reason'] = f'{reason_prefix} | {reason}'.strip(' |')
+        if status == 'alive' and delay:
+            apply_delay_stats(c, [delay], 1)
         return c
 
     with ThreadPoolExecutor(max_workers=CHECK_WORKERS) as executor:
@@ -1701,20 +1985,25 @@ def run_strict_mihomo_round_tests(configs):
         c['strict_required_rounds'] = required
         c['tester'] = 'strict-mihomo-delay'
 
+        stats = apply_delay_stats(c, delays, TEST_ROUNDS)
+
         if success >= required:
             c['status'] = 'alive'
-            c['delay_ms'] = min(delays) if delays else ''
+            c['delay_ms'] = stats.get('min_delay_ms') or ''
             c['rank_score'] = rank_score(c, BEST_PING_COUNTRY_FILTER)
             c['reason'] = (
                 f'strict URL delay ok {success}/{TEST_ROUNDS}; '
-                f'required={required}; min={min(delays) if delays else "-"}ms; '
-                f'avg={average_int(delays) or "-"}ms'
+                f'required={required}; min={stats.get("min_delay_ms") or "-"}ms; '
+                f'avg={stats.get("avg_delay_ms") or "-"}ms; '
+                f'jitter={stats.get("jitter_ms") or "-"}ms; '
+                f'success_rate={stats.get("success_rate")}'
             )
             strict_alive.append(c)
         else:
             c['status'] = 'dead'
-            c['delay_ms'] = min(delays) if delays else ''
+            c['delay_ms'] = stats.get('min_delay_ms') or ''
             c['rank_score'] = ''
+            c['responsive_score'] = ''
             c['reason'] = (
                 f'strict URL delay failed {success}/{TEST_ROUNDS}; '
                 f'required={required}; max_delay={STRICT_MAX_DELAY_MS}ms; tcp fallback not accepted'
@@ -1902,6 +2191,7 @@ def previous_output_has_accounts(prev_dir=None):
         prev / 'lengkap_alive.yaml',
         prev / STRICT_OUTPUT_FILE,
         prev / LITE_OUTPUT_FILE,
+        prev / FAST_OUTPUT_FILE,
         prev / 'Yaml' / 'vmess.yaml',
         prev / 'Yaml' / 'vless.yaml',
         prev / 'Yaml' / 'trojan.yaml',
@@ -2170,11 +2460,14 @@ def generate():
     strict_collections = rebuild_collections(strict_usable_configs)
     strict_best_configs = get_best_ping_configs(strict_usable_configs, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
     strict_best_names = [c.get('name') for c in strict_best_configs if c.get('name')]
+    strict_responsive_configs = get_responsive_configs(strict_usable_configs, RESPONSIVE_TOP_N, BEST_PING_COUNTRY_FILTER)
+    strict_responsive_names = [c.get('name') for c in strict_responsive_configs if c.get('name')]
     strict_yaml = build_openclash_yaml(
         strict_collections['yaml_items'],
         strict_collections['protocol_proxy_names'],
         strict_collections['country_proxy_names'],
         best_balance_names=strict_best_names,
+        responsive_names=strict_responsive_names,
     )
     write(OUTPUT_DIR / STRICT_OUTPUT_FILE, strict_yaml)
     write_test_summary(OUTPUT_DIR / 'Strict' / 'summary_strict_alive.json', {
@@ -2185,6 +2478,7 @@ def generate():
         'strict_max_delay_ms': STRICT_MAX_DELAY_MS,
         'proxy_count': len(strict_usable_configs),
         'best_ping_count': len(strict_best_configs),
+        'responsive_count': len(strict_responsive_configs),
         'tcp_only_output_disabled': DISABLE_TCP_ONLY_OUTPUT,
         'names': [c.get('name') for c in strict_usable_configs],
     })
@@ -2192,18 +2486,24 @@ def generate():
     alive_collections = rebuild_collections(alive_usable_configs)
     alive_best_configs = get_best_ping_configs(alive_usable_configs, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
     alive_best_names = [c.get('name') for c in alive_best_configs if c.get('name')]
+    alive_responsive_configs = get_responsive_configs(alive_usable_configs, RESPONSIVE_TOP_N, BEST_PING_COUNTRY_FILTER)
+    alive_responsive_names = [c.get('name') for c in alive_responsive_configs if c.get('name')]
     lengkap_alive_yaml = build_openclash_yaml(
         alive_collections['yaml_items'],
         alive_collections['protocol_proxy_names'],
         alive_collections['country_proxy_names'],
         best_balance_names=alive_best_names,
+        responsive_names=alive_responsive_names,
     )
     write(OUTPUT_DIR / 'lengkap_alive.yaml', lengkap_alive_yaml)
 
     source_for_best = strict_usable_configs if STRICT_ALIVE_ONLY else alive_usable_configs
     best_configs = get_best_ping_configs(source_for_best, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
     best_balance_names = [c.get('name') for c in best_configs if c.get('name')]
-    write_lite_output(source_for_best, best_configs)
+    responsive_configs = get_responsive_configs(source_for_best, RESPONSIVE_TOP_N, BEST_PING_COUNTRY_FILTER)
+    responsive_names = [c.get('name') for c in responsive_configs if c.get('name')]
+    write_lite_output(source_for_best, best_configs, responsive_configs)
+    write_fast_output(source_for_best, best_configs, responsive_configs)
     test_summary['best_ping_top_n'] = BEST_PING_TOP_N
     test_summary['best_ping_country_filter'] = BEST_PING_COUNTRY_FILTER or 'GLOBAL'
     test_summary['best_ping_fallback_global_if_empty'] = BEST_PING_FALLBACK_GLOBAL
@@ -2211,6 +2511,10 @@ def generate():
     test_summary['best_ping_group_type'] = 'url-test'
     test_summary['best_ping_count'] = len(best_configs)
     test_summary['best_ping_names'] = best_balance_names
+    test_summary['responsive_top_n'] = RESPONSIVE_TOP_N
+    test_summary['responsive_count'] = len(responsive_configs)
+    test_summary['responsive_names'] = responsive_names
+    test_summary['fast_output_file'] = f'output/{FAST_OUTPUT_FILE}'
     test_summary['strict_output_file'] = f'output/{STRICT_OUTPUT_FILE}'
     test_summary['strict_output_count'] = len(strict_usable_configs)
     write_test_summary(OUTPUT_DIR / 'Alive' / 'summary_alive.json', test_summary)
@@ -2228,6 +2532,7 @@ def generate():
         collections['protocol_proxy_names'],
         collections['country_proxy_names'],
         best_balance_names=best_balance_names,
+        responsive_names=responsive_names,
     )
     write(OUTPUT_DIR / OPENCLASH_OUTPUT_FILE, openclash_yaml)
 

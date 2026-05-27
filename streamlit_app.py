@@ -752,6 +752,7 @@ def load_workflow_status_data() -> dict:
     summary_alive = {}
     summary_strict = {}
     summary_lite = {}
+    summary_fast = {}
     summary_best = {}
     validation = {}
     sources = {}
@@ -763,6 +764,7 @@ def load_workflow_status_data() -> dict:
         summary_alive = read_json_from_github("output/Alive/summary_alive.json")
         summary_strict = read_json_from_github("output/Strict/summary_strict_alive.json")
         summary_lite = read_json_from_github("output/Lite/summary_lite.json")
+        summary_fast = read_json_from_github("output/Fast/summary_fast.json")
         summary_best = read_json_from_github("output/BestPing/summary_top5_indonesia_ping.json")
         validation = validation_status_summary_for_streamlit()
         sources = source_status_summary_for_streamlit()
@@ -782,6 +784,7 @@ def load_workflow_status_data() -> dict:
         "summary_alive": summary_alive,
         "summary_strict": summary_strict,
         "summary_lite": summary_lite,
+        "summary_fast": summary_fast,
         "summary_best": summary_best,
         "validation": validation,
         "sources": sources,
@@ -872,6 +875,7 @@ def render_workflow_status_panel():
     summary_alive = data.get("summary_alive", {}) or {}
     summary_strict = data.get("summary_strict", {}) or {}
     summary_lite = data.get("summary_lite", {}) or {}
+    summary_fast = data.get("summary_fast", {}) or {}
     summary_best = data.get("summary_best", {}) or {}
     validation = data.get("validation", {}) or {}
     sources = data.get("sources", {}) or {}
@@ -885,6 +889,8 @@ def render_workflow_status_panel():
     strict_count = summary_strict.get("proxy_count", summary_alive.get("strict_alive", "-"))
     strict_rounds = f"{summary_strict.get('require_success_rounds', '-')}/{summary_strict.get('test_rounds', '-')}"
     lite_count = summary_lite.get("proxy_count", "-")
+    fast_count = summary_fast.get("proxy_count", "-")
+    responsive_count = summary_fast.get("responsive_count", summary_alive.get("responsive_count", "-"))
     best_count = summary_best.get("best_ping_count", len(best_rows))
     validation_text = "OK" if validation.get("ok") else "CHECK"
     reuse_note = ""
@@ -919,8 +925,8 @@ def render_workflow_status_panel():
             <div style="height:10px;"></div>
             <div class="pet-small-note" style="text-align:left;line-height:1.7;">
                 Total valid: <b>{escape(str(total_valid))}</b> · Alive: <b>{escape(str(alive))}</b> · Dead: <b>{escape(str(dead))}</b> · Untested: <b>{escape(str(untested))}</b><br>
-                Strict alive: <b>{escape(str(strict_count))}</b> node · Ronde: <b>{escape(strict_rounds)}</b> · Lite: <b>{escape(str(lite_count))}</b> node<br>
-                Best Ping Indonesia: <b>{escape(str(best_count))}</b> node · Tercepat: <b>{escape(top_line)}</b><br>
+                Strict alive: <b>{escape(str(strict_count))}</b> node · Ronde: <b>{escape(strict_rounds)}</b> · Lite: <b>{escape(str(lite_count))}</b> node · Fast: <b>{escape(str(fast_count))}</b> node<br>
+                Responsive: <b>{escape(str(responsive_count))}</b> node · Best Ping Indonesia: <b>{escape(str(best_count))}</b> node · Tercepat: <b>{escape(top_line)}</b><br>
                 Source OK: <b>{sources.get('source_ok', '-')}</b> · Cache: <b>{sources.get('source_cached', '-')}</b> · Failed: <b>{sources.get('source_failed', '-')}</b><br>
                 YAML validation: <b>{escape(validation_text)}</b> ({validation.get('ok_count', '-')}/{validation.get('file_count', '-')}){reuse_note}
             </div>

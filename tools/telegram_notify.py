@@ -154,6 +154,7 @@ def success_message():
     sources = source_cache_summary()
     validation = validation_summary()
     lite = read_json("output/Lite/summary_lite.json")
+    fast = read_json("output/Fast/summary_fast.json")
     strict = read_json("output/Strict/summary_strict_alive.json")
     reuse = read_json("output/Reuse/reuse_previous_output.json")
 
@@ -170,6 +171,8 @@ def success_message():
         f"Best Ping: <code>{summary.get('best_ping_count', '-')}</code> node",
         f"Strict YAML: <code>{strict.get('proxy_count', summary.get('strict_output_count', 0))}</code> node",
         f"Lite YAML: <code>{lite.get('proxy_count', 0)}</code> node",
+        f"Fast YAML: <code>{fast.get('proxy_count', 0)}</code> node",
+        f"Responsive: <code>{summary.get('responsive_count', fast.get('responsive_count', '-'))}</code> node",
         f"Invalid total: <code>{invalid['invalid_total']}</code> | UUID: <code>{invalid['invalid_uuid']}</code> | Blacklist: <code>{invalid['blacklist']}</code>",
         f"Source: OK <code>{sources['source_ok']}</code> | Cache <code>{sources['source_cached']}</code> | Failed <code>{sources['source_failed']}</code>",
         f"YAML validation: <code>{'OK' if validation['ok'] else 'CHECK'}</code> ({validation['ok_count']}/{validation['file_count']})",
@@ -217,6 +220,7 @@ def success_message():
             "File alive: <code>output/lengkap_alive.yaml</code>",
             "File strict: <code>output/strict_alive.yaml</code>",
             "File ringan: <code>output/lite.yaml</code>",
+            "File responsif: <code>output/fast.yaml</code>",
             "Laporan: <code>output/Alive/check_result.csv</code>",
         ]
     )
@@ -238,6 +242,7 @@ def main():
     if SEND_FILE:
         send_document("output/lengkap.yaml", "✅ lengkap.yaml terbaru")
         send_document("output/lengkap_alive.yaml", "✅ lengkap_alive.yaml")
+        send_document("output/fast.yaml", "⚡ fast.yaml responsif")
         send_document("output/strict_alive.yaml", "🛡️ strict_alive.yaml")
         send_document("output/lite.yaml", "⚡ lite.yaml")
         send_document("output/Alive/check_result.csv", "🧪 check_result.csv")

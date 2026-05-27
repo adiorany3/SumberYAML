@@ -15,6 +15,7 @@ DEFAULT_FILES = [
     'output/lengkap_alive.yaml',
     'output/strict_alive.yaml',
     'output/lite.yaml',
+    'output/fast.yaml',
 ]
 
 
