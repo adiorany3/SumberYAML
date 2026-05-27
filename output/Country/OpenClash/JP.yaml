@@ -30,7 +30,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "JP Join Telegram Farah_VPN JP"
+  - name: "v2ray_configs_pool JP"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -47,18 +47,9 @@ proxies:
     udp: true
 
 proxy-groups:
-  - name: "URL-TEST JP - Japan"
-    type: url-test
-    proxies:
-      - "JP Join Telegram Farah_VPN JP"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST JP - Japan"
       - "DIRECT"
       - "REJECT"
 

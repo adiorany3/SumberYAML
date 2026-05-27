@@ -47,18 +47,9 @@ proxies:
     udp: true
 
 proxy-groups:
-  - name: "URL-TEST IR - Iran"
-    type: url-test
-    proxies:
-      - "NetMeli9-198"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST IR - Iran"
       - "DIRECT"
       - "REJECT"
 

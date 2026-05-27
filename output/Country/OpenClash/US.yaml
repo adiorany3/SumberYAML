@@ -30,21 +30,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "US Join Telegram Farah_VPN US 6352"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "pagescm.freen5.cc.cd"
-    ws-opts:
-      path: "/showfp=chrome"
-      headers:
-        Host: "pagescm.freen5.cc.cd"
-    udp: true
   - name: "US 31537 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
@@ -60,69 +45,11 @@ proxies:
       headers:
         Host: "pagescm.freen11.cc.cd"
     udp: true
-  - name: "US 31585 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "pagescm.freen23.cc.cd"
-    ws-opts:
-      path: "/friend/community/apps"
-      headers:
-        Host: "pagescm.freen23.cc.cd"
-    udp: true
-  - name: "oneclickvpnkeys US 7745"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "juzi.qea.ccwu.cc"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "juzi.qea.ccwu.cc"
-    udp: true
-  - name: "oneclickvpnkeys US 1169"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: bd26c0c3-5eb9-425e-a4b6-2660df94e613
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "nEO1-3zC.pAGes.DeV"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "nEO1-3zC.pAGes.DeV"
-    udp: true
 
 proxy-groups:
-  - name: "URL-TEST US - United States"
-    type: url-test
-    proxies:
-      - "US Join Telegram Farah_VPN US 6352"
-      - "US 31537 Telegram t.me SOSkeyNET"
-      - "US 31585 Telegram t.me SOSkeyNET"
-      - "oneclickvpnkeys US 7745"
-      - "oneclickvpnkeys US 1169"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST US - United States"
       - "DIRECT"
       - "REJECT"
 

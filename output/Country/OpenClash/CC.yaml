@@ -45,21 +45,6 @@ proxies:
       headers:
         Host: "pagescm.freen10.cc.cd"
     udp: true
-  - name: "11 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "pagescm.freen15.cc.cd"
-    ws-opts:
-      path: "/album/bt"
-      headers:
-        Host: "pagescm.freen15.cc.cd"
-    udp: true
   - name: "64714 - Telegram V2All"
     server: "104.17.3.81"
     port: 443
@@ -90,23 +75,26 @@ proxies:
       headers:
         Host: "pagescm.freen14.cc.cd"
     udp: true
+  - name: "10 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pagescm.freen8.cc.cd"
+    ws-opts:
+      path: "/resource/linksfp=chrome"
+      headers:
+        Host: "pagescm.freen8.cc.cd"
+    udp: true
 
 proxy-groups:
-  - name: "URL-TEST CC - Cocos Islands"
-    type: url-test
-    proxies:
-      - "Pro 28 Outline_Vpn"
-      - "11 oneclickvpnkeys"
-      - "64714 - Telegram V2All"
-      - "98 oneclickvpnkeys"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST CC - Cocos Islands"
       - "DIRECT"
       - "REJECT"
 
