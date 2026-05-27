@@ -192,6 +192,10 @@ BEST_PING_LIMIT = get_int_setting("BEST_PING_LIMIT", 5)
 # Kosongkan agar menampilkan proxy alive tercepat dari semua negara.
 BEST_PING_COUNTRY_FILTER = get_setting("BEST_PING_COUNTRY_FILTER", "ID").upper()
 
+# Status GitHub Actions di Streamlit online.
+SHOW_WORKFLOW_STATUS_PANEL = get_setting("SHOW_WORKFLOW_STATUS_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
+WORKFLOW_STATUS_REFRESH_SECONDS = get_int_setting("WORKFLOW_STATUS_REFRESH_SECONDS", 60)
+
 
 # =========================
 # UTILITY FUNCTIONS
@@ -681,6 +685,239 @@ def load_best_ping_data(limit: int = None):
         "country_filter": BEST_PING_COUNTRY_FILTER,
         "used_prefiltered_bestping": used_prefiltered,
     }
+
+
+
+def parse_iso_datetime_text(value: str) -> str:
+    """Ubah timestamp GitHub menjadi format yang mudah dibaca."""
+    value = str(value or "").strip()
+    if not value:
+        return "-"
+    try:
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        return dt.strftime("%Y-%m-%d %H:%M:%S UTC")
+    except Exception:
+        return value
+
+
+def read_json_from_github(path: str) -> dict:
+    try:
+        raw = fetch_github_file_text(path)
+        data = json.loads(raw)
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
+def read_csv_rows_from_github(path: str) -> list:
+    try:
+        raw = fetch_github_file_text(path)
+        return list(csv.DictReader(io.StringIO(raw or "")))
+    except Exception:
+        return []
+
+
+def source_status_summary_for_streamlit() -> dict:
+    rows = read_csv_rows_from_github("output/Source/source_status.csv")
+    return {
+        "source_total": len(rows),
+        "source_ok": sum(1 for row in rows if str(row.get("status", "")).lower() == "ok"),
+        "source_cached": sum(1 for row in rows if str(row.get("status", "")).lower() == "cached" or str(row.get("cache_used", "")).lower() == "true"),
+        "source_failed": sum(1 for row in rows if str(row.get("status", "")).lower() == "failed"),
+    }
+
+
+def validation_status_summary_for_streamlit() -> dict:
+    report = read_json_from_github("output/Validation/validation_report.json")
+    files = report.get("files", []) if isinstance(report, dict) else []
+    ok_count = sum(1 for item in files if isinstance(item, dict) and item.get("ok"))
+    return {
+        "ok": bool(report.get("ok", False)) if isinstance(report, dict) else False,
+        "file_count": len(files),
+        "ok_count": ok_count,
+    }
+
+
+@st.cache_data(ttl=25, show_spinner=False)
+def load_workflow_status_data() -> dict:
+    """Ambil status GitHub Actions terbaru dan ringkasan output yang sudah di-commit."""
+    run = latest_workflow_run()
+    if not run:
+        return {"has_run": False}
+
+    status = str(run.get("status") or "-")
+    conclusion = str(run.get("conclusion") or "-")
+    is_finished = status == "completed"
+
+    summary_alive = {}
+    summary_strict = {}
+    summary_lite = {}
+    summary_best = {}
+    validation = {}
+    sources = {}
+    best_rows = []
+
+    # Ringkasan output hanya dibaca ketika run sukses agar tidak menampilkan data lama sebagai hasil gagal.
+    if is_finished and conclusion == "success":
+        summary_alive = read_json_from_github("output/Alive/summary_alive.json")
+        summary_strict = read_json_from_github("output/Strict/summary_strict_alive.json")
+        summary_lite = read_json_from_github("output/Lite/summary_lite.json")
+        summary_best = read_json_from_github("output/BestPing/summary_top5_indonesia_ping.json")
+        validation = validation_status_summary_for_streamlit()
+        sources = source_status_summary_for_streamlit()
+        try:
+            best_data = load_best_ping_data(limit=BEST_PING_LIMIT)
+            best_rows = best_data.get("rows", [])
+        except Exception:
+            best_rows = []
+
+    return {
+        "has_run": True,
+        "run": run,
+        "status": status,
+        "conclusion": conclusion,
+        "is_finished": is_finished,
+        "summary_alive": summary_alive,
+        "summary_strict": summary_strict,
+        "summary_lite": summary_lite,
+        "summary_best": summary_best,
+        "validation": validation,
+        "sources": sources,
+        "best_rows": best_rows,
+    }
+
+
+def workflow_status_badge(status: str, conclusion: str) -> tuple:
+    if status in ["queued", "in_progress", "waiting", "pending"]:
+        return "GitHub Actions sedang berjalan", "⏳", "running"
+    if status == "completed" and conclusion == "success":
+        return "GitHub Actions selesai - sukses", "✅", "success"
+    if status == "completed":
+        return f"GitHub Actions selesai - {conclusion}", "❌", "failed"
+    return f"GitHub Actions: {status}", "ℹ️", "unknown"
+
+
+def workflow_auto_refresh(seconds: int = 60):
+    seconds = max(15, int(seconds or 60))
+    components.html(
+        f"""
+        <script>
+            setTimeout(function() {{
+                try {{ window.parent.location.reload(); }} catch (e) {{}}
+            }}, {seconds * 1000});
+        </script>
+        """,
+        height=0,
+    )
+
+
+def render_workflow_status_panel():
+    """Tampilkan info GitHub Actions di Streamlit online setelah workflow selesai."""
+    if not SHOW_WORKFLOW_STATUS_PANEL:
+        return
+    if not GITHUB_OWNER or not GITHUB_REPO:
+        return
+
+    st.markdown('<div class="pet-section-title">Status GitHub Actions</div>', unsafe_allow_html=True)
+
+    try:
+        data = load_workflow_status_data()
+    except Exception as exc:
+        st.info("Status GitHub Actions belum bisa dibaca. Pastikan GITHUB_TOKEN/GITHUB_REPOSITORY sudah benar di Streamlit Secrets.")
+        if is_admin_route():
+            with st.expander("Detail error status GitHub Actions"):
+                st.code(str(exc))
+        return
+
+    if not data.get("has_run"):
+        st.info("Belum ada riwayat GitHub Actions.")
+        return
+
+    run = data.get("run", {}) or {}
+    status = data.get("status", "-")
+    conclusion = data.get("conclusion", "-")
+    title, icon, state_class = workflow_status_badge(status, conclusion)
+    html_url = run.get("html_url", "")
+    run_number = run.get("run_number", "-")
+    created_at = parse_iso_datetime_text(run.get("created_at"))
+    updated_at = parse_iso_datetime_text(run.get("updated_at"))
+    display_title = escape(str(run.get("display_title") or run.get("name") or WORKFLOW_ID))
+
+    if status in ["queued", "in_progress", "waiting", "pending"]:
+        set_pet_action("GitHub Actions masih berjalan. Status akan dicek otomatis.")
+        workflow_auto_refresh(WORKFLOW_STATUS_REFRESH_SECONDS)
+        st.markdown(
+            f"""
+            <div class="pet-panel">
+                <div style="font-weight:900;color:#eef6ff;font-size:16px;">{icon} {escape(title)}</div>
+                <div class="pet-small-note" style="text-align:left;margin-top:8px;">
+                    Run <b>#{run_number}</b> · {display_title}<br>
+                    Dibuat: <b>{escape(created_at)}</b><br>
+                    Update terakhir: <b>{escape(updated_at)}</b><br>
+                    Auto refresh setiap <b>{int(WORKFLOW_STATUS_REFRESH_SECONDS)}</b> detik selama workflow berjalan.
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        if html_url:
+            st.markdown(f"[Buka workflow di GitHub]({html_url})")
+        return
+
+    summary_alive = data.get("summary_alive", {}) or {}
+    summary_strict = data.get("summary_strict", {}) or {}
+    summary_lite = data.get("summary_lite", {}) or {}
+    summary_best = data.get("summary_best", {}) or {}
+    validation = data.get("validation", {}) or {}
+    sources = data.get("sources", {}) or {}
+    best_rows = data.get("best_rows", []) or []
+
+    total_valid = summary_alive.get("total", summary_alive.get("valid", "-"))
+    alive = summary_alive.get("alive", "-")
+    dead = summary_alive.get("dead", "-")
+    untested = summary_alive.get("untested", "-")
+    strict_count = summary_strict.get("proxy_count", summary_alive.get("strict_alive", "-"))
+    strict_rounds = f"{summary_strict.get('require_success_rounds', '-')}/{summary_strict.get('test_rounds', '-')}"
+    lite_count = summary_lite.get("proxy_count", "-")
+    best_count = summary_best.get("best_ping_count", len(best_rows))
+    validation_text = "OK" if validation.get("ok") else "CHECK"
+
+    if conclusion == "success":
+        set_pet_action("GitHub Actions selesai. Strict alive dan best ping sudah diperbarui.")
+        status_color = "#63f7b4"
+    else:
+        set_pet_action("GitHub Actions selesai tetapi ada error. Buka detail workflow untuk cek log.")
+        status_color = "#ff8a8a"
+
+    top_line = "-"
+    if best_rows:
+        first = best_rows[0]
+        top_line = f"#{1} {first.get('name', '-')} · {first.get('delay_ms', '-')} ms · {str(first.get('protocol', '-')).upper()} · {first.get('country', '-')}"
+
+    st.markdown(
+        f"""
+        <div class="pet-panel">
+            <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;">
+                <div>
+                    <div style="font-weight:900;color:{status_color};font-size:17px;">{icon} {escape(title)}</div>
+                    <div class="pet-small-note" style="text-align:left;margin-top:6px;">Run <b>#{run_number}</b> · {display_title}</div>
+                </div>
+                <div style="white-space:nowrap;font-weight:900;color:#eef6ff;">{escape(updated_at)}</div>
+            </div>
+            <div style="height:10px;"></div>
+            <div class="pet-small-note" style="text-align:left;line-height:1.7;">
+                Total valid: <b>{escape(str(total_valid))}</b> · Alive: <b>{escape(str(alive))}</b> · Dead: <b>{escape(str(dead))}</b> · Untested: <b>{escape(str(untested))}</b><br>
+                Strict alive: <b>{escape(str(strict_count))}</b> node · Ronde: <b>{escape(strict_rounds)}</b> · Lite: <b>{escape(str(lite_count))}</b> node<br>
+                Best Ping Indonesia: <b>{escape(str(best_count))}</b> node · Tercepat: <b>{escape(top_line)}</b><br>
+                Source OK: <b>{sources.get('source_ok', '-')}</b> · Cache: <b>{sources.get('source_cached', '-')}</b> · Failed: <b>{sources.get('source_failed', '-')}</b><br>
+                YAML validation: <b>{escape(validation_text)}</b> ({validation.get('ok_count', '-')}/{validation.get('file_count', '-')})
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    if html_url:
+        st.markdown(f"[Buka workflow di GitHub]({html_url})")
 
 
 def best_ping_text_for_telegram(limit: int = 5) -> str:
@@ -1982,6 +2219,9 @@ def render_admin_best_ping():
         )
         with st.expander("Detail error best ping"):
             st.code(str(exc))
+
+
+render_workflow_status_panel()
 
 
 if ensure_admin_authenticated():

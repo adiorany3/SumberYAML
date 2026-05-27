@@ -266,3 +266,37 @@ output/Strict/summary_strict_alive.json
 ```
 
 Gunakan `output/strict_alive.yaml` di OpenClash jika ingin hanya memakai akun yang benar-benar lolos test saat workflow berjalan. Jika hasil strict kosong, berarti tidak ada akun yang lolos semua ronde pada lokasi runner/VPS tersebut.
+
+## Info GitHub Actions di Streamlit Online
+
+Streamlit sekarang menampilkan panel **Status GitHub Actions**.
+
+Fungsinya:
+
+- Menampilkan status workflow terbaru: queued, in_progress, completed, success, atau failure.
+- Jika workflow sedang berjalan, halaman akan auto-refresh setiap 60 detik.
+- Jika workflow selesai sukses, panel menampilkan ringkasan:
+  - total valid,
+  - alive/dead/untested,
+  - strict alive,
+  - jumlah node lite.yaml,
+  - Best Ping Indonesia,
+  - status source/cache,
+  - status validasi YAML.
+- Jika workflow gagal, panel memberi info gagal dan link ke halaman log GitHub Actions.
+
+Setting opsional di Streamlit Secrets:
+
+```toml
+SHOW_WORKFLOW_STATUS_PANEL = "true"
+WORKFLOW_STATUS_REFRESH_SECONDS = "60"
+```
+
+Agar panel ini bisa membaca status workflow, pastikan Streamlit Secrets sudah berisi akses GitHub:
+
+```toml
+GITHUB_TOKEN = "ghp_xxx"
+GITHUB_REPOSITORY = "owner/repo"
+GITHUB_REF = "main"
+GITHUB_WORKFLOW_FILE = "update-openclash.yml"
+```
