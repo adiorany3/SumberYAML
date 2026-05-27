@@ -300,3 +300,20 @@ GITHUB_REPOSITORY = "owner/repo"
 GITHUB_REF = "main"
 GITHUB_WORKFLOW_FILE = "update-openclash.yml"
 ```
+
+
+### Status GitHub Actions hanya di Admin
+
+Panel **Status GitHub Actions** tidak tampil di halaman publik. Panel ini hanya muncul setelah membuka halaman admin dan login:
+
+```text
+https://nama-app.streamlit.app/?admin=1
+```
+
+Secrets yang berhubungan:
+
+```toml
+SHOW_WORKFLOW_STATUS_PANEL = "true"
+WORKFLOW_STATUS_REFRESH_SECONDS = "60"
+ADMIN_PASSWORD = "password_admin_anda"
+```

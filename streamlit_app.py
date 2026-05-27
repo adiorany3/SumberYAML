@@ -812,8 +812,10 @@ def workflow_auto_refresh(seconds: int = 60):
 
 
 def render_workflow_status_panel():
-    """Tampilkan info GitHub Actions di Streamlit online setelah workflow selesai."""
+    """Tampilkan info GitHub Actions hanya di halaman admin setelah login."""
     if not SHOW_WORKFLOW_STATUS_PANEL:
+        return
+    if not is_admin_route() or st.session_state.get("admin_authenticated") is not True:
         return
     if not GITHUB_OWNER or not GITHUB_REPO:
         return
@@ -2221,10 +2223,8 @@ def render_admin_best_ping():
             st.code(str(exc))
 
 
-render_workflow_status_panel()
-
-
 if ensure_admin_authenticated():
+    render_workflow_status_panel()
     render_admin_actions()
     render_admin_best_ping()
     if st.button("🚪 Keluar Admin", use_container_width=True):
