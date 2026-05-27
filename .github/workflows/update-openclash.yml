@@ -142,43 +142,49 @@ jobs:
 
       - name: Commit output files
         run: |
-          set -e
+          set -euo pipefail
           BRANCH="${GITHUB_REF_NAME:-main}"
+          BACKUP_DIR="$(mktemp -d)"
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          echo "Sinkronisasi branch sebelum commit: $BRANCH"
-          git fetch origin "$BRANCH"
-          git checkout "$BRANCH" || git checkout -B "$BRANCH" "origin/$BRANCH"
-
-          # Ambil perubahan terbaru dari remote sebelum menambahkan output.
-          # Ini mencegah error: rejected / fetch first / non-fast-forward.
-          git pull --rebase --autostash origin "$BRANCH"
-
-          git add output || true
-          if git diff --cached --quiet; then
-            echo "Tidak ada perubahan output untuk di-commit."
+          if [ ! -d output ]; then
+            echo "Folder output tidak ditemukan, tidak ada yang di-commit."
             exit 0
           fi
 
-          git commit -m "Update OpenClash output"
+          echo "Backup output hasil generate ke folder sementara..."
+          tar -C output -cf "$BACKUP_DIR/output.tar" .
 
-          # Retry push jika ada commit baru masuk beberapa detik sebelum push.
           for attempt in 1 2 3; do
-            echo "Push attempt $attempt..."
+            echo "Commit/push attempt $attempt untuk branch: $BRANCH"
+
+            echo "Sinkronisasi lokal dengan origin/$BRANCH tanpa merge agar tidak konflik dengan file output hasil generate..."
+            git fetch origin "$BRANCH"
+            git checkout "$BRANCH" || git checkout -B "$BRANCH" "origin/$BRANCH"
+            git reset --hard "origin/$BRANCH"
+            git clean -fd
+
+            echo "Restore output hasil generate ke working tree terbaru..."
+            rm -rf output
+            mkdir -p output
+            tar -C output -xf "$BACKUP_DIR/output.tar"
+
+            git add output || true
+            if git diff --cached --quiet; then
+              echo "Tidak ada perubahan output untuk di-commit."
+              exit 0
+            fi
+
+            git commit -m "Update OpenClash output"
+
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
             fi
 
-            echo "Push gagal karena remote berubah. Rebase ulang lalu coba lagi..."
-            git fetch origin "$BRANCH"
-            git pull --rebase --autostash origin "$BRANCH" || {
-              echo "Rebase gagal. Abort rebase lalu keluar agar output tidak memaksa overwrite remote."
-              git rebase --abort || true
-              exit 1
-            }
+            echo "Push gagal karena remote berubah. Ulangi dengan remote terbaru..."
             sleep 5
           done
 
