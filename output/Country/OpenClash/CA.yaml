@@ -30,176 +30,42 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA CA-134.195.198.147-7040"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "inna.cfd"
-    network: ws
-    ws-opts:
-      path: "/linkvws"
-      headers:
-        Host: "inna.cfd"
-    udp: true
-  - name: "CA CA-23.162.200.227-7038"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "23.162.200.227"
-    network: ws
-    ws-opts:
-      path: "/linkvws"
-      headers:
-        Host: "23.162.200.227"
-    udp: true
-  - name: "CA CA-23.162.200.227-0146"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "23.162.200.227"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "23.162.200.227"
-    udp: true
-  - name: "CA CA-134.195.198.147-0124"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "inna.cfd"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "inna.cfd"
-    udp: true
-  - name: "CA Canada"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "lammaland.org"
-    network: ws
-    ws-opts:
-      path: "/linkvws"
-      headers:
-        Host: "lammaland.org"
-    udp: true
-  - name: "CA 31076 Telegram t.me SOSkeyNET"
+  - name: "CA 31581 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: ad7baa26-5d6f-49d0-8d8f-7ee272311e93
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "marz111.ariagsm.site"
+    servername: "pagescm.freen29.cc.cd"
     ws-opts:
-      path: "/NL/VIPSell/@TheVIPSell"
+      path: "/code/dl"
       headers:
-        Host: "marz111.ariagsm.site"
+        Host: "pagescm.freen29.cc.cd"
     udp: true
-  - name: "CA 30981 Telegram t.me SOSkeyNET"
+  - name: "CA 31643 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: d082b5e0-2435-4599-b935-d2c2b70beb67
-    cipher: none
+    type: trojan
+    password: "2238e2f3-1a01-485e-8c22-24b65764c68b"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "purple-mrvpn294x.mrvpnandamir294.workers.dev"
+    sni: "gzjx.dpdns.org"
     ws-opts:
-      path: "/"
+      path: "/51.91.253.83"
       headers:
-        Host: "purple-mrvpn294x.mrvpnandamir294.workers.dev"
-    udp: true
-  - name: "CA WS-TLS DeamNet_proxy"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 003ef206-46b6-3701-ab77-b03debe7511f
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "dabaihk.webn.cc"
-    ws-opts:
-      path: "/db1024143bf11354"
-      headers:
-        Host: "dabaihk.webn.cc"
-    udp: true
-  - name: "CA WS-TLS Express_alaki src DeamNet_proxy"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 49d598ee-4dfc-4001-95ca-99a5b6002e3c
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "tiny-leaf-f59f.my-lla-s-a-njo-s-e.workers.dev"
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "tiny-leaf-f59f.my-lla-s-a-njo-s-e.workers.dev"
-    udp: true
-  - name: "CA telegram V2ray_Custom V2ray_Custom"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: b37deda3-795f-4bce-bc94-f852c3d4e14a
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "14446c64f.gheychi.games"
-    ws-opts:
-      path: "/metrix"
-      headers:
-        Host: "14446c64f.gheychi.games"
+        Host: "gzjx.dpdns.org"
     udp: true
 
 proxy-groups:
   - name: "URL-TEST CA - Canada"
     type: url-test
     proxies:
-      - "CA CA-134.195.198.147-7040"
-      - "CA CA-23.162.200.227-7038"
-      - "CA CA-23.162.200.227-0146"
-      - "CA CA-134.195.198.147-0124"
-      - "CA Canada"
-      - "CA 31076 Telegram t.me SOSkeyNET"
-      - "CA 30981 Telegram t.me SOSkeyNET"
-      - "CA WS-TLS DeamNet_proxy"
-      - "CA WS-TLS Express_alaki src DeamNet_proxy"
-      - "CA telegram V2ray_Custom V2ray_Custom"
+      - "CA 31581 Telegram t.me SOSkeyNET"
+      - "CA 31643 Telegram t.me SOSkeyNET"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
