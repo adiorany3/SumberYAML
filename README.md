@@ -236,3 +236,6 @@ RANK_GLOBAL_FALLBACK_PENALTY=1000
 ```bash
 python scripts/validate_openclash_outputs.py output/lengkap.yaml output/lengkap_alive.yaml output/lite.yaml
 ```
+
+
+Sumber tambahan aktif: `Epodonios/v2ray-configs/All_Configs_Sub.txt`.
