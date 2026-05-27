@@ -1,17 +1,16 @@
 proxies:
-  - name: 🏁RELAY-104.18.42.54-0215
-    type: vmess
-    server: 104.17.3.81
+  - name: "CF-TR-1"
+    server: "104.17.3.81"
     port: 443
-    uuid: d5c27b66-7d26-48ac-9fc1-2c0884406c18
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: 94968e80-d1ab-4763-9d4b-1d29fb21b642
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: suspected-deployment-studios-popular.trycloudflare.com
     network: ws
+    servername: "2.webramz.store"
     ws-opts:
-      path: /
+      path: "/stream"
       headers:
-        Host: suspected-deployment-studios-popular.trycloudflare.com
+        Host: "2.webramz.store"
     udp: true

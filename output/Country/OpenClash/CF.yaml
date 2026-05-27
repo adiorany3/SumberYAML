@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -30,37 +34,28 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: 🏁RELAY-104.18.42.54-0215
-    type: vmess
-    server: 104.17.3.81
+  - name: "CF-TR-1"
+    server: "104.17.3.81"
     port: 443
-    uuid: d5c27b66-7d26-48ac-9fc1-2c0884406c18
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: 94968e80-d1ab-4763-9d4b-1d29fb21b642
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: suspected-deployment-studios-popular.trycloudflare.com
     network: ws
+    servername: "2.webramz.store"
     ws-opts:
-      path: /
+      path: "/stream"
       headers:
-        Host: suspected-deployment-studios-popular.trycloudflare.com
+        Host: "2.webramz.store"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST CF - Central African Republic
-    type: url-test
-    proxies:
-      - 🏁RELAY-104.18.42.54-0215
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST CF - Central African Republic
-      - DIRECT
+      - "DIRECT"
+      - "REJECT"
 
 rules:
   - MATCH,PROXY
