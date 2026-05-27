@@ -29,6 +29,21 @@ proxies:
       headers:
         Host: "rAyAn-cOnFiG-fr-1.pArSa.dPdNs.oRg"
     udp: true
+  - name: "FR 31003 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.111000.v6.navy"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "sni.111000.v6.navy"
+    udp: true
   - name: "FR FR VLESS v2ray_collector 1"
     server: "104.17.3.81"
     port: 443
@@ -43,46 +58,4 @@ proxies:
       path: "/"
       headers:
         Host: "141.11.203.139"
-    udp: true
-  - name: "oneclickvpnkeys FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.calmloud.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.calmloud.com"
-    udp: true
-  - name: "outline_vpn FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.calmlunch.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.calmlunch.com"
-    udp: true
-  - name: "oneclickvpnkeys FR 7705"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.ignitelimit.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.ignitelimit.com"
     udp: true

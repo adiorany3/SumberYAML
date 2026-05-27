@@ -45,6 +45,21 @@ proxies:
       headers:
         Host: "sni.111000.v6.navy"
     udp: true
+  - name: "v2rayng_vpn403"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.latonyamadeline.ndjp.net"
+    ws-opts:
+      path: "/?https://t.me/wangcai2🇨🇳="
+      headers:
+        Host: "sni.latonyamadeline.ndjp.net"
+    udp: true
   - name: "SE t.me Natrixo BB"
     server: "104.17.3.81"
     port: 443
@@ -75,7 +90,67 @@ proxies:
       headers:
         Host: "sni.latonyamadeline.ndjp.net"
     udp: true
-  - name: "SE t.me Natrixo BB 9083"
+  - name: "83 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.111000.v6.rocks"
+    ws-opts:
+      path: "/?https://t.me/WangCai2🇨🇳="
+      headers:
+        Host: "sni.111000.v6.rocks"
+    udp: true
+  - name: "US 30959 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.111000.dynv6.net"
+    ws-opts:
+      path: "/?Telegram🇨🇳@WangCai2="
+      headers:
+        Host: "sni.111000.dynv6.net"
+    udp: true
+  - name: "NL 31017 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.111000.v6.army"
+    ws-opts:
+      path: "/?https://t.me/WangCai2🇨🇳="
+      headers:
+        Host: "sni.111000.v6.army"
+    udp: true
+  - name: "92 oneclickvpnkeys 2571"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.my111000.tech"
+    ws-opts:
+      path: "/Telegram🇨🇳@WangCai2/"
+      headers:
+        Host: "sni.my111000.tech"
+    udp: true
+  - name: "SE t.me Natrixo BB 5106"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -125,9 +200,14 @@ proxy-groups:
     type: url-test
     proxies:
       - "Proxy_Vpney (3"
+      - "v2rayng_vpn403"
       - "SE t.me Natrixo BB"
       - "v2rayconfigamir 1187"
-      - "SE t.me Natrixo BB 9083"
+      - "83 oneclickvpnkeys"
+      - "US 30959 Telegram t.me SOSkeyNET"
+      - "NL 31017 Telegram t.me SOSkeyNET"
+      - "92 oneclickvpnkeys 2571"
+      - "SE t.me Natrixo BB 5106"
       - "64357 - Telegram V2All"
       - "37 oneclickvpnkeys"
     url: http://www.gstatic.com/generate_204

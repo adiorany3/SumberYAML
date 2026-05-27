@@ -60,6 +60,21 @@ proxies:
       headers:
         Host: "gsgsdgreyrehjsrteargsfhtrhsrwrhtruiekghmg.pages.dev"
     udp: true
+  - name: "JP JP VLESS megavpn_link 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "134.122.194.186"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "134.122.194.186"
+    udp: true
   - name: "JP JP TROJAN free4allvpn 1"
     server: "104.17.3.81"
     port: 443
@@ -81,6 +96,7 @@ proxy-groups:
     proxies:
       - "configshub2 JP"
       - "v2ray_configs_pool JP"
+      - "JP JP VLESS megavpn_link 1"
       - "JP JP TROJAN free4allvpn 1"
     url: http://www.gstatic.com/generate_204
     interval: 300

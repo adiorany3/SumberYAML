@@ -1,4 +1,19 @@
 proxies:
+  - name: "AT 31038 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "3-2h8.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "3-2h8.pages.dev"
+    udp: true
   - name: "oneclickvpnkeys AT"
     server: "104.17.3.81"
     port: 443

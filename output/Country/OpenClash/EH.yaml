@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "⛳6@oneclickvpnkeys"
-    server: 104.17.3.81
+  - name: "6 oneclickvpnkeys"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -39,27 +39,43 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: sni.my111000.tech
+    servername: "sni.my111000.tech"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: sni.my111000.tech
+        Host: "sni.my111000.tech"
+    udp: true
+  - name: "18 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.111000.v6.navy"
+    ws-opts:
+      path: "/?Telegram🇨🇳+@WangCai2="
+      headers:
+        Host: "sni.111000.v6.navy"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST EH - Western Sahara
+  - name: "URL-TEST EH - Western Sahara"
     type: url-test
     proxies:
-      - "⛳6@oneclickvpnkeys"
+      - "6 oneclickvpnkeys"
+      - "18 oneclickvpnkeys"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST EH - Western Sahara
-      - DIRECT
+      - "URL-TEST EH - Western Sahara"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY
