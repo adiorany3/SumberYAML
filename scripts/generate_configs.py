@@ -37,19 +37,23 @@ def env_bool(name, default=False):
 
 BEST_PING_BALANCE_ENABLE = str(BEST_PING_BALANCE_ENABLE_RAW).strip().lower() in ['1', 'true', 'yes', 'y', 'on']
 BEST_PING_FALLBACK_GLOBAL = env_bool('BEST_PING_FALLBACK_GLOBAL', True)
-MAX_DELAY_MS = int(os.getenv('MAX_DELAY_MS', '3000'))
-FILTER_MAX_DELAY_FOR_OUTPUT = env_bool('FILTER_MAX_DELAY_FOR_OUTPUT', True)
+MAX_DELAY_MS = int(os.getenv('MAX_DELAY_MS', '8000'))
+FILTER_MAX_DELAY_FOR_OUTPUT = env_bool('FILTER_MAX_DELAY_FOR_OUTPUT', False)
 
 # STRICT ALIVE ONLY: hanya proxy yang lolos URL delay test Mihomo beberapa ronde
 # yang boleh masuk output strict/lite/best ping saat mode ini aktif.
 STRICT_ALIVE_ONLY = env_bool('STRICT_ALIVE_ONLY', True)
-TEST_ROUNDS = max(1, int(os.getenv('TEST_ROUNDS', '3')))
+# Default dibuat tidak terlalu ketat agar VMess/VLESS/Trojan tidak habis tersaring.
+# Jika ingin benar-benar ketat, atur TEST_ROUNDS=3 dan REQUIRE_SUCCESS_ROUNDS=3 di GitHub Secrets/Workflow.
+TEST_ROUNDS = max(1, int(os.getenv('TEST_ROUNDS', '2')))
 REQUIRE_SUCCESS_ROUNDS = max(1, int(os.getenv('REQUIRE_SUCCESS_ROUNDS', str(TEST_ROUNDS))))
 if REQUIRE_SUCCESS_ROUNDS > TEST_ROUNDS:
     REQUIRE_SUCCESS_ROUNDS = TEST_ROUNDS
 STRICT_MAX_DELAY_MS = int(os.getenv('STRICT_MAX_DELAY_MS', str(MAX_DELAY_MS)))
 STRICT_OUTPUT_FILE = os.getenv('STRICT_OUTPUT_FILE', 'strict_alive.yaml').strip() or 'strict_alive.yaml'
-DISABLE_TCP_ONLY_OUTPUT = env_bool('DISABLE_TCP_ONLY_OUTPUT', True)
+DISABLE_TCP_ONLY_OUTPUT = env_bool('DISABLE_TCP_ONLY_OUTPUT', False)
+STRICT_FALLBACK_TO_ALIVE = env_bool('STRICT_FALLBACK_TO_ALIVE', True)
+STRICT_FALLBACK_TO_VALID = env_bool('STRICT_FALLBACK_TO_VALID', True)
 
 BLACKLIST_FILE = os.getenv('BLACKLIST_FILE', 'blacklist.txt').strip()
 SOURCE_CACHE_ENABLE = env_bool('SOURCE_CACHE_ENABLE', True)
@@ -1718,6 +1722,8 @@ def apply_alive_tests(configs):
         'strict_max_delay_ms': STRICT_MAX_DELAY_MS,
         'tcp_fallback_enabled': TCP_FALLBACK,
         'tcp_only_output_disabled': DISABLE_TCP_ONLY_OUTPUT,
+        'strict_fallback_to_alive': STRICT_FALLBACK_TO_ALIVE,
+        'strict_fallback_to_valid': STRICT_FALLBACK_TO_VALID,
         'test_url': CHECK_TEST_URL,
         'timeout_ms': CHECK_TIMEOUT_MS,
         'workers': CHECK_WORKERS,
@@ -1756,11 +1762,57 @@ def apply_alive_tests(configs):
         summary['strict_alive'] = len(strict_configs)
         summary['dead'] = len(configs) - len(strict_configs)
         summary['untested'] = 0
+        summary['strict_fallback_to_alive'] = STRICT_FALLBACK_TO_ALIVE
+        summary['strict_fallback_to_valid'] = STRICT_FALLBACK_TO_VALID
         summary['tester_message'] = (
-            f'STRICT_ALIVE_ONLY aktif: node harus lolos {REQUIRE_SUCCESS_ROUNDS}/{TEST_ROUNDS} '
-            f'ronde URL delay Mihomo dengan delay <= {STRICT_MAX_DELAY_MS}ms. TCP fallback tidak dipakai untuk output strict.'
+            f'STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos {REQUIRE_SUCCESS_ROUNDS}/{TEST_ROUNDS} '
+            f'ronde URL delay Mihomo dengan delay <= {STRICT_MAX_DELAY_MS}ms.'
         )
-        summary['final_output_filter'] = f'strict alive {REQUIRE_SUCCESS_ROUNDS}/{TEST_ROUNDS} <= {STRICT_MAX_DELAY_MS}ms'
+        summary['final_output_filter'] = f'strict/balanced alive {REQUIRE_SUCCESS_ROUNDS}/{TEST_ROUNDS} <= {STRICT_MAX_DELAY_MS}ms'
+
+        if strict_configs:
+            return strict_configs, summary
+
+        # Jangan biarkan output kosong. Jika strict 0, turunkan ke test alive 1 ronde,
+        # lalu ke TCP fallback, lalu terakhir semua config valid format.
+        summary['tester_message'] += ' | Strict result kosong, fallback longgar diaktifkan agar output tidak kosong.'
+
+        fallback_alive = []
+        if STRICT_FALLBACK_TO_ALIVE:
+            ok, message = run_mihomo_delay_tests(configs)
+            summary['fallback_tester'] = 'mihomo-delay'
+            summary['fallback_message'] = message
+
+            if not ok and TCP_FALLBACK and not DISABLE_TCP_ONLY_OUTPUT:
+                summary['fallback_tester'] = 'tcp-fallback'
+                run_tcp_fallback_tests(configs, f'strict empty; mihomo unavailable: {message}')
+
+            fallback_alive = [c for c in configs if c.get('status') == 'alive']
+
+            if FILTER_MAX_DELAY_FOR_OUTPUT:
+                fallback_under_delay = [c for c in fallback_alive if delay_sort_value(c) <= MAX_DELAY_MS]
+                if fallback_under_delay:
+                    fallback_alive = fallback_under_delay
+
+            if fallback_alive:
+                summary['alive'] = len(fallback_alive)
+                summary['dead'] = sum(1 for c in configs if c.get('status') == 'dead')
+                summary['untested'] = sum(1 for c in configs if c.get('status') == 'untested')
+                summary['final_output_filter'] = 'fallback alive because strict empty'
+                return fallback_alive, summary
+
+        if STRICT_FALLBACK_TO_VALID:
+            for c in configs:
+                if not c.get('status'):
+                    c['status'] = 'untested'
+                if not c.get('reason'):
+                    c['reason'] = 'strict empty; valid-format fallback used'
+            summary['alive'] = sum(1 for c in configs if c.get('status') == 'alive')
+            summary['dead'] = sum(1 for c in configs if c.get('status') == 'dead')
+            summary['untested'] = sum(1 for c in configs if c.get('status') == 'untested')
+            summary['final_output_filter'] = 'fallback all valid configs because strict/alive empty'
+            return configs, summary
+
         return strict_configs, summary
 
     ok, message = run_mihomo_delay_tests(configs)
@@ -1898,6 +1950,9 @@ def generate():
     ]
     if not alive_usable_configs:
         alive_usable_configs = [c for c in all_configs if c.get('status') == 'alive']
+    if not alive_usable_configs and final_configs:
+        # Fallback agar lengkap_alive.yaml/lite/best ping tidak kosong saat filter terlalu ketat.
+        alive_usable_configs = final_configs
 
     alive_yaml = [c.get('yaml_text', '') for c in all_configs if c.get('status') == 'alive']
     dead_yaml = [c.get('yaml_text', '') for c in all_configs if c.get('status') == 'dead']
@@ -1912,6 +1967,9 @@ def generate():
     ]
     if not STRICT_ALIVE_ONLY:
         strict_usable_configs = alive_usable_configs
+    elif not strict_usable_configs:
+        # Jika strict 0, isi strict_alive.yaml dari alive fallback/final valid agar tidak kosong.
+        strict_usable_configs = alive_usable_configs or final_configs
 
     strict_rows = [config_row(c) for c in strict_usable_configs]
     write_check_results(OUTPUT_DIR / 'Strict' / 'strict_alive.csv', strict_rows)

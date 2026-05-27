@@ -129,7 +129,7 @@ Fitur tambahan yang sudah dimasukkan:
 
 - `output/lengkap.yaml` tetap menjadi output utama untuk OpenClash.
 - `output/lengkap_alive.yaml` dibuat otomatis dan berisi akun alive/layak pakai.
-- Batas delay default `MAX_DELAY_MS=3000`, sehingga akun alive yang terlalu lambat tidak diprioritaskan ke output final dan Best Ping.
+- Batas delay default dilonggarkan menjadi `MAX_DELAY_MS=8000`. Filter delay final default nonaktif agar akun VMess/VLESS/Trojan tidak habis tersaring.
 - `output/Source/source_status.csv` mencatat status setiap URL sumber: berhasil/gagal, HTTP status, jumlah link VMess/VLESS/Trojan yang ditemukan, dan pesan error.
 - `blacklist.txt` tersedia untuk membuang akun berdasarkan kata/frasa tertentu.
 - Grup `FALLBACK` ditambahkan agar pilihan utama tetap punya cadangan selain grup URL-Test.
@@ -156,8 +156,8 @@ output/Validation/validation_report.json
 BEST_PING_TOP_N=5
 BEST_PING_COUNTRY_FILTER=ID
 BEST_PING_URL_TEST_NAME=URL-TEST TOP 5 INDONESIA
-MAX_DELAY_MS=3000
-FILTER_MAX_DELAY_FOR_OUTPUT=true
+MAX_DELAY_MS=8000
+FILTER_MAX_DELAY_FOR_OUTPUT=false
 BLACKLIST_FILE=blacklist.txt
 ```
 
@@ -245,16 +245,20 @@ Sumber tambahan aktif: `Epodonios/v2ray-configs/All_Configs_Sub.txt`.
 
 Mode ini memastikan file yang dipakai OpenClash hanya berisi akun yang lolos URL delay test Mihomo beberapa ronde.
 
-Default workflow:
+Default workflow sekarang memakai mode balanced agar akun tidak habis tersaring:
 
 ```env
 STRICT_ALIVE_ONLY=true
-TEST_ROUNDS=3
-REQUIRE_SUCCESS_ROUNDS=3
-STRICT_MAX_DELAY_MS=3000
-TCP_FALLBACK=false
-DISABLE_TCP_ONLY_OUTPUT=true
+TEST_ROUNDS=2
+REQUIRE_SUCCESS_ROUNDS=1
+STRICT_MAX_DELAY_MS=8000
+TCP_FALLBACK=true
+DISABLE_TCP_ONLY_OUTPUT=false
+STRICT_FALLBACK_TO_ALIVE=true
+STRICT_FALLBACK_TO_VALID=true
 ```
+
+Jika hasil strict kosong, generator otomatis turun ke fallback alive/TCP, lalu terakhir semua akun valid format agar output tidak kosong.
 
 Output tambahan:
 
@@ -265,7 +269,7 @@ output/Strict/strict_alive_proxies.yaml
 output/Strict/summary_strict_alive.json
 ```
 
-Gunakan `output/strict_alive.yaml` di OpenClash jika ingin hanya memakai akun yang benar-benar lolos test saat workflow berjalan. Jika hasil strict kosong, berarti tidak ada akun yang lolos semua ronde pada lokasi runner/VPS tersebut.
+Gunakan `output/strict_alive.yaml` di OpenClash jika ingin hasil yang sudah diprioritaskan dari akun yang lolos test. Pada mode balanced, file ini tetap diisi dari fallback jika strict 0 agar OpenClash tidak kosong.
 
 ## Info GitHub Actions di Streamlit Online
 
