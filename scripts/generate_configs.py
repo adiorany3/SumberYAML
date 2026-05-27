@@ -65,6 +65,13 @@ LITE_OUTPUT_FILE = os.getenv('LITE_OUTPUT_FILE', 'lite.yaml').strip() or 'lite.y
 LITE_GLOBAL_TOP_N = int(os.getenv('LITE_GLOBAL_TOP_N', '10'))
 LITE_MAX_TOTAL = int(os.getenv('LITE_MAX_TOTAL', '25'))
 CUSTOM_RULES_FILE = os.getenv('CUSTOM_RULES_FILE', 'rules/custom_rules.yaml').strip()
+ENABLE_USAGE_RULES = env_bool('ENABLE_USAGE_RULES', True)
+ENABLE_DEFAULT_RULES = env_bool('ENABLE_DEFAULT_RULES', True)
+DEFAULT_RULES_FILE = os.getenv('DEFAULT_RULES_FILE', 'rules/default_rules.yaml').strip()
+DEFAULT_RULES_FILE = os.getenv('DEFAULT_RULES_FILE', 'rules/default_rules.yaml').strip()
+PROFILE_RULES_FILE = os.getenv('PROFILE_RULES_FILE', 'rules/profile_rules.yaml').strip()
+ENABLE_DEFAULT_RULES = env_bool('ENABLE_DEFAULT_RULES', True)
+ENABLE_PROFILE_RULES = env_bool('ENABLE_PROFILE_RULES', True)
 RANK_TCP_FALLBACK_PENALTY = int(os.getenv('RANK_TCP_FALLBACK_PENALTY', '300'))
 RANK_GLOBAL_FALLBACK_PENALTY = int(os.getenv('RANK_GLOBAL_FALLBACK_PENALTY', '1000'))
 SOURCE_STATUS_ROWS = []
@@ -1040,10 +1047,10 @@ def make_select_group(group_name, entries):
 {yaml_name_list(entries, 4, fallback=['DIRECT', 'REJECT'])}'''
 
 
-def load_custom_rules():
-    if not CUSTOM_RULES_FILE:
+def load_rules_file(path_value):
+    if not path_value:
         return []
-    path = Path(CUSTOM_RULES_FILE)
+    path = Path(path_value)
     if not path.exists():
         return []
     rules = []
@@ -1061,12 +1068,157 @@ def load_custom_rules():
     return rules
 
 
-def render_rules_section():
-    rules = load_custom_rules()
-    if 'MATCH,PROXY' not in [rule.upper() for rule in rules]:
-        rules.append('MATCH,PROXY')
-    return 'rules:\n' + '\n'.join('  - ' + rule for rule in rules)
+def load_rule_lines(path_value):
+    if not path_value:
+        return []
+    path = Path(path_value)
+    if not path.exists():
+        return []
+    rules = []
+    try:
+        for line in path.read_text(encoding='utf-8').splitlines():
+            item = line.strip()
+            if not item or item.startswith('#'):
+                continue
+            if item.startswith('- '):
+                item = item[2:].strip()
+            if item:
+                rules.append(item)
+    except Exception:
+        return []
+    return rules
 
+
+def load_custom_rules():
+    return load_rule_lines(CUSTOM_RULES_FILE)
+
+
+def load_default_rules():
+    if not ENABLE_DEFAULT_RULES:
+        return []
+    return load_rule_lines(DEFAULT_RULES_FILE)
+
+
+def builtin_usage_rules(policy_names=None):
+    if not ENABLE_USAGE_RULES:
+        return []
+    available = set(policy_names or [])
+
+    def group(profile_key):
+        name = sanitize_proxy_name(USAGE_PROFILE_NAMES.get(profile_key, ''), profile_key.upper())
+        return name if name in available else None
+
+    gaming = group('gaming')
+    social = group('social_media')
+    streaming = group('streaming')
+    working = group('working')
+    general = group('general')
+
+    rules = []
+    if gaming:
+        rules += [
+            f'DOMAIN-SUFFIX,steampowered.com,{gaming}',
+            f'DOMAIN-SUFFIX,steamcommunity.com,{gaming}',
+            f'DOMAIN-SUFFIX,steamstatic.com,{gaming}',
+            f'DOMAIN-SUFFIX,steamcontent.com,{gaming}',
+            f'DOMAIN-SUFFIX,epicgames.com,{gaming}',
+            f'DOMAIN-SUFFIX,epicgames.dev,{gaming}',
+            f'DOMAIN-SUFFIX,riotgames.com,{gaming}',
+            f'DOMAIN-SUFFIX,valorant.com,{gaming}',
+            f'DOMAIN-SUFFIX,garena.com,{gaming}',
+            f'DOMAIN-SUFFIX,pubgmobile.com,{gaming}',
+            f'DOMAIN-SUFFIX,callofduty.com,{gaming}',
+            f'DOMAIN-SUFFIX,battle.net,{gaming}',
+            f'DOMAIN-SUFFIX,blizzard.com,{gaming}',
+            f'DOMAIN-SUFFIX,playstation.net,{gaming}',
+            f'DOMAIN-SUFFIX,xboxlive.com,{gaming}',
+            f'DOMAIN-SUFFIX,nintendo.net,{gaming}',
+        ]
+    if social:
+        rules += [
+            f'DOMAIN-SUFFIX,facebook.com,{social}',
+            f'DOMAIN-SUFFIX,fbcdn.net,{social}',
+            f'DOMAIN-SUFFIX,instagram.com,{social}',
+            f'DOMAIN-SUFFIX,cdninstagram.com,{social}',
+            f'DOMAIN-SUFFIX,threads.net,{social}',
+            f'DOMAIN-SUFFIX,tiktok.com,{social}',
+            f'DOMAIN-SUFFIX,tiktokcdn.com,{social}',
+            f'DOMAIN-SUFFIX,tiktokv.com,{social}',
+            f'DOMAIN-SUFFIX,x.com,{social}',
+            f'DOMAIN-SUFFIX,twitter.com,{social}',
+            f'DOMAIN-SUFFIX,twimg.com,{social}',
+            f'DOMAIN-SUFFIX,whatsapp.net,{social}',
+            f'DOMAIN-SUFFIX,telegram.org,{social}',
+            f'DOMAIN-SUFFIX,t.me,{social}',
+        ]
+    if streaming:
+        rules += [
+            f'DOMAIN-SUFFIX,youtube.com,{streaming}',
+            f'DOMAIN-SUFFIX,googlevideo.com,{streaming}',
+            f'DOMAIN-SUFFIX,ytimg.com,{streaming}',
+            f'DOMAIN-SUFFIX,netflix.com,{streaming}',
+            f'DOMAIN-SUFFIX,nflxvideo.net,{streaming}',
+            f'DOMAIN-SUFFIX,nflximg.net,{streaming}',
+            f'DOMAIN-SUFFIX,spotify.com,{streaming}',
+            f'DOMAIN-SUFFIX,scdn.co,{streaming}',
+            f'DOMAIN-SUFFIX,disneyplus.com,{streaming}',
+            f'DOMAIN-SUFFIX,hotstar.com,{streaming}',
+            f'DOMAIN-SUFFIX,primevideo.com,{streaming}',
+            f'DOMAIN-SUFFIX,video.a2z.com,{streaming}',
+            f'DOMAIN-SUFFIX,twitch.tv,{streaming}',
+            f'DOMAIN-SUFFIX,ttvnw.net,{streaming}',
+        ]
+    if working:
+        rules += [
+            f'DOMAIN-SUFFIX,zoom.us,{working}',
+            f'DOMAIN-SUFFIX,teams.microsoft.com,{working}',
+            f'DOMAIN-SUFFIX,office.com,{working}',
+            f'DOMAIN-SUFFIX,office365.com,{working}',
+            f'DOMAIN-SUFFIX,microsoftonline.com,{working}',
+            f'DOMAIN-SUFFIX,sharepoint.com,{working}',
+            f'DOMAIN-SUFFIX,onedrive.com,{working}',
+            f'DOMAIN-SUFFIX,slack.com,{working}',
+            f'DOMAIN-SUFFIX,notion.so,{working}',
+            f'DOMAIN-SUFFIX,github.com,{working}',
+            f'DOMAIN-SUFFIX,githubusercontent.com,{working}',
+            f'DOMAIN-SUFFIX,gitlab.com,{working}',
+            f'DOMAIN-SUFFIX,atlassian.com,{working}',
+            f'DOMAIN-SUFFIX,figma.com,{working}',
+            f'DOMAIN-SUFFIX,canva.com,{working}',
+        ]
+    if general:
+        rules += [
+            f'DOMAIN-SUFFIX,google.com,{general}',
+            f'DOMAIN-SUFFIX,gstatic.com,{general}',
+            f'DOMAIN-SUFFIX,googleapis.com,{general}',
+            f'DOMAIN-SUFFIX,cloudflare.com,{general}',
+            f'DOMAIN-SUFFIX,openai.com,{general}',
+        ]
+    return rules
+
+
+def render_rules_section(policy_names=None, include_usage_rules=True):
+    rules = []
+    if include_usage_rules:
+        rules.extend(builtin_usage_rules(policy_names=policy_names))
+    rules.extend(load_default_rules())
+    rules.extend(load_custom_rules())
+
+    cleaned = []
+    seen = set()
+    for rule in rules:
+        item = clean(rule)
+        if not item:
+            continue
+        if item.upper().startswith('MATCH,'):
+            continue
+        key = item.upper()
+        if key not in seen:
+            cleaned.append(item)
+            seen.add(key)
+
+    cleaned.append('MATCH,PROXY')
+    return 'rules:\n' + '\n'.join('  - ' + rule for rule in cleaned)
 
 def build_openclash_yaml(
     all_yaml_items,
@@ -1152,7 +1304,8 @@ def build_openclash_yaml(
     else:
         groups_part += '  []'
 
-    rules_part = render_rules_section()
+    policy_names = clean_group_proxy_names(select_entries + protocol_group_names + country_group_names + ['PROXY'], allow_direct_reject=True)
+    rules_part = render_rules_section(policy_names=policy_names, include_usage_rules=True)
 
     return f'''# Auto generated OpenClash config
 # Output: output/{OPENCLASH_OUTPUT_FILE}
@@ -1527,7 +1680,7 @@ def build_usage_profile_openclash_yaml(output_file, profile_group_name, profile_
     proxies_part += indent_block('\n'.join(yaml_items), 2) if yaml_items else '  []'
     groups_part = 'proxy-groups:\n'
     groups_part += indent_block('\n\n'.join(g for g in groups if g), 2) if groups else '  []'
-    rules_part = render_rules_section()
+    rules_part = render_rules_section(policy_names=[profile_group_name, 'PROXY'], include_usage_rules=False)
 
     return f"""# Auto generated usage profile OpenClash config
 # Output: output/{output_file}
@@ -1739,7 +1892,8 @@ def build_lite_openclash_yaml(lite_configs, top_country_names=None, top_global_n
     proxies_part += indent_block('\n'.join(yaml_items), 2) if yaml_items else '  []'
     groups_part = 'proxy-groups:\n'
     groups_part += indent_block('\n\n'.join(g for g in groups if g), 2) if groups else '  []'
-    rules_part = render_rules_section()
+    policy_names = clean_group_proxy_names(select_entries + ['PROXY'], allow_direct_reject=True)
+    rules_part = render_rules_section(policy_names=policy_names, include_usage_rules=True)
 
     return f'''# Auto generated Lite OpenClash config
 # Output: output/{LITE_OUTPUT_FILE}
@@ -1834,7 +1988,8 @@ def build_compact_openclash_yaml(output_file, compact_configs, top_country_names
     proxies_part += indent_block('\n'.join(yaml_items), 2) if yaml_items else '  []'
     groups_part = 'proxy-groups:\n'
     groups_part += indent_block('\n\n'.join(g for g in groups if g), 2) if groups else '  []'
-    rules_part = render_rules_section()
+    policy_names = clean_group_proxy_names(select_entries + ['PROXY'], allow_direct_reject=True)
+    rules_part = render_rules_section(policy_names=policy_names, include_usage_rules=True)
 
     return f"""# Auto generated compact OpenClash config
 # Output: output/{output_file}

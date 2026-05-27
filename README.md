@@ -490,3 +490,45 @@ python scripts/validate_openclash_outputs.py \
   output/working.yaml \
   output/general.yaml
 ```
+
+## Rules otomatis dan custom
+
+Generator sekarang mendukung rule otomatis untuk profil pemakaian:
+
+- `GAMING STABIL`
+- `SOCIAL MEDIA STABIL`
+- `STREAMING STABIL`
+- `WORKING STABIL`
+- `GENERAL STABIL`
+
+Rule bawaan akan otomatis diarahkan ke group profil yang tersedia. Jika suatu output tidak memiliki group profil tertentu, rule ke group tersebut tidak akan ditulis agar OpenClash tidak error.
+
+File rule yang bisa diedit:
+
+```text
+rules/default_rules.yaml
+rules/custom_rules.yaml
+```
+
+Gunakan `rules/custom_rules.yaml` untuk rule pribadi. Contoh:
+
+```yaml
+- DOMAIN-SUFFIX,example.com,PROXY
+- DOMAIN-SUFFIX,example.co.id,DIRECT
+- DOMAIN-KEYWORD,ads,REJECT
+```
+
+Pengaturan lewat environment variable:
+
+```env
+ENABLE_USAGE_RULES=true
+ENABLE_DEFAULT_RULES=true
+CUSTOM_RULES_FILE=rules/custom_rules.yaml
+DEFAULT_RULES_FILE=rules/default_rules.yaml
+```
+
+Jika ingin mematikan rule profil otomatis:
+
+```env
+ENABLE_USAGE_RULES=false
+```
