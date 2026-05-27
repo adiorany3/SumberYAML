@@ -1,4 +1,19 @@
 proxies:
+  - name: "Lrnbymaa"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b60e5c32-3d4e-425c-a785-a36cd0621a72
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "S4-f45.pAGeS.DeV"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "S4-f45.pAGeS.DeV"
+    udp: true
   - name: "v2rayconfigamir 5341"
     server: "104.17.3.81"
     port: 443
@@ -14,7 +29,7 @@ proxies:
       headers:
         Host: "sni.skylee4.cloudns.ch"
     udp: true
-  - name: "AliXTso 2096"
+  - name: "AliXTso 4333"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -29,7 +44,7 @@ proxies:
       headers:
         Host: "afrcloud2.c01.kr"
     udp: true
-  - name: "AliXTso 3449"
+  - name: "AliXTso 6786"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -44,7 +59,7 @@ proxies:
       headers:
         Host: "afrcloud2.c01.kr"
     udp: true
-  - name: "AliXTso 5992"
+  - name: "AliXTso 6886"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -88,4 +103,32 @@ proxies:
       path: "/season/sort/specialfp=chrome"
       headers:
         Host: "pagescm.freen6.de5.net"
+    udp: true
+  - name: "subioir 9140"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.creationlong.org"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.creationlong.org"
+    udp: true
+  - name: "wizardxray 8111"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
     udp: true

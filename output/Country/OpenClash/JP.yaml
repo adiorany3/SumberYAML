@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -30,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2ray_configs_pool JP"
+  - name: "JP Join Telegram Farah_VPN JP"
     server: "104.17.3.81"
     port: 443
     type: vless

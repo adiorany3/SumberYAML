@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -30,7 +34,23 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "By EbraSha 4671"
+  - name: "By EbraSha 2223"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6d49fae1-374d-313e-b360-1227b0ea8dea
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "s542.ccgfw.online"
+    network: ws
+    ws-opts:
+      path: "/ssp-ws"
+      headers:
+        Host: "s542.ccgfw.online"
+    udp: true
+  - name: "By EbraSha 3552"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -46,7 +66,7 @@ proxies:
       headers:
         Host: "s611.ccgfw.online"
     udp: true
-  - name: "By EbraSha 8343"
+  - name: "By EbraSha 9891"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -55,12 +75,12 @@ proxies:
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: "u712032us173.ayxj.top"
+    servername: "u712032us542.ccgfw.online"
     network: ws
     ws-opts:
       path: "/ssp-ws"
       headers:
-        Host: "s173.ayxj.top"
+        Host: "s542.ccgfw.online"
     udp: true
 
 proxy-groups:
