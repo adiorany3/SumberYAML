@@ -30,43 +30,27 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "@v2rayconfigamir 3194"
+  - name: "[64356] - Telegram : @V2All"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    uuid: 478cc26d-16b3-4fdd-be64-60d5a58c1622
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: sn1.skylee5.cloudns.ch
-    ws-opts:
-      path: /proxyip=proxyip.cmliussss.net
-      headers:
-        Host: sn1.skylee5.cloudns.ch
-    udp: true
-  - name: "🇨🇭 CH | VLESS | @proxyfn #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: cdb38f5b-12c3-414b-eacd-a635dc633701
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: 193.168.144.46
+    servername: tt.andishehparenting.com
     ws-opts:
       path: /
       headers:
-        Host: 193.168.144.46
+        Host: tt.andishehparenting.com
     udp: true
 
 proxy-groups:
-  - name: URL-TEST CH - Switzerland
+  - name: URL-TEST TT - Trinidad and Tobago
     type: url-test
     proxies:
-      - "@v2rayconfigamir 3194"
-      - "🇨🇭 CH | VLESS | @proxyfn #1"
+      - "[64356] - Telegram : @V2All"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -74,7 +58,7 @@ proxy-groups:
   - name: PROXY
     type: select
     proxies:
-      - URL-TEST CH - Switzerland
+      - URL-TEST TT - Trinidad and Tobago
       - DIRECT
 
 rules:

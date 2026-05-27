@@ -30,43 +30,27 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "@v2rayconfigamir 3194"
+  - name: "🇱🇮31014 | ⚡️Telegram = t.me/SOSkeyNET"
     server: 104.17.3.81
     port: 443
     type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: sn1.skylee5.cloudns.ch
-    ws-opts:
-      path: /proxyip=proxyip.cmliussss.net
-      headers:
-        Host: sn1.skylee5.cloudns.ch
-    udp: true
-  - name: "🇨🇭 CH | VLESS | @proxyfn #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: cdb38f5b-12c3-414b-eacd-a635dc633701
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: 193.168.144.46
+    servername: 2-eox.pages.dev
     ws-opts:
       path: /
       headers:
-        Host: 193.168.144.46
+        Host: 2-eox.pages.dev
     udp: true
 
 proxy-groups:
-  - name: URL-TEST CH - Switzerland
+  - name: URL-TEST LI - Liechtenstein
     type: url-test
     proxies:
-      - "@v2rayconfigamir 3194"
-      - "🇨🇭 CH | VLESS | @proxyfn #1"
+      - "🇱🇮31014 | ⚡️Telegram = t.me/SOSkeyNET"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -74,7 +58,7 @@ proxy-groups:
   - name: PROXY
     type: select
     proxies:
-      - URL-TEST CH - Switzerland
+      - URL-TEST LI - Liechtenstein
       - DIRECT
 
 rules:
