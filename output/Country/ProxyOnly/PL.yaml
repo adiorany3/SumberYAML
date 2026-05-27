@@ -14,3 +14,17 @@ proxies:
       headers:
         Host: pl74.mechvpn.online
     udp: true
+  - name: ">>@oneclickvpnkeys::PL"
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: humanity
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: www.creationlong.org
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.creationlong.org
+    udp: true

@@ -1,4 +1,19 @@
 proxies:
+  - name: "🇸🇪 SE | VLESS | @proxyfn #1"
+    server: 104.17.3.81
+    port: 443
+    type: vless
+    uuid: fd2c95b1-f48e-4d44-9b53-f5560f2eaae4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: 16.170.148.222
+    ws-opts:
+      path: /
+      headers:
+        Host: 16.170.148.222
+    udp: true
   - name: 🇸🇪 t.me/Natrixo BB
     server: 104.17.3.81
     port: 443
@@ -14,7 +29,7 @@ proxies:
       headers:
         Host: sni.111000.v6.navy
     udp: true
-  - name: 🇸🇪 t.me/Natrixo BB 1685
+  - name: 🇸🇪 t.me/Natrixo BB 6454
     server: 104.17.3.81
     port: 443
     type: vless
@@ -28,19 +43,4 @@ proxies:
       path: /?ed=2560
       headers:
         Host: sni.111000.v6.rocks
-    udp: true
-  - name: "🇸🇪 SE | VLESS | @proxyfn #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: fd2c95b1-f48e-4d44-9b53-f5560f2eaae4
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: 16.170.148.222
-    ws-opts:
-      path: /
-      headers:
-        Host: 16.170.148.222
     udp: true
