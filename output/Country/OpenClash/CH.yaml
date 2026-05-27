@@ -30,21 +30,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2rayconfigamir 3194"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sn1.skylee5.cloudns.ch"
-    ws-opts:
-      path: "/proxyip=proxyip.cmliussss.net"
-      headers:
-        Host: "sn1.skylee5.cloudns.ch"
-    udp: true
   - name: "CH CH VLESS proxyfn 1"
     server: "104.17.3.81"
     port: 443
@@ -60,13 +45,28 @@ proxies:
       headers:
         Host: "193.168.144.46"
     udp: true
+  - name: "v2rayconfigamir 3194"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sn1.skylee5.cloudns.ch"
+    ws-opts:
+      path: "/proxyip=proxyip.cmliussss.net"
+      headers:
+        Host: "sn1.skylee5.cloudns.ch"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST CH - Switzerland"
     type: url-test
     proxies:
-      - "v2rayconfigamir 3194"
       - "CH CH VLESS proxyfn 1"
+      - "v2rayconfigamir 3194"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -76,6 +76,7 @@ proxy-groups:
     proxies:
       - "URL-TEST CH - Switzerland"
       - "DIRECT"
+      - "REJECT"
 
 rules:
   - MATCH,PROXY

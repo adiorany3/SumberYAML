@@ -30,6 +30,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "v2ray_configs_pool SG"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bafacd98-136a-4530-838d-4e5c51838dac
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi8186.qea.ccwu.cc"
+    ws-opts:
+      path: "/ad/juzibaipiao?ed=2560"
+      headers:
+        Host: "juzi8186.qea.ccwu.cc"
+    udp: true
   - name: "Rayan_Config 9.9"
     server: "104.17.3.81"
     port: 443
@@ -60,36 +75,6 @@ proxies:
       headers:
         Host: "rAyAn-cOnFiG-sg-1.pArSa.dPdNs.oRg"
     udp: true
-  - name: "SG Join Telegram Farah_VPN SG"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "1-brc.pages.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "1-brc.pages.dev"
-    udp: true
-  - name: "v2ray_configs_pool SG"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: bafacd98-136a-4530-838d-4e5c51838dac
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "juzi8186.qea.ccwu.cc"
-    ws-opts:
-      path: "/ad/juzibaipiao?ed=2560"
-      headers:
-        Host: "juzi8186.qea.ccwu.cc"
-    udp: true
   - name: "SG SG VLESS v2rayexpress 1"
     server: "104.17.3.81"
     port: 443
@@ -110,10 +95,9 @@ proxy-groups:
   - name: "URL-TEST SG - Singapore"
     type: url-test
     proxies:
+      - "v2ray_configs_pool SG"
       - "Rayan_Config 9.9"
       - "Rayan_Config 9.99"
-      - "SG Join Telegram Farah_VPN SG"
-      - "v2ray_configs_pool SG"
       - "SG SG VLESS v2rayexpress 1"
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -124,6 +108,7 @@ proxy-groups:
     proxies:
       - "URL-TEST SG - Singapore"
       - "DIRECT"
+      - "REJECT"
 
 rules:
   - MATCH,PROXY

@@ -30,7 +30,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "GozargahAzad 4540"
+  - name: "GozargahAzad 6316"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -65,7 +65,7 @@ proxy-groups:
   - name: "URL-TEST BT - Bhutan"
     type: url-test
     proxies:
-      - "GozargahAzad 4540"
+      - "GozargahAzad 6316"
       - "64369 - Telegram V2All"
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -76,6 +76,7 @@ proxy-groups:
     proxies:
       - "URL-TEST BT - Bhutan"
       - "DIRECT"
+      - "REJECT"
 
 rules:
   - MATCH,PROXY

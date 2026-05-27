@@ -30,22 +30,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "GB 31086 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 0a315a3c-9e1b-4321-84b1-bf30a3bd4116
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "wor.rainzone.shop"
-    ws-opts:
-      path: "/25520/sh"
-      headers:
-        Host: "wor.rainzone.shop"
-    udp: true
-  - name: "GB 30950 Telegram t.me SOSkeyNET"
+  - name: "oneclickvpnkeys GB"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -60,20 +45,20 @@ proxies:
       headers:
         Host: "sni.111000.v6.rocks"
     udp: true
-  - name: "GB Join Telegram Farah_VPN GB"
+  - name: "oneclickvpnkeys GB 3018"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: bafacd98-136a-4530-838d-4e5c51838dac
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "juzi8186.qea.ccwu.cc"
+    servername: "sni.111000.v6.rocks"
     ws-opts:
-      path: "/lessons/dload/juzibaipiao?ed=2560"
+      path: "/?https://t.me/WangCai2🇨🇳="
       headers:
-        Host: "juzi8186.qea.ccwu.cc"
+        Host: "sni.111000.v6.rocks"
     udp: true
   - name: "v2nodes GB"
     server: "104.17.3.81"
@@ -90,7 +75,22 @@ proxies:
       headers:
         Host: "london.ap221.com"
     udp: true
-  - name: "oneclickvpnkeys GB"
+  - name: "v2ray_configs_pool GB"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bafacd98-136a-4530-838d-4e5c51838dac
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi8186.qea.ccwu.cc"
+    ws-opts:
+      path: "/lessons/dload/juzibaipiao?ed=2560"
+      headers:
+        Host: "juzi8186.qea.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys GB 9443"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -105,7 +105,7 @@ proxies:
       headers:
         Host: "3-7gj.pages.dev"
     udp: true
-  - name: "oneclickvpnkeys GB 1485"
+  - name: "oneclickvpnkeys GB 4272"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -120,17 +120,33 @@ proxies:
       headers:
         Host: "3-7gj.pages.dev"
     udp: true
+  - name: "GB 31086 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0a315a3c-9e1b-4321-84b1-bf30a3bd4116
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "wor.rainzone.shop"
+    ws-opts:
+      path: "/25520/sh"
+      headers:
+        Host: "wor.rainzone.shop"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST GB - United Kingdom"
     type: url-test
     proxies:
-      - "GB 31086 Telegram t.me SOSkeyNET"
-      - "GB 30950 Telegram t.me SOSkeyNET"
-      - "GB Join Telegram Farah_VPN GB"
-      - "v2nodes GB"
       - "oneclickvpnkeys GB"
-      - "oneclickvpnkeys GB 1485"
+      - "oneclickvpnkeys GB 3018"
+      - "v2nodes GB"
+      - "v2ray_configs_pool GB"
+      - "oneclickvpnkeys GB 9443"
+      - "oneclickvpnkeys GB 4272"
+      - "GB 31086 Telegram t.me SOSkeyNET"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -140,6 +156,7 @@ proxy-groups:
     proxies:
       - "URL-TEST GB - United Kingdom"
       - "DIRECT"
+      - "REJECT"
 
 rules:
   - MATCH,PROXY

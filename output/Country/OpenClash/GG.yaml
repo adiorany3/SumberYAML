@@ -75,7 +75,7 @@ proxies:
       headers:
         Host: "discord.gg"
     udp: true
-  - name: "Proxy_Vpney (3 5500"
+  - name: "Proxy_Vpney (3"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -97,7 +97,7 @@ proxy-groups:
       - "XX XX VLESS garnet_free 2"
       - "XX XX VLESS v2rayy_vpn13 1"
       - "XX XX VLESS v2rayy_vpn13 2"
-      - "Proxy_Vpney (3 5500"
+      - "Proxy_Vpney (3"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -107,6 +107,7 @@ proxy-groups:
     proxies:
       - "URL-TEST GG - Guernsey"
       - "DIRECT"
+      - "REJECT"
 
 rules:
   - MATCH,PROXY
