@@ -689,14 +689,44 @@ def indent_block(text, spaces=2):
     return '\n'.join(prefix + line if line.strip() else line for line in text.splitlines())
 
 
-def yaml_name_list(names, spaces=4):
+RESERVED_GROUP_ITEMS = {'DIRECT', 'REJECT'}
+
+
+def clean_group_proxy_names(names, allow_direct_reject=False):
+    """Bersihkan daftar isi proxy-group.
+
+    DIRECT dan REJECT hanya boleh muncul di group type: select.
+    Group type: url-test/best-ping harus hanya berisi nama akun/proxy asli.
+    """
+    cleaned = []
+    seen = set()
+
+    for name in names or []:
+        item = clean(name)
+        if not item:
+            continue
+        if not allow_direct_reject and item.upper() in RESERVED_GROUP_ITEMS:
+            continue
+        if item in seen:
+            continue
+        cleaned.append(item)
+        seen.add(item)
+
+    return cleaned
+
+
+def yaml_name_list(names, spaces=4, fallback=None):
     prefix = ' ' * spaces
+    names = list(names or [])
     if not names:
-        return prefix + '- DIRECT'
+        names = list(fallback or [])
+    if not names:
+        return ''
     return '\n'.join(prefix + '- ' + yq(name) for name in names)
 
 
 def make_url_test_group(group_name, proxy_names):
+    proxy_names = clean_group_proxy_names(proxy_names, allow_direct_reject=False)
     if not proxy_names:
         return ''
     return f'''- name: {yq(group_name)}
@@ -709,12 +739,15 @@ def make_url_test_group(group_name, proxy_names):
 
 
 def make_select_group(group_name, entries):
-    if not entries:
-        entries = ['DIRECT']
+    entries = clean_group_proxy_names(entries, allow_direct_reject=True)
+    if 'DIRECT' not in entries:
+        entries.append('DIRECT')
+    if 'REJECT' not in entries:
+        entries.append('REJECT')
     return f'''- name: {yq(group_name)}
   type: select
   proxies:
-{yaml_name_list(entries, 4)}'''
+{yaml_name_list(entries, 4, fallback=['DIRECT', 'REJECT'])}'''
 
 
 def build_openclash_yaml(all_yaml_items, protocol_proxy_names, country_proxy_names=None):

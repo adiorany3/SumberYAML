@@ -25,8 +25,10 @@ RUN_MODE = os.getenv('RUN_MODE', 'update').strip().lower() or 'update'
 # Catatan: lokasi test mengikuti tempat workflow/script dijalankan.
 # Jika ingin benar-benar dari Indonesia, jalankan workflow di runner/VPS Indonesia.
 BEST_PING_TOP_N = int(os.getenv('BEST_PING_TOP_N', '5'))
+BEST_PING_COUNTRY_FILTER = os.getenv('BEST_PING_COUNTRY_FILTER', 'ID').strip().upper()
+BEST_PING_URL_TEST_NAME = os.getenv('BEST_PING_URL_TEST_NAME', 'URL-TEST TOP 5 INDONESIA')
 BEST_PING_BALANCE_ENABLE_RAW = os.getenv('BEST_PING_BALANCE_ENABLE', 'true')
-BEST_PING_BALANCE_NAME = os.getenv('BEST_PING_BALANCE_NAME', os.getenv('BEST_PING_URL_TEST_NAME', 'URL-TEST TOP 5 PING'))
+BEST_PING_BALANCE_NAME = os.getenv('BEST_PING_BALANCE_NAME', BEST_PING_URL_TEST_NAME)
 BEST_PING_BALANCE_STRATEGY = os.getenv('BEST_PING_BALANCE_STRATEGY', 'round-robin')
 
 def env_bool(name, default=False):
@@ -34,6 +36,7 @@ def env_bool(name, default=False):
     return value in ['1', 'true', 'yes', 'y', 'on']
 
 BEST_PING_BALANCE_ENABLE = str(BEST_PING_BALANCE_ENABLE_RAW).strip().lower() in ['1', 'true', 'yes', 'y', 'on']
+BEST_PING_FALLBACK_GLOBAL = env_bool('BEST_PING_FALLBACK_GLOBAL', True)
 ENABLE_PROXY_TEST = env_bool('ENABLE_PROXY_TEST', True)
 FILTER_ALIVE_ONLY = env_bool('FILTER_ALIVE_ONLY', True)
 CHECK_TEST_URL = os.getenv('CHECK_TEST_URL', URL_TEST_URL)
@@ -707,14 +710,44 @@ def indent_block(text, spaces=2):
     return '\n'.join(prefix + line if line.strip() else line for line in text.splitlines())
 
 
-def yaml_name_list(names, spaces=4):
+RESERVED_GROUP_ITEMS = {'DIRECT', 'REJECT'}
+
+
+def clean_group_proxy_names(names, allow_direct_reject=False):
+    """Bersihkan daftar isi proxy-group.
+
+    DIRECT dan REJECT hanya boleh muncul di group type: select.
+    Group type: url-test/best-ping harus hanya berisi nama akun/proxy asli.
+    """
+    cleaned = []
+    seen = set()
+
+    for name in names or []:
+        item = clean(name)
+        if not item:
+            continue
+        if not allow_direct_reject and item.upper() in RESERVED_GROUP_ITEMS:
+            continue
+        if item in seen:
+            continue
+        cleaned.append(item)
+        seen.add(item)
+
+    return cleaned
+
+
+def yaml_name_list(names, spaces=4, fallback=None):
     prefix = ' ' * spaces
+    names = list(names or [])
     if not names:
-        return prefix + '- DIRECT'
+        names = list(fallback or [])
+    if not names:
+        return ''
     return '\n'.join(prefix + '- ' + yq(name) for name in names)
 
 
 def make_url_test_group(group_name, proxy_names):
+    proxy_names = clean_group_proxy_names(proxy_names, allow_direct_reject=False)
     if not proxy_names:
         return ''
     return f'''- name: {yq(group_name)}
@@ -732,12 +765,15 @@ def make_load_balance_group(group_name, proxy_names):
 
 
 def make_select_group(group_name, entries):
-    if not entries:
-        entries = ['DIRECT']
+    entries = clean_group_proxy_names(entries, allow_direct_reject=True)
+    if 'DIRECT' not in entries:
+        entries.append('DIRECT')
+    if 'REJECT' not in entries:
+        entries.append('REJECT')
     return f'''- name: {yq(group_name)}
   type: select
   proxies:
-{yaml_name_list(entries, 4)}'''
+{yaml_name_list(entries, 4, fallback=['DIRECT', 'REJECT'])}'''
 
 
 def build_openclash_yaml(
@@ -758,7 +794,7 @@ def build_openclash_yaml(
     country_group_names = []
 
     if BEST_PING_BALANCE_ENABLE and best_balance_names:
-        groups.append(make_load_balance_group(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 PING'), best_balance_names))
+        groups.append(make_load_balance_group(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 INDONESIA'), best_balance_names))
     for p in PROTOCOLS:
         names = protocol_proxy_names.get(p, [])
         if not names:
@@ -780,7 +816,7 @@ def build_openclash_yaml(
 
     select_entries = []
     if BEST_PING_BALANCE_ENABLE and best_balance_names:
-        select_entries.append(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 PING'))
+        select_entries.append(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 INDONESIA'))
     if all_proxy_names:
         select_entries.append('URL-TEST GABUNGAN')
     select_entries.extend(protocol_group_names)
@@ -904,12 +940,28 @@ def delay_sort_value(c):
         return 999999999
 
 
-def get_best_ping_configs(configs, limit=None):
+def get_best_ping_configs(configs, limit=None, country_filter=None):
+    """Ambil Top N ping tercepat.
+
+    Default: hanya proxy yang terdeteksi sebagai Indonesia (country == ID).
+    Jika BEST_PING_FALLBACK_GLOBAL=true dan tidak ada proxy Indonesia alive,
+    script fallback ke Top N global agar grup URL-Test tidak kosong.
+    """
     limit = int(limit or BEST_PING_TOP_N or 10)
     alive = [
         c for c in configs
         if c.get('status') == 'alive' and clean(c.get('name')) and delay_sort_value(c) < 999999999
     ]
+
+    country = clean(country_filter if country_filter is not None else BEST_PING_COUNTRY_FILTER).upper()
+    if country:
+        country_alive = [
+            c for c in alive
+            if clean(c.get('country')).upper() == country
+        ]
+        if country_alive or not BEST_PING_FALLBACK_GLOBAL:
+            alive = country_alive
+
     alive.sort(key=lambda item: (delay_sort_value(item), clean(item.get('name'))))
     return alive[:limit]
 
@@ -923,10 +975,11 @@ def write_best_ping_outputs(best_configs):
         row = config_row(c)
         row['rank'] = idx
         row['url_test_group'] = BEST_PING_BALANCE_NAME
+        row['country_filter'] = BEST_PING_COUNTRY_FILTER or 'GLOBAL'
         rows.append(row)
 
     fields = [
-        'rank', 'protocol', 'name', 'country', 'server', 'original_server', 'port',
+        'rank', 'protocol', 'name', 'country', 'country_filter', 'server', 'original_server', 'port',
         'network', 'status', 'delay_ms', 'reason', 'url_test_group', 'raw'
     ]
     with (best_dir / 'top5_best_ping.csv').open('w', encoding='utf-8', newline='') as f:
@@ -934,23 +987,35 @@ def write_best_ping_outputs(best_configs):
         w.writeheader()
         w.writerows(rows)
 
-    write(
-        best_dir / 'top5_best_ping.yaml',
-        add_proxies_header([c.get('yaml_text', '') for c in best_configs if c.get('yaml_text')]),
-    )
+    yaml_payload = add_proxies_header([c.get('yaml_text', '') for c in best_configs if c.get('yaml_text')])
+    write(best_dir / 'top5_best_ping.yaml', yaml_payload)
 
-    write_test_summary(
-        best_dir / 'summary_top5_best_ping.json',
-        {
-            'label': 'Best Ping Top 5',
-            'note': 'Delay mengikuti lokasi runner/tempat test dijalankan. Hasil Top 5 dimasukkan ke grup URL-Test.',
-            'url_test_group': BEST_PING_BALANCE_NAME,
-            'group_type': 'url-test',
-            'top_n': BEST_PING_TOP_N,
-            'count': len(best_configs),
-            'names': [c.get('name') for c in best_configs],
-        },
-    )
+    # Alias file khusus Indonesia agar mudah dibaca di repository.
+    if BEST_PING_COUNTRY_FILTER == 'ID':
+        with (best_dir / 'top5_indonesia_ping.csv').open('w', encoding='utf-8', newline='') as f:
+            w = csv.DictWriter(f, fieldnames=fields)
+            w.writeheader()
+            w.writerows(rows)
+        write(best_dir / 'top5_indonesia_ping.yaml', yaml_payload)
+
+    summary_payload = {
+        'label': 'Best Ping Top 5 Indonesia' if BEST_PING_COUNTRY_FILTER == 'ID' else 'Best Ping Top 5',
+        'note': (
+            'Default mengambil proxy country == ID. Delay tetap mengikuti lokasi runner/tempat test dijalankan. '
+            'Hasil Top 5 dimasukkan ke grup URL-Test di lengkap.yaml.'
+        ),
+        'country_filter': BEST_PING_COUNTRY_FILTER or 'GLOBAL',
+        'fallback_global_if_empty': BEST_PING_FALLBACK_GLOBAL,
+        'url_test_group': BEST_PING_BALANCE_NAME,
+        'group_type': 'url-test',
+        'top_n': BEST_PING_TOP_N,
+        'count': len(best_configs),
+        'names': [c.get('name') for c in best_configs],
+    }
+
+    write_test_summary(best_dir / 'summary_top5_best_ping.json', summary_payload)
+    if BEST_PING_COUNTRY_FILTER == 'ID':
+        write_test_summary(best_dir / 'summary_top5_indonesia_ping.json', summary_payload)
 
 
 def tcp_check(c):
@@ -1310,9 +1375,11 @@ def generate():
     write(OUTPUT_DIR / 'Alive' / 'alive.yaml', add_proxies_header(alive_yaml))
     write(OUTPUT_DIR / 'Alive' / 'dead.yaml', add_proxies_header(dead_yaml))
 
-    best_configs = get_best_ping_configs(all_configs, BEST_PING_TOP_N)
+    best_configs = get_best_ping_configs(all_configs, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
     best_balance_names = [c.get('name') for c in best_configs if c.get('name')]
     test_summary['best_ping_top_n'] = BEST_PING_TOP_N
+    test_summary['best_ping_country_filter'] = BEST_PING_COUNTRY_FILTER or 'GLOBAL'
+    test_summary['best_ping_fallback_global_if_empty'] = BEST_PING_FALLBACK_GLOBAL
     test_summary['best_ping_url_test_group'] = BEST_PING_BALANCE_NAME
     test_summary['best_ping_group_type'] = 'url-test'
     test_summary['best_ping_count'] = len(best_configs)
