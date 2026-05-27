@@ -30,43 +30,27 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "filembad-38"
+  - name: "Lrnbymaa"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    uuid: b60e5c32-3d4e-425c-a785-a36cd0621a72
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "sni.skylee4.cloudns.ch"
+    servername: "S4-f45.pAGeS.DeV"
     ws-opts:
       path: "/"
       headers:
-        Host: "sni.skylee4.cloudns.ch"
-    udp: true
-  - name: "v2rayconfigamir 5341"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.skylee4.cloudns.ch"
-    ws-opts:
-      path: "/proxyip=ProxyIP.CMLiussss.net"
-      headers:
-        Host: "sni.skylee4.cloudns.ch"
+        Host: "S4-f45.pAGeS.DeV"
     udp: true
 
 proxy-groups:
   - name: "URL-TEST WS - Samoa"
     type: url-test
     proxies:
-      - "filembad-38"
-      - "v2rayconfigamir 5341"
+      - "Lrnbymaa"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

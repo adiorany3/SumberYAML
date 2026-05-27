@@ -1,5 +1,5 @@
 {
-  "run_mode": "update_ping",
+  "run_mode": "update",
   "enable_proxy_test": true,
   "filter_alive_only": true,
   "strict_alive_only": true,
@@ -12,37 +12,37 @@
   "timeout_ms": 5000,
   "workers": 20,
   "tester": "strict-mihomo-delay",
-  "tester_ok": false,
+  "tester_ok": true,
   "tester_message": "STRICT_ALIVE_ONLY aktif: node harus lolos 3/3 ronde URL delay Mihomo dengan delay <= 3000ms. TCP fallback tidak dipakai untuk output strict.",
   "rounds": [
     {
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 7,
+      "alive": 8,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 9,
+      "alive": 14,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 3,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 9,
+      "alive": 26,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 3000,
   "filter_max_delay_for_output": true,
-  "total": 1352,
-  "alive": 0,
-  "strict_alive": 0,
-  "dead": 1352,
+  "total": 1353,
+  "alive": 2,
+  "strict_alive": 2,
+  "dead": 1351,
   "untested": 0,
   "final_output_filter": "strict alive 3/3 <= 3000ms",
   "best_ping_top_n": 5,
@@ -50,8 +50,11 @@
   "best_ping_fallback_global_if_empty": true,
   "best_ping_url_test_group": "URL-TEST TOP 5 INDONESIA",
   "best_ping_group_type": "url-test",
-  "best_ping_count": 0,
-  "best_ping_names": [],
+  "best_ping_count": 2,
+  "best_ping_names": [
+    "oneclickvpnkeys US 8749",
+    "Lrnbymaa"
+  ],
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 0
+  "strict_output_count": 2
 }

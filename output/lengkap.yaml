@@ -30,12 +30,98 @@ dns:
     - 8.8.4.4
 
 proxies:
-  []
+  - name: "Lrnbymaa"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b60e5c32-3d4e-425c-a785-a36cd0621a72
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "S4-f45.pAGeS.DeV"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "S4-f45.pAGeS.DeV"
+    udp: true
+  - name: "oneclickvpnkeys US 8749"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "3-7ny.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "3-7ny.pages.dev"
+    udp: true
 
 proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "oneclickvpnkeys US 8749"
+      - "Lrnbymaa"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: "URL-TEST VLESS"
+    type: url-test
+    proxies:
+      - "Lrnbymaa"
+      - "oneclickvpnkeys US 8749"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "Lrnbymaa"
+      - "oneclickvpnkeys US 8749"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "Lrnbymaa"
+      - "oneclickvpnkeys US 8749"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: "URL-TEST US - United States"
+    type: url-test
+    proxies:
+      - "oneclickvpnkeys US 8749"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: "URL-TEST WS - Samoa"
+    type: url-test
+    proxies:
+      - "Lrnbymaa"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
   - name: "PROXY"
     type: select
     proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "URL-TEST VLESS"
+      - "URL-TEST US - United States"
+      - "URL-TEST WS - Samoa"
       - "DIRECT"
       - "REJECT"
 
