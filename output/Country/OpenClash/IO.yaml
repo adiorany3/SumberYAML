@@ -30,23 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇽🇽 XX | VLESS | @kilid_stor #1"
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: ecb790d4-36ca-4dfc-a142-b3a395d1c50d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: codepen.io
-    ws-opts:
-      path: /ld?ed=2048
-      headers:
-        Host: codepen.io
-    udp: true
-  - name: "@v2rayngzendegimamad🕊️ 2961"
-    server: 104.17.3.81
+  - name: "v2rayngzendegimamad 7825"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 3321a819-889d-40b3-b8fa-f34208827ef1
@@ -54,28 +39,43 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: o00o.snip.qzz.io
+    servername: "o00o.snip.qzz.io"
     ws-opts:
       path: "/Tel-@v2rayngzendegimamad@v2rayngzendegimamad"
       headers:
-        Host: o00o.snip.qzz.io
+        Host: "o00o.snip.qzz.io"
+    udp: true
+  - name: "XX XX VLESS kilid_stor 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ecb790d4-36ca-4dfc-a142-b3a395d1c50d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "codepen.io"
+    ws-opts:
+      path: "/ld?ed=2048"
+      headers:
+        Host: "codepen.io"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST IO - British Indian Ocean Territory
+  - name: "URL-TEST IO - British Indian Ocean Territory"
     type: url-test
     proxies:
-      - "🇽🇽 XX | VLESS | @kilid_stor #1"
-      - "@v2rayngzendegimamad🕊️ 2961"
+      - "v2rayngzendegimamad 7825"
+      - "XX XX VLESS kilid_stor 1"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST IO - British Indian Ocean Territory
-      - DIRECT
+      - "URL-TEST IO - British Indian Ocean Territory"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

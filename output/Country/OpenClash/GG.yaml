@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇽🇽 XX | VLESS | @garnet_free #2"
-    server: 104.17.3.81
+  - name: "XX XX VLESS garnet_free 2"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: a75cb418-c1d6-476a-9464-ad1bd5181e3c
@@ -39,14 +39,14 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: discord.gg
+    servername: "discord.gg"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: discord.gg
+        Host: "discord.gg"
     udp: true
-  - name: "🇽🇽 XX | VLESS | @v2rayy_vpn13 #1"
-    server: 104.17.3.81
+  - name: "XX XX VLESS v2rayy_vpn13 1"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: f7e08961-ba18-4ac8-aac0-e925107417af
@@ -54,14 +54,14 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: discord.gg
+    servername: "discord.gg"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: discord.gg
+        Host: "discord.gg"
     udp: true
-  - name: "🇽🇽 XX | VLESS | @v2rayy_vpn13 #2"
-    server: 104.17.3.81
+  - name: "XX XX VLESS v2rayy_vpn13 2"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 76fb76eb-7a07-48b2-8c2b-5dec9ffaa80c
@@ -69,44 +69,44 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: discord.gg
+    servername: "discord.gg"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: discord.gg
+        Host: "discord.gg"
     udp: true
-  - name: "🕊️@Proxy_Vpney (3)"
-    server: 104.17.3.81
+  - name: "Proxy_Vpney (3 9563"
+    server: "104.17.3.81"
     port: 443
     type: trojan
-    password: 5c923a18-f249-466c-a315-e58aabc689ef
+    password: "5c923a18-f249-466c-a315-e58aabc689ef"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: star.vipco-gg.workers.dev
+    sni: "star.vipco-gg.workers.dev"
     ws-opts:
-      path: /?ed=2048
+      path: "/?ed=2048"
       headers:
-        Host: star.vipco-gg.workers.dev
+        Host: "star.vipco-gg.workers.dev"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST GG - Guernsey
+  - name: "URL-TEST GG - Guernsey"
     type: url-test
     proxies:
-      - "🇽🇽 XX | VLESS | @garnet_free #2"
-      - "🇽🇽 XX | VLESS | @v2rayy_vpn13 #1"
-      - "🇽🇽 XX | VLESS | @v2rayy_vpn13 #2"
-      - "🕊️@Proxy_Vpney (3)"
+      - "XX XX VLESS garnet_free 2"
+      - "XX XX VLESS v2rayy_vpn13 1"
+      - "XX XX VLESS v2rayy_vpn13 2"
+      - "Proxy_Vpney (3 9563"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST GG - Guernsey
-      - DIRECT
+      - "URL-TEST GG - Guernsey"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "[64356] - Telegram : @V2All"
-    server: 104.17.3.81
+  - name: "64356 - Telegram V2All"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 478cc26d-16b3-4fdd-be64-60d5a58c1622
@@ -39,27 +39,27 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: tt.andishehparenting.com
+    servername: "tt.andishehparenting.com"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: tt.andishehparenting.com
+        Host: "tt.andishehparenting.com"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST TT - Trinidad and Tobago
+  - name: "URL-TEST TT - Trinidad and Tobago"
     type: url-test
     proxies:
-      - "[64356] - Telegram : @V2All"
+      - "64356 - Telegram V2All"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST TT - Trinidad and Tobago
-      - DIRECT
+      - "URL-TEST TT - Trinidad and Tobago"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

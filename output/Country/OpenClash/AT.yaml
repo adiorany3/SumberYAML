@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: ">>@oneclickvpnkeys::AT"
-    server: 104.17.3.81
+  - name: "oneclickvpnkeys AT"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: f2a806c6-f36b-4cd9-8bb6-7addb218ad2d
@@ -39,14 +39,14 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: 91.244.70.205
+    servername: "91.244.70.205"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: 91.244.70.205
+        Host: "91.244.70.205"
     udp: true
-  - name: "@DeamNet 7346"
-    server: 104.17.3.81
+  - name: "DeamNet 3149"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: @deamnet-@deamnet-@deamnet
@@ -54,28 +54,28 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: yandex.samen12.at.eu.org
+    servername: "yandex.samen12.at.eu.org"
     ws-opts:
-      path: /deamnet
+      path: "/deamnet"
       headers:
-        Host: yandex.samen12.at.eu.org
+        Host: "yandex.samen12.at.eu.org"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST AT - Austria
+  - name: "URL-TEST AT - Austria"
     type: url-test
     proxies:
-      - ">>@oneclickvpnkeys::AT"
-      - "@DeamNet 7346"
+      - "oneclickvpnkeys AT"
+      - "DeamNet 3149"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST AT - Austria
-      - DIRECT
+      - "URL-TEST AT - Austria"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

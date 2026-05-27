@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇸🇪 SE | VLESS | @proxyfn #1"
-    server: 104.17.3.81
+  - name: "SE SE VLESS proxyfn 1"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: fd2c95b1-f48e-4d44-9b53-f5560f2eaae4
@@ -39,59 +39,27 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: 16.170.148.222
+    servername: "16.170.148.222"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: 16.170.148.222
-    udp: true
-  - name: 🇸🇪 t.me/Natrixo BB
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: sni.111000.v6.navy
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: sni.111000.v6.navy
-    udp: true
-  - name: 🇸🇪 t.me/Natrixo BB 6454
-    server: 104.17.3.81
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: sni.111000.v6.rocks
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: sni.111000.v6.rocks
+        Host: "16.170.148.222"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST SE - Sweden
+  - name: "URL-TEST SE - Sweden"
     type: url-test
     proxies:
-      - "🇸🇪 SE | VLESS | @proxyfn #1"
-      - 🇸🇪 t.me/Natrixo BB
-      - 🇸🇪 t.me/Natrixo BB 6454
+      - "SE SE VLESS proxyfn 1"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST SE - Sweden
-      - DIRECT
+      - "URL-TEST SE - Sweden"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

@@ -30,72 +30,72 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: 🇨🇦CA-134.195.198.147-7040
+  - name: "CA CA-134.195.198.147-7040"
     type: vmess
-    server: 104.17.3.81
+    server: "104.17.3.81"
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: inna.cfd
+    servername: "inna.cfd"
     network: ws
     ws-opts:
-      path: /linkvws
+      path: "/linkvws"
       headers:
-        Host: inna.cfd
+        Host: "inna.cfd"
     udp: true
-  - name: 🇨🇦CA-23.162.200.227-7038
+  - name: "CA CA-23.162.200.227-7038"
     type: vmess
-    server: 104.17.3.81
+    server: "104.17.3.81"
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: 23.162.200.227
+    servername: "23.162.200.227"
     network: ws
     ws-opts:
-      path: /linkvws
+      path: "/linkvws"
       headers:
-        Host: 23.162.200.227
+        Host: "23.162.200.227"
     udp: true
-  - name: 🇨🇦CA-23.162.200.227-0146
+  - name: "CA CA-23.162.200.227-0146"
     type: vmess
-    server: 104.17.3.81
+    server: "104.17.3.81"
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: 23.162.200.227
+    servername: "23.162.200.227"
     network: ws
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: 23.162.200.227
+        Host: "23.162.200.227"
     udp: true
-  - name: 🇨🇦CA-134.195.198.147-0124
+  - name: "CA CA-134.195.198.147-0124"
     type: vmess
-    server: 104.17.3.81
+    server: "104.17.3.81"
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: inna.cfd
+    servername: "inna.cfd"
     network: ws
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: inna.cfd
+        Host: "inna.cfd"
     udp: true
-  - name: "🇨🇦31076 | ⚡️Telegram = t.me/SOSkeyNET"
-    server: 104.17.3.81
+  - name: "CA 31076 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: ad7baa26-5d6f-49d0-8d8f-7ee272311e93
@@ -103,14 +103,14 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: marz111.ariagsm.site
+    servername: "marz111.ariagsm.site"
     ws-opts:
       path: "/NL/VIPSell/@TheVIPSell"
       headers:
-        Host: marz111.ariagsm.site
+        Host: "marz111.ariagsm.site"
     udp: true
-  - name: "🇨🇦30981 | ⚡️Telegram = t.me/SOSkeyNET"
-    server: 104.17.3.81
+  - name: "CA 30981 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: d082b5e0-2435-4599-b935-d2c2b70beb67
@@ -118,32 +118,32 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: purple-mrvpn294x.mrvpnandamir294.workers.dev
+    servername: "purple-mrvpn294x.mrvpnandamir294.workers.dev"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: purple-mrvpn294x.mrvpnandamir294.workers.dev
+        Host: "purple-mrvpn294x.mrvpnandamir294.workers.dev"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST CA - Canada
+  - name: "URL-TEST CA - Canada"
     type: url-test
     proxies:
-      - 🇨🇦CA-134.195.198.147-7040
-      - 🇨🇦CA-23.162.200.227-7038
-      - 🇨🇦CA-23.162.200.227-0146
-      - 🇨🇦CA-134.195.198.147-0124
-      - "🇨🇦31076 | ⚡️Telegram = t.me/SOSkeyNET"
-      - "🇨🇦30981 | ⚡️Telegram = t.me/SOSkeyNET"
+      - "CA CA-134.195.198.147-7040"
+      - "CA CA-23.162.200.227-7038"
+      - "CA CA-23.162.200.227-0146"
+      - "CA CA-134.195.198.147-0124"
+      - "CA 31076 Telegram t.me SOSkeyNET"
+      - "CA 30981 Telegram t.me SOSkeyNET"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST CA - Canada
-      - DIRECT
+      - "URL-TEST CA - Canada"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇽🇽 XX | VLESS | @mt_proxy #1"
-    server: 104.17.3.81
+  - name: "XX XX VLESS mt_proxy 1"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 80d1fe59-60f4-4272-a280-820e1ef0a754
@@ -39,27 +39,27 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: 104.18.26.90
+    servername: "104.18.26.90"
     ws-opts:
-      path: /Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray?ed=2048
+      path: "/Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray---Telegram-XV2ray?ed=2048"
       headers:
-        Host: 104.18.26.90
+        Host: "104.18.26.90"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST MT - Malta
+  - name: "URL-TEST MT - Malta"
     type: url-test
     proxies:
-      - "🇽🇽 XX | VLESS | @mt_proxy #1"
+      - "XX XX VLESS mt_proxy 1"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST MT - Malta
-      - DIRECT
+      - "URL-TEST MT - Malta"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

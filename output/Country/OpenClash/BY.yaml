@@ -30,33 +30,33 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇧🇾 BY | VMESS | @ir_netproxy #1"
+  - name: "BY BY VMESS ir_netproxy 1"
     type: vmess
-    server: 104.17.3.81
+    server: "104.17.3.81"
     port: 443
     uuid: d20e38ef-1a4d-4009-a00d-2f0d44e3c65a
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: internet.life.com.by
+    servername: "internet.life.com.by"
     network: tcp
     udp: true
 
 proxy-groups:
-  - name: URL-TEST BY - Belarus
+  - name: "URL-TEST BY - Belarus"
     type: url-test
     proxies:
-      - "🇧🇾 BY | VMESS | @ir_netproxy #1"
+      - "BY BY VMESS ir_netproxy 1"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST BY - Belarus
-      - DIRECT
+      - "URL-TEST BY - Belarus"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

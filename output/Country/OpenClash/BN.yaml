@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "@DeamNet"
-    server: 104.17.3.81
+  - name: "DeamNet"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: @deamnet-@deamnet-@deamnet
@@ -39,27 +39,27 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: actually-road.bn-chanll.cf
+    servername: "actually-road.bn-chanll.cf"
     ws-opts:
-      path: /deamnet
+      path: "/deamnet"
       headers:
-        Host: actually-road.bn-chanll.cf
+        Host: "actually-road.bn-chanll.cf"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST BN - Brunei
+  - name: "URL-TEST BN - Brunei"
     type: url-test
     proxies:
-      - "@DeamNet"
+      - "DeamNet"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST BN - Brunei
-      - DIRECT
+      - "URL-TEST BN - Brunei"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

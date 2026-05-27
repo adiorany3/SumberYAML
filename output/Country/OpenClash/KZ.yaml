@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇰🇿 KZ | VLESS | @filterk0sh #1"
-    server: 104.17.3.81
+  - name: "KZ KZ VLESS filterk0sh 1"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 0bb6dff2-0029-4b81-8c81-4fc70fae1ed9
@@ -39,27 +39,27 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: eng14.netliberated.org
+    servername: "eng14.netliberated.org"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: eng14.netliberated.org
+        Host: "eng14.netliberated.org"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST KZ - Kazakhstan
+  - name: "URL-TEST KZ - Kazakhstan"
     type: url-test
     proxies:
-      - "🇰🇿 KZ | VLESS | @filterk0sh #1"
+      - "KZ KZ VLESS filterk0sh 1"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST KZ - Kazakhstan
-      - DIRECT
+      - "URL-TEST KZ - Kazakhstan"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

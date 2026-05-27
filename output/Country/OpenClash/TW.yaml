@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: ">>@v2ray_configs_pool::TW"
-    server: 104.17.3.81
+  - name: "v2ray_configs_pool TW"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
@@ -39,27 +39,27 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: gogo4.kmj.qzz.io
+    servername: "gogo4.kmj.qzz.io"
     ws-opts:
-      path: /fp=chrome
+      path: "/fp=chrome"
       headers:
-        Host: gogo4.kmj.qzz.io
+        Host: "gogo4.kmj.qzz.io"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST TW - Taiwan
+  - name: "URL-TEST TW - Taiwan"
     type: url-test
     proxies:
-      - ">>@v2ray_configs_pool::TW"
+      - "v2ray_configs_pool TW"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST TW - Taiwan
-      - DIRECT
+      - "URL-TEST TW - Taiwan"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

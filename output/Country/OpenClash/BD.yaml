@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇽🇽 XX | VLESS | @evay_vpn #2"
-    server: 104.17.3.81
+  - name: "XX XX VLESS evay_vpn 2"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 6e3046df-37d2-40e2-af24-281ec3a6ec9f
@@ -39,14 +39,14 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: 188.114.98.0
+    servername: "188.114.98.0"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: 188.114.98.0
+        Host: "188.114.98.0"
     udp: true
-  - name: "🇽🇽 XX | VLESS | @netmellianti #1"
-    server: 104.17.3.81
+  - name: "XX XX VLESS netmellianti 1"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 360d65ec-3dc9-49ef-9839-51a794f492a8
@@ -54,28 +54,28 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: 104.18.16.56
+    servername: "104.18.16.56"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: 104.18.16.56
+        Host: "104.18.16.56"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST BD - Bangladesh
+  - name: "URL-TEST BD - Bangladesh"
     type: url-test
     proxies:
-      - "🇽🇽 XX | VLESS | @evay_vpn #2"
-      - "🇽🇽 XX | VLESS | @netmellianti #1"
+      - "XX XX VLESS evay_vpn 2"
+      - "XX XX VLESS netmellianti 1"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST BD - Bangladesh
-      - DIRECT
+      - "URL-TEST BD - Bangladesh"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

@@ -30,88 +30,88 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇽🇽 XX | VMESS | @iranvpnet #1"
+  - name: "v2rayngzendegimamad"
     type: vmess
-    server: 104.17.3.81
+    server: "104.17.3.81"
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: mute-math-d64e.0e503992ad7026.woRKERS.DeV
+    servername: "fapeng.org"
     network: ws
     ws-opts:
-      path: /aveiror.com:443/linkvws
+      path: "/linkvws"
       headers:
-        Host: mute-math-d64e.0e503992ad7026.woRKERS.DeV
+        Host: "fapeng.org"
     udp: true
-  - name: "@v2rayngzendegimamad🕊️"
+  - name: "v2rayngzendegimamad 4101"
     type: vmess
-    server: 104.17.3.81
+    server: "104.17.3.81"
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: fapeng.org
+    servername: "serkat.org"
     network: ws
     ws-opts:
-      path: /linkvws
+      path: "/linkvws"
       headers:
-        Host: fapeng.org
+        Host: "Join---v2rayngzendegimamad"
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 2018"
+  - name: "v2rayngzendegimamad 7897"
     type: vmess
-    server: 104.17.3.81
+    server: "104.17.3.81"
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: serkat.org
+    servername: "pelang.org"
     network: ws
     ws-opts:
-      path: /linkvws
+      path: "/linkvws"
       headers:
-        Host: Join---v2rayngzendegimamad
+        Host: "pelang.org"
     udp: true
-  - name: "@v2rayngzendegimamad🕊️ 2295"
+  - name: "XX XX VMESS iranvpnet 1"
     type: vmess
-    server: 104.17.3.81
+    server: "104.17.3.81"
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: pelang.org
+    servername: "mute-math-d64e.0e503992ad7026.woRKERS.DeV"
     network: ws
     ws-opts:
-      path: /linkvws
+      path: "/aveiror.com:443/linkvws"
       headers:
-        Host: pelang.org
+        Host: "mute-math-d64e.0e503992ad7026.woRKERS.DeV"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST UNKNOWN
+  - name: "URL-TEST UNKNOWN"
     type: url-test
     proxies:
-      - "🇽🇽 XX | VMESS | @iranvpnet #1"
-      - "@v2rayngzendegimamad🕊️"
-      - "@v2rayngzendegimamad🕊️ 2018"
-      - "@v2rayngzendegimamad🕊️ 2295"
+      - "v2rayngzendegimamad"
+      - "v2rayngzendegimamad 4101"
+      - "v2rayngzendegimamad 7897"
+      - "XX XX VMESS iranvpnet 1"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST UNKNOWN
-      - DIRECT
+      - "URL-TEST UNKNOWN"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

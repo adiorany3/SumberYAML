@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "@Rayan_Config 5.55"
-    server: 104.17.3.81
+  - name: "Rayan_Config 5.55"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 2f466a3b-5093-4556-8759-c87c8511c753
@@ -39,14 +39,14 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: rAyAn-cOnFiG-it-1.pArSa.dPdNs.oRg
+    servername: "rAyAn-cOnFiG-it-1.pArSa.dPdNs.oRg"
     ws-opts:
-      path: /ws
+      path: "/ws"
       headers:
-        Host: rAyAn-cOnFiG-it-1.pArSa.dPdNs.oRg
+        Host: "rAyAn-cOnFiG-it-1.pArSa.dPdNs.oRg"
     udp: true
-  - name: "@Rayan_Config 5.5"
-    server: 104.17.3.81
+  - name: "Rayan_Config 5.5"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 2f466a3b-5093-4556-8759-c87c8511c753
@@ -54,28 +54,28 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: rAyAn-cOnFiG-it-1.pAriSa.dPdNs.oRg
+    servername: "rAyAn-cOnFiG-it-1.pAriSa.dPdNs.oRg"
     ws-opts:
-      path: /ws
+      path: "/ws"
       headers:
-        Host: rAyAn-cOnFiG-it-1.pAriSa.dPdNs.oRg
+        Host: "rAyAn-cOnFiG-it-1.pAriSa.dPdNs.oRg"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST IT - Italy
+  - name: "URL-TEST IT - Italy"
     type: url-test
     proxies:
-      - "@Rayan_Config 5.55"
-      - "@Rayan_Config 5.5"
+      - "Rayan_Config 5.55"
+      - "Rayan_Config 5.5"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST IT - Italy
-      - DIRECT
+      - "URL-TEST IT - Italy"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

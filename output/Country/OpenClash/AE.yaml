@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇦🇪 AE | VLESS | @vmesskhodam #1"
-    server: 104.17.3.81
+  - name: "AE AE VLESS vmesskhodam 1"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: 24323a9a-5962-47f0-ae60-7b12f4503dea
@@ -39,27 +39,27 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: nl3.freekeysh110.online
+    servername: "nl3.freekeysh110.online"
     ws-opts:
-      path: /
+      path: "/"
       headers:
-        Host: nl3.freekeysh110.online
+        Host: "nl3.freekeysh110.online"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST AE - United Arab Emirates
+  - name: "URL-TEST AE - United Arab Emirates"
     type: url-test
     proxies:
-      - "🇦🇪 AE | VLESS | @vmesskhodam #1"
+      - "AE AE VLESS vmesskhodam 1"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST AE - United Arab Emirates
-      - DIRECT
+      - "URL-TEST AE - United Arab Emirates"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

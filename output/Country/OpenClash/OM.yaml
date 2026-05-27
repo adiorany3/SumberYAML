@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: ">>@configshub2::OM"
-    server: 104.17.3.81
+  - name: "configshub2 OM"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
@@ -39,27 +39,27 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: 3-7v4.pages.dev
+    servername: "3-7v4.pages.dev"
     ws-opts:
-      path: /proxyip=ProxyIP.DE.owg.dpdns.org
+      path: "/proxyip=ProxyIP.DE.owg.dpdns.org"
       headers:
-        Host: 3-7v4.pages.dev
+        Host: "3-7v4.pages.dev"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST OM - Oman
+  - name: "URL-TEST OM - Oman"
     type: url-test
     proxies:
-      - ">>@configshub2::OM"
+      - "configshub2 OM"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST OM - Oman
-      - DIRECT
+      - "URL-TEST OM - Oman"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY

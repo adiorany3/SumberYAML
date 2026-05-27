@@ -1,6 +1,6 @@
 proxies:
-  - name: ">>@v2ray_configs_pool::TW"
-    server: 104.17.3.81
+  - name: "v2ray_configs_pool TW"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
@@ -8,9 +8,9 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: gogo4.kmj.qzz.io
+    servername: "gogo4.kmj.qzz.io"
     ws-opts:
-      path: /fp=chrome
+      path: "/fp=chrome"
       headers:
-        Host: gogo4.kmj.qzz.io
+        Host: "gogo4.kmj.qzz.io"
     udp: true

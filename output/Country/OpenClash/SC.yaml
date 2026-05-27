@@ -30,8 +30,8 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "🇸🇨 SC | VLESS | @arv2ray #1"
-    server: 104.17.3.81
+  - name: "SC SC VLESS arv2ray 1"
+    server: "104.17.3.81"
     port: 443
     type: vless
     uuid: telegram-id-Arfilter
@@ -39,27 +39,27 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: 156.243.83.167
+    servername: "156.243.83.167"
     ws-opts:
       path: "/-Arfilter-TEL--@Arfilter-TEL--@Arfilter-TEL--@ArFilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL--@ArFilter-JOIN-@Arfilter-TEL--@Arfilter-JOIN-@Arfilter-TEL-@Arfilter-TEl--@Arfilter?ed=2048"
       headers:
-        Host: 156.243.83.167
+        Host: "156.243.83.167"
     udp: true
 
 proxy-groups:
-  - name: URL-TEST SC - Seychelles
+  - name: "URL-TEST SC - Seychelles"
     type: url-test
     proxies:
-      - "🇸🇨 SC | VLESS | @arv2ray #1"
+      - "SC SC VLESS arv2ray 1"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  - name: PROXY
+  - name: "PROXY"
     type: select
     proxies:
-      - URL-TEST SC - Seychelles
-      - DIRECT
+      - "URL-TEST SC - Seychelles"
+      - "DIRECT"
 
 rules:
   - MATCH,PROXY
