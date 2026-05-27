@@ -39,6 +39,18 @@ BEST_PING_BALANCE_ENABLE = str(BEST_PING_BALANCE_ENABLE_RAW).strip().lower() in 
 BEST_PING_FALLBACK_GLOBAL = env_bool('BEST_PING_FALLBACK_GLOBAL', True)
 MAX_DELAY_MS = int(os.getenv('MAX_DELAY_MS', '3000'))
 FILTER_MAX_DELAY_FOR_OUTPUT = env_bool('FILTER_MAX_DELAY_FOR_OUTPUT', True)
+
+# STRICT ALIVE ONLY: hanya proxy yang lolos URL delay test Mihomo beberapa ronde
+# yang boleh masuk output strict/lite/best ping saat mode ini aktif.
+STRICT_ALIVE_ONLY = env_bool('STRICT_ALIVE_ONLY', True)
+TEST_ROUNDS = max(1, int(os.getenv('TEST_ROUNDS', '3')))
+REQUIRE_SUCCESS_ROUNDS = max(1, int(os.getenv('REQUIRE_SUCCESS_ROUNDS', str(TEST_ROUNDS))))
+if REQUIRE_SUCCESS_ROUNDS > TEST_ROUNDS:
+    REQUIRE_SUCCESS_ROUNDS = TEST_ROUNDS
+STRICT_MAX_DELAY_MS = int(os.getenv('STRICT_MAX_DELAY_MS', str(MAX_DELAY_MS)))
+STRICT_OUTPUT_FILE = os.getenv('STRICT_OUTPUT_FILE', 'strict_alive.yaml').strip() or 'strict_alive.yaml'
+DISABLE_TCP_ONLY_OUTPUT = env_bool('DISABLE_TCP_ONLY_OUTPUT', True)
+
 BLACKLIST_FILE = os.getenv('BLACKLIST_FILE', 'blacklist.txt').strip()
 SOURCE_CACHE_ENABLE = env_bool('SOURCE_CACHE_ENABLE', True)
 SOURCE_CACHE_DIR = Path(os.getenv('SOURCE_CACHE_DIR', 'output/Cache/sources'))
@@ -1140,6 +1152,9 @@ def config_row(c, status='', delay_ms='', reason=''):
         'status': clean(status or c.get('status')),
         'delay_ms': clean(delay_ms if delay_ms != '' else c.get('delay_ms')),
         'rank_score': clean(c.get('rank_score')),
+        'strict_success_rounds': clean(c.get('strict_success_rounds')),
+        'strict_test_rounds': clean(c.get('strict_test_rounds')),
+        'strict_required_rounds': clean(c.get('strict_required_rounds')),
         'fingerprint': clean(c.get('fingerprint')),
         'reason': clean(reason or c.get('reason')),
         'raw': clean(c.get('raw')),
@@ -1150,7 +1165,8 @@ def write_check_results(path, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
     fields = [
         'protocol', 'name', 'country', 'server', 'original_server', 'port',
-        'network', 'status', 'delay_ms', 'rank_score', 'fingerprint', 'reason', 'raw'
+        'network', 'status', 'delay_ms', 'rank_score', 'strict_success_rounds',
+        'strict_test_rounds', 'strict_required_rounds', 'fingerprint', 'reason', 'raw'
     ]
     with path.open('w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -1242,7 +1258,8 @@ def write_best_ping_outputs(best_configs):
 
     fields = [
         'rank', 'protocol', 'name', 'country', 'country_filter', 'server', 'original_server', 'port',
-        'network', 'status', 'delay_ms', 'rank_score', 'fingerprint', 'reason', 'url_test_group', 'raw'
+        'network', 'status', 'delay_ms', 'rank_score', 'strict_success_rounds',
+        'strict_test_rounds', 'strict_required_rounds', 'fingerprint', 'reason', 'url_test_group', 'raw'
     ]
     with (best_dir / 'top5_best_ping.csv').open('w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -1610,21 +1627,109 @@ def run_tcp_fallback_tests(configs, reason_prefix=''):
             future.result()
 
 
+
+def average_int(values):
+    values = [safe_int(v, 0) for v in values if safe_int(v, 0) > 0]
+    if not values:
+        return ''
+    return int(sum(values) / len(values))
+
+
+def run_strict_mihomo_round_tests(configs):
+    """Jalankan URL delay test beberapa ronde dan hanya luluskan node yang stabil.
+
+    Strict mode tidak menerima TCP-only fallback sebagai akun hidup. Satu akun hanya
+    dianggap usable jika lolos REQUIRE_SUCCESS_ROUNDS dari TEST_ROUNDS melalui
+    endpoint /delay Mihomo/Clash.
+    """
+    required = max(1, min(REQUIRE_SUCCESS_ROUNDS, TEST_ROUNDS))
+    round_reports = []
+
+    for c in configs:
+        c['_strict_success_rounds'] = 0
+        c['_strict_delays'] = []
+        c['strict_test_rounds'] = TEST_ROUNDS
+        c['strict_required_rounds'] = required
+        c['strict_success_rounds'] = 0
+        c['tester'] = 'strict-mihomo-delay'
+
+    for round_index in range(1, TEST_ROUNDS + 1):
+        ok, message = run_mihomo_delay_tests(configs)
+        alive_this_round = 0
+
+        if ok:
+            for c in configs:
+                delay = delay_sort_value(c)
+                if c.get('status') == 'alive' and 0 < delay <= STRICT_MAX_DELAY_MS:
+                    c['_strict_success_rounds'] = int(c.get('_strict_success_rounds') or 0) + 1
+                    c['_strict_delays'].append(delay)
+                    alive_this_round += 1
+        else:
+            # Dalam strict mode, kegagalan Mihomo tidak diganti TCP fallback.
+            # Ini sengaja agar output strict hanya berisi node yang lolos URL delay test asli.
+            pass
+
+        round_reports.append({
+            'round': round_index,
+            'tester': 'mihomo-delay',
+            'tester_ok': bool(ok),
+            'alive': alive_this_round,
+            'message': message,
+        })
+
+    strict_alive = []
+    for c in configs:
+        success = int(c.get('_strict_success_rounds') or 0)
+        delays = list(c.get('_strict_delays') or [])
+        c['strict_success_rounds'] = success
+        c['strict_test_rounds'] = TEST_ROUNDS
+        c['strict_required_rounds'] = required
+        c['tester'] = 'strict-mihomo-delay'
+
+        if success >= required:
+            c['status'] = 'alive'
+            c['delay_ms'] = min(delays) if delays else ''
+            c['rank_score'] = rank_score(c, BEST_PING_COUNTRY_FILTER)
+            c['reason'] = (
+                f'strict URL delay ok {success}/{TEST_ROUNDS}; '
+                f'required={required}; min={min(delays) if delays else "-"}ms; '
+                f'avg={average_int(delays) or "-"}ms'
+            )
+            strict_alive.append(c)
+        else:
+            c['status'] = 'dead'
+            c['delay_ms'] = min(delays) if delays else ''
+            c['rank_score'] = ''
+            c['reason'] = (
+                f'strict URL delay failed {success}/{TEST_ROUNDS}; '
+                f'required={required}; max_delay={STRICT_MAX_DELAY_MS}ms; tcp fallback not accepted'
+            )
+
+    return strict_alive, round_reports
+
 def apply_alive_tests(configs):
     summary = {
         'run_mode': RUN_MODE,
         'enable_proxy_test': ENABLE_PROXY_TEST,
         'filter_alive_only': FILTER_ALIVE_ONLY,
+        'strict_alive_only': STRICT_ALIVE_ONLY,
+        'test_rounds': TEST_ROUNDS,
+        'require_success_rounds': REQUIRE_SUCCESS_ROUNDS,
+        'strict_max_delay_ms': STRICT_MAX_DELAY_MS,
+        'tcp_fallback_enabled': TCP_FALLBACK,
+        'tcp_only_output_disabled': DISABLE_TCP_ONLY_OUTPUT,
         'test_url': CHECK_TEST_URL,
         'timeout_ms': CHECK_TIMEOUT_MS,
         'workers': CHECK_WORKERS,
         'tester': 'none',
         'tester_ok': False,
         'tester_message': '',
+        'rounds': [],
         'max_delay_ms': MAX_DELAY_MS,
         'filter_max_delay_for_output': FILTER_MAX_DELAY_FOR_OUTPUT,
         'total': len(configs),
         'alive': 0,
+        'strict_alive': 0,
         'dead': 0,
         'untested': 0,
     }
@@ -1633,9 +1738,30 @@ def apply_alive_tests(configs):
         for c in configs:
             c['status'] = 'untested'
             c['delay_ms'] = ''
-            c['reason'] = 'ENABLE_PROXY_TEST=false'
+            c['strict_success_rounds'] = 0
+            c['strict_test_rounds'] = TEST_ROUNDS
+            c['strict_required_rounds'] = REQUIRE_SUCCESS_ROUNDS
+            c['reason'] = 'ENABLE_PROXY_TEST=false; strict output tidak bisa diverifikasi'
         summary['untested'] = len(configs)
-        return configs, summary
+        summary['tester_message'] = 'Proxy test nonaktif. Tidak ada akun yang bisa dianggap strict alive.'
+        summary['final_output_filter'] = 'untested; no strict alive verification'
+        return [] if STRICT_ALIVE_ONLY else configs, summary
+
+    if STRICT_ALIVE_ONLY:
+        strict_configs, round_reports = run_strict_mihomo_round_tests(configs)
+        summary['tester'] = 'strict-mihomo-delay'
+        summary['tester_ok'] = bool(strict_configs)
+        summary['rounds'] = round_reports
+        summary['alive'] = len(strict_configs)
+        summary['strict_alive'] = len(strict_configs)
+        summary['dead'] = len(configs) - len(strict_configs)
+        summary['untested'] = 0
+        summary['tester_message'] = (
+            f'STRICT_ALIVE_ONLY aktif: node harus lolos {REQUIRE_SUCCESS_ROUNDS}/{TEST_ROUNDS} '
+            f'ronde URL delay Mihomo dengan delay <= {STRICT_MAX_DELAY_MS}ms. TCP fallback tidak dipakai untuk output strict.'
+        )
+        summary['final_output_filter'] = f'strict alive {REQUIRE_SUCCESS_ROUNDS}/{TEST_ROUNDS} <= {STRICT_MAX_DELAY_MS}ms'
+        return strict_configs, summary
 
     ok, message = run_mihomo_delay_tests(configs)
     summary['tester'] = 'mihomo-delay'
@@ -1643,9 +1769,14 @@ def apply_alive_tests(configs):
     summary['tester_message'] = message
 
     if not ok:
-        if TCP_FALLBACK:
+        if TCP_FALLBACK and not DISABLE_TCP_ONLY_OUTPUT:
             summary['tester'] = 'tcp-fallback'
             run_tcp_fallback_tests(configs, f'mihomo unavailable: {message}')
+        elif TCP_FALLBACK and DISABLE_TCP_ONLY_OUTPUT:
+            for c in configs:
+                c['status'] = 'untested'
+                c['delay_ms'] = ''
+                c['reason'] = f'mihomo unavailable: {message}; TCP fallback tidak dipakai untuk output final'
         else:
             for c in configs:
                 c['status'] = 'untested'
@@ -1653,6 +1784,7 @@ def apply_alive_tests(configs):
                 c['reason'] = message
 
     summary['alive'] = sum(1 for c in configs if c.get('status') == 'alive')
+    summary['strict_alive'] = 0
     summary['dead'] = sum(1 for c in configs if c.get('status') == 'dead')
     summary['untested'] = sum(1 for c in configs if c.get('status') == 'untested')
 
@@ -1772,6 +1904,40 @@ def generate():
     write(OUTPUT_DIR / 'Alive' / 'alive.yaml', add_proxies_header(alive_yaml))
     write(OUTPUT_DIR / 'Alive' / 'dead.yaml', add_proxies_header(dead_yaml))
 
+    strict_usable_configs = [
+        c for c in all_configs
+        if c.get('status') == 'alive'
+        and int(c.get('strict_success_rounds') or 0) >= int(c.get('strict_required_rounds') or REQUIRE_SUCCESS_ROUNDS)
+        and (not FILTER_MAX_DELAY_FOR_OUTPUT or delay_sort_value(c) <= STRICT_MAX_DELAY_MS)
+    ]
+    if not STRICT_ALIVE_ONLY:
+        strict_usable_configs = alive_usable_configs
+
+    strict_rows = [config_row(c) for c in strict_usable_configs]
+    write_check_results(OUTPUT_DIR / 'Strict' / 'strict_alive.csv', strict_rows)
+    write(OUTPUT_DIR / 'Strict' / 'strict_alive_proxies.yaml', add_proxies_header([c.get('yaml_text', '') for c in strict_usable_configs if c.get('yaml_text')]))
+    strict_collections = rebuild_collections(strict_usable_configs)
+    strict_best_configs = get_best_ping_configs(strict_usable_configs, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
+    strict_best_names = [c.get('name') for c in strict_best_configs if c.get('name')]
+    strict_yaml = build_openclash_yaml(
+        strict_collections['yaml_items'],
+        strict_collections['protocol_proxy_names'],
+        strict_collections['country_proxy_names'],
+        best_balance_names=strict_best_names,
+    )
+    write(OUTPUT_DIR / STRICT_OUTPUT_FILE, strict_yaml)
+    write_test_summary(OUTPUT_DIR / 'Strict' / 'summary_strict_alive.json', {
+        'file': f'output/{STRICT_OUTPUT_FILE}',
+        'strict_alive_only': STRICT_ALIVE_ONLY,
+        'test_rounds': TEST_ROUNDS,
+        'require_success_rounds': REQUIRE_SUCCESS_ROUNDS,
+        'strict_max_delay_ms': STRICT_MAX_DELAY_MS,
+        'proxy_count': len(strict_usable_configs),
+        'best_ping_count': len(strict_best_configs),
+        'tcp_only_output_disabled': DISABLE_TCP_ONLY_OUTPUT,
+        'names': [c.get('name') for c in strict_usable_configs],
+    })
+
     alive_collections = rebuild_collections(alive_usable_configs)
     alive_best_configs = get_best_ping_configs(alive_usable_configs, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
     alive_best_names = [c.get('name') for c in alive_best_configs if c.get('name')]
@@ -1783,9 +1949,10 @@ def generate():
     )
     write(OUTPUT_DIR / 'lengkap_alive.yaml', lengkap_alive_yaml)
 
-    best_configs = get_best_ping_configs(alive_usable_configs, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
+    source_for_best = strict_usable_configs if STRICT_ALIVE_ONLY else alive_usable_configs
+    best_configs = get_best_ping_configs(source_for_best, BEST_PING_TOP_N, BEST_PING_COUNTRY_FILTER)
     best_balance_names = [c.get('name') for c in best_configs if c.get('name')]
-    write_lite_output(alive_usable_configs, best_configs)
+    write_lite_output(source_for_best, best_configs)
     test_summary['best_ping_top_n'] = BEST_PING_TOP_N
     test_summary['best_ping_country_filter'] = BEST_PING_COUNTRY_FILTER or 'GLOBAL'
     test_summary['best_ping_fallback_global_if_empty'] = BEST_PING_FALLBACK_GLOBAL
@@ -1793,6 +1960,8 @@ def generate():
     test_summary['best_ping_group_type'] = 'url-test'
     test_summary['best_ping_count'] = len(best_configs)
     test_summary['best_ping_names'] = best_balance_names
+    test_summary['strict_output_file'] = f'output/{STRICT_OUTPUT_FILE}'
+    test_summary['strict_output_count'] = len(strict_usable_configs)
     write_test_summary(OUTPUT_DIR / 'Alive' / 'summary_alive.json', test_summary)
     write_best_ping_outputs(best_configs)
 
@@ -1832,12 +2001,15 @@ def generate():
     # Tambahkan jumlah akhir setelah test ke summary protocol.
     final_by_protocol = {p: 0 for p in PROTOCOLS}
     alive_by_protocol = {p: 0 for p in PROTOCOLS}
+    strict_by_protocol = {p: 0 for p in PROTOCOLS}
     dead_by_protocol = {p: 0 for p in PROTOCOLS}
     for c in all_configs:
         p = c.get('protocol')
         if p in PROTOCOLS:
             if c.get('status') == 'alive':
                 alive_by_protocol[p] += 1
+                if int(c.get('strict_success_rounds') or 0) >= int(c.get('strict_required_rounds') or REQUIRE_SUCCESS_ROUNDS):
+                    strict_by_protocol[p] += 1
             elif c.get('status') == 'dead':
                 dead_by_protocol[p] += 1
             if c.get('name') in final_names:
@@ -1846,6 +2018,7 @@ def generate():
     for row in summary:
         p = row['protocol']
         row['alive_count'] = alive_by_protocol.get(p, 0)
+        row['strict_alive_count'] = strict_by_protocol.get(p, 0)
         row['dead_count'] = dead_by_protocol.get(p, 0)
         row['final_output_count'] = final_by_protocol.get(p, 0)
         row['max_delay_ms'] = MAX_DELAY_MS
@@ -1861,6 +2034,7 @@ def generate():
             'renamed_count',
             'country_count',
             'alive_count',
+            'strict_alive_count',
             'dead_count',
             'final_output_count',
             'max_delay_ms',
@@ -1887,17 +2061,23 @@ def parse_bool_text(value):
 
 
 def main():
-    global RUN_MODE, ENABLE_PROXY_TEST, FILTER_ALIVE_ONLY
+    global RUN_MODE, ENABLE_PROXY_TEST, FILTER_ALIVE_ONLY, STRICT_ALIVE_ONLY, TEST_ROUNDS, REQUIRE_SUCCESS_ROUNDS
 
     parser = argparse.ArgumentParser(description='Generate OpenClash YAML output.')
     parser.add_argument('--mode', default=RUN_MODE)
     parser.add_argument('--enable-proxy-test', default=str(ENABLE_PROXY_TEST).lower())
     parser.add_argument('--filter-alive-only', default=str(FILTER_ALIVE_ONLY).lower())
+    parser.add_argument('--strict-alive-only', default=str(STRICT_ALIVE_ONLY).lower())
+    parser.add_argument('--test-rounds', default=str(TEST_ROUNDS))
+    parser.add_argument('--require-success-rounds', default=str(REQUIRE_SUCCESS_ROUNDS))
     args = parser.parse_args()
 
     RUN_MODE = clean(args.mode, RUN_MODE).lower()
     ENABLE_PROXY_TEST = parse_bool_text(args.enable_proxy_test)
     FILTER_ALIVE_ONLY = parse_bool_text(args.filter_alive_only)
+    STRICT_ALIVE_ONLY = parse_bool_text(args.strict_alive_only)
+    TEST_ROUNDS = max(1, safe_int(args.test_rounds, TEST_ROUNDS))
+    REQUIRE_SUCCESS_ROUNDS = max(1, min(safe_int(args.require_success_rounds, REQUIRE_SUCCESS_ROUNDS), TEST_ROUNDS))
     generate()
 
 

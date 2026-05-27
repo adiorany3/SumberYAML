@@ -74,7 +74,13 @@ def dispatch_workflow():
     url = f"{github_base()}/actions/workflows/{GITHUB_WORKFLOW_FILE}/dispatches"
     payload = {
         "ref": GITHUB_REF,
-        "inputs": {"source": "telegram"},
+        "inputs": {
+            "source": "telegram",
+            "mode": "update_ping",
+            "enable_proxy_test": "true",
+            "filter_alive_only": "true",
+            "strict_alive_only": "true",
+        },
     }
     response = requests.post(url, headers=github_headers(), json=payload, timeout=30)
     if response.status_code not in (200, 201, 202, 204):

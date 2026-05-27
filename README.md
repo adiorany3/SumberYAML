@@ -239,3 +239,30 @@ python scripts/validate_openclash_outputs.py output/lengkap.yaml output/lengkap_
 
 
 Sumber tambahan aktif: `Epodonios/v2ray-configs/All_Configs_Sub.txt`.
+
+
+## STRICT ALIVE ONLY
+
+Mode ini memastikan file yang dipakai OpenClash hanya berisi akun yang lolos URL delay test Mihomo beberapa ronde.
+
+Default workflow:
+
+```env
+STRICT_ALIVE_ONLY=true
+TEST_ROUNDS=3
+REQUIRE_SUCCESS_ROUNDS=3
+STRICT_MAX_DELAY_MS=3000
+TCP_FALLBACK=false
+DISABLE_TCP_ONLY_OUTPUT=true
+```
+
+Output tambahan:
+
+```text
+output/strict_alive.yaml
+output/Strict/strict_alive.csv
+output/Strict/strict_alive_proxies.yaml
+output/Strict/summary_strict_alive.json
+```
+
+Gunakan `output/strict_alive.yaml` di OpenClash jika ingin hanya memakai akun yang benar-benar lolos test saat workflow berjalan. Jika hasil strict kosong, berarti tidak ada akun yang lolos semua ronde pada lokasi runner/VPS tersebut.

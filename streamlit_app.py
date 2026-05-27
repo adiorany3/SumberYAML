@@ -393,7 +393,7 @@ def get_workflow():
     return response.json()
 
 
-def dispatch_workflow(mode='update', enable_proxy_test='true', filter_alive_only='true'):
+def dispatch_workflow(mode='update', enable_proxy_test='true', filter_alive_only='true', strict_alive_only='true'):
     workflow_info = get_workflow()
 
     if workflow_info.get("state") != "active":
@@ -411,6 +411,7 @@ def dispatch_workflow(mode='update', enable_proxy_test='true', filter_alive_only
             "mode": mode,
             "enable_proxy_test": enable_proxy_test,
             "filter_alive_only": filter_alive_only,
+            "strict_alive_only": strict_alive_only,
         },
     }
 

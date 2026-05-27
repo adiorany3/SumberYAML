@@ -13,6 +13,7 @@ RESERVED = {'DIRECT', 'REJECT'}
 DEFAULT_FILES = [
     'output/lengkap.yaml',
     'output/lengkap_alive.yaml',
+    'output/strict_alive.yaml',
     'output/lite.yaml',
 ]
 

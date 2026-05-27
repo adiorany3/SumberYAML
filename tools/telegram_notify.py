@@ -154,17 +154,20 @@ def success_message():
     sources = source_cache_summary()
     validation = validation_summary()
     lite = read_json("output/Lite/summary_lite.json")
+    strict = read_json("output/Strict/summary_strict_alive.json")
 
     lines = [
         mode_title(),
         "",
         f"Total valid: <code>{summary.get('total', '-')}</code>",
         f"Alive: <code>{summary.get('alive', '-')}</code>",
+        f"Strict alive: <code>{summary.get('strict_alive', strict.get('proxy_count', '-'))}</code> / rounds <code>{summary.get('require_success_rounds', strict.get('require_success_rounds', '-'))}/{summary.get('test_rounds', strict.get('test_rounds', '-'))}</code>",
         f"Dead: <code>{summary.get('dead', '-')}</code>",
         f"Untested: <code>{summary.get('untested', '-')}</code>",
         f"Tester: <code>{summary.get('tester', '-')}</code>",
         f"Filter output: <code>{summary.get('final_output_filter', '-')}</code>",
         f"Best Ping: <code>{summary.get('best_ping_count', '-')}</code> node",
+        f"Strict YAML: <code>{strict.get('proxy_count', summary.get('strict_output_count', 0))}</code> node",
         f"Lite YAML: <code>{lite.get('proxy_count', 0)}</code> node",
         f"Invalid total: <code>{invalid['invalid_total']}</code> | UUID: <code>{invalid['invalid_uuid']}</code> | Blacklist: <code>{invalid['blacklist']}</code>",
         f"Source: OK <code>{sources['source_ok']}</code> | Cache <code>{sources['source_cached']}</code> | Failed <code>{sources['source_failed']}</code>",
@@ -203,6 +206,7 @@ def success_message():
             "",
             "File utama: <code>output/lengkap.yaml</code>",
             "File alive: <code>output/lengkap_alive.yaml</code>",
+            "File strict: <code>output/strict_alive.yaml</code>",
             "File ringan: <code>output/lite.yaml</code>",
             "Laporan: <code>output/Alive/check_result.csv</code>",
         ]
@@ -225,6 +229,7 @@ def main():
     if SEND_FILE:
         send_document("output/lengkap.yaml", "✅ lengkap.yaml terbaru")
         send_document("output/lengkap_alive.yaml", "✅ lengkap_alive.yaml")
+        send_document("output/strict_alive.yaml", "🛡️ strict_alive.yaml")
         send_document("output/lite.yaml", "⚡ lite.yaml")
         send_document("output/Alive/check_result.csv", "🧪 check_result.csv")
         send_document("output/Alive/alive.csv", "✅ alive.csv")
