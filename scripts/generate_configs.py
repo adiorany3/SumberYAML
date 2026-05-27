@@ -1,5 +1,6 @@
 import base64, binascii, csv, json, random, re, os, sys, time, shutil, socket, gzip, tarfile, zipfile, subprocess, tempfile
 import unicodedata
+import uuid as uuidlib
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs, unquote, urlunparse, quote
@@ -192,6 +193,25 @@ def sanitize_proxy_name(name, fallback='Proxy', max_len=80):
 
     return value
 
+
+def normalize_uuid_value(value):
+    """Kembalikan UUID canonical jika valid; jika tidak valid, return string kosong.
+
+    Tujuannya: akun VMess/VLESS dengan UUID rusak tidak ikut masuk YAML/TXT,
+    karena UUID yang tidak sesuai format sering membuat OpenClash gagal import.
+    Format yang diterima: UUID standar 36 karakter atau 32 hex tanpa strip.
+    Output selalu dibuat canonical, contoh: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.
+    """
+    value = clean(value)
+    if not value:
+        return ''
+    value = value.strip().strip('{}')
+    try:
+        parsed = uuidlib.UUID(value)
+        return str(parsed)
+    except Exception:
+        return ''
+
 def b64_bytes(data):
     for enc in ['utf-8', 'iso-8859-1']:
         try:
@@ -276,11 +296,14 @@ def parse_vmess(link):
         sni = clean(d.get('sni'))
         port = clean(d.get('port'), '443')
         tls_raw = clean(d.get('tls')).lower()
+        raw_uuid = clean(d.get('id'))
+        uuid_value = normalize_uuid_value(raw_uuid)
         return {
             'name': clean(d.get('ps'), 'VMess'),
             'server': server,
             'port': port,
-            'uuid': clean(d.get('id')),
+            'uuid': uuid_value,
+            'raw_uuid': raw_uuid,
             'alterId': clean(d.get('aid', d.get('alterId', 0)), '0'),
             'network': clean(d.get('net'), 'ws'),
             'path': path,
@@ -302,11 +325,14 @@ def parse_vless(link):
         host = qv(q, 'host', 'Host')
         sni = qv(q, 'sni', 'servername')
         sec = qv(q, 'security', default='tls').lower()
+        raw_uuid = clean(u.username)
+        uuid_value = normalize_uuid_value(raw_uuid)
         return {
             'name': clean(unquote(u.fragment), 'VLESS'),
             'server': server,
             'port': str(u.port or 443),
-            'uuid': clean(u.username),
+            'uuid': uuid_value,
+            'raw_uuid': raw_uuid,
             'network': qv(q, 'type', 'network', default='ws').lower(),
             'path': path,
             'host': host or sni or server,
@@ -428,9 +454,16 @@ def valid(p, c):
         return False, ['gagal parse']
     if ONLY_PORT_443 and clean(c.get('port')) != '443':
         reasons.append('port bukan 443')
+
+    if p in ['vmess', 'vless']:
+        if not clean(c.get('raw_uuid') or c.get('uuid')):
+            reasons.append('uuid kosong')
+        elif not clean(c.get('uuid')):
+            reasons.append('uuid tidak valid')
+
     req = {
-        'vmess': ['server', 'uuid', 'network', 'servername'],
-        'vless': ['server', 'uuid', 'network', 'servername', 'path', 'host'],
+        'vmess': ['server', 'network', 'servername'],
+        'vless': ['server', 'network', 'servername', 'path', 'host'],
         'trojan': ['server', 'password', 'network', 'sni', 'path', 'host'],
     }[p]
     for k in req:
