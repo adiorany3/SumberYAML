@@ -30,7 +30,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "filtershekan_channel 1"
+  - name: "Pro 28 Outline_Vpn"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -39,13 +39,13 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "pagescm.freen32.cc.cd"
+    servername: "pagescm.freen10.cc.cd"
     ws-opts:
-      path: "/play/settings"
+      path: "/shop/programs/picturefp=chrome"
       headers:
-        Host: "pagescm.freen32.cc.cd"
+        Host: "pagescm.freen10.cc.cd"
     udp: true
-  - name: "16 oneclickvpnkeys"
+  - name: "11 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -54,11 +54,11 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "pagescm.freen34.cc.cd"
+    servername: "pagescm.freen15.cc.cd"
     ws-opts:
-      path: "/question/avatar/hot"
+      path: "/album/bt"
       headers:
-        Host: "pagescm.freen34.cc.cd"
+        Host: "pagescm.freen15.cc.cd"
     udp: true
   - name: "64714 - Telegram V2All"
     server: "104.17.3.81"
@@ -75,14 +75,30 @@ proxies:
       headers:
         Host: "pagescm.freen18.cc.cd"
     udp: true
+  - name: "98 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pagescm.freen14.cc.cd"
+    ws-opts:
+      path: "/shop"
+      headers:
+        Host: "pagescm.freen14.cc.cd"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST CC - Cocos Islands"
     type: url-test
     proxies:
-      - "filtershekan_channel 1"
-      - "16 oneclickvpnkeys"
+      - "Pro 28 Outline_Vpn"
+      - "11 oneclickvpnkeys"
       - "64714 - Telegram V2All"
+      - "98 oneclickvpnkeys"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

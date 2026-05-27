@@ -1,7 +1,7 @@
 {
-  "run_mode": "update",
+  "run_mode": "test",
   "enable_proxy_test": true,
-  "filter_alive_only": true,
+  "filter_alive_only": false,
   "strict_alive_only": true,
   "test_rounds": 2,
   "require_success_rounds": 1,
@@ -21,23 +21,23 @@
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 7,
+      "alive": 18,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 18,
+      "alive": 8,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
   "total": 1353,
-  "alive": 22,
-  "strict_alive": 22,
-  "dead": 1331,
+  "alive": 21,
+  "strict_alive": 21,
+  "dead": 1332,
   "untested": 0,
   "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
@@ -47,12 +47,12 @@
   "best_ping_group_type": "url-test",
   "best_ping_count": 5,
   "best_ping_names": [
-    "AliXTso 6242",
-    "AliXTso 1063",
-    "AliXTso 4668",
-    "16 oneclickvpnkeys",
-    "US Join Telegram Farah_VPN US"
+    "AliXTso 9544",
+    "Lrnbymaa",
+    "JP Join Telegram Farah_VPN JP",
+    "AliXTso 5189",
+    "oneclickvpnkeys US 7745"
   ],
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 22
+  "strict_output_count": 21
 }
