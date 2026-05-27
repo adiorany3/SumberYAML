@@ -424,3 +424,69 @@ Validasi manual lengkap:
 ```bash
 python scripts/validate_openclash_outputs.py output/lengkap.yaml output/lengkap_alive.yaml output/strict_alive.yaml output/lite.yaml output/fast.yaml
 ```
+
+## Profil Akun Stabil Berdasarkan Kebutuhan
+
+Versi ini juga membuat pilihan akun paling stabil untuk beberapa kebutuhan pemakaian:
+
+```text
+output/gaming.yaml
+output/social_media.yaml
+output/streaming.yaml
+output/working.yaml
+output/general.yaml
+output/Categories/gaming.csv
+output/Categories/social_media.csv
+output/Categories/streaming.csv
+output/Categories/working.csv
+output/Categories/general.csv
+output/Categories/summary_usage_profiles.json
+```
+
+Group yang ditambahkan ke file utama:
+
+```text
+GAMING STABIL
+SOCIAL MEDIA STABIL
+STREAMING STABIL
+WORKING STABIL
+GENERAL STABIL
+```
+
+Skor setiap kategori berbeda:
+
+- `GAMING STABIL`: memprioritaskan jitter rendah dan respons stabil.
+- `SOCIAL MEDIA STABIL`: memprioritaskan respons awal cepat.
+- `STREAMING STABIL`: memprioritaskan koneksi yang tidak sering timeout dan jitter rendah.
+- `WORKING STABIL`: memprioritaskan success-rate tinggi untuk meeting, remote work, dan akses kerja.
+- `GENERAL STABIL`: skor seimbang untuk penggunaan harian.
+
+Environment tambahan:
+
+```env
+ENABLE_USAGE_PROFILE_GROUPS=true
+USAGE_PROFILE_TOP_N=10
+USAGE_PROFILE_MAX_TOTAL=15
+USAGE_PROFILE_GROUP_TYPE=fallback
+USAGE_PROFILE_INTERVAL=120
+USAGE_PROFILE_LAZY=false
+USAGE_PROFILE_OUTPUT_ROOT=true
+```
+
+Catatan: sumber akun publik tidak menyediakan data bandwidth dan packet loss asli. Karena itu kategori ini dihitung dari data yang tersedia, yaitu delay rata-rata, jitter, success-rate, max delay, dan penalti TCP-only.
+
+Validasi manual lengkap:
+
+```bash
+python scripts/validate_openclash_outputs.py \
+  output/lengkap.yaml \
+  output/lengkap_alive.yaml \
+  output/strict_alive.yaml \
+  output/lite.yaml \
+  output/fast.yaml \
+  output/gaming.yaml \
+  output/social_media.yaml \
+  output/streaming.yaml \
+  output/working.yaml \
+  output/general.yaml
+```

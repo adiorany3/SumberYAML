@@ -155,6 +155,7 @@ def success_message():
     validation = validation_summary()
     lite = read_json("output/Lite/summary_lite.json")
     fast = read_json("output/Fast/summary_fast.json")
+    profiles = read_json("output/Categories/summary_usage_profiles.json")
     strict = read_json("output/Strict/summary_strict_alive.json")
     reuse = read_json("output/Reuse/reuse_previous_output.json")
 
@@ -173,6 +174,7 @@ def success_message():
         f"Lite YAML: <code>{lite.get('proxy_count', 0)}</code> node",
         f"Fast YAML: <code>{fast.get('proxy_count', 0)}</code> node",
         f"Responsive: <code>{summary.get('responsive_count', fast.get('responsive_count', '-'))}</code> node",
+        f"Profil stabil: <code>{len((profiles.get('profiles') or {})) if isinstance(profiles, dict) else 0}</code> group",
         f"Invalid total: <code>{invalid['invalid_total']}</code> | UUID: <code>{invalid['invalid_uuid']}</code> | Blacklist: <code>{invalid['blacklist']}</code>",
         f"Source: OK <code>{sources['source_ok']}</code> | Cache <code>{sources['source_cached']}</code> | Failed <code>{sources['source_failed']}</code>",
         f"YAML validation: <code>{'OK' if validation['ok'] else 'CHECK'}</code> ({validation['ok_count']}/{validation['file_count']})",

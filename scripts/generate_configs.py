@@ -83,6 +83,29 @@ FAST_FALLBACK_NAME = sanitize_name_for_yaml(os.getenv('FAST_FALLBACK_NAME', 'FAL
 ENABLE_FAST_FALLBACK_GROUP = env_bool('ENABLE_FAST_FALLBACK_GROUP', True)
 ENABLE_PERFORMANCE_OPTIONS = env_bool('ENABLE_PERFORMANCE_OPTIONS', True)
 
+# Usage profile outputs: pilih akun stabil sesuai kebutuhan pemakaian.
+ENABLE_USAGE_PROFILE_GROUPS = env_bool('ENABLE_USAGE_PROFILE_GROUPS', True)
+USAGE_PROFILE_TOP_N = int(os.getenv('USAGE_PROFILE_TOP_N', '10'))
+USAGE_PROFILE_MAX_TOTAL = int(os.getenv('USAGE_PROFILE_MAX_TOTAL', '15'))
+USAGE_PROFILE_OUTPUT_ROOT = env_bool('USAGE_PROFILE_OUTPUT_ROOT', True)
+USAGE_PROFILE_GROUP_TYPE = os.getenv('USAGE_PROFILE_GROUP_TYPE', 'fallback').strip().lower() or 'fallback'
+USAGE_PROFILE_INTERVAL = int(os.getenv('USAGE_PROFILE_INTERVAL', str(URL_TEST_INTERVAL)))
+USAGE_PROFILE_LAZY = env_bool('USAGE_PROFILE_LAZY', False)
+USAGE_PROFILE_NAMES = {
+    'gaming': os.getenv('USAGE_PROFILE_GAMING_NAME', 'GAMING STABIL'),
+    'social_media': os.getenv('USAGE_PROFILE_SOCIAL_MEDIA_NAME', 'SOCIAL MEDIA STABIL'),
+    'streaming': os.getenv('USAGE_PROFILE_STREAMING_NAME', 'STREAMING STABIL'),
+    'working': os.getenv('USAGE_PROFILE_WORKING_NAME', 'WORKING STABIL'),
+    'general': os.getenv('USAGE_PROFILE_GENERAL_NAME', 'GENERAL STABIL'),
+}
+USAGE_PROFILE_FILES = {
+    'gaming': os.getenv('USAGE_PROFILE_GAMING_FILE', 'gaming.yaml'),
+    'social_media': os.getenv('USAGE_PROFILE_SOCIAL_MEDIA_FILE', 'social_media.yaml'),
+    'streaming': os.getenv('USAGE_PROFILE_STREAMING_FILE', 'streaming.yaml'),
+    'working': os.getenv('USAGE_PROFILE_WORKING_FILE', 'working.yaml'),
+    'general': os.getenv('USAGE_PROFILE_GENERAL_FILE', 'general.yaml'),
+}
+
 # Reuse output sebelumnya agar hasil tidak kosong dan update lebih cepat
 # jika semua sumber kosong/tidak ada akun baru. PREVIOUS_OUTPUT_DIR diisi workflow
 # dari folder output sebelum proses generate berjalan.
@@ -1052,6 +1075,7 @@ def build_openclash_yaml(
     external_controller='0.0.0.0:9090',
     best_balance_names=None,
     responsive_names=None,
+    usage_profile_names=None,
 ):
     all_proxy_names = []
     for p in PROTOCOLS:
@@ -1060,6 +1084,7 @@ def build_openclash_yaml(
     country_proxy_names = country_proxy_names or {}
     best_balance_names = best_balance_names or []
     responsive_names = clean_group_proxy_names(responsive_names or [], allow_direct_reject=False)
+    usage_profile_names = usage_profile_names or {}
     groups = []
     protocol_group_names = []
     country_group_names = []
@@ -1068,6 +1093,11 @@ def build_openclash_yaml(
         groups.append(make_load_balance_group(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 INDONESIA'), best_balance_names))
     if ENABLE_FAST_FALLBACK_GROUP and responsive_names:
         groups.append(make_fallback_group(sanitize_proxy_name(FAST_FALLBACK_NAME, 'FALLBACK CEPAT'), responsive_names))
+    if ENABLE_USAGE_PROFILE_GROUPS and usage_profile_names:
+        for profile_group_name, profile_names in usage_profile_names.items():
+            profile_names = clean_group_proxy_names(profile_names or [], allow_direct_reject=False)
+            if profile_names:
+                groups.append(make_usage_profile_group(profile_group_name, profile_names))
     for p in PROTOCOLS:
         names = protocol_proxy_names.get(p, [])
         if not names:
@@ -1098,6 +1128,10 @@ def build_openclash_yaml(
         select_entries.append(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 INDONESIA'))
     if ENABLE_FAST_FALLBACK_GROUP and responsive_names:
         select_entries.append(sanitize_proxy_name(FAST_FALLBACK_NAME, 'FALLBACK CEPAT'))
+    if ENABLE_USAGE_PROFILE_GROUPS and usage_profile_names:
+        for profile_group_name, profile_names in usage_profile_names.items():
+            if clean_group_proxy_names(profile_names or [], allow_direct_reject=False):
+                select_entries.append(profile_group_name)
     if all_proxy_names:
         select_entries.append('URL-TEST GABUNGAN')
         select_entries.append('FALLBACK')
@@ -1394,6 +1428,215 @@ def get_responsive_configs(configs, limit=None, country_filter=None, allow_fallb
     return unique_configs_by_name(pool)[:limit]
 
 
+def profile_score(c, profile_key):
+    """Skor kategori pemakaian. Makin kecil makin baik.
+
+    Catatan: sumber publik biasanya tidak menyediakan throughput/packet loss
+    asli. Jadi profil ini memakai indikator yang tersedia: avg delay, jitter,
+    success-rate, max delay, dan penalti TCP-only.
+    """
+    apply_delay_stats(c)
+    avg_delay = safe_int(c.get('avg_delay_ms'), delay_sort_value(c))
+    if avg_delay >= 999999999:
+        avg_delay = delay_sort_value(c)
+    jitter = safe_int(c.get('jitter_ms'), 0)
+    max_delay = safe_int(c.get('max_delay_ms'), avg_delay)
+    success_rate = float(c.get('success_rate') or 0)
+    failure = max(0.0, 1.0 - success_rate)
+    reason = clean(c.get('reason')).lower()
+    tester = clean(c.get('tester')).lower()
+    tcp_penalty = 700 if ('tcp' in reason or 'tcp' in tester) else 0
+
+    weights = {
+        'gaming': (0.45, 1.15, 0.15, 3200),
+        'social_media': (0.70, 0.35, 0.05, 1800),
+        'streaming': (0.35, 0.70, 0.25, 3600),
+        'working': (0.40, 0.95, 0.25, 4200),
+        'general': (0.55, 0.55, 0.15, 2500),
+    }
+    delay_w, jitter_w, max_w, failure_w = weights.get(profile_key, weights['general'])
+    score = int((avg_delay * delay_w) + (jitter * jitter_w) + (max_delay * max_w) + (failure * failure_w) + tcp_penalty)
+    c[f'{profile_key}_score'] = score
+    return score
+
+
+def get_usage_profile_configs(configs, profile_key, limit=None, allow_fallback=True):
+    limit = int(limit or USAGE_PROFILE_TOP_N or 10)
+    pool = []
+    for c in configs or []:
+        if c.get('status') != 'alive' or not clean(c.get('name')):
+            continue
+        apply_delay_stats(c)
+        pool.append(c)
+
+    if not pool and allow_fallback:
+        pool = [c for c in configs or [] if clean(c.get('name'))]
+
+    for c in pool:
+        profile_score(c, profile_key)
+
+    pool.sort(key=lambda item: (
+        safe_int(item.get(f'{profile_key}_score'), 999999999),
+        safe_int(item.get('avg_delay_ms'), delay_sort_value(item)),
+        safe_int(item.get('jitter_ms'), 999999),
+        clean(item.get('name')),
+    ))
+    return unique_configs_by_name(pool)[:limit]
+
+
+def get_usage_profile_group_names(configs):
+    if not ENABLE_USAGE_PROFILE_GROUPS:
+        return {}
+    profile_groups = {}
+    for profile_key, group_name in USAGE_PROFILE_NAMES.items():
+        selected = get_usage_profile_configs(configs, profile_key, USAGE_PROFILE_TOP_N, allow_fallback=True)
+        names = [c.get('name') for c in selected if c.get('name')]
+        names = clean_group_proxy_names(names, allow_direct_reject=False)
+        if names:
+            profile_groups[sanitize_proxy_name(group_name, profile_key.upper())] = names
+    return profile_groups
+
+
+def make_usage_profile_group(group_name, proxy_names):
+    proxy_names = clean_group_proxy_names(proxy_names, allow_direct_reject=False)
+    if not proxy_names:
+        return ''
+    group_type = USAGE_PROFILE_GROUP_TYPE if USAGE_PROFILE_GROUP_TYPE in ['fallback', 'url-test'] else 'fallback'
+    return f'''- name: {yq(group_name)}
+  type: {group_type}
+  proxies:
+{yaml_name_list(proxy_names, 4)}
+  url: {URL_TEST_URL}
+  interval: {USAGE_PROFILE_INTERVAL}
+  lazy: {str(USAGE_PROFILE_LAZY).lower()}'''
+
+
+def build_usage_profile_openclash_yaml(output_file, profile_group_name, profile_configs):
+    profile_configs = unique_configs_by_name(profile_configs)
+    yaml_items = [c.get('yaml_text', '') for c in profile_configs if c.get('yaml_text')]
+    names = clean_group_proxy_names([c.get('name') for c in profile_configs if c.get('name')], allow_direct_reject=False)
+    groups = []
+    select_entries = []
+    if names:
+        groups.append(make_usage_profile_group(profile_group_name, names))
+        select_entries.append(profile_group_name)
+    select_entries.append('DIRECT')
+    groups.append(make_select_group('PROXY', select_entries))
+
+    proxies_part = 'proxies:\n'
+    proxies_part += indent_block('\n'.join(yaml_items), 2) if yaml_items else '  []'
+    groups_part = 'proxy-groups:\n'
+    groups_part += indent_block('\n\n'.join(g for g in groups if g), 2) if groups else '  []'
+    rules_part = render_rules_section()
+
+    return f"""# Auto generated usage profile OpenClash config
+# Output: output/{output_file}
+# Profile group: {profile_group_name}
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+{proxies_part}
+
+{groups_part}
+
+{rules_part}
+"""
+
+
+def write_usage_profile_outputs(configs):
+    profile_summary = {}
+    profile_groups = {}
+    if not ENABLE_USAGE_PROFILE_GROUPS:
+        return profile_groups
+
+    category_dir = OUTPUT_DIR / 'Categories'
+    category_dir.mkdir(parents=True, exist_ok=True)
+
+    for profile_key, group_name in USAGE_PROFILE_NAMES.items():
+        group_name = sanitize_proxy_name(group_name, profile_key.upper())
+        output_file = USAGE_PROFILE_FILES.get(profile_key, f'{profile_key}.yaml').strip() or f'{profile_key}.yaml'
+        selected = get_usage_profile_configs(configs, profile_key, USAGE_PROFILE_TOP_N, allow_fallback=True)
+        if USAGE_PROFILE_MAX_TOTAL > 0:
+            selected = selected[:USAGE_PROFILE_MAX_TOTAL]
+        names = clean_group_proxy_names([c.get('name') for c in selected if c.get('name')], allow_direct_reject=False)
+        if names:
+            profile_groups[group_name] = names
+
+        rows = []
+        for idx, c in enumerate(selected, start=1):
+            row = config_row(c)
+            row['rank'] = idx
+            row['profile'] = profile_key
+            row['profile_group'] = group_name
+            row['profile_score'] = clean(c.get(f'{profile_key}_score'))
+            rows.append(row)
+
+        csv_fields = [
+            'rank', 'profile', 'profile_group', 'profile_score',
+            'protocol', 'name', 'country', 'server', 'original_server', 'port',
+            'network', 'status', 'delay_ms', 'rank_score', 'responsive_score',
+            'min_delay_ms', 'avg_delay_ms', 'max_delay_ms', 'jitter_ms', 'success_rate',
+            'strict_success_rounds', 'strict_test_rounds', 'strict_required_rounds',
+            'fingerprint', 'reason', 'raw'
+        ]
+        with (category_dir / f'{profile_key}.csv').open('w', encoding='utf-8', newline='') as f:
+            w = csv.DictWriter(f, fieldnames=csv_fields)
+            w.writeheader()
+            w.writerows(rows)
+
+        write(category_dir / f'{profile_key}_proxies.yaml', add_proxies_header([c.get('yaml_text', '') for c in selected if c.get('yaml_text')]))
+        if USAGE_PROFILE_OUTPUT_ROOT:
+            write(OUTPUT_DIR / output_file, build_usage_profile_openclash_yaml(output_file, group_name, selected))
+
+        profile_summary[profile_key] = {
+            'group': group_name,
+            'file': f'output/{output_file}' if USAGE_PROFILE_OUTPUT_ROOT else '',
+            'csv': f'output/Categories/{profile_key}.csv',
+            'proxy_count': len(selected),
+            'group_type': USAGE_PROFILE_GROUP_TYPE if USAGE_PROFILE_GROUP_TYPE in ['fallback', 'url-test'] else 'fallback',
+            'top_n': USAGE_PROFILE_TOP_N,
+            'max_total': USAGE_PROFILE_MAX_TOTAL,
+            'names': names,
+        }
+
+    write_test_summary(category_dir / 'summary_usage_profiles.json', {
+        'enabled': ENABLE_USAGE_PROFILE_GROUPS,
+        'note': 'Profil memakai avg delay, jitter, success-rate, max delay, dan penalti TCP-only. Sumber publik tidak menyediakan throughput/packet-loss asli.',
+        'profiles': profile_summary,
+    })
+    return profile_groups
+
+
 def write_best_ping_outputs(best_configs):
     best_dir = OUTPUT_DIR / 'BestPing'
     best_dir.mkdir(parents=True, exist_ok=True)
@@ -1541,13 +1784,14 @@ dns:
 '''
 
 
-def build_compact_openclash_yaml(output_file, compact_configs, top_country_names=None, top_global_names=None, responsive_names=None):
+def build_compact_openclash_yaml(output_file, compact_configs, top_country_names=None, top_global_names=None, responsive_names=None, usage_profile_names=None):
     compact_configs = unique_configs_by_name(compact_configs)
     yaml_items = [c.get('yaml_text', '') for c in compact_configs if c.get('yaml_text')]
     all_names = clean_group_proxy_names([c.get('name') for c in compact_configs if c.get('name')], allow_direct_reject=False)
     top_country_names = clean_group_proxy_names(top_country_names or [], allow_direct_reject=False)
     top_global_names = clean_group_proxy_names(top_global_names or [], allow_direct_reject=False)
     responsive_names = clean_group_proxy_names(responsive_names or [], allow_direct_reject=False)
+    usage_profile_names = usage_profile_names or {}
     combined_names = all_names[:RESPONSIVE_COMBINED_MAX] if RESPONSIVE_COMBINED_MAX > 0 else all_names
 
     groups = []
@@ -1562,6 +1806,13 @@ def build_compact_openclash_yaml(output_file, compact_configs, top_country_names
         fast_group = sanitize_proxy_name(FAST_FALLBACK_NAME, 'FALLBACK CEPAT')
         groups.append(make_fallback_group(fast_group, responsive_names))
         select_entries.append(fast_group)
+
+    if ENABLE_USAGE_PROFILE_GROUPS and usage_profile_names:
+        for profile_group_name, profile_names in usage_profile_names.items():
+            profile_names = clean_group_proxy_names(profile_names or [], allow_direct_reject=False)
+            if profile_names:
+                groups.append(make_usage_profile_group(profile_group_name, profile_names))
+                select_entries.append(profile_group_name)
 
     if top_global_names:
         groups.append(make_url_test_group('URL-TEST TOP GLOBAL', top_global_names))
@@ -1628,17 +1879,18 @@ dns:
 """
 
 
-def build_lite_openclash_yaml(lite_configs, top_country_names=None, top_global_names=None, responsive_names=None):
+def build_lite_openclash_yaml(lite_configs, top_country_names=None, top_global_names=None, responsive_names=None, usage_profile_names=None):
     return build_compact_openclash_yaml(
         LITE_OUTPUT_FILE,
         lite_configs,
         top_country_names=top_country_names,
         top_global_names=top_global_names,
         responsive_names=responsive_names,
+        usage_profile_names=usage_profile_names,
     )
 
 
-def write_lite_output(alive_usable_configs, best_country_configs, responsive_configs=None):
+def write_lite_output(alive_usable_configs, best_country_configs, responsive_configs=None, usage_profile_groups=None):
     best_country_configs = list(best_country_configs or [])
     responsive_configs = list(responsive_configs or [])
     alive_usable_configs = list(alive_usable_configs or [])
@@ -1651,6 +1903,7 @@ def write_lite_output(alive_usable_configs, best_country_configs, responsive_con
         top_country_names=[c.get('name') for c in best_country_configs if c.get('name')],
         top_global_names=[c.get('name') for c in global_best if c.get('name')],
         responsive_names=[c.get('name') for c in responsive_configs if c.get('name')],
+        usage_profile_names=usage_profile_groups or {},
     )
     write(OUTPUT_DIR / LITE_OUTPUT_FILE, lite_yaml)
     write_test_summary(OUTPUT_DIR / 'Lite' / 'summary_lite.json', {
@@ -1666,7 +1919,7 @@ def write_lite_output(alive_usable_configs, best_country_configs, responsive_con
     })
 
 
-def write_fast_output(alive_usable_configs, best_country_configs, responsive_configs=None):
+def write_fast_output(alive_usable_configs, best_country_configs, responsive_configs=None, usage_profile_groups=None):
     best_country_configs = list(best_country_configs or [])
     responsive_configs = list(responsive_configs or [])
     source = unique_configs_by_name(list(best_country_configs) + list(responsive_configs))
@@ -1681,6 +1934,7 @@ def write_fast_output(alive_usable_configs, best_country_configs, responsive_con
         top_country_names=[c.get('name') for c in best_country_configs if c.get('name')],
         top_global_names=[],
         responsive_names=[c.get('name') for c in responsive_configs if c.get('name')],
+        usage_profile_names=usage_profile_groups or {},
     )
     write(OUTPUT_DIR / FAST_OUTPUT_FILE, fast_yaml)
 
@@ -2199,6 +2453,21 @@ def previous_output_has_accounts(prev_dir=None):
     return any(count_proxy_names_in_yaml_file(item) > 0 for item in candidates)
 
 
+def previous_output_has_usage_profile_outputs(prev_dir=None):
+    if not ENABLE_USAGE_PROFILE_GROUPS or not USAGE_PROFILE_OUTPUT_ROOT:
+        return True
+    prev = Path(prev_dir) if prev_dir else previous_output_path()
+    if not prev:
+        return False
+    for output_file in USAGE_PROFILE_FILES.values():
+        output_file = clean(output_file)
+        if not output_file:
+            continue
+        if count_proxy_names_in_yaml_file(prev / output_file) <= 0:
+            return False
+    return True
+
+
 def raw_signature_from_mapping(mapped):
     """Signature akun raw dari source saat ini, dipakai untuk mendeteksi tidak ada akun baru."""
     h = hashlib.sha256()
@@ -2349,6 +2618,7 @@ def generate():
         and current_raw_count > 0
         and previous_raw_count > 0
         and current_raw_signature == previous_raw_signature
+        and previous_output_has_usage_profile_outputs()
     ):
         if reuse_previous_output_if_available(
             'Tidak ada akun baru dari sumber. Raw source sama dengan update sebelumnya, proses test dipersingkat dengan reuse output lama.',
@@ -2462,12 +2732,14 @@ def generate():
     strict_best_names = [c.get('name') for c in strict_best_configs if c.get('name')]
     strict_responsive_configs = get_responsive_configs(strict_usable_configs, RESPONSIVE_TOP_N, BEST_PING_COUNTRY_FILTER)
     strict_responsive_names = [c.get('name') for c in strict_responsive_configs if c.get('name')]
+    strict_usage_profile_groups = get_usage_profile_group_names(strict_usable_configs)
     strict_yaml = build_openclash_yaml(
         strict_collections['yaml_items'],
         strict_collections['protocol_proxy_names'],
         strict_collections['country_proxy_names'],
         best_balance_names=strict_best_names,
         responsive_names=strict_responsive_names,
+        usage_profile_names=strict_usage_profile_groups,
     )
     write(OUTPUT_DIR / STRICT_OUTPUT_FILE, strict_yaml)
     write_test_summary(OUTPUT_DIR / 'Strict' / 'summary_strict_alive.json', {
@@ -2488,12 +2760,14 @@ def generate():
     alive_best_names = [c.get('name') for c in alive_best_configs if c.get('name')]
     alive_responsive_configs = get_responsive_configs(alive_usable_configs, RESPONSIVE_TOP_N, BEST_PING_COUNTRY_FILTER)
     alive_responsive_names = [c.get('name') for c in alive_responsive_configs if c.get('name')]
+    alive_usage_profile_groups = get_usage_profile_group_names(alive_usable_configs)
     lengkap_alive_yaml = build_openclash_yaml(
         alive_collections['yaml_items'],
         alive_collections['protocol_proxy_names'],
         alive_collections['country_proxy_names'],
         best_balance_names=alive_best_names,
         responsive_names=alive_responsive_names,
+        usage_profile_names=alive_usage_profile_groups,
     )
     write(OUTPUT_DIR / 'lengkap_alive.yaml', lengkap_alive_yaml)
 
@@ -2502,8 +2776,9 @@ def generate():
     best_balance_names = [c.get('name') for c in best_configs if c.get('name')]
     responsive_configs = get_responsive_configs(source_for_best, RESPONSIVE_TOP_N, BEST_PING_COUNTRY_FILTER)
     responsive_names = [c.get('name') for c in responsive_configs if c.get('name')]
-    write_lite_output(source_for_best, best_configs, responsive_configs)
-    write_fast_output(source_for_best, best_configs, responsive_configs)
+    usage_profile_groups = write_usage_profile_outputs(source_for_best)
+    write_lite_output(source_for_best, best_configs, responsive_configs, usage_profile_groups)
+    write_fast_output(source_for_best, best_configs, responsive_configs, usage_profile_groups)
     test_summary['best_ping_top_n'] = BEST_PING_TOP_N
     test_summary['best_ping_country_filter'] = BEST_PING_COUNTRY_FILTER or 'GLOBAL'
     test_summary['best_ping_fallback_global_if_empty'] = BEST_PING_FALLBACK_GLOBAL
@@ -2515,6 +2790,8 @@ def generate():
     test_summary['responsive_count'] = len(responsive_configs)
     test_summary['responsive_names'] = responsive_names
     test_summary['fast_output_file'] = f'output/{FAST_OUTPUT_FILE}'
+    test_summary['usage_profile_groups'] = list((usage_profile_groups or {}).keys())
+    test_summary['usage_profile_count'] = len(usage_profile_groups or {})
     test_summary['strict_output_file'] = f'output/{STRICT_OUTPUT_FILE}'
     test_summary['strict_output_count'] = len(strict_usable_configs)
     write_test_summary(OUTPUT_DIR / 'Alive' / 'summary_alive.json', test_summary)
@@ -2533,6 +2810,7 @@ def generate():
         collections['country_proxy_names'],
         best_balance_names=best_balance_names,
         responsive_names=responsive_names,
+        usage_profile_names=usage_profile_groups,
     )
     write(OUTPUT_DIR / OPENCLASH_OUTPUT_FILE, openclash_yaml)
 
