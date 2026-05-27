@@ -29,6 +29,21 @@ proxies:
       headers:
         Host: "sni.skylee4.cloudns.ch"
     udp: true
+  - name: "Tel Proxy_Vpney (4"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 536d0d54-53a5-455a-ad7c-a525d8ff629f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tesdt.arvanabr.xyz"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tesdt.arvanabr.xyz"
+    udp: true
   - name: "30 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
@@ -43,36 +58,6 @@ proxies:
       path: "/"
       headers:
         Host: "uin-ape.pages.dev"
-    udp: true
-  - name: "AliXTso 7740"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "afrcloud2.c01.kr"
-    ws-opts:
-      path: "/139.45.214.126:443"
-      headers:
-        Host: "afrcloud2.c01.kr"
-    udp: true
-  - name: "AliXTso 5473"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "afrcloud2.c01.kr"
-    ws-opts:
-      path: "/2.56.206.114:8443"
-      headers:
-        Host: "afrcloud2.c01.kr"
     udp: true
   - name: "appsooner"
     server: "104.17.3.81"
@@ -133,18 +118,4 @@ proxies:
       path: "/"
       headers:
         Host: "a1-tss.pages.dev"
-    udp: true
-  - name: "appsooner 4411"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "2238e2f3-1a01-485e-8c22-24b65764c68b"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "gzjx.dpdns.org"
-    ws-opts:
-      path: "/51.91.253.83"
-      headers:
-        Host: "gzjx.dpdns.org"
     udp: true

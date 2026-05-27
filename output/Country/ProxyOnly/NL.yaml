@@ -1,5 +1,5 @@
 proxies:
-  - name: "oneclickvpnkeys NL 7622"
+  - name: "oneclickvpnkeys NL 7583"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -12,4 +12,18 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.multiplydose.com"
+    udp: true
+  - name: "v2line NL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
     udp: true

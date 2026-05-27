@@ -1,5 +1,34 @@
 proxies:
-  - name: "oneclickvpnkeys FR 3628"
+  - name: "FR 32283 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e258977b-e413-4718-a3af-02d75492c349
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "jp.aniua.qzz.io"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "jp.aniua.qzz.io"
+    udp: true
+  - name: "oneclickvpnkeys FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 9660"
     server: "104.17.3.81"
     port: 443
     type: trojan
