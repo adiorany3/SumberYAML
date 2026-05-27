@@ -21,6 +21,8 @@ URL_TEST_TOLERANCE = 50
 FETCH_WORKERS = 10
 COUNTRY_OUTPUT_DIR = 'Country'
 UNKNOWN_COUNTRY_CODE = 'UNKNOWN'
+# Default false agar output OpenClash tidak kebanyakan group URL-Test per negara.
+ENABLE_COUNTRY_URL_TEST_GROUPS = os.getenv('ENABLE_COUNTRY_URL_TEST_GROUPS', 'false').strip().lower() in ['1', 'true', 'yes', 'y', 'on']
 
 # =========================
 # Telegram Bot Integration
@@ -779,13 +781,14 @@ def build_openclash_yaml(all_yaml_items, protocol_proxy_names, country_proxy_nam
     if all_proxy_names:
         groups.append(make_url_test_group('URL-TEST GABUNGAN', all_proxy_names))
 
-    for country_code in sorted(country_proxy_names):
-        names = country_proxy_names.get(country_code, [])
-        if not names:
-            continue
-        group_name = f'URL-TEST {country_label(country_code)}'
-        country_group_names.append(group_name)
-        groups.append(make_url_test_group(group_name, names))
+    if ENABLE_COUNTRY_URL_TEST_GROUPS:
+        for country_code in sorted(country_proxy_names):
+            names = country_proxy_names.get(country_code, [])
+            if not names:
+                continue
+            group_name = f'URL-TEST {country_label(country_code)}'
+            country_group_names.append(group_name)
+            groups.append(make_url_test_group(group_name, names))
 
     select_entries = []
     if all_proxy_names:

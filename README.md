@@ -352,3 +352,16 @@ Jika ingin selalu test ulang walaupun source belum berubah, ubah:
 ```env
 FAST_REUSE_WHEN_NO_SOURCE_CHANGE=false
 ```
+
+
+## Group URL-Test Per Negara
+
+Default terbaru: group `URL-TEST <NEGARA>` tidak dimasukkan ke `lengkap.yaml`, `lengkap_alive.yaml`, `strict_alive.yaml`, dan `lite.yaml` agar jumlah proxy-group tidak terlalu banyak di OpenClash.
+
+Jika ingin mengaktifkan kembali group per negara, isi env/Secrets berikut:
+
+```env
+ENABLE_COUNTRY_URL_TEST_GROUPS=true
+```
+
+Folder `output/Country/` dan `summary_country.csv` tetap dibuat sebagai laporan/arsip, tetapi tidak otomatis menjadi group di file utama saat opsi ini `false`.

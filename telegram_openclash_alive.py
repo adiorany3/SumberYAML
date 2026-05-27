@@ -39,6 +39,8 @@ BEST_PING_BALANCE_ENABLE = str(BEST_PING_BALANCE_ENABLE_RAW).strip().lower() in 
 BEST_PING_FALLBACK_GLOBAL = env_bool('BEST_PING_FALLBACK_GLOBAL', True)
 MAX_DELAY_MS = int(os.getenv('MAX_DELAY_MS', '8000'))
 FILTER_MAX_DELAY_FOR_OUTPUT = env_bool('FILTER_MAX_DELAY_FOR_OUTPUT', False)
+# Default false agar lengkap.yaml/lengkap_alive.yaml tidak kebanyakan group per negara.
+ENABLE_COUNTRY_URL_TEST_GROUPS = env_bool('ENABLE_COUNTRY_URL_TEST_GROUPS', False)
 
 # STRICT ALIVE ONLY: hanya proxy yang lolos URL delay test Mihomo beberapa ronde
 # yang boleh masuk output strict/lite/best ping saat mode ini aktif.
@@ -1057,13 +1059,14 @@ def build_openclash_yaml(
         groups.append(make_url_test_group('URL-TEST GABUNGAN', all_proxy_names))
         groups.append(make_fallback_group('FALLBACK', all_proxy_names))
 
-    for country_code in sorted(country_proxy_names):
-        names = country_proxy_names.get(country_code, [])
-        if not names:
-            continue
-        group_name = f'URL-TEST {country_label(country_code)}'
-        country_group_names.append(group_name)
-        groups.append(make_url_test_group(group_name, names))
+    if ENABLE_COUNTRY_URL_TEST_GROUPS:
+        for country_code in sorted(country_proxy_names):
+            names = country_proxy_names.get(country_code, [])
+            if not names:
+                continue
+            group_name = f'URL-TEST {country_label(country_code)}'
+            country_group_names.append(group_name)
+            groups.append(make_url_test_group(group_name, names))
 
     select_entries = []
     if BEST_PING_BALANCE_ENABLE and best_balance_names:
