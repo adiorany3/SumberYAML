@@ -46,7 +46,22 @@ proxies:
       headers:
         Host: "152.67.218.38"
     udp: true
-  - name: "v2rayngzendegimamad 9076"
+  - name: "XX XX VLESS v2rayngvpn_1 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "188.114.96.4"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "188.114.96.4"
+    udp: true
+  - name: "v2rayngzendegimamad 4508"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -61,7 +76,7 @@ proxies:
       headers:
         Host: "afrcloud22.mmv.kr"
     udp: true
-  - name: "v2rayngzendegimamad 5476"
+  - name: "v2rayngzendegimamad 5309"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -91,7 +106,7 @@ proxies:
       headers:
         Host: "afrcloud4.c01.kr"
     udp: true
-  - name: "CUSTOMVPNSERVER 6765"
+  - name: "CUSTOMVPNSERVER 5273"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -106,7 +121,7 @@ proxies:
       headers:
         Host: "afrcloud1.c01.kr"
     udp: true
-  - name: "CUSTOMVPNSERVER 6195"
+  - name: "CUSTOMVPNSERVER 7538"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -136,7 +151,7 @@ proxies:
       headers:
         Host: "172.67.73.14"
     udp: true
-  - name: "CUSTOMVPNSERVER 1387"
+  - name: "CUSTOMVPNSERVER 8606"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -151,7 +166,7 @@ proxies:
       headers:
         Host: "afrcloud1.c01.kr"
     udp: true
-  - name: "CUSTOMVPNSERVER 9409"
+  - name: "CUSTOMVPNSERVER 6116"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -166,7 +181,7 @@ proxies:
       headers:
         Host: "afrcloud1.c01.kr"
     udp: true
-  - name: "v2rayngzendegimamad 4891"
+  - name: "v2rayngzendegimamad 8204"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -181,37 +196,22 @@ proxies:
       headers:
         Host: "afrcloud22.mmv.kr"
     udp: true
-  - name: "XX XX VLESS v2rayngvpn_1 1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "188.114.96.4"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "188.114.96.4"
-    udp: true
 
 proxy-groups:
   - name: "URL-TEST KR - South Korea"
     type: url-test
     proxies:
       - "KR KR-152.67.218.38-0253"
-      - "v2rayngzendegimamad 9076"
-      - "v2rayngzendegimamad 5476"
-      - "ProxyVPN11"
-      - "CUSTOMVPNSERVER 6765"
-      - "CUSTOMVPNSERVER 6195"
-      - "Join v2rayngzendegimamad security tls encryption none insecure 0 host afrcloud22"
-      - "CUSTOMVPNSERVER 1387"
-      - "CUSTOMVPNSERVER 9409"
-      - "v2rayngzendegimamad 4891"
       - "XX XX VLESS v2rayngvpn_1 1"
+      - "v2rayngzendegimamad 4508"
+      - "v2rayngzendegimamad 5309"
+      - "ProxyVPN11"
+      - "CUSTOMVPNSERVER 5273"
+      - "CUSTOMVPNSERVER 7538"
+      - "Join v2rayngzendegimamad security tls encryption none insecure 0 host afrcloud22"
+      - "CUSTOMVPNSERVER 8606"
+      - "CUSTOMVPNSERVER 6116"
+      - "v2rayngzendegimamad 8204"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

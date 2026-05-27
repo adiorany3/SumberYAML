@@ -30,6 +30,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "XX XX VLESS kesslervpn 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 8a30cf48-9fa2-46c5-8815-2822b12852e0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "188.114.98.0"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "188.114.98.0"
+    udp: true
   - name: "Evay_vpn"
     server: "104.17.3.81"
     port: 443
@@ -120,7 +135,7 @@ proxies:
       headers:
         Host: "pagescm.freen14.cc.cd"
     udp: true
-  - name: "SoonTeam 2378"
+  - name: "SoonTeam 4893"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -135,34 +150,19 @@ proxies:
       headers:
         Host: "pagescm.freen8.cc.cd"
     udp: true
-  - name: "XX XX VLESS kesslervpn 1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 8a30cf48-9fa2-46c5-8815-2822b12852e0
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "188.114.98.0"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "188.114.98.0"
-    udp: true
 
 proxy-groups:
   - name: "URL-TEST CC - Cocos Islands"
     type: url-test
     proxies:
+      - "XX XX VLESS kesslervpn 1"
       - "Evay_vpn"
       - "filtershekan_channel 2"
       - "16 oneclickvpnkeys"
       - "96 oneclickvpnkeys"
       - "Iranvasll"
       - "98 oneclickvpnkeys"
-      - "SoonTeam 2378"
-      - "XX XX VLESS kesslervpn 1"
+      - "SoonTeam 4893"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

@@ -30,54 +30,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2rayngzendegimamad"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "fapeng.org"
-    network: ws
-    ws-opts:
-      path: "/linkvws"
-      headers:
-        Host: "fapeng.org"
-    udp: true
-  - name: "v2rayngzendegimamad 4101"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "serkat.org"
-    network: ws
-    ws-opts:
-      path: "/linkvws"
-      headers:
-        Host: "Join---v2rayngzendegimamad"
-    udp: true
-  - name: "v2rayngzendegimamad 7897"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "pelang.org"
-    network: ws
-    ws-opts:
-      path: "/linkvws"
-      headers:
-        Host: "pelang.org"
-    udp: true
   - name: "XX XX VMESS iranvpnet 1"
     type: vmess
     server: "104.17.3.81"
@@ -94,15 +46,63 @@ proxies:
       headers:
         Host: "mute-math-d64e.0e503992ad7026.woRKERS.DeV"
     udp: true
+  - name: "v2rayngzendegimamad"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "fapeng.org"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "fapeng.org"
+    udp: true
+  - name: "v2rayngzendegimamad 9979"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "serkat.org"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "Join---v2rayngzendegimamad"
+    udp: true
+  - name: "v2rayngzendegimamad 9432"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "pelang.org"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "pelang.org"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST UNKNOWN"
     type: url-test
     proxies:
-      - "v2rayngzendegimamad"
-      - "v2rayngzendegimamad 4101"
-      - "v2rayngzendegimamad 7897"
       - "XX XX VMESS iranvpnet 1"
+      - "v2rayngzendegimamad"
+      - "v2rayngzendegimamad 9979"
+      - "v2rayngzendegimamad 9432"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
