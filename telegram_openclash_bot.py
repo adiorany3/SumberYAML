@@ -123,6 +123,7 @@ DIRECT_LINKS = [
     'https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt',
     'https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt',
     'https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt',
+    'https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt',
 ]
 PREFIX = {'vmess': 'vmess://', 'vless': 'vless://', 'trojan': 'trojan://'}
 

@@ -187,7 +187,7 @@ GITHUB_WORKFLOW_FILE = get_setting("GITHUB_WORKFLOW_FILE", "update-openclash.yml
 
 # Panel Best Ping di Streamlit dan command Telegram /best.
 BEST_PING_SOURCE_LABEL = get_setting("BEST_PING_SOURCE_LABEL", "Indonesia")
-BEST_PING_LIMIT = get_int_setting("BEST_PING_LIMIT", 10)
+BEST_PING_LIMIT = get_int_setting("BEST_PING_LIMIT", 5)
 # Opsional: isi ID jika hanya ingin menampilkan server negara Indonesia.
 # Kosongkan agar menampilkan proxy alive tercepat dari semua negara.
 BEST_PING_COUNTRY_FILTER = get_setting("BEST_PING_COUNTRY_FILTER", "").upper()
@@ -213,10 +213,10 @@ WORKFLOW_ID = normalize_workflow_id(GITHUB_WORKFLOW_FILE)
 
 BOT_COMMANDS = [
     {"command": "update", "description": "Update config + test ping + rebuild lengkap.yaml"},
-    {"command": "update_ping", "description": "Update ping + rebuild BALANCE TOP 10 INDONESIA"},
+    {"command": "update_ping", "description": "Update ping + rebuild URL-TEST TOP 5 PING"},
     {"command": "test", "description": "Cek proxy hidup/mati"},
     {"command": "test_ping", "description": "Test ping dan update laporan Alive/Dead"},
-    {"command": "best", "description": "Tampilkan 10 ping tercepat"},
+    {"command": "best", "description": "Tampilkan 5 ping tercepat"},
     {"command": "status", "description": "Cek workflow GitHub terakhir"},
     {"command": "check", "description": "Cek konfigurasi token/repo/workflow"},
     {"command": "id", "description": "Tampilkan chat ID"},
@@ -636,7 +636,7 @@ def best_ping_text_for_telegram(limit: int = 10) -> str:
         f"🏆 <b>Best Ping From {escape(source_label)}</b>",
         f"Sumber: <code>{escape(data.get('source_path', '-'))}</code>",
         f"Proxy di lengkap.yaml: <code>{data.get('yaml_proxy_count', 0)}</code>",
-        "Group balance: <code>BALANCE TOP 10 INDONESIA</code>",
+        "Group URL-Test: <code>URL-TEST TOP 5 PING</code>",
         "",
     ]
 
@@ -713,7 +713,7 @@ def handle_update_ping(chat_id):
         f"Workflow: <code>{WORKFLOW_ID}</code>\n"
         f"Branch/ref: <code>{GITHUB_REF}</code>\n\n"
         "GitHub Actions akan menjalankan test ping, memperbarui laporan Alive/Dead, "
-        "dan memasukkan 10 ping tercepat ke grup <code>BALANCE TOP 10 INDONESIA</code> di <code>output/lengkap.yaml</code>.\n\n"
+        "dan memasukkan 5 ping tercepat ke grup URL-Test <code>URL-TEST TOP 5 PING</code> di <code>output/lengkap.yaml</code>.\n\n"
         "Tunggu notifikasi final dari GitHub Actions.",
     )
 
@@ -738,7 +738,7 @@ def handle_test_ping(chat_id):
         "- <code>output/Alive/check_result.csv</code>\n"
         "- <code>output/Alive/alive.csv</code>\n"
         "- <code>output/Alive/dead.csv</code>\n"
-        "- <code>output/BestPing/top10_indonesia.csv</code>\n\n"
+        "- <code>output/BestPing/top5_best_ping.csv</code>\n\n"
         "Tunggu notifikasi final dari GitHub Actions.",
     )
 
@@ -813,10 +813,10 @@ def handle_help(chat_id):
         chat_id,
         "<b>Command tersedia:</b>\n"
         "/update - update config + test ping + rebuild lengkap.yaml\n"
-        "/update_ping - update ping + rebuild BALANCE TOP 10 INDONESIA\n"
+        "/update_ping - update ping + rebuild URL-TEST TOP 5 PING\n"
         "/test - cek proxy hidup/mati via GitHub Actions\n"
         "/test_ping - test ping saja dan update laporan Alive/Dead\n"
-        "/best - tampilkan 10 ping tercepat\n"
+        "/best - tampilkan 5 ping tercepat\n"
         "/commands - refresh menu command Telegram\n"
         "/status - cek workflow GitHub terakhir\n"
         "/check - cek konfigurasi token/repo/workflow\n"

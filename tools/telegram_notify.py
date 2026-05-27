@@ -89,14 +89,14 @@ def read_protocol_rows():
         return list(csv.DictReader(file))
 
 
-def read_top10_rows():
-    path = Path("output/BestPing/top10_indonesia.csv")
+def read_top5_rows():
+    path = Path("output/BestPing/top5_best_ping.csv")
     if not path.exists():
         return []
 
     try:
         with path.open(encoding="utf-8", newline="") as file:
-            return list(csv.DictReader(file))[:10]
+            return list(csv.DictReader(file))[:5]
     except Exception:
         return []
 
@@ -128,10 +128,10 @@ def success_message():
                 f"output `{row.get('final_output_count', '0')}`"
             )
 
-    top10_rows = read_top10_rows()
-    if top10_rows:
-        lines.extend(["", "Top 10 Balance:"])
-        for idx, row in enumerate(top10_rows, start=1):
+    top5_rows = read_top5_rows()
+    if top5_rows:
+        lines.extend(["", "Top 5 URL-Test:"])
+        for idx, row in enumerate(top5_rows, start=1):
             lines.append(
                 f"- #{idx} {row.get('name', '-')} "
                 f"(`{row.get('delay_ms', '-')} ms`, "
@@ -170,8 +170,8 @@ def main():
         send_document("output/Alive/check_result.csv", "🧪 check_result.csv")
         send_document("output/Alive/alive.csv", "✅ alive.csv")
         send_document("output/Alive/dead.csv", "❌ dead.csv")
-        send_document("output/BestPing/top10_indonesia.csv", "🏆 top10_indonesia.csv")
-        send_document("output/BestPing/top10_indonesia.yaml", "🏆 top10_indonesia.yaml")
+        send_document("output/BestPing/top5_best_ping.csv", "🏆 top5_best_ping.csv")
+        send_document("output/BestPing/top5_best_ping.yaml", "🏆 top5_best_ping.yaml")
 
 
 if __name__ == "__main__":

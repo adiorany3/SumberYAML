@@ -21,12 +21,12 @@ URL_TEST_TOLERANCE = 50
 FETCH_WORKERS = 10
 RUN_MODE = os.getenv('RUN_MODE', 'update').strip().lower() or 'update'
 
-# Top 10 tercepat dari hasil test delay.
+# Top 5 tercepat dari hasil test delay.
 # Catatan: lokasi test mengikuti tempat workflow/script dijalankan.
 # Jika ingin benar-benar dari Indonesia, jalankan workflow di runner/VPS Indonesia.
-BEST_PING_TOP_N = int(os.getenv('BEST_PING_TOP_N', '10'))
+BEST_PING_TOP_N = int(os.getenv('BEST_PING_TOP_N', '5'))
 BEST_PING_BALANCE_ENABLE_RAW = os.getenv('BEST_PING_BALANCE_ENABLE', 'true')
-BEST_PING_BALANCE_NAME = os.getenv('BEST_PING_BALANCE_NAME', 'BALANCE TOP 10 INDONESIA')
+BEST_PING_BALANCE_NAME = os.getenv('BEST_PING_BALANCE_NAME', os.getenv('BEST_PING_URL_TEST_NAME', 'URL-TEST TOP 5 PING'))
 BEST_PING_BALANCE_STRATEGY = os.getenv('BEST_PING_BALANCE_STRATEGY', 'round-robin')
 
 def env_bool(name, default=False):
@@ -129,6 +129,7 @@ DIRECT_LINKS = [
     'https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt',
     'https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt',
     'https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt',
+    'https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt',
 ]
 PREFIX = {'vmess': 'vmess://', 'vless': 'vless://', 'trojan': 'trojan://'}
 
@@ -726,15 +727,8 @@ def make_url_test_group(group_name, proxy_names):
 
 
 def make_load_balance_group(group_name, proxy_names):
-    if not proxy_names:
-        return ''
-    return f'''- name: {yq(group_name)}
-  type: load-balance
-  strategy: {BEST_PING_BALANCE_STRATEGY}
-  proxies:
-{yaml_name_list(proxy_names, 4)}
-  url: {URL_TEST_URL}
-  interval: {URL_TEST_INTERVAL}'''
+    # Backward-compatible function name. Untuk OpenClash sekarang dibuat sebagai URL-Test Top 5, bukan load-balance.
+    return make_url_test_group(group_name, proxy_names)
 
 
 def make_select_group(group_name, entries):
@@ -764,7 +758,7 @@ def build_openclash_yaml(
     country_group_names = []
 
     if BEST_PING_BALANCE_ENABLE and best_balance_names:
-        groups.append(make_load_balance_group(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'BALANCE TOP 10 INDONESIA'), best_balance_names))
+        groups.append(make_load_balance_group(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 PING'), best_balance_names))
     for p in PROTOCOLS:
         names = protocol_proxy_names.get(p, [])
         if not names:
@@ -786,7 +780,7 @@ def build_openclash_yaml(
 
     select_entries = []
     if BEST_PING_BALANCE_ENABLE and best_balance_names:
-        select_entries.append(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'BALANCE TOP 10 INDONESIA'))
+        select_entries.append(sanitize_proxy_name(BEST_PING_BALANCE_NAME, 'URL-TEST TOP 5 PING'))
     if all_proxy_names:
         select_entries.append('URL-TEST GABUNGAN')
     select_entries.extend(protocol_group_names)
@@ -928,30 +922,30 @@ def write_best_ping_outputs(best_configs):
     for idx, c in enumerate(best_configs, start=1):
         row = config_row(c)
         row['rank'] = idx
-        row['balance_group'] = BEST_PING_BALANCE_NAME
+        row['url_test_group'] = BEST_PING_BALANCE_NAME
         rows.append(row)
 
     fields = [
         'rank', 'protocol', 'name', 'country', 'server', 'original_server', 'port',
-        'network', 'status', 'delay_ms', 'reason', 'balance_group', 'raw'
+        'network', 'status', 'delay_ms', 'reason', 'url_test_group', 'raw'
     ]
-    with (best_dir / 'top10_indonesia.csv').open('w', encoding='utf-8', newline='') as f:
+    with (best_dir / 'top5_best_ping.csv').open('w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows(rows)
 
     write(
-        best_dir / 'top10_indonesia.yaml',
+        best_dir / 'top5_best_ping.yaml',
         add_proxies_header([c.get('yaml_text', '') for c in best_configs if c.get('yaml_text')]),
     )
 
     write_test_summary(
-        best_dir / 'summary_top10_indonesia.json',
+        best_dir / 'summary_top5_best_ping.json',
         {
-            'label': 'Best Ping From Indonesia',
-            'note': 'Delay mengikuti lokasi runner tempat test dijalankan. Gunakan runner/VPS Indonesia untuk hasil benar-benar dari Indonesia.',
-            'balance_group': BEST_PING_BALANCE_NAME,
-            'balance_strategy': BEST_PING_BALANCE_STRATEGY,
+            'label': 'Best Ping Top 5',
+            'note': 'Delay mengikuti lokasi runner/tempat test dijalankan. Hasil Top 5 dimasukkan ke grup URL-Test.',
+            'url_test_group': BEST_PING_BALANCE_NAME,
+            'group_type': 'url-test',
             'top_n': BEST_PING_TOP_N,
             'count': len(best_configs),
             'names': [c.get('name') for c in best_configs],
@@ -1319,8 +1313,8 @@ def generate():
     best_configs = get_best_ping_configs(all_configs, BEST_PING_TOP_N)
     best_balance_names = [c.get('name') for c in best_configs if c.get('name')]
     test_summary['best_ping_top_n'] = BEST_PING_TOP_N
-    test_summary['best_ping_balance_group'] = BEST_PING_BALANCE_NAME
-    test_summary['best_ping_balance_strategy'] = BEST_PING_BALANCE_STRATEGY
+    test_summary['best_ping_url_test_group'] = BEST_PING_BALANCE_NAME
+    test_summary['best_ping_group_type'] = 'url-test'
     test_summary['best_ping_count'] = len(best_configs)
     test_summary['best_ping_names'] = best_balance_names
     write_test_summary(OUTPUT_DIR / 'Alive' / 'summary_alive.json', test_summary)
