@@ -19,6 +19,10 @@ on:
         description: lengkap.yaml hanya berisi proxy hidup
         required: false
         default: "true"
+      strict_alive_only:
+        description: Pakai hanya akun yang lolos URL delay test beberapa ronde
+        required: false
+        default: "true"
   schedule:
     - cron: "0 */6 * * *"
 
@@ -36,6 +40,27 @@ env:
   MODE: ${{ github.event.inputs.mode || 'update' }}
   ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
   FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
+  STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
+  TEST_ROUNDS: "3"
+  REQUIRE_SUCCESS_ROUNDS: "3"
+  STRICT_MAX_DELAY_MS: "3000"
+  STRICT_OUTPUT_FILE: "strict_alive.yaml"
+  TCP_FALLBACK: "false"
+  DISABLE_TCP_ONLY_OUTPUT: "true"
+  BEST_PING_TOP_N: "5"
+  BEST_PING_COUNTRY_FILTER: "ID"
+  BEST_PING_URL_TEST_NAME: "URL-TEST TOP 5 INDONESIA"
+  MAX_DELAY_MS: "3000"
+  FILTER_MAX_DELAY_FOR_OUTPUT: "true"
+  BLACKLIST_FILE: "blacklist.txt"
+  SOURCE_CACHE_ENABLE: "true"
+  SOURCE_CACHE_DIR: "output/Cache/sources"
+  LITE_OUTPUT_FILE: "lite.yaml"
+  LITE_GLOBAL_TOP_N: "10"
+  LITE_MAX_TOTAL: "25"
+  CUSTOM_RULES_FILE: "rules/custom_rules.yaml"
+  RANK_TCP_FALLBACK_PENALTY: "300"
+  RANK_GLOBAL_FALLBACK_PENALTY: "1000"
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
@@ -64,6 +89,9 @@ jobs:
           echo "Mode: $MODE"
           echo "Enable proxy test: $ENABLE_PROXY_TEST"
           echo "Filter alive only: $FILTER_ALIVE_ONLY"
+          echo "Strict alive only: $STRICT_ALIVE_ONLY"
+          echo "Test rounds: $TEST_ROUNDS"
+          echo "Require success rounds: $REQUIRE_SUCCESS_ROUNDS"
           echo "Files in root:"
           ls -la
           echo "Workflow files:"
@@ -75,7 +103,7 @@ jobs:
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           else
-            pip install requests pyyaml
+            pip install requests streamlit pyyaml
           fi
 
       - name: Generate OpenClash output
@@ -83,15 +111,12 @@ jobs:
           set -e
           if [ ! -f telegram_openclash_alive.py ]; then
             echo "ERROR: telegram_openclash_alive.py tidak ditemukan di root repository."
-            echo "Pastikan file dari ZIP terbaru sudah diupload ke root repo."
+            echo "Pastikan semua file dari ZIP sudah diupload ke root repo."
             exit 1
           fi
 
-          echo "Menjalankan telegram_openclash_alive.py dengan argumen mode/test..."
-          python telegram_openclash_alive.py \
-            --mode "$MODE" \
-            --enable-proxy-test "$ENABLE_PROXY_TEST" \
-            --filter-alive-only "$FILTER_ALIVE_ONLY" || {
+          echo "Menjalankan telegram_openclash_alive.py..."
+          python telegram_openclash_alive.py             --mode "$MODE"             --enable-proxy-test "$ENABLE_PROXY_TEST"             --filter-alive-only "$FILTER_ALIVE_ONLY"             --strict-alive-only "$STRICT_ALIVE_ONLY"             --test-rounds "$TEST_ROUNDS"             --require-success-rounds "$REQUIRE_SUCCESS_ROUNDS" || {
               echo "Gagal dengan argumen CLI. Coba fallback tanpa argumen..."
               python telegram_openclash_alive.py
             }
@@ -110,6 +135,11 @@ jobs:
           echo "OK: output/lengkap.yaml ditemukan"
           wc -l output/lengkap.yaml || true
 
+      - name: Validate OpenClash YAML
+        run: |
+          set -e
+          python scripts/validate_openclash_outputs.py output/lengkap.yaml output/lengkap_alive.yaml output/strict_alive.yaml output/lite.yaml
+
       - name: Commit output files
         run: |
           git config user.name "github-actions[bot]"
@@ -125,22 +155,12 @@ jobs:
       - name: Notify Telegram
         if: always()
         run: |
-          STATUS="${{ job.status }}"
-          MESSAGE="OpenClash workflow selesai. Status: ${STATUS}. Mode: ${MODE}."
           if [ -f tools/telegram_notify.py ]; then
-            python tools/telegram_notify.py --message "$MESSAGE" || true
+            if [ "${{ job.status }}" = "success" ]; then
+              python tools/telegram_notify.py --stage success || true
+            else
+              python tools/telegram_notify.py --stage failure || true
+            fi
           else
-            python - <<'PY' || true
-          import os, requests
-          token = os.getenv('TELEGRAM_BOT_TOKEN')
-          chat_id = os.getenv('TELEGRAM_CHAT_ID')
-          status = os.getenv('STATUS', 'unknown')
-          mode = os.getenv('MODE', 'unknown')
-          if token and chat_id:
-              requests.post(
-                  f'https://api.telegram.org/bot{token}/sendMessage',
-                  data={'chat_id': chat_id, 'text': f'OpenClash workflow selesai. Status: {status}. Mode: {mode}.'},
-                  timeout=20,
-              )
-          PY
+            echo "tools/telegram_notify.py tidak ditemukan, skip notify."
           fi
