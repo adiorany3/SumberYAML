@@ -45,21 +45,6 @@ proxies:
       headers:
         Host: "188.114.98.0"
     udp: true
-  - name: "Vpn_jet7 1905"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.111000.cc.cd"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "sni.111000.cc.cd"
-    udp: true
   - name: "Evay_vpn"
     server: "104.17.3.81"
     port: 443
@@ -150,7 +135,7 @@ proxies:
       headers:
         Host: "pagescm.freen14.cc.cd"
     udp: true
-  - name: "SoonTeam 8343"
+  - name: "SoonTeam 4225"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -171,14 +156,13 @@ proxy-groups:
     type: url-test
     proxies:
       - "XX XX VLESS kesslervpn 1"
-      - "Vpn_jet7 1905"
       - "Evay_vpn"
       - "filtershekan_channel 2"
       - "16 oneclickvpnkeys"
       - "96 oneclickvpnkeys"
       - "Iranvasll"
       - "98 oneclickvpnkeys"
-      - "SoonTeam 8343"
+      - "SoonTeam 4225"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

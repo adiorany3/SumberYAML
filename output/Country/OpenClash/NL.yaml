@@ -45,36 +45,6 @@ proxies:
       headers:
         Host: "208.67.105.196"
     udp: true
-  - name: "NL 30999 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.111000.dns.army"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "sni.111000.dns.army"
-    udp: true
-  - name: "NL . 144"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 65333935-6133-4339-a563-643462656263
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "cdn1.ufduiudud.site"
-    ws-opts:
-      path: "/l/w/agwLcwY69t1iM8Re?ed=2047"
-      headers:
-        Host: "cdn1.ufduiudud.site"
-    udp: true
   - name: "v2nodes NL"
     server: "104.17.3.81"
     port: 443
@@ -120,7 +90,7 @@ proxies:
       headers:
         Host: "sni.111000.indevs.in"
     udp: true
-  - name: "oneclickvpnkeys NL 7585"
+  - name: "oneclickvpnkeys NL 6694"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -135,7 +105,22 @@ proxies:
       headers:
         Host: "sni.111000.v6.army"
     udp: true
-  - name: "oneclickvpnkeys NL 8509"
+  - name: "oneclickvpnkeys NL 9017"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.111000.dns.army"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "sni.111000.dns.army"
+    udp: true
+  - name: "oneclickvpnkeys NL 9733"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -150,7 +135,7 @@ proxies:
       headers:
         Host: "sni.111000.dns.army"
     udp: true
-  - name: "oneclickvpnkeys NL 3060"
+  - name: "oneclickvpnkeys NL 3716"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -165,7 +150,7 @@ proxies:
       headers:
         Host: "juzi8186.qea.ccwu.cc"
     udp: true
-  - name: "oneclickvpnkeys NL 2826"
+  - name: "oneclickvpnkeys NL 5916"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -180,7 +165,7 @@ proxies:
       headers:
         Host: "juzi8186.qea.ccwu.cc"
     udp: true
-  - name: "oneclickvpnkeys NL 6872"
+  - name: "oneclickvpnkeys NL 9053"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -210,7 +195,22 @@ proxies:
       headers:
         Host: "juzi8186.qea.ccwu.cc"
     udp: true
-  - name: "oneclickvpnkeys NL 9082"
+  - name: "NL . 144"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 65333935-6133-4339-a563-643462656263
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdn1.ufduiudud.site"
+    ws-opts:
+      path: "/l/w/agwLcwY69t1iM8Re?ed=2047"
+      headers:
+        Host: "cdn1.ufduiudud.site"
+    udp: true
+  - name: "oneclickvpnkeys NL 6403"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -224,24 +224,69 @@ proxies:
       headers:
         Host: "HL-FREEDOM-1.UNDEF.NETWORK"
     udp: true
+  - name: "oneclickvpnkeys NL 3761"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "v2line NL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "oneclickvpnkeys NL 3840"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "//assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST NL - Netherlands"
     type: url-test
     proxies:
       - "NL NL VLESS v2ray_collector 1"
-      - "NL 30999 Telegram t.me SOSkeyNET"
-      - "NL . 144"
       - "v2nodes NL"
       - "configshub2 NL"
       - "oneclickvpnkeys NL"
-      - "oneclickvpnkeys NL 7585"
-      - "oneclickvpnkeys NL 8509"
-      - "oneclickvpnkeys NL 3060"
-      - "oneclickvpnkeys NL 2826"
-      - "oneclickvpnkeys NL 6872"
+      - "oneclickvpnkeys NL 6694"
+      - "oneclickvpnkeys NL 9017"
+      - "oneclickvpnkeys NL 9733"
+      - "oneclickvpnkeys NL 3716"
+      - "oneclickvpnkeys NL 5916"
+      - "oneclickvpnkeys NL 9053"
       - "v2ray_configs_pool NL"
-      - "oneclickvpnkeys NL 9082"
+      - "NL . 144"
+      - "oneclickvpnkeys NL 6403"
+      - "oneclickvpnkeys NL 3761"
+      - "v2line NL"
+      - "oneclickvpnkeys NL 3840"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50

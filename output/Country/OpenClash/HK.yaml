@@ -30,22 +30,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "HK HK VMESS freev2rays 1"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: db69d5bc-d36c-4903-f471-74b98c5cefe5
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "hk2.lrzdx.uk"
-    network: ws
-    ws-opts:
-      path: "/register"
-      headers:
-        Host: "hk2.lrzdx.uk"
-    udp: true
   - name: "HK HK-47.238.82.7-0233"
     type: vmess
     server: "104.17.3.81"
@@ -78,20 +62,21 @@ proxies:
       headers:
         Host: "n1753101277.4u9ma.icu"
     udp: true
-  - name: "23 oneclickvpnkeys"
+  - name: "HK HK VMESS freev2rays 1"
+    type: vmess
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
-    cipher: none
+    uuid: db69d5bc-d36c-4903-f471-74b98c5cefe5
+    alterId: 0
+    cipher: auto
     tls: true
     skip-cert-verify: true
+    servername: "hk2.lrzdx.uk"
     network: ws
-    servername: "pagescm.freen22.cc.cd"
     ws-opts:
-      path: "/"
+      path: "/register"
       headers:
-        Host: "pagescm.freen22.cc.cd"
+        Host: "hk2.lrzdx.uk"
     udp: true
   - name: "v2ray_configs_pool HK"
     server: "104.17.3.81"
@@ -108,7 +93,7 @@ proxies:
       headers:
         Host: "dabaius2.sylu.net"
     udp: true
-  - name: "v2ray_configs_pool HK 3060"
+  - name: "v2ray_configs_pool HK 1347"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -123,17 +108,32 @@ proxies:
       headers:
         Host: "gogo10.kmj.qzz.io"
     udp: true
+  - name: "23 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pagescm.freen22.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "pagescm.freen22.cc.cd"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST HK - Hong Kong"
     type: url-test
     proxies:
-      - "HK HK VMESS freev2rays 1"
       - "HK HK-47.238.82.7-0233"
       - "HK HK-47.76.254.70-0252"
-      - "23 oneclickvpnkeys"
+      - "HK HK VMESS freev2rays 1"
       - "v2ray_configs_pool HK"
-      - "v2ray_configs_pool HK 3060"
+      - "v2ray_configs_pool HK 1347"
+      - "23 oneclickvpnkeys"
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
