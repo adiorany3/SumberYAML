@@ -155,6 +155,7 @@ def success_message():
     validation = validation_summary()
     lite = read_json("output/Lite/summary_lite.json")
     strict = read_json("output/Strict/summary_strict_alive.json")
+    reuse = read_json("output/Reuse/reuse_previous_output.json")
 
     lines = [
         mode_title(),
@@ -175,6 +176,14 @@ def success_message():
         f"Run mode: <code>{summary.get('run_mode', RUN_MODE or '-')}</code>",
         "",
     ]
+
+    if reuse.get("reuse_previous_output"):
+        lines.extend([
+            "♻️ Reuse output sebelumnya: <code>AKTIF</code>",
+            f"Alasan: <code>{str(reuse.get('reason', '-'))[:500]}</code>",
+            f"Proxy lengkap: <code>{reuse.get('openclash_proxy_count', '-')}</code> | strict: <code>{reuse.get('strict_proxy_count', '-')}</code> | lite: <code>{reuse.get('lite_proxy_count', '-')}</code>",
+            "",
+        ])
 
     if protocol_rows:
         lines.append("Per protokol:")

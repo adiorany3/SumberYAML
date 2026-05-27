@@ -321,3 +321,34 @@ SHOW_WORKFLOW_STATUS_PANEL = "true"
 WORKFLOW_STATUS_REFRESH_SECONDS = "60"
 ADMIN_PASSWORD = "password_admin_anda"
 ```
+
+## Fallback agar akun tidak kosong
+
+Versi ini menambahkan mekanisme reuse output sebelumnya.
+
+Jika semua sumber gagal, tidak ada akun raw baru, atau hasil parsing valid kosong, workflow akan memakai kembali folder `output` dari commit sebelumnya. Dengan begitu file berikut tidak menjadi kosong:
+
+- `output/lengkap.yaml`
+- `output/lengkap_alive.yaml`
+- `output/strict_alive.yaml`
+- `output/lite.yaml`
+
+Jika raw source saat ini sama persis dengan update sebelumnya, workflow juga mempersingkat proses dengan reuse output lama. Laporan fallback tersedia di:
+
+```text
+output/Reuse/reuse_previous_output.json
+```
+
+Environment terkait:
+
+```env
+USE_PREVIOUS_OUTPUT_IF_EMPTY=true
+FAST_REUSE_WHEN_NO_SOURCE_CHANGE=true
+PREVIOUS_OUTPUT_DIR=.previous_output
+```
+
+Jika ingin selalu test ulang walaupun source belum berubah, ubah:
+
+```env
+FAST_REUSE_WHEN_NO_SOURCE_CHANGE=false
+```

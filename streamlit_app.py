@@ -755,6 +755,7 @@ def load_workflow_status_data() -> dict:
     summary_best = {}
     validation = {}
     sources = {}
+    reuse = {}
     best_rows = []
 
     # Ringkasan output hanya dibaca ketika run sukses agar tidak menampilkan data lama sebagai hasil gagal.
@@ -765,6 +766,7 @@ def load_workflow_status_data() -> dict:
         summary_best = read_json_from_github("output/BestPing/summary_top5_indonesia_ping.json")
         validation = validation_status_summary_for_streamlit()
         sources = source_status_summary_for_streamlit()
+        reuse = read_json_from_github("output/Reuse/reuse_previous_output.json")
         try:
             best_data = load_best_ping_data(limit=BEST_PING_LIMIT)
             best_rows = best_data.get("rows", [])
@@ -783,6 +785,7 @@ def load_workflow_status_data() -> dict:
         "summary_best": summary_best,
         "validation": validation,
         "sources": sources,
+        "reuse": reuse,
         "best_rows": best_rows,
     }
 
@@ -872,6 +875,7 @@ def render_workflow_status_panel():
     summary_best = data.get("summary_best", {}) or {}
     validation = data.get("validation", {}) or {}
     sources = data.get("sources", {}) or {}
+    reuse = data.get("reuse", {}) or {}
     best_rows = data.get("best_rows", []) or []
 
     total_valid = summary_alive.get("total", summary_alive.get("valid", "-"))
@@ -883,6 +887,12 @@ def render_workflow_status_panel():
     lite_count = summary_lite.get("proxy_count", "-")
     best_count = summary_best.get("best_ping_count", len(best_rows))
     validation_text = "OK" if validation.get("ok") else "CHECK"
+    reuse_note = ""
+    if reuse.get("reuse_previous_output"):
+        reuse_note = (
+            f"<br>♻️ Reuse output sebelumnya: <b>AKTIF</b> · "
+            f"Alasan: <b>{escape(str(reuse.get('reason', '-'))[:220])}</b>"
+        )
 
     if conclusion == "success":
         set_pet_action("GitHub Actions selesai. Strict alive dan best ping sudah diperbarui.")
@@ -912,7 +922,7 @@ def render_workflow_status_panel():
                 Strict alive: <b>{escape(str(strict_count))}</b> node · Ronde: <b>{escape(strict_rounds)}</b> · Lite: <b>{escape(str(lite_count))}</b> node<br>
                 Best Ping Indonesia: <b>{escape(str(best_count))}</b> node · Tercepat: <b>{escape(top_line)}</b><br>
                 Source OK: <b>{sources.get('source_ok', '-')}</b> · Cache: <b>{sources.get('source_cached', '-')}</b> · Failed: <b>{sources.get('source_failed', '-')}</b><br>
-                YAML validation: <b>{escape(validation_text)}</b> ({validation.get('ok_count', '-')}/{validation.get('file_count', '-')})
+                YAML validation: <b>{escape(validation_text)}</b> ({validation.get('ok_count', '-')}/{validation.get('file_count', '-')}){reuse_note}
             </div>
         </div>
         """,

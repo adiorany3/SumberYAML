@@ -65,6 +65,14 @@ CUSTOM_RULES_FILE = os.getenv('CUSTOM_RULES_FILE', 'rules/custom_rules.yaml').st
 RANK_TCP_FALLBACK_PENALTY = int(os.getenv('RANK_TCP_FALLBACK_PENALTY', '300'))
 RANK_GLOBAL_FALLBACK_PENALTY = int(os.getenv('RANK_GLOBAL_FALLBACK_PENALTY', '1000'))
 SOURCE_STATUS_ROWS = []
+
+# Reuse output sebelumnya agar hasil tidak kosong dan update lebih cepat
+# jika semua sumber kosong/tidak ada akun baru. PREVIOUS_OUTPUT_DIR diisi workflow
+# dari folder output sebelum proses generate berjalan.
+USE_PREVIOUS_OUTPUT_IF_EMPTY = env_bool('USE_PREVIOUS_OUTPUT_IF_EMPTY', True)
+FAST_REUSE_WHEN_NO_SOURCE_CHANGE = env_bool('FAST_REUSE_WHEN_NO_SOURCE_CHANGE', True)
+PREVIOUS_OUTPUT_DIR = os.getenv('PREVIOUS_OUTPUT_DIR', '').strip()
+
 ENABLE_PROXY_TEST = env_bool('ENABLE_PROXY_TEST', True)
 FILTER_ALIVE_ONLY = env_bool('FILTER_ALIVE_ONLY', True)
 CHECK_TEST_URL = os.getenv('CHECK_TEST_URL', URL_TEST_URL)
@@ -1859,6 +1867,141 @@ def apply_alive_tests(configs):
     return configs, summary
 
 
+
+def count_proxy_names_in_yaml_file(path):
+    """Hitung jumlah proxy pada file OpenClash/YAML proxy-only secara ringan."""
+    try:
+        p = Path(path)
+        if not p.exists() or p.stat().st_size <= 0:
+            return 0
+        text = p.read_text(encoding='utf-8', errors='ignore')
+        # Proxy definitions in this generator always use "- name:".
+        return len(re.findall(r'(?m)^\s*-\s+name\s*:', text))
+    except Exception:
+        return 0
+
+
+def previous_output_path():
+    if not PREVIOUS_OUTPUT_DIR:
+        return None
+    p = Path(PREVIOUS_OUTPUT_DIR)
+    if not p.exists() or not p.is_dir():
+        return None
+    return p
+
+
+def previous_output_has_accounts(prev_dir=None):
+    prev = Path(prev_dir) if prev_dir else previous_output_path()
+    if not prev:
+        return False
+    candidates = [
+        prev / OPENCLASH_OUTPUT_FILE,
+        prev / 'lengkap_alive.yaml',
+        prev / STRICT_OUTPUT_FILE,
+        prev / LITE_OUTPUT_FILE,
+        prev / 'Yaml' / 'vmess.yaml',
+        prev / 'Yaml' / 'vless.yaml',
+        prev / 'Yaml' / 'trojan.yaml',
+    ]
+    return any(count_proxy_names_in_yaml_file(item) > 0 for item in candidates)
+
+
+def raw_signature_from_mapping(mapped):
+    """Signature akun raw dari source saat ini, dipakai untuk mendeteksi tidak ada akun baru."""
+    h = hashlib.sha256()
+    total = 0
+    for p in PROTOCOLS:
+        links = sorted(clean(x) for x in mapped.get(p, []) if clean(x))
+        total += len(links)
+        h.update((p + '\n').encode())
+        for link in links:
+            h.update(link.encode('utf-8', errors='ignore'))
+            h.update(b'\n')
+    return h.hexdigest(), total
+
+
+def raw_signature_from_previous(prev_dir=None):
+    prev = Path(prev_dir) if prev_dir else previous_output_path()
+    if not prev:
+        return '', 0
+    mapped = {}
+    total = 0
+    for p in PROTOCOLS:
+        raw_path = prev / 'Raw' / f'{p}.txt'
+        links = []
+        if raw_path.exists():
+            try:
+                links = [line.strip() for line in raw_path.read_text(encoding='utf-8', errors='ignore').splitlines() if line.strip()]
+            except Exception:
+                links = []
+        mapped[p] = links
+        total += len(links)
+    sig, _ = raw_signature_from_mapping(mapped)
+    return sig, total
+
+
+def write_reuse_previous_report(reason, prev_dir, extra=None):
+    report_dir = OUTPUT_DIR / 'Reuse'
+    report_dir.mkdir(parents=True, exist_ok=True)
+    payload = {
+        'reuse_previous_output': True,
+        'reason': reason,
+        'previous_output_dir': str(prev_dir),
+        'openclash_file': str(OUTPUT_DIR / OPENCLASH_OUTPUT_FILE),
+        'openclash_proxy_count': count_proxy_names_in_yaml_file(OUTPUT_DIR / OPENCLASH_OUTPUT_FILE),
+        'strict_file': str(OUTPUT_DIR / STRICT_OUTPUT_FILE),
+        'strict_proxy_count': count_proxy_names_in_yaml_file(OUTPUT_DIR / STRICT_OUTPUT_FILE),
+        'lite_file': str(OUTPUT_DIR / LITE_OUTPUT_FILE),
+        'lite_proxy_count': count_proxy_names_in_yaml_file(OUTPUT_DIR / LITE_OUTPUT_FILE),
+        'updated_at_epoch': int(time.time()),
+    }
+    if extra:
+        payload.update(extra)
+    (report_dir / 'reuse_previous_output.json').write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding='utf-8',
+    )
+
+
+def reuse_previous_output_if_available(reason, extra=None):
+    """Restore output lama jika generate saat ini kosong/tidak berubah.
+
+    Ini mencegah OpenClash menerima YAML kosong saat semua sumber gagal,
+    GitHub rate limit, atau filter/test sedang terlalu ketat. Source status
+    terbaru tetap ditulis agar alasan fallback terlihat.
+    """
+    prev = previous_output_path()
+    if not prev or not previous_output_has_accounts(prev):
+        return False
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    # Bersihkan output hasil generate parsial, lalu kembalikan output lama.
+    for item in list(OUTPUT_DIR.iterdir()):
+        if item.is_dir():
+            shutil.rmtree(item, ignore_errors=True)
+        else:
+            try:
+                item.unlink()
+            except Exception:
+                pass
+
+    for item in prev.iterdir():
+        target = OUTPUT_DIR / item.name
+        if item.is_dir():
+            shutil.copytree(item, target, dirs_exist_ok=True)
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(item, target)
+
+    # Jangan hilangkan laporan sumber terbaru. Ini akan menimpa source_status lama.
+    write_source_status(
+        OUTPUT_DIR / 'Source' / 'source_status.csv',
+        sorted(SOURCE_STATUS_ROWS, key=lambda item: item.get('url', '')),
+    )
+    write_reuse_previous_report(reason, prev, extra or {})
+    print(f'Reuse previous output aktif: {reason}')
+    return True
+
 def rebuild_collections(configs):
     yaml_items = [c.get('yaml_text', '') for c in configs if c.get('yaml_text')]
     txt_items_by_protocol = {p: [] for p in PROTOCOLS}
@@ -1892,6 +2035,40 @@ def generate():
     contents = fetch_all_sources()
     write_source_status(OUTPUT_DIR / 'Source' / 'source_status.csv', sorted(SOURCE_STATUS_ROWS, key=lambda item: item.get('url', '')))
     mapped = map_protocols(contents)
+
+    current_raw_signature, current_raw_count = raw_signature_from_mapping(mapped)
+    previous_raw_signature, previous_raw_count = raw_signature_from_previous()
+
+    if USE_PREVIOUS_OUTPUT_IF_EMPTY and current_raw_count == 0:
+        if reuse_previous_output_if_available(
+            'Tidak ada akun raw dari sumber mana pun. Output sebelumnya dipakai agar hasil tidak kosong.',
+            {
+                'current_raw_count': current_raw_count,
+                'previous_raw_count': previous_raw_count,
+                'source_signature_current': current_raw_signature,
+                'source_signature_previous': previous_raw_signature,
+            },
+        ):
+            return
+
+    if (
+        FAST_REUSE_WHEN_NO_SOURCE_CHANGE
+        and current_raw_count > 0
+        and previous_raw_count > 0
+        and current_raw_signature == previous_raw_signature
+    ):
+        if reuse_previous_output_if_available(
+            'Tidak ada akun baru dari sumber. Raw source sama dengan update sebelumnya, proses test dipersingkat dengan reuse output lama.',
+            {
+                'current_raw_count': current_raw_count,
+                'previous_raw_count': previous_raw_count,
+                'source_signature_current': current_raw_signature,
+                'source_signature_previous': previous_raw_signature,
+                'fast_reuse_when_no_source_change': True,
+            },
+        ):
+            return
+
     blacklist_terms = load_blacklist_terms()
     summary, all_invalid, all_duplicates, all_renamed = [], [], [], []
     all_configs = []
@@ -1928,6 +2105,19 @@ def generate():
         all_renamed.extend(renamed)
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    if USE_PREVIOUS_OUTPUT_IF_EMPTY and not all_configs:
+        if reuse_previous_output_if_available(
+            'Tidak ada akun valid setelah parsing/validasi. Output sebelumnya dipakai agar hasil tidak kosong.',
+            {
+                'current_raw_count': current_raw_count,
+                'previous_raw_count': previous_raw_count,
+                'source_signature_current': current_raw_signature,
+                'source_signature_previous': previous_raw_signature,
+                'valid_config_count': 0,
+            },
+        ):
+            return
 
     final_configs, test_summary = apply_alive_tests(all_configs)
     final_names = set(c.get('name') for c in final_configs)
