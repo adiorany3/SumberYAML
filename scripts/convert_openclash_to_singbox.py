@@ -489,8 +489,13 @@ def convert_rule_text(rule: str, default_outbound: str, valid_outbounds: set[str
 
 
 def build_dns(dns_mode: str) -> Dict[str, Any]:
-    # new DNS server format is required by sing-box 1.14+.
-    # legacy DNS is kept as an optional output for old Android/iOS clients.
+    """Build DNS config with Cloudflare 1.1.1.1 only.
+
+    Catatan:
+    - Tidak memakai 8.8.8.8 atau resolver lain.
+    - Mode legacy dipakai untuk client lama yang menolak dns.servers[].type.
+    - Mode new dipakai untuk sing-box 1.14+ yang menerima type/server.
+    """
     if dns_mode == "new":
         return {
             "servers": [
@@ -499,23 +504,15 @@ def build_dns(dns_mode: str) -> Dict[str, Any]:
                     "tag": "cloudflare",
                     "server": "1.1.1.1",
                 },
-                {
-                    "type": "udp",
-                    "tag": "google",
-                    "server": "8.8.8.8",
-                },
             ],
             "final": "cloudflare",
         }
+
     return {
         "servers": [
             {
                 "tag": "cloudflare",
                 "address": "1.1.1.1",
-            },
-            {
-                "tag": "google",
-                "address": "8.8.8.8",
             },
         ],
         "final": "cloudflare",
