@@ -1,11 +1,14 @@
-import base64
+from __future__ import annotations
+
 import glob
 import io
 import json
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Any
+from urllib.parse import quote
 
 import qrcode
+import requests
 import streamlit as st
 from PIL import Image
 
@@ -13,48 +16,85 @@ from PIL import Image
 REPO_OWNER = "adiorany3"
 REPO_NAME = "SumberYAML"
 DEFAULT_BRANCH = "main"
+DEFAULT_PROFILE_NAME = "SumberYAML Lengkap"
+DEFAULT_JSON_PATH = "output/SingBox/lengkap.json"
 DEFAULT_RAW_URL = (
     f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/"
-    f"{DEFAULT_BRANCH}/output/SingBox/lengkap.json"
+    f"{DEFAULT_BRANCH}/{DEFAULT_JSON_PATH}"
 )
 
 
 st.set_page_config(
-    page_title="Sing-box JSON QR Generator",
+    page_title="Sing-box Profile QR",
     page_icon="📱",
     layout="wide",
 )
 
 
-CUSTOM_CSS = """
+st.markdown(
+    """
 <style>
 .block-container {
-    padding-top: 1.5rem;
+    padding-top: 1.4rem;
+    padding-bottom: 2.5rem;
 }
-.qr-card {
-    border: 1px solid rgba(128,128,128,.25);
+.good-card {
+    border: 1px solid rgba(70, 160, 90, .35);
     border-radius: 18px;
-    padding: 1rem;
-    background: rgba(255,255,255,.03);
+    padding: 1rem 1.1rem;
+    background: rgba(70, 160, 90, .06);
+}
+.warn-card {
+    border: 1px solid rgba(230, 160, 40, .35);
+    border-radius: 18px;
+    padding: 1rem 1.1rem;
+    background: rgba(230, 160, 40, .07);
 }
 .small-note {
     font-size: .9rem;
-    opacity: .75;
+    opacity: .72;
 }
 </style>
-"""
-st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 
 def normalize_github_url(url: str) -> str:
-    """Convert a GitHub blob URL to a raw.githubusercontent.com URL."""
-    url = url.strip()
+    """Convert common GitHub blob URL to raw.githubusercontent.com URL."""
+    cleaned = url.strip()
 
-    if "github.com" in url and "/blob/" in url:
-        url = url.replace("https://github.com/", "https://raw.githubusercontent.com/")
-        url = url.replace("/blob/", "/")
+    if "github.com" in cleaned and "/blob/" in cleaned:
+        cleaned = cleaned.replace(
+            "https://github.com/",
+            "https://raw.githubusercontent.com/",
+        )
+        cleaned = cleaned.replace("/blob/", "/")
 
-    return url
+    return cleaned
+
+
+def build_raw_github_url(
+    owner: str,
+    repo: str,
+    branch: str,
+    file_path: str,
+) -> str:
+    clean_path = file_path.replace("\\", "/").lstrip("/")
+    return f"https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{clean_path}"
+
+
+def build_singbox_remote_profile_uri(
+    raw_url: str,
+    profile_name: str,
+) -> str:
+    """
+    Build official sing-box graphical-client remote profile import URL scheme:
+    sing-box://import-remote-profile?url=urlEncodedURL#urlEncodedName
+    """
+    encoded_url = quote(raw_url.strip(), safe="")
+    encoded_name = quote(profile_name.strip() or "SingBox Profile", safe="")
+    return f"sing-box://import-remote-profile?url={encoded_url}#{encoded_name}"
 
 
 def find_json_files() -> list[str]:
@@ -71,26 +111,6 @@ def find_json_files() -> list[str]:
     return sorted(set(files))
 
 
-def read_json_from_file(path: str) -> Tuple[str, Optional[dict]]:
-    raw = Path(path).read_text(encoding="utf-8")
-    try:
-        parsed = json.loads(raw)
-        pretty = json.dumps(parsed, indent=2, ensure_ascii=False)
-        return pretty, parsed
-    except Exception:
-        return raw, None
-
-
-def read_uploaded_json(uploaded_file) -> Tuple[str, Optional[dict]]:
-    raw = uploaded_file.read().decode("utf-8", errors="replace")
-    try:
-        parsed = json.loads(raw)
-        pretty = json.dumps(parsed, indent=2, ensure_ascii=False)
-        return pretty, parsed
-    except Exception:
-        return raw, None
-
-
 def make_qr_image(data: str, error_correction: str = "M") -> Image.Image:
     correction_map = {
         "L": qrcode.constants.ERROR_CORRECT_L,
@@ -101,14 +121,20 @@ def make_qr_image(data: str, error_correction: str = "M") -> Image.Image:
 
     qr = qrcode.QRCode(
         version=None,
-        error_correction=correction_map.get(error_correction, qrcode.constants.ERROR_CORRECT_M),
-        box_size=8,
+        error_correction=correction_map.get(
+            error_correction,
+            qrcode.constants.ERROR_CORRECT_M,
+        ),
+        box_size=9,
         border=3,
     )
     qr.add_data(data)
     qr.make(fit=True)
 
-    return qr.make_image(fill_color="black", back_color="white").convert("RGB")
+    return qr.make_image(
+        fill_color="black",
+        back_color="white",
+    ).convert("RGB")
 
 
 def image_to_png_bytes(image: Image.Image) -> bytes:
@@ -117,225 +143,310 @@ def image_to_png_bytes(image: Image.Image) -> bytes:
     return buffer.getvalue()
 
 
-def make_download_name(source_name: str, suffix: str = "qr") -> str:
-    clean = Path(source_name).stem if source_name else "singbox"
-    return f"{clean}-{suffix}.png"
+def load_json_file(path: str) -> tuple[str, dict[str, Any] | None, str | None]:
+    try:
+        text = Path(path).read_text(encoding="utf-8")
+    except Exception as exc:
+        return "", None, f"Tidak bisa membaca file: {exc}"
+
+    try:
+        parsed = json.loads(text)
+        pretty = json.dumps(parsed, indent=2, ensure_ascii=False)
+        return pretty, parsed, None
+    except Exception as exc:
+        return text, None, f"File bukan JSON valid: {exc}"
 
 
-def build_data_uri(text: str) -> str:
-    encoded = base64.b64encode(text.encode("utf-8")).decode("ascii")
-    return f"data:application/json;base64,{encoded}"
+def fetch_remote_json(url: str) -> tuple[str, dict[str, Any] | None, str | None]:
+    try:
+        response = requests.get(
+            url,
+            timeout=12,
+            headers={"User-Agent": "streamlit-singbox-profile-qr"},
+        )
+        response.raise_for_status()
+    except Exception as exc:
+        return "", None, f"Gagal mengambil URL: {exc}"
+
+    text = response.text
+
+    try:
+        parsed = response.json()
+        pretty = json.dumps(parsed, indent=2, ensure_ascii=False)
+        return pretty, parsed, None
+    except Exception as exc:
+        return text, None, f"URL berhasil diambil, tetapi isinya bukan JSON valid: {exc}"
 
 
-st.title("📱 Sing-box JSON QR Generator")
-st.caption("Tampilkan config sing-box JSON sebagai QR Code dari file lokal, upload JSON, atau raw GitHub URL.")
+def validate_singbox_config(config: dict[str, Any] | None) -> list[str]:
+    warnings: list[str] = []
+
+    if not isinstance(config, dict):
+        return ["Config belum terbaca sebagai object JSON."]
+
+    outbounds = config.get("outbounds")
+    inbounds = config.get("inbounds")
+
+    if not isinstance(outbounds, list) or not outbounds:
+        warnings.append("Field `outbounds` kosong/tidak ada. Config sing-box biasanya wajib punya outbounds.")
+
+    if inbounds is not None and not isinstance(inbounds, list):
+        warnings.append("Field `inbounds` harus berupa array/list.")
+
+    if isinstance(outbounds, list):
+        tags = []
+        for item in outbounds:
+            if isinstance(item, dict):
+                tag = item.get("tag")
+                if tag:
+                    tags.append(tag)
+
+                if item.get("type") in {"block", "dns"}:
+                    warnings.append(
+                        "Masih ada special outbound lama `block`/`dns`. "
+                        "Untuk sing-box 1.11+ sebaiknya migrasi ke rule action."
+                    )
+
+        if len(tags) != len(set(tags)):
+            warnings.append("Ada tag outbound duplikat. Ini bisa membuat profile gagal jalan.")
+
+    route = config.get("route")
+    if route is not None and not isinstance(route, dict):
+        warnings.append("Field `route` harus berupa object JSON.")
+
+    dns = config.get("dns")
+    if dns is not None and not isinstance(dns, dict):
+        warnings.append("Field `dns` harus berupa object JSON.")
+
+    return warnings
+
+
+def metric_counts(config: dict[str, Any] | None) -> tuple[int, int, int]:
+    if not isinstance(config, dict):
+        return 0, 0, 0
+
+    inbounds = config.get("inbounds", [])
+    outbounds = config.get("outbounds", [])
+    rules = config.get("route", {}).get("rules", []) if isinstance(config.get("route"), dict) else []
+
+    return (
+        len(inbounds) if isinstance(inbounds, list) else 0,
+        len(outbounds) if isinstance(outbounds, list) else 0,
+        len(rules) if isinstance(rules, list) else 0,
+    )
+
+
+st.title("📱 Sing-box Remote Profile QR")
+st.caption(
+    "QR valid untuk aplikasi sing-box/SFA harus berisi URL scheme remote profile, "
+    "bukan raw JSON langsung."
+)
 
 with st.sidebar:
-    st.header("Sumber JSON")
+    st.header("Sumber profile")
 
     source_mode = st.radio(
         "Pilih sumber",
         [
-            "File lokal repo",
-            "Upload JSON",
             "Raw GitHub URL",
-            "Tempel manual",
+            "File lokal repo",
         ],
         index=0,
     )
 
     st.divider()
+    st.header("Repository default")
 
-    st.header("Mode QR")
-    qr_mode = st.radio(
-        "Isi QR",
-        [
-            "Raw GitHub URL / link config",
-            "Isi JSON langsung",
-            "Data URI base64 JSON",
-        ],
-        index=0,
-        help=(
-            "Untuk config besar, mode URL paling aman. "
-            "QR raw JSON bisa gagal karena kapasitas QR terbatas."
-        ),
-    )
+    repo_owner = st.text_input("Owner", value=REPO_OWNER)
+    repo_name = st.text_input("Repo", value=REPO_NAME)
+    branch = st.text_input("Branch", value=DEFAULT_BRANCH)
+
+    st.divider()
+    st.header("QR")
+
+    profile_name = st.text_input("Nama profile", value=DEFAULT_PROFILE_NAME)
 
     error_correction = st.selectbox(
-        "Error correction QR",
+        "Error correction",
         ["L", "M", "Q", "H"],
         index=1,
-        help="M seimbang. L menampung teks lebih panjang. H lebih tahan rusak tapi kapasitas lebih kecil.",
+        help="M biasanya paling seimbang. Untuk QR sangat pendek, M/H aman.",
     )
 
-    show_preview = st.toggle("Tampilkan preview JSON", value=True)
+    validate_remote = st.toggle(
+        "Validasi remote JSON",
+        value=True,
+        help="Aplikasi akan mencoba mengambil raw URL dan cek struktur JSON sing-box dasar.",
+    )
 
 
-json_text = ""
-json_obj = None
-source_label = "singbox"
 raw_url = DEFAULT_RAW_URL
+source_label = "lengkap"
+local_json_text = ""
+local_json_obj: dict[str, Any] | None = None
+local_error: str | None = None
 
-if source_mode == "File lokal repo":
+if source_mode == "Raw GitHub URL":
+    raw_url = st.text_input(
+        "Raw URL file JSON sing-box",
+        value=DEFAULT_RAW_URL,
+        help=(
+            "Bisa paste URL github.com/.../blob/...; aplikasi akan otomatis mengubahnya "
+            "ke raw.githubusercontent.com."
+        ),
+    )
+    raw_url = normalize_github_url(raw_url)
+    source_label = raw_url.rstrip("/").split("/")[-1].replace(".json", "") or "singbox"
+
+elif source_mode == "File lokal repo":
     local_files = find_json_files()
 
     if not local_files:
         st.warning(
-            "Belum ada file JSON lokal yang ditemukan. "
-            "Pastikan file ada di output/SingBox/*.json atau upload JSON secara manual."
+            "Belum ada file JSON lokal. Pastikan ada `output/SingBox/*.json` "
+            "atau pakai mode Raw GitHub URL."
         )
     else:
-        selected_file = st.selectbox("Pilih file JSON", local_files)
-        json_text, json_obj = read_json_from_file(selected_file)
-        source_label = selected_file
-
-        possible_raw = selected_file.replace("\\", "/")
-        raw_url = (
-            f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/"
-            f"{DEFAULT_BRANCH}/{possible_raw}"
+        selected_file = st.selectbox(
+            "Pilih file JSON lokal",
+            local_files,
+            index=local_files.index(DEFAULT_JSON_PATH) if DEFAULT_JSON_PATH in local_files else 0,
         )
-
-elif source_mode == "Upload JSON":
-    uploaded = st.file_uploader("Upload file .json", type=["json"])
-
-    if uploaded is not None:
-        json_text, json_obj = read_uploaded_json(uploaded)
-        source_label = uploaded.name
-
-elif source_mode == "Raw GitHub URL":
-    raw_url = st.text_input(
-        "URL raw JSON",
-        value=DEFAULT_RAW_URL,
-        help="Bisa paste URL github.com/.../blob/... nanti otomatis diubah ke raw URL.",
-    )
-    raw_url = normalize_github_url(raw_url)
-    source_label = raw_url.split("/")[-1] or "singbox"
-    st.info("Mode ini tidak mengambil isi URL di Streamlit; QR berisi link raw JSON agar bisa dipindai/download oleh client.")
-
-elif source_mode == "Tempel manual":
-    json_text = st.text_area(
-        "Tempel isi JSON sing-box",
-        height=320,
-        placeholder='{\n  "log": {"level": "info"},\n  "inbounds": [],\n  "outbounds": []\n}',
-    )
-    source_label = "manual-json"
-
-    if json_text.strip():
-        try:
-            json_obj = json.loads(json_text)
-            json_text = json.dumps(json_obj, indent=2, ensure_ascii=False)
-        except Exception:
-            json_obj = None
+        source_label = Path(selected_file).stem
+        raw_url = build_raw_github_url(repo_owner, repo_name, branch, selected_file)
+        local_json_text, local_json_obj, local_error = load_json_file(selected_file)
 
 
-left, right = st.columns([1.1, 0.9], gap="large")
+import_uri = build_singbox_remote_profile_uri(raw_url, profile_name)
+
+left, right = st.columns([1.08, 0.92], gap="large")
 
 with left:
-    st.subheader("Config")
+    st.subheader("Payload profile")
 
-    if source_mode != "Raw GitHub URL" and json_text:
-        size_bytes = len(json_text.encode("utf-8"))
-        st.write(f"Ukuran JSON: **{size_bytes:,} bytes**")
+    st.markdown(
+        """
+<div class="good-card">
+<b>Mode yang benar untuk scan sing-box:</b><br>
+QR di kanan berisi <code>sing-box://import-remote-profile?url=...#NamaProfile</code>.
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
-        if json_obj is not None:
-            inbound_count = len(json_obj.get("inbounds", [])) if isinstance(json_obj, dict) else 0
-            outbound_count = len(json_obj.get("outbounds", [])) if isinstance(json_obj, dict) else 0
-            route_count = len(json_obj.get("route", {}).get("rules", [])) if isinstance(json_obj, dict) else 0
+    st.write("Raw JSON URL:")
+    st.code(raw_url, language="text")
 
+    st.write("Payload QR / deep link sing-box:")
+    st.code(import_uri, language="text")
+
+    st.link_button(
+        "Buka langsung di sing-box",
+        import_uri,
+        use_container_width=True,
+    )
+
+    if source_mode == "File lokal repo":
+        if local_error:
+            st.error(local_error)
+        elif local_json_obj is not None:
+            in_count, out_count, rule_count = metric_counts(local_json_obj)
             c1, c2, c3 = st.columns(3)
-            c1.metric("Inbounds", inbound_count)
-            c2.metric("Outbounds", outbound_count)
-            c3.metric("Route rules", route_count)
+            c1.metric("Inbounds", in_count)
+            c2.metric("Outbounds", out_count)
+            c3.metric("Route rules", rule_count)
+
+            warnings = validate_singbox_config(local_json_obj)
+            if warnings:
+                st.warning("\n".join(f"- {item}" for item in warnings))
+            else:
+                st.success("Struktur dasar JSON sing-box terlihat valid.")
+
+            with st.expander("Preview JSON lokal"):
+                st.code(local_json_text[:12000], language="json")
+                if len(local_json_text) > 12000:
+                    st.caption("Preview dipotong sampai 12.000 karakter.")
+
+    if source_mode == "Raw GitHub URL" and validate_remote:
+        with st.spinner("Mengecek raw URL..."):
+            remote_text, remote_json_obj, remote_error = fetch_remote_json(raw_url)
+
+        if remote_error:
+            st.error(remote_error)
         else:
-            st.warning("Isi belum valid JSON, tetapi tetap bisa dibuat QR sebagai teks mentah.")
+            st.success("Raw URL berhasil diambil dan JSON terbaca.")
+            in_count, out_count, rule_count = metric_counts(remote_json_obj)
+            c1, c2, c3 = st.columns(3)
+            c1.metric("Inbounds", in_count)
+            c2.metric("Outbounds", out_count)
+            c3.metric("Route rules", rule_count)
 
-        if show_preview:
-            st.code(json_text[:12000], language="json")
-            if len(json_text) > 12000:
-                st.caption("Preview dipotong sampai 12.000 karakter agar aplikasi tetap ringan.")
+            warnings = validate_singbox_config(remote_json_obj)
+            if warnings:
+                st.warning("\n".join(f"- {item}" for item in warnings))
+            else:
+                st.success("Struktur dasar JSON sing-box terlihat valid.")
 
-    elif source_mode == "Raw GitHub URL":
-        st.write("QR akan berisi link berikut:")
-        st.code(raw_url, language="text")
-
-    else:
-        st.info("Pilih/upload/tempel JSON terlebih dahulu.")
+            with st.expander("Preview remote JSON"):
+                st.code(remote_text[:12000], language="json")
+                if len(remote_text) > 12000:
+                    st.caption("Preview dipotong sampai 12.000 karakter.")
 
 with right:
-    st.subheader("QR Code")
+    st.subheader("QR untuk import")
 
-    qr_payload = ""
-    suffix = "qr"
+    try:
+        qr_img = make_qr_image(import_uri, error_correction=error_correction)
+        png_bytes = image_to_png_bytes(qr_img)
 
-    if qr_mode == "Raw GitHub URL / link config":
-        if source_mode == "Raw GitHub URL":
-            qr_payload = raw_url
-        elif source_mode == "File lokal repo" and source_label:
-            qr_payload = raw_url
-        else:
-            qr_payload = ""
-            st.warning("Mode URL hanya otomatis untuk file lokal repo atau raw GitHub URL.")
-        suffix = "url-qr"
+        st.image(
+            qr_img,
+            caption="Scan dari sing-box → Add profile / Scan QR",
+            use_container_width=True,
+        )
 
-    elif qr_mode == "Isi JSON langsung":
-        qr_payload = json_text.strip()
-        suffix = "json-qr"
+        st.download_button(
+            "Download QR PNG",
+            data=png_bytes,
+            file_name=f"{source_label}-singbox-profile-qr.png",
+            mime="image/png",
+            use_container_width=True,
+        )
 
-    elif qr_mode == "Data URI base64 JSON":
-        if json_text.strip():
-            qr_payload = build_data_uri(json_text.strip())
-        suffix = "data-uri-qr"
+        st.download_button(
+            "Download payload .txt",
+            data=import_uri.encode("utf-8"),
+            file_name=f"{source_label}-singbox-profile-link.txt",
+            mime="text/plain",
+            use_container_width=True,
+        )
 
-    if qr_payload:
-        payload_size = len(qr_payload.encode("utf-8"))
-        st.write(f"Ukuran payload QR: **{payload_size:,} bytes**")
+    except Exception as exc:
+        st.error(f"Gagal membuat QR: {exc}")
 
-        if payload_size > 2500 and qr_mode != "Raw GitHub URL / link config":
-            st.warning(
-                "Payload QR cukup besar. Banyak scanner/client gagal membaca QR besar. "
-                "Disarankan pakai mode Raw GitHub URL / link config."
-            )
-
-        try:
-            qr_img = make_qr_image(qr_payload, error_correction=error_correction)
-            png_bytes = image_to_png_bytes(qr_img)
-
-            st.image(qr_img, caption="QR Code", use_container_width=True)
-            st.download_button(
-                "Download QR PNG",
-                data=png_bytes,
-                file_name=make_download_name(source_label, suffix=suffix),
-                mime="image/png",
-                use_container_width=True,
-            )
-
-            with st.expander("Lihat payload QR"):
-                st.code(qr_payload[:8000], language="text")
-                if len(qr_payload) > 8000:
-                    st.caption("Payload dipotong sampai 8.000 karakter pada preview.")
-
-        except Exception as exc:
-            st.error(f"Gagal membuat QR: {exc}")
-            st.info(
-                "Coba ganti mode ke Raw GitHub URL / link config, "
-                "atau turunkan error correction ke L."
-            )
-    else:
-        st.info("Belum ada payload QR yang bisa dibuat.")
-
+    st.markdown(
+        """
+<div class="warn-card">
+<b>Jangan scan QR raw JSON penuh.</b><br>
+Banyak client sing-box membaca QR sebagai profile link. Jika QR hanya berisi JSON atau link https biasa, biasanya muncul pesan <i>not valid sing-box profile</i>.
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
 st.divider()
 st.markdown(
     """
-### Cara pakai di repo GitHub
+### Cara pasang di repo
 
 1. Simpan file ini sebagai `streamlit_app.py` di root repo.
-2. Buat file `requirements.txt` berisi:
+2. Buat `requirements.txt`:
 
 ```txt
 streamlit
 qrcode[pil]
 pillow
+requests
 ```
 
 3. Jalankan lokal:
@@ -345,14 +456,16 @@ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-4. Kalau deploy ke Streamlit Cloud, pastikan repo berisi:
+4. Untuk Streamlit Cloud, pastikan file JSON sing-box sudah tersedia di repo, misalnya:
 
 ```text
-streamlit_app.py
-requirements.txt
-output/SingBox/*.json
+output/SingBox/lengkap.json
 ```
 
-Mode paling aman untuk config sing-box besar adalah **Raw GitHub URL / link config**, karena QR langsung berisi link ke file JSON, bukan seluruh isi JSON.
+Payload QR yang benar berbentuk:
+
+```text
+sing-box://import-remote-profile?url=<RAW_JSON_URL_ENCODED>#<PROFILE_NAME_ENCODED>
+```
 """
 )
