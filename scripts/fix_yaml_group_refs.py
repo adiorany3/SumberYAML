@@ -1,39 +1,41 @@
 #!/usr/bin/env python3
 """
-Fix OpenClash/Mihomo YAML proxy-groups that still reference proxies/groups
-that were removed by filtering steps, e.g. lite.yaml / fast.yaml.
+Fix OpenClash/Mihomo YAML proxy-group references after generated outputs are filtered.
 
-Usage:
-  python scripts/fix_yaml_group_refs.py
-  python scripts/fix_yaml_group_refs.py output/lite.yaml output/fast.yaml
+Problem handled:
+- output/lite.yaml and output/fast.yaml may contain fewer proxies than lengkap.yaml.
+- proxy-groups copied from the full config can still reference proxies removed by filtering.
+- The validator then fails with: group points to proxy/group that does not exist.
 
-The script is intentionally conservative:
-- It does not delete proxy-groups.
-- It removes only missing entries inside each group's `proxies` list.
-- If a group becomes empty, it fills it with valid proxies so validation passes.
+This script sanitizes every output YAML before validation:
+1. Collects existing proxy names from proxies[].name.
+2. Collects existing group names from proxy-groups[].name.
+3. Removes every proxy-group target that is not an existing proxy, existing group, or Clash/Mihomo special target.
+4. If a group becomes empty, fills it with the fastest/first available proxy, otherwise DIRECT.
+5. Avoids self references.
 """
 
 from __future__ import annotations
 
 import argparse
-import sys
+import json
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
 
 try:
     import yaml
-except ImportError as exc:  # pragma: no cover
+except ImportError as exc:
     raise SystemExit(
-        "PyYAML belum terinstall. Tambahkan `pip install pyyaml` di workflow atau requirements.txt."
+        "PyYAML belum terinstall. Tambahkan step: pip install pyyaml"
     ) from exc
 
-OUTPUT_DIR = Path("output")
-SPECIAL_TARGETS = {
+
+DEFAULT_SPECIAL_TARGETS = {
     "DIRECT",
     "REJECT",
     "REJECT-DROP",
     "PASS",
-    "COMPATIBLE",
+    "GLOBAL",
 }
 
 DEFAULT_FILES = [
@@ -50,21 +52,17 @@ DEFAULT_FILES = [
 ]
 
 
-def as_list(value: Any) -> list:
-    return value if isinstance(value, list) else []
-
-
-def read_yaml(path: Path) -> dict:
-    with path.open("r", encoding="utf-8") as handle:
-        data = yaml.safe_load(handle) or {}
+def load_yaml(path: Path) -> dict[str, Any]:
+    with path.open("r", encoding="utf-8") as file:
+        data = yaml.safe_load(file) or {}
     return data if isinstance(data, dict) else {}
 
 
-def write_yaml(path: Path, data: dict) -> None:
-    with path.open("w", encoding="utf-8") as handle:
+def dump_yaml(path: Path, data: dict[str, Any]) -> None:
+    with path.open("w", encoding="utf-8") as file:
         yaml.safe_dump(
             data,
-            handle,
+            file,
             allow_unicode=True,
             sort_keys=False,
             default_flow_style=False,
@@ -72,175 +70,204 @@ def write_yaml(path: Path, data: dict) -> None:
         )
 
 
-def get_names(data: dict) -> tuple[list[str], list[str]]:
-    proxies = as_list(data.get("proxies"))
-    groups = as_list(data.get("proxy-groups"))
-
-    proxy_names = [
-        str(item.get("name", "")).strip()
-        for item in proxies
-        if isinstance(item, dict) and str(item.get("name", "")).strip()
-    ]
-    group_names = [
-        str(item.get("name", "")).strip()
-        for item in groups
-        if isinstance(item, dict) and str(item.get("name", "")).strip()
-    ]
-    return proxy_names, group_names
+def unique_keep_order(items: Iterable[str]) -> list[str]:
+    seen: set[str] = set()
+    output: list[str] = []
+    for item in items:
+        text = str(item).strip()
+        if not text or text in seen:
+            continue
+        seen.add(text)
+        output.append(text)
+    return output
 
 
-def valid_target_set(proxy_names: list[str], group_names: list[str]) -> set[str]:
-    return set(proxy_names) | set(group_names) | SPECIAL_TARGETS
+def collect_proxy_names(data: dict[str, Any]) -> list[str]:
+    proxies = data.get("proxies") or []
+    names: list[str] = []
+    if not isinstance(proxies, list):
+        return names
+    for proxy in proxies:
+        if not isinstance(proxy, dict):
+            continue
+        name = str(proxy.get("name") or "").strip()
+        if name:
+            names.append(name)
+    return unique_keep_order(names)
 
 
-def choose_fallback_for_group(group_name: str, proxy_names: list[str], group_names: list[str]) -> list[str]:
-    """Return safe fallback targets when a group loses all entries."""
-    # Prefer real proxy nodes. This avoids self-reference/circular group traps.
+def collect_group_names(data: dict[str, Any]) -> list[str]:
+    groups = data.get("proxy-groups") or []
+    names: list[str] = []
+    if not isinstance(groups, list):
+        return names
+    for group in groups:
+        if not isinstance(group, dict):
+            continue
+        name = str(group.get("name") or "").strip()
+        if name:
+            names.append(name)
+    return unique_keep_order(names)
+
+
+def choose_fallback_proxy(proxy_names: list[str], special_targets: set[str]) -> str:
     if proxy_names:
-        return proxy_names[: min(10, len(proxy_names))]
+        return proxy_names[0]
+    if "DIRECT" in special_targets:
+        return "DIRECT"
+    return next(iter(special_targets), "DIRECT")
 
-    # If no proxy exists, use DIRECT so the YAML remains syntactically valid.
-    return ["DIRECT"]
 
+def sanitize_group_refs(data: dict[str, Any], path: Path, special_targets: set[str]) -> dict[str, Any]:
+    proxy_names = collect_proxy_names(data)
+    group_names = collect_group_names(data)
+    allowed_targets = set(proxy_names) | set(group_names) | special_targets
+    groups = data.get("proxy-groups") or []
 
-def fix_one_file(path: Path, dry_run: bool = False) -> dict:
-    if not path.exists():
-        return {"path": str(path), "exists": False, "changed": False, "removed": 0, "filled": 0, "missing_after": []}
+    report = {
+        "file": str(path),
+        "proxies": len(proxy_names),
+        "groups": len(group_names),
+        "changed": False,
+        "removed": [],
+        "filled": [],
+    }
 
-    data = read_yaml(path)
-    groups = as_list(data.get("proxy-groups"))
-    proxy_names, group_names = get_names(data)
-    valid_targets = valid_target_set(proxy_names, group_names)
+    if not isinstance(groups, list):
+        return report
 
-    changed = False
-    removed_count = 0
-    filled_count = 0
-    details: list[str] = []
+    fallback_proxy = choose_fallback_proxy(proxy_names, special_targets)
 
     for group in groups:
         if not isinstance(group, dict):
             continue
 
-        group_name = str(group.get("name", "")).strip() or "<unnamed>"
-        original_targets = group.get("proxies")
+        group_name = str(group.get("name") or "").strip()
+        targets = group.get("proxies")
 
-        if not isinstance(original_targets, list):
+        if not isinstance(targets, list):
             continue
 
-        clean_targets = []
-        seen = set()
-        removed_targets = []
-
-        for target in original_targets:
-            target_text = str(target).strip()
-            if not target_text:
+        cleaned: list[str] = []
+        removed: list[str] = []
+        for target in targets:
+            target_name = str(target).strip()
+            if not target_name:
                 continue
-            if target_text in valid_targets and target_text not in seen:
-                clean_targets.append(target_text)
-                seen.add(target_text)
-            elif target_text not in valid_targets:
-                removed_targets.append(target_text)
 
-        if removed_targets:
-            removed_count += len(removed_targets)
-            changed = True
-            details.append(f"{group_name}: removed missing target(s): {', '.join(removed_targets)}")
+            # Hindari self-reference karena bisa membuat selector/group aneh.
+            if target_name == group_name:
+                removed.append(target_name)
+                continue
 
-        if not clean_targets:
-            fallback = choose_fallback_for_group(group_name, proxy_names, group_names)
-            clean_targets = fallback
-            filled_count += 1
-            changed = True
-            details.append(f"{group_name}: filled empty group with valid fallback target(s): {', '.join(fallback)}")
+            if target_name in allowed_targets:
+                cleaned.append(target_name)
+            else:
+                removed.append(target_name)
 
-        if clean_targets != original_targets:
-            group["proxies"] = clean_targets
+        cleaned = unique_keep_order(cleaned)
 
-    missing_after = find_missing_group_targets(data)
+        # Group url-test/fallback/load-balance/select butuh minimal 1 target.
+        if not cleaned:
+            cleaned = [fallback_proxy]
+            report["filled"].append({
+                "group": group_name,
+                "fallback": fallback_proxy,
+            })
 
-    if changed and not dry_run:
-        write_yaml(path, data)
+        if cleaned != [str(item).strip() for item in targets if str(item).strip()]:
+            group["proxies"] = cleaned
+            report["changed"] = True
 
-    return {
-        "path": str(path),
-        "exists": True,
-        "changed": changed,
-        "removed": removed_count,
-        "filled": filled_count,
-        "missing_after": missing_after,
-        "details": details,
-        "proxy_count": len(proxy_names),
-        "group_count": len(group_names),
-    }
+        for item in unique_keep_order(removed):
+            report["removed"].append({
+                "group": group_name,
+                "target": item,
+            })
+
+    return report
 
 
-def find_missing_group_targets(data: dict) -> list[str]:
-    proxy_names, group_names = get_names(data)
-    valid_targets = valid_target_set(proxy_names, group_names)
-    missing = []
+def find_yaml_files(output_dir: Path, explicit_files: list[str] | None = None) -> list[Path]:
+    paths: list[Path] = []
 
-    for group in as_list(data.get("proxy-groups")):
-        if not isinstance(group, dict):
-            continue
-        group_name = str(group.get("name", "")).strip() or "<unnamed>"
-        for target in as_list(group.get("proxies")):
-            target_text = str(target).strip()
-            if target_text and target_text not in valid_targets:
-                missing.append(f"{group_name} -> {target_text}")
+    candidates = explicit_files or DEFAULT_FILES
+    for item in candidates:
+        path = Path(item)
+        if path.exists() and path.is_file():
+            paths.append(path)
 
-    return missing
+    # Tambahkan YAML lain di output root jika ada, tanpa masuk terlalu dalam ke arsip/country jika tidak perlu.
+    if output_dir.exists():
+        for path in sorted(output_dir.glob("*.yaml")):
+            if path.is_file() and path not in paths:
+                paths.append(path)
 
-
-def discover_files() -> list[Path]:
-    files = [Path(item) for item in DEFAULT_FILES]
-
-    if OUTPUT_DIR.exists():
-        for path in OUTPUT_DIR.rglob("*.yaml"):
-            if path not in files:
-                files.append(path)
-        for path in OUTPUT_DIR.rglob("*.yml"):
-            if path not in files:
-                files.append(path)
-
-    return files
+    return paths
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Fix missing proxy/group references in OpenClash YAML files.")
-    parser.add_argument("files", nargs="*", help="YAML files to sanitize. Default: common output files + output/**/*.yaml")
-    parser.add_argument("--dry-run", action="store_true", help="Show what would change without writing files.")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output-dir", default="output")
+    parser.add_argument("--report", default="output/Validation/group_ref_fix_report.json")
+    parser.add_argument("files", nargs="*")
     args = parser.parse_args()
 
-    paths = [Path(item) for item in args.files] if args.files else discover_files()
-    if not paths:
-        print("No YAML files found.")
-        return 0
+    output_dir = Path(args.output_dir)
+    report_path = Path(args.report)
+    report_path.parent.mkdir(parents=True, exist_ok=True)
 
-    failed = False
+    special_targets = set(DEFAULT_SPECIAL_TARGETS)
+    paths = find_yaml_files(output_dir, explicit_files=args.files or None)
+
+    reports: list[dict[str, Any]] = []
     for path in paths:
-        result = fix_one_file(path, dry_run=args.dry_run)
-        if not result["exists"]:
-            continue
+        try:
+            data = load_yaml(path)
+            report = sanitize_group_refs(data, path, special_targets)
+            if report.get("changed"):
+                dump_yaml(path, data)
+            reports.append(report)
+        except Exception as exc:
+            reports.append({
+                "file": str(path),
+                "error": str(exc),
+                "changed": False,
+            })
 
-        status = "CHANGED" if result["changed"] else "OK"
-        print(
-            f"[{status}] {result['path']} "
-            f"proxies={result.get('proxy_count', '-')} "
-            f"groups={result.get('group_count', '-')} "
-            f"removed={result.get('removed', 0)} "
-            f"filled={result.get('filled', 0)}"
-        )
-        for detail in result.get("details", []):
-            print(f"  - {detail}")
+    summary = {
+        "ok": not any(item.get("error") for item in reports),
+        "files_checked": len(reports),
+        "files_changed": sum(1 for item in reports if item.get("changed")),
+        "removed_count": sum(len(item.get("removed", [])) for item in reports),
+        "filled_count": sum(len(item.get("filled", [])) for item in reports),
+        "files": reports,
+    }
 
-        missing_after = result.get("missing_after", [])
-        if missing_after:
-            failed = True
-            print("  Missing references remain:")
-            for item in missing_after:
-                print(f"  - {item}")
+    report_path.write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
-    return 1 if failed else 0
+    print(f"Group reference fix report: {report_path}")
+    print(
+        f"Checked={summary['files_checked']} Changed={summary['files_changed']} "
+        f"Removed={summary['removed_count']} Filled={summary['filled_count']}"
+    )
+
+    for item in reports:
+        if item.get("changed"):
+            print(f"[FIXED] {item['file']}")
+            for removed in item.get("removed", [])[:30]:
+                print(f"  - removed {removed['target']} from {removed['group']}")
+            if len(item.get("removed", [])) > 30:
+                print(f"  - ... {len(item.get('removed', [])) - 30} more removed")
+            for filled in item.get("filled", []):
+                print(f"  - filled {filled['group']} with {filled['fallback']}")
+        else:
+            print(f"[OK] {item.get('file')}")
+
+    return 0 if summary["ok"] else 1
 
 
 if __name__ == "__main__":
