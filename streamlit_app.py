@@ -172,6 +172,8 @@ SHOW_SINGBOX_QR_PANEL = get_setting("SHOW_SINGBOX_QR_PANEL", "true").strip().low
 SINGBOX_DEFAULT_PROFILE_NAME = get_setting("SINGBOX_DEFAULT_PROFILE_NAME", "SumberYAML Lengkap")
 SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/lengkap.json")
 SINGBOX_DEFAULT_QR_ERROR_CORRECTION = get_setting("SINGBOX_DEFAULT_QR_ERROR_CORRECTION", "M").upper()
+# Default QR URL source. Gunakan jsDelivr agar perangkat/client yang memblokir raw.githubusercontent.com tetap bisa import.
+SINGBOX_QR_DEFAULT_URL_SOURCE = get_setting("SINGBOX_QR_DEFAULT_URL_SOURCE", "jsdelivr").strip().lower()
 SINGBOX_KNOWN_JSON_PATHS = [
     "output/SingBox/lengkap.json",
     "output/SingBox/latest.json",
@@ -734,6 +736,25 @@ def build_raw_github_url(path: str) -> str:
         return ""
 
     return f"https://raw.githubusercontent.com/{GITHUB_OWNER}/{GITHUB_REPO}/{GITHUB_REF}/{clean_path}"
+
+
+def build_jsdelivr_github_url(path: str) -> str:
+    """Build jsDelivr GitHub CDN URL. Lebih stabil untuk device yang menolak raw.githubusercontent.com."""
+    clean_path = str(path or "").strip().replace("\\", "/").lstrip("/")
+    if not clean_path:
+        clean_path = SINGBOX_DEFAULT_JSON_PATH
+
+    if not GITHUB_OWNER or not GITHUB_REPO:
+        return ""
+
+    return f"https://cdn.jsdelivr.net/gh/{GITHUB_OWNER}/{GITHUB_REPO}@{GITHUB_REF}/{clean_path}"
+
+
+def build_profile_json_url(path: str, source: str = "jsdelivr") -> str:
+    source_key = str(source or "jsdelivr").strip().lower()
+    if source_key in {"raw", "github", "raw github", "github raw"}:
+        return build_raw_github_url(path)
+    return build_jsdelivr_github_url(path)
 
 
 def build_singbox_remote_profile_uri(raw_url: str, profile_name: str) -> str:
@@ -2109,7 +2130,7 @@ def render_admin_singbox_qr():
         )
 
     selected_path = SINGBOX_DEFAULT_JSON_PATH
-    raw_url = build_raw_github_url(selected_path)
+    raw_url = build_profile_json_url(selected_path, SINGBOX_QR_DEFAULT_URL_SOURCE)
 
     if path_mode == "File output repo":
         selected_path = st.selectbox(
@@ -2125,12 +2146,24 @@ def render_admin_singbox_qr():
                 placeholder="output/SingBox/lengkap.json",
                 key="singbox_qr_custom_path",
             )
-        raw_url = build_raw_github_url(selected_path)
+
+        default_source_index = 0 if SINGBOX_QR_DEFAULT_URL_SOURCE not in {"raw", "github", "raw github", "github raw"} else 1
+        qr_url_source = st.selectbox(
+            "URL profile untuk QR",
+            ["jsDelivr CDN (disarankan)", "Raw GitHub"],
+            index=default_source_index,
+            help="Pakai jsDelivr jika device/client gagal akses raw.githubusercontent.com atau muncul connect: connection refused.",
+            key="singbox_qr_url_source",
+        )
+        raw_url = build_profile_json_url(
+            selected_path,
+            "raw" if qr_url_source == "Raw GitHub" else "jsdelivr",
+        )
     else:
         raw_url = st.text_input(
-            "Raw URL JSON sing-box",
-            value=build_raw_github_url(SINGBOX_DEFAULT_JSON_PATH),
-            help="Boleh paste URL github.com/.../blob/...; akan diubah otomatis menjadi raw URL.",
+            "URL JSON sing-box",
+            value=build_jsdelivr_github_url(SINGBOX_DEFAULT_JSON_PATH),
+            help="Boleh paste URL github.com/.../blob/...; akan diubah otomatis menjadi raw URL. Untuk jaringan yang memblokir raw GitHub, gunakan URL cdn.jsdelivr.net.",
             key="singbox_qr_manual_raw_url",
         )
         raw_url = normalize_github_blob_url(raw_url)
@@ -2162,7 +2195,7 @@ def render_admin_singbox_qr():
             """,
             unsafe_allow_html=True,
         )
-        st.write("Raw JSON URL:")
+        st.write("URL JSON yang dipakai QR:")
         st.code(raw_url or "GITHUB_REPOSITORY belum lengkap", language="text")
         st.write("Payload QR:")
         st.code(import_uri, language="text")
@@ -2172,6 +2205,26 @@ def render_admin_singbox_qr():
             import_uri,
             use_container_width=True,
         )
+
+        test_profile_url = st.toggle(
+            "Tes URL yang dipakai QR dari server Streamlit",
+            value=False,
+            help="Tes ini mengecek apakah URL JSON dapat diakses dari server Streamlit. Jika berhasil tetapi device tetap gagal, berarti jaringan device memblokir host tersebut.",
+            key="singbox_qr_test_profile_url",
+        )
+        if test_profile_url and raw_url:
+            try:
+                response = requests.get(
+                    raw_url,
+                    timeout=15,
+                    headers={"User-Agent": "yamlku-streamlit-singbox-qr"},
+                )
+                if response.ok:
+                    render_qr_status_card(f"URL QR bisa diakses dari server Streamlit. HTTP {response.status_code}, {len(response.text)} karakter.", "ok")
+                else:
+                    render_qr_status_card(f"URL QR merespons HTTP {response.status_code}: {response.text[:180]}", "warn")
+            except Exception as exc:
+                render_qr_status_card(f"URL QR belum bisa diakses: {exc}", "error")
 
         validate_now = st.toggle(
             "Validasi JSON dari GitHub",
@@ -2263,7 +2316,7 @@ def render_admin_singbox_qr():
             <div class="pet-panel">
                 <div style="font-weight:900;color:#ffcc66;">Catatan</div>
                 <div class="pet-small-note" style="text-align:left;margin-top:8px;">
-                    Jika masih muncul <i>not valid sing-box profile</i>, pastikan URL raw JSON bisa dibuka publik dan file JSON tidak kosong.
+                    Jika device menampilkan <i>connect: connection refused</i> ke raw.githubusercontent.com, ganti sumber QR ke <b>jsDelivr CDN</b>. Jika masih gagal, gunakan URL custom/domain sendiri yang bisa diakses dari jaringan device.
                 </div>
             </div>
             """,
