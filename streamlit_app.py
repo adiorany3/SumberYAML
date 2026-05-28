@@ -1564,8 +1564,7 @@ st.markdown(
         <div class="hacker-kicker">SECURE STREAMLIT CONTROL NODE</div>
         <h1 class="hacker-title">YAMLKU<br>HACKER CONSOLE</h1>
         <div class="hacker-subtitle">
-            Tampilan publik sudah diubah menjadi terminal cyber/hacker. Avatar robot, animasi pet,
-            tombol interaksi, dan chat karakter sudah dihapus. Panel admin tetap tersedia melalui route admin.
+            Nothing here, go out right now
         </div>
     </div>
     """,
