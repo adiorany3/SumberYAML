@@ -1756,41 +1756,9 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.markdown('<div class="terminal-panel">', unsafe_allow_html=True)
-st.markdown(
-    """
-    <div class="terminal-header">
-        <span>root@yamlku:~$ systemctl status streamlit-node</span>
-        <span class="terminal-dots"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></span>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
-telegram_status = "CONFIGURED" if TELEGRAM_BOT_TOKEN else "NO TOKEN"
-github_status = "CONFIGURED" if (GITHUB_TOKEN and GITHUB_OWNER and GITHUB_REPO) else "CHECK SECRETS"
-admin_status = "LOCKED" if ADMIN_PASSWORD else "PASSWORD MISSING"
-
-render_terminal_line("telegram", telegram_status, "ok" if TELEGRAM_BOT_TOKEN else "warn")
-render_terminal_line("github repo", f"{GITHUB_OWNER or '-'} / {GITHUB_REPO or '-'}", "ok" if GITHUB_OWNER and GITHUB_REPO else "warn")
-render_terminal_line("workflow", WORKFLOW_ID, "standby")
-render_terminal_line("branch", GITHUB_REF, "watch")
-render_terminal_line("admin", admin_status, "secure" if ADMIN_PASSWORD else "warn")
-
-st.markdown(
-    f'<div class="terminal-output">{escape(st.session_state.terminal_message)}</div>',
-    unsafe_allow_html=True,
-)
-st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown(
-    """
-    <div class="pet-small-note">
-        Public mode: visual hacker terminal only. Buka halaman admin dengan query admin untuk menjalankan Update Config, Test Proxy, dan Best Ping.
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+# Public page intentionally hides internal service information.
+# Telegram/GitHub/workflow/admin status tetap aktif di backend,
+# tetapi tidak ditampilkan di halaman publik.
 
 
 # =========================
