@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -30,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2nodes PL"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 6d916d55-fead-4ff3-a3a9-83e175ea8ad7
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "pl74.mechvpn.online"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "pl74.mechvpn.online"
-    udp: true
   - name: "oneclickvpnkeys PL"
     server: "104.17.3.81"
     port: 443
@@ -61,19 +50,9 @@ proxies:
     udp: true
 
 proxy-groups:
-  - name: "URL-TEST PL - Poland"
-    type: url-test
-    proxies:
-      - "v2nodes PL"
-      - "oneclickvpnkeys PL"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST PL - Poland"
       - "DIRECT"
       - "REJECT"
 

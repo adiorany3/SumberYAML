@@ -1,49 +1,4 @@
 proxies:
-  - name: "V2raysCollector"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.skylee4.cloudns.ch"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "sni.skylee4.cloudns.ch"
-    udp: true
-  - name: "https telegraph.rayan-config.workers.dev persian"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "rAyAn-007.nAsTaRaN.DpDnS.OrG"
-    ws-opts:
-      path: "/?ed=2560"
-      headers:
-        Host: "rayan-007.nastaran.dpdns.org"
-    udp: true
-  - name: "65387 - Telegram V2All"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 3e71a2c0-652b-42fe-a30e-aa913a4463f8
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "de1.apizedbdb.pro"
-    ws-opts:
-      path: "/api/v2/sync/data-stream"
-      headers:
-        Host: "de1.apizedbdb.pro"
-    udp: true
   - name: "TEL Father_vpn"
     server: "104.17.3.81"
     port: 443
@@ -89,6 +44,21 @@ proxies:
       headers:
         Host: "jolly-mouse-23a6.diracdeltain0.workers.dev"
     udp: true
+  - name: "65387 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 3e71a2c0-652b-42fe-a30e-aa913a4463f8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "de1.apizedbdb.pro"
+    ws-opts:
+      path: "/api/v2/sync/data-stream"
+      headers:
+        Host: "de1.apizedbdb.pro"
+    udp: true
   - name: "17 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
@@ -119,31 +89,17 @@ proxies:
       headers:
         Host: "a1-tss.pages.dev"
     udp: true
-  - name: "telegram tajrobe_wiki"
+  - name: "filembad 1686"
     server: "104.17.3.81"
     port: 443
     type: trojan
-    password: "humanity"
+    password: "mitivpn"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.creationlong.org"
+    sni: "www.app-cloud.ir"
     ws-opts:
-      path: "/assignment"
+      path: "/?ed=2048"
       headers:
-        Host: "www.creationlong.org"
-    udp: true
-  - name: "KAFING_2 4942"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "uk1.test3.net"
-    ws-opts:
-      path: "/howdy"
-      headers:
-        Host: "uk1.test3.net"
+        Host: "www.app-cloud.ir"
     udp: true

@@ -1,15 +1,16 @@
 proxies:
-  - name: "CA 33395 Telegram t.me SOSkeyNET"
+  - name: "CA 33879 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "mitivpn"
+    type: vless
+    uuid: 5b9fa73b-b549-480b-add9-c45e650d236f
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.app-cloud.ir"
+    servername: "gddy.hhlfy.de5.net"
     ws-opts:
-      path: "/?ed=2048"
+      path: "/fp=chrome"
       headers:
-        Host: "www.app-cloud.ir"
+        Host: "gddy.hhlfy.de5.net"
     udp: true
