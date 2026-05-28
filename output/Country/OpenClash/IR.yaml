@@ -34,6 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "filembad"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 2f3aadae-66c6-4dca-a670-03c183f8024e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "sctest1.dr-ping.ir"
+    network: ws
+    ws-opts:
+      path: "/kos-nanat-decoder"
+      headers:
+        Host: "sctest1.dr-ping.ir"
+    udp: true
   - name: "outline_ir"
     server: "104.17.3.81"
     port: 443

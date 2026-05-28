@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys US 2559"
+  - name: "oneclickvpnkeys US 3389"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,6 +48,36 @@ proxies:
       path: "/"
       headers:
         Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "GozargahAzad US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 27302727-9dfa-4975-990e-88c7a63747cd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hi-wg.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hi-wg.pages.dev"
+    udp: true
+  - name: "GozargahAzad US 3435"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 27302727-9dfa-4975-990e-88c7a63747cd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ws-x1.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ws-x1.pages.dev"
     udp: true
 
 proxy-groups:

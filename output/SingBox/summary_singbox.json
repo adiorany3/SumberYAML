@@ -1,9 +1,9 @@
 {
   "files": [
     {
-      "proxy_count": 15,
-      "group_count": 12,
-      "outbound_count": 28,
+      "proxy_count": 23,
+      "group_count": 13,
+      "outbound_count": 37,
       "skipped_proxy_count": 0,
       "dns_mode": "legacy",
       "tun_mode": "modern",
@@ -15,9 +15,9 @@
       "output": "output/SingBox/lengkap.json"
     },
     {
-      "proxy_count": 15,
-      "group_count": 12,
-      "outbound_count": 28,
+      "proxy_count": 23,
+      "group_count": 13,
+      "outbound_count": 37,
       "skipped_proxy_count": 0,
       "dns_mode": "new",
       "tun_mode": "modern",
@@ -29,9 +29,9 @@
       "output": "output/SingBox/lengkap-new-dns.json"
     },
     {
-      "proxy_count": 15,
-      "group_count": 12,
-      "outbound_count": 28,
+      "proxy_count": 23,
+      "group_count": 13,
+      "outbound_count": 37,
       "skipped_proxy_count": 0,
       "dns_mode": "legacy",
       "tun_mode": "legacy",
@@ -43,9 +43,9 @@
       "output": "output/SingBox/lengkap-legacy-tun.json"
     },
     {
-      "proxy_count": 15,
-      "group_count": 12,
-      "outbound_count": 28,
+      "proxy_count": 23,
+      "group_count": 13,
+      "outbound_count": 37,
       "skipped_proxy_count": 0,
       "dns_mode": "legacy",
       "tun_mode": "modern",
@@ -57,9 +57,9 @@
       "output": "output/SingBox/lengkap_alive.json"
     },
     {
-      "proxy_count": 15,
-      "group_count": 12,
-      "outbound_count": 28,
+      "proxy_count": 23,
+      "group_count": 13,
+      "outbound_count": 37,
       "skipped_proxy_count": 0,
       "dns_mode": "new",
       "tun_mode": "modern",
@@ -71,9 +71,9 @@
       "output": "output/SingBox/lengkap_alive-new-dns.json"
     },
     {
-      "proxy_count": 15,
-      "group_count": 12,
-      "outbound_count": 28,
+      "proxy_count": 23,
+      "group_count": 13,
+      "outbound_count": 37,
       "skipped_proxy_count": 0,
       "dns_mode": "legacy",
       "tun_mode": "legacy",
@@ -85,9 +85,9 @@
       "output": "output/SingBox/lengkap_alive-legacy-tun.json"
     },
     {
-      "proxy_count": 15,
-      "group_count": 12,
-      "outbound_count": 28,
+      "proxy_count": 23,
+      "group_count": 13,
+      "outbound_count": 37,
       "skipped_proxy_count": 0,
       "dns_mode": "legacy",
       "tun_mode": "modern",
@@ -99,9 +99,9 @@
       "output": "output/SingBox/strict_alive.json"
     },
     {
-      "proxy_count": 15,
-      "group_count": 12,
-      "outbound_count": 28,
+      "proxy_count": 23,
+      "group_count": 13,
+      "outbound_count": 37,
       "skipped_proxy_count": 0,
       "dns_mode": "new",
       "tun_mode": "modern",
@@ -113,9 +113,9 @@
       "output": "output/SingBox/strict_alive-new-dns.json"
     },
     {
-      "proxy_count": 15,
-      "group_count": 12,
-      "outbound_count": 28,
+      "proxy_count": 23,
+      "group_count": 13,
+      "outbound_count": 37,
       "skipped_proxy_count": 0,
       "dns_mode": "legacy",
       "tun_mode": "legacy",
@@ -419,6 +419,276 @@
       "contains_dns_outbound": false,
       "input": "output/general.yaml",
       "output": "output/SingBox/general-legacy-tun.json"
+    },
+    {
+      "profile": "best-ping",
+      "proxy_count": 5,
+      "group_count": 2,
+      "outbound_count": 8,
+      "selected_names": [
+        "CA 34737 Telegram t.me SOSkeyNET",
+        "9https t.me VIPV2rayNGNP",
+        "CA 34736 Telegram t.me SOSkeyNET",
+        "v2con",
+        "oneclickvpnkeys US 3389"
+      ],
+      "skipped_proxy_count": 0,
+      "dns_mode": "legacy",
+      "tun_mode": "modern",
+      "default_outbound": "PROXY",
+      "urltest_tag": "AUTO-BEST-PING",
+      "deprecated_special_outbounds": false,
+      "contains_block_outbound": false,
+      "contains_dns_outbound": false,
+      "input": "output/strict_alive.yaml",
+      "output": "output/SingBox/best-ping.json",
+      "source_csv": "output/BestPing/top5_indonesia_ping.csv",
+      "selected_from_csv": [
+        {
+          "name": "CA 34737 Telegram t.me SOSkeyNET",
+          "delay_ms": 21,
+          "country": "CA",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "9https t.me VIPV2rayNGNP",
+          "delay_ms": 21,
+          "country": "ME",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "CA 34736 Telegram t.me SOSkeyNET",
+          "delay_ms": 21,
+          "country": "CA",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "v2con",
+          "delay_ms": 22,
+          "country": "WS",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "oneclickvpnkeys US 3389",
+          "delay_ms": 24,
+          "country": "US",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        }
+      ],
+      "missing_names_from_yaml": [],
+      "csv_summary": {
+        "csv_paths_tried": [
+          {
+            "path": "output/BestPing/top5_indonesia_ping.csv",
+            "status": "used",
+            "row_count": 5
+          }
+        ],
+        "selected_count": 5,
+        "country_filter": "ID",
+        "limit": 5
+      },
+      "variant": "default"
+    },
+    {
+      "profile": "best-ping",
+      "proxy_count": 5,
+      "group_count": 2,
+      "outbound_count": 8,
+      "selected_names": [
+        "CA 34737 Telegram t.me SOSkeyNET",
+        "9https t.me VIPV2rayNGNP",
+        "CA 34736 Telegram t.me SOSkeyNET",
+        "v2con",
+        "oneclickvpnkeys US 3389"
+      ],
+      "skipped_proxy_count": 0,
+      "dns_mode": "new",
+      "tun_mode": "modern",
+      "default_outbound": "PROXY",
+      "urltest_tag": "AUTO-BEST-PING",
+      "deprecated_special_outbounds": false,
+      "contains_block_outbound": false,
+      "contains_dns_outbound": false,
+      "input": "output/strict_alive.yaml",
+      "output": "output/SingBox/best-ping-new-dns.json",
+      "source_csv": "output/BestPing/top5_indonesia_ping.csv",
+      "selected_from_csv": [
+        {
+          "name": "CA 34737 Telegram t.me SOSkeyNET",
+          "delay_ms": 21,
+          "country": "CA",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "9https t.me VIPV2rayNGNP",
+          "delay_ms": 21,
+          "country": "ME",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "CA 34736 Telegram t.me SOSkeyNET",
+          "delay_ms": 21,
+          "country": "CA",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "v2con",
+          "delay_ms": 22,
+          "country": "WS",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "oneclickvpnkeys US 3389",
+          "delay_ms": 24,
+          "country": "US",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        }
+      ],
+      "missing_names_from_yaml": [],
+      "csv_summary": {
+        "csv_paths_tried": [
+          {
+            "path": "output/BestPing/top5_indonesia_ping.csv",
+            "status": "used",
+            "row_count": 5
+          }
+        ],
+        "selected_count": 5,
+        "country_filter": "ID",
+        "limit": 5
+      },
+      "variant": "new-dns"
+    },
+    {
+      "profile": "best-ping",
+      "proxy_count": 5,
+      "group_count": 2,
+      "outbound_count": 8,
+      "selected_names": [
+        "CA 34737 Telegram t.me SOSkeyNET",
+        "9https t.me VIPV2rayNGNP",
+        "CA 34736 Telegram t.me SOSkeyNET",
+        "v2con",
+        "oneclickvpnkeys US 3389"
+      ],
+      "skipped_proxy_count": 0,
+      "dns_mode": "legacy",
+      "tun_mode": "legacy",
+      "default_outbound": "PROXY",
+      "urltest_tag": "AUTO-BEST-PING",
+      "deprecated_special_outbounds": false,
+      "contains_block_outbound": false,
+      "contains_dns_outbound": false,
+      "input": "output/strict_alive.yaml",
+      "output": "output/SingBox/best-ping-legacy-tun.json",
+      "source_csv": "output/BestPing/top5_indonesia_ping.csv",
+      "selected_from_csv": [
+        {
+          "name": "CA 34737 Telegram t.me SOSkeyNET",
+          "delay_ms": 21,
+          "country": "CA",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "9https t.me VIPV2rayNGNP",
+          "delay_ms": 21,
+          "country": "ME",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "CA 34736 Telegram t.me SOSkeyNET",
+          "delay_ms": 21,
+          "country": "CA",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "v2con",
+          "delay_ms": 22,
+          "country": "WS",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        },
+        {
+          "name": "oneclickvpnkeys US 3389",
+          "delay_ms": 24,
+          "country": "US",
+          "status": "alive",
+          "protocol": "vless",
+          "server": "104.17.3.81",
+          "port": "443",
+          "source_csv": "output/BestPing/top5_indonesia_ping.csv"
+        }
+      ],
+      "missing_names_from_yaml": [],
+      "csv_summary": {
+        "csv_paths_tried": [
+          {
+            "path": "output/BestPing/top5_indonesia_ping.csv",
+            "status": "used",
+            "row_count": 5
+          }
+        ],
+        "selected_count": 5,
+        "country_filter": "ID",
+        "limit": 5
+      },
+      "variant": "legacy-tun"
     }
   ]
 }
