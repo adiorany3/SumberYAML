@@ -21,13 +21,13 @@ import streamlit.components.v1 as components
 # STREAMLIT ROBOT UI SETUP
 # =========================
 st.set_page_config(
-    page_title="Yamlku Bot",
-    page_icon="🤖",
+    page_title="Raptor X Bot",
+    page_icon="🦖",
     layout="centered",
     initial_sidebar_state="collapsed",
 )
 
-# Tampilan hanya robot animasi. Bot Telegram tetap berjalan di background.
+# Tampilan robot dinosaurus interaktif. Bot Telegram tetap berjalan di background.
 st.markdown(
     """
     <style>
@@ -1269,7 +1269,7 @@ thread = start_bot_once()
 BOT_STATE.set(thread_alive=thread.is_alive())
 
 # =========================
-# TAMAGOTCHI ROBOT UI
+# INTERACTIVE ROBOT DINOSAUR UI
 # =========================
 
 PET_DEFAULTS = {
@@ -1280,7 +1280,7 @@ PET_DEFAULTS = {
     "level": 1,
     "xp": 0,
     "last_tick": time.time(),
-    "last_action_text": "Halo! Aku Yamlku Bot. Rawat aku sambil aku jaga update config kamu.",
+    "last_action_text": "Halo! Aku Raptor X. Aku bisa diajak interaksi sambil menjaga update config kamu.",
 }
 
 
@@ -1313,7 +1313,7 @@ def add_xp(amount: int):
     while pet["xp"] >= 100:
         pet["xp"] -= 100
         pet["level"] = int(pet.get("level", 1)) + 1
-        pet["last_action_text"] = f"Naik level! Sekarang aku level {pet['level']}."
+        pet["last_action_text"] = f"Raptor upgrade! Sekarang aku level {pet['level']}."
 
 
 def set_pet_action(message: str):
@@ -1327,7 +1327,7 @@ def action_feed():
     pet["happiness"] = clamp(pet["happiness"] + 7)
     pet["energy"] = clamp(pet["energy"] - 3)
     pet["hygiene"] = clamp(pet["hygiene"] - 3)
-    set_pet_action("Nyam! Baterai data proxy makin siap diproses.")
+    set_pet_action("Krrrk! Energi data masuk. Sensor proxy makin siaga.")
     add_xp(12)
 
 
@@ -1337,7 +1337,7 @@ def action_play():
     pet["energy"] = clamp(pet["energy"] - 14)
     pet["hunger"] = clamp(pet["hunger"] - 9)
     pet["hygiene"] = clamp(pet["hygiene"] - 6)
-    set_pet_action("Asik! Aku main sambil scan config.")
+    set_pet_action("Mode latihan aktif! Aku berlari kecil sambil scan config.")
     add_xp(16)
 
 
@@ -1346,7 +1346,7 @@ def action_sleep():
     pet["energy"] = clamp(pet["energy"] + 36)
     pet["hunger"] = clamp(pet["hunger"] - 5)
     pet["happiness"] = clamp(pet["happiness"] + 3)
-    set_pet_action("Mode tidur aktif. Sistem adem, siap update lagi.")
+    set_pet_action("Sleep mode aktif. Servo dingin, baterai dipulihkan.")
     add_xp(9)
 
 
@@ -1354,7 +1354,7 @@ def action_clean():
     pet = st.session_state.pet
     pet["hygiene"] = clamp(pet["hygiene"] + 38)
     pet["happiness"] = clamp(pet["happiness"] + 5)
-    set_pet_action("Bersih! Cache debu digital sudah dibuang.")
+    set_pet_action("Sensor optik bersih. Debu digital sudah dibuang.")
     add_xp(10)
 
 
@@ -1362,13 +1362,73 @@ def action_charge():
     pet = st.session_state.pet
     pet["energy"] = clamp(pet["energy"] + 26)
     pet["hunger"] = clamp(pet["hunger"] - 2)
-    set_pet_action("Charging selesai. Antena Telegram siap standby.")
+    set_pet_action("Charging selesai. Modul Telegram dan radar ping siap standby.")
     add_xp(10)
 
 
 def action_reset():
     st.session_state.pet = dict(PET_DEFAULTS)
     st.session_state.pet["last_tick"] = time.time()
+
+
+def action_talk(user_text: str):
+    """Respons interaktif sederhana untuk Raptor X di Streamlit.
+
+    Ini tidak memakai API AI eksternal sehingga aman untuk Streamlit online.
+    Respons dibuat rule-based berdasarkan kata kunci yang diketik user.
+    """
+    text = str(user_text or "").strip()
+    if not text:
+        set_pet_action("Aku mendengar suara kosong. Coba beri perintah: status, ping, update, atau roar.")
+        return
+
+    lowered = text.lower()
+    pet = st.session_state.pet
+
+    if any(key in lowered for key in ["status", "kondisi", "gimana", "apa kabar"]):
+        set_pet_action(
+            f"Status Raptor X: nutrisi {int(pet['hunger'])}%, baterai {int(pet['energy'])}%, bonding {int(pet['happiness'])}%, sensor {int(pet['hygiene'])}%."
+        )
+        pet["happiness"] = clamp(pet["happiness"] + 5)
+        add_xp(8)
+        return
+
+    if any(key in lowered for key in ["ping", "best", "proxy", "server"]):
+        set_pet_action("Radar ping aktif. Untuk data real, buka mode admin lalu klik Refresh Best Ping atau Test + Update Ping.")
+        pet["energy"] = clamp(pet["energy"] - 4)
+        pet["happiness"] = clamp(pet["happiness"] + 6)
+        add_xp(10)
+        return
+
+    if any(key in lowered for key in ["update", "config", "yaml", "github"]):
+        set_pet_action("Aku siap bantu update config. Masuk halaman admin untuk memicu GitHub Actions dengan aman.")
+        pet["energy"] = clamp(pet["energy"] - 5)
+        pet["happiness"] = clamp(pet["happiness"] + 5)
+        add_xp(10)
+        return
+
+    if any(key in lowered for key in ["roar", "auman", "aum", "rawr"]):
+        set_pet_action("RAAWRR! Mode dinosaurus aktif. LED mata menyala dan ekor bergerak cepat.")
+        pet["happiness"] = clamp(pet["happiness"] + 12)
+        pet["energy"] = clamp(pet["energy"] - 7)
+        add_xp(12)
+        return
+
+    if any(key in lowered for key in ["lapar", "makan", "feed", "energi"]):
+        action_feed()
+        return
+
+    if any(key in lowered for key in ["tidur", "sleep", "istirahat"]):
+        action_sleep()
+        return
+
+    if any(key in lowered for key in ["bersih", "clean", "sensor"]):
+        action_clean()
+        return
+
+    set_pet_action(f"Aku menangkap pesan: '{text}'. Coba beri perintah: status, ping, update, roar, makan, tidur, atau bersih.")
+    pet["happiness"] = clamp(pet["happiness"] + 4)
+    add_xp(6)
 
 
 def pet_mood():
@@ -1398,50 +1458,39 @@ def render_robot_html(mood: str, mood_label: str, message: str, level: int, xp: 
     }.get(mood, "#52e6ff")
 
     glow = {
-        "happy": "rgba(99,247,180,0.25)",
-        "normal": "rgba(82,230,255,0.20)",
-        "sleepy": "rgba(185,167,255,0.22)",
-        "hungry": "rgba(255,209,102,0.22)",
-        "dirty": "rgba(181,192,154,0.18)",
-        "sad": "rgba(143,195,255,0.17)",
-    }.get(mood, "rgba(82,230,255,0.20)")
+        "happy": "rgba(99,247,180,0.28)",
+        "normal": "rgba(82,230,255,0.22)",
+        "sleepy": "rgba(185,167,255,0.24)",
+        "hungry": "rgba(255,209,102,0.24)",
+        "dirty": "rgba(181,192,154,0.20)",
+        "sad": "rgba(143,195,255,0.18)",
+    }.get(mood, "rgba(82,230,255,0.22)")
 
     if mood == "sleepy":
-        eyes = f'''
-            <path class="robot-eye" d="M111 124 Q120 118 129 124" fill="none" stroke="{accent}" stroke-width="6" stroke-linecap="round"/>
-            <path class="robot-eye" d="M151 124 Q160 118 169 124" fill="none" stroke="{accent}" stroke-width="6" stroke-linecap="round"/>
-        '''
-        mouth = f'<path d="M124 145 Q140 149 156 145" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round"/>'
-        extra = '<text x="190" y="88" class="zzz">Zz</text><text x="212" y="66" class="zzz small">z</text>'
+        eye = f'<path class="dino-eye" d="M137 110 Q148 105 159 110" fill="none" stroke="{accent}" stroke-width="6" stroke-linecap="round"/>'
+        mouth = f'<path d="M78 137 Q112 145 151 137" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round" opacity="0.8"/>'
+        extra = '<text x="340" y="78" class="float-text">Zz</text><text x="377" y="54" class="float-text small">z</text>'
     elif mood == "sad":
-        eyes = f'''
-            <circle class="robot-eye" cx="120" cy="124" r="8" fill="{accent}"/>
-            <circle class="robot-eye" cx="160" cy="124" r="8" fill="{accent}"/>
-        '''
-        mouth = f'<path d="M124 149 Q140 137 156 149" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round"/>'
-        extra = f'<path class="tear" d="M170 132 C180 145 170 152 164 144 C162 139 166 135 170 132Z" fill="{accent}" opacity="0.72"/>'
+        eye = f'<circle class="dino-eye" cx="148" cy="110" r="8" fill="{accent}"/><path d="M133 98 Q148 91 163 98" stroke="#26364f" stroke-width="5" fill="none" stroke-linecap="round"/>'
+        mouth = f'<path d="M83 141 Q112 127 148 140" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round"/>'
+        extra = f'<path class="tear" d="M166 118 C178 135 166 143 159 132 C156 126 162 122 166 118Z" fill="{accent}" opacity="0.76"/>'
     elif mood == "hungry":
-        eyes = f'''
-            <circle class="robot-eye" cx="120" cy="124" r="8" fill="{accent}"/>
-            <circle class="robot-eye" cx="160" cy="124" r="8" fill="{accent}"/>
-        '''
-        mouth = f'<circle cx="140" cy="146" r="7" fill="none" stroke="{accent}" stroke-width="5"/>'
-        extra = '<text x="193" y="88" class="food">0101</text>'
+        eye = f'<circle class="dino-eye" cx="148" cy="110" r="8" fill="{accent}"/>'
+        mouth = f'<path class="jaw" d="M58 136 C88 158 133 159 165 140" fill="none" stroke="{accent}" stroke-width="6" stroke-linecap="round"/>'
+        extra = '<text x="326" y="76" class="float-text food">0101</text>'
     else:
-        eyes = f'''
-            <circle class="robot-eye" cx="120" cy="124" r="9" fill="{accent}"/>
-            <circle class="robot-eye" cx="160" cy="124" r="9" fill="{accent}"/>
-        '''
-        mouth = f'<path d="M124 145 Q140 158 156 145" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round"/>'
+        eye = f'<circle class="dino-eye" cx="148" cy="110" r="9" fill="{accent}"/><circle cx="151" cy="107" r="3" fill="#ffffff" opacity="0.88"/>'
+        mouth = f'<path class="jaw" d="M73 134 Q112 154 156 137" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round"/>'
         extra = ''
 
     dirt = ''
     if mood == "dirty":
-        dirt = '''
-            <circle cx="97" cy="84" r="5" fill="#7c806d" opacity="0.55"/>
-            <circle cx="190" cy="176" r="6" fill="#7c806d" opacity="0.45"/>
-            <circle cx="87" cy="166" r="4" fill="#7c806d" opacity="0.50"/>
-        '''
+        dirt = (
+            '<circle cx="238" cy="160" r="8" fill="#73785f" opacity="0.50"/>'
+            '<circle cx="315" cy="136" r="6" fill="#73785f" opacity="0.45"/>'
+            '<circle cx="405" cy="190" r="7" fill="#73785f" opacity="0.42"/>'
+            '<circle cx="118" cy="95" r="5" fill="#73785f" opacity="0.45"/>'
+        )
 
     safe_message = escape(message)
     safe_mood_label = escape(mood_label)
@@ -1464,18 +1513,44 @@ def render_robot_html(mood: str, mood_label: str, message: str, level: int, xp: 
         color: #eef6ff;
     }}
 
+    * {{ box-sizing: border-box; }}
+
     .pet-card {{
-        width: min(94vw, 720px);
+        width: min(94vw, 760px);
         margin: 0 auto;
         padding: 22px 18px 18px;
         border-radius: 32px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
+        background:
+            radial-gradient(circle at 50% 12%, {glow}, transparent 42%),
+            linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.035));
         border: 1px solid rgba(255,255,255,0.13);
-        box-shadow: 0 28px 80px rgba(0,0,0,0.32);
+        box-shadow: 0 28px 80px rgba(0,0,0,0.34);
         backdrop-filter: blur(18px);
     }}
 
-    .robot-stage {{
+    .title {{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        font-weight: 900;
+        letter-spacing: 0.3px;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }}
+
+    .pill {{
+        font-size: 12px;
+        font-weight: 800;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.10);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: {accent};
+    }}
+
+    .dino-stage {{
         min-height: 345px;
         display: flex;
         align-items: center;
@@ -1484,124 +1559,118 @@ def render_robot_html(mood: str, mood_label: str, message: str, level: int, xp: 
         position: relative;
     }}
 
-    .robot-wrap {{
-        width: min(62vw, 285px);
-        max-width: 285px;
-        aspect-ratio: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .dino-wrap {{
+        width: min(92vw, 520px);
+        max-width: 520px;
+        aspect-ratio: 1.44;
         position: relative;
-        animation: robot-float 3s ease-in-out infinite;
+        animation: dino-float 3s ease-in-out infinite;
     }}
 
-    .robot-wrap.happy {{ animation: robot-happy 1.45s ease-in-out infinite; }}
-    .robot-wrap.sleepy {{ animation: robot-sleepy 4s ease-in-out infinite; }}
-    .robot-wrap.hungry {{ animation: robot-shake 0.9s ease-in-out infinite; }}
-    .robot-wrap.sad {{ animation: robot-sad 3.2s ease-in-out infinite; }}
+    .dino-wrap.happy {{ animation: dino-happy 1.45s ease-in-out infinite; }}
+    .dino-wrap.sleepy {{ animation: dino-sleepy 4s ease-in-out infinite; }}
+    .dino-wrap.hungry {{ animation: dino-shake 0.88s ease-in-out infinite; }}
+    .dino-wrap.sad {{ animation: dino-sad 3.2s ease-in-out infinite; }}
 
-    .robot-glow {{
+    .dino-glow {{
         position: absolute;
-        width: 84%;
-        height: 84%;
+        inset: 16% 10% 10%;
         border-radius: 999px;
         background: {glow};
-        filter: blur(34px);
+        filter: blur(38px);
         animation: glow-pulse 2.4s ease-in-out infinite;
     }}
 
-    .robot-svg {{
+    .dino-svg {{
         position: relative;
         width: 100%;
         height: 100%;
-        filter: drop-shadow(0 24px 42px rgba(0, 0, 0, 0.45));
+        filter: drop-shadow(0 26px 42px rgba(0, 0, 0, 0.48));
     }}
 
-    .robot-eye {{
-        animation: eye-blink 4s ease-in-out infinite;
-        transform-origin: center;
-    }}
-
-    .robot-antenna-light {{
-        animation: light-pulse 1.4s ease-in-out infinite;
-    }}
-
-    .robot-arm-left {{
-        transform-origin: 58px 145px;
-        animation: arm-wave-left 2.4s ease-in-out infinite;
-    }}
-
-    .robot-arm-right {{
-        transform-origin: 222px 145px;
-        animation: arm-wave-right 2.4s ease-in-out infinite;
-    }}
+    .tail {{ transform-origin: 350px 158px; animation: tail-wag 1.7s ease-in-out infinite; }}
+    .head {{ transform-origin: 180px 150px; animation: head-nod 2.4s ease-in-out infinite; }}
+    .jaw {{ transform-origin: 124px 135px; animation: jaw-talk 2.8s ease-in-out infinite; }}
+    .dino-eye {{ animation: eye-blink 4.4s ease-in-out infinite; transform-origin: center; }}
+    .leg-front {{ transform-origin: 270px 215px; animation: leg-step 2.6s ease-in-out infinite; }}
+    .leg-back {{ transform-origin: 355px 215px; animation: leg-step 2.6s ease-in-out infinite reverse; }}
+    .arm {{ transform-origin: 230px 160px; animation: arm-wave 2.1s ease-in-out infinite; }}
+    .sensor {{ animation: light-pulse 1.4s ease-in-out infinite; }}
+    .energy-line {{ animation: data-flow 1.8s linear infinite; }}
 
     .speech {{
-        margin: -10px auto 0;
-        width: min(92%, 540px);
+        margin: -6px auto 0;
+        width: min(94%, 600px);
         padding: 14px 16px;
         border-radius: 20px;
-        background: rgba(5, 12, 24, 0.62);
+        background: rgba(5, 12, 24, 0.66);
         border: 1px solid rgba(255,255,255,0.12);
         text-align: center;
         line-height: 1.45;
+        color: #eef6ff;
     }}
 
-    .title {{
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        align-items: center;
-        font-weight: 800;
-        letter-spacing: 0.3px;
-        font-size: 18px;
-        margin-bottom: 10px;
-    }}
-
-    .pill {{
-        font-size: 12px;
-        font-weight: 700;
-        padding: 5px 10px;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.10);
-        border: 1px solid rgba(255,255,255,0.15);
-        color: {accent};
-    }}
-
-    .zzz, .food {{
+    .float-text {{
         fill: {accent};
-        font-weight: 800;
-        font-size: 22px;
-        opacity: 0.85;
+        font-weight: 900;
+        font-size: 26px;
+        opacity: 0.88;
         animation: float-text 2.1s ease-in-out infinite;
     }}
-    .zzz.small {{ font-size: 14px; animation-delay: 0.35s; }}
+    .float-text.small {{ font-size: 15px; animation-delay: 0.35s; }}
+    .food {{ font-size: 20px; letter-spacing: 1px; }}
     .tear {{ animation: tear-drop 1.8s ease-in-out infinite; }}
 
-    @keyframes robot-float {{
+    @keyframes dino-float {{
         0%, 100% {{ transform: translateY(0); }}
-        50% {{ transform: translateY(-13px); }}
+        50% {{ transform: translateY(-12px); }}
     }}
 
-    @keyframes robot-happy {{
-        0%, 100% {{ transform: translateY(0) rotate(-1deg); }}
-        50% {{ transform: translateY(-18px) rotate(1deg); }}
+    @keyframes dino-happy {{
+        0%, 100% {{ transform: translateY(0) rotate(-0.6deg); }}
+        50% {{ transform: translateY(-17px) rotate(0.8deg); }}
     }}
 
-    @keyframes robot-sleepy {{
-        0%, 100% {{ transform: translateY(0) rotate(-2deg); opacity: 0.86; }}
-        50% {{ transform: translateY(3px) rotate(2deg); opacity: 1; }}
+    @keyframes dino-sleepy {{
+        0%, 100% {{ transform: translateY(0) rotate(-1deg); opacity: 0.88; }}
+        50% {{ transform: translateY(4px) rotate(1deg); opacity: 1; }}
     }}
 
-    @keyframes robot-shake {{
+    @keyframes dino-shake {{
         0%, 100% {{ transform: translateX(0); }}
-        25% {{ transform: translateX(-3px); }}
-        75% {{ transform: translateX(3px); }}
+        25% {{ transform: translateX(-4px); }}
+        75% {{ transform: translateX(4px); }}
     }}
 
-    @keyframes robot-sad {{
+    @keyframes dino-sad {{
         0%, 100% {{ transform: translateY(8px); }}
-        50% {{ transform: translateY(1px); }}
+        50% {{ transform: translateY(2px); }}
+    }}
+
+    @keyframes tail-wag {{
+        0%, 100% {{ transform: rotate(-3deg); }}
+        50% {{ transform: rotate(7deg); }}
+    }}
+
+    @keyframes head-nod {{
+        0%, 100% {{ transform: rotate(0deg) translateY(0); }}
+        50% {{ transform: rotate(-2deg) translateY(-4px); }}
+    }}
+
+    @keyframes jaw-talk {{
+        0%, 82%, 100% {{ transform: rotate(0deg); }}
+        88% {{ transform: rotate(5deg); }}
+        94% {{ transform: rotate(-2deg); }}
+    }}
+
+    @keyframes leg-step {{
+        0%, 100% {{ transform: rotate(0deg); }}
+        50% {{ transform: rotate(3deg); }}
+    }}
+
+    @keyframes arm-wave {{
+        0%, 100% {{ transform: rotate(-2deg); }}
+        50% {{ transform: rotate(11deg); }}
     }}
 
     @keyframes glow-pulse {{
@@ -1611,7 +1680,7 @@ def render_robot_html(mood: str, mood_label: str, message: str, level: int, xp: 
 
     @keyframes eye-blink {{
         0%, 44%, 52%, 100% {{ transform: scaleY(1); opacity: 1; }}
-        48% {{ transform: scaleY(0.12); opacity: 0.85; }}
+        48% {{ transform: scaleY(0.10); opacity: 0.82; }}
     }}
 
     @keyframes light-pulse {{
@@ -1619,14 +1688,10 @@ def render_robot_html(mood: str, mood_label: str, message: str, level: int, xp: 
         50% {{ opacity: 1; }}
     }}
 
-    @keyframes arm-wave-left {{
-        0%, 100% {{ transform: rotate(0deg); }}
-        50% {{ transform: rotate(-9deg); }}
-    }}
-
-    @keyframes arm-wave-right {{
-        0%, 100% {{ transform: rotate(0deg); }}
-        50% {{ transform: rotate(9deg); }}
+    @keyframes data-flow {{
+        0% {{ stroke-dashoffset: 42; opacity: .45; }}
+        50% {{ opacity: 1; }}
+        100% {{ stroke-dashoffset: 0; opacity: .45; }}
     }}
 
     @keyframes float-text {{
@@ -1643,53 +1708,87 @@ def render_robot_html(mood: str, mood_label: str, message: str, level: int, xp: 
 <body>
     <div class="pet-card">
         <div class="title">
-            <span>🤖 YAMLKU BOT PET</span>
+            <span>🦖 RAPTOR X BOT</span>
             <span class="pill">{safe_mood_label}</span>
             <span class="pill">LV {level}</span>
             <span class="pill">XP {xp}/100</span>
         </div>
-        <div class="robot-stage" aria-label="Tamagotchi robot">
-            <div class="robot-wrap {mood}">
-                <div class="robot-glow"></div>
-                <svg class="robot-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Robot pet animation">
+
+        <div class="dino-stage" aria-label="Robot dinosaurus interaktif">
+            <div class="dino-wrap {mood}">
+                <div class="dino-glow"></div>
+                <svg class="dino-svg" viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive robot dinosaur animation">
                     <defs>
                         <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#f7fbff"/>
-                            <stop offset="100%" stop-color="#9fb8d9"/>
+                            <stop offset="0%" stop-color="#f9fcff"/>
+                            <stop offset="48%" stop-color="#b7c7dc"/>
+                            <stop offset="100%" stop-color="#72839d"/>
                         </linearGradient>
-                        <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
+                        <linearGradient id="darkGrad" x1="0" y1="0" x2="1" y2="1">
                             <stop offset="0%" stop-color="#17233c"/>
-                            <stop offset="100%" stop-color="#07101f"/>
+                            <stop offset="100%" stop-color="#060b14"/>
+                        </linearGradient>
+                        <linearGradient id="jointGrad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#d8e6f5"/>
+                            <stop offset="100%" stop-color="#6f829d"/>
                         </linearGradient>
                     </defs>
 
-                    <ellipse cx="140" cy="242" rx="68" ry="14" fill="rgba(0,0,0,0.28)"/>
+                    <ellipse cx="282" cy="303" rx="150" ry="22" fill="rgba(0,0,0,0.32)"/>
 
-                    <line x1="140" y1="62" x2="140" y2="36" stroke="#b7c8df" stroke-width="8" stroke-linecap="round"/>
-                    <circle class="robot-antenna-light" cx="140" cy="28" r="11" fill="{accent}"/>
-
-                    <g class="robot-arm-left">
-                        <rect x="35" y="128" width="42" height="24" rx="12" fill="#8ca6c9"/>
-                        <circle cx="34" cy="140" r="12" fill="#c8d8ec"/>
+                    <g class="tail">
+                        <path d="M356 162 C410 138 462 121 500 91" fill="none" stroke="#8fa3bf" stroke-width="35" stroke-linecap="round"/>
+                        <path d="M366 158 C414 139 459 124 492 98" fill="none" stroke="#e7f2ff" stroke-width="18" stroke-linecap="round" opacity="0.92"/>
+                        <path class="energy-line" d="M382 154 C423 138 454 125 484 105" fill="none" stroke="{accent}" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 12"/>
                     </g>
 
-                    <g class="robot-arm-right">
-                        <rect x="203" y="128" width="42" height="24" rx="12" fill="#8ca6c9"/>
-                        <circle cx="246" cy="140" r="12" fill="#c8d8ec"/>
+                    <g class="leg-back">
+                        <path d="M338 211 C356 241 357 270 344 291" fill="none" stroke="#7688a4" stroke-width="27" stroke-linecap="round"/>
+                        <circle cx="337" cy="217" r="24" fill="url(#jointGrad)"/>
+                        <circle cx="337" cy="217" r="10" fill="{accent}" opacity="0.75"/>
+                        <path d="M343 291 L403 300" fill="none" stroke="#101723" stroke-width="18" stroke-linecap="round"/>
+                        <path d="M397 300 L416 294 M397 300 L420 305 M397 300 L413 315" stroke="#111827" stroke-width="8" stroke-linecap="round"/>
                     </g>
 
-                    <rect x="72" y="68" width="136" height="130" rx="38" fill="url(#bodyGrad)"/>
+                    <g class="leg-front">
+                        <path d="M259 210 C277 239 273 271 252 291" fill="none" stroke="#7d91ad" stroke-width="28" stroke-linecap="round"/>
+                        <circle cx="258" cy="216" r="25" fill="url(#jointGrad)"/>
+                        <circle cx="258" cy="216" r="10" fill="{accent}" opacity="0.78"/>
+                        <path d="M252 291 L309 301" fill="none" stroke="#101723" stroke-width="18" stroke-linecap="round"/>
+                        <path d="M302 301 L324 294 M302 301 L329 306 M302 301 L320 316" stroke="#111827" stroke-width="8" stroke-linecap="round"/>
+                    </g>
+
+                    <path d="M188 135 C226 86 311 91 365 142 C386 162 382 205 351 223 C295 255 210 238 176 198 C159 178 163 155 188 135Z" fill="url(#bodyGrad)"/>
+                    <path d="M214 126 C250 105 310 108 345 143" fill="none" stroke="rgba(255,255,255,.58)" stroke-width="12" stroke-linecap="round"/>
+                    <path class="energy-line" d="M222 179 C260 159 304 160 343 180" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 14"/>
+                    <rect x="245" y="139" width="74" height="28" rx="14" fill="url(#darkGrad)" opacity="0.95"/>
+                    <rect x="258" y="149" width="45" height="8" rx="4" fill="{accent}" opacity="0.88"/>
+                    <circle class="sensor" cx="331" cy="153" r="10" fill="{accent}" opacity="0.76"/>
+                    <circle cx="331" cy="153" r="20" fill="none" stroke="{accent}" stroke-width="3" opacity="0.28"/>
                     {dirt}
-                    <rect x="91" y="95" width="98" height="58" rx="24" fill="url(#screenGrad)"/>
 
-                    {eyes}
-                    {mouth}
+                    <g class="arm">
+                        <path d="M219 178 C198 189 192 210 202 222" fill="none" stroke="#7f93af" stroke-width="15" stroke-linecap="round"/>
+                        <path d="M203 222 L184 232 M203 222 L207 241" stroke="#101723" stroke-width="7" stroke-linecap="round"/>
+                        <circle cx="220" cy="178" r="12" fill="url(#jointGrad)"/>
+                    </g>
+
+                    <path d="M176 151 C158 133 153 112 166 91" fill="none" stroke="#8398b6" stroke-width="25" stroke-linecap="round"/>
+                    <path class="energy-line" d="M174 150 C159 130 159 111 171 94" fill="none" stroke="{accent}" stroke-width="4" stroke-linecap="round" stroke-dasharray="9 10"/>
+
+                    <g class="head">
+                        <path d="M88 66 C126 38 185 47 204 89 C214 111 199 136 170 145 C133 157 83 150 48 126 C27 112 33 86 88 66Z" fill="url(#bodyGrad)"/>
+                        <path d="M48 126 C88 135 128 139 165 135 C133 161 85 162 52 145 C41 140 38 132 48 126Z" fill="#e5eef9" opacity="0.95"/>
+                        <path d="M74 75 C113 55 162 59 188 90" fill="none" stroke="rgba(255,255,255,.64)" stroke-width="10" stroke-linecap="round"/>
+                        <rect x="105" y="76" width="68" height="36" rx="18" fill="url(#darkGrad)" opacity="0.95"/>
+                        {eye}
+                        {mouth}
+                        <circle class="sensor" cx="72" cy="104" r="7" fill="{accent}" opacity="0.84"/>
+                        <circle cx="72" cy="104" r="15" fill="none" stroke="{accent}" stroke-width="3" opacity="0.28"/>
+                        <path d="M62 127 L72 143 L82 129 M91 132 L100 147 L110 132 M120 134 L129 148 L139 132" fill="none" stroke="#101723" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.90"/>
+                    </g>
+
                     {extra}
-
-                    <rect x="105" y="170" width="70" height="16" rx="8" fill="#dce8f7"/>
-                    <circle cx="119" cy="178" r="4" fill="#6d87aa"/>
-                    <circle cx="140" cy="178" r="4" fill="#6d87aa"/>
-                    <circle cx="161" cy="178" r="4" fill="#6d87aa"/>
                 </svg>
             </div>
         </div>
@@ -1887,41 +1986,55 @@ components.html(
 st.markdown('<div class="pet-panel">', unsafe_allow_html=True)
 left, right = st.columns(2)
 with left:
-    render_metric("Kenyang", int(pet["hunger"]), "🍜")
-    render_metric("Bahagia", int(pet["happiness"]), "🎮")
+    render_metric("Nutrisi", int(pet["hunger"]), "🥩")
+    render_metric("Bonding", int(pet["happiness"]), "🤝")
 with right:
-    render_metric("Energi", int(pet["energy"]), "🔋")
-    render_metric("Bersih", int(pet["hygiene"]), "🧼")
+    render_metric("Baterai", int(pet["energy"]), "🔋")
+    render_metric("Sensor", int(pet["hygiene"]), "📡")
 st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown('<div class="pet-section-title">Rawat robot</div>', unsafe_allow_html=True)
+st.markdown('<div class="pet-section-title">Interaksi Raptor X</div>', unsafe_allow_html=True)
 col1, col2, col3 = st.columns(3)
 with col1:
-    if st.button("🍜 Makan", use_container_width=True):
+    if st.button("🥩 Beri Energi", use_container_width=True):
         action_feed()
         st.rerun()
 with col2:
-    if st.button("🎮 Main", use_container_width=True):
+    if st.button("🎾 Latih Raptor", use_container_width=True):
         action_play()
         st.rerun()
 with col3:
-    if st.button("😴 Tidur", use_container_width=True):
+    if st.button("😴 Sleep Mode", use_container_width=True):
         action_sleep()
         st.rerun()
 
 col4, col5, col6 = st.columns(3)
 with col4:
-    if st.button("🧼 Bersihkan", use_container_width=True):
+    if st.button("📡 Bersihkan Sensor", use_container_width=True):
         action_clean()
         st.rerun()
 with col5:
-    if st.button("🔋 Charge", use_container_width=True):
+    if st.button("⚡ Charge Core", use_container_width=True):
         action_charge()
         st.rerun()
 with col6:
     if st.button("🔁 Reset", use_container_width=True):
         action_reset()
         st.rerun()
+
+
+st.markdown('<div class="pet-section-title">Ajak bicara Raptor X</div>', unsafe_allow_html=True)
+with st.form("raptor_chat_form", clear_on_submit=True):
+    user_talk = st.text_input(
+        "Ketik perintah",
+        placeholder="contoh: status, ping, update, roar, makan, tidur, bersih",
+        label_visibility="collapsed",
+    )
+    submitted_talk = st.form_submit_button("💬 Kirim ke Raptor X", use_container_width=True)
+
+if submitted_talk:
+    action_talk(user_talk)
+    st.rerun()
 
 
 # =========================
@@ -2259,6 +2372,6 @@ if ensure_admin_authenticated():
     )
 else:
     st.markdown(
-        '<div class="pet-small-note">Mode publik. Panel Aksi Bot dan Best Ping hanya tersedia di halaman admin.</div>',
+        '<div class="pet-small-note">Mode publik. Raptor X bisa diajak interaksi; panel Aksi Bot dan Best Ping hanya tersedia di halaman admin.</div>',
         unsafe_allow_html=True,
     )
