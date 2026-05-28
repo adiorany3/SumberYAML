@@ -18,16 +18,16 @@ import streamlit.components.v1 as components
 
 
 # =========================
-# STREAMLIT ROBOT UI SETUP
+# STREAMLIT HACKER UI SETUP
 # =========================
 st.set_page_config(
-    page_title="Raptor X Bot",
-    page_icon="🦖",
+    page_title="Yamlku Hacker Console",
+    page_icon="💻",
     layout="centered",
     initial_sidebar_state="collapsed",
 )
 
-# Tampilan robot dinosaurus interaktif. Bot Telegram tetap berjalan di background.
+# Tampilan hacker terminal. Bot Telegram tetap berjalan di background.
 st.markdown(
     """
     <style>
@@ -38,101 +38,66 @@ st.markdown(
         [data-testid="stDecoration"] {visibility: hidden;}
         [data-testid="stStatusWidget"] {visibility: hidden;}
 
+        :root {
+            --hacker-green: #00ff88;
+            --hacker-green-soft: rgba(0, 255, 136, 0.16);
+            --hacker-green-line: rgba(0, 255, 136, 0.28);
+            --hacker-cyan: #19d8ff;
+            --hacker-bg: #020403;
+            --hacker-panel: rgba(3, 18, 10, 0.82);
+            --hacker-text: #d8ffe9;
+            --hacker-muted: rgba(216, 255, 233, 0.68);
+        }
+
         html, body, [data-testid="stAppViewContainer"] {
             min-height: 100vh;
             background:
-                radial-gradient(circle at 50% 25%, rgba(85, 160, 255, 0.18), transparent 32%),
-                linear-gradient(180deg, #070b16 0%, #0a1020 48%, #05070d 100%);
+                radial-gradient(circle at 20% 10%, rgba(0, 255, 136, 0.12), transparent 28%),
+                radial-gradient(circle at 82% 18%, rgba(25, 216, 255, 0.10), transparent 30%),
+                linear-gradient(180deg, #020403 0%, #041108 48%, #010201 100%);
+            color: var(--hacker-text);
+        }
+
+        [data-testid="stAppViewContainer"]::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image:
+                linear-gradient(rgba(0, 255, 136, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.026) 1px, transparent 1px);
+            background-size: 32px 32px;
+            mask-image: linear-gradient(180deg, rgba(0,0,0,0.95), rgba(0,0,0,0.35));
+        }
+
+        [data-testid="stAppViewContainer"]::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: repeating-linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.025) 0,
+                rgba(255, 255, 255, 0.025) 1px,
+                transparent 1px,
+                transparent 5px
+            );
+            mix-blend-mode: screen;
+            opacity: 0.32;
         }
 
         .block-container {
-            max-width: 100% !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-
-        .robot-stage {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .robot-wrap {
-            width: min(48vw, 280px);
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            max-width: 900px !important;
+            padding: 30px 14px 50px !important;
+            margin: 0 auto !important;
             position: relative;
-            animation: robot-float 3s ease-in-out infinite;
+            z-index: 1;
         }
 
-        .robot-glow {
-            position: absolute;
-            width: 80%;
-            height: 80%;
-            border-radius: 999px;
-            background: rgba(70, 155, 255, 0.16);
-            filter: blur(32px);
-            animation: glow-pulse 2.4s ease-in-out infinite;
-        }
-
-        .robot-svg {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            filter: drop-shadow(0 24px 42px rgba(0, 0, 0, 0.45));
-        }
-
-        .robot-eye {
-            animation: eye-blink 4s ease-in-out infinite;
-            transform-origin: center;
-        }
-
-        .robot-antenna-light {
-            animation: light-pulse 1.4s ease-in-out infinite;
-        }
-
-        .robot-arm-left {
-            transform-origin: 58px 145px;
-            animation: arm-wave-left 2.4s ease-in-out infinite;
-        }
-
-        .robot-arm-right {
-            transform-origin: 222px 145px;
-            animation: arm-wave-right 2.4s ease-in-out infinite;
-        }
-
-        @keyframes robot-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-14px); }
-        }
-
-        @keyframes glow-pulse {
-            0%, 100% { opacity: 0.58; transform: scale(0.96); }
-            50% { opacity: 1; transform: scale(1.08); }
-        }
-
-        @keyframes eye-blink {
-            0%, 44%, 52%, 100% { transform: scaleY(1); opacity: 1; }
-            48% { transform: scaleY(0.12); opacity: 0.85; }
-        }
-
-        @keyframes light-pulse {
-            0%, 100% { opacity: 0.45; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes arm-wave-left {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(-8deg); }
-        }
-
-        @keyframes arm-wave-right {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(8deg); }
+        h1, h2, h3, p, label, span, div {
+            font-family: "JetBrains Mono", "Fira Code", Consolas, Menlo, Monaco, monospace;
         }
     </style>
     """,
@@ -1268,543 +1233,44 @@ def start_bot_once():
 thread = start_bot_once()
 BOT_STATE.set(thread_alive=thread.is_alive())
 
+
 # =========================
-# INTERACTIVE ROBOT DINOSAUR UI
+# HACKER TERMINAL UI
 # =========================
 
-PET_DEFAULTS = {
-    "hunger": 82,
-    "energy": 78,
-    "happiness": 84,
-    "hygiene": 76,
-    "level": 1,
-    "xp": 0,
-    "last_tick": time.time(),
-    "last_action_text": "Halo! Aku Raptor X. Aku bisa diajak interaksi sambil menjaga update config kamu.",
-}
+TERMINAL_DEFAULT_MESSAGE = "SYSTEM ONLINE — Telegram worker aktif di background."
 
 
-def clamp(value, minimum=0, maximum=100):
-    return max(minimum, min(maximum, int(round(value))))
-
-
-def init_pet_state():
-    if "pet" not in st.session_state:
-        st.session_state.pet = dict(PET_DEFAULTS)
-
-
-def decay_pet_state():
-    pet = st.session_state.pet
-    now = time.time()
-    elapsed = max(0, now - float(pet.get("last_tick", now)))
-
-    # Decay pelan, terasa seperti Tamagotchi tanpa terlalu cepat rusak.
-    pet["hunger"] = clamp(pet.get("hunger", 80) - elapsed / 210)
-    pet["energy"] = clamp(pet.get("energy", 80) - elapsed / 260)
-    pet["happiness"] = clamp(pet.get("happiness", 80) - elapsed / 320)
-    pet["hygiene"] = clamp(pet.get("hygiene", 80) - elapsed / 420)
-    pet["last_tick"] = now
-
-
-def add_xp(amount: int):
-    pet = st.session_state.pet
-    pet["xp"] = int(pet.get("xp", 0)) + amount
-
-    while pet["xp"] >= 100:
-        pet["xp"] -= 100
-        pet["level"] = int(pet.get("level", 1)) + 1
-        pet["last_action_text"] = f"Raptor upgrade! Sekarang aku level {pet['level']}."
+def init_terminal_state():
+    if "terminal_message" not in st.session_state:
+        st.session_state.terminal_message = TERMINAL_DEFAULT_MESSAGE
 
 
 def set_pet_action(message: str):
-    st.session_state.pet["last_action_text"] = message
-    st.session_state.pet["last_tick"] = time.time()
+    """Backward-compatible status setter.
 
-
-def action_feed():
-    pet = st.session_state.pet
-    pet["hunger"] = clamp(pet["hunger"] + 30)
-    pet["happiness"] = clamp(pet["happiness"] + 7)
-    pet["energy"] = clamp(pet["energy"] - 3)
-    pet["hygiene"] = clamp(pet["hygiene"] - 3)
-    set_pet_action("Krrrk! Energi data masuk. Sensor proxy makin siaga.")
-    add_xp(12)
-
-
-def action_play():
-    pet = st.session_state.pet
-    pet["happiness"] = clamp(pet["happiness"] + 28)
-    pet["energy"] = clamp(pet["energy"] - 14)
-    pet["hunger"] = clamp(pet["hunger"] - 9)
-    pet["hygiene"] = clamp(pet["hygiene"] - 6)
-    set_pet_action("Mode latihan aktif! Aku berlari kecil sambil scan config.")
-    add_xp(16)
-
-
-def action_sleep():
-    pet = st.session_state.pet
-    pet["energy"] = clamp(pet["energy"] + 36)
-    pet["hunger"] = clamp(pet["hunger"] - 5)
-    pet["happiness"] = clamp(pet["happiness"] + 3)
-    set_pet_action("Sleep mode aktif. Servo dingin, baterai dipulihkan.")
-    add_xp(9)
-
-
-def action_clean():
-    pet = st.session_state.pet
-    pet["hygiene"] = clamp(pet["hygiene"] + 38)
-    pet["happiness"] = clamp(pet["happiness"] + 5)
-    set_pet_action("Sensor optik bersih. Debu digital sudah dibuang.")
-    add_xp(10)
-
-
-def action_charge():
-    pet = st.session_state.pet
-    pet["energy"] = clamp(pet["energy"] + 26)
-    pet["hunger"] = clamp(pet["hunger"] - 2)
-    set_pet_action("Charging selesai. Modul Telegram dan radar ping siap standby.")
-    add_xp(10)
-
-
-def action_reset():
-    st.session_state.pet = dict(PET_DEFAULTS)
-    st.session_state.pet["last_tick"] = time.time()
-
-
-def action_talk(user_text: str):
-    """Respons interaktif sederhana untuk Raptor X di Streamlit.
-
-    Ini tidak memakai API AI eksternal sehingga aman untuk Streamlit online.
-    Respons dibuat rule-based berdasarkan kata kunci yang diketik user.
+    Beberapa fungsi admin lama masih memanggil set_pet_action().
+    Nama fungsi dipertahankan agar backend tidak perlu diubah, tetapi outputnya
+    sekarang masuk ke terminal status, bukan robot/pet.
     """
-    text = str(user_text or "").strip()
-    if not text:
-        set_pet_action("Aku mendengar suara kosong. Coba beri perintah: status, ping, update, atau roar.")
-        return
-
-    lowered = text.lower()
-    pet = st.session_state.pet
-
-    if any(key in lowered for key in ["status", "kondisi", "gimana", "apa kabar"]):
-        set_pet_action(
-            f"Status Raptor X: nutrisi {int(pet['hunger'])}%, baterai {int(pet['energy'])}%, bonding {int(pet['happiness'])}%, sensor {int(pet['hygiene'])}%."
-        )
-        pet["happiness"] = clamp(pet["happiness"] + 5)
-        add_xp(8)
-        return
-
-    if any(key in lowered for key in ["ping", "best", "proxy", "server"]):
-        set_pet_action("Radar ping aktif. Untuk data real, buka mode admin lalu klik Refresh Best Ping atau Test + Update Ping.")
-        pet["energy"] = clamp(pet["energy"] - 4)
-        pet["happiness"] = clamp(pet["happiness"] + 6)
-        add_xp(10)
-        return
-
-    if any(key in lowered for key in ["update", "config", "yaml", "github"]):
-        set_pet_action("Aku siap bantu update config. Masuk halaman admin untuk memicu GitHub Actions dengan aman.")
-        pet["energy"] = clamp(pet["energy"] - 5)
-        pet["happiness"] = clamp(pet["happiness"] + 5)
-        add_xp(10)
-        return
-
-    if any(key in lowered for key in ["roar", "auman", "aum", "rawr"]):
-        set_pet_action("RAAWRR! Mode dinosaurus aktif. LED mata menyala dan ekor bergerak cepat.")
-        pet["happiness"] = clamp(pet["happiness"] + 12)
-        pet["energy"] = clamp(pet["energy"] - 7)
-        add_xp(12)
-        return
-
-    if any(key in lowered for key in ["lapar", "makan", "feed", "energi"]):
-        action_feed()
-        return
-
-    if any(key in lowered for key in ["tidur", "sleep", "istirahat"]):
-        action_sleep()
-        return
-
-    if any(key in lowered for key in ["bersih", "clean", "sensor"]):
-        action_clean()
-        return
-
-    set_pet_action(f"Aku menangkap pesan: '{text}'. Coba beri perintah: status, ping, update, roar, makan, tidur, atau bersih.")
-    pet["happiness"] = clamp(pet["happiness"] + 4)
-    add_xp(6)
+    st.session_state.terminal_message = str(message or TERMINAL_DEFAULT_MESSAGE)
 
 
-def pet_mood():
-    pet = st.session_state.pet
-    if pet["energy"] < 20:
-        return "sleepy", "Mengantuk"
-    if pet["hunger"] < 22:
-        return "hungry", "Lapar"
-    if pet["hygiene"] < 22:
-        return "dirty", "Kotor"
-    if pet["happiness"] < 24:
-        return "sad", "Sedih"
-    avg = (pet["hunger"] + pet["energy"] + pet["happiness"] + pet["hygiene"]) / 4
-    if avg >= 78:
-        return "happy", "Bahagia"
-    return "normal", "Normal"
+def add_xp(amount: int):
+    """No-op compatibility hook setelah fitur robot/pet dihapus."""
+    return None
 
 
-def render_robot_html(mood: str, mood_label: str, message: str, level: int, xp: int) -> str:
-    accent = {
-        "happy": "#63f7b4",
-        "normal": "#52e6ff",
-        "sleepy": "#b9a7ff",
-        "hungry": "#ffd166",
-        "dirty": "#b5c09a",
-        "sad": "#8fc3ff",
-    }.get(mood, "#52e6ff")
-
-    glow = {
-        "happy": "rgba(99,247,180,0.28)",
-        "normal": "rgba(82,230,255,0.22)",
-        "sleepy": "rgba(185,167,255,0.24)",
-        "hungry": "rgba(255,209,102,0.24)",
-        "dirty": "rgba(181,192,154,0.20)",
-        "sad": "rgba(143,195,255,0.18)",
-    }.get(mood, "rgba(82,230,255,0.22)")
-
-    if mood == "sleepy":
-        eye = f'<path class="dino-eye" d="M137 110 Q148 105 159 110" fill="none" stroke="{accent}" stroke-width="6" stroke-linecap="round"/>'
-        mouth = f'<path d="M78 137 Q112 145 151 137" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round" opacity="0.8"/>'
-        extra = '<text x="340" y="78" class="float-text">Zz</text><text x="377" y="54" class="float-text small">z</text>'
-    elif mood == "sad":
-        eye = f'<circle class="dino-eye" cx="148" cy="110" r="8" fill="{accent}"/><path d="M133 98 Q148 91 163 98" stroke="#26364f" stroke-width="5" fill="none" stroke-linecap="round"/>'
-        mouth = f'<path d="M83 141 Q112 127 148 140" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round"/>'
-        extra = f'<path class="tear" d="M166 118 C178 135 166 143 159 132 C156 126 162 122 166 118Z" fill="{accent}" opacity="0.76"/>'
-    elif mood == "hungry":
-        eye = f'<circle class="dino-eye" cx="148" cy="110" r="8" fill="{accent}"/>'
-        mouth = f'<path class="jaw" d="M58 136 C88 158 133 159 165 140" fill="none" stroke="{accent}" stroke-width="6" stroke-linecap="round"/>'
-        extra = '<text x="326" y="76" class="float-text food">0101</text>'
-    else:
-        eye = f'<circle class="dino-eye" cx="148" cy="110" r="9" fill="{accent}"/><circle cx="151" cy="107" r="3" fill="#ffffff" opacity="0.88"/>'
-        mouth = f'<path class="jaw" d="M73 134 Q112 154 156 137" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round"/>'
-        extra = ''
-
-    dirt = ''
-    if mood == "dirty":
-        dirt = (
-            '<circle cx="238" cy="160" r="8" fill="#73785f" opacity="0.50"/>'
-            '<circle cx="315" cy="136" r="6" fill="#73785f" opacity="0.45"/>'
-            '<circle cx="405" cy="190" r="7" fill="#73785f" opacity="0.42"/>'
-            '<circle cx="118" cy="95" r="5" fill="#73785f" opacity="0.45"/>'
-        )
-
-    safe_message = escape(message)
-    safe_mood_label = escape(mood_label)
-
-    return f"""
-<!doctype html>
-<html lang="id">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-    html, body {{
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: transparent;
-        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: #eef6ff;
-    }}
-
-    * {{ box-sizing: border-box; }}
-
-    .pet-card {{
-        width: min(94vw, 760px);
-        margin: 0 auto;
-        padding: 22px 18px 18px;
-        border-radius: 32px;
-        background:
-            radial-gradient(circle at 50% 12%, {glow}, transparent 42%),
-            linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.035));
-        border: 1px solid rgba(255,255,255,0.13);
-        box-shadow: 0 28px 80px rgba(0,0,0,0.34);
-        backdrop-filter: blur(18px);
-    }}
-
-    .title {{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        align-items: center;
-        font-weight: 900;
-        letter-spacing: 0.3px;
-        font-size: 18px;
-        margin-bottom: 8px;
-    }}
-
-    .pill {{
-        font-size: 12px;
-        font-weight: 800;
-        padding: 5px 10px;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.10);
-        border: 1px solid rgba(255,255,255,0.15);
-        color: {accent};
-    }}
-
-    .dino-stage {{
-        min-height: 345px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-    }}
-
-    .dino-wrap {{
-        width: min(92vw, 520px);
-        max-width: 520px;
-        aspect-ratio: 1.44;
-        position: relative;
-        animation: dino-float 3s ease-in-out infinite;
-    }}
-
-    .dino-wrap.happy {{ animation: dino-happy 1.45s ease-in-out infinite; }}
-    .dino-wrap.sleepy {{ animation: dino-sleepy 4s ease-in-out infinite; }}
-    .dino-wrap.hungry {{ animation: dino-shake 0.88s ease-in-out infinite; }}
-    .dino-wrap.sad {{ animation: dino-sad 3.2s ease-in-out infinite; }}
-
-    .dino-glow {{
-        position: absolute;
-        inset: 16% 10% 10%;
-        border-radius: 999px;
-        background: {glow};
-        filter: blur(38px);
-        animation: glow-pulse 2.4s ease-in-out infinite;
-    }}
-
-    .dino-svg {{
-        position: relative;
-        width: 100%;
-        height: 100%;
-        filter: drop-shadow(0 26px 42px rgba(0, 0, 0, 0.48));
-    }}
-
-    .tail {{ transform-origin: 350px 158px; animation: tail-wag 1.7s ease-in-out infinite; }}
-    .head {{ transform-origin: 180px 150px; animation: head-nod 2.4s ease-in-out infinite; }}
-    .jaw {{ transform-origin: 124px 135px; animation: jaw-talk 2.8s ease-in-out infinite; }}
-    .dino-eye {{ animation: eye-blink 4.4s ease-in-out infinite; transform-origin: center; }}
-    .leg-front {{ transform-origin: 270px 215px; animation: leg-step 2.6s ease-in-out infinite; }}
-    .leg-back {{ transform-origin: 355px 215px; animation: leg-step 2.6s ease-in-out infinite reverse; }}
-    .arm {{ transform-origin: 230px 160px; animation: arm-wave 2.1s ease-in-out infinite; }}
-    .sensor {{ animation: light-pulse 1.4s ease-in-out infinite; }}
-    .energy-line {{ animation: data-flow 1.8s linear infinite; }}
-
-    .speech {{
-        margin: -6px auto 0;
-        width: min(94%, 600px);
-        padding: 14px 16px;
-        border-radius: 20px;
-        background: rgba(5, 12, 24, 0.66);
-        border: 1px solid rgba(255,255,255,0.12);
-        text-align: center;
-        line-height: 1.45;
-        color: #eef6ff;
-    }}
-
-    .float-text {{
-        fill: {accent};
-        font-weight: 900;
-        font-size: 26px;
-        opacity: 0.88;
-        animation: float-text 2.1s ease-in-out infinite;
-    }}
-    .float-text.small {{ font-size: 15px; animation-delay: 0.35s; }}
-    .food {{ font-size: 20px; letter-spacing: 1px; }}
-    .tear {{ animation: tear-drop 1.8s ease-in-out infinite; }}
-
-    @keyframes dino-float {{
-        0%, 100% {{ transform: translateY(0); }}
-        50% {{ transform: translateY(-12px); }}
-    }}
-
-    @keyframes dino-happy {{
-        0%, 100% {{ transform: translateY(0) rotate(-0.6deg); }}
-        50% {{ transform: translateY(-17px) rotate(0.8deg); }}
-    }}
-
-    @keyframes dino-sleepy {{
-        0%, 100% {{ transform: translateY(0) rotate(-1deg); opacity: 0.88; }}
-        50% {{ transform: translateY(4px) rotate(1deg); opacity: 1; }}
-    }}
-
-    @keyframes dino-shake {{
-        0%, 100% {{ transform: translateX(0); }}
-        25% {{ transform: translateX(-4px); }}
-        75% {{ transform: translateX(4px); }}
-    }}
-
-    @keyframes dino-sad {{
-        0%, 100% {{ transform: translateY(8px); }}
-        50% {{ transform: translateY(2px); }}
-    }}
-
-    @keyframes tail-wag {{
-        0%, 100% {{ transform: rotate(-3deg); }}
-        50% {{ transform: rotate(7deg); }}
-    }}
-
-    @keyframes head-nod {{
-        0%, 100% {{ transform: rotate(0deg) translateY(0); }}
-        50% {{ transform: rotate(-2deg) translateY(-4px); }}
-    }}
-
-    @keyframes jaw-talk {{
-        0%, 82%, 100% {{ transform: rotate(0deg); }}
-        88% {{ transform: rotate(5deg); }}
-        94% {{ transform: rotate(-2deg); }}
-    }}
-
-    @keyframes leg-step {{
-        0%, 100% {{ transform: rotate(0deg); }}
-        50% {{ transform: rotate(3deg); }}
-    }}
-
-    @keyframes arm-wave {{
-        0%, 100% {{ transform: rotate(-2deg); }}
-        50% {{ transform: rotate(11deg); }}
-    }}
-
-    @keyframes glow-pulse {{
-        0%, 100% {{ opacity: 0.58; transform: scale(0.96); }}
-        50% {{ opacity: 1; transform: scale(1.08); }}
-    }}
-
-    @keyframes eye-blink {{
-        0%, 44%, 52%, 100% {{ transform: scaleY(1); opacity: 1; }}
-        48% {{ transform: scaleY(0.10); opacity: 0.82; }}
-    }}
-
-    @keyframes light-pulse {{
-        0%, 100% {{ opacity: 0.45; }}
-        50% {{ opacity: 1; }}
-    }}
-
-    @keyframes data-flow {{
-        0% {{ stroke-dashoffset: 42; opacity: .45; }}
-        50% {{ opacity: 1; }}
-        100% {{ stroke-dashoffset: 0; opacity: .45; }}
-    }}
-
-    @keyframes float-text {{
-        0%, 100% {{ transform: translateY(0); opacity: .58; }}
-        50% {{ transform: translateY(-7px); opacity: 1; }}
-    }}
-
-    @keyframes tear-drop {{
-        0%, 100% {{ transform: translateY(0); opacity: .45; }}
-        50% {{ transform: translateY(8px); opacity: 1; }}
-    }}
-</style>
-</head>
-<body>
-    <div class="pet-card">
-        <div class="title">
-            <span>🦖 RAPTOR X BOT</span>
-            <span class="pill">{safe_mood_label}</span>
-            <span class="pill">LV {level}</span>
-            <span class="pill">XP {xp}/100</span>
-        </div>
-
-        <div class="dino-stage" aria-label="Robot dinosaurus interaktif">
-            <div class="dino-wrap {mood}">
-                <div class="dino-glow"></div>
-                <svg class="dino-svg" viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive robot dinosaur animation">
-                    <defs>
-                        <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#f9fcff"/>
-                            <stop offset="48%" stop-color="#b7c7dc"/>
-                            <stop offset="100%" stop-color="#72839d"/>
-                        </linearGradient>
-                        <linearGradient id="darkGrad" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#17233c"/>
-                            <stop offset="100%" stop-color="#060b14"/>
-                        </linearGradient>
-                        <linearGradient id="jointGrad" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#d8e6f5"/>
-                            <stop offset="100%" stop-color="#6f829d"/>
-                        </linearGradient>
-                    </defs>
-
-                    <ellipse cx="282" cy="303" rx="150" ry="22" fill="rgba(0,0,0,0.32)"/>
-
-                    <g class="tail">
-                        <path d="M356 162 C410 138 462 121 500 91" fill="none" stroke="#8fa3bf" stroke-width="35" stroke-linecap="round"/>
-                        <path d="M366 158 C414 139 459 124 492 98" fill="none" stroke="#e7f2ff" stroke-width="18" stroke-linecap="round" opacity="0.92"/>
-                        <path class="energy-line" d="M382 154 C423 138 454 125 484 105" fill="none" stroke="{accent}" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 12"/>
-                    </g>
-
-                    <g class="leg-back">
-                        <path d="M338 211 C356 241 357 270 344 291" fill="none" stroke="#7688a4" stroke-width="27" stroke-linecap="round"/>
-                        <circle cx="337" cy="217" r="24" fill="url(#jointGrad)"/>
-                        <circle cx="337" cy="217" r="10" fill="{accent}" opacity="0.75"/>
-                        <path d="M343 291 L403 300" fill="none" stroke="#101723" stroke-width="18" stroke-linecap="round"/>
-                        <path d="M397 300 L416 294 M397 300 L420 305 M397 300 L413 315" stroke="#111827" stroke-width="8" stroke-linecap="round"/>
-                    </g>
-
-                    <g class="leg-front">
-                        <path d="M259 210 C277 239 273 271 252 291" fill="none" stroke="#7d91ad" stroke-width="28" stroke-linecap="round"/>
-                        <circle cx="258" cy="216" r="25" fill="url(#jointGrad)"/>
-                        <circle cx="258" cy="216" r="10" fill="{accent}" opacity="0.78"/>
-                        <path d="M252 291 L309 301" fill="none" stroke="#101723" stroke-width="18" stroke-linecap="round"/>
-                        <path d="M302 301 L324 294 M302 301 L329 306 M302 301 L320 316" stroke="#111827" stroke-width="8" stroke-linecap="round"/>
-                    </g>
-
-                    <path d="M188 135 C226 86 311 91 365 142 C386 162 382 205 351 223 C295 255 210 238 176 198 C159 178 163 155 188 135Z" fill="url(#bodyGrad)"/>
-                    <path d="M214 126 C250 105 310 108 345 143" fill="none" stroke="rgba(255,255,255,.58)" stroke-width="12" stroke-linecap="round"/>
-                    <path class="energy-line" d="M222 179 C260 159 304 160 343 180" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 14"/>
-                    <rect x="245" y="139" width="74" height="28" rx="14" fill="url(#darkGrad)" opacity="0.95"/>
-                    <rect x="258" y="149" width="45" height="8" rx="4" fill="{accent}" opacity="0.88"/>
-                    <circle class="sensor" cx="331" cy="153" r="10" fill="{accent}" opacity="0.76"/>
-                    <circle cx="331" cy="153" r="20" fill="none" stroke="{accent}" stroke-width="3" opacity="0.28"/>
-                    {dirt}
-
-                    <g class="arm">
-                        <path d="M219 178 C198 189 192 210 202 222" fill="none" stroke="#7f93af" stroke-width="15" stroke-linecap="round"/>
-                        <path d="M203 222 L184 232 M203 222 L207 241" stroke="#101723" stroke-width="7" stroke-linecap="round"/>
-                        <circle cx="220" cy="178" r="12" fill="url(#jointGrad)"/>
-                    </g>
-
-                    <path d="M176 151 C158 133 153 112 166 91" fill="none" stroke="#8398b6" stroke-width="25" stroke-linecap="round"/>
-                    <path class="energy-line" d="M174 150 C159 130 159 111 171 94" fill="none" stroke="{accent}" stroke-width="4" stroke-linecap="round" stroke-dasharray="9 10"/>
-
-                    <g class="head">
-                        <path d="M88 66 C126 38 185 47 204 89 C214 111 199 136 170 145 C133 157 83 150 48 126 C27 112 33 86 88 66Z" fill="url(#bodyGrad)"/>
-                        <path d="M48 126 C88 135 128 139 165 135 C133 161 85 162 52 145 C41 140 38 132 48 126Z" fill="#e5eef9" opacity="0.95"/>
-                        <path d="M74 75 C113 55 162 59 188 90" fill="none" stroke="rgba(255,255,255,.64)" stroke-width="10" stroke-linecap="round"/>
-                        <rect x="105" y="76" width="68" height="36" rx="18" fill="url(#darkGrad)" opacity="0.95"/>
-                        {eye}
-                        {mouth}
-                        <circle class="sensor" cx="72" cy="104" r="7" fill="{accent}" opacity="0.84"/>
-                        <circle cx="72" cy="104" r="15" fill="none" stroke="{accent}" stroke-width="3" opacity="0.28"/>
-                        <path d="M62 127 L72 143 L82 129 M91 132 L100 147 L110 132 M120 134 L129 148 L139 132" fill="none" stroke="#101723" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.90"/>
-                    </g>
-
-                    {extra}
-                </svg>
-            </div>
-        </div>
-        <div class="speech">{safe_message}</div>
-    </div>
-</body>
-</html>
-"""
-
-
-def render_metric(label: str, value: int, icon: str):
+def render_terminal_line(label: str, value: str, status: str = "ok"):
+    safe_label = escape(str(label))
+    safe_value = escape(str(value))
+    safe_status = escape(str(status).upper())
     st.markdown(
         f"""
-        <div class="pet-metric">
-            <div class="pet-metric-head"><span>{icon} {label}</span><strong>{value}%</strong></div>
-            <div class="pet-bar"><div class="pet-fill" style="width: {value}%;"></div></div>
+        <div class="terminal-line">
+            <span class="terminal-label">{safe_label}</span>
+            <span class="terminal-value">{safe_value}</span>
+            <span class="terminal-badge">{safe_status}</span>
         </div>
         """,
         unsafe_allow_html=True,
@@ -1814,88 +1280,206 @@ def render_metric(label: str, value: int, icon: str):
 st.markdown(
     """
     <style>
-        .block-container {
-            max-width: 760px !important;
-            padding: 28px 14px 44px !important;
-            margin: 0 auto !important;
-        }
-
         .stButton > button {
             width: 100%;
             min-height: 46px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.16);
-            background: rgba(255,255,255,0.08);
-            color: #eef6ff;
-            font-weight: 700;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 136, 0.32);
+            background: linear-gradient(180deg, rgba(0, 255, 136, 0.11), rgba(0, 0, 0, 0.42));
+            color: #d8ffe9;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+            box-shadow: 0 0 18px rgba(0, 255, 136, 0.08);
         }
 
         .stButton > button:hover {
-            border-color: rgba(100, 230, 255, 0.55);
-            background: rgba(82,230,255,0.12);
+            border-color: rgba(0, 255, 136, 0.78);
+            background: linear-gradient(180deg, rgba(0, 255, 136, 0.18), rgba(0, 0, 0, 0.46));
             color: #ffffff;
+            box-shadow: 0 0 24px rgba(0, 255, 136, 0.20);
         }
 
+        .stTextInput input {
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 136, 0.32) !important;
+            background: rgba(0, 0, 0, 0.38) !important;
+            color: #d8ffe9 !important;
+            font-family: "JetBrains Mono", "Fira Code", Consolas, monospace !important;
+        }
+
+        .hacker-hero {
+            position: relative;
+            overflow: hidden;
+            border-radius: 22px;
+            padding: 24px 22px;
+            background:
+                radial-gradient(circle at 18% 22%, rgba(0, 255, 136, 0.14), transparent 32%),
+                linear-gradient(135deg, rgba(0, 20, 10, 0.94), rgba(0, 0, 0, 0.84));
+            border: 1px solid rgba(0, 255, 136, 0.28);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.46), inset 0 0 42px rgba(0, 255, 136, 0.045);
+        }
+
+        .hacker-hero::before {
+            content: "01001001 01001110 01001001 01001011 01000001 01001110 01010011 01000001 01010100 01010101";
+            position: absolute;
+            top: 12px;
+            right: -90px;
+            width: 520px;
+            color: rgba(0, 255, 136, 0.11);
+            font-size: 12px;
+            line-height: 1.8;
+            transform: rotate(10deg);
+            white-space: normal;
+            pointer-events: none;
+        }
+
+        .hacker-kicker {
+            color: #00ff88;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hacker-title {
+            color: #eafff2;
+            font-size: clamp(28px, 6vw, 52px);
+            line-height: 1.0;
+            font-weight: 950;
+            letter-spacing: -0.055em;
+            margin: 0;
+            text-shadow: 0 0 24px rgba(0, 255, 136, 0.20);
+        }
+
+        .hacker-subtitle {
+            margin-top: 12px;
+            color: rgba(216, 255, 233, 0.72);
+            font-size: 14px;
+            line-height: 1.65;
+            max-width: 680px;
+        }
+
+        .terminal-panel,
         .pet-panel {
             margin-top: 14px;
             padding: 16px;
-            border-radius: 24px;
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            background: rgba(0, 11, 5, 0.76);
+            border: 1px solid rgba(0, 255, 136, 0.22);
+            box-shadow: inset 0 0 28px rgba(0, 255, 136, 0.045), 0 18px 45px rgba(0, 0, 0, 0.28);
             backdrop-filter: blur(18px);
         }
 
-        .pet-metric {
-            margin: 9px 0;
-        }
-
-        .pet-metric-head {
+        .terminal-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            color: #eaf4ff;
-            font-size: 14px;
-            margin-bottom: 7px;
+            justify-content: space-between;
+            gap: 12px;
+            color: #00ff88;
+            font-size: 13px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.16);
+            padding-bottom: 10px;
         }
 
-        .pet-bar {
-            height: 12px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.10);
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.08);
+        .terminal-dots {
+            display: flex;
+            gap: 7px;
         }
 
-        .pet-fill {
-            height: 100%;
+        .terminal-dot {
+            width: 9px;
+            height: 9px;
             border-radius: 999px;
-            background: linear-gradient(90deg, #52e6ff, #63f7b4);
-            box-shadow: 0 0 18px rgba(82,230,255,0.35);
+            background: #00ff88;
+            box-shadow: 0 0 12px rgba(0, 255, 136, 0.65);
+        }
+
+        .terminal-line {
+            display: grid;
+            grid-template-columns: minmax(120px, 0.42fr) minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.09);
+            font-size: 13px;
+        }
+
+        .terminal-line:last-child {
+            border-bottom: 0;
+        }
+
+        .terminal-label {
+            color: rgba(216, 255, 233, 0.62);
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .terminal-value {
+            color: #eafff2;
+            overflow-wrap: anywhere;
+        }
+
+        .terminal-badge {
+            justify-self: end;
+            min-width: 54px;
+            text-align: center;
+            padding: 3px 7px;
+            border-radius: 999px;
+            color: #031108;
+            background: #00ff88;
+            font-size: 11px;
+            font-weight: 950;
+            box-shadow: 0 0 12px rgba(0, 255, 136, 0.24);
+        }
+
+        .terminal-output {
+            margin-top: 12px;
+            padding: 14px;
+            border-radius: 14px;
+            background: rgba(0, 0, 0, 0.48);
+            border: 1px solid rgba(0, 255, 136, 0.16);
+            color: #00ff88;
+            font-size: 13px;
+            line-height: 1.7;
+            min-height: 72px;
+            white-space: normal;
+        }
+
+        .terminal-output::before {
+            content: "> ";
+            color: #19d8ff;
+            font-weight: 900;
         }
 
         .pet-small-note {
-            color: rgba(238,246,255,0.72);
+            color: rgba(216, 255, 233, 0.64);
             text-align: center;
             font-size: 13px;
-            margin-top: 10px;
+            margin-top: 12px;
+            line-height: 1.6;
         }
 
         .pet-section-title {
-            color: #eef6ff;
-            font-weight: 800;
-            margin: 10px 0 2px;
+            color: #00ff88;
+            font-weight: 950;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 18px 0 8px;
             text-align: center;
+            text-shadow: 0 0 14px rgba(0, 255, 136, 0.30);
         }
 
         .best-ping-card {
             margin-top: 12px;
             padding: 16px;
-            border-radius: 24px;
-            background: linear-gradient(180deg, rgba(99,247,180,0.12), rgba(82,230,255,0.055));
-            border: 1px solid rgba(99,247,180,0.18);
-            box-shadow: 0 18px 42px rgba(0,0,0,0.20);
-            color: #eef6ff;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(0, 255, 136, 0.10), rgba(0, 0, 0, 0.54));
+            border: 1px solid rgba(0, 255, 136, 0.24);
+            box-shadow: 0 18px 42px rgba(0,0,0,0.30);
+            color: #d8ffe9;
         }
 
         .best-ping-top {
@@ -1916,11 +1500,11 @@ st.markdown(
             white-space: nowrap;
             font-size: 20px;
             font-weight: 900;
-            color: #63f7b4;
+            color: #00ff88;
         }
 
         .best-ping-meta {
-            color: rgba(238,246,255,0.74);
+            color: rgba(216,255,233,0.72);
             font-size: 13px;
             line-height: 1.5;
         }
@@ -1937,14 +1521,14 @@ st.markdown(
             gap: 10px;
             align-items: center;
             padding: 10px 12px;
-            border-radius: 16px;
-            background: rgba(255,255,255,0.055);
-            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 13px;
+            background: rgba(0,255,136,0.045);
+            border: 1px solid rgba(0,255,136,0.13);
         }
 
         .best-ping-rank {
             font-weight: 900;
-            color: #63f7b4;
+            color: #00ff88;
         }
 
         .best-ping-name {
@@ -1956,7 +1540,7 @@ st.markdown(
         }
 
         .best-ping-sub {
-            color: rgba(238,246,255,0.66);
+            color: rgba(216,255,233,0.60);
             font-size: 12px;
             margin-top: 2px;
         }
@@ -1966,75 +1550,57 @@ st.markdown(
 )
 
 
-init_pet_state()
-decay_pet_state()
-pet = st.session_state.pet
-mood, mood_label = pet_mood()
+init_terminal_state()
 
-components.html(
-    render_robot_html(
-        mood=mood,
-        mood_label=mood_label,
-        message=pet.get("last_action_text", "Halo!"),
-        level=int(pet.get("level", 1)),
-        xp=int(pet.get("xp", 0)),
-    ),
-    height=520,
-    scrolling=False,
+st.markdown(
+    """
+    <div class="hacker-hero">
+        <div class="hacker-kicker">SECURE STREAMLIT CONTROL NODE</div>
+        <h1 class="hacker-title">YAMLKU<br>HACKER CONSOLE</h1>
+        <div class="hacker-subtitle">
+            Tampilan publik sudah diubah menjadi terminal cyber/hacker. Avatar robot, animasi pet,
+            tombol interaksi, dan chat karakter sudah dihapus. Panel admin tetap tersedia melalui route admin.
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
-st.markdown('<div class="pet-panel">', unsafe_allow_html=True)
-left, right = st.columns(2)
-with left:
-    render_metric("Nutrisi", int(pet["hunger"]), "🥩")
-    render_metric("Bonding", int(pet["happiness"]), "🤝")
-with right:
-    render_metric("Baterai", int(pet["energy"]), "🔋")
-    render_metric("Sensor", int(pet["hygiene"]), "📡")
+st.markdown('<div class="terminal-panel">', unsafe_allow_html=True)
+st.markdown(
+    """
+    <div class="terminal-header">
+        <span>root@yamlku:~$ systemctl status streamlit-node</span>
+        <span class="terminal-dots"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+telegram_status = "CONFIGURED" if TELEGRAM_BOT_TOKEN else "NO TOKEN"
+github_status = "CONFIGURED" if (GITHUB_TOKEN and GITHUB_OWNER and GITHUB_REPO) else "CHECK SECRETS"
+admin_status = "LOCKED" if ADMIN_PASSWORD else "PASSWORD MISSING"
+
+render_terminal_line("telegram", telegram_status, "ok" if TELEGRAM_BOT_TOKEN else "warn")
+render_terminal_line("github repo", f"{GITHUB_OWNER or '-'} / {GITHUB_REPO or '-'}", "ok" if GITHUB_OWNER and GITHUB_REPO else "warn")
+render_terminal_line("workflow", WORKFLOW_ID, "standby")
+render_terminal_line("branch", GITHUB_REF, "watch")
+render_terminal_line("admin", admin_status, "secure" if ADMIN_PASSWORD else "warn")
+
+st.markdown(
+    f'<div class="terminal-output">{escape(st.session_state.terminal_message)}</div>',
+    unsafe_allow_html=True,
+)
 st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown('<div class="pet-section-title">Interaksi Raptor X</div>', unsafe_allow_html=True)
-col1, col2, col3 = st.columns(3)
-with col1:
-    if st.button("🥩 Beri Energi", use_container_width=True):
-        action_feed()
-        st.rerun()
-with col2:
-    if st.button("🎾 Latih Raptor", use_container_width=True):
-        action_play()
-        st.rerun()
-with col3:
-    if st.button("😴 Sleep Mode", use_container_width=True):
-        action_sleep()
-        st.rerun()
-
-col4, col5, col6 = st.columns(3)
-with col4:
-    if st.button("📡 Bersihkan Sensor", use_container_width=True):
-        action_clean()
-        st.rerun()
-with col5:
-    if st.button("⚡ Charge Core", use_container_width=True):
-        action_charge()
-        st.rerun()
-with col6:
-    if st.button("🔁 Reset", use_container_width=True):
-        action_reset()
-        st.rerun()
-
-
-st.markdown('<div class="pet-section-title">Ajak bicara Raptor X</div>', unsafe_allow_html=True)
-with st.form("raptor_chat_form", clear_on_submit=True):
-    user_talk = st.text_input(
-        "Ketik perintah",
-        placeholder="contoh: status, ping, update, roar, makan, tidur, bersih",
-        label_visibility="collapsed",
-    )
-    submitted_talk = st.form_submit_button("💬 Kirim ke Raptor X", use_container_width=True)
-
-if submitted_talk:
-    action_talk(user_talk)
-    st.rerun()
+st.markdown(
+    """
+    <div class="pet-small-note">
+        Public mode: visual hacker terminal only. Buka halaman admin dengan query admin untuk menjalankan Update Config, Test Proxy, dan Best Ping.
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 # =========================
@@ -2099,7 +1665,7 @@ def ensure_admin_authenticated() -> bool:
     if submitted:
         if password == ADMIN_PASSWORD:
             st.session_state.admin_authenticated = True
-            set_pet_action("Mode admin aktif. Panel kontrol sudah dibuka.")
+            set_pet_action("Mode admin aktif. Terminal kontrol sudah dibuka.")
             st.rerun()
         else:
             st.error("Password admin salah.")
@@ -2114,22 +1680,22 @@ def render_admin_actions():
         if st.button("🔄 Update Config", use_container_width=True):
             try:
                 dispatch_workflow(mode="update", enable_proxy_test="true", filter_alive_only="true")
-                set_pet_action("Update config berhasil dipicu. Aku menunggu hasil GitHub Actions.")
+                set_pet_action("Update config berhasil dipicu. Menunggu hasil GitHub Actions.")
                 st.success("Update GitHub Actions berhasil dipicu.")
                 add_xp(18)
             except Exception as exc:
-                set_pet_action("Aku gagal memicu update. Cek token/repo/workflow ya.")
+                set_pet_action("Gagal memicu update. Cek token/repo/workflow.")
                 st.error(str(exc))
             st.rerun()
     with bot_col2:
         if st.button("🧪 Test Proxy", use_container_width=True):
             try:
                 dispatch_workflow(mode="test", enable_proxy_test="true", filter_alive_only="false")
-                set_pet_action("Test proxy berhasil dipicu. Aku akan tunggu laporan alive/dead.")
+                set_pet_action("Test proxy berhasil dipicu. Menunggu laporan alive/dead.")
                 st.success("Test proxy GitHub Actions berhasil dipicu.")
                 add_xp(18)
             except Exception as exc:
-                set_pet_action("Aku gagal memicu test proxy. Cek workflow input dan secrets.")
+                set_pet_action("Gagal memicu test proxy. Cek workflow input dan secrets.")
                 st.error(str(exc))
             st.rerun()
 
@@ -2334,7 +1900,7 @@ def render_admin_best_ping():
                 st.success("Test ping berhasil dipicu. Tunggu output Alive/Dead diperbarui.")
                 add_xp(12)
             except Exception as exc:
-                set_pet_action("Aku gagal memicu test best ping. Cek workflow dan secrets.")
+                set_pet_action("Gagal memicu test best ping. Cek workflow dan secrets.")
                 st.error(str(exc))
             st.rerun()
 
@@ -2372,6 +1938,6 @@ if ensure_admin_authenticated():
     )
 else:
     st.markdown(
-        '<div class="pet-small-note">Mode publik. Raptor X bisa diajak interaksi; panel Aksi Bot dan Best Ping hanya tersedia di halaman admin.</div>',
+        '<div class="pet-small-note">Mode publik. terminal hacker aktif; panel Aksi Bot dan Best Ping hanya tersedia di halaman admin.</div>',
         unsafe_allow_html=True,
     )
