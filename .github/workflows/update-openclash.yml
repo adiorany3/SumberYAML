@@ -87,7 +87,7 @@ env:
 
 jobs:
   update:
-    name: Generate, test, and commit OpenClash output
+    name: Generate, test, convert sing-box, and commit output
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -151,7 +151,13 @@ jobs:
           fi
 
           echo "Menjalankan telegram_openclash_alive.py..."
-          python telegram_openclash_alive.py             --mode "$MODE"             --enable-proxy-test "$ENABLE_PROXY_TEST"             --filter-alive-only "$FILTER_ALIVE_ONLY"             --strict-alive-only "$STRICT_ALIVE_ONLY"             --test-rounds "$TEST_ROUNDS"             --require-success-rounds "$REQUIRE_SUCCESS_ROUNDS" || {
+          python telegram_openclash_alive.py \
+            --mode "$MODE" \
+            --enable-proxy-test "$ENABLE_PROXY_TEST" \
+            --filter-alive-only "$FILTER_ALIVE_ONLY" \
+            --strict-alive-only "$STRICT_ALIVE_ONLY" \
+            --test-rounds "$TEST_ROUNDS" \
+            --require-success-rounds "$REQUIRE_SUCCESS_ROUNDS" || {
               echo "Gagal dengan argumen CLI. Coba fallback tanpa argumen..."
               python telegram_openclash_alive.py
             }
@@ -177,7 +183,23 @@ jobs:
       - name: Validate OpenClash YAML
         run: |
           set -e
-          python scripts/validate_openclash_outputs.py output/lengkap.yaml output/lengkap_alive.yaml output/strict_alive.yaml output/lite.yaml output/fast.yaml
+          python scripts/validate_openclash_outputs.py \
+            output/lengkap.yaml \
+            output/lengkap_alive.yaml \
+            output/strict_alive.yaml \
+            output/lite.yaml \
+            output/fast.yaml
+
+      - name: Convert OpenClash output to sing-box JSON
+        run: |
+          set -e
+          python scripts/convert_openclash_to_singbox.py \
+            --also-new-dns \
+            --also-legacy-tun \
+            --make-latest
+
+          echo "Sing-box output:"
+          find output/SingBox -maxdepth 1 -type f -name '*.json' -print | sort || true
 
       - name: Commit output files
         run: |
@@ -198,7 +220,6 @@ jobs:
 
           for attempt in 1 2 3; do
             echo "Commit/push attempt $attempt untuk branch: $BRANCH"
-
             echo "Sinkronisasi lokal dengan origin/$BRANCH tanpa merge agar tidak konflik dengan file output hasil generate..."
             git fetch origin "$BRANCH"
             git checkout "$BRANCH" || git checkout -B "$BRANCH" "origin/$BRANCH"
@@ -216,8 +237,7 @@ jobs:
               exit 0
             fi
 
-            git commit -m "Update OpenClash output"
-
+            git commit -m "Update OpenClash and sing-box output"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
