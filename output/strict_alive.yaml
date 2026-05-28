@@ -49,21 +49,6 @@ proxies:
       headers:
         Host: "jp.aniua.qzz.io"
     udp: true
-  - name: "v2rayvpno"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 536d0d54-53a5-455a-ad7c-a525d8ff629f
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "tesdt.arvanabr.xyz"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "tesdt.arvanabr.xyz"
-    udp: true
   - name: "55 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
@@ -78,21 +63,6 @@ proxies:
       path: "/dh/images/group"
       headers:
         Host: "pagescm.freen31.cc.cd"
-    udp: true
-  - name: "oneclickvpnkeys US 3677"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "juzi.qea.ccwu.cc"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "juzi.qea.ccwu.cc"
     udp: true
   - name: "CF-TR-1"
     server: "104.17.3.81"
@@ -109,6 +79,21 @@ proxies:
       headers:
         Host: "2.webramz.store"
     udp: true
+  - name: "oneclickvpnkeys US 2559"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
   - name: "30 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
@@ -123,21 +108,6 @@ proxies:
       path: "/"
       headers:
         Host: "uin-ape.pages.dev"
-    udp: true
-  - name: "SC 33723 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ada4ea8a-41d8-41b2-bcf5-9bf961b7d676
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "cdn12.kaiserping.site"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "cdn12.kaiserping.site"
     udp: true
   - name: "43 oneclickvpnkeys"
     server: "104.17.3.81"
@@ -229,21 +199,7 @@ proxies:
       headers:
         Host: "bb-1w3.pages.dev"
     udp: true
-  - name: "oneclickvpnkeys PL"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.creationlong.org"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.creationlong.org"
-    udp: true
-  - name: "outline_vpn FR"
+  - name: "Anthony 6729"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -257,7 +213,7 @@ proxies:
       headers:
         Host: "www.calmlunch.com"
     udp: true
-  - name: "oneclickvpnkeys FR 7182"
+  - name: "speedtunnel"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -265,13 +221,13 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.ignitelimit.com"
+    sni: "www.calmloud.com"
     ws-opts:
       path: "/assignment"
       headers:
-        Host: "www.ignitelimit.com"
+        Host: "www.calmloud.com"
     udp: true
-  - name: "KAFING_2 2110"
+  - name: "KAFING_2 8364"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -285,7 +241,7 @@ proxies:
       headers:
         Host: "uk1.test3.net"
     udp: true
-  - name: "filembad 9088"
+  - name: "filembad 7792"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -305,10 +261,10 @@ proxy-groups:
     type: url-test
     proxies:
       - "43 oneclickvpnkeys"
-      - "30 oneclickvpnkeys"
-      - "filembad 9088"
       - "configwireguard - 1"
-      - "configwireguard - 2"
+      - "configwireguard - 4"
+      - "outline_ir"
+      - "9https t.me VIPV2rayNGNP"
     url: http://www.gstatic.com/generate_204
     interval: 120
     tolerance: 30
@@ -318,20 +274,20 @@ proxy-groups:
     type: fallback
     proxies:
       - "43 oneclickvpnkeys"
-      - "30 oneclickvpnkeys"
-      - "filembad 9088"
       - "configwireguard - 1"
-      - "configwireguard - 2"
       - "configwireguard - 4"
-      - "configwireguard - 8"
       - "outline_ir"
-      - "SC 33723 Telegram t.me SOSkeyNET"
-      - "v2rayvpno"
-      - "55 oneclickvpnkeys"
       - "9https t.me VIPV2rayNGNP"
-      - "oneclickvpnkeys US 3677"
-      - "outline_vpn FR"
+      - "oneclickvpnkeys US 2559"
+      - "filembad 7792"
+      - "30 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "Anthony 6729"
       - "CF-TR-1"
+      - "speedtunnel"
+      - "configwireguard - 8"
+      - "configwireguard - 2"
+      - "KAFING_2 8364"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -340,15 +296,15 @@ proxy-groups:
     type: fallback
     proxies:
       - "43 oneclickvpnkeys"
-      - "30 oneclickvpnkeys"
-      - "filembad 9088"
-      - "configwireguard - 2"
-      - "configwireguard - 1"
       - "configwireguard - 4"
-      - "configwireguard - 8"
+      - "configwireguard - 1"
       - "outline_ir"
-      - "SC 33723 Telegram t.me SOSkeyNET"
-      - "v2rayvpno"
+      - "9https t.me VIPV2rayNGNP"
+      - "oneclickvpnkeys US 2559"
+      - "filembad 7792"
+      - "30 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "Anthony 6729"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -357,15 +313,15 @@ proxy-groups:
     type: fallback
     proxies:
       - "43 oneclickvpnkeys"
-      - "30 oneclickvpnkeys"
-      - "filembad 9088"
       - "configwireguard - 1"
-      - "configwireguard - 2"
       - "configwireguard - 4"
-      - "configwireguard - 8"
       - "outline_ir"
-      - "SC 33723 Telegram t.me SOSkeyNET"
-      - "v2rayvpno"
+      - "9https t.me VIPV2rayNGNP"
+      - "oneclickvpnkeys US 2559"
+      - "filembad 7792"
+      - "30 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "Anthony 6729"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -374,15 +330,15 @@ proxy-groups:
     type: fallback
     proxies:
       - "43 oneclickvpnkeys"
-      - "30 oneclickvpnkeys"
-      - "filembad 9088"
-      - "configwireguard - 2"
-      - "configwireguard - 1"
       - "configwireguard - 4"
-      - "configwireguard - 8"
+      - "configwireguard - 1"
       - "outline_ir"
-      - "SC 33723 Telegram t.me SOSkeyNET"
-      - "v2rayvpno"
+      - "9https t.me VIPV2rayNGNP"
+      - "oneclickvpnkeys US 2559"
+      - "filembad 7792"
+      - "30 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "Anthony 6729"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -391,15 +347,15 @@ proxy-groups:
     type: fallback
     proxies:
       - "43 oneclickvpnkeys"
-      - "30 oneclickvpnkeys"
-      - "filembad 9088"
-      - "configwireguard - 2"
-      - "configwireguard - 1"
       - "configwireguard - 4"
-      - "configwireguard - 8"
+      - "configwireguard - 1"
       - "outline_ir"
-      - "SC 33723 Telegram t.me SOSkeyNET"
-      - "v2rayvpno"
+      - "9https t.me VIPV2rayNGNP"
+      - "oneclickvpnkeys US 2559"
+      - "filembad 7792"
+      - "30 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "Anthony 6729"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -408,15 +364,15 @@ proxy-groups:
     type: fallback
     proxies:
       - "43 oneclickvpnkeys"
-      - "30 oneclickvpnkeys"
-      - "filembad 9088"
-      - "configwireguard - 2"
       - "configwireguard - 1"
       - "configwireguard - 4"
-      - "configwireguard - 8"
       - "outline_ir"
-      - "SC 33723 Telegram t.me SOSkeyNET"
-      - "v2rayvpno"
+      - "9https t.me VIPV2rayNGNP"
+      - "oneclickvpnkeys US 2559"
+      - "filembad 7792"
+      - "30 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "Anthony 6729"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -425,12 +381,10 @@ proxy-groups:
     type: url-test
     proxies:
       - "9https t.me VIPV2rayNGNP"
-      - "v2rayvpno"
       - "55 oneclickvpnkeys"
-      - "oneclickvpnkeys US 3677"
       - "CF-TR-1"
+      - "oneclickvpnkeys US 2559"
       - "30 oneclickvpnkeys"
-      - "SC 33723 Telegram t.me SOSkeyNET"
       - "43 oneclickvpnkeys"
       - "outline_ir"
       - "configwireguard - 2"
@@ -445,11 +399,10 @@ proxy-groups:
   - name: "URL-TEST TROJAN"
     type: url-test
     proxies:
-      - "oneclickvpnkeys PL"
-      - "outline_vpn FR"
-      - "oneclickvpnkeys FR 7182"
-      - "KAFING_2 2110"
-      - "filembad 9088"
+      - "Anthony 6729"
+      - "speedtunnel"
+      - "KAFING_2 8364"
+      - "filembad 7792"
     url: http://www.gstatic.com/generate_204
     interval: 120
     tolerance: 30
@@ -459,23 +412,20 @@ proxy-groups:
     type: url-test
     proxies:
       - "9https t.me VIPV2rayNGNP"
-      - "v2rayvpno"
       - "55 oneclickvpnkeys"
-      - "oneclickvpnkeys US 3677"
       - "CF-TR-1"
+      - "oneclickvpnkeys US 2559"
       - "30 oneclickvpnkeys"
-      - "SC 33723 Telegram t.me SOSkeyNET"
       - "43 oneclickvpnkeys"
       - "outline_ir"
       - "configwireguard - 2"
       - "configwireguard - 4"
       - "configwireguard - 1"
       - "configwireguard - 8"
-      - "oneclickvpnkeys PL"
-      - "outline_vpn FR"
-      - "oneclickvpnkeys FR 7182"
-      - "KAFING_2 2110"
-      - "filembad 9088"
+      - "Anthony 6729"
+      - "speedtunnel"
+      - "KAFING_2 8364"
+      - "filembad 7792"
     url: http://www.gstatic.com/generate_204
     interval: 120
     tolerance: 30
@@ -485,20 +435,20 @@ proxy-groups:
     type: fallback
     proxies:
       - "43 oneclickvpnkeys"
-      - "30 oneclickvpnkeys"
-      - "filembad 9088"
       - "configwireguard - 1"
-      - "configwireguard - 2"
       - "configwireguard - 4"
-      - "configwireguard - 8"
       - "outline_ir"
-      - "SC 33723 Telegram t.me SOSkeyNET"
-      - "v2rayvpno"
-      - "55 oneclickvpnkeys"
       - "9https t.me VIPV2rayNGNP"
-      - "oneclickvpnkeys US 3677"
-      - "outline_vpn FR"
+      - "oneclickvpnkeys US 2559"
+      - "filembad 7792"
+      - "30 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "Anthony 6729"
       - "CF-TR-1"
+      - "speedtunnel"
+      - "configwireguard - 8"
+      - "configwireguard - 2"
+      - "KAFING_2 8364"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false

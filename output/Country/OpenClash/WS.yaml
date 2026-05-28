@@ -34,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2rayvpno"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 536d0d54-53a5-455a-ad7c-a525d8ff629f
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "tesdt.arvanabr.xyz"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "tesdt.arvanabr.xyz"
-    udp: true
   - name: "30 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
@@ -64,7 +49,35 @@ proxies:
       headers:
         Host: "uin-ape.pages.dev"
     udp: true
-  - name: "KAFING_2 2110"
+  - name: "Anthony 6729"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "speedtunnel"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "KAFING_2 8364"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -78,7 +91,7 @@ proxies:
       headers:
         Host: "uk1.test3.net"
     udp: true
-  - name: "filembad 9088"
+  - name: "filembad 7792"
     server: "104.17.3.81"
     port: 443
     type: trojan

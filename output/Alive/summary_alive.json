@@ -1,7 +1,7 @@
 {
-  "run_mode": "update",
+  "run_mode": "test",
   "enable_proxy_test": true,
-  "filter_alive_only": true,
+  "filter_alive_only": false,
   "strict_alive_only": true,
   "test_rounds": 2,
   "require_success_rounds": 1,
@@ -21,23 +21,23 @@
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 16,
+      "alive": 13,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 13,
+      "alive": 9,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1350,
-  "alive": 18,
-  "strict_alive": 18,
-  "dead": 1332,
+  "total": 1353,
+  "alive": 15,
+  "strict_alive": 15,
+  "dead": 1338,
   "untested": 0,
   "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
@@ -48,29 +48,29 @@
   "best_ping_count": 5,
   "best_ping_names": [
     "43 oneclickvpnkeys",
-    "30 oneclickvpnkeys",
-    "filembad 9088",
     "configwireguard - 1",
-    "configwireguard - 2"
+    "configwireguard - 4",
+    "outline_ir",
+    "9https t.me VIPV2rayNGNP"
   ],
   "responsive_top_n": 15,
   "responsive_count": 15,
   "responsive_names": [
     "43 oneclickvpnkeys",
-    "30 oneclickvpnkeys",
-    "filembad 9088",
     "configwireguard - 1",
-    "configwireguard - 2",
     "configwireguard - 4",
-    "configwireguard - 8",
     "outline_ir",
-    "SC 33723 Telegram t.me SOSkeyNET",
-    "v2rayvpno",
-    "55 oneclickvpnkeys",
     "9https t.me VIPV2rayNGNP",
-    "oneclickvpnkeys US 3677",
-    "outline_vpn FR",
-    "CF-TR-1"
+    "oneclickvpnkeys US 2559",
+    "filembad 7792",
+    "30 oneclickvpnkeys",
+    "55 oneclickvpnkeys",
+    "Anthony 6729",
+    "CF-TR-1",
+    "speedtunnel",
+    "configwireguard - 8",
+    "configwireguard - 2",
+    "KAFING_2 8364"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -82,5 +82,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 18
+  "strict_output_count": 15
 }
