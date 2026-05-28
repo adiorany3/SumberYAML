@@ -169,12 +169,16 @@ ADMIN_QUERY_VALUE = get_setting("ADMIN_QUERY_VALUE", "1") or "1"
 
 # Panel QR sing-box hanya dirender di halaman admin setelah login.
 SHOW_SINGBOX_QR_PANEL = get_setting("SHOW_SINGBOX_QR_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
-SINGBOX_DEFAULT_PROFILE_NAME = get_setting("SINGBOX_DEFAULT_PROFILE_NAME", "SumberYAML Lengkap")
-SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/lengkap.json")
+SINGBOX_DEFAULT_PROFILE_NAME = get_setting("SINGBOX_DEFAULT_PROFILE_NAME", "SumberYAML Best Ping")
+SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/best-ping.json")
 SINGBOX_DEFAULT_QR_ERROR_CORRECTION = get_setting("SINGBOX_DEFAULT_QR_ERROR_CORRECTION", "M").upper()
 # Default QR URL source. Gunakan jsDelivr agar perangkat/client yang memblokir raw.githubusercontent.com tetap bisa import.
 SINGBOX_QR_DEFAULT_URL_SOURCE = get_setting("SINGBOX_QR_DEFAULT_URL_SOURCE", "jsdelivr").strip().lower()
 SINGBOX_KNOWN_JSON_PATHS = [
+    "output/SingBox/best-ping.json",
+    "output/SingBox/best.json",
+    "output/SingBox/best-ping-new-dns.json",
+    "output/SingBox/best-ping-legacy-tun.json",
     "output/SingBox/lengkap.json",
     "output/SingBox/latest.json",
     "output/SingBox/lengkap-new-dns.json",
@@ -2143,7 +2147,7 @@ def render_admin_singbox_qr():
             selected_path = st.text_input(
                 "Custom path JSON",
                 value=SINGBOX_DEFAULT_JSON_PATH,
-                placeholder="output/SingBox/lengkap.json",
+                placeholder="output/SingBox/best-ping.json",
                 key="singbox_qr_custom_path",
             )
 
@@ -2189,7 +2193,7 @@ def render_admin_singbox_qr():
             <div class="pet-panel">
                 <div style="font-weight:900;color:#00ff88;">Mode import valid</div>
                 <div class="pet-small-note" style="text-align:left;margin-top:8px;">
-                    QR dibuat sebagai <b>remote profile deep link</b>, bukan raw JSON, sehingga cocok untuk import sing-box/SFA.
+                    QR dibuat sebagai <b>remote profile deep link</b>, bukan raw JSON. Default diarahkan ke <b>best-ping.json</b> agar sing-box memakai node terbaik terbaru.
                 </div>
             </div>
             """,
