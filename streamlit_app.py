@@ -161,6 +161,12 @@ BEST_PING_COUNTRY_FILTER = get_setting("BEST_PING_COUNTRY_FILTER", "ID").upper()
 SHOW_WORKFLOW_STATUS_PANEL = get_setting("SHOW_WORKFLOW_STATUS_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
 WORKFLOW_STATUS_REFRESH_SECONDS = get_int_setting("WORKFLOW_STATUS_REFRESH_SECONDS", 60)
 
+# Admin route/login configuration.
+# Harus didefinisikan sebelum public terminal dirender karena status admin ditampilkan di halaman publik.
+ADMIN_PASSWORD = get_setting("ADMIN_PASSWORD", "")
+ADMIN_QUERY_KEY = get_setting("ADMIN_QUERY_KEY", "admin") or "admin"
+ADMIN_QUERY_VALUE = get_setting("ADMIN_QUERY_VALUE", "1") or "1"
+
 
 # =========================
 # UTILITY FUNCTIONS
@@ -1608,9 +1614,6 @@ st.markdown(
 # =========================
 # Bagian Aksi Bot dan Best Ping disembunyikan dari halaman publik.
 # Buka dengan: https://yamlku.streamlit.app/?admin=1
-ADMIN_PASSWORD = get_setting("ADMIN_PASSWORD", "")
-ADMIN_QUERY_KEY = get_setting("ADMIN_QUERY_KEY", "admin") or "admin"
-ADMIN_QUERY_VALUE = get_setting("ADMIN_QUERY_VALUE", "1") or "1"
 
 
 def get_query_param_value(key: str, default: str = "") -> str:
