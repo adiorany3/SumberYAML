@@ -1,0 +1,586 @@
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "udp",
+        "tag": "cloudflare",
+        "server": "1.1.1.1"
+      },
+      {
+        "type": "udp",
+        "tag": "google",
+        "server": "8.8.8.8"
+      }
+    ],
+    "final": "cloudflare"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "auto_route": true,
+      "strict_route": true,
+      "address": [
+        "172.19.0.1/30"
+      ]
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 7893
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "DIRECT"
+    },
+    {
+      "tag": "43 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "ae0dd58e-e222-40bf-84ae-365a97532737",
+      "tls": {
+        "enabled": true,
+        "server_name": "pagescm.freen31.cc.cd",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sitefp=chrome",
+        "headers": {
+          "Host": "pagescm.freen31.cc.cd"
+        }
+      }
+    },
+    {
+      "tag": "30 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "9d27a374-26d9-46df-9895-312a2062bc47",
+      "tls": {
+        "enabled": true,
+        "server_name": "uin-ape.pages.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "uin-ape.pages.dev"
+        }
+      }
+    },
+    {
+      "tag": "filembad 2225",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "trojan",
+      "password": "mitivpn",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.app-cloud.ir",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "www.app-cloud.ir"
+        }
+      }
+    },
+    {
+      "tag": "configwireguard - 1",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "d4017837-7a20-4f49-93cf-20869b208f9e",
+      "tls": {
+        "enabled": true,
+        "server_name": "bb-1w3.PAgeS.Dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/eyJqdW5rIjoiWlBXaDVoaXQyOTNqZFAiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+        "headers": {
+          "Host": "bb-1w3.pages.dev"
+        }
+      }
+    },
+    {
+      "tag": "configwireguard - 8",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "d4017837-7a20-4f49-93cf-20869b208f9e",
+      "tls": {
+        "enabled": true,
+        "server_name": "Bb-1W3.PaGes.DEV",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/eyJqdW5rIjoiRWFKbTNSeklpIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560",
+        "headers": {
+          "Host": "bb-1w3.pages.dev"
+        }
+      }
+    },
+    {
+      "tag": "oneclickvpnkeys FR",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "trojan",
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.calmloud.com",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.calmloud.com"
+        }
+      }
+    },
+    {
+      "tag": "SC 33723 Telegram t.me SOSkeyNET",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "ada4ea8a-41d8-41b2-bcf5-9bf961b7d676",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn12.kaiserping.site",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "cdn12.kaiserping.site"
+        }
+      }
+    },
+    {
+      "tag": "CF-TR-1",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "94968e80-d1ab-4763-9d4b-1d29fb21b642",
+      "tls": {
+        "enabled": true,
+        "server_name": "2.webramz.store",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/stream",
+        "headers": {
+          "Host": "2.webramz.store"
+        }
+      }
+    },
+    {
+      "tag": "KAFING_2 1149",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "trojan",
+      "password": "20ba0c60-0133-11f1-95ef-1239d0255272",
+      "tls": {
+        "enabled": true,
+        "server_name": "uk1.test3.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/howdy",
+        "headers": {
+          "Host": "uk1.test3.net"
+        }
+      }
+    },
+    {
+      "tag": "oneclickvpnkeys FR 6678",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "trojan",
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.ignitelimit.com",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.ignitelimit.com"
+        }
+      }
+    },
+    {
+      "tag": "oneclickvpnkeys US 2131",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "tls": {
+        "enabled": true,
+        "server_name": "juzi.qea.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzi.qea.ccwu.cc"
+        }
+      }
+    },
+    {
+      "tag": "9https t.me VIPV2rayNGNP",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "e258977b-e413-4718-a3af-02d75492c349",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp.aniua.qzz.io",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "jp.aniua.qzz.io"
+        }
+      }
+    },
+    {
+      "tag": "55 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "ae0dd58e-e222-40bf-84ae-365a97532737",
+      "tls": {
+        "enabled": true,
+        "server_name": "pagescm.freen31.cc.cd",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/dh/images/group",
+        "headers": {
+          "Host": "pagescm.freen31.cc.cd"
+        }
+      }
+    },
+    {
+      "tag": "outline_vpn FR",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "trojan",
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.calmlunch.com",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.calmlunch.com"
+        }
+      }
+    },
+    {
+      "tag": "outline_ir",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "c2f0a8f0-36fe-4a94-824b-bca271ca642b",
+      "tls": {
+        "enabled": true,
+        "server_name": "alphacdn.alphashops.shop",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "alphacdn.alphashops.shop"
+        }
+      }
+    },
+    {
+      "type": "urltest",
+      "tag": "URL-TEST TOP 5 INDONESIA",
+      "outbounds": [
+        "43 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "filembad 2225",
+        "configwireguard - 1",
+        "configwireguard - 8"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "120s",
+      "tolerance": 30,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
+      "tag": "FALLBACK CEPAT",
+      "outbounds": [
+        "43 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "filembad 2225",
+        "configwireguard - 1",
+        "configwireguard - 8",
+        "oneclickvpnkeys FR",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "CF-TR-1",
+        "KAFING_2 1149",
+        "oneclickvpnkeys FR 6678",
+        "oneclickvpnkeys US 2131",
+        "9https t.me VIPV2rayNGNP",
+        "55 oneclickvpnkeys",
+        "outline_vpn FR",
+        "outline_ir"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "120s",
+      "tolerance": 30,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
+      "tag": "GAMING STABIL",
+      "outbounds": [
+        "filembad 2225",
+        "43 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "configwireguard - 1",
+        "configwireguard - 8",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "CF-TR-1",
+        "oneclickvpnkeys FR",
+        "KAFING_2 1149",
+        "oneclickvpnkeys FR 6678"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "120s",
+      "tolerance": 30,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
+      "tag": "SOCIAL MEDIA STABIL",
+      "outbounds": [
+        "43 oneclickvpnkeys",
+        "filembad 2225",
+        "30 oneclickvpnkeys",
+        "configwireguard - 1",
+        "configwireguard - 8",
+        "oneclickvpnkeys FR",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "CF-TR-1",
+        "KAFING_2 1149",
+        "oneclickvpnkeys FR 6678"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "120s",
+      "tolerance": 30,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
+      "tag": "STREAMING STABIL",
+      "outbounds": [
+        "filembad 2225",
+        "43 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "configwireguard - 1",
+        "configwireguard - 8",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "oneclickvpnkeys FR",
+        "CF-TR-1",
+        "KAFING_2 1149",
+        "oneclickvpnkeys FR 6678"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "120s",
+      "tolerance": 30,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
+      "tag": "WORKING STABIL",
+      "outbounds": [
+        "filembad 2225",
+        "43 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "configwireguard - 1",
+        "configwireguard - 8",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "CF-TR-1",
+        "oneclickvpnkeys FR",
+        "KAFING_2 1149",
+        "oneclickvpnkeys FR 6678"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "120s",
+      "tolerance": 30,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
+      "tag": "GENERAL STABIL",
+      "outbounds": [
+        "filembad 2225",
+        "43 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "configwireguard - 1",
+        "configwireguard - 8",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "oneclickvpnkeys FR",
+        "CF-TR-1",
+        "KAFING_2 1149",
+        "oneclickvpnkeys FR 6678"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "120s",
+      "tolerance": 30,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
+      "tag": "URL-TEST TOP GLOBAL",
+      "outbounds": [
+        "43 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "filembad 2225",
+        "configwireguard - 1",
+        "configwireguard - 8",
+        "oneclickvpnkeys FR",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "CF-TR-1",
+        "KAFING_2 1149",
+        "oneclickvpnkeys FR 6678"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "120s",
+      "tolerance": 30,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
+      "tag": "URL-TEST GABUNGAN",
+      "outbounds": [
+        "43 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "filembad 2225",
+        "configwireguard - 1",
+        "configwireguard - 8",
+        "oneclickvpnkeys FR",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "CF-TR-1",
+        "KAFING_2 1149",
+        "oneclickvpnkeys FR 6678",
+        "oneclickvpnkeys US 2131",
+        "9https t.me VIPV2rayNGNP",
+        "55 oneclickvpnkeys",
+        "outline_vpn FR",
+        "outline_ir"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "120s",
+      "tolerance": 30,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
+      "tag": "FALLBACK",
+      "outbounds": [
+        "43 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "filembad 2225",
+        "configwireguard - 1",
+        "configwireguard - 8",
+        "oneclickvpnkeys FR",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "CF-TR-1",
+        "KAFING_2 1149",
+        "oneclickvpnkeys FR 6678",
+        "oneclickvpnkeys US 2131",
+        "9https t.me VIPV2rayNGNP",
+        "55 oneclickvpnkeys",
+        "outline_vpn FR",
+        "outline_ir"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "120s",
+      "tolerance": 30,
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "selector",
+      "tag": "PROXY",
+      "outbounds": [
+        "URL-TEST TOP 5 INDONESIA",
+        "FALLBACK CEPAT",
+        "GAMING STABIL",
+        "SOCIAL MEDIA STABIL",
+        "STREAMING STABIL",
+        "WORKING STABIL",
+        "GENERAL STABIL",
+        "URL-TEST TOP GLOBAL",
+        "URL-TEST GABUNGAN",
+        "FALLBACK",
+        "DIRECT"
+      ],
+      "default": "URL-TEST TOP 5 INDONESIA",
+      "interrupt_exist_connections": false
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_cidr": [
+          "10.0.0.0/8",
+          "172.16.0.0/12",
+          "192.168.0.0/16",
+          "127.0.0.0/8",
+          "169.254.0.0/16",
+          "224.0.0.0/4",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
+        "action": "route",
+        "outbound": "DIRECT"
+      }
+    ],
+    "final": "PROXY",
+    "auto_detect_interface": true
+  }
+}

@@ -34,6 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "By EbraSha 8585"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 2f3aadae-66c6-4dca-a670-03c183f8024e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "sctest1.dr-ping.ir"
+    network: ws
+    ws-opts:
+      path: "/kos-nanat-decoder"
+      headers:
+        Host: "sctest1.dr-ping.ir"
+    udp: true
   - name: "9https t.me VIPV2rayNGNP"
     server: "104.17.3.81"
     port: 443
@@ -64,51 +80,6 @@ proxies:
       headers:
         Host: "tesdt.arvanabr.xyz"
     udp: true
-  - name: "v2ray_dalghak"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.skylee4.cloudns.ch"
-    ws-opts:
-      path: "/proxyip=ProxyIP.CMLiussss.net"
-      headers:
-        Host: "sni.skylee4.cloudns.ch"
-    udp: true
-  - name: "V2raysCollector"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.skylee4.cloudns.ch"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "sni.skylee4.cloudns.ch"
-    udp: true
-  - name: "v2ray_dalghak 2076"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.skylee4.cloudns.ch"
-    ws-opts:
-      path: "/proxyip"
-      headers:
-        Host: "sni.skylee4.cloudns.ch"
-    udp: true
   - name: "55 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
@@ -123,6 +94,21 @@ proxies:
       path: "/dh/images/group"
       headers:
         Host: "pagescm.freen31.cc.cd"
+    udp: true
+  - name: "oneclickvpnkeys US 2131"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
     udp: true
   - name: "30 oneclickvpnkeys"
     server: "104.17.3.81"
@@ -244,78 +230,22 @@ proxies:
       headers:
         Host: "bb-1w3.pages.dev"
     udp: true
-  - name: "oneclickvpnkeys US 1622"
+  - name: "CF-TR-1"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    uuid: 94968e80-d1ab-4763-9d4b-1d29fb21b642
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "juzi.qea.ccwu.cc"
+    servername: "2.webramz.store"
     ws-opts:
-      path: "/"
+      path: "/stream"
       headers:
-        Host: "juzi.qea.ccwu.cc"
+        Host: "2.webramz.store"
     udp: true
-  - name: "KAFING_2 6152"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "uk1.test3.net"
-    ws-opts:
-      path: "/howdy"
-      headers:
-        Host: "uk1.test3.net"
-    udp: true
-  - name: "vpnbaz"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.gossipglove.com"
-    udp: true
-  - name: "wizardxray 2825"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.ignitelimit.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.ignitelimit.com"
-    udp: true
-  - name: "subioir"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.creationlong.org"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.creationlong.org"
-    udp: true
-  - name: "icv2ray"
+  - name: "oneclickvpnkeys FR"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -329,16 +259,100 @@ proxies:
       headers:
         Host: "www.calmloud.com"
     udp: true
+  - name: "oneclickvpnkeys NL 9200"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "v2line NL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "outline_vpn FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 6678"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "KAFING_2 1149"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "filembad 2225"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.app-cloud.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "www.app-cloud.ir"
+    udp: true
 
 proxy-groups:
   - name: "URL-TEST TOP 5 INDONESIA"
     type: url-test
     proxies:
-      - "oneclickvpnkeys US 1622"
+      - "43 oneclickvpnkeys"
+      - "30 oneclickvpnkeys"
+      - "filembad 2225"
       - "configwireguard - 1"
-      - "configwireguard - 4"
-      - "KAFING_2 6152"
-      - "9https t.me VIPV2rayNGNP"
+      - "configwireguard - 8"
     url: http://www.gstatic.com/generate_204
     interval: 120
     tolerance: 30
@@ -347,21 +361,21 @@ proxy-groups:
   - name: "FALLBACK CEPAT"
     type: fallback
     proxies:
-      - "oneclickvpnkeys US 1622"
+      - "43 oneclickvpnkeys"
+      - "30 oneclickvpnkeys"
+      - "filembad 2225"
       - "configwireguard - 1"
-      - "configwireguard - 4"
-      - "KAFING_2 6152"
-      - "9https t.me VIPV2rayNGNP"
-      - "V2raysCollector"
-      - "v2ray_dalghak 2076"
-      - "v2ray_dalghak"
-      - "wizardxray 2825"
       - "configwireguard - 8"
-      - "vpnbaz"
-      - "icv2ray"
+      - "oneclickvpnkeys FR"
+      - "SC 33723 Telegram t.me SOSkeyNET"
+      - "CF-TR-1"
+      - "KAFING_2 1149"
+      - "oneclickvpnkeys FR 6678"
+      - "oneclickvpnkeys US 2131"
+      - "9https t.me VIPV2rayNGNP"
+      - "55 oneclickvpnkeys"
+      - "outline_vpn FR"
       - "outline_ir"
-      - "v2rayvpno"
-      - "configwireguard - 2"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -369,16 +383,16 @@ proxy-groups:
   - name: "GAMING STABIL"
     type: fallback
     proxies:
-      - "oneclickvpnkeys US 1622"
+      - "filembad 2225"
+      - "43 oneclickvpnkeys"
+      - "30 oneclickvpnkeys"
       - "configwireguard - 1"
-      - "configwireguard - 4"
-      - "KAFING_2 6152"
       - "configwireguard - 8"
-      - "9https t.me VIPV2rayNGNP"
-      - "V2raysCollector"
-      - "v2ray_dalghak 2076"
-      - "v2ray_dalghak"
-      - "wizardxray 2825"
+      - "SC 33723 Telegram t.me SOSkeyNET"
+      - "CF-TR-1"
+      - "oneclickvpnkeys FR"
+      - "KAFING_2 1149"
+      - "oneclickvpnkeys FR 6678"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -386,16 +400,16 @@ proxy-groups:
   - name: "SOCIAL MEDIA STABIL"
     type: fallback
     proxies:
-      - "oneclickvpnkeys US 1622"
+      - "43 oneclickvpnkeys"
+      - "filembad 2225"
+      - "30 oneclickvpnkeys"
       - "configwireguard - 1"
-      - "configwireguard - 4"
-      - "KAFING_2 6152"
       - "configwireguard - 8"
-      - "configwireguard - 2"
-      - "9https t.me VIPV2rayNGNP"
-      - "V2raysCollector"
-      - "v2ray_dalghak 2076"
-      - "v2ray_dalghak"
+      - "oneclickvpnkeys FR"
+      - "SC 33723 Telegram t.me SOSkeyNET"
+      - "CF-TR-1"
+      - "KAFING_2 1149"
+      - "oneclickvpnkeys FR 6678"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -403,16 +417,16 @@ proxy-groups:
   - name: "STREAMING STABIL"
     type: fallback
     proxies:
-      - "oneclickvpnkeys US 1622"
+      - "filembad 2225"
+      - "43 oneclickvpnkeys"
+      - "30 oneclickvpnkeys"
       - "configwireguard - 1"
-      - "configwireguard - 4"
-      - "KAFING_2 6152"
       - "configwireguard - 8"
-      - "configwireguard - 2"
-      - "9https t.me VIPV2rayNGNP"
-      - "V2raysCollector"
-      - "v2ray_dalghak 2076"
-      - "v2ray_dalghak"
+      - "SC 33723 Telegram t.me SOSkeyNET"
+      - "oneclickvpnkeys FR"
+      - "CF-TR-1"
+      - "KAFING_2 1149"
+      - "oneclickvpnkeys FR 6678"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -420,16 +434,16 @@ proxy-groups:
   - name: "WORKING STABIL"
     type: fallback
     proxies:
-      - "oneclickvpnkeys US 1622"
+      - "filembad 2225"
+      - "43 oneclickvpnkeys"
+      - "30 oneclickvpnkeys"
       - "configwireguard - 1"
-      - "configwireguard - 4"
-      - "KAFING_2 6152"
       - "configwireguard - 8"
-      - "configwireguard - 2"
-      - "9https t.me VIPV2rayNGNP"
-      - "V2raysCollector"
-      - "v2ray_dalghak 2076"
-      - "v2ray_dalghak"
+      - "SC 33723 Telegram t.me SOSkeyNET"
+      - "CF-TR-1"
+      - "oneclickvpnkeys FR"
+      - "KAFING_2 1149"
+      - "oneclickvpnkeys FR 6678"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -437,18 +451,27 @@ proxy-groups:
   - name: "GENERAL STABIL"
     type: fallback
     proxies:
-      - "oneclickvpnkeys US 1622"
+      - "filembad 2225"
+      - "43 oneclickvpnkeys"
+      - "30 oneclickvpnkeys"
       - "configwireguard - 1"
-      - "configwireguard - 4"
-      - "KAFING_2 6152"
       - "configwireguard - 8"
-      - "configwireguard - 2"
-      - "9https t.me VIPV2rayNGNP"
-      - "V2raysCollector"
-      - "v2ray_dalghak 2076"
-      - "v2ray_dalghak"
+      - "SC 33723 Telegram t.me SOSkeyNET"
+      - "oneclickvpnkeys FR"
+      - "CF-TR-1"
+      - "KAFING_2 1149"
+      - "oneclickvpnkeys FR 6678"
     url: http://www.gstatic.com/generate_204
     interval: 120
+    lazy: false
+
+  - name: "URL-TEST VMESS"
+    type: url-test
+    proxies:
+      - "By EbraSha 8585"
+    url: http://www.gstatic.com/generate_204
+    interval: 120
+    tolerance: 30
     lazy: false
 
   - name: "URL-TEST VLESS"
@@ -456,10 +479,8 @@ proxy-groups:
     proxies:
       - "9https t.me VIPV2rayNGNP"
       - "v2rayvpno"
-      - "v2ray_dalghak"
-      - "V2raysCollector"
-      - "v2ray_dalghak 2076"
       - "55 oneclickvpnkeys"
+      - "oneclickvpnkeys US 2131"
       - "30 oneclickvpnkeys"
       - "SC 33723 Telegram t.me SOSkeyNET"
       - "43 oneclickvpnkeys"
@@ -468,7 +489,7 @@ proxy-groups:
       - "configwireguard - 4"
       - "configwireguard - 1"
       - "configwireguard - 8"
-      - "oneclickvpnkeys US 1622"
+      - "CF-TR-1"
     url: http://www.gstatic.com/generate_204
     interval: 120
     tolerance: 30
@@ -477,11 +498,13 @@ proxy-groups:
   - name: "URL-TEST TROJAN"
     type: url-test
     proxies:
-      - "KAFING_2 6152"
-      - "vpnbaz"
-      - "wizardxray 2825"
-      - "subioir"
-      - "icv2ray"
+      - "oneclickvpnkeys FR"
+      - "oneclickvpnkeys NL 9200"
+      - "v2line NL"
+      - "outline_vpn FR"
+      - "oneclickvpnkeys FR 6678"
+      - "KAFING_2 1149"
+      - "filembad 2225"
     url: http://www.gstatic.com/generate_204
     interval: 120
     tolerance: 30
@@ -490,12 +513,11 @@ proxy-groups:
   - name: "URL-TEST GABUNGAN"
     type: url-test
     proxies:
+      - "By EbraSha 8585"
       - "9https t.me VIPV2rayNGNP"
       - "v2rayvpno"
-      - "v2ray_dalghak"
-      - "V2raysCollector"
-      - "v2ray_dalghak 2076"
       - "55 oneclickvpnkeys"
+      - "oneclickvpnkeys US 2131"
       - "30 oneclickvpnkeys"
       - "SC 33723 Telegram t.me SOSkeyNET"
       - "43 oneclickvpnkeys"
@@ -504,12 +526,14 @@ proxy-groups:
       - "configwireguard - 4"
       - "configwireguard - 1"
       - "configwireguard - 8"
-      - "oneclickvpnkeys US 1622"
-      - "KAFING_2 6152"
-      - "vpnbaz"
-      - "wizardxray 2825"
-      - "subioir"
-      - "icv2ray"
+      - "CF-TR-1"
+      - "oneclickvpnkeys FR"
+      - "oneclickvpnkeys NL 9200"
+      - "v2line NL"
+      - "outline_vpn FR"
+      - "oneclickvpnkeys FR 6678"
+      - "KAFING_2 1149"
+      - "filembad 2225"
     url: http://www.gstatic.com/generate_204
     interval: 120
     tolerance: 30
@@ -518,21 +542,21 @@ proxy-groups:
   - name: "FALLBACK"
     type: fallback
     proxies:
-      - "oneclickvpnkeys US 1622"
+      - "43 oneclickvpnkeys"
+      - "30 oneclickvpnkeys"
+      - "filembad 2225"
       - "configwireguard - 1"
-      - "configwireguard - 4"
-      - "KAFING_2 6152"
-      - "9https t.me VIPV2rayNGNP"
-      - "V2raysCollector"
-      - "v2ray_dalghak 2076"
-      - "v2ray_dalghak"
-      - "wizardxray 2825"
       - "configwireguard - 8"
-      - "vpnbaz"
-      - "icv2ray"
+      - "oneclickvpnkeys FR"
+      - "SC 33723 Telegram t.me SOSkeyNET"
+      - "CF-TR-1"
+      - "KAFING_2 1149"
+      - "oneclickvpnkeys FR 6678"
+      - "oneclickvpnkeys US 2131"
+      - "9https t.me VIPV2rayNGNP"
+      - "55 oneclickvpnkeys"
+      - "outline_vpn FR"
       - "outline_ir"
-      - "v2rayvpno"
-      - "configwireguard - 2"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
@@ -549,6 +573,7 @@ proxy-groups:
       - "GENERAL STABIL"
       - "URL-TEST GABUNGAN"
       - "FALLBACK"
+      - "URL-TEST VMESS"
       - "URL-TEST VLESS"
       - "URL-TEST TROJAN"
       - "DIRECT"

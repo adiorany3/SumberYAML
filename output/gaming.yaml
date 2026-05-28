@@ -35,20 +35,49 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys US 1622"
+  - name: "filembad 2225"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.app-cloud.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "www.app-cloud.ir"
+    udp: true
+  - name: "43 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "juzi.qea.ccwu.cc"
+    servername: "pagescm.freen31.cc.cd"
+    ws-opts:
+      path: "/sitefp=chrome"
+      headers:
+        Host: "pagescm.freen31.cc.cd"
+    udp: true
+  - name: "30 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9d27a374-26d9-46df-9895-312a2062bc47
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "uin-ape.pages.dev"
     ws-opts:
       path: "/"
       headers:
-        Host: "juzi.qea.ccwu.cc"
+        Host: "uin-ape.pages.dev"
     udp: true
   - name: "configwireguard - 1"
     server: "104.17.3.81"
@@ -65,35 +94,6 @@ proxies:
       headers:
         Host: "bb-1w3.pages.dev"
     udp: true
-  - name: "configwireguard - 4"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: d4017837-7a20-4f49-93cf-20869b208f9e
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "bb-1W3.pAgeS.dEv"
-    ws-opts:
-      path: "/eyJqdW5rIjoiTTVRVjltMnh4dnVjQ2EiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560"
-      headers:
-        Host: "bb-1w3.pages.dev"
-    udp: true
-  - name: "KAFING_2 6152"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "uk1.test3.net"
-    ws-opts:
-      path: "/howdy"
-      headers:
-        Host: "uk1.test3.net"
-    udp: true
   - name: "configwireguard - 8"
     server: "104.17.3.81"
     port: 443
@@ -109,67 +109,65 @@ proxies:
       headers:
         Host: "bb-1w3.pages.dev"
     udp: true
-  - name: "9https t.me VIPV2rayNGNP"
+  - name: "SC 33723 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: e258977b-e413-4718-a3af-02d75492c349
+    uuid: ada4ea8a-41d8-41b2-bcf5-9bf961b7d676
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "jp.aniua.qzz.io"
+    servername: "cdn12.kaiserping.site"
     ws-opts:
       path: "/"
       headers:
-        Host: "jp.aniua.qzz.io"
+        Host: "cdn12.kaiserping.site"
     udp: true
-  - name: "V2raysCollector"
+  - name: "CF-TR-1"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    uuid: 94968e80-d1ab-4763-9d4b-1d29fb21b642
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "sni.skylee4.cloudns.ch"
+    servername: "2.webramz.store"
     ws-opts:
-      path: "/"
+      path: "/stream"
       headers:
-        Host: "sni.skylee4.cloudns.ch"
+        Host: "2.webramz.store"
     udp: true
-  - name: "v2ray_dalghak 2076"
+  - name: "oneclickvpnkeys FR"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-    cipher: none
+    type: trojan
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "sni.skylee4.cloudns.ch"
+    sni: "www.calmloud.com"
     ws-opts:
-      path: "/proxyip"
+      path: "/assignment"
       headers:
-        Host: "sni.skylee4.cloudns.ch"
+        Host: "www.calmloud.com"
     udp: true
-  - name: "v2ray_dalghak"
+  - name: "KAFING_2 1149"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-    cipher: none
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "sni.skylee4.cloudns.ch"
+    sni: "uk1.test3.net"
     ws-opts:
-      path: "/proxyip=ProxyIP.CMLiussss.net"
+      path: "/howdy"
       headers:
-        Host: "sni.skylee4.cloudns.ch"
+        Host: "uk1.test3.net"
     udp: true
-  - name: "wizardxray 2825"
+  - name: "oneclickvpnkeys FR 6678"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -188,16 +186,16 @@ proxy-groups:
   - name: "GAMING STABIL"
     type: fallback
     proxies:
-      - "oneclickvpnkeys US 1622"
+      - "filembad 2225"
+      - "43 oneclickvpnkeys"
+      - "30 oneclickvpnkeys"
       - "configwireguard - 1"
-      - "configwireguard - 4"
-      - "KAFING_2 6152"
       - "configwireguard - 8"
-      - "9https t.me VIPV2rayNGNP"
-      - "V2raysCollector"
-      - "v2ray_dalghak 2076"
-      - "v2ray_dalghak"
-      - "wizardxray 2825"
+      - "SC 33723 Telegram t.me SOSkeyNET"
+      - "CF-TR-1"
+      - "oneclickvpnkeys FR"
+      - "KAFING_2 1149"
+      - "oneclickvpnkeys FR 6678"
     url: http://www.gstatic.com/generate_204
     interval: 120
     lazy: false
