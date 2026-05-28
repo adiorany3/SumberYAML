@@ -17,6 +17,8 @@ It can also generate DNS/TUN compatibility variants when needed.
 from __future__ import annotations
 
 import argparse
+import csv
+import io
 import json
 import os
 import re
@@ -33,6 +35,19 @@ except Exception:  # pragma: no cover
     requests = None
 
 DEFAULT_TEST_URL = "http://www.gstatic.com/generate_204"
+DEFAULT_BEST_PING_CSVS = [
+    "output/BestPing/top5_indonesia_ping.csv",
+    "output/BestPing/top5_best_ping.csv",
+    "output/Alive/alive.csv",
+    "output/Alive/check_result.csv",
+]
+
+DEFAULT_BEST_PING_SOURCE_YAMLS = [
+    "output/strict_alive.yaml",
+    "output/lengkap_alive.yaml",
+    "output/lengkap.yaml",
+]
+
 DEFAULT_INPUTS = [
     "output/lengkap.yaml",
     "output/lengkap_alive.yaml",
@@ -649,6 +664,288 @@ def write_json(path: Path, data: Any) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def parse_delay_ms(value: Any) -> Optional[int]:
+    if value is None:
+        return None
+    text = str(value).strip().lower()
+    if not text:
+        return None
+    match = re.search(r"\d+", text)
+    if not match:
+        return None
+    try:
+        return int(match.group(0))
+    except Exception:
+        return None
+
+
+def read_csv_rows(path: str) -> List[Dict[str, Any]]:
+    raw = read_text(path)
+    return list(csv.DictReader(io.StringIO(raw or "")))
+
+
+def normalize_best_ping_row(row: Dict[str, Any], source_path: str) -> Optional[Dict[str, Any]]:
+    name = str(row.get("name") or row.get("proxy") or row.get("tag") or "").strip()
+    delay = parse_delay_ms(row.get("delay_ms") or row.get("delay") or row.get("latency") or row.get("ping"))
+    if not name or delay is None:
+        return None
+    return {
+        "name": name,
+        "delay_ms": delay,
+        "country": str(row.get("country") or "").strip().upper(),
+        "status": str(row.get("status") or "").strip().lower(),
+        "protocol": str(row.get("protocol") or "").strip().lower(),
+        "server": str(row.get("server") or "").strip(),
+        "port": str(row.get("port") or "").strip(),
+        "source_csv": source_path,
+    }
+
+
+def collect_best_ping_rows(csv_paths: List[str], limit: int, country_filter: str = "") -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    """Collect Top-N ping rows from generated CSV reports.
+
+    Priority:
+    1. output/BestPing/top5_indonesia_ping.csv
+    2. output/BestPing/top5_best_ping.csv
+    3. output/Alive/alive.csv
+    4. output/Alive/check_result.csv
+
+    BestPing CSV files are treated as pre-filtered. Alive/check_result files are filtered by status=alive
+    and optionally by country_filter.
+    """
+    selected: List[Dict[str, Any]] = []
+    tried: List[Dict[str, Any]] = []
+    country_filter = str(country_filter or "").strip().upper()
+
+    for path in csv_paths:
+        if not Path(path).exists() and not str(path).startswith(("http://", "https://")):
+            tried.append({"path": path, "status": "missing"})
+            continue
+
+        try:
+            raw_rows = read_csv_rows(path)
+            rows: List[Dict[str, Any]] = []
+            for row in raw_rows:
+                normalized = normalize_best_ping_row(row, path)
+                if not normalized:
+                    continue
+
+                prefiltered = "BestPing" in path or "top5" in Path(path).name.lower()
+                if not prefiltered:
+                    if normalized.get("status") and normalized.get("status") != "alive":
+                        continue
+                    if country_filter and normalized.get("country") != country_filter:
+                        continue
+                rows.append(normalized)
+
+            rows.sort(key=lambda item: item.get("delay_ms") or 999999)
+            if rows:
+                selected = rows[:limit]
+                tried.append({"path": path, "status": "used", "row_count": len(rows)})
+                break
+            tried.append({"path": path, "status": "empty", "row_count": len(raw_rows)})
+        except Exception as exc:
+            tried.append({"path": path, "status": "error", "error": str(exc)})
+
+    summary = {
+        "csv_paths_tried": tried,
+        "selected_count": len(selected),
+        "country_filter": country_filter,
+        "limit": limit,
+    }
+    return selected, summary
+
+
+def pick_best_ping_source_yaml(preferred: str = "") -> Optional[str]:
+    candidates = [preferred] if preferred else []
+    candidates.extend(DEFAULT_BEST_PING_SOURCE_YAMLS)
+    for candidate in candidates:
+        if candidate and Path(candidate).exists():
+            return candidate
+    return None
+
+
+def select_proxies_by_names(clash: Dict[str, Any], names: List[str], limit: int) -> Tuple[List[Dict[str, Any]], List[str]]:
+    proxies = [item for item in (clash.get("proxies") or []) if isinstance(item, dict)]
+    by_name = {str(item.get("name") or "").strip(): item for item in proxies}
+    selected: List[Dict[str, Any]] = []
+    missing: List[str] = []
+    seen: set[str] = set()
+
+    for name in names:
+        clean_name = str(name or "").strip()
+        if not clean_name or clean_name in seen:
+            continue
+        proxy = by_name.get(clean_name)
+        if proxy:
+            selected.append(proxy)
+            seen.add(clean_name)
+        else:
+            missing.append(clean_name)
+
+    if not selected:
+        # Safe fallback: use the first proxies from the source YAML so the workflow does not fail.
+        selected = proxies[:limit]
+
+    return selected[:limit], missing
+
+
+def build_best_ping_config(
+    clash: Dict[str, Any],
+    selected_proxies: List[Dict[str, Any]],
+    *,
+    dns_mode: str = "legacy",
+    tun_mode: str = "modern",
+    mixed_port: int = 7893,
+    test_url: str = DEFAULT_TEST_URL,
+    interval: str = "3m",
+    tolerance: int = 50,
+) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+    used_tags: set[str] = set()
+    proxy_outbounds: List[Dict[str, Any]] = []
+    selected_names: List[str] = []
+    skipped = 0
+
+    for proxy in selected_proxies:
+        selected_names.append(clean_tag(proxy.get("name"), "proxy"))
+        outbound = convert_proxy(proxy, used_tags)
+        if outbound:
+            proxy_outbounds.append(outbound)
+        else:
+            skipped += 1
+
+    proxy_tags = [item["tag"] for item in proxy_outbounds]
+    outbounds: List[Dict[str, Any]] = [
+        {
+            "type": "direct",
+            "tag": "DIRECT",
+        }
+    ]
+    outbounds.extend(proxy_outbounds)
+
+    if proxy_tags:
+        outbounds.append(
+            {
+                "type": "urltest",
+                "tag": "AUTO-BEST-PING",
+                "outbounds": proxy_tags,
+                "url": test_url,
+                "interval": interval,
+                "tolerance": tolerance,
+                "interrupt_exist_connections": False,
+            }
+        )
+        outbounds.append(
+            {
+                "type": "selector",
+                "tag": "PROXY",
+                "outbounds": ["AUTO-BEST-PING", "DIRECT"] + proxy_tags,
+                "default": "AUTO-BEST-PING",
+                "interrupt_exist_connections": False,
+            }
+        )
+        default_outbound = "PROXY"
+    else:
+        default_outbound = "DIRECT"
+
+    all_tags = {item["tag"] for item in outbounds}
+    config = {
+        "log": {
+            "level": "info",
+            "timestamp": True,
+        },
+        "dns": build_dns(dns_mode),
+        "inbounds": build_inbounds(tun_mode, mixed_port),
+        "outbounds": outbounds,
+        "route": build_route(default_outbound, clash.get("rules") or [], all_tags | {"REJECT"}),
+    }
+
+    summary = {
+        "profile": "best-ping",
+        "proxy_count": len(proxy_outbounds),
+        "group_count": 2 if proxy_tags else 0,
+        "outbound_count": len(outbounds),
+        "selected_names": selected_names,
+        "skipped_proxy_count": skipped,
+        "dns_mode": dns_mode,
+        "tun_mode": tun_mode,
+        "default_outbound": default_outbound,
+        "urltest_tag": "AUTO-BEST-PING" if proxy_tags else "",
+        "deprecated_special_outbounds": False,
+        "contains_block_outbound": False,
+        "contains_dns_outbound": False,
+    }
+    return config, summary
+
+
+def generate_best_ping_profile(args: argparse.Namespace, output_dir: Path) -> List[Dict[str, Any]]:
+    if not getattr(args, "also_best_ping", True):
+        return []
+
+    csv_paths = args.best_ping_csv or DEFAULT_BEST_PING_CSVS
+    limit = max(1, int(args.best_ping_limit or 5))
+    rows, rows_summary = collect_best_ping_rows(csv_paths, limit, args.best_ping_country_filter)
+    if not rows:
+        print("SKIP: best-ping.json tidak dibuat karena CSV BestPing/Alive belum memiliki data delay.")
+        write_json(output_dir / "summary_best_ping_skipped.json", rows_summary)
+        return []
+
+    source_yaml = pick_best_ping_source_yaml(args.best_ping_source_yaml)
+    if not source_yaml:
+        print("SKIP: best-ping.json tidak dibuat karena source YAML tidak ditemukan.")
+        rows_summary["error"] = "source YAML not found"
+        write_json(output_dir / "summary_best_ping_skipped.json", rows_summary)
+        return []
+
+    clash = load_yaml(source_yaml)
+    names = [str(row.get("name") or "").strip() for row in rows]
+    selected_proxies, missing_names = select_proxies_by_names(clash, names, limit)
+
+    summaries: List[Dict[str, Any]] = []
+
+    def build_variant(output_path: Path, dns_mode: str, tun_mode: str, label: str = "") -> Dict[str, Any]:
+        config, summary = build_best_ping_config(
+            clash,
+            selected_proxies,
+            dns_mode=dns_mode,
+            tun_mode=tun_mode,
+            mixed_port=args.mixed_port,
+            test_url=args.best_ping_test_url,
+            interval=args.best_ping_interval,
+            tolerance=args.best_ping_tolerance,
+        )
+        write_json(output_path, config)
+        summary.update(
+            {
+                "input": source_yaml,
+                "output": str(output_path),
+                "source_csv": rows[0].get("source_csv") if rows else "",
+                "selected_from_csv": rows,
+                "missing_names_from_yaml": missing_names,
+                "csv_summary": rows_summary,
+                "variant": label or "default",
+            }
+        )
+        print(f"OK: best ping -> {output_path} ({summary['proxy_count']} proxy, DNS={dns_mode}, TUN={tun_mode})")
+        return summary
+
+    main_output = output_dir / "best-ping.json"
+    summaries.append(build_variant(main_output, args.dns_mode, args.tun_mode))
+
+    if args.also_new_dns and args.dns_mode != "new":
+        summaries.append(build_variant(output_dir / "best-ping-new-dns.json", "new", args.tun_mode, "new-dns"))
+
+    if args.also_legacy_tun and args.tun_mode != "legacy":
+        summaries.append(build_variant(output_dir / "best-ping-legacy-tun.json", args.dns_mode, "legacy", "legacy-tun"))
+
+    # Stable aliases for QR/import convenience.
+    shutil.copyfile(main_output, output_dir / "best.json")
+    print(f"OK: {main_output} -> {output_dir / 'best.json'}")
+
+    write_json(output_dir / "summary_best_ping.json", {"files": summaries})
+    return summaries
+
+
 def convert_one(input_path: str, output_path: Path, args: argparse.Namespace) -> Dict[str, Any]:
     clash = load_yaml(input_path)
     config, summary = convert_config(
@@ -728,6 +1025,50 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         help="Selain output utama, buat varian -legacy-tun.json untuk client lama.",
     )
     parser.add_argument(
+        "--also-best-ping",
+        action=argparse.BooleanOptionalAction,
+        default=as_bool(os.getenv("SINGBOX_CREATE_BEST_PING", "true"), True),
+        help="Buat output/SingBox/best-ping.json dari output/BestPing atau output/Alive. Default aktif.",
+    )
+    parser.add_argument(
+        "--best-ping-limit",
+        type=int,
+        default=int(os.getenv("SINGBOX_BEST_PING_LIMIT", "5")),
+        help="Jumlah node terbaik untuk best-ping.json.",
+    )
+    parser.add_argument(
+        "--best-ping-country-filter",
+        default=os.getenv("SINGBOX_BEST_PING_COUNTRY_FILTER", "ID"),
+        help="Filter country untuk CSV Alive/check_result. Kosongkan untuk semua negara. CSV BestPing dianggap sudah pre-filtered.",
+    )
+    parser.add_argument(
+        "--best-ping-csv",
+        action="append",
+        default=[],
+        help="CSV sumber best ping. Bisa dipakai berulang. Jika kosong, pakai output/BestPing lalu fallback output/Alive.",
+    )
+    parser.add_argument(
+        "--best-ping-source-yaml",
+        default=os.getenv("SINGBOX_BEST_PING_SOURCE_YAML", ""),
+        help="YAML sumber proxy detail untuk best-ping.json. Jika kosong, fallback strict_alive -> lengkap_alive -> lengkap.",
+    )
+    parser.add_argument(
+        "--best-ping-test-url",
+        default=os.getenv("SINGBOX_BEST_PING_TEST_URL", DEFAULT_TEST_URL),
+        help="URL test untuk urltest AUTO-BEST-PING.",
+    )
+    parser.add_argument(
+        "--best-ping-interval",
+        default=os.getenv("SINGBOX_BEST_PING_INTERVAL", "3m"),
+        help="Interval urltest AUTO-BEST-PING.",
+    )
+    parser.add_argument(
+        "--best-ping-tolerance",
+        type=int,
+        default=int(os.getenv("SINGBOX_BEST_PING_TOLERANCE", "50")),
+        help="Tolerance ms untuk urltest AUTO-BEST-PING.",
+    )
+    parser.add_argument(
         "--make-latest",
         action="store_true",
         help="Copy hasil lengkap.json menjadi latest.json jika ada.",
@@ -765,6 +1106,9 @@ def main(argv: Optional[List[str]] = None) -> int:
             variant_output = output_path.with_name(output_path.stem + "-legacy-tun" + output_path.suffix)
             summaries.append(convert_one(input_path, variant_output, variant_args))
             print(f"OK: {input_path} -> {variant_output} [legacy tun]")
+
+    best_summaries = generate_best_ping_profile(args, output_dir)
+    summaries.extend(best_summaries)
 
     write_json(output_dir / "summary_singbox.json", {"files": summaries})
 
