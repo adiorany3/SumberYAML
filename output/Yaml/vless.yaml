@@ -44,7 +44,7 @@ proxies:
       headers:
         Host: "pagescm.freen31.cc.cd"
     udp: true
-  - name: "oneclickvpnkeys US 2131"
+  - name: "oneclickvpnkeys US 3677"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -58,6 +58,21 @@ proxies:
       path: "/"
       headers:
         Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "CF-TR-1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 94968e80-d1ab-4763-9d4b-1d29fb21b642
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "2.webramz.store"
+    ws-opts:
+      path: "/stream"
+      headers:
+        Host: "2.webramz.store"
     udp: true
   - name: "30 oneclickvpnkeys"
     server: "104.17.3.81"
@@ -178,19 +193,4 @@ proxies:
       path: "/eyJqdW5rIjoiRWFKbTNSeklpIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
       headers:
         Host: "bb-1w3.pages.dev"
-    udp: true
-  - name: "CF-TR-1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 94968e80-d1ab-4763-9d4b-1d29fb21b642
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "2.webramz.store"
-    ws-opts:
-      path: "/stream"
-      headers:
-        Host: "2.webramz.store"
     udp: true
