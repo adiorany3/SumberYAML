@@ -14,3 +14,18 @@ proxies:
       headers:
         Host: "sni.skylee4.cloudns.ch"
     udp: true
+  - name: "v2ray_dalghak 6281"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.skylee4.cloudns.ch"
+    ws-opts:
+      path: "/proxyip"
+      headers:
+        Host: "sni.skylee4.cloudns.ch"
+    udp: true

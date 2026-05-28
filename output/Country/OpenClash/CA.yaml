@@ -34,36 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA WS-TLS Express_alaki src DeamNet_proxy"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 49d598ee-4dfc-4001-95ca-99a5b6002e3c
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "tiny-leaf-f59f.my-lla-s-a-njo-s-e.workers.dev"
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "tiny-leaf-f59f.my-lla-s-a-njo-s-e.workers.dev"
-    udp: true
-  - name: "CA 33234 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "pagescm.freen31.cc.cd"
-    ws-opts:
-      path: "/site"
-      headers:
-        Host: "pagescm.freen31.cc.cd"
-    udp: true
   - name: "CA 33395 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
