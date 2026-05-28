@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "TEL Father_vpn"
+  - name: "v2rayvpno"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,6 +48,21 @@ proxies:
       path: "/"
       headers:
         Host: "tesdt.arvanabr.xyz"
+    udp: true
+  - name: "V2raysCollector"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.skylee4.cloudns.ch"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "sni.skylee4.cloudns.ch"
     udp: true
   - name: "30 oneclickvpnkeys"
     server: "104.17.3.81"
@@ -64,22 +79,7 @@ proxies:
       headers:
         Host: "uin-ape.pages.dev"
     udp: true
-  - name: "canfigiop"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 9ec31222-b60a-43d3-ab28-ca88f2a76883
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "jolly-mouse-23a6.diracdeltain0.workers.dev"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "jolly-mouse-23a6.diracdeltain0.workers.dev"
-    udp: true
-  - name: "KAFING_2 2790"
+  - name: "KAFING_2 6152"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -93,19 +93,61 @@ proxies:
       headers:
         Host: "uk1.test3.net"
     udp: true
-  - name: "filembad 5203"
+  - name: "vpnbaz"
     server: "104.17.3.81"
     port: 443
     type: trojan
-    password: "mitivpn"
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.app-cloud.ir"
+    sni: "www.gossipglove.com"
     ws-opts:
-      path: "/?ed=2048"
+      path: "/assignment"
       headers:
-        Host: "www.app-cloud.ir"
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "wizardxray 2825"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "subioir"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.creationlong.org"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.creationlong.org"
+    udp: true
+  - name: "icv2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
     udp: true
 
 proxy-groups:
