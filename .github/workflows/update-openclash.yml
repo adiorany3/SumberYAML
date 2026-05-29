@@ -217,6 +217,17 @@ jobs:
           echo "OK: output/lengkap.yaml ditemukan"
           wc -l output/lengkap.yaml || true
 
+      - name: Merge input links into OpenClash YAML outputs
+        run: |
+          set -e
+          if [ -f scripts/merge_links_into_openclash_yaml.py ]; then
+            python scripts/merge_links_into_openclash_yaml.py --input input/links.txt
+            echo "OpenClash YAML links merge report:"
+            cat output/Validation/merge_links_into_openclash_yaml.json || true
+          else
+            echo "scripts/merge_links_into_openclash_yaml.py tidak ditemukan. Lewati merge links ke YAML."
+          fi
+
       - name: Sanitize OpenClash group references
         run: |
           set -e
@@ -229,7 +240,6 @@ jobs:
           fi
 
       - name: Validate OpenClash YAML outputs
-        if: ${{ env.MODE != 'merge_links' }}
         run: |
           set -e
           if [ ! -f scripts/validate_openclash_outputs.py ]; then
