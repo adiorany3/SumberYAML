@@ -315,6 +315,18 @@ jobs:
           echo "Merge summary:"
           cat output/SingBox/summary_merge_links_into_singbox.json || true
 
+      - name: Stabilize sing-box JSON profiles
+        run: |
+          set -e
+          if [ -f scripts/stabilize_singbox_json.py ]; then
+            python scripts/stabilize_singbox_json.py               --dir output/SingBox               --test-url "https://www.gstatic.com/generate_204"               --interval 1m               --tolerance 30               --idle-timeout 5m               --connect-timeout 8s               --interrupt
+
+            echo "Stability report:"
+            cat output/SingBox/summary_stabilize_singbox_json.json || true
+          else
+            echo "scripts/stabilize_singbox_json.py tidak ditemukan. Lewati stabilisasi sing-box."
+          fi
+
       - name: Commit output files
         run: |
           set -euo pipefail
