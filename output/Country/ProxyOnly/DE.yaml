@@ -1,4 +1,19 @@
 proxies:
+  - name: "2 DE av2ngFast"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2730487f-0ed5-4f04-92d5-f95f9253d4f4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+    udp: true
   - name: "v2configlab_ DE"
     server: "104.17.3.81"
     port: 443
@@ -13,4 +28,19 @@ proxies:
       path: "/?ed=2048"
       headers:
         Host: "v2configlab.v2configlab7-5a2.workers.dev"
+    udp: true
+  - name: "Net2ray DE 4985"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: dd9c97b6-9020-43bf-8ffb-5c60350d8471
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "flat-term-6a28.x-cv-erbin.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "flat-term-6a28.x-cv-erbin.workers.dev"
     udp: true

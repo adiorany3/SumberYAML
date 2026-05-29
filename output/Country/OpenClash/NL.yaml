@@ -34,7 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys NL 9200"
+  - name: "NL 35451 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ab565e07-0f97-489d-b8f8-289d61ff0bdd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdna.fifacoin.top"
+    ws-opts:
+      path: "/downloader/50873"
+      headers:
+        Host: "cdna.fifacoin.top"
+    udp: true
+  - name: "oneclickvpnkeys NL 7114"
     server: "104.17.3.81"
     port: 443
     type: trojan

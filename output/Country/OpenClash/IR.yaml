@@ -65,6 +65,34 @@ proxies:
       headers:
         Host: "alphacdn.alphashops.shop"
     udp: true
+  - name: "TEL Father_vpn2"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cdn.hitgram.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "cdn.hitgram.ir"
+    udp: true
+  - name: "hi_proxy_iran 4415"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dash.hitgram.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dash.hitgram.ir"
+    udp: true
 
 proxy-groups:
   - name: "PROXY"
