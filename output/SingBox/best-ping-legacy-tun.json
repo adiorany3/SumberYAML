@@ -33,6 +33,26 @@
       "tag": "DIRECT"
     },
     {
+      "tag": "73 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "tls": {
+        "enabled": true,
+        "server_name": "cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "cyylr.eu.cc"
+        }
+      },
+      "connect_timeout": "8s"
+    },
+    {
       "tag": "75 oneclickvpnkeys",
       "server": "104.17.3.81",
       "server_port": 443,
@@ -53,21 +73,21 @@
       "connect_timeout": "8s"
     },
     {
-      "tag": "73 oneclickvpnkeys",
+      "tag": "1 oneclickvpnkeys",
       "server": "104.17.3.81",
       "server_port": 443,
       "type": "vless",
-      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
       "tls": {
         "enabled": true,
-        "server_name": "cyylr.eu.cc",
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/sg-melbi",
+        "path": "/fp=chrome",
         "headers": {
-          "Host": "cyylr.eu.cc"
+          "Host": "hhlfy.twiladaphne.ndjp.net"
         }
       },
       "connect_timeout": "8s"
@@ -93,41 +113,23 @@
       "connect_timeout": "8s"
     },
     {
-      "tag": "oneclickvpnkeys US 5230",
+      "tag": "filembad",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "vless",
-      "uuid": "93f0761d-4393-4b43-a523-e812fa0b7e83",
+      "type": "vmess",
+      "uuid": "2f3aadae-66c6-4dca-a670-03c183f8024e",
+      "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": true,
-        "server_name": "cf.cfvip.lol",
+        "server_name": "sctest1.dr-ping.ir",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/pyip=47.251.95.178",
+        "path": "/kos-nanat-decoder",
         "headers": {
-          "Host": "cf.cfvip.lol"
-        }
-      },
-      "connect_timeout": "8s"
-    },
-    {
-      "tag": "1 oneclickvpnkeys 4540",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "type": "vless",
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp=chrome",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
+          "Host": "sctest1.dr-ping.ir"
         }
       },
       "connect_timeout": "8s"
@@ -136,11 +138,11 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "75 oneclickvpnkeys",
         "73 oneclickvpnkeys",
+        "75 oneclickvpnkeys",
+        "1 oneclickvpnkeys",
         "79 oneclickvpnkeys",
-        "oneclickvpnkeys US 5230",
-        "1 oneclickvpnkeys 4540",
+        "filembad",
         "LINK HE",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -161,11 +163,11 @@
       "outbounds": [
         "AUTO-BEST-PING",
         "DIRECT",
-        "75 oneclickvpnkeys",
         "73 oneclickvpnkeys",
+        "75 oneclickvpnkeys",
+        "1 oneclickvpnkeys",
         "79 oneclickvpnkeys",
-        "oneclickvpnkeys US 5230",
-        "1 oneclickvpnkeys 4540",
+        "filembad",
         "LINK HE",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",

@@ -14,17 +14,18 @@ proxies:
       headers:
         Host: "v2configlab.v2configlab-2f5.workers.dev"
     udp: true
-  - name: "KAFING_2 9736"
+  - name: "Kariz"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    type: vless
+    uuid: c8e2ba30-a6de-4660-8c62-5bf5cc9318f3
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "uk1.test3.net"
+    servername: "enquiries-commands-div-medal.trycloudflare.com"
     ws-opts:
-      path: "/howdy"
+      path: "/"
       headers:
-        Host: "uk1.test3.net"
+        Host: "enquiries-commands-div-medal.trycloudflare.com"
     udp: true
