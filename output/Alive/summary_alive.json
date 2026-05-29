@@ -1,7 +1,7 @@
 {
-  "run_mode": "test",
+  "run_mode": "update_ping",
   "enable_proxy_test": true,
-  "filter_alive_only": false,
+  "filter_alive_only": true,
   "strict_alive_only": true,
   "test_rounds": 2,
   "require_success_rounds": 1,
@@ -21,22 +21,22 @@
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 53,
+      "alive": 52,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 24,
+      "alive": 28,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1323,
-  "alive": 53,
-  "strict_alive": 53,
+  "total": 1322,
+  "alive": 52,
+  "strict_alive": 52,
   "dead": 1270,
   "untested": 0,
   "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
@@ -47,30 +47,30 @@
   "best_ping_group_type": "url-test",
   "best_ping_count": 5,
   "best_ping_names": [
-    "v2con",
-    "TEL Father_vpn2",
-    "hi_proxy_iran 7646",
-    "SG Singapore Singapore 1232ms 146KB s NamazVPN",
-    "30 oneclickvpnkeys"
+    "1 oneclickvpnkeys",
+    "oneclickvpnkeys US 8422",
+    "v2configlab_ DE",
+    "34 oneclickvpnkeys",
+    "oneclickvpnkeys US 4159"
   ],
   "responsive_top_n": 15,
   "responsive_count": 15,
   "responsive_names": [
+    "1 oneclickvpnkeys",
+    "oneclickvpnkeys US 8422",
+    "v2configlab_ DE",
+    "34 oneclickvpnkeys",
+    "oneclickvpnkeys US 4159",
+    "v2configlab",
+    "2 DE av2ngFast",
     "v2con",
-    "TEL Father_vpn2",
-    "hi_proxy_iran 7646",
+    "73 oneclickvpnkeys",
     "SG Singapore Singapore 1232ms 146KB s NamazVPN",
-    "30 oneclickvpnkeys",
-    "oneclickvpnkeys US 5247",
-    "oneclickvpnkeys US 9310",
-    "1 oneclickvpnkeys 2439",
-    "oneclickvpnkeys US 3875",
-    "v2ray_configs_pool US 9730",
-    "oneclickvpnkeys US 6619",
-    "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 4998",
     "79 oneclickvpnkeys",
-    "oneclickvpnkeys US 7031",
-    "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+    "hi_proxy_iran 7430",
+    "v2ray_configs_pool US 1544",
+    "oneclickvpnkeys US 9446",
+    "TEL Father_vpn2"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -82,5 +82,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 53
+  "strict_output_count": 52
 }
