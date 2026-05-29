@@ -37,17 +37,44 @@ proxies:
   - name: "30 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 58867710-6dd3-42b6-a7be-1fdf1c5efd19
-    cipher: none
+    type: trojan
+    password: "Mitivpn"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "v2configlab.v2configlab9.workers.dev"
+    sni: "cdn.hitgram.ir"
     ws-opts:
       path: "/"
       headers:
-        Host: "v2configlab.v2configlab9.workers.dev"
+        Host: "cdn.hitgram.ir"
+    udp: true
+  - name: "62 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dash.hitgram.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "dash.hitgram.ir"
+    udp: true
+  - name: "29 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.hitgram.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.hitgram.ir"
     udp: true
 
 proxy-groups:

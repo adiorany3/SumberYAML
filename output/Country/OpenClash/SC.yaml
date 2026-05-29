@@ -34,20 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "SC SC VLESS mpproxy 1"
+  - name: "GozargahAzad SC"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
+    type: trojan
+    password: "jAck1mS8h3"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "srv1.khatibirepair.ir"
+    sni: "de.aananas.ir"
     ws-opts:
-      path: "/?ed"
+      path: "/?ed=2048"
       headers:
-        Host: "srv1.khatibirepair.ir"
+        Host: "de.aananas.ir"
     udp: true
 
 proxy-groups:

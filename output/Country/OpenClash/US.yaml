@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys US 9963"
+  - name: "oneclickvpnkeys US"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,6 +48,50 @@ proxies:
       path: "/"
       headers:
         Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 7760"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "US 37343 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 226cbc0f-409b-4df3-828c-6061cb701a7e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "salam.xdmmd12.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "salam.xdmmd12.workers.dev"
+    udp: true
+  - name: "GozargahAzad US"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.hitgram.ir"
+    ws-opts:
+      path: "/?ed=mitivpnn"
+      headers:
+        Host: "www.hitgram.ir"
     udp: true
 
 proxy-groups:

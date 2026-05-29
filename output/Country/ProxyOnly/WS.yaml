@@ -1,19 +1,4 @@
 proxies:
-  - name: "nexus-free-testing"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 201d509f-c5be-4d05-85a1-9744ae1a1b7f
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "c32.aminzing.lol"
-    ws-opts:
-      path: "/lsDH2qujZ0YMHphrPaZGOjsL"
-      headers:
-        Host: "c32.aminzing.lol"
-    udp: true
   - name: "v2con"
     server: "104.17.3.81"
     port: 443
@@ -29,7 +14,22 @@ proxies:
       headers:
         Host: "v2configlab.v2configlab-2f5.workers.dev"
     udp: true
-  - name: "KAFING_2 2725"
+  - name: "75 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "up2-df6.pages.dev"
+    ws-opts:
+      path: "/uTZSXPBI2IfoxF86"
+      headers:
+        Host: "up2-df6.pages.dev"
+    udp: true
+  - name: "KAFING_2 5496"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -43,17 +43,45 @@ proxies:
       headers:
         Host: "uk1.test3.net"
     udp: true
-  - name: "NETMelliAnti"
+  - name: "oliver_soul"
     server: "104.17.3.81"
     port: 443
     type: trojan
-    password: "4Fi9DdXrBq"
+    password: "Mitivpn"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "de.aananas.ir"
+    sni: "my.hitgram.ir"
     ws-opts:
-      path: "/?ed=2048"
+      path: "/?ed=mitivpn"
       headers:
-        Host: "de.aananas.ir"
+        Host: "my.hitgram.ir"
+    udp: true
+  - name: "oliver_soul 6779"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "panel.hitgram.ir"
+    ws-opts:
+      path: "/?ed=mitivpn"
+      headers:
+        Host: "panel.hitgram.ir"
+    udp: true
+  - name: "oliver_soul 6696"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.hitgram.ir"
+    ws-opts:
+      path: "/?ed=mitivpn"
+      headers:
+        Host: "www.hitgram.ir"
     udp: true
