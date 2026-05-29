@@ -35,10 +35,12 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "VLESS-WS-TLS-443-apt50atpprem",
-        "DIRECT"
+        "AUTO-BEST-PING",
+        "DIRECT",
+        "VLESS-WS-TLS-443-apt50atpprem"
       ],
-      "default": "VLESS-WS-TLS-443-apt50atpprem"
+      "default": "AUTO-BEST-PING",
+      "interrupt_exist_connections": true
     },
     {
       "type": "vless",
@@ -58,7 +60,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "direct",

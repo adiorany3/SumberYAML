@@ -34,6 +34,7 @@
       "tag": "PROXY",
       "outbounds": [
         "AUTO-BEST-PING",
+        "DIRECT",
         "HE",
         "bel432 xl",
         "bel432 xl 2",
@@ -42,10 +43,10 @@
         "Trojan adisanggoro",
         "VLESS-WS-TLS-443-apt50atpprem",
         "14.lowh.net",
-        "hz2 xl",
-        "DIRECT"
+        "hz2 xl"
       ],
-      "default": "AUTO-BEST-PING"
+      "default": "AUTO-BEST-PING",
+      "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
@@ -61,9 +62,11 @@
         "14.lowh.net",
         "hz2 xl"
       ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 50
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "1m",
+      "tolerance": 30,
+      "idle_timeout": "5m",
+      "interrupt_exist_connections": true
     },
     {
       "type": "trojan",
@@ -83,7 +86,8 @@
         "headers": {
           "Host": "sg-trojan.1server.co"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -104,7 +108,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -125,7 +130,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -146,7 +152,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -167,7 +174,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "trojan",
@@ -187,7 +195,8 @@
         "headers": {
           "Host": "15.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vless",
@@ -207,7 +216,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -228,7 +238,8 @@
         "headers": {
           "Host": "14.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -249,7 +260,8 @@
         "headers": {
           "Host": "hz2.cobadl.com"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "direct",

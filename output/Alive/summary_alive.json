@@ -1,7 +1,7 @@
 {
-  "run_mode": "test",
+  "run_mode": "update_ping",
   "enable_proxy_test": true,
-  "filter_alive_only": false,
+  "filter_alive_only": true,
   "strict_alive_only": true,
   "test_rounds": 2,
   "require_success_rounds": 1,
@@ -21,23 +21,23 @@
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 33,
+      "alive": 25,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 22,
+      "alive": 23,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1328,
-  "alive": 34,
-  "strict_alive": 34,
-  "dead": 1294,
+  "total": 2749,
+  "alive": 26,
+  "strict_alive": 26,
+  "dead": 2723,
   "untested": 0,
   "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
@@ -47,30 +47,30 @@
   "best_ping_group_type": "url-test",
   "best_ping_count": 5,
   "best_ping_names": [
-    "34 oneclickvpnkeys",
-    "73 oneclickvpnkeys",
-    "oneclickvpnkeys US 8580",
-    "v2con",
-    "1 oneclickvpnkeys"
+    "oneclickvpnkeys US 3829",
+    "v2configlab_ DE",
+    "2 DE av2ngFast",
+    "NETMelliAnti",
+    "73 oneclickvpnkeys"
   ],
   "responsive_top_n": 15,
   "responsive_count": 15,
   "responsive_names": [
-    "34 oneclickvpnkeys",
-    "73 oneclickvpnkeys",
-    "oneclickvpnkeys US 8580",
-    "v2con",
-    "1 oneclickvpnkeys",
-    "75 oneclickvpnkeys",
+    "oneclickvpnkeys US 3829",
     "v2configlab_ DE",
-    "v2ray_configs_pool US 5597",
-    "filembad 6131",
-    "hi_proxy_iran 7157",
-    "NETMelliAnti",
-    "79 oneclickvpnkeys",
     "2 DE av2ngFast",
+    "NETMelliAnti",
+    "73 oneclickvpnkeys",
+    "oneclickvpnkeys US 1256",
+    "oneclickvpnkeys US 7501",
+    "filembad 5203",
+    "79 oneclickvpnkeys",
+    "hi_proxy_iran 7542",
+    "oneclickvpnkeys US 7778",
+    "34 oneclickvpnkeys",
     "Salamaleykom Mokhaberat",
-    "outline_vpn FR"
+    "oneclickvpnkeys US 5046",
+    "v2con"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -82,5 +82,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 34
+  "strict_output_count": 26
 }

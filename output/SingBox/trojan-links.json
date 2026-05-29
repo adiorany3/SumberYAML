@@ -36,11 +36,12 @@
       "tag": "PROXY",
       "outbounds": [
         "AUTO-BEST-PING",
+        "DIRECT",
         "HE",
-        "Trojan adisanggoro",
-        "DIRECT"
+        "Trojan adisanggoro"
       ],
-      "default": "AUTO-BEST-PING"
+      "default": "AUTO-BEST-PING",
+      "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
@@ -49,9 +50,11 @@
         "HE",
         "Trojan adisanggoro"
       ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 50
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "1m",
+      "tolerance": 30,
+      "idle_timeout": "5m",
+      "interrupt_exist_connections": true
     },
     {
       "type": "trojan",
@@ -71,7 +74,8 @@
         "headers": {
           "Host": "sg-trojan.1server.co"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "trojan",
@@ -91,7 +95,8 @@
         "headers": {
           "Host": "15.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "direct",

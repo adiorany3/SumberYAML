@@ -36,15 +36,16 @@
       "tag": "PROXY",
       "outbounds": [
         "AUTO-BEST-PING",
+        "DIRECT",
         "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "14.lowh.net",
-        "hz2 xl",
-        "DIRECT"
+        "hz2 xl"
       ],
-      "default": "AUTO-BEST-PING"
+      "default": "AUTO-BEST-PING",
+      "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
@@ -57,9 +58,11 @@
         "14.lowh.net",
         "hz2 xl"
       ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 50
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "1m",
+      "tolerance": 30,
+      "idle_timeout": "5m",
+      "interrupt_exist_connections": true
     },
     {
       "type": "vmess",
@@ -80,7 +83,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -101,7 +105,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -122,7 +127,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -143,7 +149,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -164,7 +171,8 @@
         "headers": {
           "Host": "14.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -185,7 +193,8 @@
         "headers": {
           "Host": "hz2.cobadl.com"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "direct",

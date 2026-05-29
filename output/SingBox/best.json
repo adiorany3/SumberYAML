@@ -35,23 +35,64 @@
       "tag": "DIRECT"
     },
     {
-      "tag": "34 oneclickvpnkeys",
+      "tag": "oneclickvpnkeys US 3829",
       "server": "104.17.3.81",
       "server_port": 443,
       "type": "vless",
-      "uuid": "5b9fa73b-b549-480b-add9-c45e650d236f",
+      "uuid": "ed0e05af-49ab-4ea8-a39c-634855811b03",
       "tls": {
         "enabled": true,
-        "server_name": "gddy.hhlfy.de5.net",
+        "server_name": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/fp=chrome",
+        "path": "/ws",
         "headers": {
-          "Host": "gddy.hhlfy.de5.net"
+          "Host": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev"
         }
-      }
+      },
+      "connect_timeout": "8s"
+    },
+    {
+      "tag": "v2configlab_ DE",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
+        }
+      },
+      "connect_timeout": "8s"
+    },
+    {
+      "tag": "2 DE av2ngFast",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+        }
+      },
+      "connect_timeout": "8s"
     },
     {
       "tag": "73 oneclickvpnkeys",
@@ -70,74 +111,38 @@
         "headers": {
           "Host": "cyylr.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
-      "tag": "oneclickvpnkeys US 8580",
+      "tag": "NETMelliAnti",
       "server": "104.17.3.81",
       "server_port": 443,
       "type": "trojan",
-      "password": "A4u^p(_UR*F6",
+      "password": "Mitivpn",
       "tls": {
         "enabled": true,
-        "server_name": "027.eLECTROcelLCO-cf-027.WorKerS.Dev",
+        "server_name": "www.hitgram.ir",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/eyJqdW5rIjoidDJ0UDljR2ZIaVBQakg2byIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=",
+        "path": "/?ed=2048",
         "headers": {
-          "Host": "027.electrocellco-cf-027.workers.dev"
+          "Host": "www.hitgram.ir"
         }
-      }
-    },
-    {
-      "tag": "v2con",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "type": "vless",
-      "uuid": "2d5d3c38-6178-43d3-8002-86dd60e44d38",
-      "tls": {
-        "enabled": true,
-        "server_name": "v2configlab.v2configlab-2f5.workers.dev",
-        "insecure": true
       },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560",
-        "headers": {
-          "Host": "v2configlab.v2configlab-2f5.workers.dev"
-        }
-      }
-    },
-    {
-      "tag": "1 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "type": "vless",
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp=chrome",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      }
+      "connect_timeout": "8s"
     },
     {
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "34 oneclickvpnkeys",
+        "oneclickvpnkeys US 3829",
+        "v2configlab_ DE",
+        "2 DE av2ngFast",
         "73 oneclickvpnkeys",
-        "oneclickvpnkeys US 8580",
-        "v2con",
-        "1 oneclickvpnkeys",
+        "NETMelliAnti",
         "LINK HE",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -146,32 +151,33 @@
         "LINK 14.lowh.net",
         "LINK hz2 xl"
       ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 50,
-      "interrupt_exist_connections": false
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "1m",
+      "tolerance": 30,
+      "interrupt_exist_connections": true,
+      "idle_timeout": "5m"
     },
     {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
         "AUTO-BEST-PING",
+        "DIRECT",
+        "oneclickvpnkeys US 3829",
+        "v2configlab_ DE",
+        "2 DE av2ngFast",
+        "73 oneclickvpnkeys",
+        "NETMelliAnti",
         "LINK HE",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK Trojan adisanggoro",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
         "LINK 14.lowh.net",
-        "LINK hz2 xl",
-        "DIRECT",
-        "34 oneclickvpnkeys",
-        "73 oneclickvpnkeys",
-        "oneclickvpnkeys US 8580",
-        "v2con",
-        "1 oneclickvpnkeys"
+        "LINK hz2 xl"
       ],
       "default": "AUTO-BEST-PING",
-      "interrupt_exist_connections": false
+      "interrupt_exist_connections": true
     },
     {
       "type": "trojan",
@@ -191,7 +197,8 @@
         "headers": {
           "Host": "sg-trojan.1server.co"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -212,7 +219,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -233,7 +241,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "trojan",
@@ -253,7 +262,8 @@
         "headers": {
           "Host": "15.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vless",
@@ -273,7 +283,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -294,7 +305,8 @@
         "headers": {
           "Host": "14.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "8s"
     },
     {
       "type": "vmess",
@@ -315,7 +327,8 @@
         "headers": {
           "Host": "hz2.cobadl.com"
         }
-      }
+      },
+      "connect_timeout": "8s"
     }
   ],
   "route": {
