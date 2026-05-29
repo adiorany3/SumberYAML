@@ -6,7 +6,7 @@ Purpose for SumberYAML:
 - Keep the existing generated YAML results from sources/generator.
 - Add extra user-provided accounts from input/links.txt as additional proxies.
 - Add those extra proxies into proxy-groups so they are selectable/testable.
-- Run before validate_openclash_outputs.py so invalid group refs can be caught/fixed.
+- Run after validate_openclash_outputs.py when input links are trusted/manual and should not be alive-tested or validation-gated.
 
 Default input candidates:
 - input/links.txt
@@ -546,6 +546,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--all-output-yaml", action="store_true", default=True, help="Also scan output/*.yaml files. Default: true")
     parser.add_argument("--only-primary-groups", action="store_true", help="Do not add links to every proxy group; only add to primary/category groups.")
     parser.add_argument("--strict", action="store_true", help="Fail if input file exists but no valid links can be parsed.")
+    parser.add_argument("--trusted", action="store_true", help="Treat input links as trusted manual accounts; never fail only because links are absent/unparseable.")
     args = parser.parse_args(argv)
 
     input_paths = args.input or DEFAULT_INPUTS
@@ -556,6 +557,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     report: Dict[str, Any] = {
         "ok": True,
+        "trusted_manual_links": bool(args.trusted),
+        "validation_gate": False,
         "input_paths_checked": input_paths,
         "input_paths_used": used_inputs,
         "links_found": len(links),
@@ -570,10 +573,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         report["ok"] = True
         report["message"] = "Tidak ada input links file. Merge YAML dilewati."
     elif not links:
-        report["ok"] = not args.strict
+        report["ok"] = True if args.trusted else (not args.strict)
         report["message"] = "Input file ada, tetapi tidak ada link vmess/vless/trojan."
     elif not link_proxies:
-        report["ok"] = not args.strict
+        report["ok"] = True if args.trusted else (not args.strict)
         report["message"] = "Tidak ada link valid yang bisa dikonversi."
     elif not targets:
         report["ok"] = False
