@@ -35,27 +35,60 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "VLESS TEST",
+        "AUTO-BEST-PING",
+        "VLESS WS TLS",
+        "VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT"
       ],
-      "default": "VLESS TEST"
+      "default": "AUTO-BEST-PING"
+    },
+    {
+      "type": "urltest",
+      "tag": "AUTO-BEST-PING",
+      "outbounds": [
+        "VLESS WS TLS",
+        "VLESS-WS-TLS-443-apt50atpprem"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 50
     },
     {
       "type": "vless",
-      "tag": "VLESS TEST",
-      "server": "example.org",
+      "tag": "VLESS WS TLS",
+      "server": "server.example.com",
       "server_port": 443,
-      "uuid": "22222222-2222-2222-2222-222222222222",
+      "uuid": "uuid",
       "network": "tcp",
       "tls": {
         "enabled": true,
-        "server_name": "example.org"
+        "server_name": "server.example.com"
       },
       "transport": {
         "type": "ws",
-        "path": "/vless",
+        "path": "/ws",
         "headers": {
-          "Host": "example.org"
+          "Host": "server.example.com"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "VLESS-WS-TLS-443-apt50atpprem",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "akamaized.my",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "akamaized.my"
         }
       }
     },

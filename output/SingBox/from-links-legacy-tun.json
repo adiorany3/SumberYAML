@@ -34,9 +34,20 @@
       "tag": "PROXY",
       "outbounds": [
         "AUTO-BEST-PING",
-        "VMESS TEST",
-        "VLESS TEST",
-        "TROJAN TEST",
+        "VLESS WS TLS",
+        "TROJAN WS TLS",
+        "HE",
+        "bel432 xl",
+        "bel432 xl 2",
+        "bel432 telk",
+        "VMess-WS-TLS-443-akuku8",
+        "Trojan adisanggoro",
+        "VLESS-WS-TLS-443-apt50atpprem",
+        "14.lowh.net",
+        "hz2 xl",
+        "telk",
+        "bellme",
+        "hz2 xl 2",
         "DIRECT"
       ],
       "default": "AUTO-BEST-PING"
@@ -45,70 +56,309 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "VMESS TEST",
-        "VLESS TEST",
-        "TROJAN TEST"
+        "VLESS WS TLS",
+        "TROJAN WS TLS",
+        "HE",
+        "bel432 xl",
+        "bel432 xl 2",
+        "bel432 telk",
+        "VMess-WS-TLS-443-akuku8",
+        "Trojan adisanggoro",
+        "VLESS-WS-TLS-443-apt50atpprem",
+        "14.lowh.net",
+        "hz2 xl",
+        "telk",
+        "bellme",
+        "hz2 xl 2"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 50
     },
     {
-      "type": "vmess",
-      "tag": "VMESS TEST",
-      "server": "example.com",
+      "type": "vless",
+      "tag": "VLESS WS TLS",
+      "server": "server.example.com",
       "server_port": 443,
-      "uuid": "11111111-1111-1111-1111-111111111111",
-      "security": "auto",
-      "alter_id": 0,
+      "uuid": "uuid",
       "network": "tcp",
       "tls": {
         "enabled": true,
-        "server_name": "example.com"
+        "server_name": "server.example.com"
       },
       "transport": {
         "type": "ws",
         "path": "/ws",
         "headers": {
-          "Host": "example.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "VLESS TEST",
-      "server": "example.org",
-      "server_port": 443,
-      "uuid": "22222222-2222-2222-2222-222222222222",
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "example.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vless",
-        "headers": {
-          "Host": "example.org"
+          "Host": "server.example.com"
         }
       }
     },
     {
       "type": "trojan",
-      "tag": "TROJAN TEST",
-      "server": "example.net",
+      "tag": "TROJAN WS TLS",
+      "server": "server.example.com",
       "server_port": 443,
-      "password": "pass123",
+      "password": "password",
       "network": "tcp",
       "tls": {
         "enabled": true,
-        "server_name": "example.net"
+        "server_name": "server.example.com"
       },
       "transport": {
         "type": "ws",
         "path": "/trojan",
         "headers": {
-          "Host": "example.net"
+          "Host": "server.example.com"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "HE",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "ca189f80-3a46-11f1-bbd9-1577c1651679",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "sg-trojan.1server.co",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "sg-trojan.1server.co"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "bel432 xl",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "bel432 xl 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "bel432 telk",
+      "server": "104.20.28.42",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "VMess-WS-TLS-443-akuku8",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
+      "security": "auto",
+      "alter_id": 0,
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "fbcdn.sbs"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "fbcdn.sbs"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Trojan adisanggoro",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "56e635c0-3de6-11f1-bc6c-1577c1651679",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "15.lowh.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "15.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "VLESS-WS-TLS-443-apt50atpprem",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "akamaized.my",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "akamaized.my"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "14.lowh.net",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "0629e500-1d98-11f1-bba0-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "14.lowh.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "14.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "hz2 xl",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "56b64a80-1fb2-11f1-969a-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "hz2.cobadl.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "hz2.cobadl.com"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "telk",
+      "server": "104.20.28.42",
+      "server_port": 443,
+      "uuid": "56b64a80-1fb2-11f1-969a-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "hz2.cobadl.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "hz2.cobadl.com"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "bellme",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "0ab2dbf4-9ee4-4a32-9128-c992c30bba86",
+      "security": "auto",
+      "alter_id": 0,
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "hz2 xl 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "56b64a80-1fb2-11f1-969a-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "hz2.cobadl.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "hz2.cobadl.com"
         }
       }
     },

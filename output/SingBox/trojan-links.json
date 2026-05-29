@@ -35,27 +35,82 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "TROJAN TEST",
+        "AUTO-BEST-PING",
+        "TROJAN WS TLS",
+        "HE",
+        "Trojan adisanggoro",
         "DIRECT"
       ],
-      "default": "TROJAN TEST"
+      "default": "AUTO-BEST-PING"
+    },
+    {
+      "type": "urltest",
+      "tag": "AUTO-BEST-PING",
+      "outbounds": [
+        "TROJAN WS TLS",
+        "HE",
+        "Trojan adisanggoro"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 50
     },
     {
       "type": "trojan",
-      "tag": "TROJAN TEST",
-      "server": "example.net",
+      "tag": "TROJAN WS TLS",
+      "server": "server.example.com",
       "server_port": 443,
-      "password": "pass123",
+      "password": "password",
       "network": "tcp",
       "tls": {
         "enabled": true,
-        "server_name": "example.net"
+        "server_name": "server.example.com"
       },
       "transport": {
         "type": "ws",
         "path": "/trojan",
         "headers": {
-          "Host": "example.net"
+          "Host": "server.example.com"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "HE",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "ca189f80-3a46-11f1-bbd9-1577c1651679",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "sg-trojan.1server.co",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "sg-trojan.1server.co"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Trojan adisanggoro",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "56e635c0-3de6-11f1-bc6c-1577c1651679",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "15.lowh.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "15.lowh.net"
         }
       }
     },
