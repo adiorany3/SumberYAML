@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -30,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "GozargahAzad 7224"
+  - name: "vmesskhodam 8222"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -45,36 +49,11 @@ proxies:
       headers:
         Host: "pagescm.freen15.cc.cd"
     udp: true
-  - name: "64369 - Telegram V2All"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "pagescm.freen15.cc.cd"
-    ws-opts:
-      path: "/album/bt?TELEGRAM--JKVPN--JKVPN--JKVPN"
-      headers:
-        Host: "pagescm.freen15.cc.cd"
-    udp: true
 
 proxy-groups:
-  - name: "URL-TEST BT - Bhutan"
-    type: url-test
-    proxies:
-      - "GozargahAzad 7224"
-      - "64369 - Telegram V2All"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST BT - Bhutan"
       - "DIRECT"
       - "REJECT"
 

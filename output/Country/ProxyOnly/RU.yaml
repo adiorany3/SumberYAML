@@ -14,3 +14,18 @@ proxies:
       headers:
         Host: "fl-3-direct.djarbnet.ru"
     udp: true
+  - name: "RU 35644 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e346f220-4ca4-4f69-a66b-52e992b3b625
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.fh-aachen.de"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.fh-aachen.de"
+    udp: true

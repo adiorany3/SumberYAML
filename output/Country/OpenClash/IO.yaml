@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -45,7 +49,7 @@ proxies:
       headers:
         Host: "codepen.io"
     udp: true
-  - name: "v2rayngzendegimamad 3933"
+  - name: "v2rayngzendegimamad 4489"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -62,19 +66,9 @@ proxies:
     udp: true
 
 proxy-groups:
-  - name: "URL-TEST IO - British Indian Ocean Territory"
-    type: url-test
-    proxies:
-      - "XX XX VLESS kilid_stor 1"
-      - "v2rayngzendegimamad 3933"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST IO - British Indian Ocean Territory"
       - "DIRECT"
       - "REJECT"
 

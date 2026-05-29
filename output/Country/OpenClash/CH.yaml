@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2ray_dalghak"
+  - name: "UnNurmal"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -43,13 +43,13 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "sni.skylee4.cloudns.ch"
+    servername: "sn1.skylee5.cloudns.ch"
     ws-opts:
-      path: "/proxyip=ProxyIP.CMLiussss.net"
+      path: "/"
       headers:
-        Host: "sni.skylee4.cloudns.ch"
+        Host: "sn1.skylee5.cloudns.ch"
     udp: true
-  - name: "v2ray_dalghak 2076"
+  - name: "hi_proxy_iran"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -61,6 +61,21 @@ proxies:
     servername: "sni.skylee4.cloudns.ch"
     ws-opts:
       path: "/proxyip"
+      headers:
+        Host: "sni.skylee4.cloudns.ch"
+    udp: true
+  - name: "free_conf_iran"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.skylee4.cloudns.ch"
+    ws-opts:
+      path: "/proxyip=ProxyIP.CMLiussss.net"
       headers:
         Host: "sni.skylee4.cloudns.ch"
     udp: true

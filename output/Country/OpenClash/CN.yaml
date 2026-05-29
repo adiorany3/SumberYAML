@@ -34,20 +34,49 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "GozargahAzad CN"
+  - name: "GozargahAzad NL"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "sni.skylee4.cloudns.ch"
+    servername: "sni.111000.v6.navy"
     ws-opts:
-      path: "/proxyip"
+      path: "/?telegram🇨🇳 @wangcai2="
       headers:
-        Host: "sni.skylee4.cloudns.ch"
+        Host: "sni.111000.v6.navy"
+    udp: true
+  - name: "GozargahAzad NL 4170"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.111000.indevs.in"
+    ws-opts:
+      path: "/?Telegram🇨🇳 @WangCai2="
+      headers:
+        Host: "sni.111000.indevs.in"
+    udp: true
+  - name: "v2rayconfigamir 3455"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "162534"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cchh2.pages.dev"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "cchh2.pages.dev"
     udp: true
 
 proxy-groups:

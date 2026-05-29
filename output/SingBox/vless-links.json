@@ -35,42 +35,10 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "AUTO-BEST-PING",
-        "VLESS WS TLS",
         "VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT"
       ],
-      "default": "AUTO-BEST-PING"
-    },
-    {
-      "type": "urltest",
-      "tag": "AUTO-BEST-PING",
-      "outbounds": [
-        "VLESS WS TLS",
-        "VLESS-WS-TLS-443-apt50atpprem"
-      ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 50
-    },
-    {
-      "type": "vless",
-      "tag": "VLESS WS TLS",
-      "server": "server.example.com",
-      "server_port": 443,
-      "uuid": "uuid",
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "server.example.com"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "server.example.com"
-        }
-      }
+      "default": "VLESS-WS-TLS-443-apt50atpprem"
     },
     {
       "type": "vless",

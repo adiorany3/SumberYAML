@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -30,48 +34,26 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 44537595-9ccc-4b83-8936-5f9ad3229019
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "89.31.120.192"
-    network: tcp
-    udp: true
-  - name: "AE AE VLESS vmesskhodam 1"
+  - name: "AE AE VLESS filterk0sh 1"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 24323a9a-5962-47f0-ae60-7b12f4503dea
+    uuid: 0bb6dff2-0029-4b81-8c81-4fc70fae1ed9
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "nl3.freekeysh110.online"
+    servername: "eng14.netliberated.org"
     ws-opts:
       path: "/"
       headers:
-        Host: "nl3.freekeysh110.online"
+        Host: "eng14.netliberated.org"
     udp: true
 
 proxy-groups:
-  - name: "URL-TEST AE - United Arab Emirates"
-    type: url-test
-    proxies:
-      - "oneclickvpnkeys AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE AE"
-      - "AE AE VLESS vmesskhodam 1"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST AE - United Arab Emirates"
       - "DIRECT"
       - "REJECT"
 

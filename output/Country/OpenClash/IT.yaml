@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -62,19 +66,9 @@ proxies:
     udp: true
 
 proxy-groups:
-  - name: "URL-TEST IT - Italy"
-    type: url-test
-    proxies:
-      - "Rayan_Config 5.55"
-      - "Rayan_Config 5.5"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST IT - Italy"
       - "DIRECT"
       - "REJECT"
 

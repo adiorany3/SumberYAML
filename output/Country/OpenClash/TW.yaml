@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -47,18 +51,9 @@ proxies:
     udp: true
 
 proxy-groups:
-  - name: "URL-TEST TW - Taiwan"
-    type: url-test
-    proxies:
-      - "v2ray_configs_pool TW"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST TW - Taiwan"
       - "DIRECT"
       - "REJECT"
 

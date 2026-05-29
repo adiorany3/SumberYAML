@@ -34,20 +34,48 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "TR t.me Natrixo AA"
+  - name: "TR 35403 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: a0ae4e44-480c-4282-b526-f1bdf749e0d1
+    uuid: 479040de-797f-4e9a-9621-7916cf61e333
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "c.downloadphysics.ir"
+    servername: "panel.mahoorjb.ir"
     ws-opts:
-      path: "/"
+      path: "/snapp"
       headers:
-        Host: "c.downloadphysics.ir"
+        Host: "panel.mahoorjb.ir"
+    udp: true
+  - name: "XX XX TROJAN spikevpn 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8r<[9'l6hAO#8ZQi"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "104.16.7.70"
+    ws-opts:
+      path: "/tr"
+      headers:
+        Host: "104.16.7.70"
+    udp: true
+  - name: "XX XX TROJAN spikevpn 2"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8r<[9'l6hAO#8ZQi"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "104.18.109.147"
+    ws-opts:
+      path: "/tr"
+      headers:
+        Host: "104.18.109.147"
     udp: true
 
 proxy-groups:

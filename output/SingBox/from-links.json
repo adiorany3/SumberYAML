@@ -36,8 +36,6 @@
       "tag": "PROXY",
       "outbounds": [
         "AUTO-BEST-PING",
-        "VLESS WS TLS",
-        "TROJAN WS TLS",
         "HE",
         "bel432 xl",
         "bel432 xl 2",
@@ -47,8 +45,6 @@
         "VLESS-WS-TLS-443-apt50atpprem",
         "14.lowh.net",
         "hz2 xl",
-        "bellme",
-        "hz2 xl 2",
         "DIRECT"
       ],
       "default": "AUTO-BEST-PING"
@@ -57,8 +53,6 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "VLESS WS TLS",
-        "TROJAN WS TLS",
         "HE",
         "bel432 xl",
         "bel432 xl 2",
@@ -67,51 +61,11 @@
         "Trojan adisanggoro",
         "VLESS-WS-TLS-443-apt50atpprem",
         "14.lowh.net",
-        "hz2 xl",
-        "bellme",
-        "hz2 xl 2"
+        "hz2 xl"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 50
-    },
-    {
-      "type": "vless",
-      "tag": "VLESS WS TLS",
-      "server": "server.example.com",
-      "server_port": 443,
-      "uuid": "uuid",
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "server.example.com"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "server.example.com"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "TROJAN WS TLS",
-      "server": "server.example.com",
-      "server_port": 443,
-      "password": "password",
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "server.example.com"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/trojan",
-        "headers": {
-          "Host": "server.example.com"
-        }
-      }
     },
     {
       "type": "trojan",
@@ -281,48 +235,6 @@
     {
       "type": "vmess",
       "tag": "hz2 xl",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "56b64a80-1fb2-11f1-969a-1577c1651679",
-      "security": "auto",
-      "alter_id": 0,
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "hz2.cobadl.com"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/hello",
-        "headers": {
-          "Host": "hz2.cobadl.com"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "bellme",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "0ab2dbf4-9ee4-4a32-9128-c992c30bba86",
-      "security": "auto",
-      "alter_id": 0,
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "hz2 xl 2",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "56b64a80-1fb2-11f1-969a-1577c1651679",

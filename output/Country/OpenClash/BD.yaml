@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -45,36 +49,11 @@ proxies:
       headers:
         Host: "188.114.98.0"
     udp: true
-  - name: "XX XX VLESS netmellianti 1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 360d65ec-3dc9-49ef-9839-51a794f492a8
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "104.18.16.56"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "104.18.16.56"
-    udp: true
 
 proxy-groups:
-  - name: "URL-TEST BD - Bangladesh"
-    type: url-test
-    proxies:
-      - "XX XX VLESS evay_vpn 2"
-      - "XX XX VLESS netmellianti 1"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST BD - Bangladesh"
       - "DIRECT"
       - "REJECT"
 
