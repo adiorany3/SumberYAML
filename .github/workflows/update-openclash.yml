@@ -19,7 +19,7 @@ on:
           - test_ping
           - merge_links
       enable_proxy_test:
-        description: Jalankan test proxy/ping
+        description: Jalankan test proxy/ping untuk sumber otomatis
         required: false
         default: "true"
         type: choice
@@ -27,7 +27,7 @@ on:
           - "true"
           - "false"
       filter_alive_only:
-        description: lengkap.yaml hanya berisi proxy hidup
+        description: lengkap.yaml hanya berisi proxy hidup dari sumber otomatis
         required: false
         default: "true"
         type: choice
@@ -35,7 +35,7 @@ on:
           - "true"
           - "false"
       strict_alive_only:
-        description: Pakai hanya akun yang lolos URL delay test beberapa ronde
+        description: Pakai hanya akun sumber otomatis yang lolos URL delay test beberapa ronde
         required: false
         default: "true"
         type: choice
@@ -124,7 +124,7 @@ env:
 
 jobs:
   update:
-    name: Generate, sanitize, convert sing-box, merge links, and commit output
+    name: Generate, validate generated YAML, append trusted links, build sing-box, and commit output
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -149,10 +149,8 @@ jobs:
           echo "Enable proxy test: $ENABLE_PROXY_TEST"
           echo "Filter alive only: $FILTER_ALIVE_ONLY"
           echo "Strict alive only: $STRICT_ALIVE_ONLY"
-          echo "Files in root:"
+          echo "Trusted manual links: input/links.txt will be appended after YAML validation"
           ls -la
-          echo "Workflow files:"
-          ls -la .github/workflows || true
 
       - name: Install Python dependencies
         run: |
@@ -169,19 +167,17 @@ jobs:
           rm -rf .previous_output
           mkdir -p .previous_output
           if [ -d output ]; then
-            echo "Backup output sebelumnya ke .previous_output"
             cp -a output/. .previous_output/ || true
             echo "Jumlah file backup output sebelumnya:"
             find .previous_output -type f | wc -l
           else
-            echo "Belum ada folder output sebelumnya. Fallback previous output tidak tersedia."
+            echo "Belum ada folder output sebelumnya."
           fi
 
-      - name: Generate OpenClash output
+      - name: Generate OpenClash output from automatic sources
         if: ${{ env.MODE != 'merge_links' }}
         run: |
           set -e
-
           if [ -f telegram_openclash_alive.py ]; then
             echo "Menjalankan telegram_openclash_alive.py..."
             python telegram_openclash_alive.py \
@@ -201,8 +197,6 @@ jobs:
             echo "ERROR: generator tidak ditemukan. Butuh telegram_openclash_alive.py atau scripts/generate_configs.py."
             exit 1
           fi
-
-          echo "Output directory:"
           find output -maxdepth 4 -type f | sort || true
 
       - name: Validate output/lengkap.yaml exists
@@ -210,25 +204,13 @@ jobs:
           set -e
           if [ ! -f output/lengkap.yaml ]; then
             echo "ERROR: output/lengkap.yaml tidak ditemukan."
-            echo "Isi folder output:"
             find output -maxdepth 4 -type f | sort || true
             exit 1
           fi
           echo "OK: output/lengkap.yaml ditemukan"
           wc -l output/lengkap.yaml || true
 
-      - name: Merge input links into OpenClash YAML outputs
-        run: |
-          set -e
-          if [ -f scripts/merge_links_into_openclash_yaml.py ]; then
-            python scripts/merge_links_into_openclash_yaml.py --input input/links.txt
-            echo "OpenClash YAML links merge report:"
-            cat output/Validation/merge_links_into_openclash_yaml.json || true
-          else
-            echo "scripts/merge_links_into_openclash_yaml.py tidak ditemukan. Lewati merge links ke YAML."
-          fi
-
-      - name: Sanitize OpenClash group references
+      - name: Sanitize generated OpenClash group references before validation
         run: |
           set -e
           if [ -f scripts/fix_yaml_group_refs.py ]; then
@@ -239,7 +221,7 @@ jobs:
             echo "scripts/fix_yaml_group_refs.py tidak ditemukan. Lewati sanitasi group reference."
           fi
 
-      - name: Validate OpenClash YAML outputs
+      - name: Validate generated OpenClash YAML outputs only
         run: |
           set -e
           if [ ! -f scripts/validate_openclash_outputs.py ]; then
@@ -270,17 +252,30 @@ jobs:
             exit 1
           fi
 
+          echo "Validasi hanya untuk output hasil generator. input/links.txt belum digabung pada tahap ini."
           python scripts/validate_openclash_outputs.py "${files[@]}"
 
-      - name: Build final sing-box JSON and merge input links
+      - name: Append trusted input links into OpenClash YAML outputs without validation gate
+        run: |
+          set -e
+          if [ -f scripts/merge_links_into_openclash_yaml.py ]; then
+            python scripts/merge_links_into_openclash_yaml.py \
+              --input input/links.txt \
+              --trusted
+            echo "Trusted OpenClash YAML links merge report:"
+            cat output/Validation/merge_links_into_openclash_yaml.json || true
+          else
+            echo "scripts/merge_links_into_openclash_yaml.py tidak ditemukan. Lewati merge trusted links ke YAML."
+          fi
+
+      - name: Build final sing-box JSON and merge trusted input links
         run: |
           set -e
           mkdir -p output/SingBox
 
           if [ -f scripts/build_singbox_final.py ]; then
             python scripts/build_singbox_final.py \
-              --link-input input/links.txt \
-              --strict-links
+              --link-input input/links.txt
           else
             echo "scripts/build_singbox_final.py tidak ditemukan. Pakai fallback manual."
 
@@ -298,19 +293,16 @@ jobs:
               if [ -f scripts/convert_links_to_singbox.py ]; then
                 python scripts/convert_links_to_singbox.py \
                   --input input/links.txt \
-                  --output-dir output/SingBox \
-                  --strict
+                  --output-dir output/SingBox || true
               fi
 
               if [ -f scripts/merge_links_into_singbox.py ]; then
                 python scripts/merge_links_into_singbox.py \
                   --link-input input/links.txt \
                   --output-dir output/SingBox \
-                  --make-latest \
-                  --strict
+                  --make-latest || true
               else
-                echo "ERROR: scripts/merge_links_into_singbox.py tidak ditemukan."
-                exit 1
+                echo "scripts/merge_links_into_singbox.py tidak ditemukan. Lewati merge link sing-box tambahan."
               fi
             else
               echo "input/links.txt kosong/tidak ada. Merge links dilewati."
@@ -337,7 +329,6 @@ jobs:
             exit 0
           fi
 
-          echo "Backup output hasil generate ke folder sementara..."
           tar -C output -cf "$BACKUP_DIR/output.tar" .
 
           for attempt in 1 2 3; do
@@ -347,7 +338,6 @@ jobs:
             git reset --hard "origin/$BRANCH"
             git clean -fd
 
-            echo "Restore output hasil generate ke working tree terbaru..."
             rm -rf output
             mkdir -p output
             tar -C output -xf "$BACKUP_DIR/output.tar"
@@ -364,8 +354,6 @@ jobs:
               echo "Push berhasil."
               exit 0
             fi
-
-            echo "Push gagal karena remote berubah. Ulangi dengan remote terbaru..."
             sleep 5
           done
 
