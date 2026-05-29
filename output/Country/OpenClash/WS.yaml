@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "nexus-free-testing"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 201d509f-c5be-4d05-85a1-9744ae1a1b7f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "c32.aminzing.lol"
+    ws-opts:
+      path: "/lsDH2qujZ0YMHphrPaZGOjsL"
+      headers:
+        Host: "c32.aminzing.lol"
+    udp: true
   - name: "v2con"
     server: "104.17.3.81"
     port: 443
@@ -49,20 +64,33 @@ proxies:
       headers:
         Host: "v2configlab.v2configlab-2f5.workers.dev"
     udp: true
-  - name: "Kariz"
+  - name: "KAFING_2 2725"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: c8e2ba30-a6de-4660-8c62-5bf5cc9318f3
-    cipher: none
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "enquiries-commands-div-medal.trycloudflare.com"
+    sni: "uk1.test3.net"
     ws-opts:
-      path: "/"
+      path: "/howdy"
       headers:
-        Host: "enquiries-commands-div-medal.trycloudflare.com"
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "NETMelliAnti"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "4Fi9DdXrBq"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "de.aananas.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "de.aananas.ir"
     udp: true
 
 proxy-groups:

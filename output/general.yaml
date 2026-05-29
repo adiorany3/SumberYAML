@@ -28,21 +28,6 @@ dns:
   - 1.0.0.1
   - 8.8.4.4
 proxies:
-- name: 1 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
 - name: 73 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
@@ -73,36 +58,79 @@ proxies:
     headers:
       Host: juzi.qea.ccwu.cc
   udp: true
-- name: 79 oneclickvpnkeys
+- name: v2con
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+  uuid: 2d5d3c38-6178-43d3-8002-86dd60e44d38
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: pagescm.freen9.cc.cd
+  servername: v2configlab.v2configlab-2f5.workers.dev
   ws-opts:
-    path: /htm/docs/archivefp=chrome
+    path: /?ed=2560
     headers:
-      Host: pagescm.freen9.cc.cd
+      Host: v2configlab.v2configlab-2f5.workers.dev
   udp: true
-- name: filembad
-  type: vmess
+- name: 1 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
-  uuid: 2f3aadae-66c6-4dca-a670-03c183f8024e
-  alterId: 0
-  cipher: auto
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
   tls: true
   skip-cert-verify: true
-  servername: sctest1.dr-ping.ir
   network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
-    path: /kos-nanat-decoder
+    path: /fp=chrome
     headers:
-      Host: sctest1.dr-ping.ir
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: nexus-free-testing
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 201d509f-c5be-4d05-85a1-9744ae1a1b7f
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: c32.aminzing.lol
+  ws-opts:
+    path: /lsDH2qujZ0YMHphrPaZGOjsL
+    headers:
+      Host: c32.aminzing.lol
+  udp: true
+- name: oneclickvpnkeys FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmloud.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmloud.com
+  udp: true
+- name: FR 36472 Telegram t.me SOSkeyNET
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 6df80c02-2f09-45aa-adbd-f6566a8010f7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: a1.shahinir.store
+  ws-opts:
+    path: /@IranianMinds
+    headers:
+      Host: a1.shahinir.store
   udp: true
 - name: outline_ir
   server: 104.17.3.81
@@ -119,22 +147,22 @@ proxies:
     headers:
       Host: alphacdn.alphashops.shop
   udp: true
-- name: v2con
+- name: CA 36408 Telegram t.me SOSkeyNET
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 2d5d3c38-6178-43d3-8002-86dd60e44d38
+  uuid: 478cc26d-16b3-4fdd-be64-60d5a58c1622
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: v2configlab.v2configlab-2f5.workers.dev
+  servername: tt.andishehparenting.com
   ws-opts:
-    path: /?ed=2560
+    path: /
     headers:
-      Host: v2configlab.v2configlab-2f5.workers.dev
+      Host: tt.andishehparenting.com
   udp: true
-- name: oneclickvpnkeys US 9724
+- name: oneclickvpnkeys US 9963
   server: 104.17.3.81
   port: 443
   type: vless
@@ -148,37 +176,6 @@ proxies:
     path: /
     headers:
       Host: juzi.qea.ccwu.cc
-  udp: true
-- name: By EbraSha 7047
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: vienna-bread-threats-amendment.trycloudflare.com
-  network: ws
-  ws-opts:
-    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
-    headers:
-      Host: vienna-bread-threats-amendment.trycloudflare.com
-  udp: true
-- name: Kariz
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: c8e2ba30-a6de-4660-8c62-5bf5cc9318f3
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: enquiries-commands-div-medal.trycloudflare.com
-  ws-opts:
-    path: /
-    headers:
-      Host: enquiries-commands-div-medal.trycloudflare.com
   udp: true
 - name: LINK HE
   type: trojan
@@ -290,16 +287,16 @@ proxy-groups:
 - name: GENERAL STABIL
   type: fallback
   proxies:
-  - 1 oneclickvpnkeys
   - 73 oneclickvpnkeys
   - 75 oneclickvpnkeys
-  - 79 oneclickvpnkeys
-  - filembad
-  - outline_ir
   - v2con
-  - oneclickvpnkeys US 9724
-  - By EbraSha 7047
-  - Kariz
+  - 1 oneclickvpnkeys
+  - nexus-free-testing
+  - oneclickvpnkeys FR
+  - FR 36472 Telegram t.me SOSkeyNET
+  - outline_ir
+  - CA 36408 Telegram t.me SOSkeyNET
+  - oneclickvpnkeys US 9963
   - LINK HE
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8

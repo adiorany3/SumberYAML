@@ -1,19 +1,4 @@
 proxies:
-  - name: "1 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "hhlfy.twiladaphne.ndjp.net"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "hhlfy.twiladaphne.ndjp.net"
-    udp: true
   - name: "73 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
@@ -44,34 +29,48 @@ proxies:
       headers:
         Host: "juzi.qea.ccwu.cc"
     udp: true
-  - name: "79 oneclickvpnkeys"
+  - name: "v2con"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+    uuid: 2d5d3c38-6178-43d3-8002-86dd60e44d38
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "pagescm.freen9.cc.cd"
+    servername: "v2configlab.v2configlab-2f5.workers.dev"
     ws-opts:
-      path: "/htm/docs/archivefp=chrome"
+      path: "/?ed=2560"
       headers:
-        Host: "pagescm.freen9.cc.cd"
+        Host: "v2configlab.v2configlab-2f5.workers.dev"
     udp: true
-  - name: "filembad"
-    type: vmess
+  - name: "1 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
-    uuid: 2f3aadae-66c6-4dca-a670-03c183f8024e
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: "sctest1.dr-ping.ir"
     network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
     ws-opts:
-      path: "/kos-nanat-decoder"
+      path: "/fp=chrome"
       headers:
-        Host: "sctest1.dr-ping.ir"
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "nexus-free-testing"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 201d509f-c5be-4d05-85a1-9744ae1a1b7f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "c32.aminzing.lol"
+    ws-opts:
+      path: "/lsDH2qujZ0YMHphrPaZGOjsL"
+      headers:
+        Host: "c32.aminzing.lol"
     udp: true

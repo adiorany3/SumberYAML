@@ -1,4 +1,32 @@
 proxies:
+  - name: "oneclickvpnkeys PL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.creationlong.org"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.creationlong.org"
+    udp: true
+  - name: "oneclickvpnkeys FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
   - name: "v2line NL"
     server: "104.17.3.81"
     port: 443
@@ -27,7 +55,7 @@ proxies:
       headers:
         Host: "www.calmlunch.com"
     udp: true
-  - name: "oneclickvpnkeys FR 9231"
+  - name: "oneclickvpnkeys FR 9073"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -40,4 +68,46 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.ignitelimit.com"
+    udp: true
+  - name: "KAFING_2 2725"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "NETMelliAnti"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "4Fi9DdXrBq"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "de.aananas.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "de.aananas.ir"
+    udp: true
+  - name: "BG 36406 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "rYuChHcwQZskq9E0zdoR"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "vpn5.rnmcnm.com"
+    ws-opts:
+      path: "/ws-79dffb8106db"
+      headers:
+        Host: "vpn5.rnmcnm.com"
     udp: true
