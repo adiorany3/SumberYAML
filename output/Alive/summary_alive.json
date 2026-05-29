@@ -1,7 +1,7 @@
 {
-  "run_mode": "test",
+  "run_mode": "update",
   "enable_proxy_test": true,
-  "filter_alive_only": false,
+  "filter_alive_only": true,
   "strict_alive_only": true,
   "test_rounds": 2,
   "require_success_rounds": 1,
@@ -14,53 +14,63 @@
   "timeout_ms": 5000,
   "workers": 20,
   "tester": "strict-mihomo-delay",
-  "tester_ok": false,
-  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms. | Strict result kosong, fallback longgar diaktifkan agar output tidak kosong.",
+  "tester_ok": true,
+  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
   "rounds": [
     {
       "round": 1,
       "tester": "mihomo-delay",
-      "tester_ok": false,
-      "alive": 0,
-      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
+      "tester_ok": true,
+      "alive": 50,
+      "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
-      "tester_ok": false,
-      "alive": 0,
-      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
+      "tester_ok": true,
+      "alive": 24,
+      "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
   "total": 1343,
-  "alive": 1343,
-  "strict_alive": 0,
-  "dead": 0,
+  "alive": 51,
+  "strict_alive": 51,
+  "dead": 1292,
   "untested": 0,
-  "final_output_filter": "fallback alive because strict empty",
-  "fallback_tester": "tcp-fallback",
-  "fallback_message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis.",
+  "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
   "best_ping_country_filter": "ID",
   "best_ping_fallback_global_if_empty": true,
   "best_ping_url_test_group": "URL-TEST TOP 5 INDONESIA",
   "best_ping_group_type": "url-test",
-  "best_ping_count": 4,
+  "best_ping_count": 5,
   "best_ping_names": [
-    "Channel id ShadowProxy66 DE",
-    "Channel id VpnFardad",
-    "Channel id interenet_azad_2026 CZ",
-    "ConfigV2RayNG"
+    "75 oneclickvpnkeys",
+    "1 oneclickvpnkeys 3664",
+    "30 oneclickvpnkeys",
+    "oneclickvpnkeys US 5144",
+    "v2configlab_ DE"
   ],
   "responsive_top_n": 15,
-  "responsive_count": 4,
+  "responsive_count": 15,
   "responsive_names": [
-    "Channel id ShadowProxy66 DE",
-    "Channel id VpnFardad",
-    "Channel id interenet_azad_2026 CZ",
-    "ConfigV2RayNG"
+    "75 oneclickvpnkeys",
+    "1 oneclickvpnkeys 3664",
+    "30 oneclickvpnkeys",
+    "oneclickvpnkeys US 5144",
+    "v2configlab_ DE",
+    "73 oneclickvpnkeys",
+    "https telegraph.rayan-config.workers.dev persian",
+    "https telegraph.rayan-config.workers.dev persian 5651",
+    "v2ray_configs_pool US 5250",
+    "hi_proxy_iran 7024",
+    "NETMelliAnti",
+    "oneclickvpnkeys US 8900",
+    "34 oneclickvpnkeys",
+    "79 oneclickvpnkeys",
+    "filembad 6243"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -72,5 +82,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 1343
+  "strict_output_count": 51
 }
