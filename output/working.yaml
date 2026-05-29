@@ -1,7 +1,3 @@
-# Auto generated usage profile OpenClash config
-# Output: output/working.yaml
-# Profile group: WORKING STABIL
-
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -17,197 +13,312 @@ tcp-concurrent: true
 keep-alive-idle: 600
 keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
-
 profile:
   store-selected: true
   store-fake-ip: true
-
 dns:
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
   listen: 0.0.0.0:7874
   nameserver:
-    - 1.1.1.1
-    - 8.8.8.8
+  - 1.1.1.1
+  - 8.8.8.8
   fallback:
-    - 1.0.0.1
-    - 8.8.4.4
-
+  - 1.0.0.1
+  - 8.8.4.4
 proxies:
-  - name: "75 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "juzi.qea.ccwu.cc"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "juzi.qea.ccwu.cc"
-    udp: true
-  - name: "1 oneclickvpnkeys 3664"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "hhlfy.twiladaphne.ndjp.net"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "hhlfy.twiladaphne.ndjp.net"
-    udp: true
-  - name: "30 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 58867710-6dd3-42b6-a7be-1fdf1c5efd19
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "v2configlab.v2configlab9.workers.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "v2configlab.v2configlab9.workers.dev"
-    udp: true
-  - name: "oneclickvpnkeys US 5144"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: a73b8135-ec7a-4f70-bac6-81fbccad4515
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "labeller.neonime83.workers.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "labeller.neonime83.workers.dev"
-    udp: true
-  - name: "https telegraph.rayan-config.workers.dev persian 5651"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: d2d0f796-edb0-427a-af32-ae360679f9e7
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "rAyAn-007.fOtOn.dPdNs.oRg"
-    ws-opts:
-      path: "/?ed=2560"
-      headers:
-        Host: "rayan-007.foton.dpdns.org"
-    udp: true
-  - name: "v2configlab_ DE"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "v2configlab.v2configlab7-5a2.workers.dev"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "v2configlab.v2configlab7-5a2.workers.dev"
-    udp: true
-  - name: "hi_proxy_iran 7024"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "Mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "dash.hitgram.ir"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "dash.hitgram.ir"
-    udp: true
-  - name: "73 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "cyylr.eu.cc"
-    ws-opts:
-      path: "/sg-melbi"
-      headers:
-        Host: "cyylr.eu.cc"
-    udp: true
-  - name: "https telegraph.rayan-config.workers.dev persian"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "rAyAn-007.nAsTaRaN.DpDnS.OrG"
-    ws-opts:
-      path: "/?ed=2560"
-      headers:
-        Host: "rayan-007.nastaran.dpdns.org"
-    udp: true
-  - name: "v2ray_configs_pool US 5250"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "2399fe0a-b359-40a9-a3f0-b70c3c177a01"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "aa.beijng.dpdns.org"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "aa.beijng.dpdns.org"
-    udp: true
-
+- name: oneclickvpnkeys US 9906
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ed0e05af-49ab-4ea8-a39c-634855811b03
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: wild-grass-1917.tmpduardoolfsonerluke15.workers.dev
+  ws-opts:
+    path: /ws
+    headers:
+      Host: wild-grass-1917.tmpduardoolfsonerluke15.workers.dev
+  udp: true
+- name: chillguy_vpn 4433
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 1f9d104e-ca0e-4202-ba4b-a0afb969c747
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: des.godaddy.cc.cd
+  ws-opts:
+    path: /Channel---@VPNCUSTOMIZE
+    headers:
+      Host: des.godaddy.cc.cd
+  udp: true
+- name: 1 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: 73 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: cyylr.eu.cc
+  udp: true
+- name: 75 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: US Join Telegram Farah_VPN US 4141
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 26524cce-d514-4014-a426-365fb266a14d
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: i8dxb.media-cdn-us.chinav.indevs.in
+  ws-opts:
+    path: /danfeng-lo9ew8-vfksib-hwrl-84fg5mvlfp
+    headers:
+      Host: i8dxb.media-cdn-us.chinav.indevs.in
+  udp: true
+- name: oneclickvpnkeys US 4502
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: f2a73750-3087-48ff-a763-1348c15dce68
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: rAyAn-007.mAxImA.DpDnS.OrG
+  ws-opts:
+    path: /
+    headers:
+      Host: rAyAn-007.mAxImA.DpDnS.OrG
+  udp: true
+- name: oneclickvpnkeys US 9934
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: A4u^p(_UR*F6
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: 027.eLECTROcelLCO-cf-027.WorKerS.Dev
+  ws-opts:
+    path: /eyJqdW5rIjoidDJ0UDljR2ZIaVBQakg2byIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: 027.electrocellco-cf-027.workers.dev
+  udp: true
+- name: v2con
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 2d5d3c38-6178-43d3-8002-86dd60e44d38
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: v2configlab.v2configlab-2f5.workers.dev
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: v2configlab.v2configlab-2f5.workers.dev
+  udp: true
+- name: oneclickvpnkeys US 3754
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: d2d0f796-edb0-427a-af32-ae360679f9e7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: rAyAn-007.fOtOn.dPdNs.oRg
+  ws-opts:
+    path: /
+    headers:
+      Host: rayan-007.foton.dpdns.org
+  udp: true
+- name: LINK HE
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: ca189f80-3a46-11f1-bbd9-1577c1651679
+  udp: true
+  tls: true
+  servername: sg-trojan.1server.co
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /welcome
+    headers:
+      Host: sg-trojan.1server.co
+- name: LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: LINK Trojan adisanggoro
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 56e635c0-3de6-11f1-bc6c-1577c1651679
+  udp: true
+  tls: true
+  servername: 15.lowh.net
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /welcome
+    headers:
+      Host: 15.lowh.net
+- name: LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: LINK 14.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 0629e500-1d98-11f1-bba0-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 14.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 14.lowh.net
+- name: LINK hz2 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 56b64a80-1fb2-11f1-969a-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: hz2.cobadl.com
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: hz2.cobadl.com
 proxy-groups:
-  - name: "WORKING STABIL"
-    type: fallback
-    proxies:
-      - "75 oneclickvpnkeys"
-      - "1 oneclickvpnkeys 3664"
-      - "30 oneclickvpnkeys"
-      - "oneclickvpnkeys US 5144"
-      - "https telegraph.rayan-config.workers.dev persian 5651"
-      - "v2configlab_ DE"
-      - "hi_proxy_iran 7024"
-      - "73 oneclickvpnkeys"
-      - "https telegraph.rayan-config.workers.dev persian"
-      - "v2ray_configs_pool US 5250"
-    url: http://www.gstatic.com/generate_204
-    interval: 120
-    lazy: false
-
-  - name: "PROXY"
-    type: select
-    proxies:
-      - "WORKING STABIL"
-      - "DIRECT"
-      - "REJECT"
-
+- name: WORKING STABIL
+  type: fallback
+  proxies:
+  - oneclickvpnkeys US 9906
+  - chillguy_vpn 4433
+  - 1 oneclickvpnkeys
+  - 73 oneclickvpnkeys
+  - 75 oneclickvpnkeys
+  - US Join Telegram Farah_VPN US 4141
+  - oneclickvpnkeys US 4502
+  - oneclickvpnkeys US 9934
+  - v2con
+  - oneclickvpnkeys US 3754
+  - LINK HE
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK Trojan adisanggoro
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 14.lowh.net
+  - LINK hz2 xl
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  lazy: false
+- name: PROXY
+  type: select
+  proxies:
+  - WORKING STABIL
+  - DIRECT
+  - REJECT
+  - LINK HE
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK Trojan adisanggoro
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 14.lowh.net
+  - LINK hz2 xl
 rules:
-  - MATCH,PROXY
+- MATCH,PROXY
