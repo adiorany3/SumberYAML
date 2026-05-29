@@ -174,6 +174,11 @@ SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/Sin
 SINGBOX_DEFAULT_QR_ERROR_CORRECTION = get_setting("SINGBOX_DEFAULT_QR_ERROR_CORRECTION", "M").upper()
 # Default QR URL source. Gunakan jsDelivr agar perangkat/client yang memblokir raw.githubusercontent.com tetap bisa import.
 SINGBOX_QR_DEFAULT_URL_SOURCE = get_setting("SINGBOX_QR_DEFAULT_URL_SOURCE", "jsdelivr").strip().lower()
+
+# Tombol merge links hanya tampil di admin.
+# Tombol ini memicu GitHub Actions agar input/links.txt digabung ke output/SingBox/*.json.
+SHOW_SINGBOX_MERGE_PANEL = get_setting("SHOW_SINGBOX_MERGE_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
+SINGBOX_MERGE_WORKFLOW_MODE = get_setting("SINGBOX_MERGE_WORKFLOW_MODE", "merge_links").strip() or "merge_links"
 SINGBOX_KNOWN_JSON_PATHS = [
     "output/SingBox/best-ping.json",
     "output/SingBox/best.json",
@@ -1886,6 +1891,108 @@ def render_admin_actions():
             st.rerun()
 
 
+
+
+def render_admin_singbox_merge():
+    """Panel admin untuk memicu merger input/links.txt ke final sing-box JSON."""
+    if not SHOW_SINGBOX_MERGE_PANEL:
+        return
+
+    st.markdown('<div class="pet-section-title">Merge Links ke Sing-box Final</div>', unsafe_allow_html=True)
+
+    st.markdown(
+        """
+        <div class="pet-panel">
+            <div style="font-weight:900;color:#00ff88;margin-bottom:8px;">🔗 Input Links Merger</div>
+            <div class="pet-small-note" style="text-align:left;margin-top:0;">
+                Tombol ini memicu GitHub Actions untuk membaca <code>input/links.txt</code>, mengubah link
+                <code>vmess://</code>, <code>vless://</code>, dan <code>trojan://</code> menjadi outbound sing-box,
+                lalu menggabungkannya ke file akhir seperti <code>lengkap.json</code>, <code>latest.json</code>, dan
+                <code>best-ping.json</code>.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    merge_col1, merge_col2 = st.columns(2)
+    with merge_col1:
+        if st.button("🔗 Merge input/links.txt", use_container_width=True):
+            try:
+                dispatch_workflow(
+                    mode=SINGBOX_MERGE_WORKFLOW_MODE,
+                    enable_proxy_test="false",
+                    filter_alive_only="false",
+                    strict_alive_only="false",
+                )
+                set_pet_action("Merger input/links.txt ke final sing-box JSON berhasil dipicu lewat GitHub Actions.")
+                st.success("Merger links berhasil dipicu. Cek Status GitHub Actions sampai selesai.")
+                add_xp(12)
+                try:
+                    load_workflow_status_data.clear()
+                except Exception:
+                    pass
+            except Exception as exc:
+                set_pet_action("Gagal memicu merger links. Cek workflow mode, token GitHub, dan input workflow_dispatch.")
+                st.error(str(exc))
+            st.rerun()
+
+    with merge_col2:
+        if st.button("📄 Refresh Summary Merge", use_container_width=True):
+            try:
+                load_workflow_status_data.clear()
+            except Exception:
+                pass
+            st.rerun()
+
+    summary = read_json_from_github("output/SingBox/summary_merge_links_into_singbox.json")
+
+    if summary:
+        ok = summary.get("ok")
+        link_count = summary.get("link_outbound_count", 0)
+        target_count = summary.get("target_count", 0)
+        appended_total = summary.get("appended_total_across_files", 0)
+        source_profile = summary.get("source_profile", "output/SingBox/from-links.json")
+        latest_alias = summary.get("updated_latest_alias", "-")
+
+        status_text = "OK" if ok else "CHECK"
+        status_color = "#00ff88" if ok else "#ffcc66"
+
+        st.markdown(
+            f"""
+            <div class="pet-panel">
+                <div style="font-weight:900;color:{status_color};margin-bottom:8px;">Status Merge: {escape(str(status_text))}</div>
+                <div class="pet-small-note" style="text-align:left;margin-top:0;line-height:1.7;">
+                    Source profile: <code>{escape(str(source_profile))}</code><br>
+                    Link outbound terbaca: <b>{escape(str(link_count))}</b><br>
+                    Target final JSON: <b>{escape(str(target_count))}</b><br>
+                    Total append lintas file: <b>{escape(str(appended_total))}</b><br>
+                    Latest alias: <code>{escape(str(latest_alias))}</code>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        files = summary.get("files", [])
+        if isinstance(files, list) and files:
+            with st.expander("Detail file hasil merge"):
+                for item in files[:30]:
+                    if not isinstance(item, dict):
+                        continue
+                    target = item.get("target", "-")
+                    appended = item.get("appended_count", 0)
+                    duplicate = item.get("duplicate_count", 0)
+                    total_after = item.get("total_outbounds_after", "-")
+                    st.write(
+                        f"`{target}` → appended: **{appended}**, duplicate: **{duplicate}**, "
+                        f"total outbounds: **{total_after}**"
+                    )
+    else:
+        st.info(
+            "Summary merge belum ditemukan. Jalankan tombol Merge input/links.txt, lalu tunggu GitHub Actions selesai."
+        )
+
 def render_best_ping_component_html(best_data: dict, best_rows: list, summary: dict) -> str:
     """Render panel Best Ping lewat components.html agar HTML tidak tampil sebagai teks."""
     source_label = escape(str(best_data.get("source_label", "Indonesia")))
@@ -2337,6 +2444,7 @@ def render_admin_singbox_qr():
 if ensure_admin_authenticated():
     render_workflow_status_panel()
     render_admin_actions()
+    render_admin_singbox_merge()
     render_admin_best_ping()
     render_admin_singbox_qr()
     if st.button("🚪 Keluar Admin", use_container_width=True):
