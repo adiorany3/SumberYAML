@@ -854,16 +854,16 @@ def build_singbox_remote_profile_uri(raw_url: str, profile_name: str) -> str:
     """Build sing-box remote profile deep link for QR/import."""
     clean_url = normalize_github_blob_url(raw_url)
     encoded_url = quote(clean_url.strip(), safe="")
-    encoded_name = quote((profile_name or "singbox-profile.json").strip(), safe="")
+    encoded_name = quote((profile_name or "singbox-profile").strip(), safe="")
     return f"sing-box://import-remote-profile?url={encoded_url}#{encoded_name}"
 
 
 def profile_name_from_json_reference(value: str) -> str:
-    """Return profile name that follows the selected JSON file name.
+    """Return profile name from selected JSON file without the .json suffix.
 
     Examples:
-    - output/SingBox/best-stable.json -> best-stable.json
-    - https://.../mobile-stable.json -> mobile-stable.json
+    - output/SingBox/best-stable.json -> best-stable
+    - https://.../mobile-stable-safe.json?v=123 -> mobile-stable-safe
     """
     raw = str(value or "").strip()
     if not raw:
@@ -880,13 +880,13 @@ def profile_name_from_json_reference(value: str) -> str:
     filename = raw.rsplit("/", 1)[-1].strip()
 
     if not filename:
-        filename = "singbox-profile.json"
+        filename = "singbox-profile"
 
-    # Keep the .json suffix because the user asked the profile name to follow the JSON name in repo.
-    if not filename.lower().endswith(".json"):
-        filename = f"{filename}.json"
+    if filename.lower().endswith(".json"):
+        filename = filename[:-5]
 
-    return filename
+    filename = re.sub(r"[^A-Za-z0-9_.-]+", "-", filename).strip("-._")
+    return filename or "singbox-profile"
 
 
 @st.cache_data(ttl=60, show_spinner=False)
@@ -2593,7 +2593,7 @@ def render_admin_singbox_qr():
         "Nama profile otomatis",
         value=profile_name,
         disabled=True,
-        help="Nama profile mengikuti nama file JSON yang dipilih di repo. Contoh: best-stable-safe.json → profile best-stable-safe.json.",
+        help="Nama profile mengikuti nama file JSON yang dipilih di repo, tetapi tanpa ekstensi .json. Contoh: best-stable-safe.json → profile best-stable-safe.",
         key="singbox_qr_profile_name_auto",
     )
 
@@ -2617,7 +2617,7 @@ def render_admin_singbox_qr():
             <div class="pet-panel">
                 <div style="font-weight:900;color:#00ff88;">Mode import valid</div>
                 <div class="pet-small-note" style="text-align:left;margin-top:8px;">
-                    QR dibuat sebagai <b>remote profile deep link</b>, bukan raw JSON. URL CDN memakai cache-buster otomatis agar tidak mengambil JSON lama. Nama profile mengikuti nama file JSON di repo.
+                    QR dibuat sebagai <b>remote profile deep link</b>, bukan raw JSON. URL CDN memakai cache-buster otomatis agar tidak mengambil JSON lama. Nama profile mengikuti nama file JSON di repo tanpa ekstensi <code>.json</code>.
                 </div>
             </div>
             """,
