@@ -26,39 +26,11 @@
       "tolerance": 80
     },
     {
-      "type": "urltest",
-      "tag": "best-link",
-      "outbounds": [
-        "LINK 15.lowh.net",
-        "LINK sg-trojan.1server.co",
-        "LINK bel432 xl",
-        "LINK bel432 xl 2",
-        "LINK VMess-WS-TLS-443-akuku8",
-        "LINK bel432 telk",
-        "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "LINK 15.lowh.net 2",
-        "LINK sg-trojan.1server.co 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 2",
-        "LINK VMess-WS-TLS-443-akuku8 2",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
-        "best-link",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",

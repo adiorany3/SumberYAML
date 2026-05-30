@@ -1,15 +1,16 @@
 proxies:
-  - name: "SC 37789 Telegram t.me SOSkeyNET"
+  - name: "SC 38029 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "xrayVpnTPbot"
+    type: vless
+    uuid: c3e49c34-1177-42d1-8c7a-1b1fb2e269fe
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "world.thepouria.xyz"
+    servername: "javad-3yb.pages.dev"
     ws-opts:
-      path: "/thepurea"
+      path: "/proxyip=109.61.110.202"
       headers:
-        Host: "world.thepouria.xyz"
+        Host: "javad-3yb.pages.dev"
     udp: true

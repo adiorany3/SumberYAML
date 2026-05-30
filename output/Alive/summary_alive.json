@@ -1,7 +1,7 @@
 {
-  "run_mode": "update_ping",
+  "run_mode": "test",
   "enable_proxy_test": true,
-  "filter_alive_only": true,
+  "filter_alive_only": false,
   "strict_alive_only": true,
   "test_rounds": 2,
   "require_success_rounds": 1,
@@ -21,23 +21,23 @@
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 25,
+      "alive": 19,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 14,
+      "alive": 13,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1262,
-  "alive": 27,
-  "strict_alive": 27,
-  "dead": 1235,
+  "total": 1259,
+  "alive": 20,
+  "strict_alive": 20,
+  "dead": 1239,
   "untested": 0,
   "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
@@ -47,30 +47,30 @@
   "best_ping_group_type": "url-test",
   "best_ping_count": 5,
   "best_ping_names": [
-    "CA 37533 Telegram t.me SOSkeyNET",
-    "NZ 37561 Telegram t.me SOSkeyNET",
-    "canfigiop",
-    "US 37560 Telegram t.me SOSkeyNET",
-    "US 37655 Telegram t.me SOSkeyNET"
+    "VPNine1",
+    "oneclickvpnkeys US 8774",
+    "v2configlab_ DE",
+    "SC 38029 Telegram t.me SOSkeyNET",
+    "CA 37969 Telegram t.me SOSkeyNET"
   ],
   "responsive_top_n": 15,
   "responsive_count": 15,
   "responsive_names": [
-    "CA 37533 Telegram t.me SOSkeyNET",
-    "NZ 37561 Telegram t.me SOSkeyNET",
-    "canfigiop",
-    "US 37560 Telegram t.me SOSkeyNET",
-    "US 37655 Telegram t.me SOSkeyNET",
-    "icv2ray",
-    "CA 37660 Telegram t.me SOSkeyNET",
     "VPNine1",
-    "SC 37789 Telegram t.me SOSkeyNET",
+    "oneclickvpnkeys US 8774",
+    "v2configlab_ DE",
+    "SC 38029 Telegram t.me SOSkeyNET",
+    "CA 37969 Telegram t.me SOSkeyNET",
+    "oneclickvpnkeys US 3510",
+    "oneclickvpnkeys US 5245",
+    "filembad-37",
+    "filembad",
+    "prrofile_purple FR",
     "CA 37877 Telegram t.me SOSkeyNET",
-    "KAFING_2 2777",
-    "oneclickvpnkeys NL 1253",
-    "oneclickvpnkeys US",
-    "oneclickvpnkeys US 1929",
-    "oneclickvpnkeys US 4664"
+    "v2con",
+    "SG t.me Natrixo CC",
+    "oneclickvpnkeys DE 3700",
+    "oneclickvpnkeys DE"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -82,5 +82,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 27
+  "strict_output_count": 20
 }
