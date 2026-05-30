@@ -163,7 +163,16 @@ def read_csv_names(path: Path) -> List[str]:
         return []
 
 
-def stable_candidates_from_outputs(root: Path, existing_names: Set[str], manual_names: Set[str], max_count: int) -> List[str]:
+def stable_candidates_from_outputs(
+    root: Path,
+    existing_names: Set[str],
+    manual_names: Set[str],
+    max_count: Optional[int] = None,
+    max_stable: Optional[int] = None,
+) -> List[str]:
+    limit = int(max_stable if max_stable is not None else (max_count if max_count is not None else 10))
+    limit = max(1, limit)
+
     candidate_paths = [
         root / "output/Health/healthy.csv",
         root / "output/BestPing/top5_indonesia_ping.csv",
@@ -176,7 +185,7 @@ def stable_candidates_from_outputs(root: Path, existing_names: Set[str], manual_
         for name in read_csv_names(path):
             if name in existing_names and name not in manual_names:
                 names.append(name)
-    return unique_keep_order(names)[:max_count]
+    return unique_keep_order(names)[:limit]
 
 
 def build_group(name: str, group_type: str, proxies: Sequence[str], *, tolerance: Optional[int] = None) -> Dict[str, Any]:
