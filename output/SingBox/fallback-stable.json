@@ -39,6 +39,7 @@
       "tag": "AUTO-BEST-PING",
       "outbounds": [
         "oneclickvpnkeys US",
+        "VPNine1",
         "https telegraph.rayan.dpdns.org persian",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "https telegraph.rayan-config.workers.dev persian",
@@ -48,7 +49,6 @@
         "v2con",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "US 37655 Telegram t.me SOSkeyNET",
-        "v2configlab_ DE",
         "24 oneclickvpnkeys",
         "canfigiop",
         "CA 37533 Telegram t.me SOSkeyNET",
@@ -78,9 +78,37 @@
     },
     {
       "type": "urltest",
+      "tag": "best-link",
+      "outbounds": [
+        "LINK 15.lowh.net",
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK sg-trojan.1server.co",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK 14.lowh.net",
+        "LINK hz2 xl",
+        "LINK 15.lowh.net 2",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK sg-trojan.1server.co 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
+        "LINK 14.lowh.net 2",
+        "LINK hz2 xl 2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
         "oneclickvpnkeys US",
+        "VPNine1",
         "https telegraph.rayan.dpdns.org persian",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "https telegraph.rayan-config.workers.dev persian",
@@ -90,7 +118,6 @@
         "v2con",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "US 37655 Telegram t.me SOSkeyNET",
-        "v2configlab_ DE",
         "24 oneclickvpnkeys",
         "canfigiop",
         "CA 37533 Telegram t.me SOSkeyNET",
@@ -122,21 +149,21 @@
       "type": "urltest",
       "tag": "AUTO-FALLBACK-STABLE",
       "outbounds": [
-        "US 37560 Telegram t.me SOSkeyNET",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "24 oneclickvpnkeys",
         "CA 37533 Telegram t.me SOSkeyNET",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "v2configlab",
+        "24 oneclickvpnkeys",
         "75 oneclickvpnkeys",
-        "v2con",
-        "v2configlab_ DE",
-        "2 DE av2ngFast",
-        "canfigiop",
-        "https telegraph.rayan-config.workers.dev persian",
         "https telegraph.rayan.dpdns.org persian",
         "oneclickvpnkeys US",
+        "US 37655 Telegram t.me SOSkeyNET",
+        "2 DE av2ngFast",
+        "canfigiop",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+        "https telegraph.rayan-config.workers.dev persian",
+        "v2con",
+        "VPNine1",
+        "US 37560 Telegram t.me SOSkeyNET",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -157,22 +184,23 @@
       "outbounds": [
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
+        "best-link",
         "DIRECT",
-        "US 37560 Telegram t.me SOSkeyNET",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "24 oneclickvpnkeys",
         "CA 37533 Telegram t.me SOSkeyNET",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "v2configlab",
+        "24 oneclickvpnkeys",
         "75 oneclickvpnkeys",
-        "v2con",
-        "v2configlab_ DE",
-        "2 DE av2ngFast",
-        "canfigiop",
-        "https telegraph.rayan-config.workers.dev persian",
         "https telegraph.rayan.dpdns.org persian",
         "oneclickvpnkeys US",
+        "US 37655 Telegram t.me SOSkeyNET",
+        "2 DE av2ngFast",
+        "canfigiop",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+        "https telegraph.rayan-config.workers.dev persian",
+        "v2con",
+        "VPNine1",
+        "US 37560 Telegram t.me SOSkeyNET",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -208,6 +236,26 @@
         "path": "/",
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "VPNine1",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "0905460d-6edc-4a82-8ec8-6b76090b41c8",
+      "tls": {
+        "enabled": true,
+        "server_name": "nginx-f.pages.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560fp=randomized",
+        "headers": {
+          "Host": "nginx-f.pages.dev"
         }
       },
       "connect_timeout": "15s"
@@ -388,26 +436,6 @@
         "path": "/id-amz",
         "headers": {
           "Host": "investors.spotify.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "v2configlab_ DE",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
-      "tls": {
-        "enabled": true,
-        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2048",
-        "headers": {
-          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
         }
       },
       "connect_timeout": "15s"
