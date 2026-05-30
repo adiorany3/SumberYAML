@@ -39,8 +39,8 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "AUTO-BEST-PING",
         "DIRECT",
+        "AUTO-BEST-PING",
         "15.lowh.net",
         "bel432 xl",
         "bel432 xl 2",
@@ -51,7 +51,6 @@
         "14.lowh.net",
         "hz2 xl"
       ],
-      "default": "DIRECT",
       "interrupt_exist_connections": false
     },
     {
@@ -72,8 +71,7 @@
       "interval": "3m",
       "tolerance": 80,
       "idle_timeout": "2h",
-      "interrupt_exist_connections": false,
-      "default": "15.lowh.net"
+      "interrupt_exist_connections": false
     },
     {
       "type": "trojan",

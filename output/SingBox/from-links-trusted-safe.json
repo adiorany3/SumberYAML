@@ -37,8 +37,8 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "AUTO-BEST-PING",
         "DIRECT",
+        "AUTO-BEST-PING",
         "15.lowh.net",
         "bel432 xl",
         "bel432 xl 2",
@@ -48,8 +48,7 @@
         "VLESS-WS-TLS-443-apt50atpprem",
         "14.lowh.net",
         "hz2 xl"
-      ],
-      "default": "DIRECT"
+      ]
     },
     {
       "type": "urltest",
@@ -67,8 +66,7 @@
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80,
-      "default": "15.lowh.net"
+      "tolerance": 80
     },
     {
       "type": "trojan",

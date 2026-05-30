@@ -5,8 +5,8 @@
   "primary_dns": "1.1.1.1",
   "fallback_tag": "google",
   "fallback_dns": "8.8.8.8",
-  "processed_count": 93,
-  "skipped_count": 10,
+  "processed_count": 96,
+  "skipped_count": 11,
   "error_count": 0,
   "processed": [
     {
@@ -240,6 +240,16 @@
       "stale_dns_rule_refs_fixed": 0
     },
     {
+      "file": "output/SingBox/from-links-trusted-legacy-tun-safe.json",
+      "format": "legacy",
+      "primary": "1.1.1.1",
+      "fallback": "8.8.8.8",
+      "final": "cloudflare",
+      "server_count_before": 1,
+      "server_count_after": 2,
+      "stale_dns_rule_refs_fixed": 0
+    },
+    {
       "file": "output/SingBox/from-links-trusted-legacy-tun.json",
       "format": "legacy",
       "primary": "1.1.1.1",
@@ -250,8 +260,28 @@
       "stale_dns_rule_refs_fixed": 0
     },
     {
+      "file": "output/SingBox/from-links-trusted-new-dns-safe.json",
+      "format": "new",
+      "primary": "1.1.1.1",
+      "fallback": "8.8.8.8",
+      "final": "cloudflare",
+      "server_count_before": 1,
+      "server_count_after": 2,
+      "stale_dns_rule_refs_fixed": 0
+    },
+    {
       "file": "output/SingBox/from-links-trusted-new-dns.json",
       "format": "new",
+      "primary": "1.1.1.1",
+      "fallback": "8.8.8.8",
+      "final": "cloudflare",
+      "server_count_before": 1,
+      "server_count_after": 2,
+      "stale_dns_rule_refs_fixed": 0
+    },
+    {
+      "file": "output/SingBox/from-links-trusted-safe.json",
+      "format": "legacy",
       "primary": "1.1.1.1",
       "fallback": "8.8.8.8",
       "final": "cloudflare",
@@ -947,6 +977,10 @@
     },
     {
       "file": "output/SingBox/summary_best_stable.json",
+      "reason": "summary/report file"
+    },
+    {
+      "file": "output/SingBox/summary_dependency_fix.json",
       "reason": "summary/report file"
     },
     {

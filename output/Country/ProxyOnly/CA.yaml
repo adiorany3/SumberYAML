@@ -44,3 +44,18 @@ proxies:
       headers:
         Host: "support.zoom.us.cyylr.eu.cc"
     udp: true
+  - name: "CA 37660 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d0298536-d670-4045-bbb1-ddd5ea68683e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "azadnet-826.pages.Dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "azadnet-826.pages.Dev"
+    udp: true
