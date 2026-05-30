@@ -39,15 +39,15 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "oneclickvpnkeys US",
-        "https telegraph.rayan.dpdns.org persian",
-        "https telegraph.rayan-config.workers.dev persian",
         "US 37560 Telegram t.me SOSkeyNET",
+        "v2configlab",
         "2 DE av2ngFast",
+        "v2con",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "US 37655 Telegram t.me SOSkeyNET",
+        "v2configlab_ DE",
         "24 oneclickvpnkeys",
-        "canfigiop",
+        "CA 37533 Telegram t.me SOSkeyNET",
         "75 oneclickvpnkeys",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
@@ -74,16 +74,16 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "https telegraph.rayan.dpdns.org persian",
         "US 37560 Telegram t.me SOSkeyNET",
-        "24 oneclickvpnkeys",
-        "NZ 37561 Telegram t.me SOSkeyNET",
-        "oneclickvpnkeys US",
-        "2 DE av2ngFast",
-        "75 oneclickvpnkeys",
-        "canfigiop",
-        "https telegraph.rayan-config.workers.dev persian",
         "US 37655 Telegram t.me SOSkeyNET",
+        "24 oneclickvpnkeys",
+        "CA 37533 Telegram t.me SOSkeyNET",
+        "NZ 37561 Telegram t.me SOSkeyNET",
+        "v2configlab",
+        "75 oneclickvpnkeys",
+        "v2con",
+        "v2configlab_ DE",
+        "2 DE av2ngFast",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -112,16 +112,16 @@
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
         "DIRECT",
-        "https telegraph.rayan.dpdns.org persian",
         "US 37560 Telegram t.me SOSkeyNET",
-        "24 oneclickvpnkeys",
-        "NZ 37561 Telegram t.me SOSkeyNET",
-        "oneclickvpnkeys US",
-        "2 DE av2ngFast",
-        "75 oneclickvpnkeys",
-        "canfigiop",
-        "https telegraph.rayan-config.workers.dev persian",
         "US 37655 Telegram t.me SOSkeyNET",
+        "24 oneclickvpnkeys",
+        "CA 37533 Telegram t.me SOSkeyNET",
+        "NZ 37561 Telegram t.me SOSkeyNET",
+        "v2configlab",
+        "75 oneclickvpnkeys",
+        "v2con",
+        "v2configlab_ DE",
+        "2 DE av2ngFast",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -139,63 +139,6 @@
         "LINK 14.lowh.net 2",
         "LINK hz2 xl 2"
       ]
-    },
-    {
-      "type": "vless",
-      "tag": "oneclickvpnkeys US",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "https telegraph.rayan.dpdns.org persian",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "1679af35-6dd6-4c09-ae3b-18f239217f3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "rAyAn-007.pArViN.DpDnS.OrG",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560",
-        "headers": {
-          "Host": "rayan-007.parvin.dpdns.org"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "https telegraph.rayan-config.workers.dev persian",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
-      "tls": {
-        "enabled": true,
-        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560",
-        "headers": {
-          "Host": "rayan-007.nastaran.dpdns.org"
-        }
-      }
     },
     {
       "type": "vless",
@@ -218,6 +161,25 @@
     },
     {
       "type": "vless",
+      "tag": "v2configlab",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "1de37726-744b-46e1-9101-c926b3402e82",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2.v2configlab.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "v2.v2configlab.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
       "tag": "2 DE av2ngFast",
       "server": "104.17.3.81",
       "server_port": 443,
@@ -232,6 +194,25 @@
         "path": "/ws",
         "headers": {
           "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2con",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "2d5d3c38-6178-43d3-8002-86dd60e44d38",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2configlab.v2configlab-2f5.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "v2configlab.v2configlab-2f5.workers.dev"
         }
       }
     },
@@ -275,6 +256,25 @@
     },
     {
       "type": "vless",
+      "tag": "v2configlab_ DE",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
       "tag": "24 oneclickvpnkeys",
       "server": "104.17.3.81",
       "server_port": 443,
@@ -294,20 +294,20 @@
     },
     {
       "type": "vless",
-      "tag": "canfigiop",
+      "tag": "CA 37533 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "99324a44-8702-4a01-a400-cecddd6e2e0b",
+      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
       "tls": {
         "enabled": true,
-        "server_name": "v2raycdn.dpdns.org",
+        "server_name": "support.zoom.us.cyylr.eu.cc",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/?ed=2048",
+        "path": "/sg-melbi",
         "headers": {
-          "Host": "v2raycdn.dpdns.org"
+          "Host": "support.zoom.us.cyylr.eu.cc"
         }
       }
     },

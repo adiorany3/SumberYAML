@@ -46,6 +46,7 @@
         "US 37560 Telegram t.me SOSkeyNET",
         "v2configlab",
         "2 DE av2ngFast",
+        "v2con",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "US 37655 Telegram t.me SOSkeyNET",
         "v2configlab_ DE",
@@ -53,7 +54,6 @@
         "canfigiop",
         "CA 37533 Telegram t.me SOSkeyNET",
         "75 oneclickvpnkeys",
-        "VPNine1",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -86,6 +86,7 @@
         "US 37560 Telegram t.me SOSkeyNET",
         "v2configlab",
         "2 DE av2ngFast",
+        "v2con",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "US 37655 Telegram t.me SOSkeyNET",
         "v2configlab_ DE",
@@ -93,7 +94,6 @@
         "canfigiop",
         "CA 37533 Telegram t.me SOSkeyNET",
         "75 oneclickvpnkeys",
-        "VPNine1",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -119,20 +119,20 @@
       "type": "urltest",
       "tag": "AUTO-FALLBACK-STABLE",
       "outbounds": [
-        "https telegraph.rayan.dpdns.org persian",
         "US 37560 Telegram t.me SOSkeyNET",
+        "US 37655 Telegram t.me SOSkeyNET",
         "24 oneclickvpnkeys",
+        "CA 37533 Telegram t.me SOSkeyNET",
         "NZ 37561 Telegram t.me SOSkeyNET",
-        "oneclickvpnkeys US",
-        "2 DE av2ngFast",
+        "v2configlab",
         "75 oneclickvpnkeys",
+        "v2con",
+        "v2configlab_ DE",
+        "2 DE av2ngFast",
         "canfigiop",
         "https telegraph.rayan-config.workers.dev persian",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "v2configlab",
-        "v2configlab_ DE",
-        "CA 37533 Telegram t.me SOSkeyNET",
-        "VPNine1",
+        "https telegraph.rayan.dpdns.org persian",
+        "oneclickvpnkeys US",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
@@ -153,20 +153,20 @@
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
         "DIRECT",
-        "https telegraph.rayan.dpdns.org persian",
         "US 37560 Telegram t.me SOSkeyNET",
+        "US 37655 Telegram t.me SOSkeyNET",
         "24 oneclickvpnkeys",
+        "CA 37533 Telegram t.me SOSkeyNET",
         "NZ 37561 Telegram t.me SOSkeyNET",
-        "oneclickvpnkeys US",
-        "2 DE av2ngFast",
+        "v2configlab",
         "75 oneclickvpnkeys",
+        "v2con",
+        "v2configlab_ DE",
+        "2 DE av2ngFast",
         "canfigiop",
         "https telegraph.rayan-config.workers.dev persian",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "v2configlab",
-        "v2configlab_ DE",
-        "CA 37533 Telegram t.me SOSkeyNET",
-        "VPNine1",
+        "https telegraph.rayan.dpdns.org persian",
+        "oneclickvpnkeys US",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
@@ -321,6 +321,25 @@
     },
     {
       "type": "vless",
+      "tag": "v2con",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "2d5d3c38-6178-43d3-8002-86dd60e44d38",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2configlab.v2configlab-2f5.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "v2configlab.v2configlab-2f5.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
       "tag": "NZ 37561 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
@@ -449,25 +468,6 @@
         "path": "/uTZSXPBI2IfoxF86",
         "headers": {
           "Host": "up2-df6.pages.dev"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "VPNine1",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "0905460d-6edc-4a82-8ec8-6b76090b41c8",
-      "tls": {
-        "enabled": true,
-        "server_name": "nginx-f.pages.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560fp=randomized",
-        "headers": {
-          "Host": "nginx-f.pages.dev"
         }
       }
     },
