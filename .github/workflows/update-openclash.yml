@@ -355,7 +355,7 @@ jobs:
         run: |
           set -e
           if [ -f scripts/build_best_stable.py ]; then
-            python scripts/build_best_stable.py               --source output/SingBox/lengkap.json               --singbox-dir output/SingBox               --health-dir output/Health               --stable-max-delay-ms 1800               --quarantine-after-failures 3               --quarantine-hours 24               --max-stable 10               --max-fallback 15               --max-manual 4               --interval 3m               --tolerance 80               --idle-timeout 2h               --connect-timeout 15s               --make-latest-stable
+            python scripts/build_best_stable.py               --source output/SingBox/lengkap.json               --singbox-dir output/SingBox               --health-dir output/Health               --stable-max-delay-ms 1800               --quarantine-after-failures 3               --quarantine-hours 24               --max-stable 10               --max-fallback 15               --max-manual 9999               --interval 3m               --tolerance 80               --idle-timeout 2h               --connect-timeout 15s               --make-latest-stable
 
             echo "Best stable summary:"
             cat output/SingBox/summary_best_stable.json || true
@@ -396,6 +396,23 @@ jobs:
             cat output/SingBox/summary_import_sanitize.json || true
           else
             echo "scripts/sanitize_singbox_import.py tidak ditemukan. Lewati import sanitizer."
+          fi
+
+      - name: Force trusted manual accounts into final YAML and sing-box JSON
+        run: |
+          set -e
+          if [ -f scripts/enforce_trusted_manual_accounts.py ]; then
+            python scripts/enforce_trusted_manual_accounts.py \
+              --input input/links.txt \
+              --input input.txt \
+              --output-dir output/SingBox \
+              --preferred-latest-safe best-stable-safe.json
+
+            echo "Trusted manual accounts summary:"
+            cat output/SingBox/summary_trusted_manual_accounts.json || true
+          else
+            echo "ERROR: scripts/enforce_trusted_manual_accounts.py tidak ditemukan."
+            exit 1
           fi
 
       - name: Commit output files
