@@ -225,11 +225,27 @@ def update_health_state(
         item.setdefault("success_streak", 0)
         item.setdefault("quarantine_count", 0)
 
-        if is_manual_tag(tag, manual_prefix) and tag not in measurements:
+        # Trusted manual accounts from input/links.txt/input.txt must never be
+        # quarantined or filtered out. They are user-supplied known-good accounts.
+        if is_manual_tag(tag, manual_prefix):
             item["trusted_manual"] = True
             item["last_status"] = "trusted_manual"
             item["last_seen_at"] = iso(now)
             item["quarantined_until"] = ""
+            item["fail_streak"] = 0
+            item.setdefault("success_streak", 0)
+            # Keep optional measurement info when present, but never punish the
+            # account if the automatic tester does not cover it or reports slow.
+            measurement_for_meta = measurements.get(tag)
+            if measurement_for_meta:
+                item["last_delay_ms"] = measurement_for_meta.get("best_delay_ms")
+                item["avg_delay_ms"] = measurement_for_meta.get("avg_delay_ms")
+                item["jitter_ms"] = measurement_for_meta.get("jitter_ms")
+                item["success_rate"] = measurement_for_meta.get("success_rate")
+                item["protocol"] = measurement_for_meta.get("protocol", item.get("protocol", ""))
+                item["country"] = measurement_for_meta.get("country", item.get("country", ""))
+                item["server"] = measurement_for_meta.get("server", item.get("server", ""))
+                item["port"] = measurement_for_meta.get("port", item.get("port", ""))
             continue
 
         measurement = measurements.get(tag)
@@ -329,7 +345,10 @@ def choose_nodes(
             "trusted_manual": str(bool(manual)).lower(),
         }
 
-        if is_quarantined(state_item):
+        # Trusted manual accounts are never treated as quarantined, even if an
+        # older health_state.json says so. They must remain available in final
+        # profiles by request.
+        if is_quarantined(state_item) and not manual:
             quarantine_rows.append(row)
             continue
 
@@ -347,16 +366,15 @@ def choose_nodes(
     scored.sort(key=lambda item: (item[0], item[1].lower()))
     stable_tags = [tag for _, tag, _ in scored[:max_stable]]
 
-    # Add a few trusted manual tags at the end so manually supplied known-good links stay available.
+    # Add ALL trusted manual tags. These accounts are not limited by max_stable,
+    # max_fallback, max_manual, quarantine, ping, or alive/dead status.
     for tag in manual_tags:
-        if tag not in stable_tags and not is_quarantined(nodes.get(tag, {})) and len(stable_tags) < max_stable:
+        if tag not in stable_tags:
             stable_tags.append(tag)
-            if len([t for t in stable_tags if is_manual_tag(t, manual_prefix)]) >= max_manual:
-                break
 
     fallback_tags = [tag for _, tag, _ in scored[:max_fallback]]
     for tag in manual_tags:
-        if tag not in fallback_tags and not is_quarantined(nodes.get(tag, {})) and len(fallback_tags) < max_fallback:
+        if tag not in fallback_tags:
             fallback_tags.append(tag)
 
     if not stable_tags:
@@ -486,7 +504,7 @@ def main() -> int:
     parser.add_argument("--quarantine-hours", type=int, default=24)
     parser.add_argument("--max-stable", type=int, default=10)
     parser.add_argument("--max-fallback", type=int, default=15)
-    parser.add_argument("--max-manual", type=int, default=4)
+    parser.add_argument("--max-manual", type=int, default=9999)
     parser.add_argument("--test-url", default=TEST_URL_DEFAULT)
     parser.add_argument("--interval", default="3m")
     parser.add_argument("--tolerance", type=int, default=80)
