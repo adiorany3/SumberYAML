@@ -36,11 +36,24 @@
   ],
   "outbounds": [
     {
+      "type": "urltest",
+      "tag": "best-link",
+      "outbounds": [
+        "LINK 10.lowh.net"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
+    },
+    {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "DIRECT",
         "AUTO-BEST-PING",
+        "best-link",
+        "DIRECT",
         "15.lowh.net",
         "bel432 xl",
         "bel432 xl 2",
@@ -49,7 +62,8 @@
         "sg-trojan.1server.co",
         "VLESS-WS-TLS-443-apt50atpprem",
         "14.lowh.net",
-        "hz2 xl"
+        "hz2 xl",
+        "LINK 10.lowh.net"
       ]
     },
     {
@@ -64,7 +78,8 @@
         "sg-trojan.1server.co",
         "VLESS-WS-TLS-443-apt50atpprem",
         "14.lowh.net",
-        "hz2 xl"
+        "hz2 xl",
+        "LINK 10.lowh.net"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -242,6 +257,26 @@
         "path": "/hello",
         "headers": {
           "Host": "hz2.cobadl.com"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK 10.lowh.net",
+      "server": "10.lowh.net",
+      "server_port": 443,
+      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "104.17.3.81"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "104.17.3.81"
         }
       }
     },

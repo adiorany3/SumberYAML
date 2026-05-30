@@ -38,14 +38,14 @@
       "outbounds": [
         "AUTO-BEST-PING",
         "15.lowh.net",
+        "sg-trojan.1server.co",
         "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
-        "sg-trojan.1server.co",
-        "VLESS-WS-TLS-443-apt50atpprem",
         "14.lowh.net",
-        "hz2 xl",
+        "10.lowh.net",
+        "VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT"
       ]
     },
@@ -54,14 +54,14 @@
       "tag": "AUTO-BEST-PING",
       "outbounds": [
         "15.lowh.net",
+        "sg-trojan.1server.co",
         "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
-        "sg-trojan.1server.co",
-        "VLESS-WS-TLS-443-apt50atpprem",
         "14.lowh.net",
-        "hz2 xl"
+        "10.lowh.net",
+        "VLESS-WS-TLS-443-apt50atpprem"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -83,6 +83,25 @@
         "path": "/welcome",
         "headers": {
           "Host": "15.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "sg-trojan.1server.co",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "sg-trojan.1server.co"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "sg-trojan.1server.co"
         }
       }
     },
@@ -171,45 +190,6 @@
       }
     },
     {
-      "type": "trojan",
-      "tag": "sg-trojan.1server.co",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "sg-trojan.1server.co"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/welcome",
-        "headers": {
-          "Host": "sg-trojan.1server.co"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "VLESS-WS-TLS-443-apt50atpprem",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "akamaized.my",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "akamaized.my"
-        }
-      }
-    },
-    {
       "type": "vmess",
       "tag": "14.lowh.net",
       "server": "104.17.3.81",
@@ -232,22 +212,42 @@
     },
     {
       "type": "vmess",
-      "tag": "hz2 xl",
-      "server": "104.17.3.81",
+      "tag": "10.lowh.net",
+      "server": "10.lowh.net",
       "server_port": 443,
-      "uuid": "56b64a80-1fb2-11f1-969a-1577c1651679",
+      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
       "security": "auto",
       "alter_id": 0,
       "network": "tcp",
       "tls": {
         "enabled": true,
-        "server_name": "hz2.cobadl.com"
+        "server_name": "104.17.3.81"
       },
       "transport": {
         "type": "ws",
         "path": "/hello",
         "headers": {
-          "Host": "hz2.cobadl.com"
+          "Host": "104.17.3.81"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "VLESS-WS-TLS-443-apt50atpprem",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "akamaized.my",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "akamaized.my"
         }
       }
     },

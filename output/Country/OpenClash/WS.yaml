@@ -34,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "VPNine1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 0905460d-6edc-4a82-8ec8-6b76090b41c8
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "nginx-f.pages.dev"
-    ws-opts:
-      path: "/?ed=2560fp=randomized"
-      headers:
-        Host: "nginx-f.pages.dev"
-    udp: true
   - name: "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
     server: "104.17.3.81"
     port: 443
@@ -79,35 +64,20 @@ proxies:
       headers:
         Host: "rayan-007.nastaran.dpdns.org"
     udp: true
-  - name: "https telegraph.rayan-config.workers.dev persian 7781"
+  - name: "VPNine1"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: d2d0f796-edb0-427a-af32-ae360679f9e7
+    uuid: 0905460d-6edc-4a82-8ec8-6b76090b41c8
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "rAyAn-007.fOtOn.dPdNs.oRg"
+    servername: "nginx-f.pages.dev"
     ws-opts:
-      path: "/?ed=2560"
+      path: "/?ed=2560fp=randomized"
       headers:
-        Host: "rayan-007.foton.dpdns.org"
-    udp: true
-  - name: "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 1862"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: f2a73750-3087-48ff-a763-1348c15dce68
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "rAyAn-007.mAxImA.DpDnS.OrG"
-    ws-opts:
-      path: "/?ed=2560"
-      headers:
-        Host: "rAyAn-007.mAxImA.DpDnS.OrG"
+        Host: "nginx-f.pages.dev"
     udp: true
   - name: "v2configlab"
     server: "104.17.3.81"
@@ -154,36 +124,7 @@ proxies:
       headers:
         Host: "v2raycdn.dpdns.org"
     udp: true
-  - name: "75 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "up2-df6.pages.dev"
-    ws-opts:
-      path: "/uTZSXPBI2IfoxF86"
-      headers:
-        Host: "up2-df6.pages.dev"
-    udp: true
-  - name: "oneclickvpnkeys XX"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.creationlong.org"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.creationlong.org"
-    udp: true
-  - name: "KAFING_2 2681"
+  - name: "KAFING_2 8912"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -197,7 +138,7 @@ proxies:
       headers:
         Host: "uk1.test3.net"
     udp: true
-  - name: "NETMelliAnti 7659"
+  - name: "NETMelliAnti 8934"
     server: "104.17.3.81"
     port: 443
     type: trojan
