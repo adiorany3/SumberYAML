@@ -433,6 +433,18 @@ jobs:
             exit 1
           fi
 
+      - name: Remove selector default fields for legacy sing-box import
+        run: |
+          set -e
+          if [ -f scripts/remove_selector_default_legacy.py ]; then
+            python scripts/remove_selector_default_legacy.py --dir output/SingBox
+            echo "Selector default legacy compatibility summary:"
+            cat output/SingBox/summary_selector_default_legacy.json || true
+          else
+            echo "ERROR: scripts/remove_selector_default_legacy.py tidak ditemukan."
+            exit 1
+          fi
+
       - name: Commit output files
         run: |
           set -euo pipefail
