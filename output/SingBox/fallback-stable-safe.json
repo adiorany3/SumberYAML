@@ -20,10 +20,12 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "system"
+      "stack": "system",
+      "address": [
+        "172.19.0.1/30"
+      ]
     },
     {
       "type": "mixed",
@@ -37,10 +39,13 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
+        "oneclickvpnkeys US",
+        "https telegraph.rayan.dpdns.org persian",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+        "https telegraph.rayan-config.workers.dev persian",
         "US 37560 Telegram t.me SOSkeyNET",
         "v2configlab",
         "2 DE av2ngFast",
-        "v2con",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "US 37655 Telegram t.me SOSkeyNET",
         "v2configlab_ DE",
@@ -48,10 +53,7 @@
         "canfigiop",
         "CA 37533 Telegram t.me SOSkeyNET",
         "75 oneclickvpnkeys",
-        "oneclickvpnkeys US",
-        "https telegraph.rayan.dpdns.org persian",
-        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
-        "https telegraph.rayan-config.workers.dev persian",
+        "VPNine1",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -77,10 +79,13 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
+        "oneclickvpnkeys US",
+        "https telegraph.rayan.dpdns.org persian",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+        "https telegraph.rayan-config.workers.dev persian",
         "US 37560 Telegram t.me SOSkeyNET",
         "v2configlab",
         "2 DE av2ngFast",
-        "v2con",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "US 37655 Telegram t.me SOSkeyNET",
         "v2configlab_ DE",
@@ -88,10 +93,7 @@
         "canfigiop",
         "CA 37533 Telegram t.me SOSkeyNET",
         "75 oneclickvpnkeys",
-        "oneclickvpnkeys US",
-        "https telegraph.rayan.dpdns.org persian",
-        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
-        "https telegraph.rayan-config.workers.dev persian",
+        "VPNine1",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -117,21 +119,21 @@
       "type": "urltest",
       "tag": "AUTO-FALLBACK-STABLE",
       "outbounds": [
-        "24 oneclickvpnkeys",
-        "75 oneclickvpnkeys",
-        "CA 37533 Telegram t.me SOSkeyNET",
         "https telegraph.rayan.dpdns.org persian",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "https telegraph.rayan-config.workers.dev persian",
-        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
-        "oneclickvpnkeys US",
         "US 37560 Telegram t.me SOSkeyNET",
-        "v2con",
-        "v2configlab_ DE",
-        "canfigiop",
+        "24 oneclickvpnkeys",
         "NZ 37561 Telegram t.me SOSkeyNET",
+        "oneclickvpnkeys US",
         "2 DE av2ngFast",
+        "75 oneclickvpnkeys",
+        "canfigiop",
+        "https telegraph.rayan-config.workers.dev persian",
+        "US 37655 Telegram t.me SOSkeyNET",
         "v2configlab",
+        "v2configlab_ DE",
+        "CA 37533 Telegram t.me SOSkeyNET",
+        "VPNine1",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -151,21 +153,21 @@
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
         "DIRECT",
-        "24 oneclickvpnkeys",
-        "75 oneclickvpnkeys",
-        "CA 37533 Telegram t.me SOSkeyNET",
         "https telegraph.rayan.dpdns.org persian",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "https telegraph.rayan-config.workers.dev persian",
-        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
-        "oneclickvpnkeys US",
         "US 37560 Telegram t.me SOSkeyNET",
-        "v2con",
-        "v2configlab_ DE",
-        "canfigiop",
+        "24 oneclickvpnkeys",
         "NZ 37561 Telegram t.me SOSkeyNET",
+        "oneclickvpnkeys US",
         "2 DE av2ngFast",
+        "75 oneclickvpnkeys",
+        "canfigiop",
+        "https telegraph.rayan-config.workers.dev persian",
+        "US 37655 Telegram t.me SOSkeyNET",
         "v2configlab",
+        "v2configlab_ DE",
+        "CA 37533 Telegram t.me SOSkeyNET",
+        "VPNine1",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -183,6 +185,82 @@
         "LINK 14.lowh.net 2",
         "LINK hz2 xl 2"
       ]
+    },
+    {
+      "type": "vless",
+      "tag": "oneclickvpnkeys US",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "tls": {
+        "enabled": true,
+        "server_name": "juzi.qea.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzi.qea.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "https telegraph.rayan.dpdns.org persian",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "1679af35-6dd6-4c09-ae3b-18f239217f3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "rAyAn-007.pArViN.DpDnS.OrG",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "rayan-007.parvin.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "7e346122-2ee0-406e-b964-a8ee665f1814",
+      "tls": {
+        "enabled": true,
+        "server_name": "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "https telegraph.rayan-config.workers.dev persian",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
+      "tls": {
+        "enabled": true,
+        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "rayan-007.nastaran.dpdns.org"
+        }
+      }
     },
     {
       "type": "vless",
@@ -238,25 +316,6 @@
         "path": "/ws",
         "headers": {
           "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "v2con",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "2d5d3c38-6178-43d3-8002-86dd60e44d38",
-      "tls": {
-        "enabled": true,
-        "server_name": "v2configlab.v2configlab-2f5.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560",
-        "headers": {
-          "Host": "v2configlab.v2configlab-2f5.workers.dev"
         }
       }
     },
@@ -395,77 +454,20 @@
     },
     {
       "type": "vless",
-      "tag": "oneclickvpnkeys US",
+      "tag": "VPNine1",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "uuid": "0905460d-6edc-4a82-8ec8-6b76090b41c8",
       "tls": {
         "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "server_name": "nginx-f.pages.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/fp=random",
+        "path": "/?ed=2560fp=randomized",
         "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "https telegraph.rayan.dpdns.org persian",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "1679af35-6dd6-4c09-ae3b-18f239217f3e",
-      "tls": {
-        "enabled": true,
-        "server_name": "rAyAn-007.pArViN.DpDnS.OrG",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560",
-        "headers": {
-          "Host": "rayan-007.parvin.dpdns.org"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "7e346122-2ee0-406e-b964-a8ee665f1814",
-      "tls": {
-        "enabled": true,
-        "server_name": "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560",
-        "headers": {
-          "Host": "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "https telegraph.rayan-config.workers.dev persian",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
-      "tls": {
-        "enabled": true,
-        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560",
-        "headers": {
-          "Host": "rayan-007.nastaran.dpdns.org"
+          "Host": "nginx-f.pages.dev"
         }
       }
     },
