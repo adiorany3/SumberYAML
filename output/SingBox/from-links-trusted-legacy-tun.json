@@ -16,12 +16,10 @@
     {
       "type": "tun",
       "tag": "tun-in",
+      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "system",
-      "address": [
-        "172.19.0.1/30"
-      ]
+      "stack": "system"
     },
     {
       "type": "mixed",
@@ -45,7 +43,8 @@
         "10.lowh.net",
         "VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT"
-      ]
+      ],
+      "default": "AUTO-BEST-PING"
     },
     {
       "type": "urltest",

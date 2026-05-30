@@ -23,147 +23,60 @@ dns:
   listen: 0.0.0.0:7874
   nameserver:
   - 1.1.1.1
-  - 8.8.8.8
   fallback:
-  - 1.0.0.1
-  - 8.8.4.4
+  - 8.8.8.8
+  default-nameserver:
+  - 1.1.1.1
+  - 8.8.8.8
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - localhost.ptlogin2.qq.com
 proxies:
-- name: filembad
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: fdf8034a-67a0-4bf2-90e9-6d65d211aca6
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: Kose-nanat-decoder.dr-ping.ir
-  network: ws
-  ws-opts:
-    path: /Kose-nanat-decoder
-    headers:
-      Host: Kose-nanat-decoder.dr-ping.ir
-  udp: true
-- name: By EbraSha 5492
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: renderer-stream-1-411.mirra.now
-  network: ws
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers:
-      Host: renderer-stream-1-411.mirra.now
-  udp: true
-- name: oneclickvpnkeys US 5245
+- name: CA 37877 Telegram t.me SOSkeyNET
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  uuid: 44a59812-43ff-46ff-8acc-c7fe4dfc4e46
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: juzi.qea.ccwu.cc
+  servername: newspeedbypass.wt4p2ppro.me
   ws-opts:
     path: /
     headers:
-      Host: juzi.qea.ccwu.cc
+      Host: newspeedbypass.wt4p2ppro.me
   udp: true
-- name: oneclickvpnkeys US 3510
+- name: icv2ray
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: up2-df6.pages.dev
+  servername: cyylr.eu.cc
   ws-opts:
-    path: /uTZSXPBI2IfoxF86
+    path: /sg-melbi
     headers:
-      Host: up2-df6.pages.dev
+      Host: cyylr.eu.cc
   udp: true
-- name: oneclickvpnkeys DE
+- name: VPNine1
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  uuid: 0905460d-6edc-4a82-8ec8-6b76090b41c8
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: octopusss5.info
+  servername: nginx-f.pages.dev
   ws-opts:
-    path: /udfyfws
+    path: /?ed=2560fp=randomized
     headers:
-      Host: octopusss5.info
-  udp: true
-- name: oneclickvpnkeys US 8774
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=random
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: oneclickvpnkeys DE 3700
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: octopusss4.com
-  ws-opts:
-    path: /tsghdws
-    headers:
-      Host: octopusss4.com
-  udp: true
-- name: v2con
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 2d5d3c38-6178-43d3-8002-86dd60e44d38
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: v2configlab.v2configlab-2f5.workers.dev
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: v2configlab.v2configlab-2f5.workers.dev
-  udp: true
-- name: v2configlab_ DE
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: v2configlab.v2configlab7-5a2.workers.dev
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: v2configlab.v2configlab7-5a2.workers.dev
+      Host: nginx-f.pages.dev
   udp: true
 - name: CA 37969 Telegram t.me SOSkeyNET
   server: 104.17.3.81
@@ -195,108 +108,7 @@ proxies:
     headers:
       Host: javad-3yb.pages.dev
   udp: true
-- name: SG t.me Natrixo CC
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: cyylr.eu.cc
-  udp: true
-- name: VPNine1
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 0905460d-6edc-4a82-8ec8-6b76090b41c8
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: nginx-f.pages.dev
-  ws-opts:
-    path: /?ed=2560fp=randomized
-    headers:
-      Host: nginx-f.pages.dev
-  udp: true
-- name: CA 37877 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 44a59812-43ff-46ff-8acc-c7fe4dfc4e46
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: newspeedbypass.wt4p2ppro.me
-  ws-opts:
-    path: /
-    headers:
-      Host: newspeedbypass.wt4p2ppro.me
-  udp: true
-- name: prrofile_purple FR
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.calmloud.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmloud.com
-  udp: true
-- name: configV2rayNG FR
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.ignitelimit.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.ignitelimit.com
-  udp: true
-- name: oneclickvpnkeys NL 4722
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.multiplydose.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.multiplydose.com
-  udp: true
-- name: KAFING_2 6778
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: 20ba0c60-0133-11f1-95ef-1239d0255272
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: uk1.test3.net
-  ws-opts:
-    path: /howdy
-    headers:
-      Host: uk1.test3.net
-  udp: true
-- name: filembad-37
+- name: SC 37789 Telegram t.me SOSkeyNET
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -309,20 +121,6 @@ proxies:
     path: /thepurea
     headers:
       Host: world.thepouria.xyz
-  udp: true
-- name: AU AU
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: rYuChHcwQZskq9E0zdoR
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: vpn5.rnmcnm.com
-  ws-opts:
-    path: /ws-79dffb8106db
-    headers:
-      Host: vpn5.rnmcnm.com
   udp: true
 - name: LINK 15.lowh.net
   type: trojan
@@ -415,25 +213,15 @@ proxies:
     headers:
       Host: akamaized.my
 proxy-groups:
-- name: fallback-link
-  type: fallback
-  proxies:
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
 - name: URL-TEST TOP 5 INDONESIA
   type: url-test
   proxies:
-  - VPNine1
-  - oneclickvpnkeys US 8774
-  - v2configlab_ DE
-  - SC 38029 Telegram t.me SOSkeyNET
+  - best-link
   - CA 37969 Telegram t.me SOSkeyNET
+  - icv2ray
+  - SC 38029 Telegram t.me SOSkeyNET
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -448,21 +236,13 @@ proxy-groups:
   type: fallback
   proxies:
   - fallback-link
-  - VPNine1
-  - oneclickvpnkeys US 8774
-  - v2configlab_ DE
-  - SC 38029 Telegram t.me SOSkeyNET
+  - best-link
   - CA 37969 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 3510
-  - oneclickvpnkeys US 5245
-  - filembad-37
-  - filembad
-  - prrofile_purple FR
+  - icv2ray
+  - SC 38029 Telegram t.me SOSkeyNET
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
   - CA 37877 Telegram t.me SOSkeyNET
-  - v2con
-  - SG t.me Natrixo CC
-  - oneclickvpnkeys DE 3700
-  - oneclickvpnkeys DE
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -476,15 +256,12 @@ proxy-groups:
   type: fallback
   proxies:
   - fallback-link
-  - VPNine1
-  - v2configlab_ DE
-  - oneclickvpnkeys US 8774
-  - SC 38029 Telegram t.me SOSkeyNET
+  - best-link
   - CA 37969 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5245
-  - oneclickvpnkeys US 3510
-  - filembad
-  - filembad-37
+  - SC 38029 Telegram t.me SOSkeyNET
+  - icv2ray
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
   - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
@@ -499,16 +276,13 @@ proxy-groups:
   type: fallback
   proxies:
   - fallback-link
-  - VPNine1
-  - v2configlab_ DE
-  - oneclickvpnkeys US 8774
-  - SC 38029 Telegram t.me SOSkeyNET
+  - best-link
   - CA 37969 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 3510
-  - oneclickvpnkeys US 5245
-  - filembad-37
-  - filembad
-  - prrofile_purple FR
+  - icv2ray
+  - SC 38029 Telegram t.me SOSkeyNET
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
+  - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -522,15 +296,12 @@ proxy-groups:
   type: fallback
   proxies:
   - fallback-link
-  - VPNine1
-  - v2configlab_ DE
-  - oneclickvpnkeys US 8774
-  - SC 38029 Telegram t.me SOSkeyNET
+  - best-link
   - CA 37969 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5245
-  - oneclickvpnkeys US 3510
-  - filembad
-  - filembad-37
+  - SC 38029 Telegram t.me SOSkeyNET
+  - icv2ray
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
   - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
@@ -545,15 +316,12 @@ proxy-groups:
   type: fallback
   proxies:
   - fallback-link
-  - VPNine1
-  - v2configlab_ DE
-  - oneclickvpnkeys US 8774
-  - SC 38029 Telegram t.me SOSkeyNET
+  - best-link
   - CA 37969 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5245
-  - oneclickvpnkeys US 3510
-  - filembad
-  - filembad-37
+  - icv2ray
+  - SC 38029 Telegram t.me SOSkeyNET
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
   - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
@@ -568,16 +336,13 @@ proxy-groups:
   type: fallback
   proxies:
   - fallback-link
-  - VPNine1
-  - v2configlab_ DE
-  - oneclickvpnkeys US 8774
-  - SC 38029 Telegram t.me SOSkeyNET
+  - best-link
   - CA 37969 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5245
-  - oneclickvpnkeys US 3510
-  - filembad-37
-  - filembad
-  - prrofile_purple FR
+  - icv2ray
+  - SC 38029 Telegram t.me SOSkeyNET
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
+  - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -586,37 +351,15 @@ proxy-groups:
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 120
-  lazy: false
-- name: URL-TEST VMESS
-  type: url-test
-  proxies:
-  - filembad
-  - By EbraSha 5492
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: http://www.gstatic.com/generate_204
-  interval: 120
-  tolerance: 30
   lazy: false
 - name: URL-TEST VLESS
   type: url-test
   proxies:
-  - oneclickvpnkeys US 5245
-  - oneclickvpnkeys US 3510
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys US 8774
-  - oneclickvpnkeys DE 3700
-  - v2con
-  - v2configlab_ DE
+  - CA 37877 Telegram t.me SOSkeyNET
+  - icv2ray
+  - VPNine1
   - CA 37969 Telegram t.me SOSkeyNET
   - SC 38029 Telegram t.me SOSkeyNET
-  - SG t.me Natrixo CC
-  - VPNine1
-  - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -630,12 +373,7 @@ proxy-groups:
 - name: URL-TEST TROJAN
   type: url-test
   proxies:
-  - prrofile_purple FR
-  - configV2rayNG FR
-  - oneclickvpnkeys NL 4722
-  - KAFING_2 6778
-  - filembad-37
-  - AU AU
+  - SC 37789 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -649,26 +387,12 @@ proxy-groups:
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - filembad
-  - By EbraSha 5492
-  - oneclickvpnkeys US 5245
-  - oneclickvpnkeys US 3510
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys US 8774
-  - oneclickvpnkeys DE 3700
-  - v2con
-  - v2configlab_ DE
+  - CA 37877 Telegram t.me SOSkeyNET
+  - icv2ray
+  - VPNine1
   - CA 37969 Telegram t.me SOSkeyNET
   - SC 38029 Telegram t.me SOSkeyNET
-  - SG t.me Natrixo CC
-  - VPNine1
-  - CA 37877 Telegram t.me SOSkeyNET
-  - prrofile_purple FR
-  - configV2rayNG FR
-  - oneclickvpnkeys NL 4722
-  - KAFING_2 6778
-  - filembad-37
-  - AU AU
+  - SC 37789 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -683,21 +407,13 @@ proxy-groups:
   type: fallback
   proxies:
   - fallback-link
-  - VPNine1
-  - oneclickvpnkeys US 8774
-  - v2configlab_ DE
-  - SC 38029 Telegram t.me SOSkeyNET
+  - best-link
   - CA 37969 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 3510
-  - oneclickvpnkeys US 5245
-  - filembad-37
-  - filembad
-  - prrofile_purple FR
+  - icv2ray
+  - SC 38029 Telegram t.me SOSkeyNET
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
   - CA 37877 Telegram t.me SOSkeyNET
-  - v2con
-  - SG t.me Natrixo CC
-  - oneclickvpnkeys DE 3700
-  - oneclickvpnkeys DE
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -710,7 +426,11 @@ proxy-groups:
 - name: PROXY
   type: select
   proxies:
+  - BEST-STABLE
   - fallback-link
+  - best-link
+  - FALLBACK
+  - DIRECT
   - URL-TEST TOP 5 INDONESIA
   - FALLBACK CEPAT
   - GAMING STABIL
@@ -719,11 +439,8 @@ proxy-groups:
   - WORKING STABIL
   - GENERAL STABIL
   - URL-TEST GABUNGAN
-  - FALLBACK
-  - URL-TEST VMESS
   - URL-TEST VLESS
   - URL-TEST TROJAN
-  - DIRECT
   - REJECT
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
@@ -731,5 +448,48 @@ proxy-groups:
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+- name: BEST-STABLE
+  type: url-test
+  proxies:
+  - VPNine1
+  - icv2ray
+  - SC 38029 Telegram t.me SOSkeyNET
+  - CA 37969 Telegram t.me SOSkeyNET
+  - SC 37789 Telegram t.me SOSkeyNET
+  - CA 37877 Telegram t.me SOSkeyNET
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: best-link
+  type: url-test
+  proxies:
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: fallback-link
+  type: fallback
+  proxies:
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
 rules:
+- DOMAIN-SUFFIX,local,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
 - MATCH,PROXY

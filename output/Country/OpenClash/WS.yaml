@@ -34,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2con"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 2d5d3c38-6178-43d3-8002-86dd60e44d38
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "v2configlab.v2configlab-2f5.workers.dev"
-    ws-opts:
-      path: "/?ed=2560"
-      headers:
-        Host: "v2configlab.v2configlab-2f5.workers.dev"
-    udp: true
   - name: "VPNine1"
     server: "104.17.3.81"
     port: 443
@@ -63,34 +48,6 @@ proxies:
       path: "/?ed=2560fp=randomized"
       headers:
         Host: "nginx-f.pages.dev"
-    udp: true
-  - name: "KAFING_2 6778"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "uk1.test3.net"
-    ws-opts:
-      path: "/howdy"
-      headers:
-        Host: "uk1.test3.net"
-    udp: true
-  - name: "filembad-37"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "xrayVpnTPbot"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "world.thepouria.xyz"
-    ws-opts:
-      path: "/thepurea"
-      headers:
-        Host: "world.thepouria.xyz"
     udp: true
 
 proxy-groups:

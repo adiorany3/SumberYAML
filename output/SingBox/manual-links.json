@@ -2,7 +2,7 @@
   "outbounds": [
     {
       "type": "urltest",
-      "tag": "AUTO-BEST-PING",
+      "tag": "best-link",
       "outbounds": [
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
@@ -31,8 +31,8 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
+        "best-link",
         "AUTO-BEST-STABLE",
-        "AUTO-BEST-PING",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",

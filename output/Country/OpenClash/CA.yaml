@@ -34,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA 37969 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "edgetunnell-1dc.pages.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "edgetunnell-1dc.pages.dev"
-    udp: true
   - name: "CA 37877 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
@@ -63,6 +48,21 @@ proxies:
       path: "/"
       headers:
         Host: "newspeedbypass.wt4p2ppro.me"
+    udp: true
+  - name: "CA 37969 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "edgetunnell-1dc.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "edgetunnell-1dc.pages.dev"
     udp: true
 
 proxy-groups:

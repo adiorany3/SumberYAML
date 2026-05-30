@@ -37,9 +37,8 @@
   "outbounds": [
     {
       "type": "urltest",
-      "tag": "AUTO-BEST-PING",
+      "tag": "best-link",
       "outbounds": [
-        "VLESS-WS-TLS-443-apt50atpprem",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -79,10 +78,10 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "AUTO-BEST-STABLE",
-        "AUTO-BEST-PING",
+        "best-link",
         "VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT",
+        "AUTO-BEST-STABLE",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",

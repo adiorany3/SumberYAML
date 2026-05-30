@@ -49,6 +49,20 @@ proxies:
       headers:
         Host: "javad-3yb.pages.dev"
     udp: true
+  - name: "SC 37789 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "xrayVpnTPbot"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "world.thepouria.xyz"
+    ws-opts:
+      path: "/thepurea"
+      headers:
+        Host: "world.thepouria.xyz"
+    udp: true
 
 proxy-groups:
   - name: "PROXY"

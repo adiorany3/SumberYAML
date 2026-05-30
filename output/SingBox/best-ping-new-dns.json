@@ -36,13 +36,38 @@
   "outbounds": [
     {
       "type": "urltest",
+      "tag": "best-link",
+      "outbounds": [
+        "LINK 15.lowh.net",
+        "LINK sg-trojan.1server.co",
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK 10.lowh.net",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK 15.lowh.net 2",
+        "LINK sg-trojan.1server.co 2",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK 10.lowh.net 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
+        "icv2ray",
         "VPNine1",
-        "oneclickvpnkeys US 8774",
         "SC 38029 Telegram t.me SOSkeyNET",
         "CA 37969 Telegram t.me SOSkeyNET",
-        "v2configlab_ DE",
+        "SC 37789 Telegram t.me SOSkeyNET",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -68,11 +93,11 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
+        "icv2ray",
         "VPNine1",
-        "oneclickvpnkeys US 8774",
         "SC 38029 Telegram t.me SOSkeyNET",
         "CA 37969 Telegram t.me SOSkeyNET",
-        "v2configlab_ DE",
+        "SC 37789 Telegram t.me SOSkeyNET",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -98,20 +123,21 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "AUTO-BEST-STABLE",
-        "AUTO-BEST-PING",
+        "best-link",
         "DIRECT",
+        "AUTO-BEST-PING",
+        "icv2ray",
         "VPNine1",
-        "oneclickvpnkeys US 8774",
         "SC 38029 Telegram t.me SOSkeyNET",
         "CA 37969 Telegram t.me SOSkeyNET",
-        "v2configlab_ DE",
+        "SC 37789 Telegram t.me SOSkeyNET",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "AUTO-BEST-STABLE",
         "LINK 15.lowh.net 2",
         "LINK sg-trojan.1server.co 2",
         "LINK bel432 xl 2",
@@ -122,6 +148,26 @@
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
       "interrupt_exist_connections": false
+    },
+    {
+      "type": "vless",
+      "tag": "icv2ray",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "tls": {
+        "enabled": true,
+        "server_name": "cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "cyylr.eu.cc"
+        }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -139,26 +185,6 @@
         "path": "/?ed=2560fp=randomized",
         "headers": {
           "Host": "nginx-f.pages.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "oneclickvpnkeys US 8774",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp=random",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
         }
       },
       "connect_timeout": "15s"
@@ -204,21 +230,21 @@
       "connect_timeout": "15s"
     },
     {
-      "type": "vless",
-      "tag": "v2configlab_ DE",
+      "type": "trojan",
+      "tag": "SC 37789 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
+      "password": "xrayVpnTPbot",
       "tls": {
         "enabled": true,
-        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
+        "server_name": "world.thepouria.xyz",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/?ed=2048",
+        "path": "/thepurea",
         "headers": {
-          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
+          "Host": "world.thepouria.xyz"
         }
       },
       "connect_timeout": "15s"
