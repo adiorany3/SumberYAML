@@ -49,6 +49,22 @@ proxies:
     headers:
       Host: graph-keep-beds-catalog.trycloudflare.com
   udp: true
+- name: By EbraSha 8887
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 2f3aadae-66c6-4dca-a670-03c183f8024e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: sctest1.dr-ping.ir
+  network: ws
+  ws-opts:
+    path: /kos-nanat-decoder
+    headers:
+      Host: sctest1.dr-ping.ir
+  udp: true
 - name: V2raysCollector
   server: 104.17.3.81
   port: 443
@@ -64,7 +80,22 @@ proxies:
     headers:
       Host: m.udemy.com.cyylr.eu.cc
   udp: true
-- name: oneclickvpnkeys US 3676
+- name: V2raysCollector 3764
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: cyylr.eu.cc
+  udp: true
+- name: oneclickvpnkeys US 4142
   server: 104.17.3.81
   port: 443
   type: vless
@@ -79,7 +110,7 @@ proxies:
     headers:
       Host: juzi.qea.ccwu.cc
   udp: true
-- name: oneclickvpnkeys US 2281
+- name: oneclickvpnkeys US 3552
   server: 104.17.3.81
   port: 443
   type: vless
@@ -109,7 +140,7 @@ proxies:
     headers:
       Host: octopusss5.info
   udp: true
-- name: oneclickvpnkeys US 5775
+- name: oneclickvpnkeys US 3373
   server: 104.17.3.81
   port: 443
   type: vless
@@ -124,7 +155,7 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: oneclickvpnkeys DE 7467
+- name: oneclickvpnkeys DE 8306
   server: 104.17.3.81
   port: 443
   type: vless
@@ -138,6 +169,21 @@ proxies:
     path: /tsghdws
     headers:
       Host: octopusss4.com
+  udp: true
+- name: v2reya88 confinghub2
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: graph.instagram.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: graph.instagram.com.cyylr.eu.cc
   udp: true
 - name: v2con
   server: 104.17.3.81
@@ -154,35 +200,20 @@ proxies:
     headers:
       Host: v2configlab.v2configlab-2f5.workers.dev
   udp: true
-- name: CA 38142 Telegram t.me SOSkeyNET
+- name: 67646 - Telegram V2All
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: a5240468-dffe-4581-8ce7-6e6604d299d6
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: verus-1uy.pages.dev
+  servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
     path: /
     headers:
-      Host: verus-1uy.pages.dev
-  udp: true
-- name: VPN_PASARGAD
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: cyylr.eu.cc
+      Host: hhlfy.twiladaphne.ndjp.net
   udp: true
 - name: VPNine1
   server: 104.17.3.81
@@ -199,6 +230,20 @@ proxies:
     headers:
       Host: nginx-f.pages.dev
   udp: true
+- name: prrofile_purple FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmloud.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmloud.com
+  udp: true
 - name: configV2rayNG FR
   server: 104.17.3.81
   port: 443
@@ -213,7 +258,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: oneclickvpnkeys PL
+- name: oneclickvpnkeys NL 9077
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -221,11 +266,25 @@ proxies:
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: www.creationlong.org
+  sni: www.multiplydose.com
   ws-opts:
     path: /assignment
     headers:
-      Host: www.creationlong.org
+      Host: www.multiplydose.com
+  udp: true
+- name: KAFING_2 7493
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: 20ba0c60-0133-11f1-95ef-1239d0255272
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: uk1.test3.net
+  ws-opts:
+    path: /howdy
+    headers:
+      Host: uk1.test3.net
   udp: true
 - name: LINK 15.lowh.net
   type: trojan
@@ -322,11 +381,7 @@ proxy-groups:
   type: url-test
   proxies:
   - best-link
-  - V2raysCollector
-  - VPN_PASARGAD
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys US 2281
+  - v2reya88 confinghub2
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -342,19 +397,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - V2raysCollector
-  - VPN_PASARGAD
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys US 2281
-  - v2con
-  - VPNine1
-  - CA 38142 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys DE 7467
-  - oneclickvpnkeys PL
-  - configV2rayNG FR
-  - FreeConffning
+  - v2reya88 confinghub2
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -369,16 +412,16 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - V2raysCollector
-  - VPN_PASARGAD
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys US 2281
-  - v2con
   - VPNine1
-  - CA 38142 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys DE 7467
+  - oneclickvpnkeys NL 9077
+  - KAFING_2 7493
+  - oneclickvpnkeys US 3373
+  - v2reya88 confinghub2
+  - 67646 - Telegram V2All
+  - V2raysCollector
+  - V2raysCollector 3764
+  - oneclickvpnkeys US 3552
+  - oneclickvpnkeys US 4142
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -393,16 +436,16 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - V2raysCollector
-  - VPN_PASARGAD
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys US 2281
-  - v2con
   - VPNine1
-  - CA 38142 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys DE 7467
+  - oneclickvpnkeys NL 9077
+  - KAFING_2 7493
+  - oneclickvpnkeys US 3373
+  - v2reya88 confinghub2
+  - 67646 - Telegram V2All
+  - V2raysCollector
+  - V2raysCollector 3764
+  - oneclickvpnkeys US 3552
+  - oneclickvpnkeys US 4142
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -417,16 +460,16 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - V2raysCollector
-  - VPN_PASARGAD
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys US 2281
-  - v2con
   - VPNine1
-  - CA 38142 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys DE 7467
+  - oneclickvpnkeys NL 9077
+  - KAFING_2 7493
+  - oneclickvpnkeys US 3373
+  - v2reya88 confinghub2
+  - 67646 - Telegram V2All
+  - V2raysCollector
+  - V2raysCollector 3764
+  - oneclickvpnkeys US 3552
+  - oneclickvpnkeys US 4142
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -441,16 +484,16 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - V2raysCollector
-  - VPN_PASARGAD
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys US 2281
-  - v2con
   - VPNine1
-  - CA 38142 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys DE 7467
+  - oneclickvpnkeys NL 9077
+  - KAFING_2 7493
+  - oneclickvpnkeys US 3373
+  - v2reya88 confinghub2
+  - 67646 - Telegram V2All
+  - V2raysCollector
+  - V2raysCollector 3764
+  - oneclickvpnkeys US 3552
+  - oneclickvpnkeys US 4142
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -465,16 +508,16 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - V2raysCollector
-  - VPN_PASARGAD
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys US 2281
-  - v2con
   - VPNine1
-  - CA 38142 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys DE 7467
+  - oneclickvpnkeys NL 9077
+  - KAFING_2 7493
+  - oneclickvpnkeys US 3373
+  - v2reya88 confinghub2
+  - 67646 - Telegram V2All
+  - V2raysCollector
+  - V2raysCollector 3764
+  - oneclickvpnkeys US 3552
+  - oneclickvpnkeys US 4142
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -488,6 +531,7 @@ proxy-groups:
   type: url-test
   proxies:
   - FreeConffning
+  - By EbraSha 8887
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -502,14 +546,15 @@ proxy-groups:
   type: url-test
   proxies:
   - V2raysCollector
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 2281
+  - V2raysCollector 3764
+  - oneclickvpnkeys US 4142
+  - oneclickvpnkeys US 3552
   - oneclickvpnkeys DE
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys DE 7467
+  - oneclickvpnkeys US 3373
+  - oneclickvpnkeys DE 8306
+  - v2reya88 confinghub2
   - v2con
-  - CA 38142 Telegram t.me SOSkeyNET
-  - VPN_PASARGAD
+  - 67646 - Telegram V2All
   - VPNine1
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
@@ -524,8 +569,10 @@ proxy-groups:
 - name: URL-TEST TROJAN
   type: url-test
   proxies:
+  - prrofile_purple FR
   - configV2rayNG FR
-  - oneclickvpnkeys PL
+  - oneclickvpnkeys NL 9077
+  - KAFING_2 7493
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -540,18 +587,22 @@ proxy-groups:
   type: url-test
   proxies:
   - FreeConffning
+  - By EbraSha 8887
   - V2raysCollector
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 2281
+  - V2raysCollector 3764
+  - oneclickvpnkeys US 4142
+  - oneclickvpnkeys US 3552
   - oneclickvpnkeys DE
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys DE 7467
+  - oneclickvpnkeys US 3373
+  - oneclickvpnkeys DE 8306
+  - v2reya88 confinghub2
   - v2con
-  - CA 38142 Telegram t.me SOSkeyNET
-  - VPN_PASARGAD
+  - 67646 - Telegram V2All
   - VPNine1
+  - prrofile_purple FR
   - configV2rayNG FR
-  - oneclickvpnkeys PL
+  - oneclickvpnkeys NL 9077
+  - KAFING_2 7493
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -567,19 +618,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - V2raysCollector
-  - VPN_PASARGAD
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys US 2281
-  - v2con
-  - VPNine1
-  - CA 38142 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys DE 7467
-  - oneclickvpnkeys PL
-  - configV2rayNG FR
-  - FreeConffning
+  - v2reya88 confinghub2
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -618,16 +657,16 @@ proxy-groups:
 - name: BEST-STABLE
   type: url-test
   proxies:
+  - v2reya88 confinghub2
+  - oneclickvpnkeys US 3373
   - V2raysCollector
-  - VPN_PASARGAD
-  - oneclickvpnkeys US 3676
-  - oneclickvpnkeys US 5775
-  - oneclickvpnkeys US 2281
-  - v2con
+  - V2raysCollector 3764
+  - oneclickvpnkeys US 3552
+  - 67646 - Telegram V2All
   - VPNine1
-  - CA 38142 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys DE 7467
+  - oneclickvpnkeys US 4142
+  - v2con
+  - oneclickvpnkeys DE 8306
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

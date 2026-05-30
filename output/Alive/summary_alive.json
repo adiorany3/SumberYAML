@@ -1,5 +1,5 @@
 {
-  "run_mode": "update_ping",
+  "run_mode": "update",
   "enable_proxy_test": true,
   "filter_alive_only": true,
   "strict_alive_only": true,
@@ -21,23 +21,23 @@
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 13,
+      "alive": 16,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 0,
+      "alive": 4,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1238,
-  "alive": 13,
-  "strict_alive": 13,
-  "dead": 1225,
+  "total": 1264,
+  "alive": 17,
+  "strict_alive": 17,
+  "dead": 1247,
   "untested": 0,
   "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
@@ -45,30 +45,14 @@
   "best_ping_fallback_global_if_empty": true,
   "best_ping_url_test_group": "URL-TEST TOP 5 INDONESIA",
   "best_ping_group_type": "url-test",
-  "best_ping_count": 5,
+  "best_ping_count": 1,
   "best_ping_names": [
-    "V2raysCollector",
-    "VPN_PASARGAD",
-    "oneclickvpnkeys US 3676",
-    "oneclickvpnkeys US 5775",
-    "oneclickvpnkeys US 2281"
+    "v2reya88 confinghub2"
   ],
   "responsive_top_n": 15,
-  "responsive_count": 13,
+  "responsive_count": 1,
   "responsive_names": [
-    "V2raysCollector",
-    "VPN_PASARGAD",
-    "oneclickvpnkeys US 3676",
-    "oneclickvpnkeys US 5775",
-    "oneclickvpnkeys US 2281",
-    "v2con",
-    "VPNine1",
-    "CA 38142 Telegram t.me SOSkeyNET",
-    "oneclickvpnkeys DE",
-    "oneclickvpnkeys DE 7467",
-    "oneclickvpnkeys PL",
-    "configV2rayNG FR",
-    "FreeConffning"
+    "v2reya88 confinghub2"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -80,5 +64,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 13
+  "strict_output_count": 17
 }
