@@ -275,6 +275,24 @@ jobs:
             echo "scripts/merge_links_into_openclash_yaml.py tidak ditemukan. Lewati merge trusted links ke YAML."
           fi
 
+
+      - name: Add fallback-link group from trusted input links into OpenClash YAML
+        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' }}
+        run: |
+          set -e
+          if [ -f scripts/add_input_fallback_group.py ]; then
+            python scripts/add_input_fallback_group.py \
+              --input input/links.txt \
+              --input input.txt \
+              --group fallback-link \
+              --manual-prefix LINK \
+              --manual-prefix INPUT
+            echo "Input fallback group YAML summary:"
+            cat output/Validation/summary_input_fallback_group_yaml.json || true
+          else
+            echo "scripts/add_input_fallback_group.py tidak ditemukan. Lewati pembuatan fallback-link."
+          fi
+
       - name: Clear sing-box health quarantine
         if: ${{ env.MODE == 'clear_quarantine' }}
         run: |
@@ -416,25 +434,20 @@ jobs:
           fi
 
 
-      - name: Add best-link group for trusted input accounts
+      - name: Re-apply fallback-link group after trusted manual enforcement
         run: |
           set -e
-          if [ -f scripts/add_best_link_group.py ]; then
-            python scripts/add_best_link_group.py \
-              --group-name best-link \
+          if [ -f scripts/add_input_fallback_group.py ]; then
+            python scripts/add_input_fallback_group.py \
+              --input input/links.txt \
+              --input input.txt \
+              --group fallback-link \
               --manual-prefix LINK \
-              --singbox-dir output/SingBox \
-              --interval 3m \
-              --tolerance 80 \
-              --idle-timeout 2h
-
-            echo "OpenClash best-link summary:"
-            cat output/Validation/summary_best_link_group_yaml.json || true
-            echo "sing-box best-link summary:"
-            cat output/SingBox/summary_best_link_group.json || true
+              --manual-prefix INPUT
+            echo "Input fallback group YAML summary:"
+            cat output/Validation/summary_input_fallback_group_yaml.json || true
           else
-            echo "ERROR: scripts/add_best_link_group.py tidak ditemukan."
-            exit 1
+            echo "scripts/add_input_fallback_group.py tidak ditemukan. Lewati re-apply fallback-link."
           fi
 
 
