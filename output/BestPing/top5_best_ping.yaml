@@ -1,63 +1,48 @@
 proxies:
-  - name: "v2configlab"
+  - name: "v2configlab_ DE"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 1de37726-744b-46e1-9101-c926b3402e82
+    uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "v2.v2configlab.workers.dev"
+    servername: "v2configlab.v2configlab7-5a2.workers.dev"
     ws-opts:
       path: "/?ed=2048"
       headers:
-        Host: "v2.v2configlab.workers.dev"
+        Host: "v2configlab.v2configlab7-5a2.workers.dev"
     udp: true
-  - name: "2 DE av2ngFast"
+  - name: "v2con"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 2730487f-0ed5-4f04-92d5-f95f9253d4f4
+    uuid: 2d5d3c38-6178-43d3-8002-86dd60e44d38
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+    servername: "v2configlab.v2configlab-2f5.workers.dev"
     ws-opts:
-      path: "/ws"
+      path: "/?ed=2560"
       headers:
-        Host: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+        Host: "v2configlab.v2configlab-2f5.workers.dev"
     udp: true
-  - name: "oneclickvpnkeys DE 6772"
+  - name: "VPNine1"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+    uuid: 0905460d-6edc-4a82-8ec8-6b76090b41c8
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "octopusss4.com"
+    servername: "nginx-f.pages.dev"
     ws-opts:
-      path: "/tsghdws"
+      path: "/?ed=2560fp=randomized"
       headers:
-        Host: "octopusss4.com"
-    udp: true
-  - name: "oneclickvpnkeys US 5020"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "juzi.qea.ccwu.cc"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "juzi.qea.ccwu.cc"
+        Host: "nginx-f.pages.dev"
     udp: true
   - name: "CA 37533 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
@@ -73,4 +58,18 @@ proxies:
       path: "/sg-melbi"
       headers:
         Host: "support.zoom.us.cyylr.eu.cc"
+    udp: true
+  - name: "prrofile_purple FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
     udp: true
