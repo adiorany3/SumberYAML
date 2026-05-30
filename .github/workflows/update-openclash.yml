@@ -124,7 +124,7 @@ env:
 
 jobs:
   update:
-    name: Generate, validate generated YAML, append trusted links, build sing-box, and commit output
+    name: Generate, validate YAML, append trusted links, build stable sing-box, and commit output
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -315,16 +315,17 @@ jobs:
           echo "Merge summary:"
           cat output/SingBox/summary_merge_links_into_singbox.json || true
 
-      - name: Stabilize sing-box JSON profiles
+
+      - name: Fix sing-box mobile idle reconnect stability
         run: |
           set -e
-          if [ -f scripts/stabilize_singbox_json.py ]; then
-            python scripts/stabilize_singbox_json.py               --dir output/SingBox               --test-url "https://www.gstatic.com/generate_204"               --interval 1m               --tolerance 30               --idle-timeout 5m               --connect-timeout 8s               --interrupt
+          if [ -f scripts/stabilize_singbox_mobile_idle.py ]; then
+            python scripts/stabilize_singbox_mobile_idle.py               --dir output/SingBox               --test-url "https://www.gstatic.com/generate_204"               --interval 3m               --tolerance 80               --idle-timeout 2h               --connect-timeout 15s               --no-interrupt               --remove-tcp-fast-open
 
-            echo "Stability report:"
-            cat output/SingBox/summary_stabilize_singbox_json.json || true
+            echo "Mobile idle reconnect stability report:"
+            cat output/SingBox/summary_mobile_idle_reconnect_fix.json || true
           else
-            echo "scripts/stabilize_singbox_json.py tidak ditemukan. Lewati stabilisasi sing-box."
+            echo "scripts/stabilize_singbox_mobile_idle.py tidak ditemukan. Lewati mobile idle reconnect fix."
           fi
 
       - name: Commit output files
