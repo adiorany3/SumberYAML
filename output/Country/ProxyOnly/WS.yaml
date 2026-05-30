@@ -1,34 +1,4 @@
 proxies:
-  - name: "V2raysCollector"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "m.udemy.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/id-tksi"
-      headers:
-        Host: "m.udemy.com.cyylr.eu.cc"
-    udp: true
-  - name: "VPNine1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 0905460d-6edc-4a82-8ec8-6b76090b41c8
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "nginx-f.pages.dev"
-    ws-opts:
-      path: "/?ed=2560fp=randomized"
-      headers:
-        Host: "nginx-f.pages.dev"
-    udp: true
   - name: "v2con"
     server: "104.17.3.81"
     port: 443
@@ -44,22 +14,7 @@ proxies:
       headers:
         Host: "v2configlab.v2configlab-2f5.workers.dev"
     udp: true
-  - name: "Kariz"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: c8e2ba30-a6de-4660-8c62-5bf5cc9318f3
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "enquiries-commands-div-medal.trycloudflare.com"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "enquiries-commands-div-medal.trycloudflare.com"
-    udp: true
-  - name: "67646 - Telegram V2All"
+  - name: "42 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -74,17 +29,33 @@ proxies:
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
-  - name: "KAFING_2 5513"
+  - name: "67768 - Telegram V2All"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    type: vless
+    uuid: f86f5a03-3872-46b5-bf03-a50388a0261d
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "uk1.test3.net"
+    servername: "a1-tss.pages.dev"
     ws-opts:
-      path: "/howdy"
+      path: "/"
       headers:
-        Host: "uk1.test3.net"
+        Host: "a1-tss.pages.dev"
+    udp: true
+  - name: "CF20"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "edgetunnell-1dc.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "edgetunnell-1dc.pages.dev"
     udp: true
