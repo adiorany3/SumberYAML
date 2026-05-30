@@ -38,6 +38,21 @@ proxies:
     server: "104.17.3.81"
     port: 443
     type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 1717"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
     uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
     cipher: none
     tls: true
@@ -48,21 +63,6 @@ proxies:
       path: "/fp=random"
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
-    udp: true
-  - name: "US 37343 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 226cbc0f-409b-4df3-828c-6061cb701a7e
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "salam.xdmmd12.workers.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "salam.xdmmd12.workers.dev"
     udp: true
   - name: "US 37560 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
