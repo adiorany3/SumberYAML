@@ -172,8 +172,11 @@ SHOW_SINGBOX_QR_PANEL = get_setting("SHOW_SINGBOX_QR_PANEL", "true").strip().low
 SINGBOX_DEFAULT_PROFILE_NAME = get_setting("SINGBOX_DEFAULT_PROFILE_NAME", "SumberYAML Best Stable")
 SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/best-stable-safe.json")
 SINGBOX_DEFAULT_QR_ERROR_CORRECTION = get_setting("SINGBOX_DEFAULT_QR_ERROR_CORRECTION", "M").upper()
-# Default QR URL source. Gunakan jsDelivr agar perangkat/client yang memblokir raw.githubusercontent.com tetap bisa import.
-SINGBOX_QR_DEFAULT_URL_SOURCE = get_setting("SINGBOX_QR_DEFAULT_URL_SOURCE", "jsdelivr").strip().lower()
+# Default QR URL source. Gunakan jsDelivr jika perangkat/client memblokir raw.githubusercontent.com.
+SINGBOX_QR_DEFAULT_URL_SOURCE = get_setting("SINGBOX_QR_DEFAULT_URL_SOURCE", "jsdelivr-cachebust").strip().lower()
+# Hindari CDN stale cache dengan menambahkan query ?v=<run/sha/time> pada URL jsDelivr.
+SINGBOX_QR_CACHE_BUST_ENABLE = get_setting("SINGBOX_QR_CACHE_BUST_ENABLE", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
+SINGBOX_QR_CACHE_BUST_MODE = get_setting("SINGBOX_QR_CACHE_BUST_MODE", "workflow").strip().lower()
 
 # Tombol merge links hanya tampil di admin.
 # Tombol ini memicu GitHub Actions agar input/links.txt digabung ke output/SingBox/*.json.
@@ -782,11 +785,69 @@ def build_jsdelivr_github_url(path: str) -> str:
     return f"https://cdn.jsdelivr.net/gh/{GITHUB_OWNER}/{GITHUB_REPO}@{GITHUB_REF}/{clean_path}"
 
 
+def append_url_cache_buster(url: str, version: str = "") -> str:
+    """Append a changing query value so jsDelivr returns a fresh cache key.
+
+    The sing-box import payload stores the full URL, so this avoids stale CDN
+    content after the admin regenerates/scans the QR.
+    """
+    clean_url = str(url or "").strip()
+    if not clean_url:
+        return clean_url
+
+    clean_url = normalize_github_blob_url(clean_url)
+    version = str(version or "").strip()
+    if not version:
+        version = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+
+    # Remove an old v= query if the admin toggles/re-renders repeatedly.
+    try:
+        from urllib.parse import parse_qsl, urlencode, urlunparse
+        parsed = urlparse(clean_url)
+        query_items = [(k, v) for k, v in parse_qsl(parsed.query, keep_blank_values=True) if k.lower() not in {"v", "cache", "cache_bust", "cachebuster"}]
+        query_items.append(("v", version))
+        return urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, urlencode(query_items), parsed.fragment))
+    except Exception:
+        sep = "&" if "?" in clean_url else "?"
+        return f"{clean_url}{sep}v={quote(version, safe='')}"
+
+
+@st.cache_data(ttl=60, show_spinner=False)
+def get_singbox_qr_cache_buster_value() -> str:
+    """Return a cache-buster value that changes after workflow output updates.
+
+    Prefer GitHub Actions metadata so the URL remains stable during one admin
+    session but changes after a new workflow run. Fall back to current UTC time.
+    """
+    if SINGBOX_QR_CACHE_BUST_MODE in {"time", "timestamp", "now"}:
+        return datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+
+    try:
+        run = latest_workflow_run()
+        if isinstance(run, dict) and run:
+            head_sha = str(run.get("head_sha") or "").strip()[:12]
+            run_number = str(run.get("run_number") or "").strip()
+            updated_at = str(run.get("updated_at") or run.get("created_at") or "").strip()
+            raw_value = "-".join([part for part in [run_number, head_sha, updated_at] if part])
+            safe_value = re.sub(r"[^A-Za-z0-9_.-]+", "-", raw_value).strip("-.")
+            if safe_value:
+                return safe_value[:96]
+    except Exception:
+        pass
+
+    return datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+
+
 def build_profile_json_url(path: str, source: str = "jsdelivr") -> str:
     source_key = str(source or "jsdelivr").strip().lower()
-    if source_key in {"raw", "github", "raw github", "github raw"}:
+    if source_key in {"raw", "github", "raw github", "github raw", "no cdn", "tanpa cdn"}:
         return build_raw_github_url(path)
-    return build_jsdelivr_github_url(path)
+
+    url = build_jsdelivr_github_url(path)
+    if source_key in {"jsdelivr-cachebust", "jsdelivr cachebust", "cachebust", "cdn cachebust", "jsdelivr fresh"}:
+        return append_url_cache_buster(url, get_singbox_qr_cache_buster_value())
+
+    return url
 
 
 def build_singbox_remote_profile_uri(raw_url: str, profile_name: str) -> str:
@@ -2478,26 +2539,53 @@ def render_admin_singbox_qr():
                 key="singbox_qr_custom_path",
             )
 
-        default_source_index = 0 if SINGBOX_QR_DEFAULT_URL_SOURCE not in {"raw", "github", "raw github", "github raw"} else 1
+        source_options = [
+            "jsDelivr CDN + cache-buster (disarankan)",
+            "Raw GitHub tanpa CDN",
+            "jsDelivr CDN biasa",
+        ]
+        if SINGBOX_QR_DEFAULT_URL_SOURCE in {"raw", "github", "raw github", "github raw", "no cdn", "tanpa cdn"}:
+            default_source_index = 1
+        elif SINGBOX_QR_DEFAULT_URL_SOURCE in {"jsdelivr", "cdn", "jsdelivr biasa"}:
+            default_source_index = 2
+        else:
+            default_source_index = 0
+
         qr_url_source = st.selectbox(
             "URL profile untuk QR",
-            ["jsDelivr CDN (disarankan)", "Raw GitHub"],
+            source_options,
             index=default_source_index,
-            help="Pakai jsDelivr jika device/client gagal akses raw.githubusercontent.com atau muncul connect: connection refused.",
+            help="Cache-buster menambahkan ?v=<workflow/time> agar QR tidak mengambil cache CDN lama. Raw GitHub tanpa CDN bisa dipakai jika jaringan mengizinkan.",
             key="singbox_qr_url_source",
         )
-        raw_url = build_profile_json_url(
-            selected_path,
-            "raw" if qr_url_source == "Raw GitHub" else "jsdelivr",
-        )
+
+        if qr_url_source == "Raw GitHub tanpa CDN":
+            selected_source_key = "raw"
+        elif qr_url_source == "jsDelivr CDN biasa":
+            selected_source_key = "jsdelivr"
+        else:
+            selected_source_key = "jsdelivr-cachebust"
+
+        raw_url = build_profile_json_url(selected_path, selected_source_key)
+
+        if selected_source_key == "jsdelivr-cachebust":
+            st.caption(f"Cache-buster aktif: v={get_singbox_qr_cache_buster_value()}")
     else:
         raw_url = st.text_input(
             "URL JSON sing-box",
             value=build_jsdelivr_github_url(SINGBOX_DEFAULT_JSON_PATH),
-            help="Boleh paste URL github.com/.../blob/...; akan diubah otomatis menjadi raw URL. Untuk jaringan yang memblokir raw GitHub, gunakan URL cdn.jsdelivr.net.",
+            help="Boleh paste URL github.com/.../blob/...; akan diubah otomatis menjadi raw URL. Jika memakai CDN, tambahkan ?v=angka unik bila ingin menghindari cache lama.",
             key="singbox_qr_manual_raw_url",
         )
         raw_url = normalize_github_blob_url(raw_url)
+        manual_cache_bust = st.checkbox(
+            "Tambahkan cache-buster ke URL manual",
+            value=SINGBOX_QR_CACHE_BUST_ENABLE and "cdn.jsdelivr.net" in raw_url,
+            help="Aktifkan jika URL manual memakai CDN dan sering mengambil JSON versi lama.",
+            key="singbox_qr_manual_cache_bust",
+        )
+        if manual_cache_bust:
+            raw_url = append_url_cache_buster(raw_url, get_singbox_qr_cache_buster_value())
         selected_path = raw_url or "manual-url"
 
     profile_name = profile_name_from_json_reference(selected_path if path_mode == "File output repo" else raw_url)
@@ -2529,7 +2617,7 @@ def render_admin_singbox_qr():
             <div class="pet-panel">
                 <div style="font-weight:900;color:#00ff88;">Mode import valid</div>
                 <div class="pet-small-note" style="text-align:left;margin-top:8px;">
-                    QR dibuat sebagai <b>remote profile deep link</b>, bukan raw JSON. Nama profile otomatis mengikuti nama file JSON yang dipilih di repo, misalnya <b>best-stable.json</b>.
+                    QR dibuat sebagai <b>remote profile deep link</b>, bukan raw JSON. URL CDN memakai cache-buster otomatis agar tidak mengambil JSON lama. Nama profile mengikuti nama file JSON di repo.
                 </div>
             </div>
             """,
