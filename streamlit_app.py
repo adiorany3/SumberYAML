@@ -2500,27 +2500,13 @@ def render_admin_singbox_qr():
         raw_url = normalize_github_blob_url(raw_url)
         selected_path = raw_url or "manual-url"
 
-    profile_source_reference = selected_path if path_mode == "File output repo" else raw_url
-    profile_name = profile_name_from_json_reference(profile_source_reference)
-
-    # Jangan pakai st.text_input dengan key statis untuk nama profile otomatis.
-    # Streamlit dapat mempertahankan nilai lama di session_state, sehingga nama tidak langsung berubah
-    # saat user mengganti pilihan "Pilih file JSON di repo". Render sebagai markdown/code agar selalu live.
-    st.markdown(
-        f"""
-        <div class="terminal-panel" style="margin-top:10px;padding:13px 14px;border-radius:14px;">
-            <div style="color:#00ff88;font-weight:950;font-size:13px;margin-bottom:6px;">
-                Nama profile otomatis
-            </div>
-            <div style="color:#eafff2;font-weight:900;overflow-wrap:anywhere;">
-                {escape(profile_name)}
-            </div>
-            <div class="pet-small-note" style="text-align:left;margin-top:7px;">
-                Mengikuti file JSON yang dipilih. Contoh: <code>best-stable-safe.json</code> → profile <code>best-stable-safe.json</code>.
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    profile_name = profile_name_from_json_reference(selected_path if path_mode == "File output repo" else raw_url)
+    st.text_input(
+        "Nama profile otomatis",
+        value=profile_name,
+        disabled=True,
+        help="Nama profile mengikuti nama file JSON yang dipilih di repo. Contoh: best-stable-safe.json → profile best-stable-safe.json.",
+        key="singbox_qr_profile_name_auto",
     )
 
     error_correction = st.selectbox(
