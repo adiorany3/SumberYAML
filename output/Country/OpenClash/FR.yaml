@@ -34,6 +34,34 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "oneclickvpnkeys FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 3976"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
   - name: "configV2rayNG FR"
     server: "104.17.3.81"
     port: 443
@@ -48,7 +76,7 @@ proxies:
       headers:
         Host: "www.gossipglove.com"
     udp: true
-  - name: "oneclickvpnkeys FR 3797"
+  - name: "oneclickvpnkeys FR 5829"
     server: "104.17.3.81"
     port: 443
     type: trojan

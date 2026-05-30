@@ -1,4 +1,19 @@
 proxies:
+  - name: "24 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7872e85d-fd7e-4472-99e5-49cb48d0f668
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "freepol2.3r8sv.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "freepol2.3r8sv.workers.dev"
+    udp: true
   - name: "30 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
