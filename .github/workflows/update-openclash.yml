@@ -20,6 +20,7 @@ on:
           - merge_links
           - build_stable
           - clear_quarantine
+          - sanitize_import
       enable_proxy_test:
         description: Jalankan test proxy/ping untuk sumber otomatis
         required: false
@@ -177,7 +178,7 @@ jobs:
           fi
 
       - name: Generate OpenClash output from automatic sources
-        if: ${{ env.MODE != 'merge_links' && env.MODE != 'build_stable' && env.MODE != 'clear_quarantine' }}
+        if: ${{ env.MODE != 'merge_links' && env.MODE != 'build_stable' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' }}
         run: |
           set -e
           if [ -f telegram_openclash_alive.py ]; then
@@ -202,7 +203,7 @@ jobs:
           find output -maxdepth 4 -type f | sort || true
 
       - name: Validate output/lengkap.yaml exists
-        if: ${{ env.MODE != 'clear_quarantine' }}
+        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' }}
         run: |
           set -e
           if [ ! -f output/lengkap.yaml ]; then
@@ -214,7 +215,7 @@ jobs:
           wc -l output/lengkap.yaml || true
 
       - name: Sanitize generated OpenClash group references before validation
-        if: ${{ env.MODE != 'clear_quarantine' }}
+        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' }}
         run: |
           set -e
           if [ -f scripts/fix_yaml_group_refs.py ]; then
@@ -226,7 +227,7 @@ jobs:
           fi
 
       - name: Validate generated OpenClash YAML outputs only
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'build_stable' }}
+        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'build_stable' && env.MODE != 'sanitize_import' }}
         run: |
           set -e
           if [ ! -f scripts/validate_openclash_outputs.py ]; then
@@ -261,7 +262,7 @@ jobs:
           python scripts/validate_openclash_outputs.py "${files[@]}"
 
       - name: Append trusted input links into OpenClash YAML outputs without validation gate
-        if: ${{ env.MODE != 'clear_quarantine' }}
+        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' }}
         run: |
           set -e
           if [ -f scripts/merge_links_into_openclash_yaml.py ]; then
@@ -288,7 +289,7 @@ jobs:
           fi
 
       - name: Build final sing-box JSON and merge trusted input links
-        if: ${{ env.MODE != 'clear_quarantine' }}
+        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' }}
         run: |
           set -e
           mkdir -p output/SingBox
@@ -337,7 +338,7 @@ jobs:
 
 
       - name: Fix sing-box mobile idle reconnect stability
-        if: ${{ env.MODE != 'clear_quarantine' }}
+        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' }}
         run: |
           set -e
           if [ -f scripts/stabilize_singbox_mobile_idle.py ]; then
@@ -350,7 +351,7 @@ jobs:
           fi
 
       - name: Build best-stable sing-box profiles and quarantine unhealthy nodes
-        if: ${{ env.MODE != 'clear_quarantine' }}
+        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' }}
         run: |
           set -e
           if [ -f scripts/build_best_stable.py ]; then
@@ -365,7 +366,7 @@ jobs:
           fi
 
       - name: Apply stable DNS fallback to sing-box JSON profiles
-        if: ${{ env.MODE != 'clear_quarantine' }}
+        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' }}
         run: |
           set -e
           if [ -f scripts/apply_dns_fallback_stable.py ]; then
@@ -381,6 +382,20 @@ jobs:
             cat output/SingBox/summary_dns_fallback_stable.json || true
           else
             echo "scripts/apply_dns_fallback_stable.py tidak ditemukan. Lewati DNS fallback stable."
+          fi
+
+      - name: Sanitize sing-box JSON for import compatibility
+        run: |
+          set -e
+          if [ -f scripts/sanitize_singbox_import.py ]; then
+            python scripts/sanitize_singbox_import.py \
+              --dir output/SingBox \
+              --preferred-latest-safe best-stable-safe.json
+
+            echo "Sing-box import sanitize summary:"
+            cat output/SingBox/summary_import_sanitize.json || true
+          else
+            echo "scripts/sanitize_singbox_import.py tidak ditemukan. Lewati import sanitizer."
           fi
 
       - name: Commit output files
