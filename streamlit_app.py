@@ -169,8 +169,8 @@ ADMIN_QUERY_VALUE = get_setting("ADMIN_QUERY_VALUE", "1") or "1"
 
 # Panel QR sing-box hanya dirender di halaman admin setelah login.
 SHOW_SINGBOX_QR_PANEL = get_setting("SHOW_SINGBOX_QR_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
-SINGBOX_DEFAULT_PROFILE_NAME = get_setting("SINGBOX_DEFAULT_PROFILE_NAME", "SumberYAML Best Ping")
-SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/best-ping.json")
+SINGBOX_DEFAULT_PROFILE_NAME = get_setting("SINGBOX_DEFAULT_PROFILE_NAME", "SumberYAML Best Stable")
+SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/best-stable.json")
 SINGBOX_DEFAULT_QR_ERROR_CORRECTION = get_setting("SINGBOX_DEFAULT_QR_ERROR_CORRECTION", "M").upper()
 # Default QR URL source. Gunakan jsDelivr agar perangkat/client yang memblokir raw.githubusercontent.com tetap bisa import.
 SINGBOX_QR_DEFAULT_URL_SOURCE = get_setting("SINGBOX_QR_DEFAULT_URL_SOURCE", "jsdelivr").strip().lower()
@@ -179,7 +179,16 @@ SINGBOX_QR_DEFAULT_URL_SOURCE = get_setting("SINGBOX_QR_DEFAULT_URL_SOURCE", "js
 # Tombol ini memicu GitHub Actions agar input/links.txt digabung ke output/SingBox/*.json.
 SHOW_SINGBOX_MERGE_PANEL = get_setting("SHOW_SINGBOX_MERGE_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
 SINGBOX_MERGE_WORKFLOW_MODE = get_setting("SINGBOX_MERGE_WORKFLOW_MODE", "merge_links").strip() or "merge_links"
+
+# Panel stabilitas sing-box hanya tampil di admin.
+SHOW_SINGBOX_STABILITY_PANEL = get_setting("SHOW_SINGBOX_STABILITY_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
+SINGBOX_BUILD_STABLE_WORKFLOW_MODE = get_setting("SINGBOX_BUILD_STABLE_WORKFLOW_MODE", "build_stable").strip() or "build_stable"
+SINGBOX_CLEAR_QUARANTINE_WORKFLOW_MODE = get_setting("SINGBOX_CLEAR_QUARANTINE_WORKFLOW_MODE", "clear_quarantine").strip() or "clear_quarantine"
 SINGBOX_KNOWN_JSON_PATHS = [
+    "output/SingBox/best-stable.json",
+    "output/SingBox/mobile-stable.json",
+    "output/SingBox/fallback-stable.json",
+    "output/SingBox/manual-links.json",
     "output/SingBox/best-ping.json",
     "output/SingBox/best.json",
     "output/SingBox/best-ping-new-dns.json",
@@ -1993,6 +2002,125 @@ def render_admin_singbox_merge():
             "Summary merge belum ditemukan. Jalankan tombol Merge input/links.txt, lalu tunggu GitHub Actions selesai."
         )
 
+
+def render_admin_singbox_stability():
+    """Panel admin untuk membangun profil sing-box paling stabil dan melihat quarantine."""
+    if not SHOW_SINGBOX_STABILITY_PANEL:
+        return
+
+    st.markdown('<div class="pet-section-title">Sing-box Stable Connection</div>', unsafe_allow_html=True)
+
+    st.markdown(
+        """
+        <div class="pet-panel">
+            <div style="font-weight:900;color:#00ff88;margin-bottom:8px;">🩺 Best Stable Builder</div>
+            <div class="pet-small-note" style="text-align:left;margin-top:0;line-height:1.7;">
+                Panel ini membuat profil <code>best-stable.json</code>, <code>mobile-stable.json</code>, dan
+                <code>fallback-stable.json</code>. Sistem memakai laporan ping/alive yang sudah ada, lalu menghindari
+                node yang sering timeout/lemot dengan quarantine sementara. Link manual dari <code>input/links.txt</code>
+                tetap dianggap trusted dan tidak dipaksa validasi alive/dead.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    stable_col1, stable_col2, stable_col3 = st.columns(3)
+    with stable_col1:
+        if st.button("🩺 Build Best Stable", use_container_width=True):
+            try:
+                dispatch_workflow(
+                    mode=SINGBOX_BUILD_STABLE_WORKFLOW_MODE,
+                    enable_proxy_test="false",
+                    filter_alive_only="false",
+                    strict_alive_only="false",
+                )
+                set_pet_action("Build Best Stable berhasil dipicu. Tunggu GitHub Actions selesai, lalu scan ulang QR best-stable.json.")
+                st.success("Build Best Stable berhasil dipicu lewat GitHub Actions.")
+                try:
+                    load_workflow_status_data.clear()
+                except Exception:
+                    pass
+            except Exception as exc:
+                set_pet_action("Gagal memicu Build Best Stable. Cek workflow mode dan token GitHub.")
+                st.error(str(exc))
+            st.rerun()
+
+    with stable_col2:
+        if st.button("♻️ Clear Quarantine", use_container_width=True):
+            try:
+                dispatch_workflow(
+                    mode=SINGBOX_CLEAR_QUARANTINE_WORKFLOW_MODE,
+                    enable_proxy_test="false",
+                    filter_alive_only="false",
+                    strict_alive_only="false",
+                )
+                set_pet_action("Clear quarantine berhasil dipicu. Node karantina akan dibuka kembali.")
+                st.success("Clear quarantine berhasil dipicu lewat GitHub Actions.")
+                try:
+                    load_workflow_status_data.clear()
+                except Exception:
+                    pass
+            except Exception as exc:
+                set_pet_action("Gagal memicu Clear Quarantine. Cek workflow mode dan token GitHub.")
+                st.error(str(exc))
+            st.rerun()
+
+    with stable_col3:
+        if st.button("📄 Refresh Health", use_container_width=True):
+            try:
+                load_workflow_status_data.clear()
+            except Exception:
+                pass
+            st.rerun()
+
+    summary = read_json_from_github("output/SingBox/summary_best_stable.json")
+    health = read_json_from_github("output/Health/summary_health.json")
+    clear_summary = read_json_from_github("output/Health/summary_clear_quarantine.json")
+    data = summary or health or {}
+
+    if data:
+        ok = data.get("ok", False)
+        status_color = "#00ff88" if ok else "#ffcc66"
+        stable_count = data.get("stable_count", "-")
+        fallback_count = data.get("fallback_count", "-")
+        healthy_count = data.get("healthy_count", "-")
+        quarantine_count = data.get("quarantine_count", "-")
+        manual_count = data.get("manual_count", "-")
+        updated_at = data.get("updated_at", "-")
+        policy = data.get("policy", {}) if isinstance(data.get("policy", {}), dict) else {}
+        max_delay = policy.get("stable_max_delay_ms", "-")
+        q_fail = policy.get("quarantine_after_failures", "-")
+        q_hours = policy.get("quarantine_hours", "-")
+
+        st.markdown(
+            f"""
+            <div class="pet-panel">
+                <div style="font-weight:900;color:{status_color};margin-bottom:8px;">Status Best Stable: {escape('OK' if ok else 'CHECK')}</div>
+                <div class="pet-small-note" style="text-align:left;margin-top:0;line-height:1.7;">
+                    Stable nodes: <b>{escape(str(stable_count))}</b> · Fallback nodes: <b>{escape(str(fallback_count))}</b><br>
+                    Healthy candidates: <b>{escape(str(healthy_count))}</b> · Quarantine: <b>{escape(str(quarantine_count))}</b> · Manual trusted: <b>{escape(str(manual_count))}</b><br>
+                    Policy: max delay <b>{escape(str(max_delay))} ms</b> · quarantine setelah <b>{escape(str(q_fail))}</b> gagal · durasi <b>{escape(str(q_hours))}</b> jam<br>
+                    Update terakhir: <code>{escape(str(updated_at))}</code><br>
+                    Output utama: <code>output/SingBox/best-stable.json</code> · <code>output/SingBox/mobile-stable.json</code> · <code>output/SingBox/fallback-stable.json</code>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        stable_tags = data.get("stable_tags", [])
+        if isinstance(stable_tags, list) and stable_tags:
+            with st.expander("Node yang masuk best-stable.json"):
+                for idx, name in enumerate(stable_tags[:30], start=1):
+                    st.write(f"{idx}. `{name}`")
+
+    else:
+        st.info("Belum ada summary Best Stable. Klik Build Best Stable lalu tunggu GitHub Actions selesai.")
+
+    if clear_summary:
+        st.caption(f"Clear quarantine terakhir: {clear_summary.get('updated_at', '-')} · cleared: {clear_summary.get('cleared_count', 0)}")
+
 def render_best_ping_component_html(best_data: dict, best_rows: list, summary: dict) -> str:
     """Render panel Best Ping lewat components.html agar HTML tidak tampil sebagai teks."""
     source_label = escape(str(best_data.get("source_label", "Indonesia")))
@@ -2306,7 +2434,7 @@ def render_admin_singbox_qr():
             <div class="pet-panel">
                 <div style="font-weight:900;color:#00ff88;">Mode import valid</div>
                 <div class="pet-small-note" style="text-align:left;margin-top:8px;">
-                    QR dibuat sebagai <b>remote profile deep link</b>, bukan raw JSON. Default diarahkan ke <b>best-ping.json</b> agar sing-box memakai node terbaik terbaru.
+                    QR dibuat sebagai <b>remote profile deep link</b>, bukan raw JSON. Default diarahkan ke <b>best-stable.json</b> agar sing-box memakai node yang lebih stabil untuk koneksi lama/idle.
                 </div>
             </div>
             """,
@@ -2445,6 +2573,7 @@ if ensure_admin_authenticated():
     render_workflow_status_panel()
     render_admin_actions()
     render_admin_singbox_merge()
+    render_admin_singbox_stability()
     render_admin_best_ping()
     render_admin_singbox_qr()
     if st.button("🚪 Keluar Admin", use_container_width=True):
