@@ -35,44 +35,24 @@
       "tag": "DIRECT"
     },
     {
-      "tag": "v2con",
+      "tag": "2 DE av2ngFast",
       "server": "104.17.3.81",
       "server_port": 443,
       "type": "vless",
-      "uuid": "2d5d3c38-6178-43d3-8002-86dd60e44d38",
+      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
       "tls": {
         "enabled": true,
-        "server_name": "v2configlab.v2configlab-2f5.workers.dev",
+        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/?ed=2560",
+        "path": "/ws",
         "headers": {
-          "Host": "v2configlab.v2configlab-2f5.workers.dev"
+          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
         }
       },
-      "connect_timeout": "8s"
-    },
-    {
-      "tag": "v2configlab_ DE",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "type": "vless",
-      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
-      "tls": {
-        "enabled": true,
-        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2048",
-        "headers": {
-          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
-        }
-      },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "tag": "canfigiop",
@@ -92,57 +72,77 @@
           "Host": "v2raycdn.dpdns.org"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
-      "tag": "oneclickvpnkeys FR 9777",
+      "tag": "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "trojan",
-      "password": "humanity",
+      "type": "vless",
+      "uuid": "7e346122-2ee0-406e-b964-a8ee665f1814",
       "tls": {
         "enabled": true,
-        "server_name": "www.calmloud.com",
+        "server_name": "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/assignment",
+        "path": "/?ed=2560",
         "headers": {
-          "Host": "www.calmloud.com"
+          "Host": "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
-      "tag": "KAFING_2 2752",
+      "tag": "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2446",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "trojan",
-      "password": "20ba0c60-0133-11f1-95ef-1239d0255272",
+      "type": "vless",
+      "uuid": "f2a73750-3087-48ff-a763-1348c15dce68",
       "tls": {
         "enabled": true,
-        "server_name": "uk1.test3.net",
+        "server_name": "rAyAn-007.mAxImA.DpDnS.OrG",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/howdy",
+        "path": "/?ed=2560",
         "headers": {
-          "Host": "uk1.test3.net"
+          "Host": "rAyAn-007.mAxImA.DpDnS.OrG"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
+    },
+    {
+      "tag": "US 37343 Telegram t.me SOSkeyNET",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "226cbc0f-409b-4df3-828c-6061cb701a7e",
+      "tls": {
+        "enabled": true,
+        "server_name": "salam.xdmmd12.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "salam.xdmmd12.workers.dev"
+        }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "v2con",
-        "v2configlab_ DE",
+        "2 DE av2ngFast",
         "canfigiop",
-        "oneclickvpnkeys FR 9777",
-        "KAFING_2 2752",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2446",
+        "US 37343 Telegram t.me SOSkeyNET",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -152,10 +152,10 @@
         "LINK hz2 xl"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "1m",
-      "tolerance": 30,
-      "interrupt_exist_connections": true,
-      "idle_timeout": "5m"
+      "interval": "3m",
+      "tolerance": 80,
+      "interrupt_exist_connections": false,
+      "idle_timeout": "2h"
     },
     {
       "type": "selector",
@@ -163,11 +163,11 @@
       "outbounds": [
         "AUTO-BEST-PING",
         "DIRECT",
-        "v2con",
-        "v2configlab_ DE",
+        "2 DE av2ngFast",
         "canfigiop",
-        "oneclickvpnkeys FR 9777",
-        "KAFING_2 2752",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2446",
+        "US 37343 Telegram t.me SOSkeyNET",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -177,7 +177,7 @@
         "LINK hz2 xl"
       ],
       "default": "AUTO-BEST-PING",
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": false
     },
     {
       "type": "trojan",
@@ -197,7 +197,7 @@
           "Host": "15.lowh.net"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -219,7 +219,7 @@
           "Host": "belnet.jsvpn.site"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -241,7 +241,7 @@
           "Host": "fbcdn.sbs"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "trojan",
@@ -261,7 +261,7 @@
           "Host": "sg-trojan.1server.co"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -282,7 +282,7 @@
           "Host": "akamaized.my"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -304,7 +304,7 @@
           "Host": "14.lowh.net"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -326,7 +326,7 @@
           "Host": "hz2.cobadl.com"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     }
   ],
   "route": {

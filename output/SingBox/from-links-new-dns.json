@@ -49,7 +49,7 @@
         "hz2 xl"
       ],
       "default": "AUTO-BEST-PING",
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": false
     },
     {
       "type": "urltest",
@@ -66,10 +66,10 @@
         "hz2 xl"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "1m",
-      "tolerance": 30,
-      "idle_timeout": "5m",
-      "interrupt_exist_connections": true
+      "interval": "3m",
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
     },
     {
       "type": "trojan",
@@ -89,7 +89,7 @@
           "Host": "15.lowh.net"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -111,7 +111,7 @@
           "Host": "belnet.jsvpn.site"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -133,7 +133,7 @@
           "Host": "belnet.jsvpn.site"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -155,7 +155,7 @@
           "Host": "fbcdn.sbs"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -177,7 +177,7 @@
           "Host": "belnet.jsvpn.site"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "trojan",
@@ -197,7 +197,7 @@
           "Host": "sg-trojan.1server.co"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -218,7 +218,7 @@
           "Host": "akamaized.my"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -240,7 +240,7 @@
           "Host": "14.lowh.net"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -262,7 +262,7 @@
           "Host": "hz2.cobadl.com"
         }
       },
-      "connect_timeout": "8s"
+      "connect_timeout": "15s"
     },
     {
       "type": "direct",
