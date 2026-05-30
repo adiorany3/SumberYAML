@@ -28,81 +28,6 @@ dns:
   - 1.0.0.1
   - 8.8.4.4
 proxies:
-- name: US 37655 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 41d480fd-1dcc-4766-8e01-a67e7faa5934
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: investors.spotify.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-amz
-    headers:
-      Host: investors.spotify.com.cyylr.eu.cc
-  udp: true
-- name: CA 37660 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: d0298536-d670-4045-bbb1-ddd5ea68683e
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: azadnet-826.pages.Dev
-  ws-opts:
-    path: /
-    headers:
-      Host: azadnet-826.pages.Dev
-  udp: true
-- name: CA 37533 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: support.zoom.us.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: support.zoom.us.cyylr.eu.cc
-  udp: true
-- name: NZ 37561 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: m.udemy.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: m.udemy.com.cyylr.eu.cc
-  udp: true
-- name: GozargahAzad NZ
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: cyylr.eu.cc
-  udp: true
 - name: US 37560 Telegram t.me SOSkeyNET
   server: 104.17.3.81
   port: 443
@@ -118,21 +43,82 @@ proxies:
     headers:
       Host: graph.instagram.com.cyylr.eu.cc
   udp: true
-- name: configV2rayNG FR
+- name: 24 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
-  type: trojan
-  password: humanity
+  type: vless
+  uuid: 7872e85d-fd7e-4472-99e5-49cb48d0f668
+  cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: www.gossipglove.com
+  servername: freepol2.3r8sv.workers.dev
   ws-opts:
-    path: /assignment
+    path: /
     headers:
-      Host: www.gossipglove.com
+      Host: freepol2.3r8sv.workers.dev
   udp: true
-- name: oneclickvpnkeys FR
+- name: https telegraph.rayan.dpdns.org persian
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 1679af35-6dd6-4c09-ae3b-18f239217f3e
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: rAyAn-007.pArViN.DpDnS.OrG
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: rayan-007.parvin.dpdns.org
+  udp: true
+- name: https telegraph.rayan-config.workers.dev persian
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: rAyAn-007.nAsTaRaN.DpDnS.OrG
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: rayan-007.nastaran.dpdns.org
+  udp: true
+- name: v2con
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 2d5d3c38-6178-43d3-8002-86dd60e44d38
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: v2configlab.v2configlab-2f5.workers.dev
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: v2configlab.v2configlab-2f5.workers.dev
+  udp: true
+- name: canfigiop
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 99324a44-8702-4a01-a400-cecddd6e2e0b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: v2raycdn.dpdns.org
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: v2raycdn.dpdns.org
+  udp: true
+- name: Wiizard_Net
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -146,21 +132,7 @@ proxies:
     headers:
       Host: www.calmlunch.com
   udp: true
-- name: oneclickvpnkeys FR 6556
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.ignitelimit.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.ignitelimit.com
-  udp: true
-- name: oneclickvpnkeys FR 9846
+- name: irconfiig
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -188,22 +160,7 @@ proxies:
     headers:
       Host: www.multiplydose.com
   udp: true
-- name: CA 37591 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 3c5ca504-1ef8-43d5-ada6-e290f39722f2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: jffjjhgfhh.yallda.com
-  ws-opts:
-    path: /t.me/v2rayvpnlink
-    headers:
-      Host: varzesh24.yallda.com
-  udp: true
-- name: oneclickvpnkeys XX
+- name: oneclickvpnkeys FR
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -211,40 +168,84 @@ proxies:
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: www.creationlong.org
+  sni: www.ignitelimit.com
   ws-opts:
     path: /assignment
     headers:
-      Host: www.creationlong.org
+      Host: www.ignitelimit.com
   udp: true
-- name: outline_ir
+- name: 52 SHOP_GAMING1011
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: c2f0a8f0-36fe-4a94-824b-bca271ca642b
+  uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: alphacdn.alphashops.shop
+  servername: octopusss4.com
   ws-opts:
-    path: /ws
+    path: /tsghdws
     headers:
-      Host: alphacdn.alphashops.shop
+      Host: octopusss4.com
   udp: true
-- name: KAFING_2 3657
+- name: configV2rayNG FR
   server: 104.17.3.81
   port: 443
   type: trojan
-  password: 20ba0c60-0133-11f1-95ef-1239d0255272
+  password: humanity
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: uk1.test3.net
+  sni: www.gossipglove.com
   ws-opts:
-    path: /howdy
+    path: /assignment
     headers:
-      Host: uk1.test3.net
+      Host: www.gossipglove.com
+  udp: true
+- name: NETMelliAnti 3278
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: jAck1mS8h3
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: de.aananas.ir
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: de.aananas.ir
+  udp: true
+- name: NZ 37561 Telegram t.me SOSkeyNET
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: m.udemy.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: m.udemy.com.cyylr.eu.cc
+  udp: true
+- name: filembad-173
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: cyylr.eu.cc
   udp: true
 - name: LINK 15.lowh.net
   type: trojan
@@ -356,11 +357,11 @@ proxy-groups:
 - name: URL-TEST TOP 5 INDONESIA
   type: url-test
   proxies:
-  - US 37655 Telegram t.me SOSkeyNET
-  - CA 37660 Telegram t.me SOSkeyNET
-  - CA 37533 Telegram t.me SOSkeyNET
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - GozargahAzad NZ
+  - US 37560 Telegram t.me SOSkeyNET
+  - 24 oneclickvpnkeys
+  - https telegraph.rayan.dpdns.org persian
+  - https telegraph.rayan-config.workers.dev persian
+  - v2con
   - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -375,21 +376,21 @@ proxy-groups:
 - name: FALLBACK CEPAT
   type: fallback
   proxies:
-  - US 37655 Telegram t.me SOSkeyNET
-  - CA 37660 Telegram t.me SOSkeyNET
-  - CA 37533 Telegram t.me SOSkeyNET
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - GozargahAzad NZ
   - US 37560 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
-  - oneclickvpnkeys FR
-  - oneclickvpnkeys FR 6556
-  - oneclickvpnkeys FR 9846
+  - 24 oneclickvpnkeys
+  - https telegraph.rayan.dpdns.org persian
+  - https telegraph.rayan-config.workers.dev persian
+  - v2con
+  - canfigiop
+  - Wiizard_Net
+  - irconfiig
   - oneclickvpnkeys NL
-  - CA 37591 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys XX
-  - outline_ir
-  - KAFING_2 3657
+  - oneclickvpnkeys FR
+  - 52 SHOP_GAMING1011
+  - configV2rayNG FR
+  - NETMelliAnti 3278
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - filembad-173
   - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -403,16 +404,16 @@ proxy-groups:
 - name: GAMING STABIL
   type: fallback
   proxies:
-  - US 37655 Telegram t.me SOSkeyNET
-  - CA 37660 Telegram t.me SOSkeyNET
-  - CA 37533 Telegram t.me SOSkeyNET
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - GozargahAzad NZ
   - US 37560 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - 24 oneclickvpnkeys
+  - https telegraph.rayan.dpdns.org persian
+  - https telegraph.rayan-config.workers.dev persian
+  - v2con
+  - canfigiop
+  - Wiizard_Net
+  - irconfiig
+  - oneclickvpnkeys NL
   - oneclickvpnkeys FR
-  - oneclickvpnkeys FR 6556
-  - oneclickvpnkeys FR 9846
   - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -426,16 +427,16 @@ proxy-groups:
 - name: SOCIAL MEDIA STABIL
   type: fallback
   proxies:
-  - US 37655 Telegram t.me SOSkeyNET
-  - CA 37660 Telegram t.me SOSkeyNET
-  - CA 37533 Telegram t.me SOSkeyNET
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - GozargahAzad NZ
   - US 37560 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - 24 oneclickvpnkeys
+  - https telegraph.rayan.dpdns.org persian
+  - https telegraph.rayan-config.workers.dev persian
+  - v2con
+  - canfigiop
+  - Wiizard_Net
+  - irconfiig
+  - oneclickvpnkeys NL
   - oneclickvpnkeys FR
-  - oneclickvpnkeys FR 6556
-  - oneclickvpnkeys FR 9846
   - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -449,16 +450,16 @@ proxy-groups:
 - name: STREAMING STABIL
   type: fallback
   proxies:
-  - US 37655 Telegram t.me SOSkeyNET
-  - CA 37660 Telegram t.me SOSkeyNET
-  - CA 37533 Telegram t.me SOSkeyNET
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - GozargahAzad NZ
   - US 37560 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - 24 oneclickvpnkeys
+  - https telegraph.rayan.dpdns.org persian
+  - https telegraph.rayan-config.workers.dev persian
+  - v2con
+  - canfigiop
+  - Wiizard_Net
+  - irconfiig
+  - oneclickvpnkeys NL
   - oneclickvpnkeys FR
-  - oneclickvpnkeys FR 6556
-  - oneclickvpnkeys FR 9846
   - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -472,16 +473,16 @@ proxy-groups:
 - name: WORKING STABIL
   type: fallback
   proxies:
-  - US 37655 Telegram t.me SOSkeyNET
-  - CA 37660 Telegram t.me SOSkeyNET
-  - CA 37533 Telegram t.me SOSkeyNET
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - GozargahAzad NZ
   - US 37560 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - 24 oneclickvpnkeys
+  - https telegraph.rayan.dpdns.org persian
+  - https telegraph.rayan-config.workers.dev persian
+  - v2con
+  - canfigiop
+  - Wiizard_Net
+  - irconfiig
+  - oneclickvpnkeys NL
   - oneclickvpnkeys FR
-  - oneclickvpnkeys FR 6556
-  - oneclickvpnkeys FR 9846
   - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -495,16 +496,16 @@ proxy-groups:
 - name: GENERAL STABIL
   type: fallback
   proxies:
-  - US 37655 Telegram t.me SOSkeyNET
-  - CA 37660 Telegram t.me SOSkeyNET
-  - CA 37533 Telegram t.me SOSkeyNET
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - GozargahAzad NZ
   - US 37560 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - 24 oneclickvpnkeys
+  - https telegraph.rayan.dpdns.org persian
+  - https telegraph.rayan-config.workers.dev persian
+  - v2con
+  - canfigiop
+  - Wiizard_Net
+  - irconfiig
+  - oneclickvpnkeys NL
   - oneclickvpnkeys FR
-  - oneclickvpnkeys FR 6556
-  - oneclickvpnkeys FR 9846
   - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -518,16 +519,16 @@ proxy-groups:
 - name: URL-TEST TOP GLOBAL
   type: url-test
   proxies:
-  - US 37655 Telegram t.me SOSkeyNET
-  - CA 37660 Telegram t.me SOSkeyNET
-  - CA 37533 Telegram t.me SOSkeyNET
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - GozargahAzad NZ
   - US 37560 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - 24 oneclickvpnkeys
+  - https telegraph.rayan.dpdns.org persian
+  - https telegraph.rayan-config.workers.dev persian
+  - v2con
+  - canfigiop
+  - Wiizard_Net
+  - irconfiig
+  - oneclickvpnkeys NL
   - oneclickvpnkeys FR
-  - oneclickvpnkeys FR 6556
-  - oneclickvpnkeys FR 9846
   - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -542,21 +543,21 @@ proxy-groups:
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - US 37655 Telegram t.me SOSkeyNET
-  - CA 37660 Telegram t.me SOSkeyNET
-  - CA 37533 Telegram t.me SOSkeyNET
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - GozargahAzad NZ
   - US 37560 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
-  - oneclickvpnkeys FR
-  - oneclickvpnkeys FR 6556
-  - oneclickvpnkeys FR 9846
+  - 24 oneclickvpnkeys
+  - https telegraph.rayan.dpdns.org persian
+  - https telegraph.rayan-config.workers.dev persian
+  - v2con
+  - canfigiop
+  - Wiizard_Net
+  - irconfiig
   - oneclickvpnkeys NL
-  - CA 37591 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys XX
-  - outline_ir
-  - KAFING_2 3657
+  - oneclickvpnkeys FR
+  - 52 SHOP_GAMING1011
+  - configV2rayNG FR
+  - NETMelliAnti 3278
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - filembad-173
   - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -571,21 +572,21 @@ proxy-groups:
 - name: FALLBACK
   type: fallback
   proxies:
-  - US 37655 Telegram t.me SOSkeyNET
-  - CA 37660 Telegram t.me SOSkeyNET
-  - CA 37533 Telegram t.me SOSkeyNET
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - GozargahAzad NZ
   - US 37560 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
-  - oneclickvpnkeys FR
-  - oneclickvpnkeys FR 6556
-  - oneclickvpnkeys FR 9846
+  - 24 oneclickvpnkeys
+  - https telegraph.rayan.dpdns.org persian
+  - https telegraph.rayan-config.workers.dev persian
+  - v2con
+  - canfigiop
+  - Wiizard_Net
+  - irconfiig
   - oneclickvpnkeys NL
-  - CA 37591 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys XX
-  - outline_ir
-  - KAFING_2 3657
+  - oneclickvpnkeys FR
+  - 52 SHOP_GAMING1011
+  - configV2rayNG FR
+  - NETMelliAnti 3278
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - filembad-173
   - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8

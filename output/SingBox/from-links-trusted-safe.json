@@ -20,9 +20,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "address": [
-        "172.19.0.1/30"
-      ],
+      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
       "stack": "system"
@@ -36,68 +34,41 @@
   ],
   "outbounds": [
     {
-      "type": "urltest",
-      "tag": "AUTO-BEST-STABLE",
-      "outbounds": [
-        "15.lowh.net",
-        "sg-trojan.1server.co",
-        "LINK 15.lowh.net",
-        "LINK bel432 xl",
-        "LINK bel432 xl 2",
-        "LINK VMess-WS-TLS-443-akuku8",
-        "LINK bel432 telk",
-        "LINK sg-trojan.1server.co",
-        "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "LINK 14.lowh.net",
-        "LINK hz2 xl"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
-        "15.lowh.net",
-        "sg-trojan.1server.co",
         "DIRECT",
-        "LINK 15.lowh.net",
-        "LINK bel432 xl",
-        "LINK bel432 xl 2",
-        "LINK VMess-WS-TLS-443-akuku8",
-        "LINK bel432 telk",
-        "LINK sg-trojan.1server.co",
-        "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "LINK 14.lowh.net",
-        "LINK hz2 xl"
+        "15.lowh.net",
+        "bel432 xl",
+        "bel432 xl 2",
+        "VMess-WS-TLS-443-akuku8",
+        "bel432 telk",
+        "sg-trojan.1server.co",
+        "VLESS-WS-TLS-443-apt50atpprem",
+        "14.lowh.net",
+        "hz2 xl"
       ],
-      "default": "AUTO-BEST-STABLE",
-      "interrupt_exist_connections": false
+      "default": "DIRECT"
     },
     {
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
         "15.lowh.net",
+        "bel432 xl",
+        "bel432 xl 2",
+        "VMess-WS-TLS-443-akuku8",
+        "bel432 telk",
         "sg-trojan.1server.co",
-        "LINK 15.lowh.net",
-        "LINK bel432 xl",
-        "LINK bel432 xl 2",
-        "LINK VMess-WS-TLS-443-akuku8",
-        "LINK bel432 telk",
-        "LINK sg-trojan.1server.co",
-        "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "LINK 14.lowh.net",
-        "LINK hz2 xl"
+        "VLESS-WS-TLS-443-apt50atpprem",
+        "14.lowh.net",
+        "hz2 xl"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 50
+      "tolerance": 80,
+      "default": "15.lowh.net"
     },
     {
       "type": "trojan",
@@ -105,48 +76,6 @@
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "15.lowh.net"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/welcome",
-        "headers": {
-          "Host": "15.lowh.net"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "sg-trojan.1server.co",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "sg-trojan.1server.co"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/welcome",
-        "headers": {
-          "Host": "sg-trojan.1server.co"
-        }
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
-    },
-    {
-      "type": "trojan",
-      "tag": "LINK 15.lowh.net",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
       "tls": {
         "enabled": true,
         "server_name": "15.lowh.net"
@@ -161,7 +90,7 @@
     },
     {
       "type": "vmess",
-      "tag": "LINK bel432 xl",
+      "tag": "bel432 xl",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
@@ -181,7 +110,7 @@
     },
     {
       "type": "vmess",
-      "tag": "LINK bel432 xl 2",
+      "tag": "bel432 xl 2",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
@@ -201,7 +130,7 @@
     },
     {
       "type": "vmess",
-      "tag": "LINK VMess-WS-TLS-443-akuku8",
+      "tag": "VMess-WS-TLS-443-akuku8",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
@@ -221,7 +150,7 @@
     },
     {
       "type": "vmess",
-      "tag": "LINK bel432 telk",
+      "tag": "bel432 telk",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
@@ -241,7 +170,7 @@
     },
     {
       "type": "trojan",
-      "tag": "LINK sg-trojan.1server.co",
+      "tag": "sg-trojan.1server.co",
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
@@ -259,7 +188,7 @@
     },
     {
       "type": "vless",
-      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem",
+      "tag": "VLESS-WS-TLS-443-apt50atpprem",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
@@ -278,7 +207,7 @@
     },
     {
       "type": "vmess",
-      "tag": "LINK 14.lowh.net",
+      "tag": "14.lowh.net",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "0629e500-1d98-11f1-bba0-1577c1651679",
@@ -298,7 +227,7 @@
     },
     {
       "type": "vmess",
-      "tag": "LINK hz2 xl",
+      "tag": "hz2 xl",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "56b64a80-1fb2-11f1-969a-1577c1651679",
@@ -315,6 +244,10 @@
           "Host": "hz2.cobadl.com"
         }
       }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     }
   ],
   "route": {

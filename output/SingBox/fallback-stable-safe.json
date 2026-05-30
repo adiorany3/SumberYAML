@@ -35,23 +35,63 @@
   "outbounds": [
     {
       "type": "urltest",
-      "tag": "AUTO-BEST-STABLE",
+      "tag": "AUTO-BEST-PING",
       "outbounds": [
+        "https telegraph.rayan.dpdns.org persian",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "https telegraph.rayan-config.workers.dev persian",
+        "VPNine1",
         "oneclickvpnkeys US",
+        "US 37560 Telegram t.me SOSkeyNET",
+        "v2configlab",
         "2 DE av2ngFast",
         "v2con",
-        "v2configlab_ DE",
-        "24 oneclickvpnkeys",
-        "canfigiop",
-        "GozargahAzad NZ",
-        "75 oneclickvpnkeys",
-        "US 37560 Telegram t.me SOSkeyNET",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "US 37655 Telegram t.me SOSkeyNET",
+        "24 oneclickvpnkeys",
+        "canfigiop",
         "CA 37533 Telegram t.me SOSkeyNET",
-        "CA 37660 Telegram t.me SOSkeyNET",
+        "75 oneclickvpnkeys",
+        "LINK 15.lowh.net",
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK sg-trojan.1server.co",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK 14.lowh.net",
+        "LINK hz2 xl",
+        "LINK 15.lowh.net 2",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK sg-trojan.1server.co 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
+        "LINK 14.lowh.net 2",
+        "LINK hz2 xl 2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80
+    },
+    {
+      "type": "urltest",
+      "tag": "AUTO-BEST-STABLE",
+      "outbounds": [
+        "https telegraph.rayan.dpdns.org persian",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+        "https telegraph.rayan-config.workers.dev persian",
+        "VPNine1",
+        "oneclickvpnkeys US",
+        "US 37560 Telegram t.me SOSkeyNET",
+        "v2configlab",
+        "2 DE av2ngFast",
+        "v2con",
+        "NZ 37561 Telegram t.me SOSkeyNET",
+        "US 37655 Telegram t.me SOSkeyNET",
+        "24 oneclickvpnkeys",
+        "canfigiop",
+        "CA 37533 Telegram t.me SOSkeyNET",
+        "75 oneclickvpnkeys",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -72,27 +112,27 @@
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 80,
-      "default": "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      "default": "https telegraph.rayan.dpdns.org persian"
     },
     {
       "type": "urltest",
       "tag": "AUTO-FALLBACK-STABLE",
       "outbounds": [
-        "CA 37533 Telegram t.me SOSkeyNET",
-        "oneclickvpnkeys US",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "2 DE av2ngFast",
-        "75 oneclickvpnkeys",
-        "CA 37660 Telegram t.me SOSkeyNET",
-        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "US 37560 Telegram t.me SOSkeyNET",
-        "v2con",
-        "v2configlab_ DE",
+        "US 37655 Telegram t.me SOSkeyNET",
         "24 oneclickvpnkeys",
+        "75 oneclickvpnkeys",
         "canfigiop",
-        "GozargahAzad NZ",
         "https telegraph.rayan-config.workers.dev persian",
+        "https telegraph.rayan.dpdns.org persian",
+        "v2con",
+        "2 DE av2ngFast",
+        "CA 37533 Telegram t.me SOSkeyNET",
+        "v2configlab",
+        "VPNine1",
+        "oneclickvpnkeys US",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -104,28 +144,30 @@
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 100,
-      "default": "CA 37533 Telegram t.me SOSkeyNET"
+      "default": "NZ 37561 Telegram t.me SOSkeyNET"
     },
     {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
+        "AUTO-BEST-STABLE",
+        "AUTO-BEST-PING",
         "DIRECT",
-        "CA 37533 Telegram t.me SOSkeyNET",
-        "oneclickvpnkeys US",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "2 DE av2ngFast",
-        "75 oneclickvpnkeys",
-        "CA 37660 Telegram t.me SOSkeyNET",
-        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "NZ 37561 Telegram t.me SOSkeyNET",
         "US 37560 Telegram t.me SOSkeyNET",
-        "v2con",
-        "v2configlab_ DE",
+        "US 37655 Telegram t.me SOSkeyNET",
         "24 oneclickvpnkeys",
+        "75 oneclickvpnkeys",
         "canfigiop",
-        "GozargahAzad NZ",
         "https telegraph.rayan-config.workers.dev persian",
+        "https telegraph.rayan.dpdns.org persian",
+        "v2con",
+        "2 DE av2ngFast",
+        "CA 37533 Telegram t.me SOSkeyNET",
+        "v2configlab",
+        "VPNine1",
+        "oneclickvpnkeys US",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
         "LINK 15.lowh.net",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -133,7 +175,6 @@
         "LINK VLESS-WS-TLS-443-apt50atpprem",
         "LINK 14.lowh.net",
         "LINK hz2 xl",
-        "AUTO-BEST-STABLE",
         "LINK 15.lowh.net 2",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
@@ -145,6 +186,25 @@
         "LINK hz2 xl 2"
       ],
       "default": "AUTO-BEST-STABLE"
+    },
+    {
+      "type": "vless",
+      "tag": "https telegraph.rayan.dpdns.org persian",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "1679af35-6dd6-4c09-ae3b-18f239217f3e",
+      "tls": {
+        "enabled": true,
+        "server_name": "rAyAn-007.pArViN.DpDnS.OrG",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "rayan-007.parvin.dpdns.org"
+        }
+      }
     },
     {
       "type": "vless",
@@ -186,20 +246,77 @@
     },
     {
       "type": "vless",
-      "tag": "oneclickvpnkeys US",
+      "tag": "VPNine1",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "uuid": "0905460d-6edc-4a82-8ec8-6b76090b41c8",
       "tls": {
         "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
+        "server_name": "nginx-f.pages.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/?ed=2560fp=randomized",
         "headers": {
-          "Host": "juzi.qea.ccwu.cc"
+          "Host": "nginx-f.pages.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "oneclickvpnkeys US",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/fp=random",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "US 37560 Telegram t.me SOSkeyNET",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
+      "tls": {
+        "enabled": true,
+        "server_name": "graph.instagram.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "graph.instagram.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2configlab",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "1de37726-744b-46e1-9101-c926b3402e82",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2.v2configlab.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "v2.v2configlab.workers.dev"
         }
       }
     },
@@ -243,20 +360,39 @@
     },
     {
       "type": "vless",
-      "tag": "v2configlab_ DE",
+      "tag": "NZ 37561 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
+      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
       "tls": {
         "enabled": true,
-        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
+        "server_name": "m.udemy.com.cyylr.eu.cc",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/?ed=2048",
+        "path": "/id-tksi",
         "headers": {
-          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
+          "Host": "m.udemy.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "US 37655 Telegram t.me SOSkeyNET",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "41d480fd-1dcc-4766-8e01-a67e7faa5934",
+      "tls": {
+        "enabled": true,
+        "server_name": "investors.spotify.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-amz",
+        "headers": {
+          "Host": "investors.spotify.com.cyylr.eu.cc"
         }
       }
     },
@@ -300,101 +436,6 @@
     },
     {
       "type": "vless",
-      "tag": "GozargahAzad NZ",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
-      "tls": {
-        "enabled": true,
-        "server_name": "cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi",
-        "headers": {
-          "Host": "cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "75 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "ce69190e-935a-4394-9e5e-2ab2872ba242",
-      "tls": {
-        "enabled": true,
-        "server_name": "up2-df6.pages.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/uTZSXPBI2IfoxF86",
-        "headers": {
-          "Host": "up2-df6.pages.dev"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "US 37560 Telegram t.me SOSkeyNET",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "NZ 37561 Telegram t.me SOSkeyNET",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
-      "tls": {
-        "enabled": true,
-        "server_name": "m.udemy.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "m.udemy.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "US 37655 Telegram t.me SOSkeyNET",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "41d480fd-1dcc-4766-8e01-a67e7faa5934",
-      "tls": {
-        "enabled": true,
-        "server_name": "investors.spotify.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-amz",
-        "headers": {
-          "Host": "investors.spotify.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
       "tag": "CA 37533 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
@@ -414,20 +455,20 @@
     },
     {
       "type": "vless",
-      "tag": "CA 37660 Telegram t.me SOSkeyNET",
+      "tag": "75 oneclickvpnkeys",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "d0298536-d670-4045-bbb1-ddd5ea68683e",
+      "uuid": "ce69190e-935a-4394-9e5e-2ab2872ba242",
       "tls": {
         "enabled": true,
-        "server_name": "azadnet-826.pages.Dev",
+        "server_name": "up2-df6.pages.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/uTZSXPBI2IfoxF86",
         "headers": {
-          "Host": "azadnet-826.pages.Dev"
+          "Host": "up2-df6.pages.dev"
         }
       }
     },
