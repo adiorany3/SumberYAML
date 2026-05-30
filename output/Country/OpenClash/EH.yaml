@@ -49,48 +49,6 @@ proxies:
       headers:
         Host: "freepol2.3r8sv.workers.dev"
     udp: true
-  - name: "30 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "Mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "cdn.hitgram.ir"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "cdn.hitgram.ir"
-    udp: true
-  - name: "62 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "Mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "dash.hitgram.ir"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "dash.hitgram.ir"
-    udp: true
-  - name: "29 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "Mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.hitgram.ir"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "www.hitgram.ir"
-    udp: true
 
 proxy-groups:
   - name: "PROXY"

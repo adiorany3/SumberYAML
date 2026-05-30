@@ -37,8 +37,8 @@
       "outbounds": [
         "AUTO-BEST-PING",
         "DIRECT",
-        "HE",
-        "Trojan adisanggoro"
+        "15.lowh.net",
+        "sg-trojan.1server.co"
       ],
       "default": "AUTO-BEST-PING",
       "interrupt_exist_connections": true
@@ -47,8 +47,8 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "HE",
-        "Trojan adisanggoro"
+        "15.lowh.net",
+        "sg-trojan.1server.co"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "1m",
@@ -58,42 +58,40 @@
     },
     {
       "type": "trojan",
-      "tag": "HE",
+      "tag": "15.lowh.net",
       "server": "104.17.3.81",
       "server_port": 443,
-      "password": "ca189f80-3a46-11f1-bbd9-1577c1651679",
+      "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
       "network": "tcp",
       "tls": {
         "enabled": true,
-        "server_name": "sg-trojan.1server.co",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/welcome",
-        "headers": {
-          "Host": "sg-trojan.1server.co"
-        }
-      },
-      "connect_timeout": "8s"
-    },
-    {
-      "type": "trojan",
-      "tag": "Trojan adisanggoro",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "56e635c0-3de6-11f1-bc6c-1577c1651679",
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "15.lowh.net",
-        "insecure": true
+        "server_name": "15.lowh.net"
       },
       "transport": {
         "type": "ws",
         "path": "/welcome",
         "headers": {
           "Host": "15.lowh.net"
+        }
+      },
+      "connect_timeout": "8s"
+    },
+    {
+      "type": "trojan",
+      "tag": "sg-trojan.1server.co",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "sg-trojan.1server.co"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "sg-trojan.1server.co"
         }
       },
       "connect_timeout": "8s"

@@ -28,79 +28,6 @@ dns:
   - 1.0.0.1
   - 8.8.4.4
 proxies:
-- name: DE t.me Natrixo BB
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Mitivpn
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.hitgram.ir
-  ws-opts:
-    path: /?ed
-    headers:
-      Host: www.hitgram.ir
-  udp: true
-- name: 2 DE av2ngFast
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 2730487f-0ed5-4f04-92d5-f95f9253d4f4
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev
-  ws-opts:
-    path: /ws
-    headers:
-      Host: v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev
-  udp: true
-- name: US 37343 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 226cbc0f-409b-4df3-828c-6061cb701a7e
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: salam.xdmmd12.workers.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: salam.xdmmd12.workers.dev
-  udp: true
-- name: v2configlab
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 1de37726-744b-46e1-9101-c926b3402e82
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: v2.v2configlab.workers.dev
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: v2.v2configlab.workers.dev
-  udp: true
-- name: oliver_soul
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Mitivpn
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: my.hitgram.ir
-  ws-opts:
-    path: /?ed=mitivpn
-    headers:
-      Host: my.hitgram.ir
-  udp: true
 - name: v2con
   server: 104.17.3.81
   port: 443
@@ -115,94 +42,6 @@ proxies:
     path: /?ed=2560
     headers:
       Host: v2configlab.v2configlab-2f5.workers.dev
-  udp: true
-- name: canfigiop
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 99324a44-8702-4a01-a400-cecddd6e2e0b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: v2raycdn.dpdns.org
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: v2raycdn.dpdns.org
-  udp: true
-- name: https telegraph.rayan.dpdns.org persian
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 1679af35-6dd6-4c09-ae3b-18f239217f3e
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: rAyAn-007.pArViN.DpDnS.OrG
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: rayan-007.parvin.dpdns.org
-  udp: true
-- name: oneclickvpnkeys US
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: oneclickvpnkeys DE
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: octopusss5.info
-  ws-opts:
-    path: /udfyfws
-    headers:
-      Host: octopusss5.info
-  udp: true
-- name: oneclickvpnkeys FR 3976
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.calmloud.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmloud.com
-  udp: true
-- name: oneclickvpnkeys NL
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.multiplydose.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.multiplydose.com
   udp: true
 - name: v2configlab_ DE
   server: 104.17.3.81
@@ -219,6 +58,124 @@ proxies:
     headers:
       Host: v2configlab.v2configlab7-5a2.workers.dev
   udp: true
+- name: canfigiop
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 99324a44-8702-4a01-a400-cecddd6e2e0b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: v2raycdn.dpdns.org
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: v2raycdn.dpdns.org
+  udp: true
+- name: oneclickvpnkeys FR 9777
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmloud.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmloud.com
+  udp: true
+- name: KAFING_2 2752
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: 20ba0c60-0133-11f1-95ef-1239d0255272
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: uk1.test3.net
+  ws-opts:
+    path: /howdy
+    headers:
+      Host: uk1.test3.net
+  udp: true
+- name: CA 37660 Telegram t.me SOSkeyNET
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: d0298536-d670-4045-bbb1-ddd5ea68683e
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: azadnet-826.pages.Dev
+  ws-opts:
+    path: /
+    headers:
+      Host: azadnet-826.pages.Dev
+  udp: true
+- name: oneclickvpnkeys US
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: NZ 37561 Telegram t.me SOSkeyNET
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: m.udemy.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: m.udemy.com.cyylr.eu.cc
+  udp: true
+- name: US 37560 Telegram t.me SOSkeyNET
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: graph.instagram.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: graph.instagram.com.cyylr.eu.cc
+  udp: true
+- name: https telegraph.rayan-config.workers.dev persian 5937
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: d2d0f796-edb0-427a-af32-ae360679f9e7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: rAyAn-007.fOtOn.dPdNs.oRg
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: rayan-007.foton.dpdns.org
+  udp: true
 - name: 24 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
@@ -233,6 +190,21 @@ proxies:
     path: /
     headers:
       Host: freepol2.3r8sv.workers.dev
+  udp: true
+- name: Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 7e346122-2ee0-406e-b964-a8ee665f1814
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: paRMis-1Tk63J.PArMiS.WoRkeRs.DeV
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: paRMis-1Tk63J.PArMiS.WoRkeRs.DeV
   udp: true
 - name: VPNine1
   server: 104.17.3.81
@@ -249,20 +221,50 @@ proxies:
     headers:
       Host: nginx-f.pages.dev
   udp: true
-- name: LINK HE
+- name: v2configlab
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 1de37726-744b-46e1-9101-c926b3402e82
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: v2.v2configlab.workers.dev
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: v2.v2configlab.workers.dev
+  udp: true
+- name: 2 DE av2ngFast
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 2730487f-0ed5-4f04-92d5-f95f9253d4f4
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev
+  ws-opts:
+    path: /ws
+    headers:
+      Host: v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev
+  udp: true
+- name: LINK 15.lowh.net
   type: trojan
   server: 104.17.3.81
   port: 443
-  password: ca189f80-3a46-11f1-bbd9-1577c1651679
+  password: 38e81a10-5bbb-11f1-b380-1577c1651679
   udp: true
   tls: true
-  servername: sg-trojan.1server.co
-  skip-cert-verify: true
+  servername: 15.lowh.net
+  skip-cert-verify: false
   network: ws
   ws-opts:
     path: /welcome
     headers:
-      Host: sg-trojan.1server.co
+      Host: 15.lowh.net
 - name: LINK bel432 xl
   type: vmess
   server: 104.17.3.81
@@ -295,20 +297,20 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: LINK Trojan adisanggoro
+- name: LINK sg-trojan.1server.co
   type: trojan
   server: 104.17.3.81
   port: 443
-  password: 56e635c0-3de6-11f1-bc6c-1577c1651679
+  password: 6d9d87d0-5bbb-11f1-806f-1577c1651679
   udp: true
   tls: true
-  servername: 15.lowh.net
-  skip-cert-verify: true
+  servername: sg-trojan.1server.co
+  skip-cert-verify: false
   network: ws
   ws-opts:
     path: /welcome
     headers:
-      Host: 15.lowh.net
+      Host: sg-trojan.1server.co
 - name: LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
@@ -359,15 +361,15 @@ proxy-groups:
 - name: URL-TEST TOP 5 INDONESIA
   type: url-test
   proxies:
-  - DE t.me Natrixo BB
-  - 2 DE av2ngFast
-  - US 37343 Telegram t.me SOSkeyNET
-  - v2configlab
-  - oliver_soul
-  - LINK HE
+  - v2con
+  - v2configlab_ DE
+  - canfigiop
+  - oneclickvpnkeys FR 9777
+  - KAFING_2 2752
+  - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
-  - LINK Trojan adisanggoro
+  - LINK sg-trojan.1server.co
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 14.lowh.net
   - LINK hz2 xl
@@ -378,25 +380,25 @@ proxy-groups:
 - name: FALLBACK CEPAT
   type: fallback
   proxies:
-  - DE t.me Natrixo BB
-  - 2 DE av2ngFast
-  - US 37343 Telegram t.me SOSkeyNET
-  - v2configlab
-  - oliver_soul
   - v2con
-  - canfigiop
-  - https telegraph.rayan.dpdns.org persian
-  - oneclickvpnkeys US
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys FR 3976
-  - oneclickvpnkeys NL
   - v2configlab_ DE
+  - canfigiop
+  - oneclickvpnkeys FR 9777
+  - KAFING_2 2752
+  - CA 37660 Telegram t.me SOSkeyNET
+  - oneclickvpnkeys US
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - US 37560 Telegram t.me SOSkeyNET
+  - https telegraph.rayan-config.workers.dev persian 5937
   - 24 oneclickvpnkeys
+  - Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns
   - VPNine1
-  - LINK HE
+  - v2configlab
+  - 2 DE av2ngFast
+  - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
-  - LINK Trojan adisanggoro
+  - LINK sg-trojan.1server.co
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 14.lowh.net
   - LINK hz2 xl
@@ -406,20 +408,20 @@ proxy-groups:
 - name: GAMING STABIL
   type: fallback
   proxies:
-  - DE t.me Natrixo BB
-  - oliver_soul
-  - 2 DE av2ngFast
-  - US 37343 Telegram t.me SOSkeyNET
-  - v2configlab
-  - canfigiop
-  - https telegraph.rayan.dpdns.org persian
   - v2con
+  - v2configlab_ DE
+  - canfigiop
+  - oneclickvpnkeys FR 9777
+  - KAFING_2 2752
+  - CA 37660 Telegram t.me SOSkeyNET
   - oneclickvpnkeys US
-  - oneclickvpnkeys DE
-  - LINK HE
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - US 37560 Telegram t.me SOSkeyNET
+  - https telegraph.rayan-config.workers.dev persian 5937
+  - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
-  - LINK Trojan adisanggoro
+  - LINK sg-trojan.1server.co
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 14.lowh.net
   - LINK hz2 xl
@@ -429,20 +431,20 @@ proxy-groups:
 - name: SOCIAL MEDIA STABIL
   type: fallback
   proxies:
-  - DE t.me Natrixo BB
-  - 2 DE av2ngFast
-  - oliver_soul
-  - US 37343 Telegram t.me SOSkeyNET
-  - v2configlab
   - v2con
+  - v2configlab_ DE
   - canfigiop
-  - https telegraph.rayan.dpdns.org persian
+  - oneclickvpnkeys FR 9777
+  - KAFING_2 2752
+  - CA 37660 Telegram t.me SOSkeyNET
   - oneclickvpnkeys US
-  - oneclickvpnkeys DE
-  - LINK HE
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - US 37560 Telegram t.me SOSkeyNET
+  - https telegraph.rayan-config.workers.dev persian 5937
+  - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
-  - LINK Trojan adisanggoro
+  - LINK sg-trojan.1server.co
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 14.lowh.net
   - LINK hz2 xl
@@ -452,20 +454,20 @@ proxy-groups:
 - name: STREAMING STABIL
   type: fallback
   proxies:
-  - DE t.me Natrixo BB
-  - 2 DE av2ngFast
-  - oliver_soul
-  - US 37343 Telegram t.me SOSkeyNET
-  - v2configlab
-  - canfigiop
-  - https telegraph.rayan.dpdns.org persian
   - v2con
+  - v2configlab_ DE
+  - canfigiop
+  - oneclickvpnkeys FR 9777
+  - KAFING_2 2752
+  - CA 37660 Telegram t.me SOSkeyNET
   - oneclickvpnkeys US
-  - oneclickvpnkeys DE
-  - LINK HE
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - US 37560 Telegram t.me SOSkeyNET
+  - https telegraph.rayan-config.workers.dev persian 5937
+  - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
-  - LINK Trojan adisanggoro
+  - LINK sg-trojan.1server.co
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 14.lowh.net
   - LINK hz2 xl
@@ -475,20 +477,20 @@ proxy-groups:
 - name: WORKING STABIL
   type: fallback
   proxies:
-  - DE t.me Natrixo BB
-  - 2 DE av2ngFast
-  - oliver_soul
-  - US 37343 Telegram t.me SOSkeyNET
-  - v2configlab
-  - canfigiop
-  - https telegraph.rayan.dpdns.org persian
   - v2con
+  - v2configlab_ DE
+  - canfigiop
+  - oneclickvpnkeys FR 9777
+  - KAFING_2 2752
+  - CA 37660 Telegram t.me SOSkeyNET
   - oneclickvpnkeys US
-  - oneclickvpnkeys DE
-  - LINK HE
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - US 37560 Telegram t.me SOSkeyNET
+  - https telegraph.rayan-config.workers.dev persian 5937
+  - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
-  - LINK Trojan adisanggoro
+  - LINK sg-trojan.1server.co
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 14.lowh.net
   - LINK hz2 xl
@@ -498,20 +500,20 @@ proxy-groups:
 - name: GENERAL STABIL
   type: fallback
   proxies:
-  - DE t.me Natrixo BB
-  - 2 DE av2ngFast
-  - oliver_soul
-  - US 37343 Telegram t.me SOSkeyNET
-  - v2configlab
   - v2con
+  - v2configlab_ DE
   - canfigiop
-  - https telegraph.rayan.dpdns.org persian
+  - oneclickvpnkeys FR 9777
+  - KAFING_2 2752
+  - CA 37660 Telegram t.me SOSkeyNET
   - oneclickvpnkeys US
-  - oneclickvpnkeys DE
-  - LINK HE
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - US 37560 Telegram t.me SOSkeyNET
+  - https telegraph.rayan-config.workers.dev persian 5937
+  - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
-  - LINK Trojan adisanggoro
+  - LINK sg-trojan.1server.co
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 14.lowh.net
   - LINK hz2 xl
@@ -521,25 +523,25 @@ proxy-groups:
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - DE t.me Natrixo BB
-  - 2 DE av2ngFast
-  - US 37343 Telegram t.me SOSkeyNET
-  - v2configlab
-  - oliver_soul
   - v2con
-  - canfigiop
-  - https telegraph.rayan.dpdns.org persian
-  - oneclickvpnkeys US
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys FR 3976
-  - oneclickvpnkeys NL
   - v2configlab_ DE
+  - canfigiop
+  - oneclickvpnkeys FR 9777
+  - KAFING_2 2752
+  - CA 37660 Telegram t.me SOSkeyNET
+  - oneclickvpnkeys US
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - US 37560 Telegram t.me SOSkeyNET
+  - https telegraph.rayan-config.workers.dev persian 5937
   - 24 oneclickvpnkeys
+  - Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns
   - VPNine1
-  - LINK HE
+  - v2configlab
+  - 2 DE av2ngFast
+  - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
-  - LINK Trojan adisanggoro
+  - LINK sg-trojan.1server.co
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 14.lowh.net
   - LINK hz2 xl
@@ -550,25 +552,25 @@ proxy-groups:
 - name: FALLBACK
   type: fallback
   proxies:
-  - DE t.me Natrixo BB
-  - 2 DE av2ngFast
-  - US 37343 Telegram t.me SOSkeyNET
-  - v2configlab
-  - oliver_soul
   - v2con
-  - canfigiop
-  - https telegraph.rayan.dpdns.org persian
-  - oneclickvpnkeys US
-  - oneclickvpnkeys DE
-  - oneclickvpnkeys FR 3976
-  - oneclickvpnkeys NL
   - v2configlab_ DE
+  - canfigiop
+  - oneclickvpnkeys FR 9777
+  - KAFING_2 2752
+  - CA 37660 Telegram t.me SOSkeyNET
+  - oneclickvpnkeys US
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - US 37560 Telegram t.me SOSkeyNET
+  - https telegraph.rayan-config.workers.dev persian 5937
   - 24 oneclickvpnkeys
+  - Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns
   - VPNine1
-  - LINK HE
+  - v2configlab
+  - 2 DE av2ngFast
+  - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
-  - LINK Trojan adisanggoro
+  - LINK sg-trojan.1server.co
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 14.lowh.net
   - LINK hz2 xl
@@ -589,10 +591,10 @@ proxy-groups:
   - FALLBACK
   - DIRECT
   - REJECT
-  - LINK HE
+  - LINK 15.lowh.net
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
-  - LINK Trojan adisanggoro
+  - LINK sg-trojan.1server.co
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 14.lowh.net
   - LINK hz2 xl

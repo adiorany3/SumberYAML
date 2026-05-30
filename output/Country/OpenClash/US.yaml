@@ -49,7 +49,7 @@ proxies:
       headers:
         Host: "juzi.qea.ccwu.cc"
     udp: true
-  - name: "oneclickvpnkeys US 6358"
+  - name: "oneclickvpnkeys US 9047"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -78,6 +78,36 @@ proxies:
       path: "/"
       headers:
         Host: "salam.xdmmd12.workers.dev"
+    udp: true
+  - name: "US 37560 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "graph.instagram.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
+  - name: "US 37655 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 41d480fd-1dcc-4766-8e01-a67e7faa5934
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "investors.spotify.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "investors.spotify.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:
