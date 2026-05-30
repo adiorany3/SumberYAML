@@ -37,25 +37,6 @@
   "outbounds": [
     {
       "type": "urltest",
-      "tag": "best-link",
-      "outbounds": [
-        "LINK 15.lowh.net",
-        "LINK sg-trojan.1server.co",
-        "LINK bel432 xl",
-        "LINK bel432 xl 2",
-        "LINK VMess-WS-TLS-443-akuku8",
-        "LINK bel432 telk",
-        "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
         "15.lowh.net",
@@ -79,12 +60,11 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "best-link",
+        "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
         "15.lowh.net",
         "sg-trojan.1server.co",
         "DIRECT",
-        "AUTO-BEST-STABLE",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",

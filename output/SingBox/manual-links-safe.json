@@ -2,7 +2,7 @@
   "outbounds": [
     {
       "type": "urltest",
-      "tag": "best-link",
+      "tag": "AUTO-BEST-PING",
       "outbounds": [
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
@@ -23,16 +23,14 @@
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
+      "tolerance": 80
     },
     {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "best-link",
         "AUTO-BEST-STABLE",
+        "AUTO-BEST-PING",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -413,10 +411,12 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "system"
+      "stack": "system",
+      "address": [
+        "172.19.0.1/30"
+      ]
     },
     {
       "type": "mixed",

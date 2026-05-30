@@ -2,8 +2,8 @@
   "ok": true,
   "profile_dir": "output/SingBox",
   "files_scanned": 110,
-  "files_changed": 60,
-  "tun_inbounds_changed": 60,
+  "files_changed": 61,
+  "tun_inbounds_changed": 61,
   "note": "Trusted manual accounts from input/links.txt or input.txt are not filtered or removed by this script.",
   "files": [
     {
@@ -329,9 +329,17 @@
     {
       "file": "output/SingBox/from-links-trusted-legacy-tun.json",
       "ok": true,
-      "changed": false,
-      "tun_inbounds_changed": 0,
-      "details": [],
+      "changed": true,
+      "tun_inbounds_changed": 1,
+      "details": [
+        {
+          "tag": "tun-in",
+          "changed": true,
+          "removed_fields": [
+            "inet4_address"
+          ]
+        }
+      ],
       "error": ""
     },
     {

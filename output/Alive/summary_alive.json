@@ -1,10 +1,10 @@
 {
-  "run_mode": "update",
+  "run_mode": "update_ping",
   "enable_proxy_test": true,
   "filter_alive_only": true,
   "strict_alive_only": true,
   "test_rounds": 2,
-  "require_success_rounds": 2,
+  "require_success_rounds": 1,
   "strict_max_delay_ms": 8000,
   "tcp_fallback_enabled": true,
   "tcp_only_output_disabled": false,
@@ -15,31 +15,31 @@
   "workers": 20,
   "tester": "strict-mihomo-delay",
   "tester_ok": true,
-  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 2/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
+  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
   "rounds": [
     {
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 19,
+      "alive": 13,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 8,
+      "alive": 0,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1261,
-  "alive": 6,
-  "strict_alive": 6,
-  "dead": 1255,
+  "total": 1238,
+  "alive": 13,
+  "strict_alive": 13,
+  "dead": 1225,
   "untested": 0,
-  "final_output_filter": "strict/balanced alive 2/2 <= 8000ms",
+  "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
   "best_ping_country_filter": "ID",
   "best_ping_fallback_global_if_empty": true,
@@ -47,21 +47,28 @@
   "best_ping_group_type": "url-test",
   "best_ping_count": 5,
   "best_ping_names": [
-    "CA 37969 Telegram t.me SOSkeyNET",
-    "icv2ray",
-    "SC 38029 Telegram t.me SOSkeyNET",
-    "VPNine1",
-    "SC 37789 Telegram t.me SOSkeyNET"
+    "V2raysCollector",
+    "VPN_PASARGAD",
+    "oneclickvpnkeys US 3676",
+    "oneclickvpnkeys US 5775",
+    "oneclickvpnkeys US 2281"
   ],
   "responsive_top_n": 15,
-  "responsive_count": 6,
+  "responsive_count": 13,
   "responsive_names": [
-    "CA 37969 Telegram t.me SOSkeyNET",
-    "icv2ray",
-    "SC 38029 Telegram t.me SOSkeyNET",
+    "V2raysCollector",
+    "VPN_PASARGAD",
+    "oneclickvpnkeys US 3676",
+    "oneclickvpnkeys US 5775",
+    "oneclickvpnkeys US 2281",
+    "v2con",
     "VPNine1",
-    "SC 37789 Telegram t.me SOSkeyNET",
-    "CA 37877 Telegram t.me SOSkeyNET"
+    "CA 38142 Telegram t.me SOSkeyNET",
+    "oneclickvpnkeys DE",
+    "oneclickvpnkeys DE 7467",
+    "oneclickvpnkeys PL",
+    "configV2rayNG FR",
+    "FreeConffning"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -73,5 +80,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 6
+  "strict_output_count": 13
 }

@@ -1,4 +1,34 @@
 proxies:
+  - name: "V2raysCollector"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "m.udemy.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "m.udemy.com.cyylr.eu.cc"
+    udp: true
+  - name: "v2con"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2d5d3c38-6178-43d3-8002-86dd60e44d38
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v2configlab.v2configlab-2f5.workers.dev"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "v2configlab.v2configlab-2f5.workers.dev"
+    udp: true
   - name: "VPNine1"
     server: "104.17.3.81"
     port: 443
