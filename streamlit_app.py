@@ -9,7 +9,7 @@ import threading
 import time
 import traceback
 from datetime import datetime, timezone
-from urllib.parse import quote
+from urllib.parse import quote, unquote, urlparse
 from html import escape
 
 import requests
@@ -785,8 +785,75 @@ def build_singbox_remote_profile_uri(raw_url: str, profile_name: str) -> str:
     """Build sing-box remote profile deep link for QR/import."""
     clean_url = normalize_github_blob_url(raw_url)
     encoded_url = quote(clean_url.strip(), safe="")
-    encoded_name = quote((profile_name or "SumberYAML SingBox").strip(), safe="")
+    encoded_name = quote((profile_name or "singbox-profile.json").strip(), safe="")
     return f"sing-box://import-remote-profile?url={encoded_url}#{encoded_name}"
+
+
+def profile_name_from_json_reference(value: str) -> str:
+    """Return profile name that follows the selected JSON file name.
+
+    Examples:
+    - output/SingBox/best-stable.json -> best-stable.json
+    - https://.../mobile-stable.json -> mobile-stable.json
+    """
+    raw = str(value or "").strip()
+    if not raw:
+        raw = SINGBOX_DEFAULT_JSON_PATH
+
+    # For URLs, use the URL path only and ignore query/fragment.
+    if re.match(r"^https?://", raw, flags=re.I):
+        try:
+            raw = urlparse(raw).path
+        except Exception:
+            pass
+
+    raw = unquote(raw).replace("\\", "/").split("?", 1)[0].split("#", 1)[0].rstrip("/")
+    filename = raw.rsplit("/", 1)[-1].strip()
+
+    if not filename:
+        filename = "singbox-profile.json"
+
+    # Keep the .json suffix because the user asked the profile name to follow the JSON name in repo.
+    if not filename.lower().endswith(".json"):
+        filename = f"{filename}.json"
+
+    return filename
+
+
+@st.cache_data(ttl=60, show_spinner=False)
+def list_singbox_json_paths_from_repo() -> list:
+    """Read output/SingBox/*.json names from GitHub repo, fallback to known paths."""
+    fallback = list(dict.fromkeys([SINGBOX_DEFAULT_JSON_PATH] + SINGBOX_KNOWN_JSON_PATHS))
+
+    if not GITHUB_OWNER or not GITHUB_REPO:
+        return fallback
+
+    try:
+        response = requests.get(
+            github_contents_url("output/SingBox"),
+            headers=github_headers(),
+            params={"ref": GITHUB_REF},
+            timeout=20,
+        )
+        if not response.ok:
+            return fallback
+
+        items = response.json()
+        if not isinstance(items, list):
+            return fallback
+
+        repo_paths = []
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            path = str(item.get("path") or "").strip()
+            item_type = str(item.get("type") or "").strip().lower()
+            if item_type == "file" and path.lower().endswith(".json"):
+                repo_paths.append(path)
+
+        return list(dict.fromkeys(repo_paths + fallback)) if repo_paths else fallback
+    except Exception:
+        return fallback
 
 
 def make_qr_png_bytes(data: str, error_correction: str = "M") -> bytes:
@@ -2356,23 +2423,14 @@ def render_admin_singbox_qr():
         st.info("QR sing-box belum bisa dibuat karena GITHUB_REPOSITORY/GITHUB_OWNER/GITHUB_REPO belum terisi.")
         return
 
-    default_paths = list(dict.fromkeys([SINGBOX_DEFAULT_JSON_PATH] + SINGBOX_KNOWN_JSON_PATHS))
-    mode_col, name_col = st.columns([0.52, 0.48])
+    default_paths = list_singbox_json_paths_from_repo()
 
-    with mode_col:
-        path_mode = st.radio(
-            "Sumber JSON sing-box",
-            ["File output repo", "Raw URL manual"],
-            horizontal=True,
-            key="singbox_qr_source_mode",
-        )
-
-    with name_col:
-        profile_name = st.text_input(
-            "Nama profile",
-            value=SINGBOX_DEFAULT_PROFILE_NAME,
-            key="singbox_qr_profile_name",
-        )
+    path_mode = st.radio(
+        "Sumber JSON sing-box",
+        ["File output repo", "Raw URL manual"],
+        horizontal=True,
+        key="singbox_qr_source_mode",
+    )
 
     selected_path = SINGBOX_DEFAULT_JSON_PATH
     raw_url = build_profile_json_url(selected_path, SINGBOX_QR_DEFAULT_URL_SOURCE)
@@ -2412,7 +2470,16 @@ def render_admin_singbox_qr():
             key="singbox_qr_manual_raw_url",
         )
         raw_url = normalize_github_blob_url(raw_url)
-        selected_path = "manual-url"
+        selected_path = raw_url or "manual-url"
+
+    profile_name = profile_name_from_json_reference(selected_path if path_mode == "File output repo" else raw_url)
+    st.text_input(
+        "Nama profile otomatis",
+        value=profile_name,
+        disabled=True,
+        help="Nama profile mengikuti nama file JSON yang dipilih di repo. Contoh: best-stable.json → profile best-stable.json.",
+        key="singbox_qr_profile_name_auto",
+    )
 
     error_correction = st.selectbox(
         "QR error correction",
@@ -2434,7 +2501,7 @@ def render_admin_singbox_qr():
             <div class="pet-panel">
                 <div style="font-weight:900;color:#00ff88;">Mode import valid</div>
                 <div class="pet-small-note" style="text-align:left;margin-top:8px;">
-                    QR dibuat sebagai <b>remote profile deep link</b>, bukan raw JSON. Default diarahkan ke <b>best-stable.json</b> agar sing-box memakai node yang lebih stabil untuk koneksi lama/idle.
+                    QR dibuat sebagai <b>remote profile deep link</b>, bukan raw JSON. Nama profile otomatis mengikuti nama file JSON yang dipilih di repo, misalnya <b>best-stable.json</b>.
                 </div>
             </div>
             """,
