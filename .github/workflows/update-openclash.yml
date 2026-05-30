@@ -445,6 +445,18 @@ jobs:
             exit 1
           fi
 
+      - name: Fix TUN address fields for sing-box 1.12+
+        run: |
+          set -e
+          if [ -f scripts/fix_tun_address_modern.py ]; then
+            python scripts/fix_tun_address_modern.py --dir output/SingBox
+            echo "TUN modern address fix summary:"
+            cat output/SingBox/summary_tun_modern_fix.json || true
+          else
+            echo "ERROR: scripts/fix_tun_address_modern.py tidak ditemukan."
+            exit 1
+          fi
+
       - name: Commit output files
         run: |
           set -euo pipefail
