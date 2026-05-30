@@ -20,11 +20,11 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "auto_route": true,
-      "strict_route": true,
       "address": [
         "172.19.0.1/30"
-      ]
+      ],
+      "auto_route": true,
+      "strict_route": true
     },
     {
       "type": "mixed",
@@ -35,14 +35,133 @@
   ],
   "outbounds": [
     {
-      "type": "direct",
-      "tag": "DIRECT"
+      "type": "urltest",
+      "tag": "AUTO-BEST-STABLE",
+      "outbounds": [
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+        "oneclickvpnkeys US",
+        "2 DE av2ngFast",
+        "v2con",
+        "75 oneclickvpnkeys",
+        "US 37560 Telegram t.me SOSkeyNET",
+        "NZ 37561 Telegram t.me SOSkeyNET",
+        "US 37655 Telegram t.me SOSkeyNET",
+        "CA 37533 Telegram t.me SOSkeyNET",
+        "CA 37660 Telegram t.me SOSkeyNET",
+        "LINK 15.lowh.net",
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK sg-trojan.1server.co",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK 14.lowh.net",
+        "LINK hz2 xl",
+        "LINK 15.lowh.net 2",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK sg-trojan.1server.co 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
+        "LINK 14.lowh.net 2",
+        "LINK hz2 xl 2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false,
+      "default": "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
     },
     {
+      "type": "urltest",
+      "tag": "AUTO-MOBILE-STABLE",
+      "outbounds": [
+        "CA 37533 Telegram t.me SOSkeyNET",
+        "oneclickvpnkeys US",
+        "US 37655 Telegram t.me SOSkeyNET",
+        "2 DE av2ngFast",
+        "75 oneclickvpnkeys",
+        "CA 37660 Telegram t.me SOSkeyNET",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+        "NZ 37561 Telegram t.me SOSkeyNET",
+        "US 37560 Telegram t.me SOSkeyNET",
+        "v2con",
+        "LINK 15.lowh.net",
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK sg-trojan.1server.co",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK 14.lowh.net",
+        "LINK hz2 xl"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 100,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false,
+      "default": "CA 37533 Telegram t.me SOSkeyNET"
+    },
+    {
+      "type": "selector",
+      "tag": "PROXY",
+      "outbounds": [
+        "DIRECT",
+        "CA 37533 Telegram t.me SOSkeyNET",
+        "oneclickvpnkeys US",
+        "US 37655 Telegram t.me SOSkeyNET",
+        "2 DE av2ngFast",
+        "75 oneclickvpnkeys",
+        "CA 37660 Telegram t.me SOSkeyNET",
+        "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+        "NZ 37561 Telegram t.me SOSkeyNET",
+        "US 37560 Telegram t.me SOSkeyNET",
+        "v2con",
+        "LINK 15.lowh.net",
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK sg-trojan.1server.co",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK 14.lowh.net",
+        "LINK hz2 xl",
+        "AUTO-BEST-STABLE",
+        "LINK 15.lowh.net 2",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK sg-trojan.1server.co 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
+        "LINK 14.lowh.net 2",
+        "LINK hz2 xl 2"
+      ],
+      "default": "AUTO-BEST-STABLE",
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "vless",
+      "tag": "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "7e346122-2ee0-406e-b964-a8ee665f1814",
+      "tls": {
+        "enabled": true,
+        "server_name": "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
       "tag": "oneclickvpnkeys US",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "vless",
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
       "tls": {
         "enabled": true,
@@ -59,90 +178,70 @@
       "connect_timeout": "15s"
     },
     {
-      "tag": "https telegraph.rayan.dpdns.org persian",
+      "type": "vless",
+      "tag": "2 DE av2ngFast",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "vless",
-      "uuid": "1679af35-6dd6-4c09-ae3b-18f239217f3e",
+      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
       "tls": {
         "enabled": true,
-        "server_name": "rAyAn-007.pArViN.DpDnS.OrG",
+        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "v2con",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "2d5d3c38-6178-43d3-8002-86dd60e44d38",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2configlab.v2configlab-2f5.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/?ed=2560",
         "headers": {
-          "Host": "rayan-007.parvin.dpdns.org"
+          "Host": "v2configlab.v2configlab-2f5.workers.dev"
         }
       },
       "connect_timeout": "15s"
     },
     {
-      "tag": "https telegraph.rayan-config.workers.dev persian",
+      "type": "vless",
+      "tag": "75 oneclickvpnkeys",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "vless",
-      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
+      "uuid": "ce69190e-935a-4394-9e5e-2ab2872ba242",
       "tls": {
         "enabled": true,
-        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
+        "server_name": "up2-df6.pages.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/?ed=2560",
+        "path": "/uTZSXPBI2IfoxF86",
         "headers": {
-          "Host": "rayan-007.nastaran.dpdns.org"
+          "Host": "up2-df6.pages.dev"
         }
       },
       "connect_timeout": "15s"
     },
     {
-      "tag": "v2configlab",
-      "server": "104.17.3.81",
-      "server_port": 443,
       "type": "vless",
-      "uuid": "1de37726-744b-46e1-9101-c926b3402e82",
-      "tls": {
-        "enabled": true,
-        "server_name": "v2.v2configlab.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2048",
-        "headers": {
-          "Host": "v2.v2configlab.workers.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "tag": "GozargahAzad NZ",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "type": "vless",
-      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
-      "tls": {
-        "enabled": true,
-        "server_name": "cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi",
-        "headers": {
-          "Host": "cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
       "tag": "US 37560 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "vless",
       "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
       "tls": {
         "enabled": true,
@@ -159,10 +258,10 @@
       "connect_timeout": "15s"
     },
     {
+      "type": "vless",
       "tag": "NZ 37561 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "vless",
       "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
       "tls": {
         "enabled": true,
@@ -179,10 +278,10 @@
       "connect_timeout": "15s"
     },
     {
+      "type": "vless",
       "tag": "US 37655 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "vless",
       "uuid": "41d480fd-1dcc-4766-8e01-a67e7faa5934",
       "tls": {
         "enabled": true,
@@ -199,10 +298,10 @@
       "connect_timeout": "15s"
     },
     {
+      "type": "vless",
       "tag": "CA 37533 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "vless",
       "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
       "tls": {
         "enabled": true,
@@ -219,10 +318,10 @@
       "connect_timeout": "15s"
     },
     {
+      "type": "vless",
       "tag": "CA 37660 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "vless",
       "uuid": "d0298536-d670-4045-bbb1-ddd5ea68683e",
       "tls": {
         "enabled": true,
@@ -239,56 +338,336 @@
       "connect_timeout": "15s"
     },
     {
-      "type": "urltest",
-      "tag": "AUTO-MOBILE-STABLE",
-      "outbounds": [
-        "NZ 37561 Telegram t.me SOSkeyNET",
-        "oneclickvpnkeys US",
-        "CA 37533 Telegram t.me SOSkeyNET",
-        "GozargahAzad NZ",
-        "https telegraph.rayan-config.workers.dev persian",
-        "US 37560 Telegram t.me SOSkeyNET",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "v2configlab",
-        "CA 37660 Telegram t.me SOSkeyNET",
-        "https telegraph.rayan.dpdns.org persian"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 100,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
+      "type": "trojan",
+      "tag": "LINK 15.lowh.net",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
+      "tls": {
+        "enabled": true,
+        "server_name": "15.lowh.net",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "15.lowh.net"
+        }
+      },
+      "connect_timeout": "15s"
     },
     {
-      "type": "selector",
-      "tag": "PROXY",
-      "outbounds": [
-        "AUTO-MOBILE-STABLE",
-        "DIRECT",
-        "NZ 37561 Telegram t.me SOSkeyNET",
-        "oneclickvpnkeys US",
-        "CA 37533 Telegram t.me SOSkeyNET",
-        "GozargahAzad NZ",
-        "https telegraph.rayan-config.workers.dev persian",
-        "US 37560 Telegram t.me SOSkeyNET",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "v2configlab",
-        "CA 37660 Telegram t.me SOSkeyNET",
-        "https telegraph.rayan.dpdns.org persian"
-      ],
-      "default": "AUTO-MOBILE-STABLE",
-      "interrupt_exist_connections": false
+      "type": "vmess",
+      "tag": "LINK bel432 xl",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK VMess-WS-TLS-443-akuku8",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "fbcdn.sbs",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "fbcdn.sbs"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "trojan",
+      "tag": "LINK sg-trojan.1server.co",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
+      "tls": {
+        "enabled": true,
+        "server_name": "sg-trojan.1server.co",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "sg-trojan.1server.co"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "tls": {
+        "enabled": true,
+        "server_name": "akamaized.my",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "akamaized.my"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK 14.lowh.net",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "0629e500-1d98-11f1-bba0-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "14.lowh.net",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "14.lowh.net"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK hz2 xl",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "56b64a80-1fb2-11f1-969a-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "hz2.cobadl.com",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "hz2.cobadl.com"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
+    },
+    {
+      "type": "trojan",
+      "tag": "LINK 15.lowh.net 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
+      "tls": {
+        "enabled": true,
+        "server_name": "15.lowh.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "15.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 xl 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 xl 2 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK VMess-WS-TLS-443-akuku8 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "fbcdn.sbs"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "fbcdn.sbs"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 telk",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "LINK sg-trojan.1server.co 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
+      "tls": {
+        "enabled": true,
+        "server_name": "sg-trojan.1server.co"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "sg-trojan.1server.co"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "tls": {
+        "enabled": true,
+        "server_name": "akamaized.my",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "akamaized.my"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK 14.lowh.net 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "0629e500-1d98-11f1-bba0-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "14.lowh.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "14.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK hz2 xl 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "56b64a80-1fb2-11f1-969a-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "hz2.cobadl.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "hz2.cobadl.com"
+        }
+      }
     }
   ],
   "route": {
+    "auto_detect_interface": true,
     "rules": [
-      {
-        "action": "sniff"
-      },
-      {
-        "protocol": "dns",
-        "action": "hijack-dns"
-      },
       {
         "ip_cidr": [
           "10.0.0.0/8",
@@ -301,11 +680,9 @@
           "fc00::/7",
           "fe80::/10"
         ],
-        "action": "route",
         "outbound": "DIRECT"
       }
     ],
-    "final": "PROXY",
-    "auto_detect_interface": true
+    "final": "PROXY"
   }
 }

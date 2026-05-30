@@ -1,7 +1,7 @@
 {
-  "run_mode": "test",
+  "run_mode": "update_ping",
   "enable_proxy_test": true,
-  "filter_alive_only": false,
+  "filter_alive_only": true,
   "strict_alive_only": true,
   "test_rounds": 2,
   "require_success_rounds": 1,
@@ -28,16 +28,16 @@
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 13,
+      "alive": 15,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
   "total": 1265,
-  "alive": 38,
-  "strict_alive": 38,
-  "dead": 1227,
+  "alive": 37,
+  "strict_alive": 37,
+  "dead": 1228,
   "untested": 0,
   "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
@@ -47,30 +47,30 @@
   "best_ping_group_type": "url-test",
   "best_ping_count": 5,
   "best_ping_names": [
-    "NZ 37561 Telegram t.me SOSkeyNET",
-    "oneclickvpnkeys US",
-    "GozargahAzad NZ",
     "US 37655 Telegram t.me SOSkeyNET",
-    "US 37560 Telegram t.me SOSkeyNET"
+    "CA 37660 Telegram t.me SOSkeyNET",
+    "CA 37533 Telegram t.me SOSkeyNET",
+    "NZ 37561 Telegram t.me SOSkeyNET",
+    "GozargahAzad NZ"
   ],
   "responsive_top_n": 15,
   "responsive_count": 15,
   "responsive_names": [
-    "NZ 37561 Telegram t.me SOSkeyNET",
-    "oneclickvpnkeys US",
-    "GozargahAzad NZ",
     "US 37655 Telegram t.me SOSkeyNET",
-    "US 37560 Telegram t.me SOSkeyNET",
     "CA 37660 Telegram t.me SOSkeyNET",
-    "oneclickvpnkeys US 1717",
-    "https telegraph.rayan.dpdns.org persian",
-    "v2configlab_ DE",
+    "CA 37533 Telegram t.me SOSkeyNET",
+    "NZ 37561 Telegram t.me SOSkeyNET",
+    "GozargahAzad NZ",
+    "US 37560 Telegram t.me SOSkeyNET",
+    "configV2rayNG FR",
+    "oneclickvpnkeys FR",
+    "oneclickvpnkeys FR 6556",
+    "oneclickvpnkeys FR 9846",
+    "oneclickvpnkeys NL",
     "CA 37591 Telegram t.me SOSkeyNET",
     "oneclickvpnkeys XX",
-    "oneclickvpnkeys DE",
-    "CA 37533 Telegram t.me SOSkeyNET",
-    "https telegraph.rayan-config.workers.dev persian",
-    "v2configlab"
+    "outline_ir",
+    "KAFING_2 3657"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -82,5 +82,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 38
+  "strict_output_count": 37
 }

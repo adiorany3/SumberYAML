@@ -6,14 +6,12 @@
   "dns": {
     "servers": [
       {
-        "type": "udp",
         "tag": "cloudflare",
-        "server": "1.1.1.1"
+        "address": "1.1.1.1"
       },
       {
-        "type": "udp",
         "tag": "google",
-        "server": "8.8.8.8"
+        "address": "8.8.8.8"
       }
     ],
     "final": "cloudflare"
@@ -41,7 +39,6 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "AUTO-BEST-PING",
         "DIRECT",
         "15.lowh.net",
         "bel432 xl",
@@ -53,7 +50,7 @@
         "14.lowh.net",
         "hz2 xl"
       ],
-      "default": "AUTO-BEST-PING",
+      "default": "DIRECT",
       "interrupt_exist_connections": false
     },
     {
@@ -74,7 +71,8 @@
       "interval": "3m",
       "tolerance": 80,
       "idle_timeout": "2h",
-      "interrupt_exist_connections": false
+      "interrupt_exist_connections": false,
+      "default": "15.lowh.net"
     },
     {
       "type": "trojan",
@@ -82,7 +80,6 @@
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "15.lowh.net"
@@ -104,7 +101,6 @@
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
       "security": "auto",
       "alter_id": 0,
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "belnet.jsvpn.site"
@@ -126,7 +122,6 @@
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
       "security": "auto",
       "alter_id": 0,
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "belnet.jsvpn.site"
@@ -148,7 +143,6 @@
       "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
       "security": "auto",
       "alter_id": 0,
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "fbcdn.sbs"
@@ -170,7 +164,6 @@
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
       "security": "auto",
       "alter_id": 0,
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "belnet.jsvpn.site"
@@ -190,7 +183,6 @@
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "sg-trojan.1server.co"
@@ -210,7 +202,6 @@
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "akamaized.my",
@@ -233,7 +224,6 @@
       "uuid": "0629e500-1d98-11f1-bba0-1577c1651679",
       "security": "auto",
       "alter_id": 0,
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "14.lowh.net"
@@ -255,7 +245,6 @@
       "uuid": "56b64a80-1fb2-11f1-969a-1577c1651679",
       "security": "auto",
       "alter_id": 0,
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "hz2.cobadl.com"

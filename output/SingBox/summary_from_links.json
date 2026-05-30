@@ -5,35 +5,19 @@
   ],
   "input_urls": [],
   "source_errors": [],
-  "total_links_found": 12,
+  "total_links_found": 9,
   "converted_total": 9,
   "converted_by_protocol": {
     "vmess": 6,
     "vless": 1,
     "trojan": 2
   },
-  "parse_error_count": 3,
-  "parse_errors": [
-    {
-      "index": "1",
-      "link_preview": "vmess://,",
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    {
-      "index": "2",
-      "link_preview": "vless://,",
-      "error": "VLESS wajib punya uuid@server:port"
-    },
-    {
-      "index": "3",
-      "link_preview": "trojan://",
-      "error": "Trojan wajib punya password@server:port"
-    }
-  ],
+  "parse_error_count": 0,
+  "parse_errors": [],
   "outputs": [
-    "output/SingBox/from-links.json",
-    "output/SingBox/from-links-new-dns.json",
-    "output/SingBox/from-links-legacy-tun.json",
+    "output/SingBox/from-links-trusted.json",
+    "output/SingBox/from-links-trusted-new-dns.json",
+    "output/SingBox/from-links-trusted-legacy-tun.json",
     "output/SingBox/vmess-links.json",
     "output/SingBox/vless-links.json",
     "output/SingBox/trojan-links.json"
