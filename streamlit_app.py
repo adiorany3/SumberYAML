@@ -178,6 +178,12 @@ SINGBOX_QR_DEFAULT_URL_SOURCE = get_setting("SINGBOX_QR_DEFAULT_URL_SOURCE", "js
 SINGBOX_QR_CACHE_BUST_ENABLE = get_setting("SINGBOX_QR_CACHE_BUST_ENABLE", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
 SINGBOX_QR_CACHE_BUST_MODE = get_setting("SINGBOX_QR_CACHE_BUST_MODE", "workflow").strip().lower()
 
+# Public landing page: tampilkan hanya QR profile sing-box, tanpa status internal/login admin.
+SHOW_PUBLIC_SINGBOX_QR = get_setting("SHOW_PUBLIC_SINGBOX_QR", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
+PUBLIC_SINGBOX_DEFAULT_JSON_PATH = get_setting("PUBLIC_SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/mobile-stable-safe.json").strip() or "output/SingBox/mobile-stable-safe.json"
+PUBLIC_SINGBOX_QR_URL_SOURCE = get_setting("PUBLIC_SINGBOX_QR_URL_SOURCE", SINGBOX_QR_DEFAULT_URL_SOURCE).strip().lower() or SINGBOX_QR_DEFAULT_URL_SOURCE
+PUBLIC_SINGBOX_QR_ERROR_CORRECTION = get_setting("PUBLIC_SINGBOX_QR_ERROR_CORRECTION", SINGBOX_DEFAULT_QR_ERROR_CORRECTION).strip().upper() or SINGBOX_DEFAULT_QR_ERROR_CORRECTION
+
 # Tombol merge links hanya tampil di admin.
 # Tombol ini memicu GitHub Actions agar input/links.txt digabung ke output/SingBox/*.json.
 SHOW_SINGBOX_MERGE_PANEL = get_setting("SHOW_SINGBOX_MERGE_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
@@ -1924,22 +1930,8 @@ st.markdown(
 
 init_terminal_state()
 
-st.markdown(
-    """
-    <div class="hacker-hero">
-        <div class="hacker-kicker">SECURE STREAMLIT CONTROL NODE</div>
-        <h1 class="hacker-title">YAMLKU<br>HACKER CONSOLE</h1>
-        <div class="hacker-subtitle">
-            Nothing here, go out right now
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
-# Public page intentionally hides internal service information.
-# Telegram/GitHub/workflow/admin status tetap aktif di backend,
-# tetapi tidak ditampilkan di halaman publik.
+# Public landing page tidak menampilkan terminal/status internal.
+# Admin UI tetap tersedia melalui query admin, misalnya: ?admin=1
 
 
 # =========================
@@ -2752,23 +2744,77 @@ def render_admin_singbox_qr():
         )
 
 
-if ensure_admin_authenticated():
-    render_workflow_status_panel()
-    render_admin_actions()
-    render_admin_singbox_merge()
-    render_admin_singbox_stability()
-    render_admin_best_ping()
-    render_admin_singbox_qr()
-    if st.button("🚪 Keluar Admin", use_container_width=True):
-        st.session_state.admin_authenticated = False
-        st.rerun()
 
-    st.markdown(
-        '<div class="pet-small-note">Mode admin aktif. Telegram tetap aktif di background: /check, /update, /update_ping, /test, /test_ping, /best, /status, /id, /help.</div>',
-        unsafe_allow_html=True,
-    )
+
+def render_public_singbox_qr_only():
+    """Halaman awal publik: tampilkan QR import sing-box saja."""
+    if not SHOW_PUBLIC_SINGBOX_QR:
+        return
+
+    if not GITHUB_OWNER or not GITHUB_REPO:
+        st.empty()
+        return
+
+    selected_path = PUBLIC_SINGBOX_DEFAULT_JSON_PATH or SINGBOX_DEFAULT_JSON_PATH
+    source_key = PUBLIC_SINGBOX_QR_URL_SOURCE or SINGBOX_QR_DEFAULT_URL_SOURCE
+    raw_url = build_profile_json_url(selected_path, source_key)
+    profile_name = profile_name_from_json_reference(selected_path)
+    import_uri = build_singbox_remote_profile_uri(raw_url, profile_name)
+
+    # QR only: tidak tampilkan status Telegram/GitHub/workflow/admin di halaman publik.
+    try:
+        png_bytes = make_qr_png_bytes(
+            import_uri,
+            error_correction=PUBLIC_SINGBOX_QR_ERROR_CORRECTION,
+        )
+        st.markdown(
+            """
+            <style>
+                .block-container {
+                    min-height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 18px !important;
+                    max-width: 560px !important;
+                }
+                [data-testid="stImage"] {
+                    width: min(92vw, 420px);
+                    margin: 0 auto;
+                }
+                [data-testid="stImage"] img {
+                    width: min(92vw, 420px);
+                    max-width: 420px;
+                    border-radius: 18px;
+                    padding: 14px;
+                    background: #ffffff;
+                    box-shadow: 0 20px 70px rgba(0,0,0,0.45);
+                }
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
+        st.image(png_bytes, use_container_width=True)
+    except Exception:
+        # Tetap tidak membocorkan detail konfigurasi publik.
+        st.empty()
+
+
+if is_admin_route():
+    if ensure_admin_authenticated():
+        render_workflow_status_panel()
+        render_admin_actions()
+        render_admin_singbox_merge()
+        render_admin_singbox_stability()
+        render_admin_best_ping()
+        render_admin_singbox_qr()
+        if st.button("🚪 Keluar Admin", use_container_width=True):
+            st.session_state.admin_authenticated = False
+            st.rerun()
+
+        st.markdown(
+            '<div class="pet-small-note">Mode admin aktif. Telegram tetap aktif di background: /check, /update, /update_ping, /test, /test_ping, /best, /status, /id, /help.</div>',
+            unsafe_allow_html=True,
+        )
 else:
-    st.markdown(
-        '<div class="pet-small-note">Mode publik. terminal hacker aktif; panel Aksi Bot dan Best Ping hanya tersedia di halaman admin.</div>',
-        unsafe_allow_html=True,
-    )
+    render_public_singbox_qr_only()
