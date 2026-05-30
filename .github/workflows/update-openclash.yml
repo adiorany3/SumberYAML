@@ -328,6 +328,24 @@ jobs:
             echo "scripts/stabilize_singbox_mobile_idle.py tidak ditemukan. Lewati mobile idle reconnect fix."
           fi
 
+      - name: Apply stable DNS fallback to sing-box JSON profiles
+        run: |
+          set -e
+          if [ -f scripts/apply_dns_fallback_stable.py ]; then
+            python scripts/apply_dns_fallback_stable.py \
+              --dir output/SingBox \
+              --mode preserve \
+              --primary-tag cloudflare \
+              --primary 1.1.1.1 \
+              --fallback-tag google \
+              --fallback 8.8.8.8
+
+            echo "Stable DNS fallback report:"
+            cat output/SingBox/summary_dns_fallback_stable.json || true
+          else
+            echo "scripts/apply_dns_fallback_stable.py tidak ditemukan. Lewati DNS fallback stable."
+          fi
+
       - name: Commit output files
         run: |
           set -euo pipefail
