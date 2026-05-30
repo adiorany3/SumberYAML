@@ -478,6 +478,30 @@ jobs:
           echo "Push tetap gagal setelah 3 percobaan."
           exit 1
 
+      - name: Purge jsDelivr CDN cache for sing-box profiles
+        if: always()
+        run: |
+          set +e
+          BRANCH="${GITHUB_REF_NAME:-main}"
+          REPO="${GITHUB_REPOSITORY}"
+
+          if [ -z "$REPO" ]; then
+            echo "GITHUB_REPOSITORY kosong. Lewati purge CDN."
+            exit 0
+          fi
+
+          if [ ! -d output/SingBox ]; then
+            echo "output/SingBox tidak ada. Lewati purge CDN."
+            exit 0
+          fi
+
+          echo "Purge jsDelivr cache untuk output/SingBox/*.json"
+          find output/SingBox -maxdepth 1 -type f -name '*.json' | sort | while read -r file; do
+            url="https://purge.jsdelivr.net/gh/${REPO}@${BRANCH}/${file}"
+            echo "PURGE $url"
+            curl -fsSL --retry 2 --connect-timeout 15 --max-time 45 "$url" || true
+          done
+
       - name: Notify Telegram
         if: always()
         run: |
