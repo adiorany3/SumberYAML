@@ -76,7 +76,7 @@ proxies:
     headers:
       Host: Kose-nanat-decoder.dr-ping.ir
   udp: true
-- name: By EbraSha 4991
+- name: By EbraSha 9222
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -107,7 +107,7 @@ proxies:
     headers:
       Host: freepol2.3r8sv.workers.dev
   udp: true
-- name: oneclickvpnkeys US 7338
+- name: oneclickvpnkeys US 2548
   server: 104.17.3.81
   port: 443
   type: vless
@@ -122,7 +122,7 @@ proxies:
     headers:
       Host: juzi.qea.ccwu.cc
   udp: true
-- name: oneclickvpnkeys US 5310
+- name: oneclickvpnkeys US 1929
   server: 104.17.3.81
   port: 443
   type: vless
@@ -152,7 +152,7 @@ proxies:
     headers:
       Host: octopusss5.info
   udp: true
-- name: oneclickvpnkeys US 4028
+- name: oneclickvpnkeys US 4664
   server: 104.17.3.81
   port: 443
   type: vless
@@ -167,7 +167,7 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: oneclickvpnkeys DE 8881
+- name: oneclickvpnkeys DE 8909
   server: 104.17.3.81
   port: 443
   type: vless
@@ -181,21 +181,6 @@ proxies:
     path: /tsghdws
     headers:
       Host: octopusss4.com
-  udp: true
-- name: 2 DE av2ngFast
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 2730487f-0ed5-4f04-92d5-f95f9253d4f4
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev
-  ws-opts:
-    path: /ws
-    headers:
-      Host: v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev
   udp: true
 - name: v2con
   server: 104.17.3.81
@@ -404,7 +389,7 @@ proxies:
     headers:
       Host: www.gossipglove.com
   udp: true
-- name: oneclickvpnkeys NL 7277
+- name: oneclickvpnkeys NL 1253
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -418,35 +403,7 @@ proxies:
     headers:
       Host: www.multiplydose.com
   udp: true
-- name: V2rayNG3 FR
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.calmlunch.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
-  udp: true
-- name: oneclickvpnkeys PL
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.creationlong.org
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.creationlong.org
-  udp: true
-- name: KAFING_2 9912
+- name: KAFING_2 2777
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -536,20 +493,20 @@ proxies:
       Host: fbcdn.sbs
 - name: LINK 10.lowh.net
   type: vmess
-  server: 10.lowh.net
+  server: 104.17.3.81
   port: 443
   uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
   alterId: 0
   cipher: auto
   udp: true
   tls: true
-  servername: 104.17.3.81
+  servername: 10.lowh.net
   skip-cert-verify: false
   network: ws
   ws-opts:
     path: /hello
     headers:
-      Host: 104.17.3.81
+      Host: 10.lowh.net
 - name: LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
@@ -581,11 +538,11 @@ proxy-groups:
   type: url-test
   proxies:
   - best-link
-  - 2 DE av2ngFast
+  - CA 37533 Telegram t.me SOSkeyNET
   - NZ 37561 Telegram t.me SOSkeyNET
+  - canfigiop
   - US 37560 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5310
-  - VPNine1
+  - US 37655 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -600,21 +557,21 @@ proxy-groups:
   type: fallback
   proxies:
   - best-link
-  - 2 DE av2ngFast
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - US 37560 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5310
-  - VPNine1
-  - US 37655 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 4028
-  - oneclickvpnkeys US 7338
   - CA 37533 Telegram t.me SOSkeyNET
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - canfigiop
+  - US 37560 Telegram t.me SOSkeyNET
+  - US 37655 Telegram t.me SOSkeyNET
+  - icv2ray
   - CA 37660 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
-  - oneclickvpnkeys DE
+  - VPNine1
   - SC 37789 Telegram t.me SOSkeyNET
-  - prrofile_purple FR
-  - HK Join Telegram Farah_VPN HK
+  - CA 37877 Telegram t.me SOSkeyNET
+  - KAFING_2 2777
+  - oneclickvpnkeys NL 1253
+  - oneclickvpnkeys US
+  - oneclickvpnkeys US 1929
+  - oneclickvpnkeys US 4664
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -628,16 +585,16 @@ proxy-groups:
   type: fallback
   proxies:
   - best-link
-  - 2 DE av2ngFast
   - NZ 37561 Telegram t.me SOSkeyNET
-  - VPNine1
-  - US 37560 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5310
-  - US 37655 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 4028
-  - oneclickvpnkeys US 7338
-  - CA 37660 Telegram t.me SOSkeyNET
+  - canfigiop
   - CA 37533 Telegram t.me SOSkeyNET
+  - US 37560 Telegram t.me SOSkeyNET
+  - US 37655 Telegram t.me SOSkeyNET
+  - icv2ray
+  - VPNine1
+  - CA 37660 Telegram t.me SOSkeyNET
+  - SC 37789 Telegram t.me SOSkeyNET
+  - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -651,16 +608,16 @@ proxy-groups:
   type: fallback
   proxies:
   - best-link
-  - 2 DE av2ngFast
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - US 37560 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5310
-  - VPNine1
-  - US 37655 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 4028
-  - oneclickvpnkeys US 7338
   - CA 37533 Telegram t.me SOSkeyNET
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - canfigiop
+  - US 37560 Telegram t.me SOSkeyNET
+  - US 37655 Telegram t.me SOSkeyNET
+  - icv2ray
   - CA 37660 Telegram t.me SOSkeyNET
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
+  - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -674,16 +631,16 @@ proxy-groups:
   type: fallback
   proxies:
   - best-link
-  - 2 DE av2ngFast
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - US 37560 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5310
-  - VPNine1
-  - US 37655 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 4028
-  - oneclickvpnkeys US 7338
-  - CA 37660 Telegram t.me SOSkeyNET
   - CA 37533 Telegram t.me SOSkeyNET
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - canfigiop
+  - US 37560 Telegram t.me SOSkeyNET
+  - US 37655 Telegram t.me SOSkeyNET
+  - icv2ray
+  - CA 37660 Telegram t.me SOSkeyNET
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
+  - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -697,16 +654,16 @@ proxy-groups:
   type: fallback
   proxies:
   - best-link
-  - 2 DE av2ngFast
   - NZ 37561 Telegram t.me SOSkeyNET
-  - US 37560 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5310
-  - VPNine1
-  - US 37655 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 4028
-  - oneclickvpnkeys US 7338
-  - CA 37660 Telegram t.me SOSkeyNET
+  - canfigiop
   - CA 37533 Telegram t.me SOSkeyNET
+  - US 37560 Telegram t.me SOSkeyNET
+  - US 37655 Telegram t.me SOSkeyNET
+  - icv2ray
+  - CA 37660 Telegram t.me SOSkeyNET
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
+  - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -720,16 +677,16 @@ proxy-groups:
   type: fallback
   proxies:
   - best-link
-  - 2 DE av2ngFast
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - US 37560 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5310
-  - VPNine1
-  - US 37655 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 4028
-  - oneclickvpnkeys US 7338
   - CA 37533 Telegram t.me SOSkeyNET
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - canfigiop
+  - US 37560 Telegram t.me SOSkeyNET
+  - US 37655 Telegram t.me SOSkeyNET
+  - icv2ray
   - CA 37660 Telegram t.me SOSkeyNET
+  - VPNine1
+  - SC 37789 Telegram t.me SOSkeyNET
+  - CA 37877 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -745,7 +702,7 @@ proxy-groups:
   - RELAY-104.18.42.54-1507
   - HK Join Telegram Farah_VPN HK
   - chillguy_vpn
-  - By EbraSha 4991
+  - By EbraSha 9222
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl
@@ -760,12 +717,11 @@ proxy-groups:
   type: url-test
   proxies:
   - oneclickvpnkeys US
-  - oneclickvpnkeys US 7338
-  - oneclickvpnkeys US 5310
+  - oneclickvpnkeys US 2548
+  - oneclickvpnkeys US 1929
   - oneclickvpnkeys DE
-  - oneclickvpnkeys US 4028
-  - oneclickvpnkeys DE 8881
-  - 2 DE av2ngFast
+  - oneclickvpnkeys US 4664
+  - oneclickvpnkeys DE 8909
   - v2con
   - CA 37877 Telegram t.me SOSkeyNET
   - v2configlab_ DE
@@ -793,10 +749,8 @@ proxy-groups:
   - prrofile_purple FR
   - configV2rayNG FR
   - oneclickvpnkeys NL
-  - oneclickvpnkeys NL 7277
-  - V2rayNG3 FR
-  - oneclickvpnkeys PL
-  - KAFING_2 9912
+  - oneclickvpnkeys NL 1253
+  - KAFING_2 2777
   - SC 37789 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
@@ -814,14 +768,13 @@ proxy-groups:
   - RELAY-104.18.42.54-1507
   - HK Join Telegram Farah_VPN HK
   - chillguy_vpn
-  - By EbraSha 4991
+  - By EbraSha 9222
   - oneclickvpnkeys US
-  - oneclickvpnkeys US 7338
-  - oneclickvpnkeys US 5310
+  - oneclickvpnkeys US 2548
+  - oneclickvpnkeys US 1929
   - oneclickvpnkeys DE
-  - oneclickvpnkeys US 4028
-  - oneclickvpnkeys DE 8881
-  - 2 DE av2ngFast
+  - oneclickvpnkeys US 4664
+  - oneclickvpnkeys DE 8909
   - v2con
   - CA 37877 Telegram t.me SOSkeyNET
   - v2configlab_ DE
@@ -836,10 +789,8 @@ proxy-groups:
   - prrofile_purple FR
   - configV2rayNG FR
   - oneclickvpnkeys NL
-  - oneclickvpnkeys NL 7277
-  - V2rayNG3 FR
-  - oneclickvpnkeys PL
-  - KAFING_2 9912
+  - oneclickvpnkeys NL 1253
+  - KAFING_2 2777
   - SC 37789 Telegram t.me SOSkeyNET
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
@@ -855,21 +806,21 @@ proxy-groups:
   type: fallback
   proxies:
   - best-link
-  - 2 DE av2ngFast
-  - NZ 37561 Telegram t.me SOSkeyNET
-  - US 37560 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 5310
-  - VPNine1
-  - US 37655 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 4028
-  - oneclickvpnkeys US 7338
   - CA 37533 Telegram t.me SOSkeyNET
+  - NZ 37561 Telegram t.me SOSkeyNET
+  - canfigiop
+  - US 37560 Telegram t.me SOSkeyNET
+  - US 37655 Telegram t.me SOSkeyNET
+  - icv2ray
   - CA 37660 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
-  - oneclickvpnkeys DE
+  - VPNine1
   - SC 37789 Telegram t.me SOSkeyNET
-  - prrofile_purple FR
-  - HK Join Telegram Farah_VPN HK
+  - CA 37877 Telegram t.me SOSkeyNET
+  - KAFING_2 2777
+  - oneclickvpnkeys NL 1253
+  - oneclickvpnkeys US
+  - oneclickvpnkeys US 1929
+  - oneclickvpnkeys US 4664
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
   - LINK bel432 xl

@@ -39,9 +39,9 @@
       "tag": "AUTO-BEST-PING",
       "outbounds": [
         "oneclickvpnkeys US",
-        "2 DE av2ngFast",
         "v2con",
         "v2configlab_ DE",
+        "canfigiop",
         "VPNine1",
         "US 37560 Telegram t.me SOSkeyNET",
         "NZ 37561 Telegram t.me SOSkeyNET",
@@ -98,16 +98,16 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "2 DE av2ngFast",
-        "US 37560 Telegram t.me SOSkeyNET",
-        "NZ 37561 Telegram t.me SOSkeyNET",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "v2con",
-        "VPNine1",
-        "v2configlab_ DE",
-        "oneclickvpnkeys US",
         "CA 37533 Telegram t.me SOSkeyNET",
+        "US 37560 Telegram t.me SOSkeyNET",
+        "US 37655 Telegram t.me SOSkeyNET",
+        "canfigiop",
+        "NZ 37561 Telegram t.me SOSkeyNET",
+        "oneclickvpnkeys US",
         "CA 37660 Telegram t.me SOSkeyNET",
+        "v2con",
+        "v2configlab_ DE",
+        "VPNine1",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -137,16 +137,16 @@
         "AUTO-BEST-PING",
         "best-link",
         "DIRECT",
-        "2 DE av2ngFast",
-        "US 37560 Telegram t.me SOSkeyNET",
-        "NZ 37561 Telegram t.me SOSkeyNET",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "v2con",
-        "VPNine1",
-        "v2configlab_ DE",
-        "oneclickvpnkeys US",
         "CA 37533 Telegram t.me SOSkeyNET",
+        "US 37560 Telegram t.me SOSkeyNET",
+        "US 37655 Telegram t.me SOSkeyNET",
+        "canfigiop",
+        "NZ 37561 Telegram t.me SOSkeyNET",
+        "oneclickvpnkeys US",
         "CA 37660 Telegram t.me SOSkeyNET",
+        "v2con",
+        "v2configlab_ DE",
+        "VPNine1",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -180,26 +180,6 @@
         "path": "/",
         "headers": {
           "Host": "freepol2.3r8sv.workers.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "2 DE av2ngFast",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
-      "tls": {
-        "enabled": true,
-        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
         }
       },
       "connect_timeout": "15s"
@@ -240,6 +220,26 @@
         "path": "/?ed=2048",
         "headers": {
           "Host": "v2configlab.v2configlab7-5a2.workers.dev"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "canfigiop",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "99324a44-8702-4a01-a400-cecddd6e2e0b",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2raycdn.dpdns.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "v2raycdn.dpdns.org"
         }
       },
       "connect_timeout": "15s"
@@ -451,21 +451,21 @@
     {
       "type": "vmess",
       "tag": "LINK 10.lowh.net",
-      "server": "10.lowh.net",
+      "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
       "security": "auto",
       "alter_id": 0,
       "tls": {
         "enabled": true,
-        "server_name": "104.17.3.81",
+        "server_name": "10.lowh.net",
         "insecure": false
       },
       "transport": {
         "type": "ws",
         "path": "/hello",
         "headers": {
-          "Host": "104.17.3.81"
+          "Host": "10.lowh.net"
         }
       },
       "connect_timeout": "15s"
@@ -613,20 +613,20 @@
     {
       "type": "vmess",
       "tag": "LINK 10.lowh.net 2",
-      "server": "10.lowh.net",
+      "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
       "security": "auto",
       "alter_id": 0,
       "tls": {
         "enabled": true,
-        "server_name": "104.17.3.81"
+        "server_name": "10.lowh.net"
       },
       "transport": {
         "type": "ws",
         "path": "/hello",
         "headers": {
-          "Host": "104.17.3.81"
+          "Host": "10.lowh.net"
         }
       }
     },

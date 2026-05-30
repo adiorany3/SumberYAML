@@ -39,10 +39,11 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
+        "RELAY-104.18.42.54-1507",
         "oneclickvpnkeys US",
-        "oneclickvpnkeys US 5310",
-        "oneclickvpnkeys US 4028",
-        "2 DE av2ngFast",
+        "oneclickvpnkeys US 2548",
+        "oneclickvpnkeys US 1929",
+        "oneclickvpnkeys US 4664",
         "v2con",
         "v2configlab_ DE",
         "canfigiop",
@@ -53,7 +54,6 @@
         "US 37655 Telegram t.me SOSkeyNET",
         "CA 37533 Telegram t.me SOSkeyNET",
         "CA 37660 Telegram t.me SOSkeyNET",
-        "configV2rayNG FR",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -102,10 +102,11 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
+        "RELAY-104.18.42.54-1507",
         "oneclickvpnkeys US",
-        "oneclickvpnkeys US 5310",
-        "oneclickvpnkeys US 4028",
-        "2 DE av2ngFast",
+        "oneclickvpnkeys US 2548",
+        "oneclickvpnkeys US 1929",
+        "oneclickvpnkeys US 4664",
         "v2con",
         "v2configlab_ DE",
         "canfigiop",
@@ -116,7 +117,6 @@
         "US 37655 Telegram t.me SOSkeyNET",
         "CA 37533 Telegram t.me SOSkeyNET",
         "CA 37660 Telegram t.me SOSkeyNET",
-        "configV2rayNG FR",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -140,21 +140,21 @@
       "type": "urltest",
       "tag": "AUTO-FALLBACK-STABLE",
       "outbounds": [
-        "2 DE av2ngFast",
-        "US 37560 Telegram t.me SOSkeyNET",
-        "NZ 37561 Telegram t.me SOSkeyNET",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "v2con",
-        "VPNine1",
-        "v2configlab_ DE",
-        "oneclickvpnkeys US",
         "CA 37533 Telegram t.me SOSkeyNET",
-        "CA 37660 Telegram t.me SOSkeyNET",
+        "US 37560 Telegram t.me SOSkeyNET",
+        "US 37655 Telegram t.me SOSkeyNET",
         "canfigiop",
-        "configV2rayNG FR",
-        "oneclickvpnkeys US 5310",
+        "NZ 37561 Telegram t.me SOSkeyNET",
+        "oneclickvpnkeys US",
+        "CA 37660 Telegram t.me SOSkeyNET",
+        "v2con",
+        "v2configlab_ DE",
+        "VPNine1",
         "icv2ray",
-        "oneclickvpnkeys US 4028",
+        "oneclickvpnkeys US 1929",
+        "oneclickvpnkeys US 4664",
+        "oneclickvpnkeys US 2548",
+        "RELAY-104.18.42.54-1507",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -174,21 +174,21 @@
         "AUTO-BEST-PING",
         "best-link",
         "DIRECT",
-        "2 DE av2ngFast",
-        "US 37560 Telegram t.me SOSkeyNET",
-        "NZ 37561 Telegram t.me SOSkeyNET",
-        "US 37655 Telegram t.me SOSkeyNET",
-        "v2con",
-        "VPNine1",
-        "v2configlab_ DE",
-        "oneclickvpnkeys US",
         "CA 37533 Telegram t.me SOSkeyNET",
-        "CA 37660 Telegram t.me SOSkeyNET",
+        "US 37560 Telegram t.me SOSkeyNET",
+        "US 37655 Telegram t.me SOSkeyNET",
         "canfigiop",
-        "configV2rayNG FR",
-        "oneclickvpnkeys US 5310",
+        "NZ 37561 Telegram t.me SOSkeyNET",
+        "oneclickvpnkeys US",
+        "CA 37660 Telegram t.me SOSkeyNET",
+        "v2con",
+        "v2configlab_ DE",
+        "VPNine1",
         "icv2ray",
-        "oneclickvpnkeys US 4028",
+        "oneclickvpnkeys US 1929",
+        "oneclickvpnkeys US 4664",
+        "oneclickvpnkeys US 2548",
+        "RELAY-104.18.42.54-1507",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -204,6 +204,27 @@
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ]
+    },
+    {
+      "type": "vmess",
+      "tag": "RELAY-104.18.42.54-1507",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "vienna-bread-threats-amendment.trycloudflare.com",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm",
+        "headers": {
+          "Host": "vienna-bread-threats-amendment.trycloudflare.com"
+        }
+      }
     },
     {
       "type": "vless",
@@ -226,7 +247,26 @@
     },
     {
       "type": "vless",
-      "tag": "oneclickvpnkeys US 5310",
+      "tag": "oneclickvpnkeys US 2548",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "tls": {
+        "enabled": true,
+        "server_name": "juzi.qea.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzi.qea.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "oneclickvpnkeys US 1929",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "ce69190e-935a-4394-9e5e-2ab2872ba242",
@@ -245,7 +285,7 @@
     },
     {
       "type": "vless",
-      "tag": "oneclickvpnkeys US 4028",
+      "tag": "oneclickvpnkeys US 4664",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
@@ -259,25 +299,6 @@
         "path": "/fp=random",
         "headers": {
           "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "2 DE av2ngFast",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
-      "tls": {
-        "enabled": true,
-        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
         }
       }
     },
@@ -473,25 +494,6 @@
     },
     {
       "type": "trojan",
-      "tag": "configV2rayNG FR",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.ignitelimit.com",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.ignitelimit.com"
-        }
-      }
-    },
-    {
-      "type": "trojan",
       "tag": "LINK 15.lowh.net",
       "server": "104.17.3.81",
       "server_port": 443,
@@ -573,21 +575,21 @@
     {
       "type": "vmess",
       "tag": "LINK 10.lowh.net",
-      "server": "10.lowh.net",
+      "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
       "security": "auto",
       "alter_id": 0,
       "tls": {
         "enabled": true,
-        "server_name": "104.17.3.81",
+        "server_name": "10.lowh.net",
         "insecure": false
       },
       "transport": {
         "type": "ws",
         "path": "/hello",
         "headers": {
-          "Host": "104.17.3.81"
+          "Host": "10.lowh.net"
         }
       }
     },
@@ -733,20 +735,20 @@
     {
       "type": "vmess",
       "tag": "LINK 10.lowh.net 2",
-      "server": "10.lowh.net",
+      "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
       "security": "auto",
       "alter_id": 0,
       "tls": {
         "enabled": true,
-        "server_name": "104.17.3.81"
+        "server_name": "10.lowh.net"
       },
       "transport": {
         "type": "ws",
         "path": "/hello",
         "headers": {
-          "Host": "104.17.3.81"
+          "Host": "10.lowh.net"
         }
       }
     },
