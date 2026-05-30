@@ -415,6 +415,24 @@ jobs:
             exit 1
           fi
 
+
+      - name: Fix sing-box outbound dependencies
+        run: |
+          set -e
+          if [ -f scripts/fix_singbox_dependencies.py ]; then
+            python scripts/fix_singbox_dependencies.py \
+              --dir output/SingBox \
+              --interval 3m \
+              --tolerance 80 \
+              --idle-timeout 2h
+
+            echo "Sing-box dependency fix summary:"
+            cat output/SingBox/summary_dependency_fix.json || true
+          else
+            echo "ERROR: scripts/fix_singbox_dependencies.py tidak ditemukan."
+            exit 1
+          fi
+
       - name: Commit output files
         run: |
           set -euo pipefail
