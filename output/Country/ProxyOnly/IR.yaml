@@ -1,16 +1,17 @@
 proxies:
-  - name: "outline_ir"
+  - name: "chillguy_vpn"
+    type: vmess
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: c2f0a8f0-36fe-4a94-824b-bca271ca642b
-    cipher: none
+    uuid: fdf8034a-67a0-4bf2-90e9-6d65d211aca6
+    alterId: 0
+    cipher: auto
     tls: true
     skip-cert-verify: true
+    servername: "Kose-nanat-decoder.dr-ping.ir"
     network: ws
-    servername: "alphacdn.alphashops.shop"
     ws-opts:
-      path: "/ws"
+      path: "/Kose-nanat-decoder"
       headers:
-        Host: "alphacdn.alphashops.shop"
+        Host: "Kose-nanat-decoder.dr-ping.ir"
     udp: true

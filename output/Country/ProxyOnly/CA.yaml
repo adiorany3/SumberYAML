@@ -1,4 +1,19 @@
 proxies:
+  - name: "CA 37877 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 44a59812-43ff-46ff-8acc-c7fe4dfc4e46
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "newspeedbypass.wt4p2ppro.me"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "newspeedbypass.wt4p2ppro.me"
+    udp: true
   - name: "CA 37533 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
