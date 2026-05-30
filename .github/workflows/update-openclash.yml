@@ -18,6 +18,8 @@ on:
           - test
           - test_ping
           - merge_links
+          - build_stable
+          - clear_quarantine
       enable_proxy_test:
         description: Jalankan test proxy/ping untuk sumber otomatis
         required: false
@@ -175,7 +177,7 @@ jobs:
           fi
 
       - name: Generate OpenClash output from automatic sources
-        if: ${{ env.MODE != 'merge_links' }}
+        if: ${{ env.MODE != 'merge_links' && env.MODE != 'build_stable' && env.MODE != 'clear_quarantine' }}
         run: |
           set -e
           if [ -f telegram_openclash_alive.py ]; then
@@ -200,6 +202,7 @@ jobs:
           find output -maxdepth 4 -type f | sort || true
 
       - name: Validate output/lengkap.yaml exists
+        if: ${{ env.MODE != 'clear_quarantine' }}
         run: |
           set -e
           if [ ! -f output/lengkap.yaml ]; then
@@ -211,6 +214,7 @@ jobs:
           wc -l output/lengkap.yaml || true
 
       - name: Sanitize generated OpenClash group references before validation
+        if: ${{ env.MODE != 'clear_quarantine' }}
         run: |
           set -e
           if [ -f scripts/fix_yaml_group_refs.py ]; then
@@ -222,6 +226,7 @@ jobs:
           fi
 
       - name: Validate generated OpenClash YAML outputs only
+        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'build_stable' }}
         run: |
           set -e
           if [ ! -f scripts/validate_openclash_outputs.py ]; then
@@ -256,6 +261,7 @@ jobs:
           python scripts/validate_openclash_outputs.py "${files[@]}"
 
       - name: Append trusted input links into OpenClash YAML outputs without validation gate
+        if: ${{ env.MODE != 'clear_quarantine' }}
         run: |
           set -e
           if [ -f scripts/merge_links_into_openclash_yaml.py ]; then
@@ -268,7 +274,21 @@ jobs:
             echo "scripts/merge_links_into_openclash_yaml.py tidak ditemukan. Lewati merge trusted links ke YAML."
           fi
 
+      - name: Clear sing-box health quarantine
+        if: ${{ env.MODE == 'clear_quarantine' }}
+        run: |
+          set -e
+          if [ -f scripts/clear_health_quarantine.py ]; then
+            python scripts/clear_health_quarantine.py --health-dir output/Health
+            echo "Clear quarantine summary:"
+            cat output/Health/summary_clear_quarantine.json || true
+          else
+            echo "ERROR: scripts/clear_health_quarantine.py tidak ditemukan."
+            exit 1
+          fi
+
       - name: Build final sing-box JSON and merge trusted input links
+        if: ${{ env.MODE != 'clear_quarantine' }}
         run: |
           set -e
           mkdir -p output/SingBox
@@ -317,6 +337,7 @@ jobs:
 
 
       - name: Fix sing-box mobile idle reconnect stability
+        if: ${{ env.MODE != 'clear_quarantine' }}
         run: |
           set -e
           if [ -f scripts/stabilize_singbox_mobile_idle.py ]; then
@@ -328,7 +349,23 @@ jobs:
             echo "scripts/stabilize_singbox_mobile_idle.py tidak ditemukan. Lewati mobile idle reconnect fix."
           fi
 
+      - name: Build best-stable sing-box profiles and quarantine unhealthy nodes
+        if: ${{ env.MODE != 'clear_quarantine' }}
+        run: |
+          set -e
+          if [ -f scripts/build_best_stable.py ]; then
+            python scripts/build_best_stable.py               --source output/SingBox/lengkap.json               --singbox-dir output/SingBox               --health-dir output/Health               --stable-max-delay-ms 1800               --quarantine-after-failures 3               --quarantine-hours 24               --max-stable 10               --max-fallback 15               --max-manual 4               --interval 3m               --tolerance 80               --idle-timeout 2h               --connect-timeout 15s               --make-latest-stable
+
+            echo "Best stable summary:"
+            cat output/SingBox/summary_best_stable.json || true
+            echo "Health summary:"
+            cat output/Health/summary_health.json || true
+          else
+            echo "scripts/build_best_stable.py tidak ditemukan. Lewati Best Stable Builder."
+          fi
+
       - name: Apply stable DNS fallback to sing-box JSON profiles
+        if: ${{ env.MODE != 'clear_quarantine' }}
         run: |
           set -e
           if [ -f scripts/apply_dns_fallback_stable.py ]; then
