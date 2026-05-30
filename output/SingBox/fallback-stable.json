@@ -59,6 +59,26 @@
       "connect_timeout": "15s"
     },
     {
+      "tag": "https telegraph.rayan-config.workers.dev persian",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
+      "tls": {
+        "enabled": true,
+        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "rayan-007.nastaran.dpdns.org"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
       "tag": "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 1783",
       "server": "104.17.3.81",
       "server_port": 443,
@@ -74,6 +94,26 @@
         "path": "/?ed=2560",
         "headers": {
           "Host": "rAyAn-007.mAxImA.DpDnS.OrG"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "tag": "VPNine1",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "0905460d-6edc-4a82-8ec8-6b76090b41c8",
+      "tls": {
+        "enabled": true,
+        "server_name": "nginx-f.pages.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560fp=randomized",
+        "headers": {
+          "Host": "nginx-f.pages.dev"
         }
       },
       "connect_timeout": "15s"
@@ -99,6 +139,46 @@
       "connect_timeout": "15s"
     },
     {
+      "tag": "v2configlab",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "1de37726-744b-46e1-9101-c926b3402e82",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2.v2configlab.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "v2.v2configlab.workers.dev"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "tag": "US 37343 Telegram t.me SOSkeyNET",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "226cbc0f-409b-4df3-828c-6061cb701a7e",
+      "tls": {
+        "enabled": true,
+        "server_name": "salam.xdmmd12.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "salam.xdmmd12.workers.dev"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
       "tag": "2 DE av2ngFast",
       "server": "104.17.3.81",
       "server_port": 443,
@@ -114,6 +194,26 @@
         "path": "/ws",
         "headers": {
           "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "tag": "v2con",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "2d5d3c38-6178-43d3-8002-86dd60e44d38",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2configlab.v2configlab-2f5.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "v2configlab.v2configlab-2f5.workers.dev"
         }
       },
       "connect_timeout": "15s"
@@ -240,7 +340,7 @@
     },
     {
       "type": "urltest",
-      "tag": "AUTO-BEST-STABLE",
+      "tag": "AUTO-FALLBACK-STABLE",
       "outbounds": [
         "2 DE av2ngFast",
         "NZ 37561 Telegram t.me SOSkeyNET",
@@ -251,19 +351,24 @@
         "canfigiop",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 1783",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
-        "US 37655 Telegram t.me SOSkeyNET"
+        "US 37655 Telegram t.me SOSkeyNET",
+        "VPNine1",
+        "v2con",
+        "v2configlab",
+        "https telegraph.rayan-config.workers.dev persian",
+        "US 37343 Telegram t.me SOSkeyNET"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80,
-      "idle_timeout": "2h",
+      "tolerance": 100,
+      "idle_timeout": "3h",
       "interrupt_exist_connections": false
     },
     {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "AUTO-BEST-STABLE",
+        "AUTO-FALLBACK-STABLE",
         "DIRECT",
         "2 DE av2ngFast",
         "NZ 37561 Telegram t.me SOSkeyNET",
@@ -274,9 +379,14 @@
         "canfigiop",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 1783",
         "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns",
-        "US 37655 Telegram t.me SOSkeyNET"
+        "US 37655 Telegram t.me SOSkeyNET",
+        "VPNine1",
+        "v2con",
+        "v2configlab",
+        "https telegraph.rayan-config.workers.dev persian",
+        "US 37343 Telegram t.me SOSkeyNET"
       ],
-      "default": "AUTO-BEST-STABLE",
+      "default": "AUTO-FALLBACK-STABLE",
       "interrupt_exist_connections": false
     }
   ],

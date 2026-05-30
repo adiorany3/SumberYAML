@@ -5,8 +5,8 @@
   "primary_dns": "1.1.1.1",
   "fallback_tag": "google",
   "fallback_dns": "8.8.8.8",
-  "processed_count": 41,
-  "skipped_count": 6,
+  "processed_count": 45,
+  "skipped_count": 8,
   "error_count": 0,
   "processed": [
     {
@@ -40,7 +40,27 @@
       "stale_dns_rule_refs_fixed": 0
     },
     {
+      "file": "output/SingBox/best-stable.json",
+      "format": "legacy",
+      "primary": "1.1.1.1",
+      "fallback": "8.8.8.8",
+      "final": "cloudflare",
+      "server_count_before": 1,
+      "server_count_after": 2,
+      "stale_dns_rule_refs_fixed": 0
+    },
+    {
       "file": "output/SingBox/best.json",
+      "format": "legacy",
+      "primary": "1.1.1.1",
+      "fallback": "8.8.8.8",
+      "final": "cloudflare",
+      "server_count_before": 1,
+      "server_count_after": 2,
+      "stale_dns_rule_refs_fixed": 0
+    },
+    {
+      "file": "output/SingBox/fallback-stable.json",
       "format": "legacy",
       "primary": "1.1.1.1",
       "fallback": "8.8.8.8",
@@ -270,6 +290,26 @@
       "stale_dns_rule_refs_fixed": 0
     },
     {
+      "file": "output/SingBox/manual-links.json",
+      "format": "legacy",
+      "primary": "1.1.1.1",
+      "fallback": "8.8.8.8",
+      "final": "cloudflare",
+      "server_count_before": 1,
+      "server_count_after": 2,
+      "stale_dns_rule_refs_fixed": 0
+    },
+    {
+      "file": "output/SingBox/mobile-stable.json",
+      "format": "legacy",
+      "primary": "1.1.1.1",
+      "fallback": "8.8.8.8",
+      "final": "cloudflare",
+      "server_count_before": 1,
+      "server_count_after": 2,
+      "stale_dns_rule_refs_fixed": 0
+    },
+    {
       "file": "output/SingBox/social_media-legacy-tun.json",
       "format": "legacy",
       "primary": "1.1.1.1",
@@ -423,6 +463,14 @@
   "skipped": [
     {
       "file": "output/SingBox/summary_best_ping.json",
+      "reason": "summary/report file"
+    },
+    {
+      "file": "output/SingBox/summary_best_stable.json",
+      "reason": "summary/report file"
+    },
+    {
+      "file": "output/SingBox/summary_dns_fallback_stable.json",
       "reason": "summary/report file"
     },
     {
