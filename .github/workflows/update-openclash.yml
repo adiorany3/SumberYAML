@@ -416,6 +416,28 @@ jobs:
           fi
 
 
+      - name: Add best-link group for trusted input accounts
+        run: |
+          set -e
+          if [ -f scripts/add_best_link_group.py ]; then
+            python scripts/add_best_link_group.py \
+              --group-name best-link \
+              --manual-prefix LINK \
+              --singbox-dir output/SingBox \
+              --interval 3m \
+              --tolerance 80 \
+              --idle-timeout 2h
+
+            echo "OpenClash best-link summary:"
+            cat output/Validation/summary_best_link_group_yaml.json || true
+            echo "sing-box best-link summary:"
+            cat output/SingBox/summary_best_link_group.json || true
+          else
+            echo "ERROR: scripts/add_best_link_group.py tidak ditemukan."
+            exit 1
+          fi
+
+
       - name: Fix sing-box outbound dependencies
         run: |
           set -e
