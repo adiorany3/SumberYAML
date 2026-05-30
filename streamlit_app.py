@@ -170,7 +170,7 @@ ADMIN_QUERY_VALUE = get_setting("ADMIN_QUERY_VALUE", "1") or "1"
 # Panel QR sing-box hanya dirender di halaman admin setelah login.
 SHOW_SINGBOX_QR_PANEL = get_setting("SHOW_SINGBOX_QR_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
 SINGBOX_DEFAULT_PROFILE_NAME = get_setting("SINGBOX_DEFAULT_PROFILE_NAME", "SumberYAML Best Stable")
-SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/best-stable.json")
+SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/best-stable-safe.json")
 SINGBOX_DEFAULT_QR_ERROR_CORRECTION = get_setting("SINGBOX_DEFAULT_QR_ERROR_CORRECTION", "M").upper()
 # Default QR URL source. Gunakan jsDelivr agar perangkat/client yang memblokir raw.githubusercontent.com tetap bisa import.
 SINGBOX_QR_DEFAULT_URL_SOURCE = get_setting("SINGBOX_QR_DEFAULT_URL_SOURCE", "jsdelivr").strip().lower()
@@ -184,7 +184,15 @@ SINGBOX_MERGE_WORKFLOW_MODE = get_setting("SINGBOX_MERGE_WORKFLOW_MODE", "merge_
 SHOW_SINGBOX_STABILITY_PANEL = get_setting("SHOW_SINGBOX_STABILITY_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
 SINGBOX_BUILD_STABLE_WORKFLOW_MODE = get_setting("SINGBOX_BUILD_STABLE_WORKFLOW_MODE", "build_stable").strip() or "build_stable"
 SINGBOX_CLEAR_QUARANTINE_WORKFLOW_MODE = get_setting("SINGBOX_CLEAR_QUARANTINE_WORKFLOW_MODE", "clear_quarantine").strip() or "clear_quarantine"
+SINGBOX_SANITIZE_IMPORT_WORKFLOW_MODE = get_setting("SINGBOX_SANITIZE_IMPORT_WORKFLOW_MODE", "sanitize_import").strip() or "sanitize_import"
 SINGBOX_KNOWN_JSON_PATHS = [
+    "output/SingBox/best-stable-safe.json",
+    "output/SingBox/latest-safe.json",
+    "output/SingBox/mobile-stable-safe.json",
+    "output/SingBox/fallback-stable-safe.json",
+    "output/SingBox/manual-links-safe.json",
+    "output/SingBox/lengkap-safe.json",
+    "output/SingBox/best-ping-safe.json",
     "output/SingBox/best-stable.json",
     "output/SingBox/mobile-stable.json",
     "output/SingBox/fallback-stable.json",
@@ -2092,7 +2100,7 @@ def render_admin_singbox_stability():
         unsafe_allow_html=True,
     )
 
-    stable_col1, stable_col2, stable_col3 = st.columns(3)
+    stable_col1, stable_col2, stable_col3, stable_col4 = st.columns(4)
     with stable_col1:
         if st.button("🩺 Build Best Stable", use_container_width=True):
             try:
@@ -2102,7 +2110,7 @@ def render_admin_singbox_stability():
                     filter_alive_only="false",
                     strict_alive_only="false",
                 )
-                set_pet_action("Build Best Stable berhasil dipicu. Tunggu GitHub Actions selesai, lalu scan ulang QR best-stable.json.")
+                set_pet_action("Build Best Stable berhasil dipicu. Tunggu GitHub Actions selesai, lalu scan ulang QR best-stable-safe.json.")
                 st.success("Build Best Stable berhasil dipicu lewat GitHub Actions.")
                 try:
                     load_workflow_status_data.clear()
@@ -2134,6 +2142,26 @@ def render_admin_singbox_stability():
             st.rerun()
 
     with stable_col3:
+        if st.button("🛡️ Fix Import JSON", use_container_width=True):
+            try:
+                dispatch_workflow(
+                    mode=SINGBOX_SANITIZE_IMPORT_WORKFLOW_MODE,
+                    enable_proxy_test="false",
+                    filter_alive_only="false",
+                    strict_alive_only="false",
+                )
+                set_pet_action("Fix Import JSON berhasil dipicu. Tunggu GitHub Actions selesai, lalu scan ulang QR best-stable-safe.json.")
+                st.success("Fix Import JSON berhasil dipicu lewat GitHub Actions.")
+                try:
+                    load_workflow_status_data.clear()
+                except Exception:
+                    pass
+            except Exception as exc:
+                set_pet_action("Gagal memicu Fix Import JSON. Cek workflow mode dan token GitHub.")
+                st.error(str(exc))
+            st.rerun()
+
+    with stable_col4:
         if st.button("📄 Refresh Health", use_container_width=True):
             try:
                 load_workflow_status_data.clear()
@@ -2477,7 +2505,7 @@ def render_admin_singbox_qr():
         "Nama profile otomatis",
         value=profile_name,
         disabled=True,
-        help="Nama profile mengikuti nama file JSON yang dipilih di repo. Contoh: best-stable.json → profile best-stable.json.",
+        help="Nama profile mengikuti nama file JSON yang dipilih di repo. Contoh: best-stable-safe.json → profile best-stable-safe.json.",
         key="singbox_qr_profile_name_auto",
     )
 
