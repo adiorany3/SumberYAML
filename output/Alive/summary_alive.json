@@ -1,5 +1,5 @@
 {
-  "run_mode": "update",
+  "run_mode": "update_ping",
   "enable_proxy_test": true,
   "filter_alive_only": true,
   "strict_alive_only": true,
@@ -21,23 +21,23 @@
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 16,
+      "alive": 19,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 4,
+      "alive": 3,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
   "total": 1264,
-  "alive": 17,
-  "strict_alive": 17,
-  "dead": 1247,
+  "alive": 19,
+  "strict_alive": 19,
+  "dead": 1245,
   "untested": 0,
   "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
@@ -64,5 +64,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 17
+  "strict_output_count": 19
 }

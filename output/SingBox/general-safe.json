@@ -39,16 +39,16 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
+        "configV2rayNG FR",
+        "RELAY-104.18.42.54-1507",
+        "KAFING_2 5513",
         "VPNine1",
-        "oneclickvpnkeys NL 9077",
-        "KAFING_2 7493",
-        "oneclickvpnkeys US 3373",
-        "v2reya88 confinghub2",
+        "oneclickvpnkeys US 7539",
         "67646 - Telegram V2All",
-        "V2raysCollector",
-        "V2raysCollector 3764",
-        "oneclickvpnkeys US 3552",
-        "oneclickvpnkeys US 4142",
+        "VPN_PASARGAD",
+        "oneclickvpnkeys US 1271",
+        "v2con",
+        "oneclickvpnkeys US 7304",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -72,16 +72,16 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
+        "configV2rayNG FR",
+        "RELAY-104.18.42.54-1507",
+        "KAFING_2 5513",
         "VPNine1",
-        "oneclickvpnkeys NL 9077",
-        "KAFING_2 7493",
-        "oneclickvpnkeys US 3373",
-        "v2reya88 confinghub2",
+        "oneclickvpnkeys US 7539",
         "67646 - Telegram V2All",
-        "V2raysCollector",
-        "V2raysCollector 3764",
-        "oneclickvpnkeys US 3552",
-        "oneclickvpnkeys US 4142",
+        "VPN_PASARGAD",
+        "oneclickvpnkeys US 1271",
+        "v2con",
+        "oneclickvpnkeys US 7304",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -105,16 +105,16 @@
       "type": "urltest",
       "tag": "GENERAL STABIL",
       "outbounds": [
+        "configV2rayNG FR",
+        "RELAY-104.18.42.54-1507",
+        "KAFING_2 5513",
         "VPNine1",
-        "oneclickvpnkeys NL 9077",
-        "KAFING_2 7493",
-        "oneclickvpnkeys US 3373",
-        "v2reya88 confinghub2",
+        "oneclickvpnkeys US 7539",
         "67646 - Telegram V2All",
-        "V2raysCollector",
-        "V2raysCollector 3764",
-        "oneclickvpnkeys US 3552",
-        "oneclickvpnkeys US 4142",
+        "VPN_PASARGAD",
+        "oneclickvpnkeys US 1271",
+        "v2con",
+        "oneclickvpnkeys US 7304",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -141,16 +141,16 @@
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
         "DIRECT",
+        "configV2rayNG FR",
+        "RELAY-104.18.42.54-1507",
+        "KAFING_2 5513",
         "VPNine1",
-        "oneclickvpnkeys NL 9077",
-        "KAFING_2 7493",
-        "oneclickvpnkeys US 3373",
-        "v2reya88 confinghub2",
+        "oneclickvpnkeys US 7539",
         "67646 - Telegram V2All",
-        "V2raysCollector",
-        "V2raysCollector 3764",
-        "oneclickvpnkeys US 3552",
-        "oneclickvpnkeys US 4142",
+        "VPN_PASARGAD",
+        "oneclickvpnkeys US 1271",
+        "v2con",
+        "oneclickvpnkeys US 7304",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
         "LINK bel432 xl",
@@ -172,15 +172,15 @@
       "tag": "BEST-STABLE",
       "outbounds": [
         "VPNine1",
-        "V2raysCollector",
-        "v2reya88 confinghub2",
-        "V2raysCollector 3764",
-        "oneclickvpnkeys US 4142",
-        "oneclickvpnkeys US 3552",
-        "oneclickvpnkeys US 3373",
+        "v2con",
         "67646 - Telegram V2All",
-        "oneclickvpnkeys NL 9077",
-        "KAFING_2 7493"
+        "configV2rayNG FR",
+        "RELAY-104.18.42.54-1507",
+        "oneclickvpnkeys US 7539",
+        "oneclickvpnkeys US 1271",
+        "oneclickvpnkeys US 7304",
+        "VPN_PASARGAD",
+        "KAFING_2 5513"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -217,6 +217,65 @@
       "tolerance": 80
     },
     {
+      "type": "trojan",
+      "tag": "configV2rayNG FR",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.ignitelimit.com",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.ignitelimit.com"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "RELAY-104.18.42.54-1507",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "vienna-bread-threats-amendment.trycloudflare.com",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm",
+        "headers": {
+          "Host": "vienna-bread-threats-amendment.trycloudflare.com"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "KAFING_2 5513",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "20ba0c60-0133-11f1-95ef-1239d0255272",
+      "tls": {
+        "enabled": true,
+        "server_name": "uk1.test3.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/howdy",
+        "headers": {
+          "Host": "uk1.test3.net"
+        }
+      }
+    },
+    {
       "type": "vless",
       "tag": "VPNine1",
       "server": "104.17.3.81",
@@ -236,78 +295,21 @@
       }
     },
     {
-      "type": "trojan",
-      "tag": "oneclickvpnkeys NL 9077",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.multiplydose.com",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.multiplydose.com"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "KAFING_2 7493",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "20ba0c60-0133-11f1-95ef-1239d0255272",
-      "tls": {
-        "enabled": true,
-        "server_name": "uk1.test3.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/howdy",
-        "headers": {
-          "Host": "uk1.test3.net"
-        }
-      }
-    },
-    {
       "type": "vless",
-      "tag": "oneclickvpnkeys US 3373",
+      "tag": "oneclickvpnkeys US 7539",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
       "tls": {
         "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "server_name": "juzi.qea.ccwu.cc",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/fp=random",
+        "path": "/",
         "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "v2reya88 confinghub2",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
+          "Host": "juzi.qea.ccwu.cc"
         }
       }
     },
@@ -332,26 +334,7 @@
     },
     {
       "type": "vless",
-      "tag": "V2raysCollector",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
-      "tls": {
-        "enabled": true,
-        "server_name": "m.udemy.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "m.udemy.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "V2raysCollector 3764",
+      "tag": "VPN_PASARGAD",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
@@ -370,7 +353,7 @@
     },
     {
       "type": "vless",
-      "tag": "oneclickvpnkeys US 3552",
+      "tag": "oneclickvpnkeys US 1271",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "ce69190e-935a-4394-9e5e-2ab2872ba242",
@@ -389,20 +372,39 @@
     },
     {
       "type": "vless",
-      "tag": "oneclickvpnkeys US 4142",
+      "tag": "v2con",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "uuid": "2d5d3c38-6178-43d3-8002-86dd60e44d38",
       "tls": {
         "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
+        "server_name": "v2configlab.v2configlab-2f5.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/?ed=2560",
         "headers": {
-          "Host": "juzi.qea.ccwu.cc"
+          "Host": "v2configlab.v2configlab-2f5.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "oneclickvpnkeys US 7304",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/fp=random",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
         }
       }
     },
