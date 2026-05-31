@@ -38,15 +38,15 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "oneclickvpnkeys US 3558",
-        "v2configlab",
+        "oneclickvpnkeys US",
+        "oneclickvpnkeys US 6247",
+        "CF20",
+        "VLESS",
+        "76 oneclickvpnkeys",
+        "36 oneclickvpnkeys",
         "27 oneclickvpnkeys",
-        "42 oneclickvpnkeys",
-        "90 oneclickvpnkeys",
         "35 oneclickvpnkeys",
-        "configV2rayNG FR",
         "oneclickvpnkeys NL",
-        "V2rayNG3 FR",
         "HiByeVPNN",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -73,16 +73,16 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "v2configlab",
+        "oneclickvpnkeys US",
         "oneclickvpnkeys NL",
-        "configV2rayNG FR",
-        "42 oneclickvpnkeys",
-        "oneclickvpnkeys US 3558",
+        "36 oneclickvpnkeys",
         "27 oneclickvpnkeys",
-        "90 oneclickvpnkeys",
         "HiByeVPNN",
         "35 oneclickvpnkeys",
-        "V2rayNG3 FR",
+        "CF20",
+        "76 oneclickvpnkeys",
+        "oneclickvpnkeys US 6247",
+        "VLESS",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -111,16 +111,16 @@
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
         "DIRECT",
-        "v2configlab",
+        "oneclickvpnkeys US",
         "oneclickvpnkeys NL",
-        "configV2rayNG FR",
-        "42 oneclickvpnkeys",
-        "oneclickvpnkeys US 3558",
+        "36 oneclickvpnkeys",
         "27 oneclickvpnkeys",
-        "90 oneclickvpnkeys",
         "HiByeVPNN",
         "35 oneclickvpnkeys",
-        "V2rayNG3 FR",
+        "CF20",
+        "76 oneclickvpnkeys",
+        "oneclickvpnkeys US 6247",
+        "VLESS",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -140,7 +140,27 @@
     },
     {
       "type": "vless",
-      "tag": "oneclickvpnkeys US 3558",
+      "tag": "oneclickvpnkeys US",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "7872e85d-fd7e-4472-99e5-49cb48d0f668",
+      "tls": {
+        "enabled": true,
+        "server_name": "freepol2.3r8sv.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "freepol2.3r8sv.workers.dev"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "oneclickvpnkeys US 6247",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -160,20 +180,80 @@
     },
     {
       "type": "vless",
-      "tag": "v2configlab",
+      "tag": "CF20",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "1de37726-744b-46e1-9101-c926b3402e82",
+      "uuid": "7f3faff8-41db-403d-8329-6b9072aaabe2",
       "tls": {
         "enabled": true,
-        "server_name": "v2.v2configlab.workers.dev",
+        "server_name": "edgetunnell-1dc.pages.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/?ed=2048",
+        "path": "/",
         "headers": {
-          "Host": "v2.v2configlab.workers.dev"
+          "Host": "edgetunnell-1dc.pages.dev"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "VLESS",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
+      "tls": {
+        "enabled": true,
+        "server_name": "graph.instagram.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "graph.instagram.com.cyylr.eu.cc"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "76 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "m.udemy.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "m.udemy.com.cyylr.eu.cc"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "36 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "tls": {
+        "enabled": true,
+        "server_name": "cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "cyylr.eu.cc"
         }
       },
       "connect_timeout": "15s"
@@ -200,46 +280,6 @@
     },
     {
       "type": "vless",
-      "tag": "42 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "90 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "f86f5a03-3872-46b5-bf03-a50388a0261d",
-      "tls": {
-        "enabled": true,
-        "server_name": "a1-tss.pages.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "a1-tss.pages.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
       "tag": "35 oneclickvpnkeys",
       "server": "104.17.3.81",
       "server_port": 443,
@@ -260,60 +300,20 @@
     },
     {
       "type": "trojan",
-      "tag": "configV2rayNG FR",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.ignitelimit.com",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.ignitelimit.com"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "trojan",
       "tag": "oneclickvpnkeys NL",
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "humanity",
       "tls": {
         "enabled": true,
-        "server_name": "www.gossipglove.com",
+        "server_name": "www.multiplydose.com",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/assignment",
         "headers": {
-          "Host": "www.gossipglove.com"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "trojan",
-      "tag": "V2rayNG3 FR",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.calmlunch.com",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.calmlunch.com"
+          "Host": "www.multiplydose.com"
         }
       },
       "connect_timeout": "15s"

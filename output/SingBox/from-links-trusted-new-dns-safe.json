@@ -39,15 +39,15 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "15.lowh.net",
-        "AUTO-BEST-PING",
-        "sg-trojan.1server.co",
         "bel432 xl",
+        "AUTO-BEST-PING",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
         "VLESS-WS-TLS-443-apt50atpprem",
+        "15.lowh.net",
+        "sg-trojan.1server.co",
         "DIRECT"
       ]
     },
@@ -55,54 +55,18 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "15.lowh.net",
-        "sg-trojan.1server.co",
         "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
-        "VLESS-WS-TLS-443-apt50atpprem"
+        "VLESS-WS-TLS-443-apt50atpprem",
+        "15.lowh.net",
+        "sg-trojan.1server.co"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 50
-    },
-    {
-      "type": "trojan",
-      "tag": "15.lowh.net",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
-      "tls": {
-        "enabled": true,
-        "server_name": "15.lowh.net"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/welcome",
-        "headers": {
-          "Host": "15.lowh.net"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "sg-trojan.1server.co",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
-      "tls": {
-        "enabled": true,
-        "server_name": "sg-trojan.1server.co"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/welcome",
-        "headers": {
-          "Host": "sg-trojan.1server.co"
-        }
-      }
     },
     {
       "type": "vmess",
@@ -220,6 +184,42 @@
         "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
         "headers": {
           "Host": "akamaized.my"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "15.lowh.net",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
+      "tls": {
+        "enabled": true,
+        "server_name": "15.lowh.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "15.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "sg-trojan.1server.co",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
+      "tls": {
+        "enabled": true,
+        "server_name": "sg-trojan.1server.co"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "sg-trojan.1server.co"
         }
       }
     },

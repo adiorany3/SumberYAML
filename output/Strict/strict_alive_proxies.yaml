@@ -1,5 +1,20 @@
 proxies:
-  - name: "oneclickvpnkeys US 3558"
+  - name: "oneclickvpnkeys US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7872e85d-fd7e-4472-99e5-49cb48d0f668
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "freepol2.3r8sv.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "freepol2.3r8sv.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 6247"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -14,20 +29,95 @@ proxies:
       headers:
         Host: "juzi.qea.ccwu.cc"
     udp: true
-  - name: "v2configlab"
+  - name: "CF20"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 1de37726-744b-46e1-9101-c926b3402e82
+    uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "v2.v2configlab.workers.dev"
+    servername: "edgetunnell-1dc.pages.dev"
     ws-opts:
-      path: "/?ed=2048"
+      path: "/"
       headers:
-        Host: "v2.v2configlab.workers.dev"
+        Host: "edgetunnell-1dc.pages.dev"
+    udp: true
+  - name: "VLESS"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "graph.instagram.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
+  - name: "VLESS 1496"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 41d480fd-1dcc-4766-8e01-a67e7faa5934
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "investors.spotify.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "investors.spotify.com.cyylr.eu.cc"
+    udp: true
+  - name: "76 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "m.udemy.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "m.udemy.com.cyylr.eu.cc"
+    udp: true
+  - name: "26 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "filter.elitesilver002.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "filter.elitesilver002.workers.dev"
+    udp: true
+  - name: "36 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "cyylr.eu.cc"
     udp: true
   - name: "27 oneclickvpnkeys"
     server: "104.17.3.81"
@@ -44,51 +134,6 @@ proxies:
       headers:
         Host: "momi.timoreyhaneh.workers.dev"
     udp: true
-  - name: "42 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "hhlfy.twiladaphne.ndjp.net"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "hhlfy.twiladaphne.ndjp.net"
-    udp: true
-  - name: "90 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: f86f5a03-3872-46b5-bf03-a50388a0261d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "a1-tss.pages.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "a1-tss.pages.dev"
-    udp: true
-  - name: "config_free2 6877"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: f9fa9ed3-1381-441c-8672-588cbedd012d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "r.bibak.bz"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "r.bibak.bz"
-    udp: true
   - name: "35 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
@@ -104,7 +149,7 @@ proxies:
       headers:
         Host: "zyzzzoao.xn--fiqv8j.eu.org"
     udp: true
-  - name: "vpnbaz 5045"
+  - name: "vpnbaz 3204"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -118,35 +163,7 @@ proxies:
       headers:
         Host: "www.calmloud.com"
     udp: true
-  - name: "configV2rayNG FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.ignitelimit.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.ignitelimit.com"
-    udp: true
   - name: "oneclickvpnkeys NL"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.gossipglove.com"
-    udp: true
-  - name: "oneclickvpnkeys NL 9280"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -173,34 +190,6 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.calmlunch.com"
-    udp: true
-  - name: "oneclickvpnkeys PL"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.creationlong.org"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.creationlong.org"
-    udp: true
-  - name: "KAFING_2 6533"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "uk1.test3.net"
-    ws-opts:
-      path: "/howdy"
-      headers:
-        Host: "uk1.test3.net"
     udp: true
   - name: "HiByeVPNN"
     server: "104.17.3.81"
