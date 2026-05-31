@@ -2768,6 +2768,118 @@ def render_admin_singbox_qr():
 
 
 
+# =========================
+# ADMIN DIAGNOSTIC SUMMARY
+# =========================
+def _safe_admin_json(path: str) -> dict:
+    try:
+        raw = fetch_github_file_text(path)
+        data = json.loads(raw)
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
+def _safe_admin_csv_count(path: str) -> int:
+    try:
+        raw = fetch_github_file_text(path)
+        return len(list(csv.DictReader(io.StringIO(raw or ""))))
+    except Exception:
+        return 0
+
+
+def render_admin_diagnostic_summary():
+    st.markdown('<div class="pet-section-title">Diagnostic Summary</div>', unsafe_allow_html=True)
+
+    col_a, col_b, col_c = st.columns(3)
+    with col_a:
+        if st.button("🧭 Build Diagnostics", use_container_width=True):
+            try:
+                dispatch_workflow(mode="diagnostics", enable_proxy_test="false", filter_alive_only="false", strict_alive_only="false")
+                set_pet_action("Diagnostic summary sedang dibuat lewat GitHub Actions.")
+                st.success("Workflow diagnostics berhasil dipicu.")
+            except Exception as exc:
+                set_pet_action("Gagal memicu diagnostics. Cek workflow input dan token GitHub.")
+                st.error(str(exc))
+            st.rerun()
+    with col_b:
+        if st.button("💾 Backup Latest-Good", use_container_width=True):
+            try:
+                dispatch_workflow(mode="build_ready", enable_proxy_test="false", filter_alive_only="false", strict_alive_only="false")
+                set_pet_action("Build ready + backup latest-good sedang dijalankan.")
+                st.success("Workflow build_ready berhasil dipicu.")
+            except Exception as exc:
+                set_pet_action("Gagal memicu backup latest-good.")
+                st.error(str(exc))
+            st.rerun()
+    with col_c:
+        if st.button("↩️ Rollback Latest-Good", use_container_width=True):
+            try:
+                dispatch_workflow(mode="rollback_latest_good", enable_proxy_test="false", filter_alive_only="false", strict_alive_only="false")
+                set_pet_action("Rollback latest-good sedang dijalankan lewat GitHub Actions.")
+                st.warning("Rollback latest-good dipicu. Tunggu workflow selesai sebelum scan QR lagi.")
+            except Exception as exc:
+                set_pet_action("Gagal memicu rollback latest-good.")
+                st.error(str(exc))
+            st.rerun()
+
+    summary = _safe_admin_json("output/Final/admin_diagnostic_summary.json")
+    if not summary:
+        st.info("Diagnostic summary belum tersedia. Klik Build Diagnostics atau jalankan workflow update/build_ready.")
+        return
+
+    openclash = summary.get("openclash_ready", {}) or {}
+    mobile = summary.get("mobile_stable_safe", {}) or {}
+    health = summary.get("health", {}) or {}
+    diff = summary.get("diff", {}) or {}
+    backup = summary.get("backup", {}) or {}
+
+    m1, m2, m3, m4 = st.columns(4)
+    m1.metric("YAML Proxies", openclash.get("proxies", 0))
+    m2.metric("YAML Rules", openclash.get("rules", 0))
+    m3.metric("Mobile Outbounds", mobile.get("outbounds", 0))
+    m4.metric("Trusted Links", summary.get("manual_link_count", 0))
+
+    h1, h2, h3, h4 = st.columns(4)
+    h1.metric("Healthy/Manual", health.get("healthy_or_manual_count", 0))
+    h2.metric("Alive", health.get("alive_count", 0))
+    h3.metric("Dead", health.get("dead_count", 0))
+    h4.metric("Changed Files", diff.get("changed_file_count", 0))
+
+    backup_ok = "OK" if backup.get("ok") else "CHECK"
+    backup_time = escape(str(backup.get("generated_at", "-")))
+    st.markdown(
+        f"""
+        <div class="pet-panel">
+            <div style="font-weight:900;color:#00ff88;">Latest-good backup: {backup_ok}</div>
+            <div class="pet-small-note" style="text-align:left;margin-top:8px;">
+                Last backup action: <b>{escape(str(backup.get('action', '-')))}</b><br>
+                Updated: <b>{backup_time}</b><br>
+                Node score rows: <b>{summary.get('csv_counts', {}).get('node_score_rows', 0)}</b> ·
+                History rows: <b>{summary.get('csv_counts', {}).get('node_history_rows', 0)}</b>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    with st.expander("Lihat diagnostic JSON"):
+        st.code(json.dumps(summary, indent=2, ensure_ascii=False)[:16000], language="json")
+
+    diff_md = ""
+    try:
+        diff_md = fetch_github_file_text("output/Final/diff_report.md")
+    except Exception:
+        diff_md = ""
+    if diff_md:
+        with st.expander("Lihat diff report"):
+            st.markdown(diff_md[:18000])
+
+    score_rows = _safe_admin_csv_count("output/Health/node_score.csv")
+    if score_rows:
+        st.caption(f"Node score tersedia: {score_rows} baris di output/Health/node_score.csv")
+
+
 def render_public_singbox_qr_only():
     """Halaman awal publik: tampilkan QR import sing-box saja."""
     if not SHOW_PUBLIC_SINGBOX_QR:
@@ -2829,6 +2941,7 @@ if is_admin_route():
         render_admin_singbox_merge()
         render_admin_singbox_stability()
         render_admin_best_ping()
+        render_admin_diagnostic_summary()
         render_admin_singbox_qr()
         if st.button("🚪 Keluar Admin", use_container_width=True):
             st.session_state.admin_authenticated = False
