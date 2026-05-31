@@ -3,6 +3,11 @@ name: Update OpenClash
 on:
   workflow_dispatch:
     inputs:
+      source:
+        description: Sumber pemicu workflow (streamlit/telegram/manual/schedule)
+        required: false
+        default: manual
+        type: string
       mode:
         description: Mode proses
         required: true
