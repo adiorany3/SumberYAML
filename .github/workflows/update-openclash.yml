@@ -27,6 +27,7 @@ on:
           - build_ready
           - diagnostics
           - rollback_latest_good
+          - build_v2raybox
       enable_proxy_test:
         description: Jalankan test proxy/ping untuk sumber otomatis
         required: false
@@ -51,9 +52,8 @@ on:
         options:
           - 'true'
           - 'false'
+
   schedule:
-    # Tetap 6 jam sekali. GitHub Actions memakai UTC.
-    # Perkiraan WIB: 07:00, 13:00, 19:00, 01:00.
     - cron: '0 */6 * * *'
 
 permissions:
@@ -72,11 +72,7 @@ env:
   FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
   STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
 
-  # Generator tuning.
-  # Dibuat lebih stabil untuk OpenClash/router/HP:
-  # - interval 300 detik agar health-check tidak terlalu agresif
-  # - tolerance 80 ms agar group tidak terlalu sering pindah node
-  # - lazy true agar check dilakukan saat group dipakai
+  # Generator tuning. These are safe defaults used by the existing generator when supported.
   TEST_ROUNDS: '2'
   REQUIRE_SUCCESS_ROUNDS: '1'
   STRICT_MAX_DELAY_MS: '8000'
@@ -94,11 +90,10 @@ env:
   URL_TEST_INTERVAL: '300'
   URL_TEST_TOLERANCE: '80'
   URL_TEST_LAZY: 'true'
-
   MAX_DELAY_MS: '8000'
   FILTER_MAX_DELAY_FOR_OUTPUT: 'false'
-  BLACKLIST_FILE: 'blacklist.txt'
 
+  BLACKLIST_FILE: 'blacklist.txt'
   SOURCE_CACHE_ENABLE: 'true'
   SOURCE_CACHE_DIR: 'output/Cache/sources'
   USE_PREVIOUS_OUTPUT_IF_EMPTY: 'true'
@@ -152,9 +147,6 @@ jobs:
           echo "Branch: ${GITHUB_REF_NAME:-main}"
           echo "Mode: $MODE"
           echo "Source: ${{ github.event.inputs.source || 'schedule/manual' }}"
-          echo "URL_TEST_INTERVAL=$URL_TEST_INTERVAL"
-          echo "URL_TEST_TOLERANCE=$URL_TEST_TOLERANCE"
-          echo "URL_TEST_LAZY=$URL_TEST_LAZY"
           echo "Trusted manual links: input/links.txt and input.txt are appended without alive/dead validation."
           ls -la
 
@@ -333,6 +325,17 @@ jobs:
             python scripts/build_final_ready_profiles.py || true
           fi
 
+      - name: Build V2RayBox Android subscription outputs
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' }}
+        run: |
+          set -e
+          if [ -f scripts/build_v2raybox_outputs.py ]; then
+            python scripts/build_v2raybox_outputs.py
+            cat output/V2RayBox/summary_v2raybox.json || true
+          else
+            echo "build_v2raybox_outputs.py not found; skip."
+          fi
+
       - name: Update node score history
         if: ${{ env.MODE != 'rollback_latest_good' }}
         run: |
@@ -370,6 +373,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Tune OpenClash stability intervals and update outputs"
+            git commit -m "Update stable SumberYAML outputs and diagnostics"
             git push
           fi
