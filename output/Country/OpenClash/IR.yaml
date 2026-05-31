@@ -34,20 +34,33 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "hi_proxy_iran 2515"
+  - name: "kurdconfig 8337"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 40fde68e-da2e-4e6f-ae4c-2d7422a6a172
-    cipher: none
+    type: trojan
+    password: "mitivpn"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "Freealireza2.nscl.ir"
+    sni: "cdn.linkman1.ir"
     ws-opts:
-      path: "/Kose-nanat-decoder"
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
       headers:
-        Host: "Freealireza2.nscl.ir"
+        Host: "cdn.linkman1.ir"
+    udp: true
+  - name: "Vpn_jet7 4939"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.linkman1.ir"
+    ws-opts:
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      headers:
+        Host: "www.linkman1.ir"
     udp: true
 
 proxy-groups:
