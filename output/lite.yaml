@@ -6,7 +6,7 @@ tproxy-port: 7895
 allow-lan: true
 bind-address: '*'
 mode: rule
-log-level: info
+log-level: warning
 ipv6: false
 unified-delay: true
 tcp-concurrent: true
@@ -28,85 +28,80 @@ dns:
   default-nameserver:
   - 1.1.1.1
   - 8.8.8.8
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - '*.lan'
   - '*.local'
   - localhost.ptlogin2.qq.com
+  - +.msftconnecttest.com
+  - +.msftncsi.com
+  - time.*.com
+  - time.*.gov
+  - time.*.edu.cn
+  - time.*.apple.com
+  - time-ios.apple.com
+  - +.pool.ntp.org
+  - +.ntp.org
 proxies:
-- name: ID t.me Natrixo BB
+- name: oneclickvpnkeys US 3558
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  servername: juzi.qea.ccwu.cc
   ws-opts:
-    path: /id-tksi
+    path: /
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: juzi.qea.ccwu.cc
   udp: true
-- name: oneclickvpnkeys US 1115
+- name: v2configlab
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  uuid: 1de37726-744b-46e1-9101-c926b3402e82
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: up2-df6.pages.dev
+  servername: v2.v2configlab.workers.dev
   ws-opts:
-    path: /uTZSXPBI2IfoxF86
+    path: /?ed=2048
     headers:
-      Host: up2-df6.pages.dev
+      Host: v2.v2configlab.workers.dev
   udp: true
-- name: filembad 8995
+- name: 27 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+  uuid: d555dac9-27cb-4ddb-89f5-6a1d8d1e4798
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: cyylr.eu.cc
+  servername: momi.timoreyhaneh.workers.dev
   ws-opts:
-    path: /sg-melbi
+    path: /
     headers:
-      Host: cyylr.eu.cc
+      Host: momi.timoreyhaneh.workers.dev
   udp: true
-- name: KE 39004 Telegram t.me SOSkeyNET
+- name: 90 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 41d480fd-1dcc-4766-8e01-a67e7faa5934
+  uuid: f86f5a03-3872-46b5-bf03-a50388a0261d
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: investors.spotify.com.cyylr.eu.cc
+  servername: a1-tss.pages.dev
   ws-opts:
-    path: /id-amz
+    path: /
     headers:
-      Host: investors.spotify.com.cyylr.eu.cc
-  udp: true
-- name: DE t.me Natrixo BB
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: m.udemy.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: m.udemy.com.cyylr.eu.cc
+      Host: a1-tss.pages.dev
   udp: true
 - name: 42 oneclickvpnkeys
   server: 104.17.3.81
@@ -123,94 +118,148 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: 67768 - Telegram V2All
+- name: HiByeVPNN
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: f86f5a03-3872-46b5-bf03-a50388a0261d
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: a1-tss.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: a1-tss.pages.dev
-  udp: true
-- name: oneclickvpnkeys US 5389
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=random
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: oneclickvpnkeys US 8646
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: CF20
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: edgetunnell-1dc.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: edgetunnell-1dc.pages.dev
-  udp: true
-- name: LINK 15.lowh.net
   type: trojan
+  password: mitivpn
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: mitivpn.ws-ws-ws.workers.dev
+  ws-opts:
+    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
+    headers:
+      Host: mitivpn.ws-ws-ws.workers.dev
+  udp: true
+- name: 35 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
-  password: 38e81a10-5bbb-11f1-b380-1577c1651679
-  udp: true
+  type: vless
+  uuid: fe273991-0514-4a16-8ec4-b15ae861c000
+  cipher: none
   tls: true
-  servername: 15.lowh.net
-  skip-cert-verify: false
+  skip-cert-verify: true
   network: ws
+  servername: zyzzzoao.xn--fiqv8j.eu.org
   ws-opts:
-    path: /welcome
+    path: /fp=chrome
     headers:
-      Host: 15.lowh.net
-- name: LINK sg-trojan.1server.co
+      Host: zyzzzoao.xn--fiqv8j.eu.org
+  udp: true
+- name: vpnbaz 5045
+  server: 104.17.3.81
+  port: 443
   type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmloud.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmloud.com
+  udp: true
+- name: oneclickvpnkeys NL
   server: 104.17.3.81
   port: 443
-  password: 6d9d87d0-5bbb-11f1-806f-1577c1651679
-  udp: true
+  type: trojan
+  password: humanity
   tls: true
-  servername: sg-trojan.1server.co
-  skip-cert-verify: false
+  skip-cert-verify: true
   network: ws
+  sni: www.gossipglove.com
   ws-opts:
-    path: /welcome
+    path: /assignment
     headers:
-      Host: sg-trojan.1server.co
+      Host: www.gossipglove.com
+  udp: true
+- name: V2rayNG3 FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmlunch.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+  udp: true
+- name: configV2rayNG FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.ignitelimit.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: ProxyEliteVPN
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: ylRh2jfDft
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: da.aananas.ir
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: da.aananas.ir
+  udp: true
+- name: config_free2 6877
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: f9fa9ed3-1381-441c-8672-588cbedd012d
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: r.bibak.bz
+  ws-opts:
+    path: /
+    headers:
+      Host: r.bibak.bz
+  udp: true
+- name: oneclickvpnkeys NL 9280
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.multiplydose.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.multiplydose.com
+  udp: true
+- name: oneclickvpnkeys PL
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.creationlong.org
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.creationlong.org
+  udp: true
 - name: LINK bel432 xl
   type: vmess
   server: 104.17.3.81
@@ -273,227 +322,314 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
+- name: LINK 15.lowh.net
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 38e81a10-5bbb-11f1-b380-1577c1651679
+  udp: true
+  tls: true
+  servername: 15.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /welcome
+    headers:
+      Host: 15.lowh.net
+- name: LINK sg-trojan.1server.co
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 6d9d87d0-5bbb-11f1-806f-1577c1651679
+  udp: true
+  tls: true
+  servername: sg-trojan.1server.co
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /welcome
+    headers:
+      Host: sg-trojan.1server.co
 proxy-groups:
-- name: URL-TEST TOP 5 INDONESIA
-  type: url-test
+- name: fallback-link
+  type: fallback
   proxies:
-  - best-link
-  - ID t.me Natrixo BB
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+- name: best-link
+  type: url-test
+  proxies:
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: URL-TEST TOP 5 INDONESIA
+  type: url-test
+  proxies:
+  - best-link
+  - oneclickvpnkeys US 3558
+  - v2configlab
+  - 27 oneclickvpnkeys
+  - 90 oneclickvpnkeys
+  - 42 oneclickvpnkeys
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 120
   tolerance: 30
-  lazy: false
+  lazy: true
 - name: FALLBACK CEPAT
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - ID t.me Natrixo BB
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
+  - oneclickvpnkeys US 3558
+  - v2configlab
+  - 27 oneclickvpnkeys
+  - 90 oneclickvpnkeys
+  - 42 oneclickvpnkeys
+  - HiByeVPNN
+  - 35 oneclickvpnkeys
+  - vpnbaz 5045
+  - oneclickvpnkeys NL
+  - V2rayNG3 FR
+  - configV2rayNG FR
+  - ProxyEliteVPN
+  - config_free2 6877
+  - oneclickvpnkeys NL 9280
+  - oneclickvpnkeys PL
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 120
-  lazy: false
+  lazy: true
 - name: GAMING STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - filembad 8995
-  - oneclickvpnkeys US 1115
-  - KE 39004 Telegram t.me SOSkeyNET
-  - DE t.me Natrixo BB
+  - v2configlab
+  - oneclickvpnkeys US 3558
+  - 27 oneclickvpnkeys
+  - 90 oneclickvpnkeys
+  - HiByeVPNN
+  - 35 oneclickvpnkeys
   - 42 oneclickvpnkeys
-  - ID t.me Natrixo BB
-  - 67768 - Telegram V2All
-  - oneclickvpnkeys US 5389
-  - oneclickvpnkeys US 8646
-  - CF20
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
+  - oneclickvpnkeys NL
+  - vpnbaz 5045
+  - V2rayNG3 FR
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 120
-  lazy: false
+  lazy: true
 - name: SOCIAL MEDIA STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - oneclickvpnkeys US 1115
-  - filembad 8995
-  - KE 39004 Telegram t.me SOSkeyNET
-  - DE t.me Natrixo BB
+  - oneclickvpnkeys US 3558
+  - v2configlab
+  - 27 oneclickvpnkeys
+  - 90 oneclickvpnkeys
   - 42 oneclickvpnkeys
-  - ID t.me Natrixo BB
-  - 67768 - Telegram V2All
-  - oneclickvpnkeys US 5389
-  - oneclickvpnkeys US 8646
-  - CF20
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
+  - HiByeVPNN
+  - 35 oneclickvpnkeys
+  - vpnbaz 5045
+  - oneclickvpnkeys NL
+  - V2rayNG3 FR
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 120
-  lazy: false
+  lazy: true
 - name: STREAMING STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - filembad 8995
-  - oneclickvpnkeys US 1115
-  - KE 39004 Telegram t.me SOSkeyNET
-  - DE t.me Natrixo BB
+  - oneclickvpnkeys US 3558
+  - v2configlab
+  - 27 oneclickvpnkeys
+  - 90 oneclickvpnkeys
+  - HiByeVPNN
+  - 35 oneclickvpnkeys
   - 42 oneclickvpnkeys
-  - ID t.me Natrixo BB
-  - 67768 - Telegram V2All
-  - oneclickvpnkeys US 5389
-  - oneclickvpnkeys US 8646
-  - CF20
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
+  - oneclickvpnkeys NL
+  - vpnbaz 5045
+  - V2rayNG3 FR
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 120
-  lazy: false
+  lazy: true
 - name: WORKING STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - oneclickvpnkeys US 1115
-  - filembad 8995
-  - KE 39004 Telegram t.me SOSkeyNET
-  - DE t.me Natrixo BB
+  - v2configlab
+  - oneclickvpnkeys US 3558
+  - 27 oneclickvpnkeys
+  - 90 oneclickvpnkeys
+  - HiByeVPNN
+  - 35 oneclickvpnkeys
   - 42 oneclickvpnkeys
-  - ID t.me Natrixo BB
-  - 67768 - Telegram V2All
-  - oneclickvpnkeys US 5389
-  - oneclickvpnkeys US 8646
-  - CF20
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
+  - oneclickvpnkeys NL
+  - vpnbaz 5045
+  - V2rayNG3 FR
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 120
-  lazy: false
+  lazy: true
 - name: GENERAL STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - oneclickvpnkeys US 1115
-  - filembad 8995
-  - KE 39004 Telegram t.me SOSkeyNET
-  - DE t.me Natrixo BB
+  - oneclickvpnkeys US 3558
+  - v2configlab
+  - 27 oneclickvpnkeys
+  - 90 oneclickvpnkeys
   - 42 oneclickvpnkeys
-  - ID t.me Natrixo BB
-  - 67768 - Telegram V2All
-  - oneclickvpnkeys US 5389
-  - oneclickvpnkeys US 8646
-  - CF20
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
+  - HiByeVPNN
+  - 35 oneclickvpnkeys
+  - oneclickvpnkeys NL
+  - vpnbaz 5045
+  - V2rayNG3 FR
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 120
-  lazy: false
+  lazy: true
 - name: URL-TEST TOP GLOBAL
   type: url-test
   proxies:
-  - oneclickvpnkeys US 1115
-  - filembad 8995
-  - KE 39004 Telegram t.me SOSkeyNET
-  - DE t.me Natrixo BB
+  - oneclickvpnkeys US 3558
+  - v2configlab
+  - 27 oneclickvpnkeys
+  - 90 oneclickvpnkeys
   - 42 oneclickvpnkeys
-  - ID t.me Natrixo BB
-  - 67768 - Telegram V2All
-  - oneclickvpnkeys US 5389
-  - oneclickvpnkeys US 8646
-  - CF20
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
+  - HiByeVPNN
+  - 35 oneclickvpnkeys
+  - vpnbaz 5045
+  - oneclickvpnkeys NL
+  - V2rayNG3 FR
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 120
   tolerance: 30
-  lazy: false
+  lazy: true
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - ID t.me Natrixo BB
-  - oneclickvpnkeys US 1115
-  - filembad 8995
-  - KE 39004 Telegram t.me SOSkeyNET
-  - DE t.me Natrixo BB
+  - oneclickvpnkeys US 3558
+  - v2configlab
+  - 27 oneclickvpnkeys
+  - 90 oneclickvpnkeys
   - 42 oneclickvpnkeys
-  - 67768 - Telegram V2All
-  - oneclickvpnkeys US 5389
-  - oneclickvpnkeys US 8646
-  - CF20
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
+  - HiByeVPNN
+  - 35 oneclickvpnkeys
+  - vpnbaz 5045
+  - oneclickvpnkeys NL
+  - V2rayNG3 FR
+  - configV2rayNG FR
+  - ProxyEliteVPN
+  - config_free2 6877
+  - oneclickvpnkeys NL 9280
+  - oneclickvpnkeys PL
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 120
   tolerance: 30
-  lazy: false
+  lazy: true
 - name: FALLBACK
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - ID t.me Natrixo BB
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
+  - oneclickvpnkeys US 3558
+  - v2configlab
+  - 27 oneclickvpnkeys
+  - 90 oneclickvpnkeys
+  - 42 oneclickvpnkeys
+  - HiByeVPNN
+  - 35 oneclickvpnkeys
+  - vpnbaz 5045
+  - oneclickvpnkeys NL
+  - V2rayNG3 FR
+  - configV2rayNG FR
+  - ProxyEliteVPN
+  - config_free2 6877
+  - oneclickvpnkeys NL 9280
+  - oneclickvpnkeys PL
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 120
-  lazy: false
+  lazy: true
 - name: PROXY
   type: select
   proxies:
-  - BEST-STABLE
   - fallback-link
   - best-link
+  - URL-TEST TOP 5 INDONESIA
   - FALLBACK
   - DIRECT
-  - URL-TEST TOP 5 INDONESIA
   - FALLBACK CEPAT
   - GAMING STABIL
   - SOCIAL MEDIA STABIL
@@ -503,59 +639,12 @@ proxy-groups:
   - URL-TEST TOP GLOBAL
   - URL-TEST GABUNGAN
   - REJECT
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-- name: BEST-STABLE
-  type: url-test
-  proxies:
-  - ID t.me Natrixo BB
-  - oneclickvpnkeys US 8646
-  - oneclickvpnkeys US 1115
-  - oneclickvpnkeys US 5389
-  - DE t.me Natrixo BB
-  - KE 39004 Telegram t.me SOSkeyNET
-  - 42 oneclickvpnkeys
-  - 67768 - Telegram V2All
-  - CF20
-  - filembad 8995
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
-- name: best-link
-  type: url-test
-  proxies:
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
-- name: fallback-link
-  type: fallback
-  proxies:
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
 rules:
 - DOMAIN-SUFFIX,local,DIRECT
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
@@ -563,4 +652,76 @@ rules:
 - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
 - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
 - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+- DOMAIN-SUFFIX,steampowered.com,GAMING STABIL
+- DOMAIN-SUFFIX,steamcommunity.com,GAMING STABIL
+- DOMAIN-SUFFIX,steamstatic.com,GAMING STABIL
+- DOMAIN-SUFFIX,steamcontent.com,GAMING STABIL
+- DOMAIN-SUFFIX,epicgames.com,GAMING STABIL
+- DOMAIN-SUFFIX,epicgames.dev,GAMING STABIL
+- DOMAIN-SUFFIX,riotgames.com,GAMING STABIL
+- DOMAIN-SUFFIX,valorant.com,GAMING STABIL
+- DOMAIN-SUFFIX,garena.com,GAMING STABIL
+- DOMAIN-SUFFIX,pubgmobile.com,GAMING STABIL
+- DOMAIN-SUFFIX,callofduty.com,GAMING STABIL
+- DOMAIN-SUFFIX,battle.net,GAMING STABIL
+- DOMAIN-SUFFIX,blizzard.com,GAMING STABIL
+- DOMAIN-SUFFIX,playstation.net,GAMING STABIL
+- DOMAIN-SUFFIX,xboxlive.com,GAMING STABIL
+- DOMAIN-SUFFIX,nintendo.net,GAMING STABIL
+- DOMAIN-SUFFIX,facebook.com,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,fbcdn.net,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,instagram.com,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,cdninstagram.com,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,threads.net,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,tiktok.com,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,tiktokcdn.com,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,tiktokv.com,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,x.com,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,twitter.com,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,twimg.com,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,whatsapp.net,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,telegram.org,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,t.me,SOCIAL MEDIA STABIL
+- DOMAIN-SUFFIX,youtube.com,STREAMING STABIL
+- DOMAIN-SUFFIX,googlevideo.com,STREAMING STABIL
+- DOMAIN-SUFFIX,ytimg.com,STREAMING STABIL
+- DOMAIN-SUFFIX,netflix.com,STREAMING STABIL
+- DOMAIN-SUFFIX,nflxvideo.net,STREAMING STABIL
+- DOMAIN-SUFFIX,nflximg.net,STREAMING STABIL
+- DOMAIN-SUFFIX,spotify.com,STREAMING STABIL
+- DOMAIN-SUFFIX,scdn.co,STREAMING STABIL
+- DOMAIN-SUFFIX,disneyplus.com,STREAMING STABIL
+- DOMAIN-SUFFIX,hotstar.com,STREAMING STABIL
+- DOMAIN-SUFFIX,primevideo.com,STREAMING STABIL
+- DOMAIN-SUFFIX,video.a2z.com,STREAMING STABIL
+- DOMAIN-SUFFIX,twitch.tv,STREAMING STABIL
+- DOMAIN-SUFFIX,ttvnw.net,STREAMING STABIL
+- DOMAIN-SUFFIX,zoom.us,WORKING STABIL
+- DOMAIN-SUFFIX,teams.microsoft.com,WORKING STABIL
+- DOMAIN-SUFFIX,office.com,WORKING STABIL
+- DOMAIN-SUFFIX,office365.com,WORKING STABIL
+- DOMAIN-SUFFIX,microsoftonline.com,WORKING STABIL
+- DOMAIN-SUFFIX,sharepoint.com,WORKING STABIL
+- DOMAIN-SUFFIX,onedrive.com,WORKING STABIL
+- DOMAIN-SUFFIX,slack.com,WORKING STABIL
+- DOMAIN-SUFFIX,notion.so,WORKING STABIL
+- DOMAIN-SUFFIX,github.com,WORKING STABIL
+- DOMAIN-SUFFIX,githubusercontent.com,WORKING STABIL
+- DOMAIN-SUFFIX,gitlab.com,WORKING STABIL
+- DOMAIN-SUFFIX,atlassian.com,WORKING STABIL
+- DOMAIN-SUFFIX,figma.com,WORKING STABIL
+- DOMAIN-SUFFIX,canva.com,WORKING STABIL
+- DOMAIN-SUFFIX,google.com,GENERAL STABIL
+- DOMAIN-SUFFIX,gstatic.com,GENERAL STABIL
+- DOMAIN-SUFFIX,googleapis.com,GENERAL STABIL
+- DOMAIN-SUFFIX,cloudflare.com,GENERAL STABIL
+- DOMAIN-SUFFIX,openai.com,GENERAL STABIL
+- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+- DOMAIN-SUFFIX,localhost,DIRECT
+- DOMAIN-SUFFIX,lan,DIRECT
+- DOMAIN-SUFFIX,doubleclick.net,REJECT
+- DOMAIN-SUFFIX,googlesyndication.com,REJECT
+- DOMAIN-SUFFIX,googleadservices.com,REJECT
+- DOMAIN-SUFFIX,ads-twitter.com,REJECT
+- DOMAIN-KEYWORD,adservice,REJECT
 - MATCH,PROXY

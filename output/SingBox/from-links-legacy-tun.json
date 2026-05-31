@@ -39,16 +39,16 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "DIRECT",
-        "AUTO-BEST-PING",
-        "15.lowh.net",
-        "sg-trojan.1server.co",
         "bel432 xl",
+        "AUTO-BEST-PING",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
-        "VLESS-WS-TLS-443-apt50atpprem"
+        "VLESS-WS-TLS-443-apt50atpprem",
+        "15.lowh.net",
+        "sg-trojan.1server.co",
+        "DIRECT"
       ],
       "interrupt_exist_connections": false
     },
@@ -56,58 +56,20 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "15.lowh.net",
-        "sg-trojan.1server.co",
         "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
-        "VLESS-WS-TLS-443-apt50atpprem"
+        "VLESS-WS-TLS-443-apt50atpprem",
+        "15.lowh.net",
+        "sg-trojan.1server.co"
       ],
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80,
+      "tolerance": 50,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
-    },
-    {
-      "type": "trojan",
-      "tag": "15.lowh.net",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
-      "tls": {
-        "enabled": true,
-        "server_name": "15.lowh.net"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/welcome",
-        "headers": {
-          "Host": "15.lowh.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "trojan",
-      "tag": "sg-trojan.1server.co",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
-      "tls": {
-        "enabled": true,
-        "server_name": "sg-trojan.1server.co"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/welcome",
-        "headers": {
-          "Host": "sg-trojan.1server.co"
-        }
-      },
-      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -127,8 +89,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -148,8 +109,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -169,8 +129,7 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -190,8 +149,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -211,8 +169,7 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
@@ -231,8 +188,43 @@
         "headers": {
           "Host": "akamaized.my"
         }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "15.lowh.net",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
+      "tls": {
+        "enabled": true,
+        "server_name": "15.lowh.net"
       },
-      "connect_timeout": "15s"
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "15.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "sg-trojan.1server.co",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
+      "tls": {
+        "enabled": true,
+        "server_name": "sg-trojan.1server.co"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "sg-trojan.1server.co"
+        }
+      }
     },
     {
       "type": "direct",

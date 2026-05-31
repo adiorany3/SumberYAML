@@ -1,17 +1,16 @@
 proxies:
-  - name: "BZ _BZ_- US _US"
-    type: vmess
+  - name: "config_free2 6877"
     server: "104.17.3.81"
     port: 443
-    uuid: 56a2188b-2ab7-402c-b9b8-34847fdf0958
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: f9fa9ed3-1381-441c-8672-588cbedd012d
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: "oplg1.zhujicn2.com"
     network: ws
+    servername: "r.bibak.bz"
     ws-opts:
-      path: "/5QNROSRV"
+      path: "/"
       headers:
-        Host: "oplg1.zhujicn2.com"
+        Host: "r.bibak.bz"
     udp: true

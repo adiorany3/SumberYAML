@@ -1,18 +1,33 @@
 proxies:
-  - name: "v2con"
+  - name: "v2configlab"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 2d5d3c38-6178-43d3-8002-86dd60e44d38
+    uuid: 1de37726-744b-46e1-9101-c926b3402e82
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "v2configlab.v2configlab-2f5.workers.dev"
+    servername: "v2.v2configlab.workers.dev"
     ws-opts:
-      path: "/?ed=2560"
+      path: "/?ed=2048"
       headers:
-        Host: "v2configlab.v2configlab-2f5.workers.dev"
+        Host: "v2.v2configlab.workers.dev"
+    udp: true
+  - name: "27 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d555dac9-27cb-4ddb-89f5-6a1d8d1e4798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "momi.timoreyhaneh.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "momi.timoreyhaneh.workers.dev"
     udp: true
   - name: "42 oneclickvpnkeys"
     server: "104.17.3.81"
@@ -29,7 +44,7 @@ proxies:
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
-  - name: "67768 - Telegram V2All"
+  - name: "90 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -44,18 +59,74 @@ proxies:
       headers:
         Host: "a1-tss.pages.dev"
     udp: true
-  - name: "CF20"
+  - name: "35 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
+    uuid: fe273991-0514-4a16-8ec4-b15ae861c000
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "edgetunnell-1dc.pages.dev"
+    servername: "zyzzzoao.xn--fiqv8j.eu.org"
     ws-opts:
-      path: "/"
+      path: "/fp=chrome"
       headers:
-        Host: "edgetunnell-1dc.pages.dev"
+        Host: "zyzzzoao.xn--fiqv8j.eu.org"
+    udp: true
+  - name: "vpnbaz 5045"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "KAFING_2 6533"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "HiByeVPNN"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "mitivpn.ws-ws-ws.workers.dev"
+    ws-opts:
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      headers:
+        Host: "mitivpn.ws-ws-ws.workers.dev"
+    udp: true
+  - name: "ProxyEliteVPN"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "ylRh2jfDft"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "da.aananas.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "da.aananas.ir"
     udp: true

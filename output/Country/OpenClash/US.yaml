@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys US 8646"
+  - name: "oneclickvpnkeys US 3558"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,36 +49,6 @@ proxies:
       headers:
         Host: "juzi.qea.ccwu.cc"
     udp: true
-  - name: "oneclickvpnkeys US 1115"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "up2-df6.pages.dev"
-    ws-opts:
-      path: "/uTZSXPBI2IfoxF86"
-      headers:
-        Host: "up2-df6.pages.dev"
-    udp: true
-  - name: "oneclickvpnkeys US 5389"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "hhlfy.twiladaphne.ndjp.net"
-    ws-opts:
-      path: "/fp=random"
-      headers:
-        Host: "hhlfy.twiladaphne.ndjp.net"
-    udp: true
 
 proxy-groups:
   - name: "PROXY"
@@ -88,4 +58,17 @@ proxy-groups:
       - "REJECT"
 
 rules:
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,local,DIRECT
+  - DOMAIN-SUFFIX,localhost,DIRECT
+  - DOMAIN-SUFFIX,lan,DIRECT
+  - DOMAIN-SUFFIX,doubleclick.net,REJECT
+  - DOMAIN-SUFFIX,googlesyndication.com,REJECT
+  - DOMAIN-SUFFIX,googleadservices.com,REJECT
+  - DOMAIN-SUFFIX,ads-twitter.com,REJECT
+  - DOMAIN-KEYWORD,adservice,REJECT
   - MATCH,PROXY

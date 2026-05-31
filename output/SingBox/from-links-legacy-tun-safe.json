@@ -39,22 +39,22 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "15.lowh.net",
-        "sg-trojan.1server.co",
         "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
         "VLESS-WS-TLS-443-apt50atpprem",
-        "LINK 15.lowh.net",
-        "LINK sg-trojan.1server.co",
+        "15.lowh.net",
+        "sg-trojan.1server.co",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK bel432 telk",
         "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem"
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK 15.lowh.net",
+        "LINK sg-trojan.1server.co"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -66,85 +66,49 @@
       "outbounds": [
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
-        "DIRECT",
-        "15.lowh.net",
-        "sg-trojan.1server.co",
         "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
         "VLESS-WS-TLS-443-apt50atpprem",
-        "LINK 15.lowh.net",
-        "LINK sg-trojan.1server.co",
+        "15.lowh.net",
+        "sg-trojan.1server.co",
+        "DIRECT",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK bel432 telk",
         "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem"
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK 15.lowh.net",
+        "LINK sg-trojan.1server.co"
       ]
     },
     {
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "15.lowh.net",
-        "sg-trojan.1server.co",
         "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
         "VLESS-WS-TLS-443-apt50atpprem",
-        "LINK 15.lowh.net",
-        "LINK sg-trojan.1server.co",
+        "15.lowh.net",
+        "sg-trojan.1server.co",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK bel432 telk",
         "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem"
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK 15.lowh.net",
+        "LINK sg-trojan.1server.co"
       ],
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80
-    },
-    {
-      "type": "trojan",
-      "tag": "15.lowh.net",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
-      "tls": {
-        "enabled": true,
-        "server_name": "15.lowh.net"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/welcome",
-        "headers": {
-          "Host": "15.lowh.net"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "sg-trojan.1server.co",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
-      "tls": {
-        "enabled": true,
-        "server_name": "sg-trojan.1server.co"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/welcome",
-        "headers": {
-          "Host": "sg-trojan.1server.co"
-        }
-      }
+      "tolerance": 50
     },
     {
       "type": "vmess",
@@ -266,12 +230,8 @@
       }
     },
     {
-      "type": "direct",
-      "tag": "DIRECT"
-    },
-    {
       "type": "trojan",
-      "tag": "LINK 15.lowh.net",
+      "tag": "15.lowh.net",
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
@@ -289,7 +249,7 @@
     },
     {
       "type": "trojan",
-      "tag": "LINK sg-trojan.1server.co",
+      "tag": "sg-trojan.1server.co",
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
@@ -304,6 +264,10 @@
           "Host": "sg-trojan.1server.co"
         }
       }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     },
     {
       "type": "vmess",
@@ -421,6 +385,42 @@
         "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
         "headers": {
           "Host": "akamaized.my"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "LINK 15.lowh.net",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "38e81a10-5bbb-11f1-b380-1577c1651679",
+      "tls": {
+        "enabled": true,
+        "server_name": "15.lowh.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "15.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "LINK sg-trojan.1server.co",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "6d9d87d0-5bbb-11f1-806f-1577c1651679",
+      "tls": {
+        "enabled": true,
+        "server_name": "sg-trojan.1server.co"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/welcome",
+        "headers": {
+          "Host": "sg-trojan.1server.co"
         }
       }
     }
