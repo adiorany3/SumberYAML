@@ -51,8 +51,9 @@ on:
         options:
           - 'true'
           - 'false'
-
   schedule:
+    # Tetap 6 jam sekali. GitHub Actions memakai UTC.
+    # Perkiraan WIB: 07:00, 13:00, 19:00, 01:00.
     - cron: '0 */6 * * *'
 
 permissions:
@@ -71,7 +72,11 @@ env:
   FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
   STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
 
-  # Generator tuning. These are safe defaults used by the existing generator when supported.
+  # Generator tuning.
+  # Dibuat lebih stabil untuk OpenClash/router/HP:
+  # - interval 300 detik agar health-check tidak terlalu agresif
+  # - tolerance 80 ms agar group tidak terlalu sering pindah node
+  # - lazy true agar check dilakukan saat group dipakai
   TEST_ROUNDS: '2'
   REQUIRE_SUCCESS_ROUNDS: '1'
   STRICT_MAX_DELAY_MS: '8000'
@@ -81,18 +86,19 @@ env:
   STRICT_FALLBACK_TO_ALIVE: 'true'
   STRICT_FALLBACK_TO_VALID: 'true'
 
-  BEST_PING_TOP_N: '5'
+  BEST_PING_TOP_N: '10'
   BEST_PING_COUNTRY_FILTER: 'ID'
-  BEST_PING_URL_TEST_NAME: 'URL-TEST TOP 5 INDONESIA'
+  BEST_PING_URL_TEST_NAME: 'URL-TEST TOP 10 INDONESIA'
   BEST_PING_BALANCE_ENABLE: 'true'
 
-  URL_TEST_INTERVAL: '120'
-  URL_TEST_TOLERANCE: '30'
-  URL_TEST_LAZY: 'false'
+  URL_TEST_INTERVAL: '300'
+  URL_TEST_TOLERANCE: '80'
+  URL_TEST_LAZY: 'true'
+
   MAX_DELAY_MS: '8000'
   FILTER_MAX_DELAY_FOR_OUTPUT: 'false'
-
   BLACKLIST_FILE: 'blacklist.txt'
+
   SOURCE_CACHE_ENABLE: 'true'
   SOURCE_CACHE_DIR: 'output/Cache/sources'
   USE_PREVIOUS_OUTPUT_IF_EMPTY: 'true'
@@ -110,8 +116,8 @@ env:
   RESPONSIVE_MAX_AVG_DELAY_MS: '8000'
   RESPONSIVE_MAX_JITTER_MS: '5000'
   RESPONSIVE_MIN_SUCCESS_RATE: '0.50'
-  RESPONSIVE_TOP_N: '15'
-  RESPONSIVE_COMBINED_MAX: '30'
+  RESPONSIVE_TOP_N: '20'
+  RESPONSIVE_COMBINED_MAX: '40'
 
   FAST_OUTPUT_FILE: 'fast.yaml'
   FAST_MAX_TOTAL: '20'
@@ -146,6 +152,9 @@ jobs:
           echo "Branch: ${GITHUB_REF_NAME:-main}"
           echo "Mode: $MODE"
           echo "Source: ${{ github.event.inputs.source || 'schedule/manual' }}"
+          echo "URL_TEST_INTERVAL=$URL_TEST_INTERVAL"
+          echo "URL_TEST_TOLERANCE=$URL_TEST_TOLERANCE"
+          echo "URL_TEST_LAZY=$URL_TEST_LAZY"
           echo "Trusted manual links: input/links.txt and input.txt are appended without alive/dead validation."
           ls -la
 
@@ -361,6 +370,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update stable SumberYAML outputs and diagnostics"
+            git commit -m "Tune OpenClash stability intervals and update outputs"
             git push
           fi
