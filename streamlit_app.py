@@ -231,6 +231,33 @@ SINGBOX_KNOWN_JSON_PATHS = [
 ]
 
 
+# Panel V2RayBox/V2Box Android subscription.
+SHOW_V2RAYBOX_PANEL = get_setting("SHOW_V2RAYBOX_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
+V2RAYBOX_DEFAULT_SUB_PATH = get_setting("V2RAYBOX_DEFAULT_SUB_PATH", "output/V2RayBox/mobile-stable.txt").strip() or "output/V2RayBox/mobile-stable.txt"
+V2RAYBOX_DEFAULT_URL_SOURCE = get_setting("V2RAYBOX_DEFAULT_URL_SOURCE", "jsdelivr-cachebust").strip().lower()
+V2RAYBOX_QR_ERROR_CORRECTION = get_setting("V2RAYBOX_QR_ERROR_CORRECTION", "M").strip().upper() or "M"
+V2RAYBOX_BUILD_WORKFLOW_MODE = get_setting("V2RAYBOX_BUILD_WORKFLOW_MODE", "build_v2raybox").strip() or "build_v2raybox"
+V2RAYBOX_KNOWN_TXT_PATHS = [
+    "output/V2RayBox/mobile-stable.txt",
+    "output/V2RayBox/mobile-stable_base64.txt",
+    "output/V2RayBox/best-stable.txt",
+    "output/V2RayBox/best-stable_base64.txt",
+    "output/V2RayBox/manual-links.txt",
+    "output/V2RayBox/manual-links_base64.txt",
+    "output/V2RayBox/best-link.txt",
+    "output/V2RayBox/fallback-link.txt",
+    "output/V2RayBox/indonesia-best.txt",
+    "output/V2RayBox/streaming-best.txt",
+    "output/V2RayBox/gaming-best.txt",
+    "output/V2RayBox/social-best.txt",
+    "output/V2RayBox/working-best.txt",
+    "output/V2RayBox/general-best.txt",
+    "output/V2RayBox/all.txt",
+    "output/V2RayBox/subscription_base64.txt",
+    "output/V2RayBox/latest.txt",
+]
+
+
 # =========================
 # UTILITY FUNCTIONS
 # =========================
@@ -928,6 +955,67 @@ def list_singbox_json_paths_from_repo() -> list:
             if item_type == "file" and path.lower().endswith(".json"):
                 repo_paths.append(path)
 
+        return list(dict.fromkeys(repo_paths + fallback)) if repo_paths else fallback
+    except Exception:
+        return fallback
+
+
+def subscription_name_from_reference(value: str) -> str:
+    """Return a clean V2RayBox subscription name from a TXT reference."""
+    raw = str(value or "").strip() or V2RAYBOX_DEFAULT_SUB_PATH
+    if re.match(r"^https?://", raw, flags=re.I):
+        try:
+            raw = urlparse(raw).path
+        except Exception:
+            pass
+    raw = unquote(raw).replace("\\", "/").split("?", 1)[0].split("#", 1)[0].rstrip("/")
+    filename = raw.rsplit("/", 1)[-1].strip() or "v2raybox-subscription"
+    for suffix in ["_base64.txt", ".txt"]:
+        if filename.lower().endswith(suffix):
+            filename = filename[:-len(suffix)]
+            break
+    filename = re.sub(r"[^A-Za-z0-9_.-]+", "-", filename).strip("-._")
+    return filename or "v2raybox-subscription"
+
+
+def build_v2raybox_subscription_url(path: str, source: str = "jsdelivr-cachebust") -> str:
+    """Build raw/CDN URL for V2RayBox subscription text output."""
+    clean_path = str(path or V2RAYBOX_DEFAULT_SUB_PATH).strip().replace("\\", "/").lstrip("/")
+    source_key = str(source or "jsdelivr-cachebust").strip().lower()
+    if source_key in {"raw", "github", "raw github", "github raw", "no cdn", "tanpa cdn"}:
+        return build_raw_github_url(clean_path)
+    url = build_jsdelivr_github_url(clean_path)
+    if source_key in {"jsdelivr-cachebust", "jsdelivr cachebust", "cachebust", "cdn cachebust", "jsdelivr fresh"}:
+        return append_url_cache_buster(url, get_singbox_qr_cache_buster_value())
+    return url
+
+
+@st.cache_data(ttl=60, show_spinner=False)
+def list_v2raybox_txt_paths_from_repo() -> list:
+    """Read output/V2RayBox/*.txt names from GitHub repo, fallback to known paths."""
+    fallback = list(dict.fromkeys([V2RAYBOX_DEFAULT_SUB_PATH] + V2RAYBOX_KNOWN_TXT_PATHS))
+    if not GITHUB_OWNER or not GITHUB_REPO:
+        return fallback
+    try:
+        response = requests.get(
+            github_contents_url("output/V2RayBox"),
+            headers=github_headers(),
+            params={"ref": GITHUB_REF},
+            timeout=20,
+        )
+        if not response.ok:
+            return fallback
+        items = response.json()
+        if not isinstance(items, list):
+            return fallback
+        repo_paths = []
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            path = str(item.get("path") or "").strip()
+            item_type = str(item.get("type") or "").strip().lower()
+            if item_type == "file" and path.lower().endswith(".txt"):
+                repo_paths.append(path)
         return list(dict.fromkeys(repo_paths + fallback)) if repo_paths else fallback
     except Exception:
         return fallback
@@ -2880,6 +2968,149 @@ def render_admin_diagnostic_summary():
         st.caption(f"Node score tersedia: {score_rows} baris di output/Health/node_score.csv")
 
 
+def render_admin_v2raybox_panel():
+    """Panel V2RayBox/V2Box Android. Hanya tampil di halaman admin."""
+    if not SHOW_V2RAYBOX_PANEL:
+        return
+
+    st.markdown('<div class="pet-section-title">V2RayBox Android Subscription</div>', unsafe_allow_html=True)
+
+    if not GITHUB_OWNER or not GITHUB_REPO:
+        st.info("Panel V2RayBox belum bisa dibuat karena GITHUB_REPOSITORY/GITHUB_OWNER/GITHUB_REPO belum terisi.")
+        return
+
+    col_a, col_b = st.columns(2)
+    with col_a:
+        if st.button("📦 Build V2RayBox Output", use_container_width=True):
+            try:
+                dispatch_workflow(
+                    mode=V2RAYBOX_BUILD_WORKFLOW_MODE,
+                    enable_proxy_test="false",
+                    filter_alive_only="false",
+                    strict_alive_only="false",
+                )
+                set_pet_action("Build V2RayBox output berhasil dipicu. Tunggu GitHub Actions selesai, lalu refresh subscription.")
+                st.success("Build V2RayBox output berhasil dipicu.")
+            except Exception as exc:
+                set_pet_action("Gagal memicu build V2RayBox output.")
+                st.error(str(exc))
+            st.rerun()
+    with col_b:
+        if st.button("🔄 Refresh daftar V2RayBox", use_container_width=True):
+            try:
+                list_v2raybox_txt_paths_from_repo.clear()
+                get_singbox_qr_cache_buster_value.clear()
+            except Exception:
+                pass
+            st.rerun()
+
+    paths = list_v2raybox_txt_paths_from_repo()
+    default_index = 0
+    if V2RAYBOX_DEFAULT_SUB_PATH in paths:
+        default_index = paths.index(V2RAYBOX_DEFAULT_SUB_PATH)
+
+    selected_path = st.selectbox(
+        "Pilih subscription V2RayBox di repo",
+        options=paths,
+        index=default_index,
+        help="Gunakan mobile-stable.txt untuk HP. File *_base64.txt disediakan untuk client yang meminta subscription base64.",
+    )
+
+    source_labels = [
+        "jsDelivr CDN + cache-buster",
+        "Raw GitHub tanpa CDN",
+        "jsDelivr CDN biasa",
+    ]
+    source_map = {
+        source_labels[0]: "jsdelivr-cachebust",
+        source_labels[1]: "raw",
+        source_labels[2]: "jsdelivr",
+    }
+    default_source_label = source_labels[0]
+    if V2RAYBOX_DEFAULT_URL_SOURCE in {"raw", "github", "raw github", "no cdn", "tanpa cdn"}:
+        default_source_label = source_labels[1]
+    elif V2RAYBOX_DEFAULT_URL_SOURCE in {"jsdelivr", "cdn", "jsdelivr biasa"}:
+        default_source_label = source_labels[2]
+
+    source_label = st.radio(
+        "Sumber subscription",
+        source_labels,
+        index=source_labels.index(default_source_label),
+        horizontal=False,
+        help="Raw GitHub tanpa CDN paling fresh jika jaringan mengizinkan. jsDelivr cache-buster lebih mudah diakses ketika raw.githubusercontent.com diblokir.",
+    )
+    subscription_url = build_v2raybox_subscription_url(selected_path, source_map[source_label])
+    subscription_name = subscription_name_from_reference(selected_path)
+
+    qr_error = st.selectbox(
+        "QR error correction",
+        options=["L", "M", "Q", "H"],
+        index=["L", "M", "Q", "H"].index(V2RAYBOX_QR_ERROR_CORRECTION) if V2RAYBOX_QR_ERROR_CORRECTION in ["L", "M", "Q", "H"] else 1,
+        help="M seimbang. H lebih tahan rusak, tapi QR lebih padat.",
+    )
+
+    st.markdown(
+        f"""
+        <div class="pet-panel">
+            <div style="font-weight:900;color:#00ff88;margin-bottom:8px;">Subscription V2RayBox</div>
+            <div class="pet-small-note" style="text-align:left;margin-top:0;">
+                Nama subscription: <b>{escape(subscription_name)}</b><br>
+                Format: <b>vmess://, vless://, trojan://</b> per baris. Ini bukan JSON sing-box.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.write("URL subscription:")
+    st.code(subscription_url, language="text")
+
+    try:
+        png_bytes = make_qr_png_bytes(subscription_url, error_correction=qr_error)
+        st.image(png_bytes, caption="Scan dari V2RayBox/V2Box Android → Add subscription / Scan QR", use_container_width=False)
+        st.download_button(
+            "⬇️ Download QR V2RayBox PNG",
+            data=png_bytes,
+            file_name=f"{subscription_name}-v2raybox-qr.png",
+            mime="image/png",
+            use_container_width=True,
+        )
+    except Exception as exc:
+        st.error(str(exc))
+
+    col_test, col_copy = st.columns(2)
+    with col_test:
+        if st.button("Tes URL V2RayBox", use_container_width=True):
+            try:
+                response = requests.get(subscription_url, timeout=20)
+                if response.ok:
+                    lines = [line for line in response.text.splitlines() if line.strip()]
+                    st.success(f"URL bisa diakses. HTTP {response.status_code}. Baris: {len(lines)}.")
+                    with st.expander("Preview 20 baris pertama"):
+                        st.code("\n".join(lines[:20]), language="text")
+                else:
+                    st.warning(f"HTTP {response.status_code}: {response.text[:180]}")
+            except Exception as exc:
+                st.error(f"URL belum bisa diakses: {exc}")
+    with col_copy:
+        st.download_button(
+            "⬇️ Download payload URL TXT",
+            data=subscription_url.encode("utf-8"),
+            file_name=f"{subscription_name}-subscription-url.txt",
+            mime="text/plain",
+            use_container_width=True,
+        )
+
+    st.markdown(
+        """
+        <div class="pet-small-note">
+            Rekomendasi V2RayBox Android: pakai <b>mobile-stable.txt</b>. Jika client meminta base64 subscription, pakai <b>mobile-stable_base64.txt</b>.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def render_public_singbox_qr_only():
     """Halaman awal publik: tampilkan QR import sing-box saja."""
     if not SHOW_PUBLIC_SINGBOX_QR:
@@ -2942,6 +3173,7 @@ if is_admin_route():
         render_admin_singbox_stability()
         render_admin_best_ping()
         render_admin_diagnostic_summary()
+        render_admin_v2raybox_panel()
         render_admin_singbox_qr()
         if st.button("🚪 Keluar Admin", use_container_width=True):
             st.session_state.admin_authenticated = False
