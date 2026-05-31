@@ -34,21 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "filembad"
-    type: vmess
+  - name: "hi_proxy_iran 2515"
     server: "104.17.3.81"
     port: 443
-    uuid: fdf8034a-67a0-4bf2-90e9-6d65d211aca6
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: 40fde68e-da2e-4e6f-ae4c-2d7422a6a172
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: "Kose-nanat-decoder.dr-ping.ir"
     network: ws
+    servername: "Freealireza2.nscl.ir"
     ws-opts:
       path: "/Kose-nanat-decoder"
       headers:
-        Host: "Kose-nanat-decoder.dr-ping.ir"
+        Host: "Freealireza2.nscl.ir"
     udp: true
 
 proxy-groups:
