@@ -22,24 +22,32 @@ on:
           - build_ready
           - sanitize_import
           - optimize_openclash
+          - purpose_groups
       enable_proxy_test:
         description: Jalankan test proxy
         required: false
         default: 'true'
         type: choice
-        options: ['true', 'false']
+        options:
+          - 'true'
+          - 'false'
       filter_alive_only:
         description: Filter output otomatis hanya alive
         required: false
         default: 'true'
         type: choice
-        options: ['true', 'false']
+        options:
+          - 'true'
+          - 'false'
       strict_alive_only:
         description: Strict alive only
         required: false
         default: 'true'
         type: choice
-        options: ['true', 'false']
+        options:
+          - 'true'
+          - 'false'
+
   schedule:
     - cron: '0 */6 * * *'
 
@@ -54,6 +62,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -67,11 +76,12 @@ jobs:
 
       - name: Install dependencies
         run: |
+          set -e
           python -m pip install --upgrade pip
           pip install pyyaml requests qrcode[pil] pillow
 
-      - name: Generate OpenClash outputs if generator exists
-        if: ${{ github.event.inputs.mode != 'optimize_openclash' && github.event.inputs.mode != 'build_ready' && github.event.inputs.mode != 'sanitize_import' }}
+      - name: Generate OpenClash outputs if needed
+        if: ${{ github.event_name == 'schedule' || (github.event.inputs.mode != 'optimize_openclash' && github.event.inputs.mode != 'purpose_groups' && github.event.inputs.mode != 'build_ready' && github.event.inputs.mode != 'sanitize_import') }}
         env:
           MODE: ${{ github.event.inputs.mode || 'update' }}
           ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
@@ -85,31 +95,44 @@ jobs:
             python scripts/telegram_openclash_alive.py
           elif [ -f scripts/generate_configs.py ]; then
             python scripts/generate_configs.py
+          elif [ -f scripts/generate_configs_basic.py ]; then
+            python scripts/generate_configs_basic.py
           else
             echo "No generator script found. Skipping generate step."
           fi
 
-      - name: Merge trusted input links into OpenClash YAML if script exists
+      - name: Merge trusted input links into OpenClash YAML
         run: |
           set -e
           if [ -f scripts/merge_links_into_openclash_yaml.py ]; then
             python scripts/merge_links_into_openclash_yaml.py || true
+          else
+            echo "merge_links_into_openclash_yaml.py not found; skip."
           fi
 
-      - name: Fix YAML group references if script exists
+      - name: Fix YAML group references
         run: |
           set -e
           if [ -f scripts/fix_yaml_group_refs.py ]; then
             python scripts/fix_yaml_group_refs.py || true
+          else
+            echo "fix_yaml_group_refs.py not found; skip."
           fi
 
-      - name: Apply OpenClash responsive anti-bengong optimization
+      - name: Apply OpenClash anti-bengong optimization
         run: |
           set -e
-          python scripts/apply_openclash_no_bengong.py --max-stable 10
-          cat output/Validation/summary_openclash_no_bengong.json || true
+          if [ -f scripts/apply_openclash_no_bengong.py ]; then
+            python scripts/apply_openclash_no_bengong.py --max-stable 10
+            cat output/Validation/summary_openclash_no_bengong.json || true
+          elif [ -f scripts/apply_openclash_responsive_stability.py ]; then
+            python scripts/apply_openclash_responsive_stability.py --max-stable 10
+            cat output/Validation/summary_openclash_responsive_stability.json || true
+          else
+            echo "No anti-bengong/responsive script found; skip."
+          fi
 
-      - name: Add best-link/fallback-link groups if scripts exist
+      - name: Add best-link and fallback-link groups
         run: |
           set -e
           if [ -f scripts/add_best_link_group.py ]; then
@@ -119,16 +142,31 @@ jobs:
             python scripts/add_input_fallback_group.py || true
           fi
 
-      - name: Validate OpenClash outputs if validator exists
+      - name: Apply purpose-specific OpenClash groups and rules
+        run: |
+          set -e
+          if [ -f scripts/apply_openclash_purpose_groups.py ]; then
+            python scripts/apply_openclash_purpose_groups.py \
+              --max-per-group 15 \
+              --max-indonesia 20 \
+              --tolerance 80
+
+            echo "Purpose group summary:"
+            cat output/Validation/summary_purpose_groups.json || true
+          else
+            echo "apply_openclash_purpose_groups.py not found; skip."
+          fi
+
+      - name: Validate OpenClash outputs
         run: |
           set -e
           if [ -f scripts/validate_openclash_outputs.py ]; then
             python scripts/validate_openclash_outputs.py
           else
-            echo "No OpenClash validator found."
+            echo "No OpenClash validator found; skip."
           fi
 
-      - name: Build final sing-box profiles if script exists
+      - name: Build final sing-box profiles
         run: |
           set -e
           if [ -f scripts/build_singbox_final.py ]; then
@@ -165,6 +203,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update OpenClash and sing-box responsive profiles"
+            git commit -m "Update purpose-specific OpenClash profiles"
             git push
           fi
