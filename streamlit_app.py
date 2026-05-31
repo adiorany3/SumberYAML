@@ -2248,7 +2248,7 @@ def render_admin_actions():
     st.markdown('<div class="pet-section-title">Aksi bot</div>', unsafe_allow_html=True)
     bot_col1, bot_col2 = st.columns(2)
     with bot_col1:
-        if st.button("🔄 Update Config", use_container_width=True):
+        if st.button("🔄 Update Config", use_container_width=True, key="admin_update_config"):
             try:
                 dispatch_workflow(mode="update", enable_proxy_test="true", filter_alive_only="true")
                 set_pet_action("Update config berhasil dipicu. Menunggu hasil GitHub Actions.")
@@ -2259,7 +2259,7 @@ def render_admin_actions():
                 st.error(str(exc))
             st.rerun()
     with bot_col2:
-        if st.button("🧪 Test Proxy", use_container_width=True):
+        if st.button("🧪 Test Proxy", use_container_width=True, key="admin_test_proxy"):
             try:
                 dispatch_workflow(mode="test", enable_proxy_test="true", filter_alive_only="false")
                 set_pet_action("Test proxy berhasil dipicu. Menunggu laporan alive/dead.")
@@ -2297,7 +2297,7 @@ def render_admin_singbox_merge():
 
     merge_col1, merge_col2 = st.columns(2)
     with merge_col1:
-        if st.button("🔗 Merge input/links.txt", use_container_width=True):
+        if st.button("🔗 Merge input/links.txt", use_container_width=True, key="admin_merge_links"):
             try:
                 dispatch_workflow(
                     mode=SINGBOX_MERGE_WORKFLOW_MODE,
@@ -2318,7 +2318,7 @@ def render_admin_singbox_merge():
             st.rerun()
 
     with merge_col2:
-        if st.button("📄 Refresh Summary Merge", use_container_width=True):
+        if st.button("📄 Refresh Summary Merge", use_container_width=True, key="admin_refresh_merge_summary"):
             try:
                 load_workflow_status_data.clear()
             except Exception:
@@ -2398,7 +2398,7 @@ def render_admin_singbox_stability():
 
     stable_col1, stable_col2, stable_col3, stable_col4, stable_col5 = st.columns(5)
     with stable_col1:
-        if st.button("🩺 Build Best Stable", use_container_width=True):
+        if st.button("🩺 Build Best Stable", use_container_width=True, key="admin_build_best_stable"):
             try:
                 dispatch_workflow(
                     mode=SINGBOX_BUILD_STABLE_WORKFLOW_MODE,
@@ -2418,7 +2418,7 @@ def render_admin_singbox_stability():
             st.rerun()
 
     with stable_col2:
-        if st.button("♻️ Clear Quarantine", use_container_width=True):
+        if st.button("♻️ Clear Quarantine", use_container_width=True, key="admin_clear_quarantine"):
             try:
                 dispatch_workflow(
                     mode=SINGBOX_CLEAR_QUARANTINE_WORKFLOW_MODE,
@@ -2438,7 +2438,7 @@ def render_admin_singbox_stability():
             st.rerun()
 
     with stable_col3:
-        if st.button("🛡️ Fix Import JSON", use_container_width=True):
+        if st.button("🛡️ Fix Import JSON", use_container_width=True, key="admin_fix_import_json"):
             try:
                 dispatch_workflow(
                     mode=SINGBOX_SANITIZE_IMPORT_WORKFLOW_MODE,
@@ -2458,7 +2458,7 @@ def render_admin_singbox_stability():
             st.rerun()
 
     with stable_col4:
-        if st.button("✅ Build Ready", use_container_width=True):
+        if st.button("✅ Build Ready", use_container_width=True, key="admin_build_ready"):
             try:
                 dispatch_workflow(
                     mode=SINGBOX_BUILD_READY_WORKFLOW_MODE,
@@ -2478,7 +2478,7 @@ def render_admin_singbox_stability():
             st.rerun()
 
     with stable_col5:
-        if st.button("📄 Refresh Health", use_container_width=True):
+        if st.button("📄 Refresh Health", use_container_width=True, key="admin_refresh_health"):
             try:
                 load_workflow_status_data.clear()
             except Exception:
@@ -2718,14 +2718,14 @@ def render_admin_best_ping():
 
     best_col1, best_col2 = st.columns(2)
     with best_col1:
-        if st.button("📡 Refresh Best Ping", use_container_width=True):
+        if st.button("📡 Refresh Best Ping", use_container_width=True, key="admin_refresh_best_ping"):
             try:
                 load_best_ping_data.clear()
             except Exception:
                 pass
             st.rerun()
     with best_col2:
-        if st.button("🏆 Test + Update Ping", use_container_width=True):
+        if st.button("🏆 Test + Update Ping", use_container_width=True, key="admin_test_update_ping"):
             try:
                 dispatch_workflow(mode="test", enable_proxy_test="true", filter_alive_only="false")
                 set_pet_action("Best ping sedang dites ulang lewat GitHub Actions.")
@@ -3029,12 +3029,12 @@ def _safe_admin_csv_count(path: str) -> int:
         return 0
 
 
-def render_admin_diagnostic_summary():
+def render_admin_diagnostic_summary(section_key: str = "diagnostic"):
     st.markdown('<div class="pet-section-title">Diagnostic Summary</div>', unsafe_allow_html=True)
 
     col_a, col_b, col_c = st.columns(3)
     with col_a:
-        if st.button("🧭 Build Diagnostics", use_container_width=True):
+        if st.button("🧭 Build Diagnostics", use_container_width=True, key=f"{section_key}_build_diagnostics"):
             try:
                 dispatch_workflow(mode="diagnostics", enable_proxy_test="false", filter_alive_only="false", strict_alive_only="false")
                 set_pet_action("Diagnostic summary sedang dibuat lewat GitHub Actions.")
@@ -3044,7 +3044,7 @@ def render_admin_diagnostic_summary():
                 st.error(str(exc))
             st.rerun()
     with col_b:
-        if st.button("💾 Backup Latest-Good", use_container_width=True):
+        if st.button("💾 Backup Latest-Good", use_container_width=True, key=f"{section_key}_backup_latest_good"):
             try:
                 dispatch_workflow(mode="build_ready", enable_proxy_test="false", filter_alive_only="false", strict_alive_only="false")
                 set_pet_action("Build ready + backup latest-good sedang dijalankan.")
@@ -3054,7 +3054,7 @@ def render_admin_diagnostic_summary():
                 st.error(str(exc))
             st.rerun()
     with col_c:
-        if st.button("↩️ Rollback Latest-Good", use_container_width=True):
+        if st.button("↩️ Rollback Latest-Good", use_container_width=True, key=f"{section_key}_rollback_latest_good"):
             try:
                 dispatch_workflow(mode="rollback_latest_good", enable_proxy_test="false", filter_alive_only="false", strict_alive_only="false")
                 set_pet_action("Rollback latest-good sedang dijalankan lewat GitHub Actions.")
@@ -3134,7 +3134,7 @@ def render_admin_v2raybox_panel():
 
     col_a, col_b = st.columns(2)
     with col_a:
-        if st.button("📦 Build V2RayBox Output", use_container_width=True):
+        if st.button("📦 Build V2RayBox Output", use_container_width=True, key="admin_build_v2raybox"):
             try:
                 dispatch_workflow(
                     mode=V2RAYBOX_BUILD_WORKFLOW_MODE,
@@ -3149,7 +3149,7 @@ def render_admin_v2raybox_panel():
                 st.error(str(exc))
             st.rerun()
     with col_b:
-        if st.button("🔄 Refresh daftar V2RayBox", use_container_width=True):
+        if st.button("🔄 Refresh daftar V2RayBox", use_container_width=True, key="admin_refresh_v2raybox_list"):
             try:
                 list_v2raybox_txt_paths_from_repo.clear()
                 get_singbox_qr_cache_buster_value.clear()
@@ -3233,7 +3233,7 @@ def render_admin_v2raybox_panel():
 
     col_test, col_copy = st.columns(2)
     with col_test:
-        if st.button("Tes URL V2RayBox", use_container_width=True):
+        if st.button("Tes URL V2RayBox", use_container_width=True, key="admin_test_v2raybox_url"):
             try:
                 response = requests.get(subscription_url, timeout=20)
                 if response.ok:
@@ -3392,7 +3392,7 @@ if is_admin_route():
         with tab_overview:
             render_workflow_status_panel()
             render_admin_best_ping()
-            render_admin_diagnostic_summary()
+            render_admin_diagnostic_summary("overview")
 
         with tab_profiles:
             profile_left, profile_right = st.columns(2)
@@ -3407,7 +3407,7 @@ if is_admin_route():
             render_admin_singbox_stability()
 
         with tab_health:
-            render_admin_diagnostic_summary()
+            render_admin_diagnostic_summary("health")
             st.markdown('<div class="pet-section-title">Maintenance Notes</div>', unsafe_allow_html=True)
             st.markdown(
                 """
@@ -3423,7 +3423,7 @@ if is_admin_route():
             )
 
         st.divider()
-        if st.button("🚪 Keluar Admin", use_container_width=True):
+        if st.button("🚪 Keluar Admin", use_container_width=True, key="admin_logout"):
             st.session_state.admin_authenticated = False
             st.rerun()
 
