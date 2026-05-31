@@ -1,16 +1,60 @@
 proxies:
-  - name: "CA 38142 Telegram t.me SOSkeyNET"
+  - name: "CA 39693 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: a5240468-dffe-4581-8ce7-6e6604d299d6
+    uuid: 69d38faa-21a1-4d18-82cb-796a942c181b
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "verus-1uy.pages.dev"
+    servername: "sfsl.ardomains1.dpdns.org"
+    ws-opts:
+      path: "/security=tls"
+      headers:
+        Host: "sfsl.ardomains1.dpdns.org"
+    udp: true
+  - name: "CA 39775 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cb0be83e-ff5c-4601-8572-18deac592958
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nimahavok.pages.dev"
     ws-opts:
       path: "/"
       headers:
-        Host: "verus-1uy.pages.dev"
+        Host: "nimahavok.pages.dev"
+    udp: true
+  - name: "CA 39709 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "CA 39768 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "2bcfbfba-b446-4ad5-93ad-72af9e008f61"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "support.zoom.us.blackshadow.dpdns.org"
+    ws-opts:
+      path: "/195.123.218.174-443"
+      headers:
+        Host: "support.zoom.us.blackshadow.dpdns.org"
     udp: true
