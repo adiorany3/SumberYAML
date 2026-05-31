@@ -19,12 +19,16 @@ on:
           - test
           - test_ping
           - merge_links
-          - build_ready
+          - build_stable
+          - clear_quarantine
           - sanitize_import
           - optimize_openclash
           - purpose_groups
+          - build_ready
+          - diagnostics
+          - rollback_latest_good
       enable_proxy_test:
-        description: Jalankan test proxy
+        description: Jalankan test proxy/ping untuk sumber otomatis
         required: false
         default: 'true'
         type: choice
@@ -32,7 +36,7 @@ on:
           - 'true'
           - 'false'
       filter_alive_only:
-        description: Filter output otomatis hanya alive
+        description: lengkap.yaml hanya berisi proxy hidup dari sumber otomatis
         required: false
         default: 'true'
         type: choice
@@ -40,7 +44,7 @@ on:
           - 'true'
           - 'false'
       strict_alive_only:
-        description: Strict alive only
+        description: Pakai hanya akun sumber otomatis yang lolos URL delay test beberapa ronde
         required: false
         default: 'true'
         type: choice
@@ -59,9 +63,70 @@ concurrency:
   group: update-openclash-${{ github.ref }}
   cancel-in-progress: false
 
+env:
+  PYTHONUNBUFFERED: '1'
+  MODE: ${{ github.event.inputs.mode || 'update' }}
+  RUN_MODE: ${{ github.event.inputs.mode || 'update' }}
+  ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
+  FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
+  STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
+
+  # Generator tuning. These are safe defaults used by the existing generator when supported.
+  TEST_ROUNDS: '2'
+  REQUIRE_SUCCESS_ROUNDS: '1'
+  STRICT_MAX_DELAY_MS: '8000'
+  STRICT_OUTPUT_FILE: 'strict_alive.yaml'
+  TCP_FALLBACK: 'true'
+  DISABLE_TCP_ONLY_OUTPUT: 'false'
+  STRICT_FALLBACK_TO_ALIVE: 'true'
+  STRICT_FALLBACK_TO_VALID: 'true'
+
+  BEST_PING_TOP_N: '5'
+  BEST_PING_COUNTRY_FILTER: 'ID'
+  BEST_PING_URL_TEST_NAME: 'URL-TEST TOP 5 INDONESIA'
+  BEST_PING_BALANCE_ENABLE: 'true'
+
+  URL_TEST_INTERVAL: '120'
+  URL_TEST_TOLERANCE: '30'
+  URL_TEST_LAZY: 'false'
+  MAX_DELAY_MS: '8000'
+  FILTER_MAX_DELAY_FOR_OUTPUT: 'false'
+
+  BLACKLIST_FILE: 'blacklist.txt'
+  SOURCE_CACHE_ENABLE: 'true'
+  SOURCE_CACHE_DIR: 'output/Cache/sources'
+  USE_PREVIOUS_OUTPUT_IF_EMPTY: 'true'
+  FAST_REUSE_WHEN_NO_SOURCE_CHANGE: 'true'
+  PREVIOUS_OUTPUT_DIR: '.previous_output'
+
+  LITE_OUTPUT_FILE: 'lite.yaml'
+  LITE_GLOBAL_TOP_N: '10'
+  LITE_MAX_TOTAL: '25'
+
+  ENABLE_USAGE_RULES: 'true'
+  ENABLE_DEFAULT_RULES: 'true'
+  ENABLE_PROFILE_RULES: 'true'
+
+  RESPONSIVE_MAX_AVG_DELAY_MS: '8000'
+  RESPONSIVE_MAX_JITTER_MS: '5000'
+  RESPONSIVE_MIN_SUCCESS_RATE: '0.50'
+  RESPONSIVE_TOP_N: '15'
+  RESPONSIVE_COMBINED_MAX: '30'
+
+  FAST_OUTPUT_FILE: 'fast.yaml'
+  FAST_MAX_TOTAL: '20'
+  FAST_FALLBACK_NAME: 'FALLBACK CEPAT'
+  ENABLE_FAST_FALLBACK_GROUP: 'true'
+  ENABLE_PERFORMANCE_OPTIONS: 'true'
+
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
 jobs:
   build:
+    name: Build stable OpenClash and sing-box outputs
     runs-on: ubuntu-latest
+    timeout-minutes: 60
 
     steps:
       - name: Checkout repository
@@ -73,35 +138,86 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: pip
+
+      - name: Show debug info
+        run: |
+          echo "Event: $GITHUB_EVENT_NAME"
+          echo "Branch: ${GITHUB_REF_NAME:-main}"
+          echo "Mode: $MODE"
+          echo "Source: ${{ github.event.inputs.source || 'schedule/manual' }}"
+          echo "Trusted manual links: input/links.txt and input.txt are appended without alive/dead validation."
+          ls -la
 
       - name: Install dependencies
         run: |
           set -e
           python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
           pip install pyyaml requests qrcode[pil] pillow
 
-      - name: Generate OpenClash outputs if needed
-        if: ${{ github.event_name == 'schedule' || (github.event.inputs.mode != 'optimize_openclash' && github.event.inputs.mode != 'purpose_groups' && github.event.inputs.mode != 'build_ready' && github.event.inputs.mode != 'sanitize_import') }}
-        env:
-          MODE: ${{ github.event.inputs.mode || 'update' }}
-          ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
-          FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
-          STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Backup previous output for diff and rollback
         run: |
           set -e
-          if [ -f scripts/telegram_openclash_alive.py ]; then
-            python scripts/telegram_openclash_alive.py
-          elif [ -f scripts/generate_configs.py ]; then
-            python scripts/generate_configs.py
-          elif [ -f scripts/generate_configs_basic.py ]; then
-            python scripts/generate_configs_basic.py
+          rm -rf .previous_output
+          mkdir -p .previous_output
+          if [ -d output ]; then
+            cp -a output/. .previous_output/ || true
+            echo "Previous output files:"
+            find .previous_output -type f | wc -l
           else
-            echo "No generator script found. Skipping generate step."
+            echo "No previous output directory."
           fi
 
+      - name: Restore latest-good backup
+        if: ${{ env.MODE == 'rollback_latest_good' }}
+        run: |
+          set -e
+          python scripts/manage_latest_good_backup.py --restore
+
+      - name: Clear health quarantine
+        if: ${{ env.MODE == 'clear_quarantine' }}
+        run: |
+          set -e
+          if [ -f scripts/clear_health_quarantine.py ]; then
+            python scripts/clear_health_quarantine.py
+          else
+            mkdir -p output/Health
+            echo 'name,reason,created_at' > output/Health/quarantine.csv
+            echo '{"ok": true, "note": "quarantine cleared by workflow fallback"}' > output/Health/summary_clear_quarantine.json
+          fi
+
+      - name: Generate OpenClash outputs from automatic sources
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' && env.MODE != 'optimize_openclash' && env.MODE != 'purpose_groups' && env.MODE != 'build_stable' && env.MODE != 'merge_links' }}
+        run: |
+          set -e
+          if [ -f telegram_openclash_alive.py ]; then
+            echo "Running root telegram_openclash_alive.py"
+            python telegram_openclash_alive.py \
+              --mode "$MODE" \
+              --enable-proxy-test "$ENABLE_PROXY_TEST" \
+              --filter-alive-only "$FILTER_ALIVE_ONLY" \
+              --strict-alive-only "$STRICT_ALIVE_ONLY" \
+              --test-rounds "$TEST_ROUNDS" \
+              --require-success-rounds "$REQUIRE_SUCCESS_ROUNDS" || python telegram_openclash_alive.py
+          elif [ -f scripts/telegram_openclash_alive.py ]; then
+            echo "Running scripts/telegram_openclash_alive.py"
+            python scripts/telegram_openclash_alive.py || true
+          elif [ -f scripts/generate_configs.py ]; then
+            echo "Running scripts/generate_configs.py"
+            RUN_MODE="$MODE" python scripts/generate_configs.py
+          elif [ -f scripts/generate_configs_basic.py ]; then
+            echo "Running scripts/generate_configs_basic.py"
+            python scripts/generate_configs_basic.py
+          else
+            echo "No generator found. Existing output will be reused."
+          fi
+          find output -maxdepth 4 -type f | sort || true
+
       - name: Merge trusted input links into OpenClash YAML
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' }}
         run: |
           set -e
           if [ -f scripts/merge_links_into_openclash_yaml.py ]; then
@@ -111,15 +227,16 @@ jobs:
           fi
 
       - name: Fix YAML group references
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' }}
         run: |
           set -e
           if [ -f scripts/fix_yaml_group_refs.py ]; then
             python scripts/fix_yaml_group_refs.py || true
-          else
-            echo "fix_yaml_group_refs.py not found; skip."
+            cat output/Validation/group_ref_fix_report.json || true
           fi
 
       - name: Apply OpenClash anti-bengong optimization
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' }}
         run: |
           set -e
           if [ -f scripts/apply_openclash_no_bengong.py ]; then
@@ -128,11 +245,10 @@ jobs:
           elif [ -f scripts/apply_openclash_responsive_stability.py ]; then
             python scripts/apply_openclash_responsive_stability.py --max-stable 10
             cat output/Validation/summary_openclash_responsive_stability.json || true
-          else
-            echo "No anti-bengong/responsive script found; skip."
           fi
 
-      - name: Add best-link and fallback-link groups
+      - name: Add trusted manual best-link and fallback-link groups
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' }}
         run: |
           set -e
           if [ -f scripts/add_best_link_group.py ]; then
@@ -142,7 +258,17 @@ jobs:
             python scripts/add_input_fallback_group.py || true
           fi
 
+      - name: Route Indonesian connections to best Indonesian proxy
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' }}
+        run: |
+          set -e
+          if [ -f scripts/apply_openclash_indonesia_best_proxy.py ]; then
+            python scripts/apply_openclash_indonesia_best_proxy.py --max-indonesia 10 || true
+            cat output/Validation/summary_indonesia_best_proxy.json || true
+          fi
+
       - name: Apply purpose-specific OpenClash groups and rules
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' }}
         run: |
           set -e
           if [ -f scripts/apply_openclash_purpose_groups.py ]; then
@@ -150,14 +276,11 @@ jobs:
               --max-per-group 15 \
               --max-indonesia 20 \
               --tolerance 80
-
-            echo "Purpose group summary:"
             cat output/Validation/summary_purpose_groups.json || true
-          else
-            echo "apply_openclash_purpose_groups.py not found; skip."
           fi
 
       - name: Validate OpenClash outputs
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' }}
         run: |
           set -e
           if [ -f scripts/validate_openclash_outputs.py ]; then
@@ -167,6 +290,7 @@ jobs:
           fi
 
       - name: Build final sing-box profiles
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' }}
         run: |
           set -e
           if [ -f scripts/build_singbox_final.py ]; then
@@ -174,6 +298,12 @@ jobs:
           fi
           if [ -f scripts/build_best_stable.py ]; then
             python scripts/build_best_stable.py || true
+          fi
+          if [ -f scripts/stabilize_singbox_mobile_idle.py ]; then
+            python scripts/stabilize_singbox_mobile_idle.py || true
+          fi
+          if [ -f scripts/apply_dns_fallback_stable.py ]; then
+            python scripts/apply_dns_fallback_stable.py || true
           fi
           if [ -f scripts/sanitize_singbox_import.py ]; then
             python scripts/sanitize_singbox_import.py || true
@@ -194,15 +324,43 @@ jobs:
             python scripts/build_final_ready_profiles.py || true
           fi
 
+      - name: Update node score history
+        if: ${{ env.MODE != 'rollback_latest_good' }}
+        run: |
+          set -e
+          python scripts/update_node_score_history.py
+
+      - name: Build config diff report
+        if: ${{ env.MODE != 'rollback_latest_good' }}
+        run: |
+          set -e
+          python scripts/build_config_diff_report.py
+          cat output/Final/diff_report.md || true
+
+      - name: Save latest-good backup if current output is healthy
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' }}
+        run: |
+          set -e
+          python scripts/manage_latest_good_backup.py --backup
+          cat output/Backup/latest_good_summary.json || true
+
+      - name: Build admin diagnostic summary
+        if: always()
+        run: |
+          set -e
+          python scripts/build_admin_diagnostic_summary.py || true
+          cat output/Final/admin_diagnostic_summary.json || true
+
       - name: Commit output files
+        if: always()
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add output .github/workflows/update-openclash.yml scripts || true
+          git add output .github/workflows/update-openclash.yml scripts streamlit_app.py requirements.txt || true
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update purpose-specific OpenClash profiles"
+            git commit -m "Update stable SumberYAML outputs and diagnostics"
             git push
           fi
