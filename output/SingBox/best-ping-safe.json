@@ -39,11 +39,11 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "oneclickvpnkeys US 6247",
-        "VLESS",
-        "VLESS 1496",
-        "26 oneclickvpnkeys",
         "27 oneclickvpnkeys",
+        "v2configlab_ DE",
+        "oneclickvpnkeys US 7975",
+        "42 oneclickvpnkeys",
+        "35 oneclickvpnkeys",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -67,11 +67,11 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "oneclickvpnkeys US 6247",
-        "VLESS",
-        "VLESS 1496",
-        "26 oneclickvpnkeys",
         "27 oneclickvpnkeys",
+        "v2configlab_ DE",
+        "oneclickvpnkeys US 7975",
+        "42 oneclickvpnkeys",
+        "35 oneclickvpnkeys",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -87,9 +87,9 @@
         "LINK 15.lowh.net 2",
         "LINK sg-trojan.1server.co 2"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 50
+      "tolerance": 80
     },
     {
       "type": "selector",
@@ -97,18 +97,18 @@
       "outbounds": [
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
+        "DIRECT",
+        "27 oneclickvpnkeys",
+        "v2configlab_ DE",
+        "oneclickvpnkeys US 7975",
+        "42 oneclickvpnkeys",
+        "35 oneclickvpnkeys",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
         "LINK 15.lowh.net",
         "LINK sg-trojan.1server.co",
-        "DIRECT",
-        "oneclickvpnkeys US 6247",
-        "VLESS",
-        "VLESS 1496",
-        "26 oneclickvpnkeys",
-        "27 oneclickvpnkeys",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -118,82 +118,6 @@
         "LINK 15.lowh.net 2",
         "LINK sg-trojan.1server.co 2"
       ]
-    },
-    {
-      "type": "vless",
-      "tag": "oneclickvpnkeys US 6247",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "VLESS",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "VLESS 1496",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "41d480fd-1dcc-4766-8e01-a67e7faa5934",
-      "tls": {
-        "enabled": true,
-        "server_name": "investors.spotify.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-amz",
-        "headers": {
-          "Host": "investors.spotify.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "26 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "7506fe3e-7e78-497c-bd01-db9d0be4d7e3",
-      "tls": {
-        "enabled": true,
-        "server_name": "filter.elitesilver002.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "filter.elitesilver002.workers.dev"
-        }
-      }
     },
     {
       "type": "vless",
@@ -211,6 +135,82 @@
         "path": "/",
         "headers": {
           "Host": "momi.timoreyhaneh.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2configlab_ DE",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "oneclickvpnkeys US 7975",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ce69190e-935a-4394-9e5e-2ab2872ba242",
+      "tls": {
+        "enabled": true,
+        "server_name": "up2-df6.pages.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/uTZSXPBI2IfoxF86",
+        "headers": {
+          "Host": "up2-df6.pages.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "42 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "35 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "fe273991-0514-4a16-8ec4-b15ae861c000",
+      "tls": {
+        "enabled": true,
+        "server_name": "zyzzzoao.xn--fiqv8j.eu.org",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/fp=chrome",
+        "headers": {
+          "Host": "zyzzzoao.xn--fiqv8j.eu.org"
         }
       }
     },

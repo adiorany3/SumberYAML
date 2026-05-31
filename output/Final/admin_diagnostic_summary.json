@@ -1,0 +1,614 @@
+{
+  "generated_at": "2026-05-31T04:31:30+00:00",
+  "manual_link_count": 8,
+  "openclash_ready": {
+    "proxies": 130,
+    "groups": 23,
+    "rules": 67
+  },
+  "lengkap_yaml": {
+    "proxies": 130,
+    "groups": 22,
+    "rules": 67
+  },
+  "mobile_stable_safe": {
+    "outbounds": 29,
+    "inbounds": 2,
+    "rules": 1
+  },
+  "import_ready": {
+    "outbounds": 30,
+    "inbounds": 2,
+    "rules": 1
+  },
+  "health": {
+    "total_nodes": 1350,
+    "healthy_or_manual_count": 44,
+    "manual_trusted_count": 6,
+    "alive_count": 38,
+    "dead_count": 1220,
+    "untested_count": 92
+  },
+  "diff": {
+    "changed_file_count": 16,
+    "previous_output_available": true
+  },
+  "backup": {
+    "ok": true,
+    "action": "backup",
+    "generated_at": "2026-05-31T04:31:30+00:00",
+    "copied": [
+      "openclash-ready.yaml",
+      "lengkap.yaml",
+      "SingBox/import-ready.json",
+      "SingBox/mobile-stable-safe.json",
+      "SingBox/best-stable-safe.json",
+      "SingBox/latest-safe.json"
+    ],
+    "restored": []
+  },
+  "ready_profiles": {
+    "generated_at": "2026-05-31T04:31:23+00:00",
+    "singbox": {
+      "ok": true,
+      "source": "output/SingBox/mobile-stable-safe.json",
+      "output": "output/SingBox/import-ready.json",
+      "outbound_count": 30,
+      "manual_link_count": 14,
+      "urls": {
+        "raw_url": "https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/SingBox/import-ready.json",
+        "cdn_url": "https://cdn.jsdelivr.net/gh/adiorany3/SumberYAML@main/output/SingBox/import-ready.json"
+      },
+      "fix_report": {
+        "created_groups": [
+          "best-link"
+        ],
+        "updated_groups": [
+          "AUTO-BEST-PING",
+          "PROXY",
+          "best-link",
+          "AUTO-BEST-PING",
+          "PROXY"
+        ]
+      }
+    },
+    "openclash": {
+      "ok": true,
+      "source": "output/lengkap.yaml",
+      "output": "output/openclash-ready.yaml",
+      "proxy_count": 130,
+      "group_count": 23,
+      "manual_link_count": 6,
+      "fix_report": {
+        "best_stable_count": 10,
+        "manual_link_count": 6
+      }
+    },
+    "notes": [
+      "import-ready.json is the recommended sing-box profile for public QR.",
+      "openclash-ready.yaml is the recommended OpenClash YAML profile.",
+      "Trusted manual LINK accounts are preserved when they already exist in generated YAML/JSON."
+    ]
+  },
+  "purpose_groups": {
+    "ok": true,
+    "max_per_group": 15,
+    "max_indonesia": 20,
+    "tolerance": 80,
+    "block_quic": false,
+    "results": [
+      {
+        "file": "output/lengkap.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 130,
+        "group_count": 22,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 11,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 11,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 67,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      },
+      {
+        "file": "output/lengkap_alive.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 130,
+        "group_count": 22,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 11,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 11,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 67,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      },
+      {
+        "file": "output/strict_alive.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 130,
+        "group_count": 22,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 11,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 11,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 67,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      },
+      {
+        "file": "output/lite.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 107,
+        "group_count": 20,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 11,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 11,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 67,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      },
+      {
+        "file": "output/fast.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 107,
+        "group_count": 19,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 11,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 11,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 67,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      },
+      {
+        "file": "output/gaming.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 82,
+        "group_count": 11,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 6,
+          "STREAMING-BEST": 10,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 10,
+          "WORKING-BEST": 10,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 6,
+          "STREAMING-BEST": 10,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 10,
+          "WORKING-BEST": 10,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 67,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      },
+      {
+        "file": "output/social_media.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 87,
+        "group_count": 11,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 6,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 10,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 10,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 6,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 10,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 10,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 67,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      },
+      {
+        "file": "output/streaming.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 82,
+        "group_count": 11,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 6,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 10,
+          "SOCIAL-BEST": 10,
+          "WORKING-BEST": 10,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 6,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 10,
+          "SOCIAL-BEST": 10,
+          "WORKING-BEST": 10,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 67,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      },
+      {
+        "file": "output/working.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 82,
+        "group_count": 11,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 6,
+          "STREAMING-BEST": 10,
+          "GAMING-BEST": 10,
+          "SOCIAL-BEST": 10,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 6,
+          "STREAMING-BEST": 10,
+          "GAMING-BEST": 10,
+          "SOCIAL-BEST": 10,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 67,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      },
+      {
+        "file": "output/general.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 77,
+        "group_count": 11,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 6,
+          "STREAMING-BEST": 10,
+          "GAMING-BEST": 10,
+          "SOCIAL-BEST": 10,
+          "WORKING-BEST": 10,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 6,
+          "STREAMING-BEST": 10,
+          "GAMING-BEST": 10,
+          "SOCIAL-BEST": 10,
+          "WORKING-BEST": 10,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 67,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      },
+      {
+        "file": "output/openclash-ready.yaml",
+        "exists": true,
+        "ok": true,
+        "proxy_count": 202,
+        "group_count": 22,
+        "manual_count": 6,
+        "selected": {
+          "INDONESIA-BEST": 20,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "aliases": {
+          "INDONESIA-BEST": 20,
+          "STREAMING-BEST": 15,
+          "GAMING-BEST": 15,
+          "SOCIAL-BEST": 15,
+          "WORKING-BEST": 15,
+          "GENERAL-BEST": 15
+        },
+        "rule_count": 137,
+        "purpose_rule_count": 55,
+        "removed_missing_refs": 0
+      }
+    ]
+  },
+  "no_bengong": {
+    "script": "apply_openclash_no_bengong.py",
+    "manual_input_link_count": 8,
+    "settings": {
+      "max_stable": 10,
+      "fake_ip": true,
+      "block_quic": false,
+      "health_url": "https://www.gstatic.com/generate_204",
+      "interval": 300,
+      "tolerance": 80,
+      "lazy": true
+    },
+    "files": [
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/lengkap.yaml",
+        "proxy_count": 44,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "ANTI-BENGONG",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      },
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/lengkap_alive.yaml",
+        "proxy_count": 44,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "ANTI-BENGONG",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      },
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/strict_alive.yaml",
+        "proxy_count": 44,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "ANTI-BENGONG",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      },
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/lite.yaml",
+        "proxy_count": 21,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "ANTI-BENGONG",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      },
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/fast.yaml",
+        "proxy_count": 21,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "ANTI-BENGONG",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      },
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/gaming.yaml",
+        "proxy_count": 16,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      },
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/social_media.yaml",
+        "proxy_count": 16,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      },
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/streaming.yaml",
+        "proxy_count": 16,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      },
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/working.yaml",
+        "proxy_count": 16,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      },
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/general.yaml",
+        "proxy_count": 16,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      },
+      {
+        "file": "/home/runner/work/SumberYAML/SumberYAML/output/openclash-ready.yaml",
+        "proxy_count": 107,
+        "manual_proxy_count": 6,
+        "stable_count": 10,
+        "created_or_updated_groups": [
+          "BEST-STABLE",
+          "best-link",
+          "fallback-link",
+          "ANTI-BENGONG",
+          "PROXY"
+        ],
+        "status": "ok",
+        "removed_invalid_references": 0
+      }
+    ],
+    "ok_count": 11,
+    "error_count": 0
+  },
+  "files": [
+    {
+      "path": "output/openclash-ready.yaml",
+      "exists": true,
+      "size": 60506
+    },
+    {
+      "path": "output/SingBox/mobile-stable-safe.json",
+      "exists": true,
+      "size": 16595
+    },
+    {
+      "path": "output/SingBox/import-ready.json",
+      "exists": true,
+      "size": 16996
+    },
+    {
+      "path": "output/Final/diff_report.md",
+      "exists": true,
+      "size": 17235
+    },
+    {
+      "path": "output/Health/node_score.csv",
+      "exists": true,
+      "size": 128195
+    },
+    {
+      "path": "output/Backup/latest_good_summary.json",
+      "exists": true,
+      "size": 1015
+    }
+  ],
+  "csv_counts": {
+    "node_score_rows": 1350,
+    "node_history_rows": 1350,
+    "healthy_rows": 44,
+    "quarantine_rows": 0
+  }
+}

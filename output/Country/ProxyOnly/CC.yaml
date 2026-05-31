@@ -1,4 +1,19 @@
 proxies:
+  - name: "79 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "graph.instagram.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
   - name: "76 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443

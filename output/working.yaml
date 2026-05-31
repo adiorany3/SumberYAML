@@ -43,66 +43,6 @@ dns:
   - +.pool.ntp.org
   - +.ntp.org
 proxies:
-- name: oneclickvpnkeys US 6247
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: 26 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: filter.elitesilver002.workers.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: filter.elitesilver002.workers.dev
-  udp: true
-- name: VLESS
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: graph.instagram.com.cyylr.eu.cc
-  udp: true
-- name: VLESS 1496
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 41d480fd-1dcc-4766-8e01-a67e7faa5934
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: investors.spotify.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-amz
-    headers:
-      Host: investors.spotify.com.cyylr.eu.cc
-  udp: true
 - name: 27 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
@@ -118,35 +58,20 @@ proxies:
     headers:
       Host: momi.timoreyhaneh.workers.dev
   udp: true
-- name: 36 oneclickvpnkeys
+- name: v2configlab_ DE
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
+  uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: cyylr.eu.cc
+  servername: v2configlab.v2configlab7-5a2.workers.dev
   ws-opts:
-    path: /sg-melbi
+    path: /?ed=2048
     headers:
-      Host: cyylr.eu.cc
-  udp: true
-- name: oneclickvpnkeys US
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7872e85d-fd7e-4472-99e5-49cb48d0f668
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: freepol2.3r8sv.workers.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: freepol2.3r8sv.workers.dev
+      Host: v2configlab.v2configlab7-5a2.workers.dev
   udp: true
 - name: 35 oneclickvpnkeys
   server: 104.17.3.81
@@ -163,6 +88,50 @@ proxies:
     headers:
       Host: zyzzzoao.xn--fiqv8j.eu.org
   udp: true
+- name: HiByeVPNN
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: mitivpn
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: mitivpn.ws-ws-ws.workers.dev
+  ws-opts:
+    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
+    headers:
+      Host: mitivpn.ws-ws-ws.workers.dev
+  udp: true
+- name: oneclickvpnkeys US 7975
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: 42 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
 - name: CF20
   server: 104.17.3.81
   port: 443
@@ -178,20 +147,47 @@ proxies:
     headers:
       Host: edgetunnell-1dc.pages.dev
   udp: true
-- name: 76 oneclickvpnkeys
+- name: V2rayNG3 FR
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
-  cipher: none
+  type: trojan
+  password: humanity
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: m.udemy.com.cyylr.eu.cc
+  sni: www.calmlunch.com
   ws-opts:
-    path: /id-tksi
+    path: /assignment
     headers:
-      Host: m.udemy.com.cyylr.eu.cc
+      Host: www.calmlunch.com
+  udp: true
+- name: telegram tajrobe_wiki
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.gossipglove.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.gossipglove.com
+  udp: true
+- name: configV2rayNG FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.ignitelimit.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
   udp: true
 - name: LINK bel432 xl
   type: vmess
@@ -283,7 +279,82 @@ proxies:
     path: /welcome
     headers:
       Host: sg-trojan.1server.co
-- name: ID-01 LINK bel432 xl
+- name: ID-01 27 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: d555dac9-27cb-4ddb-89f5-6a1d8d1e4798
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: momi.timoreyhaneh.workers.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: momi.timoreyhaneh.workers.dev
+  udp: true
+- name: ID-02 v2configlab_ DE
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: v2configlab.v2configlab7-5a2.workers.dev
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: v2configlab.v2configlab7-5a2.workers.dev
+  udp: true
+- name: ID-03 oneclickvpnkeys US 7975
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: ID-04 42 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: ID-05 35 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: fe273991-0514-4a16-8ec4-b15ae861c000
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: zyzzzoao.xn--fiqv8j.eu.org
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: zyzzzoao.xn--fiqv8j.eu.org
+  udp: true
+- name: ID-06 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -299,67 +370,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: STREAM-01 oneclickvpnkeys US 6247
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: STREAM-02 VLESS
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: graph.instagram.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-03 VLESS 1496
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 41d480fd-1dcc-4766-8e01-a67e7faa5934
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: investors.spotify.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-amz
-    headers:
-      Host: investors.spotify.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-04 26 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: filter.elitesilver002.workers.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: filter.elitesilver002.workers.dev
-  udp: true
-- name: STREAM-05 27 oneclickvpnkeys
+- name: STREAM-01 27 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
@@ -374,67 +385,52 @@ proxies:
     headers:
       Host: momi.timoreyhaneh.workers.dev
   udp: true
-- name: STREAM-06 oneclickvpnkeys US
+- name: STREAM-02 v2configlab_ DE
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 7872e85d-fd7e-4472-99e5-49cb48d0f668
+  uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: freepol2.3r8sv.workers.dev
+  servername: v2configlab.v2configlab7-5a2.workers.dev
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: v2configlab.v2configlab7-5a2.workers.dev
+  udp: true
+- name: STREAM-03 oneclickvpnkeys US 7975
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: STREAM-04 42 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
     path: /
     headers:
-      Host: freepol2.3r8sv.workers.dev
+      Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: STREAM-07 76 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: m.udemy.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: m.udemy.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-08 CF20
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: edgetunnell-1dc.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: edgetunnell-1dc.pages.dev
-  udp: true
-- name: STREAM-09 36 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: cyylr.eu.cc
-  udp: true
-- name: STREAM-10 35 oneclickvpnkeys
+- name: STREAM-05 35 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
@@ -449,67 +445,78 @@ proxies:
     headers:
       Host: zyzzzoao.xn--fiqv8j.eu.org
   udp: true
-- name: GAME-01 oneclickvpnkeys US 6247
+- name: STREAM-06 CF20
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: juzi.qea.ccwu.cc
+  servername: edgetunnell-1dc.pages.dev
   ws-opts:
     path: /
     headers:
-      Host: juzi.qea.ccwu.cc
+      Host: edgetunnell-1dc.pages.dev
   udp: true
-- name: GAME-02 VLESS
+- name: STREAM-07 HiByeVPNN
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
-  cipher: none
+  type: trojan
+  password: mitivpn
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  sni: mitivpn.ws-ws-ws.workers.dev
   ws-opts:
-    path: /id-tksi
+    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: mitivpn.ws-ws-ws.workers.dev
   udp: true
-- name: GAME-03 VLESS 1496
+- name: STREAM-08 telegram tajrobe_wiki
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 41d480fd-1dcc-4766-8e01-a67e7faa5934
-  cipher: none
+  type: trojan
+  password: humanity
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: investors.spotify.com.cyylr.eu.cc
+  sni: www.gossipglove.com
   ws-opts:
-    path: /id-amz
+    path: /assignment
     headers:
-      Host: investors.spotify.com.cyylr.eu.cc
+      Host: www.gossipglove.com
   udp: true
-- name: GAME-04 26 oneclickvpnkeys
+- name: STREAM-09 configV2rayNG FR
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
-  cipher: none
+  type: trojan
+  password: humanity
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: filter.elitesilver002.workers.dev
+  sni: www.ignitelimit.com
   ws-opts:
-    path: /
+    path: /assignment
     headers:
-      Host: filter.elitesilver002.workers.dev
+      Host: www.ignitelimit.com
   udp: true
-- name: GAME-05 27 oneclickvpnkeys
+- name: STREAM-10 V2rayNG3 FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmlunch.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+  udp: true
+- name: GAME-01 27 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
@@ -524,67 +531,52 @@ proxies:
     headers:
       Host: momi.timoreyhaneh.workers.dev
   udp: true
-- name: GAME-06 oneclickvpnkeys US
+- name: GAME-02 v2configlab_ DE
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 7872e85d-fd7e-4472-99e5-49cb48d0f668
+  uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: freepol2.3r8sv.workers.dev
+  servername: v2configlab.v2configlab7-5a2.workers.dev
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: v2configlab.v2configlab7-5a2.workers.dev
+  udp: true
+- name: GAME-03 oneclickvpnkeys US 7975
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: GAME-04 42 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
     path: /
     headers:
-      Host: freepol2.3r8sv.workers.dev
+      Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: GAME-07 76 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: m.udemy.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: m.udemy.com.cyylr.eu.cc
-  udp: true
-- name: GAME-08 CF20
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: edgetunnell-1dc.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: edgetunnell-1dc.pages.dev
-  udp: true
-- name: GAME-09 36 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: cyylr.eu.cc
-  udp: true
-- name: GAME-10 35 oneclickvpnkeys
+- name: GAME-05 35 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
@@ -599,67 +591,78 @@ proxies:
     headers:
       Host: zyzzzoao.xn--fiqv8j.eu.org
   udp: true
-- name: SOCIAL-01 oneclickvpnkeys US 6247
+- name: GAME-06 CF20
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: juzi.qea.ccwu.cc
+  servername: edgetunnell-1dc.pages.dev
   ws-opts:
     path: /
     headers:
-      Host: juzi.qea.ccwu.cc
+      Host: edgetunnell-1dc.pages.dev
   udp: true
-- name: SOCIAL-02 VLESS
+- name: GAME-07 HiByeVPNN
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
-  cipher: none
+  type: trojan
+  password: mitivpn
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  sni: mitivpn.ws-ws-ws.workers.dev
   ws-opts:
-    path: /id-tksi
+    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: mitivpn.ws-ws-ws.workers.dev
   udp: true
-- name: SOCIAL-03 VLESS 1496
+- name: GAME-08 telegram tajrobe_wiki
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 41d480fd-1dcc-4766-8e01-a67e7faa5934
-  cipher: none
+  type: trojan
+  password: humanity
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: investors.spotify.com.cyylr.eu.cc
+  sni: www.gossipglove.com
   ws-opts:
-    path: /id-amz
+    path: /assignment
     headers:
-      Host: investors.spotify.com.cyylr.eu.cc
+      Host: www.gossipglove.com
   udp: true
-- name: SOCIAL-04 26 oneclickvpnkeys
+- name: GAME-09 configV2rayNG FR
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
-  cipher: none
+  type: trojan
+  password: humanity
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: filter.elitesilver002.workers.dev
+  sni: www.ignitelimit.com
   ws-opts:
-    path: /
+    path: /assignment
     headers:
-      Host: filter.elitesilver002.workers.dev
+      Host: www.ignitelimit.com
   udp: true
-- name: SOCIAL-05 27 oneclickvpnkeys
+- name: GAME-10 V2rayNG3 FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmlunch.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+  udp: true
+- name: SOCIAL-01 27 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
@@ -674,67 +677,52 @@ proxies:
     headers:
       Host: momi.timoreyhaneh.workers.dev
   udp: true
-- name: SOCIAL-06 oneclickvpnkeys US
+- name: SOCIAL-02 v2configlab_ DE
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 7872e85d-fd7e-4472-99e5-49cb48d0f668
+  uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: freepol2.3r8sv.workers.dev
+  servername: v2configlab.v2configlab7-5a2.workers.dev
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: v2configlab.v2configlab7-5a2.workers.dev
+  udp: true
+- name: SOCIAL-03 oneclickvpnkeys US 7975
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: SOCIAL-04 42 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
     path: /
     headers:
-      Host: freepol2.3r8sv.workers.dev
+      Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: SOCIAL-07 76 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: m.udemy.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: m.udemy.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-08 CF20
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: edgetunnell-1dc.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: edgetunnell-1dc.pages.dev
-  udp: true
-- name: SOCIAL-09 36 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: cyylr.eu.cc
-  udp: true
-- name: SOCIAL-10 35 oneclickvpnkeys
+- name: SOCIAL-05 35 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
@@ -749,67 +737,78 @@ proxies:
     headers:
       Host: zyzzzoao.xn--fiqv8j.eu.org
   udp: true
-- name: WORK-01 oneclickvpnkeys US 6247
+- name: SOCIAL-06 CF20
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: juzi.qea.ccwu.cc
+  servername: edgetunnell-1dc.pages.dev
   ws-opts:
     path: /
     headers:
-      Host: juzi.qea.ccwu.cc
+      Host: edgetunnell-1dc.pages.dev
   udp: true
-- name: WORK-02 VLESS
+- name: SOCIAL-07 HiByeVPNN
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
-  cipher: none
+  type: trojan
+  password: mitivpn
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  sni: mitivpn.ws-ws-ws.workers.dev
   ws-opts:
-    path: /id-tksi
+    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: mitivpn.ws-ws-ws.workers.dev
   udp: true
-- name: WORK-03 VLESS 1496
+- name: SOCIAL-08 telegram tajrobe_wiki
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 41d480fd-1dcc-4766-8e01-a67e7faa5934
-  cipher: none
+  type: trojan
+  password: humanity
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: investors.spotify.com.cyylr.eu.cc
+  sni: www.gossipglove.com
   ws-opts:
-    path: /id-amz
+    path: /assignment
     headers:
-      Host: investors.spotify.com.cyylr.eu.cc
+      Host: www.gossipglove.com
   udp: true
-- name: WORK-04 26 oneclickvpnkeys
+- name: SOCIAL-09 configV2rayNG FR
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
-  cipher: none
+  type: trojan
+  password: humanity
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: filter.elitesilver002.workers.dev
+  sni: www.ignitelimit.com
   ws-opts:
-    path: /
+    path: /assignment
     headers:
-      Host: filter.elitesilver002.workers.dev
+      Host: www.ignitelimit.com
   udp: true
-- name: WORK-05 27 oneclickvpnkeys
+- name: SOCIAL-10 V2rayNG3 FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmlunch.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+  udp: true
+- name: WORK-01 27 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
@@ -824,37 +823,67 @@ proxies:
     headers:
       Host: momi.timoreyhaneh.workers.dev
   udp: true
-- name: WORK-06 oneclickvpnkeys US
+- name: WORK-02 v2configlab_ DE
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 7872e85d-fd7e-4472-99e5-49cb48d0f668
+  uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: freepol2.3r8sv.workers.dev
+  servername: v2configlab.v2configlab7-5a2.workers.dev
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: v2configlab.v2configlab7-5a2.workers.dev
+  udp: true
+- name: WORK-03 oneclickvpnkeys US 7975
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: WORK-04 42 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
     path: /
     headers:
-      Host: freepol2.3r8sv.workers.dev
+      Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: WORK-07 76 oneclickvpnkeys
+- name: WORK-05 35 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
+  uuid: fe273991-0514-4a16-8ec4-b15ae861c000
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: m.udemy.com.cyylr.eu.cc
+  servername: zyzzzoao.xn--fiqv8j.eu.org
   ws-opts:
-    path: /id-tksi
+    path: /fp=chrome
     headers:
-      Host: m.udemy.com.cyylr.eu.cc
+      Host: zyzzzoao.xn--fiqv8j.eu.org
   udp: true
-- name: WORK-08 CF20
+- name: WORK-06 CF20
   server: 104.17.3.81
   port: 443
   type: vless
@@ -869,35 +898,61 @@ proxies:
     headers:
       Host: edgetunnell-1dc.pages.dev
   udp: true
-- name: WORK-09 36 oneclickvpnkeys
+- name: WORK-07 HiByeVPNN
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
-  cipher: none
+  type: trojan
+  password: mitivpn
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: cyylr.eu.cc
+  sni: mitivpn.ws-ws-ws.workers.dev
   ws-opts:
-    path: /sg-melbi
+    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
     headers:
-      Host: cyylr.eu.cc
+      Host: mitivpn.ws-ws-ws.workers.dev
   udp: true
-- name: WORK-10 35 oneclickvpnkeys
+- name: WORK-08 telegram tajrobe_wiki
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: fe273991-0514-4a16-8ec4-b15ae861c000
-  cipher: none
+  type: trojan
+  password: humanity
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: zyzzzoao.xn--fiqv8j.eu.org
+  sni: www.gossipglove.com
   ws-opts:
-    path: /fp=chrome
+    path: /assignment
     headers:
-      Host: zyzzzoao.xn--fiqv8j.eu.org
+      Host: www.gossipglove.com
+  udp: true
+- name: WORK-09 configV2rayNG FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.ignitelimit.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: WORK-10 V2rayNG3 FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmlunch.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
   udp: true
 - name: WORK-11 LINK 10.lowh.net
   type: vmess
@@ -973,67 +1028,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: GEN-01 oneclickvpnkeys US 6247
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: GEN-02 VLESS
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: graph.instagram.com.cyylr.eu.cc
-  udp: true
-- name: GEN-03 VLESS 1496
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 41d480fd-1dcc-4766-8e01-a67e7faa5934
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: investors.spotify.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-amz
-    headers:
-      Host: investors.spotify.com.cyylr.eu.cc
-  udp: true
-- name: GEN-04 26 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: filter.elitesilver002.workers.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: filter.elitesilver002.workers.dev
-  udp: true
-- name: GEN-05 27 oneclickvpnkeys
+- name: GEN-01 27 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1048,37 +1043,67 @@ proxies:
     headers:
       Host: momi.timoreyhaneh.workers.dev
   udp: true
-- name: GEN-06 oneclickvpnkeys US
+- name: GEN-02 v2configlab_ DE
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 7872e85d-fd7e-4472-99e5-49cb48d0f668
+  uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: freepol2.3r8sv.workers.dev
+  servername: v2configlab.v2configlab7-5a2.workers.dev
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: v2configlab.v2configlab7-5a2.workers.dev
+  udp: true
+- name: GEN-03 oneclickvpnkeys US 7975
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: GEN-04 42 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
     path: /
     headers:
-      Host: freepol2.3r8sv.workers.dev
+      Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: GEN-07 76 oneclickvpnkeys
+- name: GEN-05 35 oneclickvpnkeys
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
+  uuid: fe273991-0514-4a16-8ec4-b15ae861c000
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: m.udemy.com.cyylr.eu.cc
+  servername: zyzzzoao.xn--fiqv8j.eu.org
   ws-opts:
-    path: /id-tksi
+    path: /fp=chrome
     headers:
-      Host: m.udemy.com.cyylr.eu.cc
+      Host: zyzzzoao.xn--fiqv8j.eu.org
   udp: true
-- name: GEN-08 CF20
+- name: GEN-06 CF20
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1093,35 +1118,61 @@ proxies:
     headers:
       Host: edgetunnell-1dc.pages.dev
   udp: true
-- name: GEN-09 36 oneclickvpnkeys
+- name: GEN-07 HiByeVPNN
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
-  cipher: none
+  type: trojan
+  password: mitivpn
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: cyylr.eu.cc
+  sni: mitivpn.ws-ws-ws.workers.dev
   ws-opts:
-    path: /sg-melbi
+    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
     headers:
-      Host: cyylr.eu.cc
+      Host: mitivpn.ws-ws-ws.workers.dev
   udp: true
-- name: GEN-10 35 oneclickvpnkeys
+- name: GEN-08 telegram tajrobe_wiki
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: fe273991-0514-4a16-8ec4-b15ae861c000
-  cipher: none
+  type: trojan
+  password: humanity
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: zyzzzoao.xn--fiqv8j.eu.org
+  sni: www.gossipglove.com
   ws-opts:
-    path: /fp=chrome
+    path: /assignment
     headers:
-      Host: zyzzzoao.xn--fiqv8j.eu.org
+      Host: www.gossipglove.com
+  udp: true
+- name: GEN-09 configV2rayNG FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.ignitelimit.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: GEN-10 V2rayNG3 FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmlunch.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
   udp: true
 - name: GEN-11 LINK 10.lowh.net
   type: vmess
@@ -1198,6 +1249,25 @@ proxies:
     headers:
       Host: akamaized.my
 proxy-groups:
+- name: INDONESIA-BEST
+  type: url-test
+  proxies:
+  - ID-01 27 oneclickvpnkeys
+  - ID-02 v2configlab_ DE
+  - ID-03 oneclickvpnkeys US 7975
+  - ID-04 42 oneclickvpnkeys
+  - ID-05 35 oneclickvpnkeys
+  - ID-06 LINK bel432 xl
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK 15.lowh.net
+  - LINK sg-trojan.1server.co
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
 - name: fallback-link
   type: fallback
   proxies:
@@ -1228,16 +1298,16 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - oneclickvpnkeys US 6247
-  - 26 oneclickvpnkeys
-  - VLESS
-  - VLESS 1496
   - 27 oneclickvpnkeys
-  - 36 oneclickvpnkeys
-  - oneclickvpnkeys US
+  - v2configlab_ DE
   - 35 oneclickvpnkeys
+  - HiByeVPNN
+  - oneclickvpnkeys US 7975
+  - 42 oneclickvpnkeys
   - CF20
-  - 76 oneclickvpnkeys
+  - V2rayNG3 FR
+  - telegram tajrobe_wiki
+  - configV2rayNG FR
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1268,33 +1338,19 @@ proxy-groups:
   - LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK 15.lowh.net
   - LINK sg-trojan.1server.co
-- name: INDONESIA-BEST
-  type: url-test
-  proxies:
-  - ID-01 LINK bel432 xl
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
 - name: STREAMING-BEST
   type: url-test
   proxies:
-  - STREAM-01 oneclickvpnkeys US 6247
-  - STREAM-02 VLESS
-  - STREAM-03 VLESS 1496
-  - STREAM-04 26 oneclickvpnkeys
-  - STREAM-05 27 oneclickvpnkeys
-  - STREAM-06 oneclickvpnkeys US
-  - STREAM-07 76 oneclickvpnkeys
-  - STREAM-08 CF20
-  - STREAM-09 36 oneclickvpnkeys
-  - STREAM-10 35 oneclickvpnkeys
+  - STREAM-01 27 oneclickvpnkeys
+  - STREAM-02 v2configlab_ DE
+  - STREAM-03 oneclickvpnkeys US 7975
+  - STREAM-04 42 oneclickvpnkeys
+  - STREAM-05 35 oneclickvpnkeys
+  - STREAM-06 CF20
+  - STREAM-07 HiByeVPNN
+  - STREAM-08 telegram tajrobe_wiki
+  - STREAM-09 configV2rayNG FR
+  - STREAM-10 V2rayNG3 FR
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1308,16 +1364,16 @@ proxy-groups:
 - name: GAMING-BEST
   type: url-test
   proxies:
-  - GAME-01 oneclickvpnkeys US 6247
-  - GAME-02 VLESS
-  - GAME-03 VLESS 1496
-  - GAME-04 26 oneclickvpnkeys
-  - GAME-05 27 oneclickvpnkeys
-  - GAME-06 oneclickvpnkeys US
-  - GAME-07 76 oneclickvpnkeys
-  - GAME-08 CF20
-  - GAME-09 36 oneclickvpnkeys
-  - GAME-10 35 oneclickvpnkeys
+  - GAME-01 27 oneclickvpnkeys
+  - GAME-02 v2configlab_ DE
+  - GAME-03 oneclickvpnkeys US 7975
+  - GAME-04 42 oneclickvpnkeys
+  - GAME-05 35 oneclickvpnkeys
+  - GAME-06 CF20
+  - GAME-07 HiByeVPNN
+  - GAME-08 telegram tajrobe_wiki
+  - GAME-09 configV2rayNG FR
+  - GAME-10 V2rayNG3 FR
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1331,16 +1387,16 @@ proxy-groups:
 - name: SOCIAL-BEST
   type: url-test
   proxies:
-  - SOCIAL-01 oneclickvpnkeys US 6247
-  - SOCIAL-02 VLESS
-  - SOCIAL-03 VLESS 1496
-  - SOCIAL-04 26 oneclickvpnkeys
-  - SOCIAL-05 27 oneclickvpnkeys
-  - SOCIAL-06 oneclickvpnkeys US
-  - SOCIAL-07 76 oneclickvpnkeys
-  - SOCIAL-08 CF20
-  - SOCIAL-09 36 oneclickvpnkeys
-  - SOCIAL-10 35 oneclickvpnkeys
+  - SOCIAL-01 27 oneclickvpnkeys
+  - SOCIAL-02 v2configlab_ DE
+  - SOCIAL-03 oneclickvpnkeys US 7975
+  - SOCIAL-04 42 oneclickvpnkeys
+  - SOCIAL-05 35 oneclickvpnkeys
+  - SOCIAL-06 CF20
+  - SOCIAL-07 HiByeVPNN
+  - SOCIAL-08 telegram tajrobe_wiki
+  - SOCIAL-09 configV2rayNG FR
+  - SOCIAL-10 V2rayNG3 FR
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1354,16 +1410,16 @@ proxy-groups:
 - name: WORKING-BEST
   type: url-test
   proxies:
-  - WORK-01 oneclickvpnkeys US 6247
-  - WORK-02 VLESS
-  - WORK-03 VLESS 1496
-  - WORK-04 26 oneclickvpnkeys
-  - WORK-05 27 oneclickvpnkeys
-  - WORK-06 oneclickvpnkeys US
-  - WORK-07 76 oneclickvpnkeys
-  - WORK-08 CF20
-  - WORK-09 36 oneclickvpnkeys
-  - WORK-10 35 oneclickvpnkeys
+  - WORK-01 27 oneclickvpnkeys
+  - WORK-02 v2configlab_ DE
+  - WORK-03 oneclickvpnkeys US 7975
+  - WORK-04 42 oneclickvpnkeys
+  - WORK-05 35 oneclickvpnkeys
+  - WORK-06 CF20
+  - WORK-07 HiByeVPNN
+  - WORK-08 telegram tajrobe_wiki
+  - WORK-09 configV2rayNG FR
+  - WORK-10 V2rayNG3 FR
   - WORK-11 LINK 10.lowh.net
   - WORK-12 LINK 15.lowh.net
   - WORK-13 LINK bel432 xl
@@ -1382,16 +1438,16 @@ proxy-groups:
 - name: GENERAL-BEST
   type: url-test
   proxies:
-  - GEN-01 oneclickvpnkeys US 6247
-  - GEN-02 VLESS
-  - GEN-03 VLESS 1496
-  - GEN-04 26 oneclickvpnkeys
-  - GEN-05 27 oneclickvpnkeys
-  - GEN-06 oneclickvpnkeys US
-  - GEN-07 76 oneclickvpnkeys
-  - GEN-08 CF20
-  - GEN-09 36 oneclickvpnkeys
-  - GEN-10 35 oneclickvpnkeys
+  - GEN-01 27 oneclickvpnkeys
+  - GEN-02 v2configlab_ DE
+  - GEN-03 oneclickvpnkeys US 7975
+  - GEN-04 42 oneclickvpnkeys
+  - GEN-05 35 oneclickvpnkeys
+  - GEN-06 CF20
+  - GEN-07 HiByeVPNN
+  - GEN-08 telegram tajrobe_wiki
+  - GEN-09 configV2rayNG FR
+  - GEN-10 V2rayNG3 FR
   - GEN-11 LINK 10.lowh.net
   - GEN-12 LINK 15.lowh.net
   - GEN-13 LINK bel432 xl
@@ -1488,10 +1544,6 @@ rules:
 - DOMAIN-SUFFIX,zoom.us,WORKING-BEST
 - DOMAIN-SUFFIX,slack.com,WORKING-BEST
 - DOMAIN-SUFFIX,cloudflare.com,WORKING-BEST
-- DOMAIN-SUFFIX,localhost,DIRECT
-- DOMAIN-SUFFIX,doubleclick.net,REJECT
-- DOMAIN-SUFFIX,googlesyndication.com,REJECT
-- DOMAIN-SUFFIX,googleadservices.com,REJECT
-- DOMAIN-SUFFIX,ads-twitter.com,REJECT
-- DOMAIN-KEYWORD,adservice,REJECT
+- DOMAIN-SUFFIX,my.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,web.id,INDONESIA-BEST
 - MATCH,PROXY

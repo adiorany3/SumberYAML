@@ -1,10 +1,10 @@
 {
-  "run_mode": "update",
+  "run_mode": "update_ping",
   "enable_proxy_test": true,
   "filter_alive_only": true,
   "strict_alive_only": true,
   "test_rounds": 2,
-  "require_success_rounds": 2,
+  "require_success_rounds": 1,
   "strict_max_delay_ms": 8000,
   "tcp_fallback_enabled": true,
   "tcp_only_output_disabled": false,
@@ -15,31 +15,31 @@
   "workers": 20,
   "tester": "strict-mihomo-delay",
   "tester_ok": true,
-  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 2/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
+  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
   "rounds": [
     {
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 36,
+      "alive": 38,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 15,
+      "alive": 13,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
   "total": 1258,
-  "alive": 15,
-  "strict_alive": 15,
-  "dead": 1243,
+  "alive": 38,
+  "strict_alive": 38,
+  "dead": 1220,
   "untested": 0,
-  "final_output_filter": "strict/balanced alive 2/2 <= 8000ms",
+  "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
   "best_ping_country_filter": "ID",
   "best_ping_fallback_global_if_empty": true,
@@ -47,30 +47,30 @@
   "best_ping_group_type": "url-test",
   "best_ping_count": 5,
   "best_ping_names": [
-    "oneclickvpnkeys US 6247",
-    "VLESS",
-    "VLESS 1496",
-    "26 oneclickvpnkeys",
-    "27 oneclickvpnkeys"
+    "27 oneclickvpnkeys",
+    "v2configlab_ DE",
+    "oneclickvpnkeys US 7975",
+    "42 oneclickvpnkeys",
+    "35 oneclickvpnkeys"
   ],
   "responsive_top_n": 15,
   "responsive_count": 15,
   "responsive_names": [
-    "oneclickvpnkeys US 6247",
-    "VLESS",
-    "VLESS 1496",
-    "26 oneclickvpnkeys",
     "27 oneclickvpnkeys",
-    "36 oneclickvpnkeys",
-    "oneclickvpnkeys US",
-    "76 oneclickvpnkeys",
+    "v2configlab_ DE",
+    "oneclickvpnkeys US 7975",
+    "42 oneclickvpnkeys",
     "35 oneclickvpnkeys",
-    "CF20",
     "HiByeVPNN",
-    "vpnbaz 3204",
+    "CF20",
+    "telegram tajrobe_wiki",
     "V2rayNG3 FR",
-    "oneclickvpnkeys NL",
-    "ProxyEliteVPN"
+    "configV2rayNG FR",
+    "ProxyEliteVPN",
+    "RELAY-104.18.42.54-1541",
+    "90 oneclickvpnkeys",
+    "oneclickvpnkeys US 6784",
+    "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -82,5 +82,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 15
+  "strict_output_count": 38
 }
