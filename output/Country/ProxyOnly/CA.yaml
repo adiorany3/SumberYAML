@@ -1,31 +1,15 @@
 proxies:
-  - name: "CA 40434 Telegram t.me SOSkeyNET"
+  - name: "CA 41333 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-    cipher: none
+    type: trojan
+    password: "7p52vhn9vs4naimm"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    sni: "freealireza3.nscl.ir"
     ws-opts:
-      path: "/"
+      path: "/dashboard"
       headers:
-        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
-    udp: true
-  - name: "CA 40366 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "juzi.qea.ccwu.cc"
-    ws-opts:
-      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048"
-      headers:
-        Host: "juzi.qea.ccwu.cc"
+        Host: "freealireza3.nscl.ir"
     udp: true

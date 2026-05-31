@@ -49,7 +49,37 @@ proxies:
       headers:
         Host: "edgetunnell-1dc.pages.dev"
     udp: true
-  - name: "KAFING_2 3858"
+  - name: "v2reya88"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cb0be83e-ff5c-4601-8572-18deac592958
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nimahavok.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "nimahavok.pages.dev"
+    udp: true
+  - name: "hi_proxy_iran 4145"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "KAFING_2 5578"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -62,20 +92,6 @@ proxies:
       path: "/howdy"
       headers:
         Host: "uk1.test3.net"
-    udp: true
-  - name: "kurdconfig 6924"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "rQZjCMGZEN"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "cloud.magicservice.top"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "cloud.magicservice.top"
     udp: true
 
 proxy-groups:
