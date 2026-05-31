@@ -2018,6 +2018,159 @@ st.markdown(
 )
 
 
+# =========================
+# POLISHED ADMIN UI LAYER
+# =========================
+st.markdown(
+    """
+    <style>
+        .block-container {
+            max-width: 1120px !important;
+            padding-top: 22px !important;
+        }
+
+        .admin-hero {
+            position: relative;
+            overflow: hidden;
+            border-radius: 28px;
+            padding: 24px 22px;
+            margin-bottom: 18px;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(0,255,136,.20), transparent 34%),
+                radial-gradient(circle at 90% 10%, rgba(25,216,255,.18), transparent 32%),
+                linear-gradient(135deg, rgba(1,18,9,.95), rgba(1,4,3,.92));
+            border: 1px solid rgba(0,255,136,.26);
+            box-shadow: 0 24px 70px rgba(0,0,0,.42), inset 0 0 50px rgba(0,255,136,.045);
+        }
+
+        .admin-hero-title {
+            color: #eafff2;
+            font-size: clamp(26px, 5vw, 44px);
+            line-height: 1.02;
+            font-weight: 950;
+            letter-spacing: -.045em;
+            margin: 0;
+        }
+
+        .admin-hero-sub {
+            margin-top: 10px;
+            max-width: 780px;
+            color: rgba(216,255,233,.74);
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        .admin-chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .admin-chip {
+            border-radius: 999px;
+            padding: 7px 10px;
+            background: rgba(0,255,136,.08);
+            border: 1px solid rgba(0,255,136,.20);
+            color: rgba(234,255,242,.88);
+            font-size: 12px;
+            font-weight: 850;
+        }
+
+        .admin-chip strong {
+            color: #00ff88;
+        }
+
+        .quick-card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+            margin: 10px 0 18px;
+        }
+
+        .quick-card {
+            border-radius: 18px;
+            padding: 14px;
+            background: rgba(0, 11, 5, .66);
+            border: 1px solid rgba(0,255,136,.18);
+            box-shadow: inset 0 0 28px rgba(0,255,136,.035), 0 14px 34px rgba(0,0,0,.20);
+        }
+
+        .quick-card-label {
+            color: rgba(216,255,233,.62);
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 6px;
+        }
+
+        .quick-card-value {
+            color: #eafff2;
+            font-size: 14px;
+            font-weight: 950;
+            overflow-wrap: anywhere;
+        }
+
+        .quick-card-good { color: #00ff88; }
+        .quick-card-warn { color: #ffd166; }
+
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 8px;
+            background: rgba(0, 0, 0, .22);
+            border: 1px solid rgba(0,255,136,.14);
+            border-radius: 18px;
+            padding: 7px;
+            margin-bottom: 12px;
+        }
+
+        .stTabs [data-baseweb="tab"] {
+            height: 42px;
+            border-radius: 13px;
+            padding: 0 14px;
+            color: rgba(216,255,233,.70);
+            font-weight: 900;
+        }
+
+        .stTabs [aria-selected="true"] {
+            color: #031108 !important;
+            background: #00ff88 !important;
+        }
+
+        div[data-testid="stExpander"] {
+            border: 1px solid rgba(0,255,136,.16);
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(0, 11, 5, .46);
+        }
+
+        .stSelectbox div[data-baseweb="select"],
+        .stRadio div[role="radiogroup"],
+        .stTextArea textarea {
+            border-radius: 14px !important;
+        }
+
+        .stCodeBlock {
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 820px) {
+            .quick-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .admin-hero { padding: 20px 16px; }
+        }
+
+        @media (max-width: 520px) {
+            .quick-card-grid { grid-template-columns: 1fr; }
+            .stTabs [data-baseweb="tab"] { padding: 0 9px; font-size: 12px; }
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+
 init_terminal_state()
 
 # Public landing page tidak menampilkan terminal/status internal.
@@ -3165,16 +3318,111 @@ def render_public_singbox_qr_only():
         st.empty()
 
 
+def _status_text(ok: bool, good: str = "OK", bad: str = "CHECK") -> str:
+    return good if ok else bad
+
+
+def render_admin_header():
+    """Compact admin dashboard header. Does not expose this info on public page."""
+    telegram_ok = bool(TELEGRAM_BOT_TOKEN)
+    github_ok = bool(GITHUB_TOKEN and GITHUB_OWNER and GITHUB_REPO)
+    repo_text = f"{GITHUB_OWNER or '-'} / {GITHUB_REPO or '-'}"
+    workflow_text = WORKFLOW_ID or "-"
+    branch_text = GITHUB_REF or "-"
+
+    st.markdown(
+        f"""
+        <div class="admin-hero">
+            <div class="hacker-kicker">ADMIN CONTROL CENTER</div>
+            <h1 class="admin-hero-title">SumberYAML Console</h1>
+            <div class="admin-hero-sub">
+                Panel kontrol untuk build OpenClash, sing-box, V2RayBox, diagnostics, rollback, best ping, dan maintenance profile.
+                Halaman publik tetap bersih dan hanya menampilkan QR profile mobile.
+            </div>
+            <div class="admin-chip-row">
+                <span class="admin-chip">Telegram: <strong>{escape(_status_text(telegram_ok, 'Configured', 'No Token'))}</strong></span>
+                <span class="admin-chip">Repo: <strong>{escape(repo_text)}</strong></span>
+                <span class="admin-chip">Workflow: <strong>{escape(workflow_text)}</strong></span>
+                <span class="admin-chip">Branch: <strong>{escape(branch_text)}</strong></span>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        f"""
+        <div class="quick-card-grid">
+            <div class="quick-card">
+                <div class="quick-card-label">Public QR</div>
+                <div class="quick-card-value quick-card-good">mobile-stable-safe</div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-card-label">OpenClash</div>
+                <div class="quick-card-value">openclash-ready.yaml</div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-card-label">V2RayBox</div>
+                <div class="quick-card-value">mobile-stable.txt</div>
+            </div>
+            <div class="quick-card">
+                <div class="quick-card-label">Manual Links</div>
+                <div class="quick-card-value quick-card-good">Trusted</div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+
 if is_admin_route():
     if ensure_admin_authenticated():
-        render_workflow_status_panel()
-        render_admin_actions()
-        render_admin_singbox_merge()
-        render_admin_singbox_stability()
-        render_admin_best_ping()
-        render_admin_diagnostic_summary()
-        render_admin_v2raybox_panel()
-        render_admin_singbox_qr()
+        render_admin_header()
+
+        tab_overview, tab_profiles, tab_automation, tab_health = st.tabs(
+            [
+                "📊 Overview",
+                "📱 Profiles & QR",
+                "⚙️ Automation",
+                "🩺 Health",
+            ]
+        )
+
+        with tab_overview:
+            render_workflow_status_panel()
+            render_admin_best_ping()
+            render_admin_diagnostic_summary()
+
+        with tab_profiles:
+            profile_left, profile_right = st.columns(2)
+            with profile_left:
+                render_admin_singbox_qr()
+            with profile_right:
+                render_admin_v2raybox_panel()
+
+        with tab_automation:
+            render_admin_actions()
+            render_admin_singbox_merge()
+            render_admin_singbox_stability()
+
+        with tab_health:
+            render_admin_diagnostic_summary()
+            st.markdown('<div class="pet-section-title">Maintenance Notes</div>', unsafe_allow_html=True)
+            st.markdown(
+                """
+                <div class="pet-panel">
+                    <div class="pet-small-note" style="text-align:left;margin-top:0;">
+                        <b>Prioritas profile HP:</b> mobile-stable-safe → best-stable-safe → fallback-stable-safe.<br>
+                        <b>OpenClash utama:</b> output/openclash-ready.yaml dengan group ANTI-BENGONG, INDONESIA-BEST, best-link, dan fallback-link.<br>
+                        <b>Manual links:</b> input.txt / input/links.txt tetap trusted dan tidak disaring.
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+        st.divider()
         if st.button("🚪 Keluar Admin", use_container_width=True):
             st.session_state.admin_authenticated = False
             st.rerun()
