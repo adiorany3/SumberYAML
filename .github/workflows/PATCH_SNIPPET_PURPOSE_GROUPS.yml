@@ -1,0 +1,10 @@
+- name: Apply purpose-specific OpenClash groups and rules
+  run: |
+    set -e
+    python scripts/apply_openclash_purpose_groups.py \
+      --max-per-group 15 \
+      --max-indonesia 20 \
+      --tolerance 80
+
+    echo "Purpose group summary:"
+    cat output/Validation/summary_purpose_groups.json || true
