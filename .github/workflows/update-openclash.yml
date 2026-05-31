@@ -3,13 +3,9 @@ name: Update OpenClash
 on:
   workflow_dispatch:
     inputs:
-      source:
-        description: Trigger source
-        required: false
-        default: manual
       mode:
-        description: Proses yang dijalankan
-        required: false
+        description: Mode proses
+        required: true
         default: update
         type: choice
         options:
@@ -18,121 +14,41 @@ on:
           - test
           - test_ping
           - merge_links
-          - build_stable
-          - clear_quarantine
+          - build_ready
           - sanitize_import
           - optimize_openclash
-          - build_ready
       enable_proxy_test:
-        description: Jalankan test proxy/ping untuk sumber otomatis
+        description: Jalankan test proxy
         required: false
-        default: "true"
+        default: 'true'
         type: choice
-        options:
-          - "true"
-          - "false"
+        options: ['true', 'false']
       filter_alive_only:
-        description: lengkap.yaml hanya berisi proxy hidup dari sumber otomatis
+        description: Filter output otomatis hanya alive
         required: false
-        default: "true"
+        default: 'true'
         type: choice
-        options:
-          - "true"
-          - "false"
+        options: ['true', 'false']
       strict_alive_only:
-        description: Pakai hanya akun sumber otomatis yang lolos URL delay test beberapa ronde
+        description: Strict alive only
         required: false
-        default: "true"
+        default: 'true'
         type: choice
-        options:
-          - "true"
-          - "false"
-
+        options: ['true', 'false']
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: '0 */6 * * *'
 
 permissions:
   contents: write
   actions: read
 
 concurrency:
-  group: openclash-update
+  group: update-openclash-${{ github.ref }}
   cancel-in-progress: false
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-  PYTHONUNBUFFERED: "1"
-
-  MODE: ${{ github.event.inputs.mode || 'update' }}
-  RUN_MODE: ${{ github.event.inputs.mode || 'update' }}
-  ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
-  FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
-  STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
-
-  TEST_ROUNDS: "2"
-  REQUIRE_SUCCESS_ROUNDS: "1"
-  STRICT_MAX_DELAY_MS: "8000"
-  STRICT_OUTPUT_FILE: "strict_alive.yaml"
-  TCP_FALLBACK: "true"
-  DISABLE_TCP_ONLY_OUTPUT: "false"
-  STRICT_FALLBACK_TO_ALIVE: "true"
-  STRICT_FALLBACK_TO_VALID: "true"
-
-  BEST_PING_TOP_N: "5"
-  BEST_PING_COUNTRY_FILTER: "ID"
-  BEST_PING_URL_TEST_NAME: "URL-TEST TOP 5 INDONESIA"
-  BEST_PING_BALANCE_ENABLE: "true"
-
-  URL_TEST_INTERVAL: "120"
-  URL_TEST_TOLERANCE: "30"
-  URL_TEST_LAZY: "false"
-  MAX_DELAY_MS: "8000"
-  FILTER_MAX_DELAY_FOR_OUTPUT: "false"
-  ENABLE_COUNTRY_URL_TEST_GROUPS: "false"
-
-  BLACKLIST_FILE: "blacklist.txt"
-  SOURCE_CACHE_ENABLE: "true"
-  SOURCE_CACHE_DIR: "output/Cache/sources"
-  USE_PREVIOUS_OUTPUT_IF_EMPTY: "true"
-  FAST_REUSE_WHEN_NO_SOURCE_CHANGE: "true"
-  PREVIOUS_OUTPUT_DIR: ".previous_output"
-
-  LITE_OUTPUT_FILE: "lite.yaml"
-  LITE_GLOBAL_TOP_N: "10"
-  LITE_MAX_TOTAL: "25"
-
-  CUSTOM_RULES_FILE: "rules/custom_rules.yaml"
-  DEFAULT_RULES_FILE: "rules/default_rules.yaml"
-  PROFILE_RULES_FILE: "rules/profile_rules.yaml"
-  ENABLE_USAGE_RULES: "true"
-  ENABLE_DEFAULT_RULES: "true"
-  ENABLE_PROFILE_RULES: "true"
-
-  RANK_TCP_FALLBACK_PENALTY: "300"
-  RANK_GLOBAL_FALLBACK_PENALTY: "1000"
-  RESPONSIVE_MAX_AVG_DELAY_MS: "8000"
-  RESPONSIVE_MAX_JITTER_MS: "5000"
-  RESPONSIVE_MIN_SUCCESS_RATE: "0.50"
-  RESPONSIVE_TOP_N: "15"
-  RESPONSIVE_COMBINED_MAX: "30"
-  RESPONSIVE_JITTER_WEIGHT: "0.35"
-  RESPONSIVE_FAILURE_PENALTY: "1500"
-
-  FAST_OUTPUT_FILE: "fast.yaml"
-  FAST_MAX_TOTAL: "20"
-  FAST_FALLBACK_NAME: "FALLBACK CEPAT"
-  ENABLE_FAST_FALLBACK_GROUP: "true"
-  ENABLE_PERFORMANCE_OPTIONS: "true"
-
-  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-
 jobs:
-  update:
-    name: Generate, validate YAML, append trusted links, build stable sing-box, and commit output
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -142,406 +58,108 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-          cache: pip
+          python-version: '3.11'
 
-      - name: Show debug info
+      - name: Install dependencies
         run: |
-          echo "Event: $GITHUB_EVENT_NAME"
-          echo "Ref: $GITHUB_REF"
-          echo "Branch: ${GITHUB_REF_NAME:-main}"
-          echo "Mode: $MODE"
-          echo "Enable proxy test: $ENABLE_PROXY_TEST"
-          echo "Filter alive only: $FILTER_ALIVE_ONLY"
-          echo "Strict alive only: $STRICT_ALIVE_ONLY"
-          echo "Trusted manual links: input/links.txt will be appended after YAML validation"
-          ls -la
-
-      - name: Install Python dependencies
-        run: |
-          set -e
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          fi
-          pip install requests pyyaml qrcode[pil] pillow
+          pip install pyyaml requests qrcode[pil] pillow
 
-      - name: Backup previous output for fallback
+      - name: Generate OpenClash outputs if generator exists
+        if: ${{ github.event.inputs.mode != 'optimize_openclash' && github.event.inputs.mode != 'build_ready' && github.event.inputs.mode != 'sanitize_import' }}
+        env:
+          MODE: ${{ github.event.inputs.mode || 'update' }}
+          ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
+          FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
+          STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           set -e
-          rm -rf .previous_output
-          mkdir -p .previous_output
-          if [ -d output ]; then
-            cp -a output/. .previous_output/ || true
-            echo "Jumlah file backup output sebelumnya:"
-            find .previous_output -type f | wc -l
-          else
-            echo "Belum ada folder output sebelumnya."
-          fi
-
-      - name: Generate OpenClash output from automatic sources
-        if: ${{ env.MODE != 'merge_links' && env.MODE != 'build_stable' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' && env.MODE != 'optimize_openclash' && env.MODE != 'build_ready' }}
-        run: |
-          set -e
-          if [ -f telegram_openclash_alive.py ]; then
-            echo "Menjalankan telegram_openclash_alive.py..."
-            python telegram_openclash_alive.py \
-              --mode "$MODE" \
-              --enable-proxy-test "$ENABLE_PROXY_TEST" \
-              --filter-alive-only "$FILTER_ALIVE_ONLY" \
-              --strict-alive-only "$STRICT_ALIVE_ONLY" \
-              --test-rounds "$TEST_ROUNDS" \
-              --require-success-rounds "$REQUIRE_SUCCESS_ROUNDS" || {
-                echo "Gagal dengan argumen CLI. Coba fallback tanpa argumen..."
-                python telegram_openclash_alive.py
-              }
+          if [ -f scripts/telegram_openclash_alive.py ]; then
+            python scripts/telegram_openclash_alive.py
           elif [ -f scripts/generate_configs.py ]; then
-            echo "telegram_openclash_alive.py tidak ada. Fallback ke scripts/generate_configs.py..."
-            RUN_MODE="$MODE" python scripts/generate_configs.py
+            python scripts/generate_configs.py
           else
-            echo "ERROR: generator tidak ditemukan. Butuh telegram_openclash_alive.py atau scripts/generate_configs.py."
-            exit 1
-          fi
-          find output -maxdepth 4 -type f | sort || true
-
-      - name: Validate output/lengkap.yaml exists
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' }}
-        run: |
-          set -e
-          if [ ! -f output/lengkap.yaml ]; then
-            echo "ERROR: output/lengkap.yaml tidak ditemukan."
-            find output -maxdepth 4 -type f | sort || true
-            exit 1
-          fi
-          echo "OK: output/lengkap.yaml ditemukan"
-          wc -l output/lengkap.yaml || true
-
-      - name: Sanitize generated OpenClash group references before validation
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' }}
-        run: |
-          set -e
-          if [ -f scripts/fix_yaml_group_refs.py ]; then
-            python scripts/fix_yaml_group_refs.py
-            echo "Group ref fix report:"
-            cat output/Validation/group_ref_fix_report.json || true
-          else
-            echo "scripts/fix_yaml_group_refs.py tidak ditemukan. Lewati sanitasi group reference."
+            echo "No generator script found. Skipping generate step."
           fi
 
-      - name: Validate generated OpenClash YAML outputs only
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'build_stable' && env.MODE != 'sanitize_import' && env.MODE != 'optimize_openclash' && env.MODE != 'build_ready' }}
-        run: |
-          set -e
-          if [ ! -f scripts/validate_openclash_outputs.py ]; then
-            echo "scripts/validate_openclash_outputs.py tidak ditemukan. Lewati validasi."
-            exit 0
-          fi
-
-          files=()
-          for file in \
-            output/lengkap.yaml \
-            output/lengkap_alive.yaml \
-            output/strict_alive.yaml \
-            output/lite.yaml \
-            output/fast.yaml \
-            output/gaming.yaml \
-            output/social_media.yaml \
-            output/streaming.yaml \
-            output/working.yaml \
-            output/general.yaml
-          do
-            if [ -f "$file" ]; then
-              files+=("$file")
-            fi
-          done
-
-          if [ "${#files[@]}" -eq 0 ]; then
-            echo "Tidak ada file YAML untuk divalidasi."
-            exit 1
-          fi
-
-          echo "Validasi hanya untuk output hasil generator. input/links.txt belum digabung pada tahap ini."
-          python scripts/validate_openclash_outputs.py "${files[@]}"
-
-      - name: Append trusted input links into OpenClash YAML outputs without validation gate
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' }}
+      - name: Merge trusted input links into OpenClash YAML if script exists
         run: |
           set -e
           if [ -f scripts/merge_links_into_openclash_yaml.py ]; then
-            python scripts/merge_links_into_openclash_yaml.py \
-              --input input/links.txt \
-              --trusted
-            echo "Trusted OpenClash YAML links merge report:"
-            cat output/Validation/merge_links_into_openclash_yaml.json || true
-          else
-            echo "scripts/merge_links_into_openclash_yaml.py tidak ditemukan. Lewati merge trusted links ke YAML."
+            python scripts/merge_links_into_openclash_yaml.py || true
           fi
 
-      - name: Apply OpenClash responsive stability groups
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' }}
+      - name: Fix YAML group references if script exists
         run: |
           set -e
-          if [ -f scripts/apply_openclash_responsive_stability.py ]; then
-            python scripts/apply_openclash_responsive_stability.py \
-              --max-stable 10
-            echo "OpenClash responsive stability report:"
-            cat output/Validation/summary_openclash_responsive_stability.json || true
-          else
-            echo "scripts/apply_openclash_responsive_stability.py tidak ditemukan. Lewati OpenClash responsive stability."
+          if [ -f scripts/fix_yaml_group_refs.py ]; then
+            python scripts/fix_yaml_group_refs.py || true
           fi
 
-      - name: Add best-link and fallback-link groups from trusted input accounts
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' }}
+      - name: Apply OpenClash responsive anti-bengong optimization
+        run: |
+          set -e
+          python scripts/apply_openclash_no_bengong.py --max-stable 10
+          cat output/Validation/summary_openclash_no_bengong.json || true
+
+      - name: Add best-link/fallback-link groups if scripts exist
         run: |
           set -e
           if [ -f scripts/add_best_link_group.py ]; then
             python scripts/add_best_link_group.py || true
-            cat output/SingBox/summary_best_link_group.json || true
-            cat output/Validation/summary_best_link_group_yaml.json || true
           fi
           if [ -f scripts/add_input_fallback_group.py ]; then
             python scripts/add_input_fallback_group.py || true
-            cat output/Validation/summary_input_fallback_group_yaml.json || true
           fi
 
-      - name: Clear sing-box health quarantine
-        if: ${{ env.MODE == 'clear_quarantine' }}
+      - name: Validate OpenClash outputs if validator exists
         run: |
           set -e
-          if [ -f scripts/clear_health_quarantine.py ]; then
-            python scripts/clear_health_quarantine.py --health-dir output/Health
-            echo "Clear quarantine summary:"
-            cat output/Health/summary_clear_quarantine.json || true
+          if [ -f scripts/validate_openclash_outputs.py ]; then
+            python scripts/validate_openclash_outputs.py
           else
-            echo "ERROR: scripts/clear_health_quarantine.py tidak ditemukan."
-            exit 1
+            echo "No OpenClash validator found."
           fi
 
-      - name: Build final sing-box JSON and merge trusted input links
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' }}
+      - name: Build final sing-box profiles if script exists
         run: |
           set -e
-          mkdir -p output/SingBox
-
           if [ -f scripts/build_singbox_final.py ]; then
-            python scripts/build_singbox_final.py \
-              --link-input input/links.txt
-          else
-            echo "scripts/build_singbox_final.py tidak ditemukan. Pakai fallback manual."
-
-            if [ -f scripts/convert_openclash_to_singbox.py ]; then
-              python scripts/convert_openclash_to_singbox.py \
-                --also-new-dns \
-                --also-legacy-tun \
-                --make-latest
-            else
-              echo "ERROR: scripts/convert_openclash_to_singbox.py tidak ditemukan."
-              exit 1
-            fi
-
-            if [ -s input/links.txt ]; then
-              if [ -f scripts/convert_links_to_singbox.py ]; then
-                python scripts/convert_links_to_singbox.py \
-                  --input input/links.txt \
-                  --output-dir output/SingBox || true
-              fi
-
-              if [ -f scripts/merge_links_into_singbox.py ]; then
-                python scripts/merge_links_into_singbox.py \
-                  --link-input input/links.txt \
-                  --output-dir output/SingBox \
-                  --make-latest || true
-              else
-                echo "scripts/merge_links_into_singbox.py tidak ditemukan. Lewati merge link sing-box tambahan."
-              fi
-            else
-              echo "input/links.txt kosong/tidak ada. Merge links dilewati."
-            fi
+            python scripts/build_singbox_final.py --link-input input/links.txt || true
           fi
-
-          echo "Sing-box output:"
-          find output/SingBox -maxdepth 1 -type f -name '*.json' -print | sort || true
-
-          echo "Merge summary:"
-          cat output/SingBox/summary_merge_links_into_singbox.json || true
-
-
-      - name: Fix sing-box mobile idle reconnect stability
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' }}
-        run: |
-          set -e
-          if [ -f scripts/stabilize_singbox_mobile_idle.py ]; then
-            python scripts/stabilize_singbox_mobile_idle.py               --dir output/SingBox               --test-url "https://www.gstatic.com/generate_204"               --interval 3m               --tolerance 80               --idle-timeout 2h               --connect-timeout 15s               --no-interrupt               --remove-tcp-fast-open
-
-            echo "Mobile idle reconnect stability report:"
-            cat output/SingBox/summary_mobile_idle_reconnect_fix.json || true
-          else
-            echo "scripts/stabilize_singbox_mobile_idle.py tidak ditemukan. Lewati mobile idle reconnect fix."
-          fi
-
-      - name: Build best-stable sing-box profiles and quarantine unhealthy nodes
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' }}
-        run: |
-          set -e
           if [ -f scripts/build_best_stable.py ]; then
-            python scripts/build_best_stable.py               --source output/SingBox/lengkap.json               --singbox-dir output/SingBox               --health-dir output/Health               --stable-max-delay-ms 1800               --quarantine-after-failures 3               --quarantine-hours 24               --max-stable 10               --max-fallback 15               --max-manual 9999               --interval 3m               --tolerance 80               --idle-timeout 2h               --connect-timeout 15s               --make-latest-stable
-
-            echo "Best stable summary:"
-            cat output/SingBox/summary_best_stable.json || true
-            echo "Health summary:"
-            cat output/Health/summary_health.json || true
-          else
-            echo "scripts/build_best_stable.py tidak ditemukan. Lewati Best Stable Builder."
+            python scripts/build_best_stable.py || true
           fi
-
-      - name: Apply stable DNS fallback to sing-box JSON profiles
-        if: ${{ env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' }}
-        run: |
-          set -e
-          if [ -f scripts/apply_dns_fallback_stable.py ]; then
-            python scripts/apply_dns_fallback_stable.py \
-              --dir output/SingBox \
-              --mode preserve \
-              --primary-tag cloudflare \
-              --primary 1.1.1.1 \
-              --fallback-tag google \
-              --fallback 8.8.8.8
-
-            echo "Stable DNS fallback report:"
-            cat output/SingBox/summary_dns_fallback_stable.json || true
-          else
-            echo "scripts/apply_dns_fallback_stable.py tidak ditemukan. Lewati DNS fallback stable."
-          fi
-
-      - name: Sanitize sing-box JSON for import compatibility
-        run: |
-          set -e
           if [ -f scripts/sanitize_singbox_import.py ]; then
-            python scripts/sanitize_singbox_import.py \
-              --dir output/SingBox \
-              --preferred-latest-safe best-stable-safe.json
-
-            echo "Sing-box import sanitize summary:"
-            cat output/SingBox/summary_import_sanitize.json || true
-          else
-            echo "scripts/sanitize_singbox_import.py tidak ditemukan. Lewati import sanitizer."
+            python scripts/sanitize_singbox_import.py || true
           fi
-
-      - name: Force trusted manual accounts into final YAML and sing-box JSON
-        run: |
-          set -e
           if [ -f scripts/enforce_trusted_manual_accounts.py ]; then
-            python scripts/enforce_trusted_manual_accounts.py \
-              --input input/links.txt \
-              --input input.txt \
-              --output-dir output/SingBox \
-              --preferred-latest-safe best-stable-safe.json
-
-            echo "Trusted manual accounts summary:"
-            cat output/SingBox/summary_trusted_manual_accounts.json || true
-          else
-            echo "ERROR: scripts/enforce_trusted_manual_accounts.py tidak ditemukan."
-            exit 1
+            python scripts/enforce_trusted_manual_accounts.py || true
           fi
-
-      - name: Fix sing-box dependencies and import compatibility one last time
-        run: |
-          set -e
           if [ -f scripts/fix_singbox_dependencies.py ]; then
-            python scripts/fix_singbox_dependencies.py
-            cat output/SingBox/summary_dependency_fix.json || true
+            python scripts/fix_singbox_dependencies.py || true
           fi
           if [ -f scripts/remove_selector_default_legacy.py ]; then
-            python scripts/remove_selector_default_legacy.py
-            cat output/SingBox/summary_selector_default_legacy.json || true
+            python scripts/remove_selector_default_legacy.py || true
           fi
           if [ -f scripts/fix_tun_address_modern.py ]; then
-            python scripts/fix_tun_address_modern.py
-            cat output/SingBox/summary_tun_modern_fix.json || true
+            python scripts/fix_tun_address_modern.py || true
           fi
-
-      - name: Build final ready profiles
-        run: |
-          set -e
           if [ -f scripts/build_final_ready_profiles.py ]; then
-            python scripts/build_final_ready_profiles.py
-            echo "Final ready profile summary:"
-            cat output/Final/summary_ready_profiles.json || true
-          else
-            echo "ERROR: scripts/build_final_ready_profiles.py tidak ditemukan."
-            exit 1
+            python scripts/build_final_ready_profiles.py || true
           fi
-
-      - name: Purge jsDelivr cache for ready profiles
-        continue-on-error: true
-        run: |
-          set -e
-          REPO="${GITHUB_REPOSITORY}"
-          REF="${GITHUB_REF_NAME:-main}"
-          for path in \
-            output/SingBox/import-ready.json \
-            output/SingBox/latest-safe.json \
-            output/SingBox/mobile-stable-safe.json \
-            output/SingBox/best-stable-safe.json
-          do
-            echo "Purge jsDelivr: $path"
-            curl -fsSL "https://purge.jsdelivr.net/gh/${REPO}@${REF}/${path}" || true
-          done
 
       - name: Commit output files
         run: |
-          set -euo pipefail
-          BRANCH="${GITHUB_REF_NAME:-main}"
-          BACKUP_DIR="$(mktemp -d)"
-
+          set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          if [ ! -d output ]; then
-            echo "Folder output tidak ditemukan, tidak ada yang di-commit."
-            exit 0
-          fi
-
-          tar -C output -cf "$BACKUP_DIR/output.tar" .
-
-          for attempt in 1 2 3; do
-            echo "Commit/push attempt $attempt untuk branch: $BRANCH"
-            git fetch origin "$BRANCH"
-            git checkout "$BRANCH" || git checkout -B "$BRANCH" "origin/$BRANCH"
-            git reset --hard "origin/$BRANCH"
-            git clean -fd
-
-            rm -rf output
-            mkdir -p output
-            tar -C output -xf "$BACKUP_DIR/output.tar"
-
-            git add output || true
-
-            if git diff --cached --quiet; then
-              echo "Tidak ada perubahan output untuk di-commit."
-              exit 0
-            fi
-
-            git commit -m "Update OpenClash and sing-box output"
-            if git push origin "HEAD:$BRANCH"; then
-              echo "Push berhasil."
-              exit 0
-            fi
-            sleep 5
-          done
-
-          echo "Push tetap gagal setelah 3 percobaan."
-          exit 1
-
-      - name: Notify Telegram
-        if: always()
-        run: |
-          if [ -f tools/telegram_notify.py ]; then
-            if [ "${{ job.status }}" = "success" ]; then
-              python tools/telegram_notify.py --stage success || true
-            else
-              python tools/telegram_notify.py --stage failure || true
-            fi
+          git add output .github/workflows/update-openclash.yml scripts || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
           else
-            echo "tools/telegram_notify.py tidak ditemukan, skip notify."
+            git commit -m "Update OpenClash and sing-box responsive profiles"
+            git push
           fi
