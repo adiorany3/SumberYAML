@@ -25,6 +25,7 @@ on:
           - optimize_openclash
           - purpose_groups
           - adblock
+          - security_block
           - game_block
           - build_ready
           - diagnostics
@@ -32,29 +33,23 @@ on:
           - build_v2raybox
           - build_nekobox
       enable_proxy_test:
-        description: Jalankan test proxy/ping
+        description: Jalankan test proxy
         required: false
         default: 'true'
         type: choice
-        options:
-          - 'true'
-          - 'false'
+        options: ['true', 'false']
       filter_alive_only:
-        description: Filter output otomatis hanya proxy alive
+        description: Filter output utama hanya proxy alive
         required: false
         default: 'true'
         type: choice
-        options:
-          - 'true'
-          - 'false'
+        options: ['true', 'false']
       strict_alive_only:
         description: Buat strict alive output
         required: false
         default: 'true'
         type: choice
-        options:
-          - 'true'
-          - 'false'
+        options: ['true', 'false']
   schedule:
     - cron: '0 */6 * * *'
 
@@ -63,32 +58,30 @@ permissions:
   actions: read
 
 concurrency:
-  group: update-openclash-${{ github.ref }}
+  group: sumberyaml-update-${{ github.ref }}
   cancel-in-progress: false
 
-env:
-  TZ: Asia/Jakarta
-  PYTHONUNBUFFERED: '1'
-  BEST_PING_COUNTRY_FILTER: ID
-  BEST_PING_TOP_N: '10'
-  BEST_PING_URL_TEST_NAME: URL-TEST TOP 10 INDONESIA
-  URL_TEST_INTERVAL: '300'
-  URL_TEST_TOLERANCE: '80'
-  URL_TEST_LAZY: 'true'
-  RESPONSIVE_TOP_N: '20'
-  RESPONSIVE_COMBINED_MAX: '40'
-  TEST_ROUNDS: '2'
-  REQUIRE_SUCCESS_ROUNDS: '1'
-  STRICT_MAX_DELAY_MS: '8000'
-  SOURCE_CACHE_ENABLE: 'true'
-  FAST_REUSE_WHEN_NO_SOURCE_CHANGE: 'true'
-  GOODBYEADS_YOUTUBE_URL: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Formats/GoodbyeAds-YouTube-AdBlock-Filter.txt
-
 jobs:
-  build:
-    name: Build and publish SumberYAML outputs
+  update:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    env:
+      MODE: ${{ github.event.inputs.mode || 'update' }}
+      SOURCE: ${{ github.event.inputs.source || 'schedule' }}
+      ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
+      FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
+      STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
+      BEST_PING_TOP_N: '10'
+      BEST_PING_COUNTRY_FILTER: 'ID'
+      BEST_PING_URL_TEST_NAME: 'URL-TEST TOP 10 INDONESIA'
+      URL_TEST_INTERVAL: '300'
+      URL_TEST_TOLERANCE: '80'
+      URL_TEST_LAZY: 'true'
+      RESPONSIVE_TOP_N: '20'
+      RESPONSIVE_COMBINED_MAX: '40'
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
     steps:
       - name: Checkout repository
@@ -97,65 +90,34 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
 
-      - name: Configure git identity
+      - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Sync latest remote branch before build
+      - name: Sync remote branch before build
         run: |
           set -e
           git fetch origin "${GITHUB_REF_NAME}"
-          git checkout "${GITHUB_REF_NAME}"
-          git reset --hard "origin/${GITHUB_REF_NAME}"
+          git merge --ff-only "origin/${GITHUB_REF_NAME}" || true
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: pip
 
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: |
           set -e
           python -m pip install --upgrade pip
-          pip install pyyaml requests qrcode[pil] pillow
+          pip install requests pyyaml qrcode[pil] pillow
 
       - name: Prepare output directories
         run: |
-          mkdir -p output output/Validation output/RuleProviders output/SingBox output/V2RayBox output/NekoBox output/Health output/Final output/Backup/latest-good
+          mkdir -p output output/RuleProviders output/Validation output/SingBox output/V2RayBox output/NekoBox output/Final output/Health output/Backup
 
-      - name: Restore latest-good backup when requested
-        if: ${{ github.event.inputs.mode == 'rollback_latest_good' }}
-        run: |
-          set -e
-          if [ -f scripts/manage_latest_good_backup.py ]; then
-            python scripts/manage_latest_good_backup.py --restore
-          else
-            if [ -d output/Backup/latest-good ]; then
-              cp -a output/Backup/latest-good/. output/ || true
-            fi
-          fi
-
-      - name: Clear quarantine when requested
-        if: ${{ github.event.inputs.mode == 'clear_quarantine' }}
-        run: |
-          set -e
-          if [ -f scripts/clear_health_quarantine.py ]; then
-            python scripts/clear_health_quarantine.py
-          else
-            rm -f output/Health/quarantine.csv output/Health/health_state.json || true
-          fi
-
-      - name: Generate OpenClash outputs
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' && github.event.inputs.mode != 'adblock' }}
-        env:
-          MODE: ${{ github.event.inputs.mode || 'update' }}
-          ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
-          FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
-          STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Generate OpenClash base outputs
+        if: ${{ contains(fromJson('["update","update_ping","test","test_ping"]'), env.MODE) }}
         run: |
           set -e
           if [ -f telegram_openclash_alive.py ]; then
@@ -165,294 +127,265 @@ jobs:
           elif [ -f scripts/generate_configs_basic.py ]; then
             python scripts/generate_configs_basic.py
           else
-            echo "No base OpenClash generator found. Continuing with existing output files."
+            echo "No base OpenClash generator found; continuing with existing output files."
           fi
 
-      - name: Merge trusted manual input links into OpenClash YAML
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
+      - name: Merge trusted manual links into OpenClash YAML
+        if: ${{ hashFiles('scripts/merge_links_into_openclash_yaml.py') != '' }}
         run: |
           set -e
-          if [ -f scripts/merge_links_into_openclash_yaml.py ]; then
-            python scripts/merge_links_into_openclash_yaml.py || true
-          fi
+          python scripts/merge_links_into_openclash_yaml.py || true
 
       - name: Fix OpenClash YAML group references
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
+        if: ${{ hashFiles('scripts/fix_yaml_group_refs.py') != '' }}
         run: |
           set -e
-          if [ -f scripts/fix_yaml_group_refs.py ]; then
-            python scripts/fix_yaml_group_refs.py || true
-          fi
+          python scripts/fix_yaml_group_refs.py || true
 
-      - name: Optimize OpenClash no-bengong and responsive groups
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
+      - name: Apply OpenClash no-bengong optimization
+        if: ${{ hashFiles('scripts/apply_openclash_no_bengong.py') != '' && (env.MODE == 'update' || env.MODE == 'optimize_openclash') }}
         run: |
           set -e
-          if [ -f scripts/apply_openclash_no_bengong.py ]; then
-            python scripts/apply_openclash_no_bengong.py --max-stable 10 || true
-          fi
-          if [ -f scripts/apply_openclash_responsive_stability.py ]; then
-            python scripts/apply_openclash_responsive_stability.py --max-stable 10 || true
-          fi
-          if [ -f scripts/add_best_link_group.py ]; then
-            python scripts/add_best_link_group.py || true
-          fi
-          if [ -f scripts/add_input_fallback_group.py ]; then
-            python scripts/add_input_fallback_group.py || true
-          fi
+          python scripts/apply_openclash_no_bengong.py --max-stable 10 || true
 
-      - name: Apply purpose-specific and Indonesia-best OpenClash rules
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
+      - name: Apply responsive OpenClash stability
+        if: ${{ hashFiles('scripts/apply_openclash_responsive_stability.py') != '' && (env.MODE == 'update' || env.MODE == 'optimize_openclash') }}
         run: |
           set -e
-          if [ -f scripts/apply_openclash_purpose_groups.py ]; then
-            python scripts/apply_openclash_purpose_groups.py --max-per-group 15 --max-indonesia 20 --tolerance 80 || true
-          fi
-          if [ -f scripts/apply_openclash_indonesia_best_proxy.py ]; then
-            python scripts/apply_openclash_indonesia_best_proxy.py --max-indonesia 10 || true
-          fi
+          python scripts/apply_openclash_responsive_stability.py --max-stable 10 || true
 
-      - name: Validate OpenClash outputs before final build
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
+      - name: Apply purpose-specific groups
+        if: ${{ hashFiles('scripts/apply_openclash_purpose_groups.py') != '' && (env.MODE == 'update' || env.MODE == 'purpose_groups' || env.MODE == 'optimize_openclash') }}
         run: |
           set -e
-          if [ -f scripts/validate_openclash_outputs.py ]; then
-            python scripts/validate_openclash_outputs.py || true
-          fi
+          python scripts/apply_openclash_purpose_groups.py --max-per-group 15 --max-indonesia 20 --tolerance 80 || true
 
-      - name: Build final sing-box JSON and merge trusted manual links
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' && github.event.inputs.mode != 'adblock' }}
+      - name: Apply Indonesian best proxy rules
+        if: ${{ hashFiles('scripts/apply_openclash_indonesia_best_proxy.py') != '' && (env.MODE == 'update' || env.MODE == 'purpose_groups' || env.MODE == 'optimize_openclash') }}
         run: |
           set -e
-          if [ -f scripts/build_singbox_final.py ]; then
-            python scripts/build_singbox_final.py --link-input input/links.txt || true
-          elif [ -f scripts/convert_openclash_to_singbox.py ]; then
-            python scripts/convert_openclash_to_singbox.py --also-new-dns --also-legacy-tun --make-latest || true
-          fi
-          if [ -f scripts/convert_links_to_singbox.py ]; then
-            python scripts/convert_links_to_singbox.py --input input/links.txt || true
-          fi
-          if [ -f scripts/merge_links_into_singbox.py ]; then
-            python scripts/merge_links_into_singbox.py --make-latest || true
-          fi
-          if [ -f scripts/enforce_trusted_manual_accounts.py ]; then
-            python scripts/enforce_trusted_manual_accounts.py || true
-          fi
+          python scripts/apply_openclash_indonesia_best_proxy.py --max-indonesia 10 || true
 
-      - name: Build stable and safe sing-box profiles
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' && github.event.inputs.mode != 'adblock' }}
+      - name: Apply best-link group
+        if: ${{ hashFiles('scripts/add_best_link_group.py') != '' }}
         run: |
           set -e
-          if [ -f scripts/build_best_stable.py ]; then
-            python scripts/build_best_stable.py || true
-          fi
-          if [ -f scripts/stabilize_singbox_mobile_idle.py ]; then
-            python scripts/stabilize_singbox_mobile_idle.py || true
-          fi
-          if [ -f scripts/apply_dns_fallback_stable.py ]; then
-            python scripts/apply_dns_fallback_stable.py || true
-          fi
-          if [ -f scripts/sanitize_singbox_import.py ]; then
-            python scripts/sanitize_singbox_import.py || true
-          fi
-          if [ -f scripts/fix_singbox_dependencies.py ]; then
-            python scripts/fix_singbox_dependencies.py || true
-          fi
-          if [ -f scripts/remove_selector_default_legacy.py ]; then
-            python scripts/remove_selector_default_legacy.py || true
-          fi
-          if [ -f scripts/fix_tun_address_modern.py ]; then
-            python scripts/fix_tun_address_modern.py || true
-          fi
-          if [ -f scripts/enforce_trusted_manual_accounts.py ]; then
-            python scripts/enforce_trusted_manual_accounts.py || true
-          fi
+          python scripts/add_best_link_group.py || true
+
+      - name: Apply fallback-link group
+        if: ${{ hashFiles('scripts/add_input_fallback_group.py') != '' }}
+        run: |
+          set -e
+          python scripts/add_input_fallback_group.py || true
+
+      - name: Build final sing-box JSON and merge trusted input links
+        if: ${{ hashFiles('scripts/build_singbox_final.py') != '' && env.MODE != 'rollback_latest_good' }}
+        run: |
+          set -e
+          python scripts/build_singbox_final.py --link-input input/links.txt || true
+
+      - name: Build best stable profiles
+        if: ${{ hashFiles('scripts/build_best_stable.py') != '' && (env.MODE == 'update' || env.MODE == 'build_stable') }}
+        run: |
+          set -e
+          python scripts/build_best_stable.py || true
+
+      - name: Sanitize sing-box import profiles
+        if: ${{ hashFiles('scripts/sanitize_singbox_import.py') != '' && (env.MODE == 'update' || env.MODE == 'sanitize_import') }}
+        run: |
+          set -e
+          python scripts/sanitize_singbox_import.py || true
+
+      - name: Fix sing-box dependencies
+        if: ${{ hashFiles('scripts/fix_singbox_dependencies.py') != '' }}
+        run: |
+          set -e
+          python scripts/fix_singbox_dependencies.py || true
+
+      - name: Remove selector.default for legacy clients
+        if: ${{ hashFiles('scripts/remove_selector_default_legacy.py') != '' }}
+        run: |
+          set -e
+          python scripts/remove_selector_default_legacy.py || true
+
+      - name: Fix modern TUN address fields
+        if: ${{ hashFiles('scripts/fix_tun_address_modern.py') != '' }}
+        run: |
+          set -e
+          python scripts/fix_tun_address_modern.py || true
+
+      - name: Enforce trusted manual accounts
+        if: ${{ hashFiles('scripts/enforce_trusted_manual_accounts.py') != '' }}
+        run: |
+          set -e
+          python scripts/enforce_trusted_manual_accounts.py || true
+
+      - name: Apply DNS fallback stable
+        if: ${{ hashFiles('scripts/apply_dns_fallback_stable.py') != '' }}
+        run: |
+          set -e
+          python scripts/apply_dns_fallback_stable.py || true
 
       - name: Build final ready profiles
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' && github.event.inputs.mode != 'adblock' }}
+        if: ${{ hashFiles('scripts/build_final_ready_profiles.py') != '' && (env.MODE == 'update' || env.MODE == 'build_ready') }}
         run: |
           set -e
-          if [ -f scripts/build_final_ready_profiles.py ]; then
-            python scripts/build_final_ready_profiles.py || true
-          fi
-
-      - name: Force create adblock rule-provider files
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
-        run: |
-          set -e
-          if [ -f scripts/create_rule_provider_files.py ]; then
-            python scripts/create_rule_provider_files.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" || true
-          else
-            mkdir -p output/RuleProviders output/Validation
-            python -c "from pathlib import Path; import json; Path('output/RuleProviders').mkdir(parents=True, exist_ok=True); Path('output/Validation').mkdir(parents=True, exist_ok=True); Path('output/RuleProviders/youtube-ads.yaml').write_text('payload:\n  - DOMAIN-SUFFIX,doubleclick.net\n  - DOMAIN-SUFFIX,googleadservices.com\n  - DOMAIN-SUFFIX,googlesyndication.com\n  - DOMAIN-SUFFIX,pagead2.googlesyndication.com\n  - DOMAIN-SUFFIX,adservice.google.com\n  - DOMAIN-KEYWORD,youtube-ad\n', encoding='utf-8'); Path('output/RuleProviders/general-ads.yaml').write_text('payload:\n  - DOMAIN-SUFFIX,doubleclick.net\n  - DOMAIN-SUFFIX,googleadservices.com\n  - DOMAIN-SUFFIX,googlesyndication.com\n  - DOMAIN-SUFFIX,adnxs.com\n  - DOMAIN-SUFFIX,adsrvr.org\n  - DOMAIN-SUFFIX,taboola.com\n  - DOMAIN-SUFFIX,outbrain.com\n  - DOMAIN-SUFFIX,criteo.com\n  - DOMAIN-SUFFIX,pubmatic.com\n  - DOMAIN-SUFFIX,openx.net\n', encoding='utf-8'); json.dump({'ok': True, 'fallback_inline': True}, open('output/Validation/summary_rule_provider_files.json','w'), indent=2)"
-          fi
-          ls -la output/RuleProviders || true
-          cat output/Validation/summary_rule_provider_files.json || true
-
-      - name: Apply GoodbyeAds YouTube adblock provider
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
-        run: |
-          set -e
-          if [ -f scripts/apply_goodbyeads_youtube_provider.py ]; then
-            python scripts/apply_goodbyeads_youtube_provider.py \
-              --repo "${{ github.repository }}" \
-              --branch "${{ github.ref_name }}" \
-              --url-source raw || true
-          fi
-          cat output/Validation/summary_goodbyeads_youtube_provider.json || true
-
-      - name: Apply game block rule-provider
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
-        run: |
-          set -e
-          if [ -f scripts/apply_openclash_game_block_provider.py ]; then
-            python scripts/apply_openclash_game_block_provider.py \
-              --repo "${{ github.repository }}" \
-              --branch "${{ github.ref_name }}" \
-              --url-source raw
-          else
-            echo "::error::scripts/apply_openclash_game_block_provider.py not found."
-            exit 1
-          fi
-          echo "Game block provider summary:"
-          cat output/Validation/summary_game_block_provider.json || true
-
-      - name: Ensure adblock rule-providers in final OpenClash YAML
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
-        run: |
-          set -e
-          if [ -f scripts/ensure_openclash_rule_providers_final.py ]; then
-            python scripts/ensure_openclash_rule_providers_final.py \
-              --repo "${{ github.repository }}" \
-              --branch "${{ github.ref_name }}" || true
-          fi
-          cat output/Validation/summary_rule_providers_final.json || true
+          python scripts/build_final_ready_profiles.py || true
 
       - name: Build V2RayBox outputs
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' }}
+        if: ${{ hashFiles('scripts/build_v2raybox_outputs.py') != '' && (env.MODE == 'update' || env.MODE == 'build_v2raybox') }}
         run: |
           set -e
-          if [ -f scripts/build_v2raybox_outputs.py ]; then
-            python scripts/build_v2raybox_outputs.py || true
-          fi
+          python scripts/build_v2raybox_outputs.py || true
 
       - name: Build NekoBox outputs
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' }}
+        if: ${{ hashFiles('scripts/build_nekobox_outputs.py') != '' && (env.MODE == 'update' || env.MODE == 'build_nekobox') }}
         run: |
           set -e
-          if [ -f scripts/build_nekobox_outputs.py ]; then
-            python scripts/build_nekobox_outputs.py || true
-          fi
+          python scripts/build_nekobox_outputs.py || true
 
-      - name: Build diagnostics, diff, and node score history
+      - name: Apply YouTube GoodbyeAds provider
+        if: ${{ hashFiles('scripts/apply_goodbyeads_youtube_provider.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock') }}
         run: |
           set -e
-          if [ -f scripts/update_node_score_history.py ]; then
-            python scripts/update_node_score_history.py || true
-          fi
-          if [ -f scripts/build_config_diff_report.py ]; then
-            python scripts/build_config_diff_report.py || true
-          fi
-          if [ -f scripts/build_admin_diagnostic_summary.py ]; then
-            python scripts/build_admin_diagnostic_summary.py || true
-          fi
+          python scripts/apply_goodbyeads_youtube_provider.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
 
-      - name: Save latest-good backup after successful build
-        if: ${{ github.event.inputs.mode != 'rollback_latest_good' }}
+      - name: Apply general adblock provider
+        if: ${{ hashFiles('scripts/apply_openclash_general_adblock_provider.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock') }}
         run: |
           set -e
-          if [ -f scripts/manage_latest_good_backup.py ]; then
-            python scripts/manage_latest_good_backup.py --backup || true
+          python scripts/apply_openclash_general_adblock_provider.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
+
+      - name: Apply game block provider
+        if: ${{ hashFiles('scripts/apply_openclash_game_block_provider.py') != '' && (env.MODE == 'game_block') }}
+        run: |
+          set -e
+          python scripts/apply_openclash_game_block_provider.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
+
+      - name: Apply Indonesia, Android, malware, and adware block providers
+        if: ${{ env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block' }}
+        run: |
+          set -e
+          python scripts/apply_openclash_indonesia_android_security_block.py \
+            --repo "${{ github.repository }}" \
+            --branch "${{ github.ref_name }}" \
+            --url-source raw \
+            --max-indonesia 5000 \
+            --max-android 12000 \
+            --max-malware 50000 \
+            --max-general 25000
+
+          echo "Indonesia/Android/security block summary:"
+          cat output/Validation/summary_indonesia_android_security_block.json || true
+
+      - name: Force create base rule-provider files
+        if: ${{ hashFiles('scripts/create_rule_provider_files.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block') }}
+        run: |
+          set -e
+          python scripts/create_rule_provider_files.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" || true
+
+      - name: Ensure all rule-providers are attached to final OpenClash YAML
+        if: ${{ hashFiles('scripts/ensure_openclash_rule_providers_final.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block' || env.MODE == 'game_block') }}
+        run: |
+          set -e
+          python scripts/ensure_openclash_rule_providers_final.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" || true
+
+      - name: Validate OpenClash outputs
+        if: ${{ hashFiles('scripts/validate_openclash_outputs.py') != '' && env.MODE != 'rollback_latest_good' }}
+        run: |
+          set -e
+          python scripts/validate_openclash_outputs.py || true
+
+      - name: Build diagnostics
+        if: ${{ hashFiles('scripts/build_admin_diagnostic_summary.py') != '' && (env.MODE == 'update' || env.MODE == 'diagnostics') }}
+        run: |
+          set -e
+          python scripts/build_admin_diagnostic_summary.py || true
+
+      - name: Build config diff report
+        if: ${{ hashFiles('scripts/build_config_diff_report.py') != '' && (env.MODE == 'update' || env.MODE == 'diagnostics') }}
+        run: |
+          set -e
+          python scripts/build_config_diff_report.py || true
+
+      - name: Update node score history
+        if: ${{ hashFiles('scripts/update_node_score_history.py') != '' && (env.MODE == 'update' || env.MODE == 'diagnostics') }}
+        run: |
+          set -e
+          python scripts/update_node_score_history.py || true
+
+      - name: Manage latest-good backup or rollback
+        if: ${{ hashFiles('scripts/manage_latest_good_backup.py') != '' }}
+        run: |
+          set -e
+          if [ "$MODE" = "rollback_latest_good" ]; then
+            python scripts/manage_latest_good_backup.py --restore || true
           else
-            mkdir -p output/Backup/latest-good
-            cp -f output/openclash-ready.yaml output/Backup/latest-good/openclash-ready.yaml 2>/dev/null || true
-            cp -f output/SingBox/mobile-stable-safe.json output/Backup/latest-good/mobile-stable-safe.json 2>/dev/null || true
-            cp -f output/SingBox/import-ready.json output/Backup/latest-good/import-ready.json 2>/dev/null || true
+            python scripts/manage_latest_good_backup.py --backup || true
           fi
 
-      - name: Show generated important files
+      - name: List rule provider output
         run: |
           echo "RuleProviders:"
           find output/RuleProviders -maxdepth 1 -type f -print | sort || true
           echo "Validation summaries:"
-          find output/Validation -maxdepth 1 -type f -name 'summary_*provider*.json' -print | sort || true
-          echo "SingBox:"
-          find output/SingBox -maxdepth 1 -type f -name '*.json' | sort | head -50 || true
-          echo "V2RayBox:"
-          find output/V2RayBox -maxdepth 1 -type f | sort | head -30 || true
-          echo "NekoBox:"
-          find output/NekoBox -maxdepth 1 -type f | sort | head -30 || true
+          find output/Validation -maxdepth 1 -type f -name '*provider*.json' -print | sort || true
 
-      - name: Commit and push outputs safely
-        id: commit_push
+      - name: Commit output files
         run: |
           set -e
-          git status --short
-          git add -A output || true
-
+          git add output || true
+          git add .github/workflows/update-openclash.yml || true
+          git add scripts || true
           if git diff --cached --quiet; then
-            echo "No output changes to commit."
-            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes to commit."
             exit 0
           fi
-
           git commit -m "Update SumberYAML outputs, providers, and diagnostics"
 
-          # Push can be rejected if another workflow/user updated main while this job was running.
-          # Merge latest remote with local generated output preferred, then retry push.
           for attempt in 1 2 3 4 5; do
-            echo "Push attempt $attempt..."
-            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
-              echo "Push succeeded."
-              echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Push attempt $attempt"
+            if git push origin HEAD:${GITHUB_REF_NAME}; then
+              echo "Push success"
               exit 0
             fi
-
-            echo "Push rejected. Fetching and merging latest remote before retry..."
+            echo "Push failed; syncing remote and retrying..."
             git fetch origin "${GITHUB_REF_NAME}"
-            git merge -X ours --no-edit "origin/${GITHUB_REF_NAME}" || {
-              echo "Automatic merge failed. Aborting merge and retrying with reset/regenerate is not safe."
-              git merge --abort || true
-              exit 1
-            }
+            git merge -X ours --no-edit "origin/${GITHUB_REF_NAME}" || true
+            sleep $((attempt * 3))
           done
-
           echo "Push failed after retries."
           exit 1
 
       - name: Purge jsDelivr cache
-        if: ${{ steps.commit_push.outputs.changed == 'true' }}
+        if: always()
         run: |
           set +e
-          for path in \
+          for file in \
             output/SingBox/mobile-stable-safe.json \
             output/SingBox/import-ready.json \
             output/openclash-ready.yaml \
-            output/V2RayBox/mobile-stable.txt \
-            output/NekoBox/mobile-stable.txt \
             output/RuleProviders/youtube-ads.yaml \
             output/RuleProviders/goodbyeads-youtube.yaml \
             output/RuleProviders/general-ads.yaml \
+            output/RuleProviders/indonesia-ads.yaml \
+            output/RuleProviders/android-ads.yaml \
+            output/RuleProviders/malware-adware.yaml \
             output/RuleProviders/game-block.yaml; do
-            url="https://purge.jsdelivr.net/gh/${{ github.repository }}@${{ github.ref_name }}/$path"
-            echo "Purging $url"
-            curl -fsSL "$url" || true
+            curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}@${{ github.ref_name }}/$file" || true
           done
 
-      - name: Telegram notification
+      - name: Notify Telegram
         if: always()
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          JOB_STATUS: ${{ job.status }}
         run: |
           set +e
           if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
-            echo "Telegram secrets not configured."
+            echo "Telegram secrets not configured; skipping notification."
             exit 0
           fi
-          TEXT="SumberYAML workflow: ${JOB_STATUS}%0ARepo: ${{ github.repository }}%0ABranch: ${{ github.ref_name }}%0AMode: ${{ github.event.inputs.mode || 'schedule' }}%0ARun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          STATUS="${{ job.status }}"
+          TEXT="SumberYAML workflow selesai.%0AMode: ${MODE}%0AStatus: ${STATUS}%0ARepo: ${{ github.repository }}%0ABranch: ${{ github.ref_name }}"
           curl -fsS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             -d "chat_id=${TELEGRAM_CHAT_ID}" \
             -d "text=${TEXT}" \
-            -d "disable_web_page_preview=true" || true
+            -d "parse_mode=HTML" || true
