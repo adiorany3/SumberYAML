@@ -169,8 +169,8 @@ ADMIN_QUERY_VALUE = get_setting("ADMIN_QUERY_VALUE", "1") or "1"
 
 # Panel QR sing-box hanya dirender di halaman admin setelah login.
 SHOW_SINGBOX_QR_PANEL = get_setting("SHOW_SINGBOX_QR_PANEL", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
-SINGBOX_DEFAULT_PROFILE_NAME = get_setting("SINGBOX_DEFAULT_PROFILE_NAME", "performance-lite")
-SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/performance-lite.json")
+SINGBOX_DEFAULT_PROFILE_NAME = get_setting("SINGBOX_DEFAULT_PROFILE_NAME", "mobile-stable-safe")
+SINGBOX_DEFAULT_JSON_PATH = get_setting("SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/mobile-stable-safe.json")
 SINGBOX_DEFAULT_QR_ERROR_CORRECTION = get_setting("SINGBOX_DEFAULT_QR_ERROR_CORRECTION", "M").upper()
 # Default QR URL source. Gunakan jsDelivr jika perangkat/client memblokir raw.githubusercontent.com.
 SINGBOX_QR_DEFAULT_URL_SOURCE = get_setting("SINGBOX_QR_DEFAULT_URL_SOURCE", "jsdelivr-cachebust").strip().lower()
@@ -180,7 +180,7 @@ SINGBOX_QR_CACHE_BUST_MODE = get_setting("SINGBOX_QR_CACHE_BUST_MODE", "workflow
 
 # Public landing page: tampilkan hanya QR profile sing-box, tanpa status internal/login admin.
 SHOW_PUBLIC_SINGBOX_QR = get_setting("SHOW_PUBLIC_SINGBOX_QR", "true").strip().lower() in ["1", "true", "yes", "y", "on"]
-PUBLIC_SINGBOX_DEFAULT_JSON_PATH = get_setting("PUBLIC_SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/performance-lite.json").strip() or "output/SingBox/performance-lite.json"
+PUBLIC_SINGBOX_DEFAULT_JSON_PATH = get_setting("PUBLIC_SINGBOX_DEFAULT_JSON_PATH", "output/SingBox/mobile-stable-safe.json").strip() or "output/SingBox/mobile-stable-safe.json"
 PUBLIC_SINGBOX_QR_URL_SOURCE = get_setting("PUBLIC_SINGBOX_QR_URL_SOURCE", SINGBOX_QR_DEFAULT_URL_SOURCE).strip().lower() or SINGBOX_QR_DEFAULT_URL_SOURCE
 PUBLIC_SINGBOX_QR_ERROR_CORRECTION = get_setting("PUBLIC_SINGBOX_QR_ERROR_CORRECTION", SINGBOX_DEFAULT_QR_ERROR_CORRECTION).strip().upper() or SINGBOX_DEFAULT_QR_ERROR_CORRECTION
 
@@ -196,7 +196,7 @@ SINGBOX_CLEAR_QUARANTINE_WORKFLOW_MODE = get_setting("SINGBOX_CLEAR_QUARANTINE_W
 SINGBOX_SANITIZE_IMPORT_WORKFLOW_MODE = get_setting("SINGBOX_SANITIZE_IMPORT_WORKFLOW_MODE", "sanitize_import").strip() or "sanitize_import"
 SINGBOX_BUILD_READY_WORKFLOW_MODE = get_setting("SINGBOX_BUILD_READY_WORKFLOW_MODE", "build_ready").strip() or "build_ready"
 SINGBOX_KNOWN_JSON_PATHS = [
-    "output/SingBox/performance-lite.json",
+    "output/SingBox/mobile-stable-safe.json",
     "output/SingBox/best-stable-safe.json",
     "output/SingBox/latest-safe.json",
     "output/SingBox/import-ready.json",
@@ -903,7 +903,7 @@ def profile_name_from_json_reference(value: str) -> str:
 
     Examples:
     - output/SingBox/best-stable.json -> best-stable
-    - https://.../performance-lite.json?v=123 -> performance-lite
+    - https://.../mobile-stable-safe.json?v=123 -> performance-lite
     """
     raw = str(value or "").strip()
     if not raw:
@@ -2471,7 +2471,7 @@ def render_admin_singbox_stability():
                     filter_alive_only="false",
                     strict_alive_only="false",
                 )
-                set_pet_action("Build Ready berhasil dipicu. QR publik memakai performance-lite.json.")
+                set_pet_action("Build Ready berhasil dipicu. QR publik memakai mobile-stable-safe.json.")
                 st.success("Build Ready berhasil dipicu lewat GitHub Actions.")
                 try:
                     load_workflow_status_data.clear()
@@ -3456,7 +3456,7 @@ def render_admin_header():
         <div class="quick-card-grid">
             <div class="quick-card">
                 <div class="quick-card-label">Public QR</div>
-                <div class="quick-card-value quick-card-good">performance-lite</div>
+                <div class="quick-card-value quick-card-good">mobile-stable-safe</div>
             </div>
             <div class="quick-card">
                 <div class="quick-card-label">OpenClash</div>
@@ -3515,7 +3515,7 @@ if is_admin_route():
                 """
                 <div class="pet-panel">
                     <div class="pet-small-note" style="text-align:left;margin-top:0;">
-                        <b>Prioritas profile HP:</b> performance-lite → mobile-stable-safe → best-stable-safe.<br>
+                        <b>Prioritas profile HP:</b> mobile-stable-safe → best-stable-safe → fallback-stable-safe.<br>
                         <b>OpenClash utama:</b> output/openclash-ready.yaml dengan group ANTI-BENGONG, INDONESIA-BEST, best-link, dan fallback-link.<br>
                         <b>Manual links:</b> input.txt / input/links.txt tetap trusted dan tidak disaring.
                     </div>
