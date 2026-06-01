@@ -395,6 +395,20 @@ jobs:
           ls -la output/RuleProviders || true
           cat output/Validation/summary_rule_provider_files.json || true
 
+      - name: Apply GoodbyeAds YouTube adblock provider
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'clear_quarantine' }}
+        run: |
+          set -e
+          if [ -f scripts/apply_goodbyeads_youtube_provider.py ]; then
+            python scripts/apply_goodbyeads_youtube_provider.py \
+              --repo "${{ github.repository }}" \
+              --branch "${{ github.ref_name }}" \
+              --url-source raw || true
+            cat output/Validation/summary_goodbyeads_youtube_provider.json || true
+          else
+            echo "::warning::scripts/apply_goodbyeads_youtube_provider.py not found; skip GoodbyeAds integration."
+          fi
+
       - name: Ensure adblock rule-providers in final OpenClash YAML
         if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'clear_quarantine' }}
         run: |
@@ -455,6 +469,7 @@ jobs:
           output/V2RayBox/mobile-stable.txt
           output/NekoBox/mobile-stable.txt
           output/RuleProviders/youtube-ads.yaml
+          output/RuleProviders/goodbyeads-youtube.yaml
           output/RuleProviders/general-ads.yaml
           "
           for f in $FILES; do
