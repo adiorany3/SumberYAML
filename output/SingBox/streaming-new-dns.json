@@ -6,12 +6,14 @@
   "dns": {
     "servers": [
       {
+        "type": "udp",
         "tag": "cloudflare",
-        "address": "1.1.1.1"
+        "server": "1.1.1.1"
       },
       {
+        "type": "udp",
         "tag": "google",
-        "address": "8.8.8.8"
+        "server": "8.8.8.8"
       }
     ],
     "final": "cloudflare"
@@ -38,76 +40,75 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "hi_proxy_iran 8935",
-        "oneclickvpnkeys US 1440",
-        "kurdconfig 7158",
-        "config_free2 5191",
-        "https telegraph.rayan-config.workers.dev persian",
-        "oneclickvpnkeys US 6670",
-        "oneclickvpnkeys US 6983",
-        "CA 41804 Telegram t.me SOSkeyNET",
+        "config_free2 3497",
+        "oneclickvpnkeys US 2983",
+        "chillguy_vpn 7012",
+        "US t.me the_phoenixvpn",
+        "https telegraph.rayan-config.workers.dev persian 4734",
+        "v2configlab_ DE",
         "oneclickvpnkeys US",
-        "2 DE av2ngFast",
+        "oneclickvpnkeys US 1602",
+        "v2reya88",
+        "oneclickvpnkeys US 2108",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "ID-01 kurdconfig 7158",
-        "ID-02 LINK bel432 xl",
-        "STREAM-01 kurdconfig 7158",
-        "STREAM-02 oneclickvpnkeys US",
-        "STREAM-03 oneclickvpnkeys US 6983",
-        "STREAM-04 oneclickvpnkeys US 1440",
-        "STREAM-05 oneclickvpnkeys US 6670",
-        "STREAM-06 https telegraph.rayan-config.workers.dev persian",
-        "STREAM-07 2 DE av2ngFast",
-        "STREAM-08 config_free2 5191",
-        "STREAM-09 CA 41804 Telegram t.me SOSkeyNET",
-        "STREAM-10 hi_proxy_iran 8935",
+        "ID-01 LINK bel432 xl",
+        "STREAM-01 oneclickvpnkeys US",
+        "STREAM-02 config_free2 3497",
+        "STREAM-03 oneclickvpnkeys US 2983",
+        "STREAM-04 chillguy_vpn 7012",
+        "STREAM-05 US t.me the_phoenixvpn",
+        "STREAM-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "STREAM-07 v2configlab_ DE",
+        "STREAM-08 oneclickvpnkeys US 1602",
+        "STREAM-09 oneclickvpnkeys US 2108",
+        "STREAM-10 v2reya88",
         "STREAM-11 LINK 10.lowh.net",
         "STREAM-12 LINK bel432 xl",
         "STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem",
         "STREAM-14 LINK VMess-WS-TLS-443-akuku8",
-        "GAME-01 kurdconfig 7158",
-        "GAME-02 oneclickvpnkeys US",
-        "GAME-03 oneclickvpnkeys US 6983",
-        "GAME-04 oneclickvpnkeys US 1440",
-        "GAME-05 oneclickvpnkeys US 6670",
-        "GAME-06 https telegraph.rayan-config.workers.dev persian",
-        "GAME-07 2 DE av2ngFast",
-        "GAME-08 config_free2 5191",
-        "GAME-09 CA 41804 Telegram t.me SOSkeyNET",
-        "GAME-10 hi_proxy_iran 8935",
-        "SOCIAL-01 kurdconfig 7158",
-        "SOCIAL-02 oneclickvpnkeys US",
-        "SOCIAL-03 oneclickvpnkeys US 6983",
-        "SOCIAL-04 oneclickvpnkeys US 1440",
-        "SOCIAL-05 oneclickvpnkeys US 6670",
-        "SOCIAL-06 https telegraph.rayan-config.workers.dev persian",
-        "SOCIAL-07 2 DE av2ngFast",
-        "SOCIAL-08 config_free2 5191",
-        "SOCIAL-09 CA 41804 Telegram t.me SOSkeyNET",
-        "SOCIAL-10 hi_proxy_iran 8935",
-        "WORK-01 kurdconfig 7158",
-        "WORK-02 oneclickvpnkeys US",
-        "WORK-03 oneclickvpnkeys US 6983",
-        "WORK-04 oneclickvpnkeys US 1440",
-        "WORK-05 oneclickvpnkeys US 6670",
-        "WORK-06 https telegraph.rayan-config.workers.dev persian",
-        "WORK-07 2 DE av2ngFast",
-        "WORK-08 config_free2 5191",
-        "WORK-09 CA 41804 Telegram t.me SOSkeyNET",
-        "WORK-10 hi_proxy_iran 8935",
-        "GEN-01 kurdconfig 7158",
-        "GEN-02 oneclickvpnkeys US",
-        "GEN-03 oneclickvpnkeys US 6983",
-        "GEN-04 oneclickvpnkeys US 1440",
-        "GEN-05 oneclickvpnkeys US 6670",
-        "GEN-06 https telegraph.rayan-config.workers.dev persian",
-        "GEN-07 2 DE av2ngFast",
-        "GEN-08 config_free2 5191",
-        "GEN-09 CA 41804 Telegram t.me SOSkeyNET",
-        "GEN-10 hi_proxy_iran 8935",
+        "GAME-01 oneclickvpnkeys US",
+        "GAME-02 config_free2 3497",
+        "GAME-03 oneclickvpnkeys US 2983",
+        "GAME-04 chillguy_vpn 7012",
+        "GAME-05 US t.me the_phoenixvpn",
+        "GAME-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "GAME-07 v2configlab_ DE",
+        "GAME-08 oneclickvpnkeys US 1602",
+        "GAME-09 oneclickvpnkeys US 2108",
+        "GAME-10 v2reya88",
+        "SOCIAL-01 oneclickvpnkeys US",
+        "SOCIAL-02 config_free2 3497",
+        "SOCIAL-03 oneclickvpnkeys US 2983",
+        "SOCIAL-04 chillguy_vpn 7012",
+        "SOCIAL-05 US t.me the_phoenixvpn",
+        "SOCIAL-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "SOCIAL-07 v2configlab_ DE",
+        "SOCIAL-08 oneclickvpnkeys US 1602",
+        "SOCIAL-09 oneclickvpnkeys US 2108",
+        "SOCIAL-10 v2reya88",
+        "WORK-01 oneclickvpnkeys US",
+        "WORK-02 config_free2 3497",
+        "WORK-03 oneclickvpnkeys US 2983",
+        "WORK-04 chillguy_vpn 7012",
+        "WORK-05 US t.me the_phoenixvpn",
+        "WORK-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "WORK-07 v2configlab_ DE",
+        "WORK-08 oneclickvpnkeys US 1602",
+        "WORK-09 oneclickvpnkeys US 2108",
+        "WORK-10 v2reya88",
+        "GEN-01 oneclickvpnkeys US",
+        "GEN-02 config_free2 3497",
+        "GEN-03 oneclickvpnkeys US 2983",
+        "GEN-04 chillguy_vpn 7012",
+        "GEN-05 US t.me the_phoenixvpn",
+        "GEN-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "GEN-07 v2configlab_ DE",
+        "GEN-08 oneclickvpnkeys US 1602",
+        "GEN-09 oneclickvpnkeys US 2108",
+        "GEN-10 v2reya88",
         "GEN-11 LINK 10.lowh.net",
         "GEN-12 LINK bel432 xl",
         "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
@@ -117,13 +118,7 @@
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 3",
-        "LINK VMess-WS-TLS-443-akuku8 3",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 3",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -135,76 +130,75 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "hi_proxy_iran 8935",
-        "oneclickvpnkeys US 1440",
-        "kurdconfig 7158",
-        "config_free2 5191",
-        "https telegraph.rayan-config.workers.dev persian",
-        "oneclickvpnkeys US 6670",
-        "oneclickvpnkeys US 6983",
-        "CA 41804 Telegram t.me SOSkeyNET",
+        "config_free2 3497",
+        "oneclickvpnkeys US 2983",
+        "chillguy_vpn 7012",
+        "US t.me the_phoenixvpn",
+        "https telegraph.rayan-config.workers.dev persian 4734",
+        "v2configlab_ DE",
         "oneclickvpnkeys US",
-        "2 DE av2ngFast",
+        "oneclickvpnkeys US 1602",
+        "v2reya88",
+        "oneclickvpnkeys US 2108",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "ID-01 kurdconfig 7158",
-        "ID-02 LINK bel432 xl",
-        "STREAM-01 kurdconfig 7158",
-        "STREAM-02 oneclickvpnkeys US",
-        "STREAM-03 oneclickvpnkeys US 6983",
-        "STREAM-04 oneclickvpnkeys US 1440",
-        "STREAM-05 oneclickvpnkeys US 6670",
-        "STREAM-06 https telegraph.rayan-config.workers.dev persian",
-        "STREAM-07 2 DE av2ngFast",
-        "STREAM-08 config_free2 5191",
-        "STREAM-09 CA 41804 Telegram t.me SOSkeyNET",
-        "STREAM-10 hi_proxy_iran 8935",
+        "ID-01 LINK bel432 xl",
+        "STREAM-01 oneclickvpnkeys US",
+        "STREAM-02 config_free2 3497",
+        "STREAM-03 oneclickvpnkeys US 2983",
+        "STREAM-04 chillguy_vpn 7012",
+        "STREAM-05 US t.me the_phoenixvpn",
+        "STREAM-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "STREAM-07 v2configlab_ DE",
+        "STREAM-08 oneclickvpnkeys US 1602",
+        "STREAM-09 oneclickvpnkeys US 2108",
+        "STREAM-10 v2reya88",
         "STREAM-11 LINK 10.lowh.net",
         "STREAM-12 LINK bel432 xl",
         "STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem",
         "STREAM-14 LINK VMess-WS-TLS-443-akuku8",
-        "GAME-01 kurdconfig 7158",
-        "GAME-02 oneclickvpnkeys US",
-        "GAME-03 oneclickvpnkeys US 6983",
-        "GAME-04 oneclickvpnkeys US 1440",
-        "GAME-05 oneclickvpnkeys US 6670",
-        "GAME-06 https telegraph.rayan-config.workers.dev persian",
-        "GAME-07 2 DE av2ngFast",
-        "GAME-08 config_free2 5191",
-        "GAME-09 CA 41804 Telegram t.me SOSkeyNET",
-        "GAME-10 hi_proxy_iran 8935",
-        "SOCIAL-01 kurdconfig 7158",
-        "SOCIAL-02 oneclickvpnkeys US",
-        "SOCIAL-03 oneclickvpnkeys US 6983",
-        "SOCIAL-04 oneclickvpnkeys US 1440",
-        "SOCIAL-05 oneclickvpnkeys US 6670",
-        "SOCIAL-06 https telegraph.rayan-config.workers.dev persian",
-        "SOCIAL-07 2 DE av2ngFast",
-        "SOCIAL-08 config_free2 5191",
-        "SOCIAL-09 CA 41804 Telegram t.me SOSkeyNET",
-        "SOCIAL-10 hi_proxy_iran 8935",
-        "WORK-01 kurdconfig 7158",
-        "WORK-02 oneclickvpnkeys US",
-        "WORK-03 oneclickvpnkeys US 6983",
-        "WORK-04 oneclickvpnkeys US 1440",
-        "WORK-05 oneclickvpnkeys US 6670",
-        "WORK-06 https telegraph.rayan-config.workers.dev persian",
-        "WORK-07 2 DE av2ngFast",
-        "WORK-08 config_free2 5191",
-        "WORK-09 CA 41804 Telegram t.me SOSkeyNET",
-        "WORK-10 hi_proxy_iran 8935",
-        "GEN-01 kurdconfig 7158",
-        "GEN-02 oneclickvpnkeys US",
-        "GEN-03 oneclickvpnkeys US 6983",
-        "GEN-04 oneclickvpnkeys US 1440",
-        "GEN-05 oneclickvpnkeys US 6670",
-        "GEN-06 https telegraph.rayan-config.workers.dev persian",
-        "GEN-07 2 DE av2ngFast",
-        "GEN-08 config_free2 5191",
-        "GEN-09 CA 41804 Telegram t.me SOSkeyNET",
-        "GEN-10 hi_proxy_iran 8935",
+        "GAME-01 oneclickvpnkeys US",
+        "GAME-02 config_free2 3497",
+        "GAME-03 oneclickvpnkeys US 2983",
+        "GAME-04 chillguy_vpn 7012",
+        "GAME-05 US t.me the_phoenixvpn",
+        "GAME-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "GAME-07 v2configlab_ DE",
+        "GAME-08 oneclickvpnkeys US 1602",
+        "GAME-09 oneclickvpnkeys US 2108",
+        "GAME-10 v2reya88",
+        "SOCIAL-01 oneclickvpnkeys US",
+        "SOCIAL-02 config_free2 3497",
+        "SOCIAL-03 oneclickvpnkeys US 2983",
+        "SOCIAL-04 chillguy_vpn 7012",
+        "SOCIAL-05 US t.me the_phoenixvpn",
+        "SOCIAL-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "SOCIAL-07 v2configlab_ DE",
+        "SOCIAL-08 oneclickvpnkeys US 1602",
+        "SOCIAL-09 oneclickvpnkeys US 2108",
+        "SOCIAL-10 v2reya88",
+        "WORK-01 oneclickvpnkeys US",
+        "WORK-02 config_free2 3497",
+        "WORK-03 oneclickvpnkeys US 2983",
+        "WORK-04 chillguy_vpn 7012",
+        "WORK-05 US t.me the_phoenixvpn",
+        "WORK-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "WORK-07 v2configlab_ DE",
+        "WORK-08 oneclickvpnkeys US 1602",
+        "WORK-09 oneclickvpnkeys US 2108",
+        "WORK-10 v2reya88",
+        "GEN-01 oneclickvpnkeys US",
+        "GEN-02 config_free2 3497",
+        "GEN-03 oneclickvpnkeys US 2983",
+        "GEN-04 chillguy_vpn 7012",
+        "GEN-05 US t.me the_phoenixvpn",
+        "GEN-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "GEN-07 v2configlab_ DE",
+        "GEN-08 oneclickvpnkeys US 1602",
+        "GEN-09 oneclickvpnkeys US 2108",
+        "GEN-10 v2reya88",
         "GEN-11 LINK 10.lowh.net",
         "GEN-12 LINK bel432 xl",
         "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
@@ -214,13 +208,7 @@
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 3",
-        "LINK VMess-WS-TLS-443-akuku8 3",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 3",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -232,15 +220,19 @@
       "type": "urltest",
       "tag": "INDONESIA-BEST",
       "outbounds": [
-        "kurdconfig 7158",
-        "GEN-12 LINK bel432 xl",
-        "ID-01 kurdconfig 7158",
-        "ID-02 LINK bel432 xl",
-        "LINK bel432 xl",
-        "STREAM-12 LINK bel432 xl"
+        "oneclickvpnkeys US",
+        "config_free2 3497",
+        "oneclickvpnkeys US 2983",
+        "chillguy_vpn 7012",
+        "oneclickvpnkeys US 2108",
+        "US t.me the_phoenixvpn",
+        "https telegraph.rayan-config.workers.dev persian 4734",
+        "v2configlab_ DE",
+        "oneclickvpnkeys US 1602",
+        "GEN-12 LINK bel432 xl"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -249,16 +241,16 @@
       "type": "urltest",
       "tag": "STREAMING STABIL",
       "outbounds": [
-        "hi_proxy_iran 8935",
-        "oneclickvpnkeys US 1440",
-        "kurdconfig 7158",
-        "config_free2 5191",
-        "https telegraph.rayan-config.workers.dev persian",
-        "oneclickvpnkeys US 6670",
-        "oneclickvpnkeys US 6983",
-        "CA 41804 Telegram t.me SOSkeyNET",
+        "config_free2 3497",
+        "oneclickvpnkeys US 2983",
+        "chillguy_vpn 7012",
+        "US t.me the_phoenixvpn",
+        "https telegraph.rayan-config.workers.dev persian 4734",
+        "v2configlab_ DE",
         "oneclickvpnkeys US",
-        "2 DE av2ngFast",
+        "oneclickvpnkeys US 1602",
+        "v2reya88",
+        "oneclickvpnkeys US 2108",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -268,17 +260,11 @@
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 3",
-        "LINK VMess-WS-TLS-443-akuku8 3",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 3",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80,
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "300s",
+      "tolerance": 30,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
@@ -289,76 +275,75 @@
         "DIRECT",
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
-        "hi_proxy_iran 8935",
-        "oneclickvpnkeys US 1440",
-        "kurdconfig 7158",
-        "config_free2 5191",
-        "https telegraph.rayan-config.workers.dev persian",
-        "oneclickvpnkeys US 6670",
-        "oneclickvpnkeys US 6983",
-        "CA 41804 Telegram t.me SOSkeyNET",
-        "oneclickvpnkeys US",
-        "2 DE av2ngFast",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "ID-01 kurdconfig 7158",
-        "ID-02 LINK bel432 xl",
-        "STREAM-01 kurdconfig 7158",
-        "STREAM-02 oneclickvpnkeys US",
-        "STREAM-03 oneclickvpnkeys US 6983",
-        "STREAM-04 oneclickvpnkeys US 1440",
-        "STREAM-05 oneclickvpnkeys US 6670",
-        "STREAM-06 https telegraph.rayan-config.workers.dev persian",
-        "STREAM-07 2 DE av2ngFast",
-        "STREAM-08 config_free2 5191",
-        "STREAM-09 CA 41804 Telegram t.me SOSkeyNET",
-        "STREAM-10 hi_proxy_iran 8935",
+        "config_free2 3497",
+        "oneclickvpnkeys US 2983",
+        "chillguy_vpn 7012",
+        "US t.me the_phoenixvpn",
+        "https telegraph.rayan-config.workers.dev persian 4734",
+        "v2configlab_ DE",
+        "oneclickvpnkeys US",
+        "oneclickvpnkeys US 1602",
+        "v2reya88",
+        "oneclickvpnkeys US 2108",
+        "ID-01 LINK bel432 xl",
+        "STREAM-01 oneclickvpnkeys US",
+        "STREAM-02 config_free2 3497",
+        "STREAM-03 oneclickvpnkeys US 2983",
+        "STREAM-04 chillguy_vpn 7012",
+        "STREAM-05 US t.me the_phoenixvpn",
+        "STREAM-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "STREAM-07 v2configlab_ DE",
+        "STREAM-08 oneclickvpnkeys US 1602",
+        "STREAM-09 oneclickvpnkeys US 2108",
+        "STREAM-10 v2reya88",
         "STREAM-11 LINK 10.lowh.net",
         "STREAM-12 LINK bel432 xl",
         "STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem",
         "STREAM-14 LINK VMess-WS-TLS-443-akuku8",
-        "GAME-01 kurdconfig 7158",
-        "GAME-02 oneclickvpnkeys US",
-        "GAME-03 oneclickvpnkeys US 6983",
-        "GAME-04 oneclickvpnkeys US 1440",
-        "GAME-05 oneclickvpnkeys US 6670",
-        "GAME-06 https telegraph.rayan-config.workers.dev persian",
-        "GAME-07 2 DE av2ngFast",
-        "GAME-08 config_free2 5191",
-        "GAME-09 CA 41804 Telegram t.me SOSkeyNET",
-        "GAME-10 hi_proxy_iran 8935",
-        "SOCIAL-01 kurdconfig 7158",
-        "SOCIAL-02 oneclickvpnkeys US",
-        "SOCIAL-03 oneclickvpnkeys US 6983",
-        "SOCIAL-04 oneclickvpnkeys US 1440",
-        "SOCIAL-05 oneclickvpnkeys US 6670",
-        "SOCIAL-06 https telegraph.rayan-config.workers.dev persian",
-        "SOCIAL-07 2 DE av2ngFast",
-        "SOCIAL-08 config_free2 5191",
-        "SOCIAL-09 CA 41804 Telegram t.me SOSkeyNET",
-        "SOCIAL-10 hi_proxy_iran 8935",
-        "WORK-01 kurdconfig 7158",
-        "WORK-02 oneclickvpnkeys US",
-        "WORK-03 oneclickvpnkeys US 6983",
-        "WORK-04 oneclickvpnkeys US 1440",
-        "WORK-05 oneclickvpnkeys US 6670",
-        "WORK-06 https telegraph.rayan-config.workers.dev persian",
-        "WORK-07 2 DE av2ngFast",
-        "WORK-08 config_free2 5191",
-        "WORK-09 CA 41804 Telegram t.me SOSkeyNET",
-        "WORK-10 hi_proxy_iran 8935",
-        "GEN-01 kurdconfig 7158",
-        "GEN-02 oneclickvpnkeys US",
-        "GEN-03 oneclickvpnkeys US 6983",
-        "GEN-04 oneclickvpnkeys US 1440",
-        "GEN-05 oneclickvpnkeys US 6670",
-        "GEN-06 https telegraph.rayan-config.workers.dev persian",
-        "GEN-07 2 DE av2ngFast",
-        "GEN-08 config_free2 5191",
-        "GEN-09 CA 41804 Telegram t.me SOSkeyNET",
-        "GEN-10 hi_proxy_iran 8935",
+        "GAME-01 oneclickvpnkeys US",
+        "GAME-02 config_free2 3497",
+        "GAME-03 oneclickvpnkeys US 2983",
+        "GAME-04 chillguy_vpn 7012",
+        "GAME-05 US t.me the_phoenixvpn",
+        "GAME-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "GAME-07 v2configlab_ DE",
+        "GAME-08 oneclickvpnkeys US 1602",
+        "GAME-09 oneclickvpnkeys US 2108",
+        "GAME-10 v2reya88",
+        "SOCIAL-01 oneclickvpnkeys US",
+        "SOCIAL-02 config_free2 3497",
+        "SOCIAL-03 oneclickvpnkeys US 2983",
+        "SOCIAL-04 chillguy_vpn 7012",
+        "SOCIAL-05 US t.me the_phoenixvpn",
+        "SOCIAL-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "SOCIAL-07 v2configlab_ DE",
+        "SOCIAL-08 oneclickvpnkeys US 1602",
+        "SOCIAL-09 oneclickvpnkeys US 2108",
+        "SOCIAL-10 v2reya88",
+        "WORK-01 oneclickvpnkeys US",
+        "WORK-02 config_free2 3497",
+        "WORK-03 oneclickvpnkeys US 2983",
+        "WORK-04 chillguy_vpn 7012",
+        "WORK-05 US t.me the_phoenixvpn",
+        "WORK-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "WORK-07 v2configlab_ DE",
+        "WORK-08 oneclickvpnkeys US 1602",
+        "WORK-09 oneclickvpnkeys US 2108",
+        "WORK-10 v2reya88",
+        "GEN-01 oneclickvpnkeys US",
+        "GEN-02 config_free2 3497",
+        "GEN-03 oneclickvpnkeys US 2983",
+        "GEN-04 chillguy_vpn 7012",
+        "GEN-05 US t.me the_phoenixvpn",
+        "GEN-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "GEN-07 v2configlab_ DE",
+        "GEN-08 oneclickvpnkeys US 1602",
+        "GEN-09 oneclickvpnkeys US 2108",
+        "GEN-10 v2reya88",
         "GEN-11 LINK 10.lowh.net",
         "GEN-12 LINK bel432 xl",
         "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
@@ -368,13 +353,7 @@
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 3",
-        "LINK VMess-WS-TLS-443-akuku8 3",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 3",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
       "interrupt_exist_connections": false,
       "default": "AUTO-BEST-STABLE"
@@ -384,18 +363,18 @@
       "tag": "BEST-STABLE",
       "outbounds": [
         "oneclickvpnkeys US",
-        "2 DE av2ngFast",
-        "https telegraph.rayan-config.workers.dev persian",
-        "CA 41804 Telegram t.me SOSkeyNET",
-        "kurdconfig 7158",
-        "oneclickvpnkeys US 6983",
-        "oneclickvpnkeys US 1440",
-        "oneclickvpnkeys US 6670",
-        "config_free2 5191",
-        "hi_proxy_iran 8935"
+        "v2configlab_ DE",
+        "v2reya88",
+        "US t.me the_phoenixvpn",
+        "config_free2 3497",
+        "oneclickvpnkeys US 2983",
+        "chillguy_vpn 7012",
+        "https telegraph.rayan-config.workers.dev persian 4734",
+        "oneclickvpnkeys US 1602",
+        "oneclickvpnkeys US 2108"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -410,7 +389,7 @@
         "LINK VLESS-WS-TLS-443-apt50atpprem"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -425,8 +404,8 @@
         "LINK VLESS-WS-TLS-443-apt50atpprem"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80,
+      "interval": "300s",
+      "tolerance": 30,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
@@ -434,23 +413,23 @@
       "type": "urltest",
       "tag": "STREAMING-BEST",
       "outbounds": [
-        "STREAM-01 kurdconfig 7158",
-        "STREAM-02 oneclickvpnkeys US",
-        "STREAM-03 oneclickvpnkeys US 6983",
-        "STREAM-04 oneclickvpnkeys US 1440",
-        "STREAM-05 oneclickvpnkeys US 6670",
-        "STREAM-06 https telegraph.rayan-config.workers.dev persian",
-        "STREAM-07 2 DE av2ngFast",
-        "STREAM-08 config_free2 5191",
-        "STREAM-09 CA 41804 Telegram t.me SOSkeyNET",
-        "STREAM-10 hi_proxy_iran 8935",
+        "STREAM-01 oneclickvpnkeys US",
+        "STREAM-02 config_free2 3497",
+        "STREAM-03 oneclickvpnkeys US 2983",
+        "STREAM-04 chillguy_vpn 7012",
+        "STREAM-05 US t.me the_phoenixvpn",
+        "STREAM-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "STREAM-07 v2configlab_ DE",
+        "STREAM-08 oneclickvpnkeys US 1602",
+        "STREAM-09 oneclickvpnkeys US 2108",
+        "STREAM-10 v2reya88",
         "STREAM-11 LINK 10.lowh.net",
         "STREAM-12 LINK bel432 xl",
         "STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem",
         "STREAM-14 LINK VMess-WS-TLS-443-akuku8"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -459,19 +438,19 @@
       "type": "urltest",
       "tag": "GAMING-BEST",
       "outbounds": [
-        "GAME-01 kurdconfig 7158",
-        "GAME-02 oneclickvpnkeys US",
-        "GAME-03 oneclickvpnkeys US 6983",
-        "GAME-04 oneclickvpnkeys US 1440",
-        "GAME-05 oneclickvpnkeys US 6670",
-        "GAME-06 https telegraph.rayan-config.workers.dev persian",
-        "GAME-07 2 DE av2ngFast",
-        "GAME-08 config_free2 5191",
-        "GAME-09 CA 41804 Telegram t.me SOSkeyNET",
-        "GAME-10 hi_proxy_iran 8935"
+        "GAME-01 oneclickvpnkeys US",
+        "GAME-02 config_free2 3497",
+        "GAME-03 oneclickvpnkeys US 2983",
+        "GAME-04 chillguy_vpn 7012",
+        "GAME-05 US t.me the_phoenixvpn",
+        "GAME-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "GAME-07 v2configlab_ DE",
+        "GAME-08 oneclickvpnkeys US 1602",
+        "GAME-09 oneclickvpnkeys US 2108",
+        "GAME-10 v2reya88"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -480,19 +459,19 @@
       "type": "urltest",
       "tag": "SOCIAL-BEST",
       "outbounds": [
-        "SOCIAL-01 kurdconfig 7158",
-        "SOCIAL-02 oneclickvpnkeys US",
-        "SOCIAL-03 oneclickvpnkeys US 6983",
-        "SOCIAL-04 oneclickvpnkeys US 1440",
-        "SOCIAL-05 oneclickvpnkeys US 6670",
-        "SOCIAL-06 https telegraph.rayan-config.workers.dev persian",
-        "SOCIAL-07 2 DE av2ngFast",
-        "SOCIAL-08 config_free2 5191",
-        "SOCIAL-09 CA 41804 Telegram t.me SOSkeyNET",
-        "SOCIAL-10 hi_proxy_iran 8935"
+        "SOCIAL-01 oneclickvpnkeys US",
+        "SOCIAL-02 config_free2 3497",
+        "SOCIAL-03 oneclickvpnkeys US 2983",
+        "SOCIAL-04 chillguy_vpn 7012",
+        "SOCIAL-05 US t.me the_phoenixvpn",
+        "SOCIAL-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "SOCIAL-07 v2configlab_ DE",
+        "SOCIAL-08 oneclickvpnkeys US 1602",
+        "SOCIAL-09 oneclickvpnkeys US 2108",
+        "SOCIAL-10 v2reya88"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -501,19 +480,19 @@
       "type": "urltest",
       "tag": "WORKING-BEST",
       "outbounds": [
-        "WORK-01 kurdconfig 7158",
-        "WORK-02 oneclickvpnkeys US",
-        "WORK-03 oneclickvpnkeys US 6983",
-        "WORK-04 oneclickvpnkeys US 1440",
-        "WORK-05 oneclickvpnkeys US 6670",
-        "WORK-06 https telegraph.rayan-config.workers.dev persian",
-        "WORK-07 2 DE av2ngFast",
-        "WORK-08 config_free2 5191",
-        "WORK-09 CA 41804 Telegram t.me SOSkeyNET",
-        "WORK-10 hi_proxy_iran 8935"
+        "WORK-01 oneclickvpnkeys US",
+        "WORK-02 config_free2 3497",
+        "WORK-03 oneclickvpnkeys US 2983",
+        "WORK-04 chillguy_vpn 7012",
+        "WORK-05 US t.me the_phoenixvpn",
+        "WORK-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "WORK-07 v2configlab_ DE",
+        "WORK-08 oneclickvpnkeys US 1602",
+        "WORK-09 oneclickvpnkeys US 2108",
+        "WORK-10 v2reya88"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -522,90 +501,30 @@
       "type": "urltest",
       "tag": "GENERAL-BEST",
       "outbounds": [
-        "GEN-01 kurdconfig 7158",
-        "GEN-02 oneclickvpnkeys US",
-        "GEN-03 oneclickvpnkeys US 6983",
-        "GEN-04 oneclickvpnkeys US 1440",
-        "GEN-05 oneclickvpnkeys US 6670",
-        "GEN-06 https telegraph.rayan-config.workers.dev persian",
-        "GEN-07 2 DE av2ngFast",
-        "GEN-08 config_free2 5191",
-        "GEN-09 CA 41804 Telegram t.me SOSkeyNET",
-        "GEN-10 hi_proxy_iran 8935",
+        "GEN-01 oneclickvpnkeys US",
+        "GEN-02 config_free2 3497",
+        "GEN-03 oneclickvpnkeys US 2983",
+        "GEN-04 chillguy_vpn 7012",
+        "GEN-05 US t.me the_phoenixvpn",
+        "GEN-06 https telegraph.rayan-config.workers.dev persian 4734",
+        "GEN-07 v2configlab_ DE",
+        "GEN-08 oneclickvpnkeys US 1602",
+        "GEN-09 oneclickvpnkeys US 2108",
+        "GEN-10 v2reya88",
         "GEN-11 LINK 10.lowh.net",
         "GEN-12 LINK bel432 xl",
         "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
         "GEN-14 LINK VMess-WS-TLS-443-akuku8"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
     {
       "type": "vless",
-      "tag": "hi_proxy_iran 8935",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "oneclickvpnkeys US 1440",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "d555dac9-27cb-4ddb-89f5-6a1d8d1e4798",
-      "tls": {
-        "enabled": true,
-        "server_name": "momi.timoreyhaneh.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "momi.timoreyhaneh.workers.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "kurdconfig 7158",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-pusat",
-        "headers": {
-          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "config_free2 5191",
+      "tag": "config_free2 3497",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -620,52 +539,30 @@
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "https telegraph.rayan-config.workers.dev persian",
+      "tag": "oneclickvpnkeys US 2983",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
+      "uuid": "7872e85d-fd7e-4472-99e5-49cb48d0f668",
       "tls": {
         "enabled": true,
-        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560",
-        "headers": {
-          "Host": "rayan-007.nastaran.dpdns.org"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "oneclickvpnkeys US 6670",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "f86f5a03-3872-46b5-bf03-a50388a0261d",
-      "tls": {
-        "enabled": true,
-        "server_name": "a1-tss.pages.dev",
+        "server_name": "freepol2.3r8sv.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "a1-tss.pages.dev"
+          "Host": "freepol2.3r8sv.workers.dev"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "oneclickvpnkeys US 6983",
+      "tag": "chillguy_vpn 7012",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -676,72 +573,144 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "CA 41804 Telegram t.me SOSkeyNET",
+      "tag": "US t.me the_phoenixvpn",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "uuid": "27302727-9dfa-4975-990e-88c7a63747cd",
       "tls": {
         "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "server_name": "tc.amoovictor.cc.cd",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/sg-melbi",
+        "path": "/",
         "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
+          "Host": "tc.amoovictor.cc.cd"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "https telegraph.rayan-config.workers.dev persian 4734",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "d2d0f796-edb0-427a-af32-ae360679f9e7",
+      "tls": {
+        "enabled": true,
+        "server_name": "rAyAn-007.fOtOn.dPdNs.oRg",
+        "insecure": true
       },
-      "connect_timeout": "15s"
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "rayan-007.foton.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2configlab_ DE",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
+        }
+      }
     },
     {
       "type": "vless",
       "tag": "oneclickvpnkeys US",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
+      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
       "tls": {
         "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
+        "server_name": "m.udemy.com.cyylr.eu.cc",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/id-tksi",
         "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
+          "Host": "m.udemy.com.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "2 DE av2ngFast",
+      "tag": "oneclickvpnkeys US 1602",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
       "tls": {
         "enabled": true,
-        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/ws",
+        "path": "/fp=random",
         "headers": {
-          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+          "Host": "hhlfy.twiladaphne.ndjp.net"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb0be83e-ff5c-4601-8572-18deac592958",
+      "tls": {
+        "enabled": true,
+        "server_name": "nimahavok.pages.dev",
+        "insecure": true
       },
-      "connect_timeout": "15s"
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "nimahavok.pages.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "oneclickvpnkeys US 2108",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
     },
     {
       "type": "vmess",
@@ -762,8 +731,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -784,8 +752,7 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -806,8 +773,7 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
@@ -826,32 +792,11 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "ID-01 kurdconfig 7158",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-pusat",
-        "headers": {
-          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
-      "tag": "ID-02 LINK bel432 xl",
+      "tag": "ID-01 LINK bel432 xl",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
@@ -868,152 +813,30 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "STREAM-01 kurdconfig 7158",
+      "tag": "STREAM-01 oneclickvpnkeys US",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
+      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
       "tls": {
         "enabled": true,
-        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-pusat",
-        "headers": {
-          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-02 oneclickvpnkeys US",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
+        "server_name": "m.udemy.com.cyylr.eu.cc",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/id-tksi",
         "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
+          "Host": "m.udemy.com.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "STREAM-03 oneclickvpnkeys US 6983",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-04 oneclickvpnkeys US 1440",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "d555dac9-27cb-4ddb-89f5-6a1d8d1e4798",
-      "tls": {
-        "enabled": true,
-        "server_name": "momi.timoreyhaneh.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "momi.timoreyhaneh.workers.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-05 oneclickvpnkeys US 6670",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "f86f5a03-3872-46b5-bf03-a50388a0261d",
-      "tls": {
-        "enabled": true,
-        "server_name": "a1-tss.pages.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "a1-tss.pages.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-06 https telegraph.rayan-config.workers.dev persian",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
-      "tls": {
-        "enabled": true,
-        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560",
-        "headers": {
-          "Host": "rayan-007.nastaran.dpdns.org"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-07 2 DE av2ngFast",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
-      "tls": {
-        "enabled": true,
-        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-08 config_free2 5191",
+      "tag": "STREAM-02 config_free2 3497",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1028,32 +851,106 @@
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "STREAM-09 CA 41804 Telegram t.me SOSkeyNET",
+      "tag": "STREAM-03 oneclickvpnkeys US 2983",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "uuid": "7872e85d-fd7e-4472-99e5-49cb48d0f668",
       "tls": {
         "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "server_name": "freepol2.3r8sv.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/sg-melbi",
+        "path": "/",
         "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
+          "Host": "freepol2.3r8sv.workers.dev"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "STREAM-10 hi_proxy_iran 8935",
+      "tag": "STREAM-04 chillguy_vpn 7012",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "tls": {
+        "enabled": true,
+        "server_name": "juzi.qea.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
+        "headers": {
+          "Host": "juzi.qea.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-05 US t.me the_phoenixvpn",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "27302727-9dfa-4975-990e-88c7a63747cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "tc.amoovictor.cc.cd",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tc.amoovictor.cc.cd"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-06 https telegraph.rayan-config.workers.dev persian 4734",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "d2d0f796-edb0-427a-af32-ae360679f9e7",
+      "tls": {
+        "enabled": true,
+        "server_name": "rAyAn-007.fOtOn.dPdNs.oRg",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "rayan-007.foton.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-07 v2configlab_ DE",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-08 oneclickvpnkeys US 1602",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
@@ -1064,12 +961,49 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/fp",
+        "path": "/fp=random",
         "headers": {
           "Host": "hhlfy.twiladaphne.ndjp.net"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-09 oneclickvpnkeys US 2108",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
       },
-      "connect_timeout": "15s"
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-10 v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb0be83e-ff5c-4601-8572-18deac592958",
+      "tls": {
+        "enabled": true,
+        "server_name": "nimahavok.pages.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "nimahavok.pages.dev"
+        }
+      }
     },
     {
       "type": "vmess",
@@ -1090,8 +1024,7 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -1112,8 +1045,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
@@ -1132,8 +1064,7 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -1154,152 +1085,30 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GAME-01 kurdconfig 7158",
+      "tag": "GAME-01 oneclickvpnkeys US",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
+      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
       "tls": {
         "enabled": true,
-        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-pusat",
-        "headers": {
-          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-02 oneclickvpnkeys US",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
+        "server_name": "m.udemy.com.cyylr.eu.cc",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/id-tksi",
         "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
+          "Host": "m.udemy.com.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GAME-03 oneclickvpnkeys US 6983",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-04 oneclickvpnkeys US 1440",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "d555dac9-27cb-4ddb-89f5-6a1d8d1e4798",
-      "tls": {
-        "enabled": true,
-        "server_name": "momi.timoreyhaneh.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "momi.timoreyhaneh.workers.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-05 oneclickvpnkeys US 6670",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "f86f5a03-3872-46b5-bf03-a50388a0261d",
-      "tls": {
-        "enabled": true,
-        "server_name": "a1-tss.pages.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "a1-tss.pages.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-06 https telegraph.rayan-config.workers.dev persian",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
-      "tls": {
-        "enabled": true,
-        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?ed=2560",
-        "headers": {
-          "Host": "rayan-007.nastaran.dpdns.org"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-07 2 DE av2ngFast",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
-      "tls": {
-        "enabled": true,
-        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-08 config_free2 5191",
+      "tag": "GAME-02 config_free2 3497",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1314,92 +1123,30 @@
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GAME-09 CA 41804 Telegram t.me SOSkeyNET",
+      "tag": "GAME-03 oneclickvpnkeys US 2983",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "uuid": "7872e85d-fd7e-4472-99e5-49cb48d0f668",
       "tls": {
         "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "server_name": "freepol2.3r8sv.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/sg-melbi",
+        "path": "/",
         "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
+          "Host": "freepol2.3r8sv.workers.dev"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GAME-10 hi_proxy_iran 8935",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-01 kurdconfig 7158",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-pusat",
-        "headers": {
-          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-02 oneclickvpnkeys US",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-03 oneclickvpnkeys US 6983",
+      "tag": "GAME-04 chillguy_vpn 7012",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1410,96 +1157,148 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "SOCIAL-04 oneclickvpnkeys US 1440",
+      "tag": "GAME-05 US t.me the_phoenixvpn",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "d555dac9-27cb-4ddb-89f5-6a1d8d1e4798",
+      "uuid": "27302727-9dfa-4975-990e-88c7a63747cd",
       "tls": {
         "enabled": true,
-        "server_name": "momi.timoreyhaneh.workers.dev",
+        "server_name": "tc.amoovictor.cc.cd",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "momi.timoreyhaneh.workers.dev"
+          "Host": "tc.amoovictor.cc.cd"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "SOCIAL-05 oneclickvpnkeys US 6670",
+      "tag": "GAME-06 https telegraph.rayan-config.workers.dev persian 4734",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "f86f5a03-3872-46b5-bf03-a50388a0261d",
+      "uuid": "d2d0f796-edb0-427a-af32-ae360679f9e7",
       "tls": {
         "enabled": true,
-        "server_name": "a1-tss.pages.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "a1-tss.pages.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-06 https telegraph.rayan-config.workers.dev persian",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
-      "tls": {
-        "enabled": true,
-        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
+        "server_name": "rAyAn-007.fOtOn.dPdNs.oRg",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/?ed=2560",
         "headers": {
-          "Host": "rayan-007.nastaran.dpdns.org"
+          "Host": "rayan-007.foton.dpdns.org"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "SOCIAL-07 2 DE av2ngFast",
+      "tag": "GAME-07 v2configlab_ DE",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
+      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
       "tls": {
         "enabled": true,
-        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
+        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/ws",
+        "path": "/?ed=2048",
         "headers": {
-          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "SOCIAL-08 config_free2 5191",
+      "tag": "GAME-08 oneclickvpnkeys US 1602",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/fp=random",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GAME-09 oneclickvpnkeys US 2108",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GAME-10 v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb0be83e-ff5c-4601-8572-18deac592958",
+      "tls": {
+        "enabled": true,
+        "server_name": "nimahavok.pages.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "nimahavok.pages.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SOCIAL-01 oneclickvpnkeys US",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "m.udemy.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "m.udemy.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SOCIAL-02 config_free2 3497",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1514,92 +1313,30 @@
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "SOCIAL-09 CA 41804 Telegram t.me SOSkeyNET",
+      "tag": "SOCIAL-03 oneclickvpnkeys US 2983",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "uuid": "7872e85d-fd7e-4472-99e5-49cb48d0f668",
       "tls": {
         "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "server_name": "freepol2.3r8sv.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/sg-melbi",
+        "path": "/",
         "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
+          "Host": "freepol2.3r8sv.workers.dev"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "SOCIAL-10 hi_proxy_iran 8935",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-01 kurdconfig 7158",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-pusat",
-        "headers": {
-          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-02 oneclickvpnkeys US",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-03 oneclickvpnkeys US 6983",
+      "tag": "SOCIAL-04 chillguy_vpn 7012",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1610,96 +1347,148 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "WORK-04 oneclickvpnkeys US 1440",
+      "tag": "SOCIAL-05 US t.me the_phoenixvpn",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "d555dac9-27cb-4ddb-89f5-6a1d8d1e4798",
+      "uuid": "27302727-9dfa-4975-990e-88c7a63747cd",
       "tls": {
         "enabled": true,
-        "server_name": "momi.timoreyhaneh.workers.dev",
+        "server_name": "tc.amoovictor.cc.cd",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "momi.timoreyhaneh.workers.dev"
+          "Host": "tc.amoovictor.cc.cd"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "WORK-05 oneclickvpnkeys US 6670",
+      "tag": "SOCIAL-06 https telegraph.rayan-config.workers.dev persian 4734",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "f86f5a03-3872-46b5-bf03-a50388a0261d",
+      "uuid": "d2d0f796-edb0-427a-af32-ae360679f9e7",
       "tls": {
         "enabled": true,
-        "server_name": "a1-tss.pages.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "a1-tss.pages.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-06 https telegraph.rayan-config.workers.dev persian",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
-      "tls": {
-        "enabled": true,
-        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
+        "server_name": "rAyAn-007.fOtOn.dPdNs.oRg",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/?ed=2560",
         "headers": {
-          "Host": "rayan-007.nastaran.dpdns.org"
+          "Host": "rayan-007.foton.dpdns.org"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "WORK-07 2 DE av2ngFast",
+      "tag": "SOCIAL-07 v2configlab_ DE",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
+      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
       "tls": {
         "enabled": true,
-        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
+        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/ws",
+        "path": "/?ed=2048",
         "headers": {
-          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "WORK-08 config_free2 5191",
+      "tag": "SOCIAL-08 oneclickvpnkeys US 1602",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/fp=random",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SOCIAL-09 oneclickvpnkeys US 2108",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SOCIAL-10 v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb0be83e-ff5c-4601-8572-18deac592958",
+      "tls": {
+        "enabled": true,
+        "server_name": "nimahavok.pages.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "nimahavok.pages.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "WORK-01 oneclickvpnkeys US",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "m.udemy.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "m.udemy.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "WORK-02 config_free2 3497",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1714,92 +1503,30 @@
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "WORK-09 CA 41804 Telegram t.me SOSkeyNET",
+      "tag": "WORK-03 oneclickvpnkeys US 2983",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "uuid": "7872e85d-fd7e-4472-99e5-49cb48d0f668",
       "tls": {
         "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "server_name": "freepol2.3r8sv.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/sg-melbi",
+        "path": "/",
         "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
+          "Host": "freepol2.3r8sv.workers.dev"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "WORK-10 hi_proxy_iran 8935",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-01 kurdconfig 7158",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-pusat",
-        "headers": {
-          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-02 oneclickvpnkeys US",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-03 oneclickvpnkeys US 6983",
+      "tag": "WORK-04 chillguy_vpn 7012",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1810,96 +1537,148 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GEN-04 oneclickvpnkeys US 1440",
+      "tag": "WORK-05 US t.me the_phoenixvpn",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "d555dac9-27cb-4ddb-89f5-6a1d8d1e4798",
+      "uuid": "27302727-9dfa-4975-990e-88c7a63747cd",
       "tls": {
         "enabled": true,
-        "server_name": "momi.timoreyhaneh.workers.dev",
+        "server_name": "tc.amoovictor.cc.cd",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "momi.timoreyhaneh.workers.dev"
+          "Host": "tc.amoovictor.cc.cd"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GEN-05 oneclickvpnkeys US 6670",
+      "tag": "WORK-06 https telegraph.rayan-config.workers.dev persian 4734",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "f86f5a03-3872-46b5-bf03-a50388a0261d",
+      "uuid": "d2d0f796-edb0-427a-af32-ae360679f9e7",
       "tls": {
         "enabled": true,
-        "server_name": "a1-tss.pages.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "a1-tss.pages.dev"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-06 https telegraph.rayan-config.workers.dev persian",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "aebe5a70-0ca3-46ce-8208-8b5bab1346ce",
-      "tls": {
-        "enabled": true,
-        "server_name": "rAyAn-007.nAsTaRaN.DpDnS.OrG",
+        "server_name": "rAyAn-007.fOtOn.dPdNs.oRg",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/?ed=2560",
         "headers": {
-          "Host": "rayan-007.nastaran.dpdns.org"
+          "Host": "rayan-007.foton.dpdns.org"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GEN-07 2 DE av2ngFast",
+      "tag": "WORK-07 v2configlab_ DE",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "2730487f-0ed5-4f04-92d5-f95f9253d4f4",
+      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
       "tls": {
         "enabled": true,
-        "server_name": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev",
+        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/ws",
+        "path": "/?ed=2048",
         "headers": {
-          "Host": "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GEN-08 config_free2 5191",
+      "tag": "WORK-08 oneclickvpnkeys US 1602",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/fp=random",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "WORK-09 oneclickvpnkeys US 2108",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "WORK-10 v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb0be83e-ff5c-4601-8572-18deac592958",
+      "tls": {
+        "enabled": true,
+        "server_name": "nimahavok.pages.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "nimahavok.pages.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-01 oneclickvpnkeys US",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "m.udemy.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "m.udemy.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-02 config_free2 3497",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1914,32 +1693,106 @@
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GEN-09 CA 41804 Telegram t.me SOSkeyNET",
+      "tag": "GEN-03 oneclickvpnkeys US 2983",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "uuid": "7872e85d-fd7e-4472-99e5-49cb48d0f668",
       "tls": {
         "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "server_name": "freepol2.3r8sv.workers.dev",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/sg-melbi",
+        "path": "/",
         "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
+          "Host": "freepol2.3r8sv.workers.dev"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GEN-10 hi_proxy_iran 8935",
+      "tag": "GEN-04 chillguy_vpn 7012",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "tls": {
+        "enabled": true,
+        "server_name": "juzi.qea.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
+        "headers": {
+          "Host": "juzi.qea.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-05 US t.me the_phoenixvpn",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "27302727-9dfa-4975-990e-88c7a63747cd",
+      "tls": {
+        "enabled": true,
+        "server_name": "tc.amoovictor.cc.cd",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tc.amoovictor.cc.cd"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-06 https telegraph.rayan-config.workers.dev persian 4734",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "d2d0f796-edb0-427a-af32-ae360679f9e7",
+      "tls": {
+        "enabled": true,
+        "server_name": "rAyAn-007.fOtOn.dPdNs.oRg",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "rayan-007.foton.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-07 v2configlab_ DE",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "72f85026-7062-4cca-9c95-882e0a1da56f",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2configlab.v2configlab7-5a2.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "v2configlab.v2configlab7-5a2.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-08 oneclickvpnkeys US 1602",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
@@ -1950,12 +1803,49 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/fp",
+        "path": "/fp=random",
         "headers": {
           "Host": "hhlfy.twiladaphne.ndjp.net"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-09 oneclickvpnkeys US 2108",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
       },
-      "connect_timeout": "15s"
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-10 v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb0be83e-ff5c-4601-8572-18deac592958",
+      "tls": {
+        "enabled": true,
+        "server_name": "nimahavok.pages.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "nimahavok.pages.dev"
+        }
+      }
     },
     {
       "type": "vmess",
@@ -1976,8 +1866,7 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -1998,8 +1887,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
@@ -2018,8 +1906,7 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -2040,8 +1927,11 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      },
-      "connect_timeout": "15s"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     },
     {
       "type": "vmess",
@@ -2061,8 +1951,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -2082,8 +1971,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -2103,8 +1991,7 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -2124,8 +2011,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -2145,136 +2031,11 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
       "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
-      "tls": {
-        "enabled": true,
-        "server_name": "akamaized.my",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "akamaized.my"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK bel432 xl 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK bel432 xl 2 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK VMess-WS-TLS-443-akuku8 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "fbcdn.sbs"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "fbcdn.sbs"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK bel432 telk 2",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK 10.lowh.net 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "10.lowh.net"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/hello",
-        "headers": {
-          "Host": "10.lowh.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 3",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",

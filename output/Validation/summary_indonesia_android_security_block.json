@@ -1,0 +1,165 @@
+{
+  "generated_at": "2026-06-01T04:44:20+00:00",
+  "repo": "adiorany3/SumberYAML",
+  "branch": "main",
+  "url_source": "raw",
+  "providers": {
+    "malware-adware": {
+      "title": "Malware, phishing, scam, adware and threat domains",
+      "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/malware-adware.yaml",
+      "domains": 50000,
+      "rules": 50000,
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/tif.txt",
+          "count": 50000,
+          "error": null
+        }
+      ]
+    },
+    "android-ads": {
+      "title": "Android in-app ads, adware and tracking SDK domains",
+      "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/android-ads.yaml",
+      "domains": 12054,
+      "rules": 12052,
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt",
+          "count": 12000,
+          "error": null
+        }
+      ]
+    },
+    "indonesia-ads": {
+      "title": "Indonesian ads and local ad networks",
+      "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/indonesia-ads.yaml",
+      "domains": 121,
+      "rules": 121,
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/domain.txt",
+          "count": 121,
+          "error": null
+        },
+        {
+          "url": "https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/hosts.txt",
+          "count": 121,
+          "error": null
+        }
+      ]
+    },
+    "general-ads": {
+      "title": "General internet ads and trackers",
+      "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/general-ads.yaml",
+      "domains": 25022,
+      "rules": 25022,
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/domain.txt",
+          "count": 121,
+          "error": null
+        },
+        {
+          "url": "https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt",
+          "count": 25000,
+          "error": null
+        }
+      ]
+    }
+  },
+  "yaml_results": {
+    "output/openclash-ready.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "output/lengkap.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "output/lengkap_alive.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "output/strict_alive.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "output/lite.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "output/fast.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "output/gaming.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "output/social_media.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "output/streaming.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "output/working.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "output/general.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/openclash-ready.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/social_media.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/gaming.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/general.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/streaming.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/lengkap_alive.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/strict_alive.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/fast.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/lengkap.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/lite.yaml": {
+      "exists": true,
+      "updated": true
+    },
+    "/home/runner/work/SumberYAML/SumberYAML/output/working.yaml": {
+      "exists": true,
+      "updated": true
+    }
+  },
+  "notes": [
+    "Manual trusted accounts from input.txt/input/links.txt are not filtered or touched by this script.",
+    "Core domains such as youtube.com, googlevideo.com, googleapis.com, github.com and whatsapp.com are protected to reduce breakage.",
+    "This is DNS/rule based blocking; it cannot guarantee 100% removal of all ads embedded through first-party domains."
+  ]
+}

@@ -39,7 +39,11 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "kurdconfig 7158",
+        "oneclickvpnkeys US",
+        "config_free2 3497",
+        "oneclickvpnkeys US 2983",
+        "chillguy_vpn 7012",
+        "oneclickvpnkeys US 2108",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -49,13 +53,7 @@
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 3",
-        "LINK VMess-WS-TLS-443-akuku8 3",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 3",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -65,7 +63,11 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "kurdconfig 7158",
+        "oneclickvpnkeys US",
+        "config_free2 3497",
+        "oneclickvpnkeys US 2983",
+        "chillguy_vpn 7012",
+        "oneclickvpnkeys US 2108",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -75,61 +77,129 @@
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 3",
-        "LINK VMess-WS-TLS-443-akuku8 3",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 3",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80
+      "tolerance": 50
     },
     {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "DIRECT",
-        "AUTO-BEST-STABLE",
-        "AUTO-BEST-PING",
-        "kurdconfig 7158",
         "LINK bel432 xl",
+        "AUTO-BEST-PING",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "DIRECT",
+        "oneclickvpnkeys US",
+        "config_free2 3497",
+        "oneclickvpnkeys US 2983",
+        "chillguy_vpn 7012",
+        "oneclickvpnkeys US 2108",
+        "AUTO-BEST-STABLE",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 3",
-        "LINK VMess-WS-TLS-443-akuku8 3",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 3",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
       "default": "AUTO-BEST-STABLE"
     },
     {
       "type": "vless",
-      "tag": "kurdconfig 7158",
+      "tag": "oneclickvpnkeys US",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
+      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
       "tls": {
         "enabled": true,
-        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
+        "server_name": "m.udemy.com.cyylr.eu.cc",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/id-pusat",
+        "path": "/id-tksi",
         "headers": {
-          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+          "Host": "m.udemy.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "config_free2 3497",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "tls": {
+        "enabled": true,
+        "server_name": "juzi.qea.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
+        "headers": {
+          "Host": "juzi.qea.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "oneclickvpnkeys US 2983",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "7872e85d-fd7e-4472-99e5-49cb48d0f668",
+      "tls": {
+        "enabled": true,
+        "server_name": "freepol2.3r8sv.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "freepol2.3r8sv.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "chillguy_vpn 7012",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "tls": {
+        "enabled": true,
+        "server_name": "juzi.qea.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
+        "headers": {
+          "Host": "juzi.qea.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "oneclickvpnkeys US 2108",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
         }
       }
     },
@@ -211,6 +281,10 @@
           "Host": "akamaized.my"
         }
       }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     },
     {
       "type": "vmess",
@@ -315,129 +389,6 @@
     {
       "type": "vless",
       "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
-      "tls": {
-        "enabled": true,
-        "server_name": "akamaized.my",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "akamaized.my"
-        }
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK bel432 xl 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK bel432 xl 2 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK VMess-WS-TLS-443-akuku8 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "fbcdn.sbs"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "fbcdn.sbs"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK bel432 telk 2",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK 10.lowh.net 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "10.lowh.net"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/hello",
-        "headers": {
-          "Host": "10.lowh.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 3",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",

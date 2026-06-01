@@ -4,7 +4,7 @@
   "filter_alive_only": true,
   "strict_alive_only": true,
   "test_rounds": 2,
-  "require_success_rounds": 1,
+  "require_success_rounds": 2,
   "strict_max_delay_ms": 8000,
   "tcp_fallback_enabled": true,
   "tcp_only_output_disabled": false,
@@ -15,13 +15,13 @@
   "workers": 20,
   "tester": "strict-mihomo-delay",
   "tester_ok": true,
-  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
+  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 2/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
   "rounds": [
     {
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 46,
+      "alive": 47,
       "message": "Mihomo proxy delay test selesai."
     },
     {
@@ -35,24 +35,52 @@
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
   "total": 1269,
-  "alive": 47,
-  "strict_alive": 47,
-  "dead": 1222,
+  "alive": 24,
+  "strict_alive": 24,
+  "dead": 1245,
   "untested": 0,
-  "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
+  "final_output_filter": "strict/balanced alive 2/2 <= 8000ms",
   "best_ping_top_n": 10,
   "best_ping_country_filter": "ID",
   "best_ping_fallback_global_if_empty": true,
   "best_ping_url_test_group": "URL-TEST TOP 10 INDONESIA",
   "best_ping_group_type": "url-test",
-  "best_ping_count": 1,
+  "best_ping_count": 10,
   "best_ping_names": [
-    "kurdconfig 7158"
+    "oneclickvpnkeys US",
+    "config_free2 3497",
+    "oneclickvpnkeys US 2983",
+    "chillguy_vpn 7012",
+    "US t.me the_phoenixvpn",
+    "https telegraph.rayan-config.workers.dev persian 4734",
+    "v2configlab_ DE",
+    "oneclickvpnkeys US 1602",
+    "oneclickvpnkeys US 2108",
+    "oneclickvpnkeys US 5071"
   ],
   "responsive_top_n": 20,
-  "responsive_count": 1,
+  "responsive_count": 20,
   "responsive_names": [
-    "kurdconfig 7158"
+    "oneclickvpnkeys US",
+    "config_free2 3497",
+    "oneclickvpnkeys US 2983",
+    "chillguy_vpn 7012",
+    "US t.me the_phoenixvpn",
+    "https telegraph.rayan-config.workers.dev persian 4734",
+    "v2configlab_ DE",
+    "oneclickvpnkeys US 1602",
+    "oneclickvpnkeys US 2108",
+    "oneclickvpnkeys US 5071",
+    "oneclickvpnkeys US 7294",
+    "v2reya88",
+    "Wiizard_Net",
+    "SHOP_GAMING1011",
+    "oneclickvpnkeys US 3811",
+    "hi_proxy_iran 1402",
+    "17",
+    "telegram tajrobe_wiki",
+    "vpnbaz 7926",
+    "v2rayngzendegimamad 8464"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -64,5 +92,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 47
+  "strict_output_count": 24
 }
