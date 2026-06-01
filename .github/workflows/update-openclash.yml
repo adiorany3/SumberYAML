@@ -605,6 +605,21 @@ jobs:
             *) echo "Skip Performance Lite outputs." ;;
           esac
 
+      - name: Ensure Performance Lite JSON exists
+        run: |
+          set -e
+          if [ -f scripts/ensure_performance_lite_exists.py ]; then
+            python scripts/ensure_performance_lite_exists.py               --max-nodes "${PERFORMANCE_LITE_MAX_NODES}"               --subscription-max-lines "${PERFORMANCE_SUBSCRIPTION_MAX_LINES}"
+          else
+            echo "scripts/ensure_performance_lite_exists.py missing; cannot force-create performance-lite.json"
+            exit 1
+          fi
+
+          test -s output/SingBox/performance-lite.json
+          echo "performance-lite.json created:"
+          ls -lh output/SingBox/performance-lite.json
+          cat output/Performance/summary_ensure_performance_lite.json || true
+
       - name: Optional proxy rename with update date
         run: |
           set -e
