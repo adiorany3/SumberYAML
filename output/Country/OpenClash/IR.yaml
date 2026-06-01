@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2reya88 8101"
+  - name: "v2reya88 3826"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -47,20 +47,6 @@ proxies:
       path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
       headers:
         Host: "www.linkman1.ir"
-    udp: true
-  - name: "Wiizard_Net"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "cdn.linkman1.ir"
-    ws-opts:
-      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
-      headers:
-        Host: "cdn.linkman1.ir"
     udp: true
 
 proxy-groups:
