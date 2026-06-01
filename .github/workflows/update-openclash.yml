@@ -36,6 +36,7 @@ on:
           - build_nekobox
           - rename_proxy_date
           - performance_optimize
+          - fix_singbox_inbound
       enable_proxy_test:
         description: "Jalankan test proxy/ping"
         required: false
@@ -789,6 +790,24 @@ jobs:
               fi
               ;;
             *) echo "Skip latest-good backup." ;;
+          esac
+
+
+      - name: Migrate sing-box legacy inbound fields
+        if: ${{ always() }}
+        run: |
+          set -e
+          case "${MODE}" in
+            update|sanitize_import|build_ready|performance_optimize|fix_singbox_inbound)
+              if [ -f scripts/migrate_singbox_legacy_inbound_fields.py ]; then
+                python scripts/migrate_singbox_legacy_inbound_fields.py \
+                  --dir output/SingBox \
+                  --report output/SingBox/summary_legacy_inbound_migration.json
+              else
+                echo "scripts/migrate_singbox_legacy_inbound_fields.py missing; skip inbound migration."
+              fi
+              ;;
+            *) echo "Skip sing-box legacy inbound migration." ;;
           esac
 
       - name: Show output summary
