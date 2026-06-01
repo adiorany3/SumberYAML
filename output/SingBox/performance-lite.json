@@ -1,0 +1,313 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "cloudflare",
+        "address": "1.1.1.1"
+      },
+      {
+        "tag": "google",
+        "address": "8.8.8.8"
+      }
+    ],
+    "final": "cloudflare"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "address": [
+        "172.19.0.1/30"
+      ],
+      "auto_route": true,
+      "strict_route": false,
+      "sniff": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 7893,
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "PROXY",
+      "outbounds": [
+        "AUTO-PERFORMANCE-LITE",
+        "9https t.me VIPV2rayNGNP",
+        "v2rayvpno",
+        "v2ray_dalghak",
+        "V2raysCollector",
+        "v2ray_dalghak 2076",
+        "55 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "43 oneclickvpnkeys",
+        "outline_ir",
+        "DIRECT"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "AUTO-PERFORMANCE-LITE",
+      "outbounds": [
+        "9https t.me VIPV2rayNGNP",
+        "v2rayvpno",
+        "v2ray_dalghak",
+        "V2raysCollector",
+        "v2ray_dalghak 2076",
+        "55 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "43 oneclickvpnkeys",
+        "outline_ir"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "vless",
+      "tag": "9https t.me VIPV2rayNGNP",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e258977b-e413-4718-a3af-02d75492c349",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp.aniua.qzz.io",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "jp.aniua.qzz.io"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2rayvpno",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "536d0d54-53a5-455a-ad7c-a525d8ff629f",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "tesdt.arvanabr.xyz",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tesdt.arvanabr.xyz"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2ray_dalghak",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "06b65903-406d-4a41-8463-6fd5c0ee7798",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "sni.skylee4.cloudns.ch",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/proxyip=ProxyIP.CMLiussss.net",
+        "headers": {
+          "Host": "sni.skylee4.cloudns.ch"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "V2raysCollector",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "06b65903-406d-4a41-8463-6fd5c0ee7798",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "sni.skylee4.cloudns.ch",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "sni.skylee4.cloudns.ch"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2ray_dalghak 2076",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "06b65903-406d-4a41-8463-6fd5c0ee7798",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "sni.skylee4.cloudns.ch",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/proxyip",
+        "headers": {
+          "Host": "sni.skylee4.cloudns.ch"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "55 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ae0dd58e-e222-40bf-84ae-365a97532737",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "pagescm.freen31.cc.cd",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/dh/images/group",
+        "headers": {
+          "Host": "pagescm.freen31.cc.cd"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "30 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "9d27a374-26d9-46df-9895-312a2062bc47",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "uin-ape.pages.dev",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "uin-ape.pages.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SC 33723 Telegram t.me SOSkeyNET",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ada4ea8a-41d8-41b2-bcf5-9bf961b7d676",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn12.kaiserping.site",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "cdn12.kaiserping.site"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "43 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ae0dd58e-e222-40bf-84ae-365a97532737",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "pagescm.freen31.cc.cd",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/sitefp=chrome",
+        "headers": {
+          "Host": "pagescm.freen31.cc.cd"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "outline_ir",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c2f0a8f0-36fe-4a94-824b-bca271ca642b",
+      "network": "tcp",
+      "tls": {
+        "enabled": true,
+        "server_name": "alphacdn.alphashops.shop",
+        "insecure": true
+      },
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "alphacdn.alphashops.shop"
+        }
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "ip_cidr": [
+          "10.0.0.0/8",
+          "172.16.0.0/12",
+          "192.168.0.0/16",
+          "127.0.0.0/8",
+          "169.254.0.0/16",
+          "224.0.0.0/4",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
+        "outbound": "DIRECT"
+      }
+    ],
+    "final": "PROXY"
+  }
+}
