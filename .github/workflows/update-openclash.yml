@@ -491,6 +491,24 @@ jobs:
             echo "build_nekobox_outputs.py not found; skip."
           fi
 
+
+      - name: Force final OpenClash rule-providers into YAML outputs
+        run: |
+          set -e
+          case "$MODE" in
+            rollback_latest_good|diagnostics|clear_quarantine|build_v2raybox|build_nekobox)
+              echo "Skip final rule-provider enforcement for mode: $MODE"
+              exit 0
+              ;;
+          esac
+
+          if [ -f scripts/ensure_openclash_rule_providers_final.py ]; then
+            python scripts/ensure_openclash_rule_providers_final.py               --repo "${{ github.repository }}"               --branch "${GITHUB_REF_NAME:-main}"               --url-source raw
+            cat output/Validation/summary_rule_providers_final.json || true
+          else
+            echo "ensure_openclash_rule_providers_final.py not found; skip."
+          fi
+
       - name: Update node score history
         if: ${{ env.MODE != 'rollback_latest_good' }}
         run: |
