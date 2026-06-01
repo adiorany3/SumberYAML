@@ -28,7 +28,6 @@ dns:
   default-nameserver:
   - 1.1.1.1
   - 8.8.8.8
-  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - '*.lan'
   - '*.local'
@@ -42,8 +41,9 @@ dns:
   - time-ios.apple.com
   - +.pool.ntp.org
   - +.ntp.org
+  fake-ip-range: 198.18.0.1/16
 proxies:
-- name: kurdconfig 6619
+- name: kurdconfig 3529
   server: 104.17.3.81
   port: 443
   type: vless
@@ -120,7 +120,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: ID-01 kurdconfig 6619
+- name: ID-01 kurdconfig 3529
   server: 104.17.3.81
   port: 443
   type: vless
@@ -197,7 +197,7 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: STREAM-01 kurdconfig 6619
+- name: STREAM-01 kurdconfig 3529
   server: 104.17.3.81
   port: 443
   type: vless
@@ -274,7 +274,7 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GAME-01 kurdconfig 6619
+- name: GAME-01 kurdconfig 3529
   server: 104.17.3.81
   port: 443
   type: vless
@@ -351,7 +351,7 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: SOCIAL-01 kurdconfig 6619
+- name: SOCIAL-01 kurdconfig 3529
   server: 104.17.3.81
   port: 443
   type: vless
@@ -428,7 +428,7 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: WORK-01 kurdconfig 6619
+- name: WORK-01 kurdconfig 3529
   server: 104.17.3.81
   port: 443
   type: vless
@@ -505,7 +505,7 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GEN-01 kurdconfig 6619
+- name: GEN-01 kurdconfig 3529
   server: 104.17.3.81
   port: 443
   type: vless
@@ -586,7 +586,7 @@ proxy-groups:
 - name: INDONESIA-BEST
   type: url-test
   proxies:
-  - ID-01 kurdconfig 6619
+  - ID-01 kurdconfig 3529
   - ID-02 LINK 10.lowh.net
   - ID-03 LINK bel432 xl
   - ID-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -599,31 +599,10 @@ proxy-groups:
   interval: 300
   lazy: true
   tolerance: 80
-- name: fallback-link
-  type: fallback
-  proxies:
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-- name: best-link
-  type: url-test
-  proxies:
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
-  - kurdconfig 6619
+  - kurdconfig 3529
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -637,7 +616,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 6619
+  - kurdconfig 3529
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -650,6 +629,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - kurdconfig 3529
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -662,6 +642,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - kurdconfig 3529
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -674,6 +655,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - kurdconfig 3529
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -686,6 +668,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - kurdconfig 3529
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -698,6 +681,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - kurdconfig 3529
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -708,7 +692,7 @@ proxy-groups:
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - kurdconfig 6619
+  - kurdconfig 3529
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -722,7 +706,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 6619
+  - kurdconfig 3529
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -743,6 +727,7 @@ proxy-groups:
   - fallback-link
   - best-link
   - DIRECT
+  - BEST-STABLE
   - FALLBACK
   - URL-TEST TOP 10 INDONESIA
   - FALLBACK CEPAT
@@ -757,10 +742,43 @@ proxy-groups:
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+- name: BEST-STABLE
+  type: url-test
+  proxies:
+  - kurdconfig 3529
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: best-link
+  type: url-test
+  proxies:
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: fallback-link
+  type: fallback
+  proxies:
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
 - name: STREAMING-BEST
   type: url-test
   proxies:
-  - STREAM-01 kurdconfig 6619
+  - STREAM-01 kurdconfig 3529
   - STREAM-02 LINK 10.lowh.net
   - STREAM-03 LINK bel432 xl
   - STREAM-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -776,7 +794,7 @@ proxy-groups:
 - name: GAMING-BEST
   type: url-test
   proxies:
-  - GAME-01 kurdconfig 6619
+  - GAME-01 kurdconfig 3529
   - GAME-02 LINK 10.lowh.net
   - GAME-03 LINK bel432 xl
   - GAME-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -792,7 +810,7 @@ proxy-groups:
 - name: SOCIAL-BEST
   type: url-test
   proxies:
-  - SOCIAL-01 kurdconfig 6619
+  - SOCIAL-01 kurdconfig 3529
   - SOCIAL-02 LINK 10.lowh.net
   - SOCIAL-03 LINK bel432 xl
   - SOCIAL-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -808,7 +826,7 @@ proxy-groups:
 - name: WORKING-BEST
   type: url-test
   proxies:
-  - WORK-01 kurdconfig 6619
+  - WORK-01 kurdconfig 3529
   - WORK-02 LINK 10.lowh.net
   - WORK-03 LINK bel432 xl
   - WORK-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -824,7 +842,7 @@ proxy-groups:
 - name: GENERAL-BEST
   type: url-test
   proxies:
-  - GEN-01 kurdconfig 6619
+  - GEN-01 kurdconfig 3529
   - GEN-02 LINK 10.lowh.net
   - GEN-03 LINK bel432 xl
   - GEN-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -842,6 +860,7 @@ proxy-groups:
   proxies:
   - INDONESIA-BEST
   - GENERAL-BEST
+  - BEST-STABLE
   - fallback-link
   - best-link
   - FALLBACK
@@ -853,6 +872,8 @@ proxy-groups:
   interval: 300
   lazy: true
 rules:
+- RULE-SET,marketplace-protect,INDONESIA-BEST
+- RULE-SET,game-block,REJECT
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,lan,DIRECT
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
@@ -926,19 +947,19 @@ rules:
 - RULE-SET,general-ads,REJECT
 - MATCH,PROXY
 rule-providers:
-  malware-adware:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./rule_provider/malware-adware.yaml
-    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/malware-adware.yaml
-    interval: 86400
   general-ads:
     type: http
     behavior: classical
     format: yaml
     path: ./rule_provider/general-ads.yaml
     url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/general-ads.yaml
+    interval: 86400
+  malware-adware:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/malware-adware.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/malware-adware.yaml
     interval: 86400
   indonesia-ads:
     type: http
@@ -960,4 +981,25 @@ rule-providers:
     format: yaml
     path: ./rule_provider/youtube-ads.yaml
     url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/youtube-ads.yaml
+    interval: 86400
+  goodbyeads-youtube:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/goodbyeads-youtube.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/goodbyeads-youtube.yaml
+    interval: 86400
+  game-block:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/game-block.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/game-block.yaml
+    interval: 86400
+  marketplace-protect:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/marketplace-protect.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/marketplace-protect.yaml
     interval: 86400

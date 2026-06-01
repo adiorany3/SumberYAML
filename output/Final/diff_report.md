@@ -1,6 +1,6 @@
 # SumberYAML Diff Report
 
-Generated: `2026-06-01T06:09:00+00:00`
+Generated: `2026-06-01T06:33:13+00:00`
 Manual trusted links: **6**
 
 ## Summary
@@ -10,95 +10,87 @@ Changed files: **16** / 16
 ## Files
 
 ### `output/SingBox/best-stable-safe.json` — changed
-- outbounds: 24 (prev 24)
+- outbounds: 24 (prev 0)
+- added outbounds: `2 DE av2ngFast`, `96 oneclickvpnkeys`, `AUTO-BEST-PING`, `AUTO-BEST-STABLE`, `CA 41804 Telegram t.me SOSkeyNET`, `DIRECT`, `Free 52 Outline_Vpn`, `Iranvasll`, `LINK 10.lowh.net`, `LINK 10.lowh.net 2`, `LINK VLESS-WS-TLS-443-apt50atpprem`, `LINK VLESS-WS-TLS-443-apt50atpprem 2`, `LINK VMess-WS-TLS-443-akuku8`, `LINK VMess-WS-TLS-443-akuku8 2`, `LINK bel432 telk`, `LINK bel432 xl`, `LINK bel432 xl 2`, `LINK bel432 xl 2 2`, `PROXY`, `V2ray_official`
 
 ### `output/SingBox/import-ready.json` — changed
-- outbounds: 26 (prev 26)
+- outbounds: 26 (prev 0)
+- added outbounds: `2 DE av2ngFast`, `96 oneclickvpnkeys`, `AUTO-BEST-PING`, `AUTO-BEST-STABLE`, `AUTO-MOBILE-STABLE`, `CA 41804 Telegram t.me SOSkeyNET`, `DIRECT`, `Free 52 Outline_Vpn`, `Iranvasll`, `LINK 10.lowh.net`, `LINK 10.lowh.net 2`, `LINK VLESS-WS-TLS-443-apt50atpprem`, `LINK VLESS-WS-TLS-443-apt50atpprem 2`, `LINK VMess-WS-TLS-443-akuku8`, `LINK VMess-WS-TLS-443-akuku8 2`, `LINK bel432 telk`, `LINK bel432 xl`, `LINK bel432 xl 2`, `LINK bel432 xl 2 2`, `PROXY`
 
 ### `output/SingBox/latest-safe.json` — changed
-- outbounds: 24 (prev 24)
+- outbounds: 24 (prev 0)
+- added outbounds: `2 DE av2ngFast`, `96 oneclickvpnkeys`, `AUTO-BEST-PING`, `AUTO-BEST-STABLE`, `CA 41804 Telegram t.me SOSkeyNET`, `DIRECT`, `Free 52 Outline_Vpn`, `Iranvasll`, `LINK 10.lowh.net`, `LINK 10.lowh.net 2`, `LINK VLESS-WS-TLS-443-apt50atpprem`, `LINK VLESS-WS-TLS-443-apt50atpprem 2`, `LINK VMess-WS-TLS-443-akuku8`, `LINK VMess-WS-TLS-443-akuku8 2`, `LINK bel432 telk`, `LINK bel432 xl`, `LINK bel432 xl 2`, `LINK bel432 xl 2 2`, `PROXY`, `V2ray_official`
 
 ### `output/SingBox/lengkap-safe.json` — changed
-- outbounds: 159 (prev 156)
-- added outbounds: `By EbraSha 8020`, `FI t.me Natrixo AA`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 4561`, `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 kurdconfig 6619`, `GEN-02 oneclickvpnkeys US`, `GEN-03 oneclickvpnkeys US 2405`, `GEN-04 oneclickvpnkeys US 4935`, `GEN-05 oneclickvpnkeys US 9010`, `GEN-06 oneclickvpnkeys US 3399`, `GEN-07 oneclickvpnkeys US 4001`, `GEN-08 oneclickvpnkeys US 5219`
-- removed outbounds: `By EbraSha 7223`, `By EbraSha 9767`, `CA 41865 Telegram t.me SOSkeyNET`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2399`, `FreeConffning`, `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 https telegraph.rayan-config.workers.dev persian 7615`, `GEN-03 oneclickvpnkeys US`, `GEN-04 oneclickvpnkeys US 8909`, `GEN-05 Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2399`, `GEN-06 oneclickvpnkeys US 3257`
+- outbounds: 160 (prev 0)
+- added outbounds: `2 DE av2ngFast`, `38 oneclickvpnkeys`, `65 oneclickvpnkeys`, `68766 - Telegram V2All`, `96 oneclickvpnkeys`, `AUTO-BEST-PING`, `AUTO-BEST-STABLE`, `BEST-STABLE`, `By EbraSha 6065`, `By EbraSha 9881`, `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `CA 41994 Telegram t.me SOSkeyNET`, `DIRECT`, `FALLBACK`, `FALLBACK CEPAT`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 7899`, `Filtershekan_channel 5`, `Free 40 Outline_ir`, `Free 52 Outline_Vpn`
 
 ### `output/SingBox/mobile-stable-safe.json` — changed
-- outbounds: 25 (prev 25)
+- outbounds: 25 (prev 0)
+- added outbounds: `2 DE av2ngFast`, `96 oneclickvpnkeys`, `AUTO-BEST-PING`, `AUTO-BEST-STABLE`, `AUTO-MOBILE-STABLE`, `CA 41804 Telegram t.me SOSkeyNET`, `DIRECT`, `Free 52 Outline_Vpn`, `Iranvasll`, `LINK 10.lowh.net`, `LINK 10.lowh.net 2`, `LINK VLESS-WS-TLS-443-apt50atpprem`, `LINK VLESS-WS-TLS-443-apt50atpprem 2`, `LINK VMess-WS-TLS-443-akuku8`, `LINK VMess-WS-TLS-443-akuku8 2`, `LINK bel432 telk`, `LINK bel432 xl`, `LINK bel432 xl 2`, `LINK bel432 xl 2 2`, `PROXY`
 
 ### `output/fast.yaml` — changed
-- proxies: 35 (prev 35)
-- groups: 19 (prev 19)
-- rules: 72
-- added proxies: `GAME-01 kurdconfig 6619`, `GEN-01 kurdconfig 6619`, `ID-01 kurdconfig 6619`, `SOCIAL-01 kurdconfig 6619`, `STREAM-01 kurdconfig 6619`, `WORK-01 kurdconfig 6619`, `kurdconfig 6619`
-- removed proxies: `GAME-01 kurdconfig 3670`, `GEN-01 kurdconfig 3670`, `ID-01 kurdconfig 3670`, `SOCIAL-01 kurdconfig 3670`, `STREAM-01 kurdconfig 3670`, `WORK-01 kurdconfig 3670`, `kurdconfig 3670`
+- proxies: 35 (prev 0)
+- groups: 20 (prev 0)
+- rules: 74
+- added proxies: `GAME-01 kurdconfig 3529`, `GAME-02 LINK 10.lowh.net`, `GAME-03 LINK bel432 xl`, `GAME-04 LINK VLESS-WS-TLS-443-apt50atpprem`, `GAME-05 LINK VMess-WS-TLS-443-akuku8`, `GEN-01 kurdconfig 3529`, `GEN-02 LINK 10.lowh.net`, `GEN-03 LINK bel432 xl`, `GEN-04 LINK VLESS-WS-TLS-443-apt50atpprem`, `GEN-05 LINK VMess-WS-TLS-443-akuku8`, `ID-01 kurdconfig 3529`, `ID-02 LINK 10.lowh.net`, `ID-03 LINK bel432 xl`, `ID-04 LINK VLESS-WS-TLS-443-apt50atpprem`, `ID-05 LINK VMess-WS-TLS-443-akuku8`, `LINK 10.lowh.net`, `LINK VLESS-WS-TLS-443-apt50atpprem`, `LINK VMess-WS-TLS-443-akuku8`, `LINK bel432 xl`, `SOCIAL-01 kurdconfig 3529`
 
 ### `output/gaming.yaml` — changed
-- proxies: 73 (prev 74)
-- groups: 11 (prev 11)
-- rules: 72
-- added proxies: `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 oneclickvpnkeys US 9335`, `GEN-02 KE 42003 Telegram t.me SOSkeyNET`, `GEN-04 Iranvasll`, `GEN-05 v2rayngvpn US`, `GEN-06 TEL Father_vpn 9759`, `GEN-07 v2ray1_ng FR`, `GEN-08 oneclickvpnkeys FR 5384`, `GEN-09 oneclickvpnkeys NL`, `GEN-10 oneclickvpnkeys PL`, `ID-01 LINK bel432 xl`, `Iranvasll`
-- removed proxies: `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 oneclickvpnkeys US 3279`, `GEN-04 v2configlab_ DE`, `GEN-05 config_free2 4796`, `GEN-06 hi_proxy_iran 1541`, `GEN-07 v2reya88 3826`, `GEN-08 v2ray1_ng FR`, `GEN-09 oneclickvpnkeys FR 8255`, `GEN-10 oneclickvpnkeys NL`, `ID-01 kurdconfig 3670`, `ID-02 LINK bel432 xl`
+- proxies: 68 (prev 0)
+- groups: 12 (prev 0)
+- rules: 74
+- added proxies: `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `CA 41994 Telegram t.me SOSkeyNET`, `GAME-01 KE 42003 Telegram t.me SOSkeyNET`, `GAME-02 US 42002 Telegram t.me SOSkeyNET`, `GAME-03 freenettir NZ New ZealandWellington (Thorndon)ping 45.68ms`, `GAME-04 CA 41991 Telegram t.me SOSkeyNET`, `GAME-05 v2reya88`, `GAME-06 CA 41804 Telegram t.me SOSkeyNET`, `GAME-07 oneclickvpnkeys US`, `GAME-08 CA 41994 Telegram t.me SOSkeyNET`, `GAME-09 oneclickvpnkeys US 6879`, `GAME-10 oneclickvpnkeys US 3183`, `GAME-11 LINK 10.lowh.net`, `GAME-12 LINK bel432 xl`, `GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem`, `GAME-14 LINK VMess-WS-TLS-443-akuku8`, `GEN-01 KE 42003 Telegram t.me SOSkeyNET`, `GEN-02 US 42002 Telegram t.me SOSkeyNET`, `GEN-03 freenettir NZ New ZealandWellington (Thorndon)ping 45.68ms`
 
 ### `output/general.yaml` — changed
-- proxies: 69 (prev 70)
-- groups: 11 (prev 11)
-- rules: 72
-- added proxies: `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 oneclickvpnkeys US 9335`, `GEN-02 KE 42003 Telegram t.me SOSkeyNET`, `GEN-04 Iranvasll`, `GEN-05 v2rayngvpn US`, `GEN-06 TEL Father_vpn 9759`, `GEN-07 v2ray1_ng FR`, `GEN-08 oneclickvpnkeys FR 5384`, `GEN-09 oneclickvpnkeys NL`, `GEN-10 oneclickvpnkeys PL`, `ID-01 LINK bel432 xl`, `Iranvasll`
-- removed proxies: `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 oneclickvpnkeys US 3279`, `GEN-04 v2configlab_ DE`, `GEN-05 config_free2 4796`, `GEN-06 hi_proxy_iran 1541`, `GEN-07 v2reya88 3826`, `GEN-08 v2ray1_ng FR`, `GEN-09 oneclickvpnkeys FR 8255`, `GEN-10 oneclickvpnkeys NL`, `ID-01 kurdconfig 3670`, `ID-02 LINK bel432 xl`
+- proxies: 64 (prev 0)
+- groups: 12 (prev 0)
+- rules: 74
+- added proxies: `68766 - Telegram V2All`, `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `GAME-01 KE 42003 Telegram t.me SOSkeyNET`, `GAME-02 US 42002 Telegram t.me SOSkeyNET`, `GAME-03 68766 - Telegram V2All`, `GAME-04 CA 41991 Telegram t.me SOSkeyNET`, `GAME-05 v2reya88`, `GAME-06 CA 41804 Telegram t.me SOSkeyNET`, `GAME-07 chillguy_vpn 7466`, `GAME-08 oneclickvpnkeys US`, `GAME-09 oneclickvpnkeys US 6879`, `GAME-10 oneclickvpnkeys US 3183`, `GEN-01 KE 42003 Telegram t.me SOSkeyNET`, `GEN-02 US 42002 Telegram t.me SOSkeyNET`, `GEN-03 68766 - Telegram V2All`, `GEN-04 CA 41991 Telegram t.me SOSkeyNET`, `GEN-05 v2reya88`, `GEN-06 CA 41804 Telegram t.me SOSkeyNET`, `GEN-07 chillguy_vpn 7466`
 
 ### `output/lengkap.yaml` — changed
-- proxies: 129 (prev 126)
-- groups: 22 (prev 22)
-- rules: 72
-- added proxies: `By EbraSha 8020`, `FI t.me Natrixo AA`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 4561`, `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 kurdconfig 6619`, `GEN-02 oneclickvpnkeys US`, `GEN-03 oneclickvpnkeys US 2405`, `GEN-04 oneclickvpnkeys US 4935`, `GEN-05 oneclickvpnkeys US 9010`, `GEN-06 oneclickvpnkeys US 3399`, `GEN-07 oneclickvpnkeys US 4001`, `GEN-08 oneclickvpnkeys US 5219`
-- removed proxies: `By EbraSha 7223`, `By EbraSha 9767`, `CA 41865 Telegram t.me SOSkeyNET`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2399`, `FreeConffning`, `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 https telegraph.rayan-config.workers.dev persian 7615`, `GEN-03 oneclickvpnkeys US`, `GEN-04 oneclickvpnkeys US 8909`, `GEN-05 Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2399`, `GEN-06 oneclickvpnkeys US 3257`
+- proxies: 129 (prev 0)
+- groups: 23 (prev 0)
+- rules: 74
+- added proxies: `2 DE av2ngFast`, `38 oneclickvpnkeys`, `65 oneclickvpnkeys`, `68766 - Telegram V2All`, `96 oneclickvpnkeys`, `By EbraSha 6065`, `By EbraSha 9881`, `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `CA 41994 Telegram t.me SOSkeyNET`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 7899`, `Filtershekan_channel 5`, `Free 40 Outline_ir`, `Free 52 Outline_Vpn`, `FreeConffning`, `GAME-01 KE 42003 Telegram t.me SOSkeyNET`, `GAME-02 US 42002 Telegram t.me SOSkeyNET`, `GAME-03 freenettir NZ New ZealandWellington (Thorndon)ping 45.68ms`, `GAME-04 CA 41991 Telegram t.me SOSkeyNET`, `GAME-05 v2reya88`
 
 ### `output/lengkap_alive.yaml` — changed
-- proxies: 129 (prev 126)
-- groups: 22 (prev 22)
-- rules: 72
-- added proxies: `By EbraSha 8020`, `FI t.me Natrixo AA`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 4561`, `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 kurdconfig 6619`, `GEN-02 oneclickvpnkeys US`, `GEN-03 oneclickvpnkeys US 2405`, `GEN-04 oneclickvpnkeys US 4935`, `GEN-05 oneclickvpnkeys US 9010`, `GEN-06 oneclickvpnkeys US 3399`, `GEN-07 oneclickvpnkeys US 4001`, `GEN-08 oneclickvpnkeys US 5219`
-- removed proxies: `By EbraSha 7223`, `By EbraSha 9767`, `CA 41865 Telegram t.me SOSkeyNET`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2399`, `FreeConffning`, `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 https telegraph.rayan-config.workers.dev persian 7615`, `GEN-03 oneclickvpnkeys US`, `GEN-04 oneclickvpnkeys US 8909`, `GEN-05 Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2399`, `GEN-06 oneclickvpnkeys US 3257`
+- proxies: 129 (prev 0)
+- groups: 23 (prev 0)
+- rules: 74
+- added proxies: `2 DE av2ngFast`, `38 oneclickvpnkeys`, `65 oneclickvpnkeys`, `68766 - Telegram V2All`, `96 oneclickvpnkeys`, `By EbraSha 6065`, `By EbraSha 9881`, `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `CA 41994 Telegram t.me SOSkeyNET`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 7899`, `Filtershekan_channel 5`, `Free 40 Outline_ir`, `Free 52 Outline_Vpn`, `FreeConffning`, `GAME-01 KE 42003 Telegram t.me SOSkeyNET`, `GAME-02 US 42002 Telegram t.me SOSkeyNET`, `GAME-03 freenettir NZ New ZealandWellington (Thorndon)ping 45.68ms`, `GAME-04 CA 41991 Telegram t.me SOSkeyNET`, `GAME-05 v2reya88`
 
 ### `output/lite.yaml` — changed
-- proxies: 92 (prev 89)
-- groups: 20 (prev 20)
-- rules: 72
-- added proxies: `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 kurdconfig 6619`, `GEN-02 oneclickvpnkeys US 9335`, `GEN-03 KE 42003 Telegram t.me SOSkeyNET`, `GEN-04 2 DE av2ngFast`, `GEN-05 Iranvasll`, `GEN-06 v2rayngvpn US`, `GEN-07 TEL Father_vpn 9759`, `GEN-09 oneclickvpnkeys FR 5384`, `GEN-11 oneclickvpnkeys PL`, `GEN-12 LINK 10.lowh.net`, `GEN-13 LINK bel432 xl`
-- removed proxies: `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 oneclickvpnkeys US 3279`, `GEN-03 2 DE av2ngFast`, `GEN-04 v2configlab_ DE`, `GEN-05 config_free2 4796`, `GEN-06 hi_proxy_iran 1541`, `GEN-07 v2reya88 3826`, `GEN-09 oneclickvpnkeys FR 8255`, `GEN-11 LINK 10.lowh.net`, `GEN-12 LINK bel432 xl`, `GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem`
+- proxies: 84 (prev 0)
+- groups: 21 (prev 0)
+- rules: 74
+- added proxies: `68766 - Telegram V2All`, `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `GAME-01 KE 42003 Telegram t.me SOSkeyNET`, `GAME-02 US 42002 Telegram t.me SOSkeyNET`, `GAME-03 CA 41991 Telegram t.me SOSkeyNET`, `GAME-04 v2reya88`, `GAME-05 CA 41804 Telegram t.me SOSkeyNET`, `GAME-06 oneclickvpnkeys US`, `GAME-07 oneclickvpnkeys US 6879`, `GAME-08 LINK 10.lowh.net`, `GAME-09 LINK bel432 xl`, `GAME-10 LINK VLESS-WS-TLS-443-apt50atpprem`, `GAME-11 LINK VMess-WS-TLS-443-akuku8`, `GEN-01 kurdconfig 3529`, `GEN-02 KE 42003 Telegram t.me SOSkeyNET`, `GEN-03 US 42002 Telegram t.me SOSkeyNET`, `GEN-04 68766 - Telegram V2All`, `GEN-05 CA 41991 Telegram t.me SOSkeyNET`, `GEN-06 v2reya88`
 
 ### `output/openclash-ready.yaml` — changed
-- proxies: 129 (prev 126)
-- groups: 23 (prev 23)
-- rules: 72
-- added proxies: `By EbraSha 8020`, `FI t.me Natrixo AA`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 4561`, `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 kurdconfig 6619`, `GEN-02 oneclickvpnkeys US`, `GEN-03 oneclickvpnkeys US 2405`, `GEN-04 oneclickvpnkeys US 4935`, `GEN-05 oneclickvpnkeys US 9010`, `GEN-06 oneclickvpnkeys US 3399`, `GEN-07 oneclickvpnkeys US 4001`, `GEN-08 oneclickvpnkeys US 5219`
-- removed proxies: `By EbraSha 7223`, `By EbraSha 9767`, `CA 41865 Telegram t.me SOSkeyNET`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2399`, `FreeConffning`, `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 https telegraph.rayan-config.workers.dev persian 7615`, `GEN-03 oneclickvpnkeys US`, `GEN-04 oneclickvpnkeys US 8909`, `GEN-05 Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2399`, `GEN-06 oneclickvpnkeys US 3257`
+- proxies: 129 (prev 0)
+- groups: 23 (prev 0)
+- rules: 74
+- added proxies: `2 DE av2ngFast`, `38 oneclickvpnkeys`, `65 oneclickvpnkeys`, `68766 - Telegram V2All`, `96 oneclickvpnkeys`, `By EbraSha 6065`, `By EbraSha 9881`, `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `CA 41994 Telegram t.me SOSkeyNET`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 7899`, `Filtershekan_channel 5`, `Free 40 Outline_ir`, `Free 52 Outline_Vpn`, `FreeConffning`, `GAME-01 KE 42003 Telegram t.me SOSkeyNET`, `GAME-02 US 42002 Telegram t.me SOSkeyNET`, `GAME-03 freenettir NZ New ZealandWellington (Thorndon)ping 45.68ms`, `GAME-04 CA 41991 Telegram t.me SOSkeyNET`, `GAME-05 v2reya88`
 
 ### `output/social_media.yaml` — changed
-- proxies: 77 (prev 78)
-- groups: 11 (prev 11)
-- rules: 72
-- added proxies: `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 oneclickvpnkeys US 9335`, `GEN-02 KE 42003 Telegram t.me SOSkeyNET`, `GEN-04 Iranvasll`, `GEN-05 v2rayngvpn US`, `GEN-06 TEL Father_vpn 9759`, `GEN-07 v2ray1_ng FR`, `GEN-08 oneclickvpnkeys FR 5384`, `GEN-09 oneclickvpnkeys NL`, `GEN-10 oneclickvpnkeys PL`, `ID-01 LINK bel432 xl`, `Iranvasll`
-- removed proxies: `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 oneclickvpnkeys US 3279`, `GEN-04 v2configlab_ DE`, `GEN-05 config_free2 4796`, `GEN-06 hi_proxy_iran 1541`, `GEN-07 v2reya88 3826`, `GEN-08 v2ray1_ng FR`, `GEN-09 oneclickvpnkeys FR 8255`, `GEN-10 oneclickvpnkeys NL`, `ID-01 kurdconfig 3670`, `ID-02 LINK bel432 xl`
+- proxies: 78 (prev 0)
+- groups: 12 (prev 0)
+- rules: 74
+- added proxies: `68766 - Telegram V2All`, `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `GAME-01 kurdconfig 3529`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-03 US 42002 Telegram t.me SOSkeyNET`, `GAME-04 68766 - Telegram V2All`, `GAME-05 CA 41991 Telegram t.me SOSkeyNET`, `GAME-06 v2reya88`, `GAME-07 CA 41804 Telegram t.me SOSkeyNET`, `GAME-08 chillguy_vpn 7466`, `GAME-09 oneclickvpnkeys US`, `GAME-10 oneclickvpnkeys US 6879`, `GEN-01 kurdconfig 3529`, `GEN-02 KE 42003 Telegram t.me SOSkeyNET`, `GEN-03 US 42002 Telegram t.me SOSkeyNET`, `GEN-04 68766 - Telegram V2All`, `GEN-05 CA 41991 Telegram t.me SOSkeyNET`, `GEN-06 v2reya88`, `GEN-07 CA 41804 Telegram t.me SOSkeyNET`
 
 ### `output/streaming.yaml` — changed
-- proxies: 73 (prev 74)
-- groups: 11 (prev 11)
-- rules: 72
-- added proxies: `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 oneclickvpnkeys US 9335`, `GEN-02 KE 42003 Telegram t.me SOSkeyNET`, `GEN-04 Iranvasll`, `GEN-05 v2rayngvpn US`, `GEN-06 TEL Father_vpn 9759`, `GEN-07 v2ray1_ng FR`, `GEN-08 oneclickvpnkeys FR 5384`, `GEN-09 oneclickvpnkeys NL`, `GEN-10 oneclickvpnkeys PL`, `ID-01 LINK bel432 xl`, `Iranvasll`
-- removed proxies: `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 oneclickvpnkeys US 3279`, `GEN-04 v2configlab_ DE`, `GEN-05 config_free2 4796`, `GEN-06 hi_proxy_iran 1541`, `GEN-07 v2reya88 3826`, `GEN-08 v2ray1_ng FR`, `GEN-09 oneclickvpnkeys FR 8255`, `GEN-10 oneclickvpnkeys NL`, `ID-01 kurdconfig 3670`, `ID-02 LINK bel432 xl`
+- proxies: 68 (prev 0)
+- groups: 12 (prev 0)
+- rules: 74
+- added proxies: `68766 - Telegram V2All`, `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `GAME-01 KE 42003 Telegram t.me SOSkeyNET`, `GAME-02 US 42002 Telegram t.me SOSkeyNET`, `GAME-03 68766 - Telegram V2All`, `GAME-04 freenettir NZ New ZealandWellington (Thorndon)ping 45.68ms`, `GAME-05 CA 41991 Telegram t.me SOSkeyNET`, `GAME-06 v2reya88`, `GAME-07 CA 41804 Telegram t.me SOSkeyNET`, `GAME-08 oneclickvpnkeys US`, `GAME-09 oneclickvpnkeys US 6879`, `GAME-10 oneclickvpnkeys US 3183`, `GEN-01 KE 42003 Telegram t.me SOSkeyNET`, `GEN-02 US 42002 Telegram t.me SOSkeyNET`, `GEN-03 68766 - Telegram V2All`, `GEN-04 freenettir NZ New ZealandWellington (Thorndon)ping 45.68ms`, `GEN-05 CA 41991 Telegram t.me SOSkeyNET`, `GEN-06 v2reya88`, `GEN-07 CA 41804 Telegram t.me SOSkeyNET`
 
 ### `output/strict_alive.yaml` — changed
-- proxies: 129 (prev 126)
-- groups: 22 (prev 22)
-- rules: 72
-- added proxies: `By EbraSha 8020`, `FI t.me Natrixo AA`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 4561`, `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 kurdconfig 6619`, `GEN-02 oneclickvpnkeys US`, `GEN-03 oneclickvpnkeys US 2405`, `GEN-04 oneclickvpnkeys US 4935`, `GEN-05 oneclickvpnkeys US 9010`, `GEN-06 oneclickvpnkeys US 3399`, `GEN-07 oneclickvpnkeys US 4001`, `GEN-08 oneclickvpnkeys US 5219`
-- removed proxies: `By EbraSha 7223`, `By EbraSha 9767`, `CA 41865 Telegram t.me SOSkeyNET`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2399`, `FreeConffning`, `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 https telegraph.rayan-config.workers.dev persian 7615`, `GEN-03 oneclickvpnkeys US`, `GEN-04 oneclickvpnkeys US 8909`, `GEN-05 Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 2399`, `GEN-06 oneclickvpnkeys US 3257`
+- proxies: 129 (prev 0)
+- groups: 23 (prev 0)
+- rules: 74
+- added proxies: `2 DE av2ngFast`, `38 oneclickvpnkeys`, `65 oneclickvpnkeys`, `68766 - Telegram V2All`, `96 oneclickvpnkeys`, `By EbraSha 6065`, `By EbraSha 9881`, `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `CA 41994 Telegram t.me SOSkeyNET`, `Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 7899`, `Filtershekan_channel 5`, `Free 40 Outline_ir`, `Free 52 Outline_Vpn`, `FreeConffning`, `GAME-01 KE 42003 Telegram t.me SOSkeyNET`, `GAME-02 US 42002 Telegram t.me SOSkeyNET`, `GAME-03 freenettir NZ New ZealandWellington (Thorndon)ping 45.68ms`, `GAME-04 CA 41991 Telegram t.me SOSkeyNET`, `GAME-05 v2reya88`
 
 ### `output/working.yaml` — changed
-- proxies: 73 (prev 74)
-- groups: 11 (prev 11)
-- rules: 72
-- added proxies: `GAME-01 oneclickvpnkeys US 9335`, `GAME-02 KE 42003 Telegram t.me SOSkeyNET`, `GAME-04 Iranvasll`, `GAME-05 v2rayngvpn US`, `GAME-06 TEL Father_vpn 9759`, `GAME-07 v2ray1_ng FR`, `GAME-08 oneclickvpnkeys FR 5384`, `GAME-09 oneclickvpnkeys NL`, `GAME-10 oneclickvpnkeys PL`, `GEN-01 oneclickvpnkeys US 9335`, `GEN-02 KE 42003 Telegram t.me SOSkeyNET`, `GEN-04 Iranvasll`, `GEN-05 v2rayngvpn US`, `GEN-06 TEL Father_vpn 9759`, `GEN-07 v2ray1_ng FR`, `GEN-08 oneclickvpnkeys FR 5384`, `GEN-09 oneclickvpnkeys NL`, `GEN-10 oneclickvpnkeys PL`, `ID-01 LINK bel432 xl`, `Iranvasll`
-- removed proxies: `GAME-01 kurdconfig 3670`, `GAME-02 oneclickvpnkeys US 3279`, `GAME-04 v2configlab_ DE`, `GAME-05 config_free2 4796`, `GAME-06 hi_proxy_iran 1541`, `GAME-07 v2reya88 3826`, `GAME-08 v2ray1_ng FR`, `GAME-09 oneclickvpnkeys FR 8255`, `GAME-10 oneclickvpnkeys NL`, `GEN-01 kurdconfig 3670`, `GEN-02 oneclickvpnkeys US 3279`, `GEN-04 v2configlab_ DE`, `GEN-05 config_free2 4796`, `GEN-06 hi_proxy_iran 1541`, `GEN-07 v2reya88 3826`, `GEN-08 v2ray1_ng FR`, `GEN-09 oneclickvpnkeys FR 8255`, `GEN-10 oneclickvpnkeys NL`, `ID-01 kurdconfig 3670`, `ID-02 LINK bel432 xl`
+- proxies: 68 (prev 0)
+- groups: 12 (prev 0)
+- rules: 74
+- added proxies: `68766 - Telegram V2All`, `CA 41804 Telegram t.me SOSkeyNET`, `CA 41991 Telegram t.me SOSkeyNET`, `GAME-01 KE 42003 Telegram t.me SOSkeyNET`, `GAME-02 US 42002 Telegram t.me SOSkeyNET`, `GAME-03 68766 - Telegram V2All`, `GAME-04 freenettir NZ New ZealandWellington (Thorndon)ping 45.68ms`, `GAME-05 CA 41991 Telegram t.me SOSkeyNET`, `GAME-06 v2reya88`, `GAME-07 CA 41804 Telegram t.me SOSkeyNET`, `GAME-08 oneclickvpnkeys US`, `GAME-09 oneclickvpnkeys US 6879`, `GAME-10 oneclickvpnkeys US 3183`, `GEN-01 KE 42003 Telegram t.me SOSkeyNET`, `GEN-02 US 42002 Telegram t.me SOSkeyNET`, `GEN-03 68766 - Telegram V2All`, `GEN-04 freenettir NZ New ZealandWellington (Thorndon)ping 45.68ms`, `GEN-05 CA 41991 Telegram t.me SOSkeyNET`, `GEN-06 v2reya88`, `GEN-07 CA 41804 Telegram t.me SOSkeyNET`
