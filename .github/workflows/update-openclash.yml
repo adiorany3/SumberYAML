@@ -26,6 +26,7 @@ on:
           - purpose_groups
           - adblock
           - security_block
+          - youtube_ads_advanced
           - build_ready
           - diagnostics
           - rollback_latest_good
@@ -39,6 +40,15 @@ on:
         options:
           - light
           - standard
+          - aggressive
+      youtube_ads_mode:
+        description: Mode algoritma YouTube ads provider
+        required: false
+        default: enhanced
+        type: choice
+        options:
+          - safe
+          - enhanced
           - aggressive
       enable_proxy_test:
         description: Jalankan test proxy/ping untuk sumber otomatis
@@ -80,6 +90,8 @@ env:
   MODE: ${{ github.event.inputs.mode || 'update' }}
   RUN_MODE: ${{ github.event.inputs.mode || 'update' }}
   BLOCK_MODE: ${{ github.event.inputs.block_mode || 'standard' }}
+  YOUTUBE_ADS_MODE: ${{ github.event.inputs.youtube_ads_mode || 'enhanced' }}
+  YOUTUBE_ADS_MAX_RULES: '5000'
   ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
   FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
   STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
@@ -160,6 +172,7 @@ jobs:
           echo "Branch: ${GITHUB_REF_NAME:-main}"
           echo "Mode: $MODE"
           echo "Block mode: $BLOCK_MODE"
+          echo "YouTube ads mode: $YOUTUBE_ADS_MODE"
           echo "Source: ${{ github.event.inputs.source || 'schedule/manual' }}"
           echo "Trusted manual links: input/links.txt and input.txt are appended without alive/dead validation."
           ls -la
@@ -381,6 +394,22 @@ jobs:
           fi
           cat output/Validation/summary_security_block_modes.json || true
 
+      - name: Apply advanced YouTube ads provider
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'clear_quarantine' }}
+        run: |
+          set -e
+          if [ -f scripts/apply_youtube_ads_advanced_provider.py ]; then
+            python scripts/apply_youtube_ads_advanced_provider.py \
+              --repo "${{ github.repository }}" \
+              --branch "${{ github.ref_name }}" \
+              --url-source raw \
+              --mode "$YOUTUBE_ADS_MODE" \
+              --max-rules "$YOUTUBE_ADS_MAX_RULES"
+          else
+            echo "::warning::scripts/apply_youtube_ads_advanced_provider.py not found; skip advanced YouTube ads provider."
+          fi
+          cat output/Validation/summary_youtube_ads_advanced_provider.json || true
+
       - name: Validate rule-provider payloads
         if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'clear_quarantine' }}
         run: |
@@ -456,6 +485,8 @@ jobs:
           output/V2RayBox/mobile-stable.txt
           output/NekoBox/mobile-stable.txt
           output/RuleProviders/youtube-ads.yaml
+          output/RuleProviders/youtube-ads-advanced.yaml
+          output/RuleProviders/goodbyeads-youtube.yaml
           output/RuleProviders/general-ads.yaml
           output/RuleProviders/indonesia-ads.yaml
           output/RuleProviders/android-ads.yaml
