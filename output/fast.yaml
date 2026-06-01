@@ -43,7 +43,7 @@ dns:
   - +.pool.ntp.org
   - +.ntp.org
 proxies:
-- name: kurdconfig 1069
+- name: kurdconfig 3935
   server: 104.17.3.81
   port: 443
   type: vless
@@ -120,35 +120,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: LINK 15.lowh.net
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 38e81a10-5bbb-11f1-b380-1577c1651679
-  udp: true
-  tls: true
-  servername: 15.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: 15.lowh.net
-- name: LINK sg-trojan.1server.co
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 6d9d87d0-5bbb-11f1-806f-1577c1651679
-  udp: true
-  tls: true
-  servername: sg-trojan.1server.co
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: sg-trojan.1server.co
-- name: ID-01 kurdconfig 1069
+- name: ID-01 kurdconfig 3935
   server: 104.17.3.81
   port: 443
   type: vless
@@ -179,21 +151,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: ID-03 LINK 15.lowh.net
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 38e81a10-5bbb-11f1-b380-1577c1651679
-  udp: true
-  tls: true
-  servername: 15.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: 15.lowh.net
-- name: ID-04 LINK bel432 xl
+- name: ID-03 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -209,21 +167,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: ID-05 LINK sg-trojan.1server.co
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 6d9d87d0-5bbb-11f1-806f-1577c1651679
-  udp: true
-  tls: true
-  servername: sg-trojan.1server.co
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: sg-trojan.1server.co
-- name: ID-06 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: ID-04 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -237,7 +181,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: ID-07 LINK VMess-WS-TLS-443-akuku8
+- name: ID-05 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -253,7 +197,22 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: STREAM-01 LINK 10.lowh.net
+- name: STREAM-01 kurdconfig 3935
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: STREAM-02 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -269,20 +228,6 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: STREAM-02 LINK 15.lowh.net
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 38e81a10-5bbb-11f1-b380-1577c1651679
-  udp: true
-  tls: true
-  servername: 15.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: 15.lowh.net
 - name: STREAM-03 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
@@ -299,21 +244,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: STREAM-04 LINK sg-trojan.1server.co
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 6d9d87d0-5bbb-11f1-806f-1577c1651679
-  udp: true
-  tls: true
-  servername: sg-trojan.1server.co
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: sg-trojan.1server.co
-- name: STREAM-05 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: STREAM-04 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -327,7 +258,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: STREAM-06 LINK VMess-WS-TLS-443-akuku8
+- name: STREAM-05 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -343,7 +274,22 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GAME-01 LINK 10.lowh.net
+- name: GAME-01 kurdconfig 3935
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: GAME-02 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -359,20 +305,6 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: GAME-02 LINK 15.lowh.net
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 38e81a10-5bbb-11f1-b380-1577c1651679
-  udp: true
-  tls: true
-  servername: 15.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: 15.lowh.net
 - name: GAME-03 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
@@ -389,21 +321,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: GAME-04 LINK sg-trojan.1server.co
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 6d9d87d0-5bbb-11f1-806f-1577c1651679
-  udp: true
-  tls: true
-  servername: sg-trojan.1server.co
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: sg-trojan.1server.co
-- name: GAME-05 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: GAME-04 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -417,7 +335,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: GAME-06 LINK VMess-WS-TLS-443-akuku8
+- name: GAME-05 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -433,7 +351,7 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: SOCIAL-01 kurdconfig 1069
+- name: SOCIAL-01 kurdconfig 3935
   server: 104.17.3.81
   port: 443
   type: vless
@@ -464,21 +382,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: SOCIAL-03 LINK 15.lowh.net
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 38e81a10-5bbb-11f1-b380-1577c1651679
-  udp: true
-  tls: true
-  servername: 15.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: 15.lowh.net
-- name: SOCIAL-04 LINK bel432 xl
+- name: SOCIAL-03 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -494,21 +398,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: SOCIAL-05 LINK sg-trojan.1server.co
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 6d9d87d0-5bbb-11f1-806f-1577c1651679
-  udp: true
-  tls: true
-  servername: sg-trojan.1server.co
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: sg-trojan.1server.co
-- name: SOCIAL-06 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: SOCIAL-04 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -522,7 +412,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: SOCIAL-07 LINK VMess-WS-TLS-443-akuku8
+- name: SOCIAL-05 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -538,7 +428,22 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: WORK-01 LINK 10.lowh.net
+- name: WORK-01 kurdconfig 3935
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: WORK-02 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -554,20 +459,6 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: WORK-02 LINK 15.lowh.net
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 38e81a10-5bbb-11f1-b380-1577c1651679
-  udp: true
-  tls: true
-  servername: 15.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: 15.lowh.net
 - name: WORK-03 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
@@ -584,21 +475,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: WORK-04 LINK sg-trojan.1server.co
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 6d9d87d0-5bbb-11f1-806f-1577c1651679
-  udp: true
-  tls: true
-  servername: sg-trojan.1server.co
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: sg-trojan.1server.co
-- name: WORK-05 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: WORK-04 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -612,7 +489,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: WORK-06 LINK VMess-WS-TLS-443-akuku8
+- name: WORK-05 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -628,7 +505,7 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GEN-01 kurdconfig 1069
+- name: GEN-01 kurdconfig 3935
   server: 104.17.3.81
   port: 443
   type: vless
@@ -659,21 +536,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: GEN-03 LINK 15.lowh.net
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 38e81a10-5bbb-11f1-b380-1577c1651679
-  udp: true
-  tls: true
-  servername: 15.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: 15.lowh.net
-- name: GEN-04 LINK bel432 xl
+- name: GEN-03 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -689,21 +552,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: GEN-05 LINK sg-trojan.1server.co
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 6d9d87d0-5bbb-11f1-806f-1577c1651679
-  udp: true
-  tls: true
-  servername: sg-trojan.1server.co
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /welcome
-    headers:
-      Host: sg-trojan.1server.co
-- name: GEN-06 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: GEN-04 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -717,7 +566,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: GEN-07 LINK VMess-WS-TLS-443-akuku8
+- name: GEN-05 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -737,58 +586,31 @@ proxy-groups:
 - name: INDONESIA-BEST
   type: url-test
   proxies:
-  - ID-01 kurdconfig 1069
+  - kurdconfig 3935
+  - GAME-03 LINK bel432 xl
+  - GEN-03 LINK bel432 xl
+  - ID-01 kurdconfig 3935
   - ID-02 LINK 10.lowh.net
-  - ID-03 LINK 15.lowh.net
-  - ID-04 LINK bel432 xl
-  - ID-05 LINK sg-trojan.1server.co
-  - ID-06 LINK VLESS-WS-TLS-443-apt50atpprem
-  - ID-07 LINK VMess-WS-TLS-443-akuku8
+  - ID-03 LINK bel432 xl
+  - ID-04 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-05 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
+  - SOCIAL-03 LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: https://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
   tolerance: 80
-- name: fallback-link
-  type: fallback
-  proxies:
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
-  url: https://www.gstatic.com/generate_204
-  interval: 300
   lazy: true
-- name: best-link
-  type: url-test
-  proxies:
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
-  - kurdconfig 1069
+  - kurdconfig 3935
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -798,13 +620,11 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 1069
+  - kurdconfig 3935
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -813,12 +633,11 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - kurdconfig 3935
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -827,12 +646,11 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - kurdconfig 3935
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -841,12 +659,11 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - kurdconfig 3935
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -855,12 +672,11 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - kurdconfig 3935
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -869,25 +685,22 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - kurdconfig 3935
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 300
   lazy: true
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - kurdconfig 1069
+  - kurdconfig 3935
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -897,21 +710,19 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 1069
+  - kurdconfig 3935
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: http://www.gstatic.com/generate_204
   interval: 300
   lazy: true
 - name: PROXY
   type: select
   proxies:
-  - ANTI-BENGONG
   - INDONESIA-BEST
+  - ANTI-BENGONG
   - STREAMING-BEST
   - GAMING-BEST
   - SOCIAL-BEST
@@ -920,6 +731,7 @@ proxy-groups:
   - fallback-link
   - best-link
   - DIRECT
+  - BEST-STABLE
   - FALLBACK
   - URL-TEST TOP 10 INDONESIA
   - FALLBACK CEPAT
@@ -934,23 +746,51 @@ proxy-groups:
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
-- name: STREAMING-BEST
+- name: BEST-STABLE
   type: url-test
   proxies:
-  - STREAM-01 LINK 10.lowh.net
-  - STREAM-02 LINK 15.lowh.net
-  - STREAM-03 LINK bel432 xl
-  - STREAM-04 LINK sg-trojan.1server.co
-  - STREAM-05 LINK VLESS-WS-TLS-443-apt50atpprem
-  - STREAM-06 LINK VMess-WS-TLS-443-akuku8
+  - kurdconfig 3935
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: best-link
+  type: url-test
+  proxies:
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: fallback-link
+  type: fallback
+  proxies:
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+- name: STREAMING-BEST
+  type: url-test
+  proxies:
+  - STREAM-01 kurdconfig 3935
+  - STREAM-02 LINK 10.lowh.net
+  - STREAM-03 LINK bel432 xl
+  - STREAM-04 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-05 LINK VMess-WS-TLS-443-akuku8
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -958,18 +798,15 @@ proxy-groups:
 - name: GAMING-BEST
   type: url-test
   proxies:
-  - GAME-01 LINK 10.lowh.net
-  - GAME-02 LINK 15.lowh.net
+  - GAME-01 kurdconfig 3935
+  - GAME-02 LINK 10.lowh.net
   - GAME-03 LINK bel432 xl
-  - GAME-04 LINK sg-trojan.1server.co
-  - GAME-05 LINK VLESS-WS-TLS-443-apt50atpprem
-  - GAME-06 LINK VMess-WS-TLS-443-akuku8
+  - GAME-04 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-05 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: https://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -977,19 +814,15 @@ proxy-groups:
 - name: SOCIAL-BEST
   type: url-test
   proxies:
-  - SOCIAL-01 kurdconfig 1069
+  - SOCIAL-01 kurdconfig 3935
   - SOCIAL-02 LINK 10.lowh.net
-  - SOCIAL-03 LINK 15.lowh.net
-  - SOCIAL-04 LINK bel432 xl
-  - SOCIAL-05 LINK sg-trojan.1server.co
-  - SOCIAL-06 LINK VLESS-WS-TLS-443-apt50atpprem
-  - SOCIAL-07 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-03 LINK bel432 xl
+  - SOCIAL-04 LINK VLESS-WS-TLS-443-apt50atpprem
+  - SOCIAL-05 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: https://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -997,18 +830,15 @@ proxy-groups:
 - name: WORKING-BEST
   type: url-test
   proxies:
-  - WORK-01 LINK 10.lowh.net
-  - WORK-02 LINK 15.lowh.net
+  - WORK-01 kurdconfig 3935
+  - WORK-02 LINK 10.lowh.net
   - WORK-03 LINK bel432 xl
-  - WORK-04 LINK sg-trojan.1server.co
-  - WORK-05 LINK VLESS-WS-TLS-443-apt50atpprem
-  - WORK-06 LINK VMess-WS-TLS-443-akuku8
+  - WORK-04 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-05 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: https://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -1016,19 +846,15 @@ proxy-groups:
 - name: GENERAL-BEST
   type: url-test
   proxies:
-  - GEN-01 kurdconfig 1069
+  - GEN-01 kurdconfig 3935
   - GEN-02 LINK 10.lowh.net
-  - GEN-03 LINK 15.lowh.net
-  - GEN-04 LINK bel432 xl
-  - GEN-05 LINK sg-trojan.1server.co
-  - GEN-06 LINK VLESS-WS-TLS-443-apt50atpprem
-  - GEN-07 LINK VMess-WS-TLS-443-akuku8
+  - GEN-03 LINK bel432 xl
+  - GEN-04 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GEN-05 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: https://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -1038,6 +864,7 @@ proxy-groups:
   proxies:
   - INDONESIA-BEST
   - GENERAL-BEST
+  - BEST-STABLE
   - fallback-link
   - best-link
   - FALLBACK
@@ -1045,8 +872,6 @@ proxy-groups:
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  - LINK 15.lowh.net
-  - LINK sg-trojan.1server.co
   url: https://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -1060,20 +885,8 @@ rules:
 - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
 - IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
 - IP-CIDR,255.255.255.255/32,DIRECT,no-resolve
-- DOMAIN-SUFFIX,id,INDONESIA-BEST
-- DOMAIN-SUFFIX,go.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,ac.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,co.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,or.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,detik.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,kompas.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,tribunnews.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,tokopedia.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,bukalapak.com,INDONESIA-BEST
+- RULE-SET,goodbyeads-youtube,REJECT
 - DOMAIN-SUFFIX,shopee.co.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,gojek.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,grab.com,INDONESIA-BEST
-- GEOIP,ID,INDONESIA-BEST,no-resolve
 - DOMAIN-SUFFIX,youtube.com,STREAMING-BEST
 - DOMAIN-SUFFIX,googlevideo.com,STREAMING-BEST
 - DOMAIN-SUFFIX,ytimg.com,STREAMING-BEST
@@ -1115,8 +928,21 @@ rules:
 - DOMAIN-SUFFIX,zoom.us,WORKING-BEST
 - DOMAIN-SUFFIX,slack.com,WORKING-BEST
 - DOMAIN-SUFFIX,cloudflare.com,WORKING-BEST
+- DOMAIN-SUFFIX,id,INDONESIA-BEST
+- DOMAIN-SUFFIX,go.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,ac.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,co.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,or.id,INDONESIA-BEST
 - DOMAIN-SUFFIX,my.id,INDONESIA-BEST
 - DOMAIN-SUFFIX,web.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,detik.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,kompas.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,tribunnews.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,tokopedia.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,bukalapak.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,gojek.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,grab.com,INDONESIA-BEST
+- GEOIP,ID,INDONESIA-BEST,no-resolve
 - RULE-SET,youtube-ads,REJECT
 - RULE-SET,general-ads,REJECT
 - MATCH,PROXY
@@ -1127,6 +953,13 @@ rule-providers:
     format: yaml
     path: ./rule_provider/youtube-ads.yaml
     url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/youtube-ads.yaml
+    interval: 86400
+  goodbyeads-youtube:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/goodbyeads-youtube.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/goodbyeads-youtube.yaml
     interval: 86400
   general-ads:
     type: http
