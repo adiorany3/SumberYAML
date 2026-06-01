@@ -34,19 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA 41333 Telegram t.me SOSkeyNET"
+  - name: "CA 41865 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "7p52vhn9vs4naimm"
+    type: vless
+    uuid: c2f0a8f0-36fe-4a94-824b-bca271ca642b
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "freealireza3.nscl.ir"
+    servername: "alphacdn.alphashops.shop"
     ws-opts:
-      path: "/dashboard"
+      path: "/ws"
       headers:
-        Host: "freealireza3.nscl.ir"
+        Host: "alphacdn.alphashops.shop"
+    udp: true
+  - name: "CA 41804 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "support.zoom.us.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

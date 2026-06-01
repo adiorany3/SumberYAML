@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "configV2rayNG FR 7367"
+  - name: "configV2rayNG FR"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -42,11 +42,25 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.calmloud.com"
+    sni: "www.ignitelimit.com"
     ws-opts:
       path: "/assignment"
       headers:
-        Host: "www.calmloud.com"
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "FreakConfig FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
     udp: true
 
 proxy-groups:

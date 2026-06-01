@@ -1,4 +1,88 @@
 proxies:
+  - name: "US US-172.237.145.189-0172"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "A3uIh_5NqMg3hFa.gDYWT.afz0UuJ6=VIM"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "172.237.145.189"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "172.237.145.189"
+    udp: true
+  - name: "US US-13.248.169.48-0087"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "4b8f1bc5-9b36-4df8-9e4f-5864b330632f"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "331tw9.fans8.xyz"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "331tw9.fans8.xyz"
+    udp: true
+  - name: "US US-13.248.169.48-0217"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "cd3d48cb-6641-4183-aff1-f8f6789fecce"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "49hk05.fans8.xyz"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "49hk05.fans8.xyz"
+    udp: true
+  - name: "vpnbaz 6586"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "telegram tajrobe_wiki"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.creationlong.org"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.creationlong.org"
+    udp: true
+  - name: "telegram tajrobe_wiki 3655"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
   - name: "oneclickvpnkeys FR"
     server: "104.17.3.81"
     port: 443
@@ -55,20 +139,6 @@ proxies:
       headers:
         Host: "www.ignitelimit.com"
     udp: true
-  - name: "configV2rayNG FR 7367"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.calmloud.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.calmloud.com"
-    udp: true
   - name: "FreakConfig FR"
     server: "104.17.3.81"
     port: 443
@@ -82,34 +152,6 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.gossipglove.com"
-    udp: true
-  - name: "oneclickvpnkeys NL"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.multiplydose.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.multiplydose.com"
-    udp: true
-  - name: "oneclickvpnkeys PL"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.creationlong.org"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.creationlong.org"
     udp: true
   - name: "v2nodes XX"
     server: "104.17.3.81"
@@ -125,7 +167,7 @@ proxies:
       headers:
         Host: "www.directorypipeline.click"
     udp: true
-  - name: "oneclickvpnkeys PL 1115"
+  - name: "oneclickvpnkeys PL"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -152,48 +194,6 @@ proxies:
       path: "/"
       headers:
         Host: "172.238.120.124"
-    udp: true
-  - name: "US US-172.237.145.189-0172"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "A3uIh_5NqMg3hFa.gDYWT.afz0UuJ6=VIM"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "172.237.145.189"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "172.237.145.189"
-    udp: true
-  - name: "US US-13.248.169.48-0087"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "4b8f1bc5-9b36-4df8-9e4f-5864b330632f"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "331tw9.fans8.xyz"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "331tw9.fans8.xyz"
-    udp: true
-  - name: "US US-13.248.169.48-0217"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "cd3d48cb-6641-4183-aff1-f8f6789fecce"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "49hk05.fans8.xyz"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "49hk05.fans8.xyz"
     udp: true
   - name: "XX XX TROJAN father_vpn 1"
     server: "104.17.3.81"
@@ -250,6 +250,20 @@ proxies:
       path: "/?ed=2048"
       headers:
         Host: "45.130.125.76"
+    udp: true
+  - name: "SC SC TROJAN outline_ir 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "45.130.125.69"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "45.130.125.69"
     udp: true
   - name: "XX XX TROJAN spikevpn 1"
     server: "104.17.3.81"
@@ -363,118 +377,6 @@ proxies:
       headers:
         Host: "persiancdn.top"
     udp: true
-  - name: "v2reya88 3981"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "l64tlWoGT6USQr=3WnjWedzvVSHXn8TNTE"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.rolll.click"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "www.rolll.click"
-    udp: true
-  - name: "v2reya88 7975"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.linkman1.ir"
-    ws-opts:
-      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
-      headers:
-        Host: "www.linkman1.ir"
-    udp: true
-  - name: "Wiizard_Net"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "cdn.linkman1.ir"
-    ws-opts:
-      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
-      headers:
-        Host: "cdn.linkman1.ir"
-    udp: true
-  - name: "openproxylist.com DE 14183896"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "s_WEN9lMmufG+qDIsn-4C7JOVAnDdbS3Ui"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "172.236.220.10"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "172.236.220.10"
-    udp: true
-  - name: "DE Linode"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "VPTFm=oZ++SuNT+jMRqGZqrAnWq-r8KJyY"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "172.104.237.100"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "172.104.237.100"
-    udp: true
-  - name: "BR CloudFlare"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.calmlunch.com"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "www.calmlunch.com"
-    udp: true
-  - name: "US starcorenode.com"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "AZWY=WAZk5TeVYmMUudr2xmeb00I3ymeMQ"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.dataset-logger.click"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "www.dataset-logger.click"
-    udp: true
-  - name: "US _US"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "5027e2a4-c4d2-463a-9508-83a2c7d1ad83"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "afrcloud1.mmv.kr"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "afrcloud1.mmv.kr"
-    udp: true
   - name: "10 DE V2ngFast"
     server: "104.17.3.81"
     port: 443
@@ -489,7 +391,7 @@ proxies:
       headers:
         Host: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.pifirib369.workers.dev"
     udp: true
-  - name: "4 DE V2ngFast 1201"
+  - name: "4 DE V2ngFast 1860"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -517,7 +419,7 @@ proxies:
       headers:
         Host: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.cetih83556.workers.dev"
     udp: true
-  - name: "2 DE V2ngFast 3875"
+  - name: "2 DE V2ngFast 4917"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -531,7 +433,7 @@ proxies:
       headers:
         Host: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.sobehab951.workers.dev"
     udp: true
-  - name: "KAFING_2 5578"
+  - name: "KAFING_2 7498"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -545,7 +447,7 @@ proxies:
       headers:
         Host: "uk1.test3.net"
     udp: true
-  - name: "InvoProxy 8640"
+  - name: "freenettir CA CanadaTorontoping 43.81ms"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -587,35 +489,21 @@ proxies:
       headers:
         Host: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.novaye6130.workers.dev"
     udp: true
-  - name: "CA 41333 Telegram t.me SOSkeyNET"
+  - name: "100 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
     type: trojan
-    password: "7p52vhn9vs4naimm"
+    password: "BzOx2R8u59SOipHwhIYW-IMyJePBEiUY-m"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "freealireza3.nscl.ir"
-    ws-opts:
-      path: "/dashboard"
-      headers:
-        Host: "freealireza3.nscl.ir"
-    udp: true
-  - name: "60 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "G2qM_GHnAEpbuIp1mcZh3mGvVn3+rHrwNe"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "172.232.194.147"
+    sni: "www.registry-monitor.click"
     ws-opts:
       path: "/"
       headers:
-        Host: "172.232.194.147"
+        Host: "www.registry-monitor.click"
     udp: true
-  - name: "appsooner"
+  - name: "appsooner 1791"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -629,7 +517,7 @@ proxies:
       headers:
         Host: "ssss2.avaaal.ir"
     udp: true
-  - name: "appsooner 2554"
+  - name: "appsooner 1243"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -643,7 +531,7 @@ proxies:
       headers:
         Host: "ssss2.avaaal.ir"
     udp: true
-  - name: "TEL Father_vpn2 5311"
+  - name: "TEL Father_vpn2 3978"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -699,21 +587,7 @@ proxies:
       headers:
         Host: "de.aananas.ir"
     udp: true
-  - name: "GB 41335 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "mJVGfrOkZGnMywJD2uwmuXgOQ"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "HL-FREEDOM-2.UNDEF.NETWORK"
-    ws-opts:
-      path: "/f2fc2a1f"
-      headers:
-        Host: "HL-FREEDOM-2.UNDEF.NETWORK"
-    udp: true
-  - name: "SheriffNet 2185"
+  - name: "SheriffNet 4523"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -741,21 +615,7 @@ proxies:
       headers:
         Host: "www.app-cloud.ir"
     udp: true
-  - name: "vpnbaz 5846"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.iranpoems.ir"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "www.iranpoems.ir"
-    udp: true
-  - name: "V2ray_official"
+  - name: "V2ray_official 9395"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -768,6 +628,20 @@ proxies:
       path: "/http/1.1"
       headers:
         Host: "www.app-cloud.ir"
+    udp: true
+  - name: "7 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cdn.linkman1.ir"
+    ws-opts:
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      headers:
+        Host: "cdn.linkman1.ir"
     udp: true
   - name: "HiByeVPNN"
     server: "104.17.3.81"
@@ -783,7 +657,21 @@ proxies:
       headers:
         Host: "mitivpn.ws-ws-ws.workers.dev"
     udp: true
-  - name: "TEL Father_vpn 4495"
+  - name: "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.linkman1.ir"
+    ws-opts:
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      headers:
+        Host: "www.linkman1.ir"
+    udp: true
+  - name: "TEL Father_vpn 2264"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -797,7 +685,21 @@ proxies:
       headers:
         Host: "404.mitii33.workers.dev"
     udp: true
-  - name: "hi_proxy_iran 7362"
+  - name: "US 41747 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cdn.iranpoems.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "cdn.iranpoems.ir"
+    udp: true
+  - name: "mtproto_proserver"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -811,7 +713,7 @@ proxies:
       headers:
         Host: "ir-sub.ir"
     udp: true
-  - name: "hi_proxy_iran 3222"
+  - name: "meliproxyy 7832"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -825,7 +727,7 @@ proxies:
       headers:
         Host: "www.ir-sub.ir"
     udp: true
-  - name: "V2ray_official 9102"
+  - name: "V2ray_official 4923"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -839,7 +741,7 @@ proxies:
       headers:
         Host: "www.app-cloud.ir"
     udp: true
-  - name: "kurdconfig 9152"
+  - name: "outline_ir"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -853,7 +755,21 @@ proxies:
       headers:
         Host: "cloud.magicservice.top"
     udp: true
-  - name: "VPN_PASARGAD 2482"
+  - name: "16 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "s_WEN9lMmufG+qDIsn-4C7JOVAnDdbS3Ui"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "172.236.220.10"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "172.236.220.10"
+    udp: true
+  - name: "VPN_PASARGAD 4271"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -867,7 +783,7 @@ proxies:
       headers:
         Host: "da.aananas.ir"
     udp: true
-  - name: "config_free2 2812"
+  - name: "v2rayNGcloud"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -895,21 +811,35 @@ proxies:
       headers:
         Host: "ssss2.avaaal.ir"
     udp: true
-  - name: "XX XX TROJAN v2ray_free_conf 1"
+  - name: "v2reya88 2579"
     server: "104.17.3.81"
     port: 443
     type: trojan
-    password: "JPZp5yhQpQ"
+    password: "l64tlWoGT6USQr=3WnjWedzvVSHXn8TNTE"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "188.114.97.6"
+    sni: "www.rolll.click"
     ws-opts:
-      path: "/720f09dba195249b423f771661162528/workers/services/view/Avaal/production/settings"
+      path: "/"
       headers:
-        Host: "188.114.97.6"
+        Host: "www.rolll.click"
     udp: true
-  - name: "XX XX TROJAN vpn_ioss 1"
+  - name: "US AkamaiCDN"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "bX_lNHWoW6ywq82mI=KUr+8i__VSp0Hs_E"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "172.235.63.252"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "172.235.63.252"
+    udp: true
+  - name: "US US(mibei77.com"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -917,25 +847,95 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "104.21.40.34"
+    sni: "www.calmlunch.com"
     ws-opts:
-      path: "/assignment"
+      path: "/"
       headers:
-        Host: "104.21.40.34"
+        Host: "www.calmlunch.com"
     udp: true
-  - name: "XX XX TROJAN vpn_ioss 2"
+  - name: "US US(mibei77.com 5506"
     server: "104.17.3.81"
     port: 443
     type: trojan
-    password: "humanity"
+    password: "rYuChHcwQZskq9E0zdoR"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "172.64.152.23"
+    sni: "vpn5.rnmcnm.com"
     ws-opts:
-      path: "/assignment"
+      path: "/"
       headers:
-        Host: "172.64.152.23"
+        Host: "vpn5.rnmcnm.com"
+    udp: true
+  - name: "US NTT"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "IbezlLAYfrLRwFn9.mHn5FDwk1asLi599U"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.static-cast.click"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.static-cast.click"
+    udp: true
+  - name: "US NTT 2"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "s.wRSE4ANZp4=4h.=B_9Qbetw6XUc0V1SV"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.logger-guard.click"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.logger-guard.click"
+    udp: true
+  - name: "US _US"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "5027e2a4-c4d2-463a-9508-83a2c7d1ad83"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "afrcloud1.mmv.kr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "afrcloud1.mmv.kr"
+    udp: true
+  - name: "DE DE 1634"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "VPTFm=oZ++SuNT+jMRqGZqrAnWq-r8KJyY"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "172.104.237.100"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "172.104.237.100"
+    udp: true
+  - name: "US US"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "AZWY=WAZk5TeVYmMUudr2xmeb00I3ymeMQ"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.dataset-logger.click"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.dataset-logger.click"
     udp: true
   - name: "FR _FR_trojan Sp3eDVp content-provider5.cdn-delivery.akamaicd.com 443 FR _FR_tro"
     server: "104.17.3.81"
@@ -979,7 +979,7 @@ proxies:
       headers:
         Host: "ml.xxass.ml"
     udp: true
-  - name: "ho3ino00 9398"
+  - name: "ho3ino00 7051"
     server: "104.17.3.81"
     port: 443
     type: trojan
