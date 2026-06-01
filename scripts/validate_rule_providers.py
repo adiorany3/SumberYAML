@@ -47,17 +47,16 @@ def validate(provider_dir: Path) -> dict:
                 item["ok"] = False
                 item["error"] = "empty payload"
                 summary["ok"] = False
-            if path.stem != "whitelist":
-                for rule in payload:
-                    text = str(rule)
-                    if text.startswith("DOMAIN-SUFFIX,"):
-                        domain = text.split(",", 1)[1]
-                        if is_protected(domain):
-                            hit = {"file": str(path), "domain": domain}
-                            summary["protected_hits"].append(hit)
-                            item.setdefault("protected_hits", []).append(domain)
-                            item["ok"] = False
-                            summary["ok"] = False
+            for rule in payload:
+                text = str(rule)
+                if text.startswith("DOMAIN-SUFFIX,"):
+                    domain = text.split(",", 1)[1]
+                    if is_protected(domain):
+                        hit = {"file": str(path), "domain": domain}
+                        summary["protected_hits"].append(hit)
+                        item.setdefault("protected_hits", []).append(domain)
+                        item["ok"] = False
+                        summary["ok"] = False
         except Exception as exc:
             item["ok"] = False
             item["error"] = str(exc)

@@ -3337,7 +3337,7 @@ def render_admin_security_blocking():
         <div class="pet-panel">
             <div class="pet-small-note" style="text-align:left;margin-top:0;">
                 <b>Mode blocking:</b><br>
-                <b>Light</b> = whitelist + malware/adware saja.<br>
+                <b>Light</b> = malware/adware saja.<br>
                 <b>Standard</b> = malware/adware + iklan umum + iklan Indonesia + Android ads.<br>
                 <b>Aggressive</b> = Standard + YouTube ads + game block.<br><br>
                 Akun dari <code>input.txt</code> / <code>input/links.txt</code> tetap trusted dan tidak disaring.

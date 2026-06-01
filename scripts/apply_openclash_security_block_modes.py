@@ -2,8 +2,8 @@
 """Build and inject security/adblock rule-providers for OpenClash/Mihomo.
 
 Modes:
-- light: whitelist + malware/adware only.
-- standard: light + general ads + Indonesia ads + Android ads.
+- light: malware/adware only.
+- standard: malware/adware + general ads + Indonesia ads + Android ads.
 - aggressive: standard + YouTube ads + game block.
 
 The script is intentionally defensive: external lists are best-effort, local
@@ -51,10 +51,9 @@ DEFAULT_YAML_FILES = [
 ]
 
 PROVIDER_NAMES_BY_MODE = {
-    "light": ["whitelist", "malware-adware"],
-    "standard": ["whitelist", "malware-adware", "general-ads", "indonesia-ads", "android-ads"],
+    "light": ["malware-adware"],
+    "standard": ["malware-adware", "general-ads", "indonesia-ads", "android-ads"],
     "aggressive": [
-        "whitelist",
         "malware-adware",
         "general-ads",
         "indonesia-ads",
@@ -100,13 +99,6 @@ PROTECTED_DOMAINS = {
     "icloud.com",
 }
 
-WHITELIST_SEED = sorted(PROTECTED_DOMAINS | {
-    "githubusercontent.com",
-    "githubassets.com",
-    "github.io",
-    "streamlit.app",
-    "api.github.com",
-})
 
 SEED_RULES: Dict[str, Set[str]] = {
     "indonesia-ads": {
@@ -181,7 +173,6 @@ DEFAULT_LIMITS = {
     "malware-adware": 10000,
     "youtube-ads": 3000,
     "game-block": 2500,
-    "whitelist": 1000,
 }
 
 DOMAIN_RE = re.compile(r"^(?=.{1,253}$)(?:[a-z0-9_\-]{1,63}\.)+[a-z]{2,63}$", re.I)
@@ -342,14 +333,7 @@ def ensure_rule_providers(data: dict, provider_names: Sequence[str], repo: str, 
 
 
 def desired_rule_lines(provider_names: Sequence[str]) -> List[str]:
-    lines = []
-    if "whitelist" in provider_names:
-        lines.append("RULE-SET,whitelist,DIRECT")
-    for name in provider_names:
-        if name == "whitelist":
-            continue
-        lines.append(f"RULE-SET,{name},REJECT")
-    return lines
+    return [f"RULE-SET,{name},REJECT" for name in provider_names]
 
 
 def is_provider_rule(rule: str, provider_names: Sequence[str]) -> bool:
@@ -361,7 +345,7 @@ def is_provider_rule(rule: str, provider_names: Sequence[str]) -> bool:
     # Remove legacy provider rules managed by this family too.
     managed = {
         "youtube-ads", "general-ads", "indonesia-ads", "android-ads",
-        "malware-adware", "game-block", "whitelist", "goodbyeads-youtube"
+        "malware-adware", "game-block", "goodbyeads-youtube"
     }
     return any(rule.startswith(f"RULE-SET,{name},") for name in managed)
 
@@ -441,7 +425,7 @@ def validate_providers(provider_names: Sequence[str]) -> dict:
                     continue
                 if rule.startswith("DOMAIN-SUFFIX,"):
                     domain = rule.split(",", 1)[1]
-                    if name != "whitelist" and is_protected(domain):
+                    if is_protected(domain):
                         result["protected_hits"].append({"provider": name, "domain": domain})
         except Exception as exc:
             result["ok"] = False
@@ -478,22 +462,16 @@ def main(argv: Sequence[str] | None = None) -> int:
         "malware-adware": args.max_malware,
         "youtube-ads": args.max_youtube,
         "game-block": args.max_game,
-        "whitelist": DEFAULT_LIMITS["whitelist"],
     }
 
     provider_reports = []
     source_reports = {}
 
     for name in provider_names:
-        if name == "whitelist":
-            rules = domain_rules(WHITELIST_SEED)
-            provider_reports.append(write_provider(name, rules))
-            source_reports[name] = [{"source": "local-seed", "ok": True, "added": len(rules)}]
-        else:
-            domains, sources = collect_provider_domains(name, limit=limits.get(name, 5000))
-            rules = domain_rules(domains)
-            provider_reports.append(write_provider(name, rules))
-            source_reports[name] = sources
+        domains, sources = collect_provider_domains(name, limit=limits.get(name, 5000))
+        rules = domain_rules(domains)
+        provider_reports.append(write_provider(name, rules))
+        source_reports[name] = sources
 
     yaml_files = args.yaml_files or DEFAULT_YAML_FILES
     yaml_reports = [
