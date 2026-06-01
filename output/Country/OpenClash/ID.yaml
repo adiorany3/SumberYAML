@@ -34,20 +34,49 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "kurdconfig 3248"
+  - name: "filembad"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+    uuid: 1a5b24bc-6180-4fa7-922d-ba7ee8a7a2b7
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+    servername: "support.zoom.us.cyylr.eu.cc"
     ws-opts:
       path: "/id-pusat"
       headers:
-        Host: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+        Host: "support.zoom.us.cyylr.eu.cc"
+    udp: true
+  - name: "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9232a847-8f7d-4548-a23a-a8b3550e0f15
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "grabacademyportal.grab.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "grabacademyportal.grab.com.cyylr.eu.cc"
+    udp: true
+  - name: "musiclovers85 1744"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "386bd471-4e29-4e79-9a3c-6bc6076ce4b6"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "edu.ruangguru.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "edu.ruangguru.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:
