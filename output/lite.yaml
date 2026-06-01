@@ -6,7 +6,7 @@ tproxy-port: 7895
 allow-lan: true
 bind-address: '*'
 mode: rule
-log-level: warning
+log-level: info
 ipv6: false
 unified-delay: true
 tcp-concurrent: true
@@ -28,112 +28,12 @@ dns:
   default-nameserver:
   - 1.1.1.1
   - 8.8.8.8
-  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - '*.lan'
   - '*.local'
   - localhost.ptlogin2.qq.com
-  - +.msftconnecttest.com
-  - +.msftncsi.com
-  - time.*.com
-  - time.*.gov
-  - time.*.edu.cn
-  - time.*.apple.com
-  - time-ios.apple.com
-  - +.pool.ntp.org
-  - +.ntp.org
 proxies:
-- name: kurdconfig 3248 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: kurdconfig - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 006e96ff-db44-4086-a374-7b8aa7351fe2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: support.zoom.us.cyylr.eu.cc
-  ws-opts:
-    path: /sg-do
-    headers:
-      Host: support.zoom.us.cyylr.eu.cc
-  udp: true
-- name: hi_proxy_iran 1123 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: oneclickvpnkeys US 3556 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=random
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: 96 oneclickvpnkeys - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: config_free2 9041 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: chillguy_vpn 1653 - 2026-06-01
+- name: chillguy_vpn 1896 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
@@ -148,49 +48,289 @@ proxies:
     headers:
       Host: juzi.qea.ccwu.cc
   udp: true
-- name: v2reya88 - 2026-06-01
+- name: 96 oneclickvpnkeys - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: cb0be83e-ff5c-4601-8572-18deac592958
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: nimahavok.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: nimahavok.pages.dev
-  udp: true
-- name: 42 oneclickvpnkeys - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: edgetunnell-1dc.pages.dev
+  servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
     path: /fp=chrome
     headers:
-      Host: edgetunnell-1dc.pages.dev
+      Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: v2rayngvpn US - 2026-06-01
+- name: config_free2 2365 - 2026-06-02
   server: 104.17.3.81
   port: 443
-  type: trojan
-  password: mitivpn
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: cdn.linkman1.ir
+  servername: juzi.qea.ccwu.cc
   ws-opts:
-    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
     headers:
-      Host: cdn.linkman1.ir
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: hi_proxy_iran 4084 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: filtershekan_channel 7 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss5.info
+  ws-opts:
+    path: /udfyfws
+    headers:
+      Host: octopusss5.info
+  udp: true
+- name: AU AU - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: rYuChHcwQZskq9E0zdoR
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: vpn5.rnmcnm.com
+  ws-opts:
+    path: /ws-79dffb8106db
+    headers:
+      Host: vpn5.rnmcnm.com
+  udp: true
+- name: v2raydia - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 179718c1-27b3-449d-9626-98c2c854d010
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: del.ccnnx.ir
+  ws-opts:
+    path: /@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia
+    headers:
+      Host: del.ccnnx.ir
+  udp: true
+- name: kurdconfig - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 006e96ff-db44-4086-a374-7b8aa7351fe2
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: support.zoom.us.cyylr.eu.cc
+  ws-opts:
+    path: /sg-do
+    headers:
+      Host: support.zoom.us.cyylr.eu.cc
+  udp: true
+- name: kurdconfig 6843 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 266c0d10-d0f4-41f2-9d82-37cedf863fe7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: cyylr.eu.cc
+  ws-opts:
+    path: /in-pdr
+    headers:
+      Host: cyylr.eu.cc
+  udp: true
+- name: oneclickvpnkeys US 8733 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: oneclickvpnkeys US 9332 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=random
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: kurdconfig 3200 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 565b50d4-604d-4a60-9fc2-d9d3dac0aec6
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: oneclickvpnkeys US 6870 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: f86f5a03-3872-46b5-bf03-a50388a0261d
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: a1-tss.pages.dev
+  ws-opts:
+    path: /
+    headers:
+      Host: a1-tss.pages.dev
+  udp: true
+- name: oneclickvpnkeys US 8863 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: cyylr.eu.cc
+  udp: true
+- name: IN) DigitalOcean LLC IN - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 559ab675-567f-4d61-a742-877bfd51d87c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: zaintest.vuclip.com.cyylr.eu.cc
+  ws-opts:
+    path: /in-do
+    headers:
+      Host: zaintest.vuclip.com.cyylr.eu.cc
+  udp: true
+- name: oneclickvpnkeys US 3718 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: m.udemy.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: m.udemy.com.cyylr.eu.cc
+  udp: true
+- name: oneclickvpnkeys US 9675 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: oneclickvpnkeys US - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: graph.instagram.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: graph.instagram.com.cyylr.eu.cc
+  udp: true
+- name: oneclickvpnkeys US 1139 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: v2raybaaz - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: sni.skylee4.cloudns.ch
+  ws-opts:
+    path: /proxyip
+    headers:
+      Host: sni.skylee4.cloudns.ch
   udp: true
 - name: LINK bel432 xl
   type: vmess
@@ -254,189 +394,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: ID-01 kurdconfig 3248 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: ID-02 LINK 10.lowh.net - 2026-06-01
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: ID-03 LINK bel432 xl - 2026-06-01
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: ID-04 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  tls: true
-  servername: akamaized.my
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
-- name: ID-05 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: STREAM-01 kurdconfig 3248 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-02 oneclickvpnkeys US 3556 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=random
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: STREAM-03 kurdconfig - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 006e96ff-db44-4086-a374-7b8aa7351fe2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: support.zoom.us.cyylr.eu.cc
-  ws-opts:
-    path: /sg-do
-    headers:
-      Host: support.zoom.us.cyylr.eu.cc
-  udp: true
-- name: STREAM-04 config_free2 9041 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: STREAM-05 42 oneclickvpnkeys - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: edgetunnell-1dc.pages.dev
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: edgetunnell-1dc.pages.dev
-  udp: true
-- name: STREAM-06 96 oneclickvpnkeys - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: STREAM-07 hi_proxy_iran 1123 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: STREAM-08 chillguy_vpn 1653 - 2026-06-01
+- name: ID-01 chillguy_vpn 1896 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
@@ -451,113 +409,7 @@ proxies:
     headers:
       Host: juzi.qea.ccwu.cc
   udp: true
-- name: STREAM-09 v2reya88 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cb0be83e-ff5c-4601-8572-18deac592958
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: nimahavok.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: nimahavok.pages.dev
-  udp: true
-- name: STREAM-10 v2rayngvpn US - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: mitivpn
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: cdn.linkman1.ir
-  ws-opts:
-    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
-    headers:
-      Host: cdn.linkman1.ir
-  udp: true
-- name: STREAM-11 LINK 10.lowh.net - 2026-06-01
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: STREAM-12 LINK bel432 xl - 2026-06-01
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  tls: true
-  servername: akamaized.my
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
-- name: STREAM-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: GAME-01 kurdconfig 3248 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: GAME-02 oneclickvpnkeys US 3556 - 2026-06-01
+- name: ID-02 96 oneclickvpnkeys - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
@@ -568,26 +420,11 @@ proxies:
   network: ws
   servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
-    path: /fp=random
+    path: /fp=chrome
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: GAME-03 kurdconfig - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 006e96ff-db44-4086-a374-7b8aa7351fe2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: support.zoom.us.cyylr.eu.cc
-  ws-opts:
-    path: /sg-do
-    headers:
-      Host: support.zoom.us.cyylr.eu.cc
-  udp: true
-- name: GAME-04 config_free2 9041 - 2026-06-01
+- name: ID-03 config_free2 2365 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
@@ -602,37 +439,7 @@ proxies:
     headers:
       Host: juzi.qea.ccwu.cc
   udp: true
-- name: GAME-05 42 oneclickvpnkeys - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: edgetunnell-1dc.pages.dev
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: edgetunnell-1dc.pages.dev
-  udp: true
-- name: GAME-06 96 oneclickvpnkeys - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: GAME-07 hi_proxy_iran 1123 - 2026-06-01
+- name: ID-04 hi_proxy_iran 4084 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
@@ -647,143 +454,7 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: GAME-08 chillguy_vpn 1653 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: GAME-09 v2reya88 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cb0be83e-ff5c-4601-8572-18deac592958
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: nimahavok.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: nimahavok.pages.dev
-  udp: true
-- name: GAME-10 v2rayngvpn US - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: mitivpn
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: cdn.linkman1.ir
-  ws-opts:
-    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
-    headers:
-      Host: cdn.linkman1.ir
-  udp: true
-- name: GAME-11 LINK 10.lowh.net - 2026-06-01
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: GAME-12 LINK bel432 xl - 2026-06-01
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  tls: true
-  servername: akamaized.my
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
-- name: GAME-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: SOCIAL-01 kurdconfig 3248 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-02 oneclickvpnkeys US 3556 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=random
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: SOCIAL-03 kurdconfig - 2026-06-01
+- name: ID-05 kurdconfig - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
@@ -798,111 +469,81 @@ proxies:
     headers:
       Host: support.zoom.us.cyylr.eu.cc
   udp: true
-- name: SOCIAL-04 config_free2 9041 - 2026-06-01
+- name: ID-06 kurdconfig 6843 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  uuid: 266c0d10-d0f4-41f2-9d82-37cedf863fe7
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: juzi.qea.ccwu.cc
+  servername: cyylr.eu.cc
   ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    path: /in-pdr
     headers:
-      Host: juzi.qea.ccwu.cc
+      Host: cyylr.eu.cc
   udp: true
-- name: SOCIAL-05 42 oneclickvpnkeys - 2026-06-01
+- name: ID-07 oneclickvpnkeys US 8733 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: edgetunnell-1dc.pages.dev
+  servername: up2-df6.pages.dev
   ws-opts:
-    path: /fp=chrome
+    path: /uTZSXPBI2IfoxF86
     headers:
-      Host: edgetunnell-1dc.pages.dev
+      Host: up2-df6.pages.dev
   udp: true
-- name: SOCIAL-06 96 oneclickvpnkeys - 2026-06-01
+- name: ID-08 filtershekan_channel 7 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
+  servername: octopusss5.info
   ws-opts:
-    path: /fp=chrome
+    path: /udfyfws
     headers:
-      Host: hhlfy.twiladaphne.ndjp.net
+      Host: octopusss5.info
   udp: true
-- name: SOCIAL-07 hi_proxy_iran 1123 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: SOCIAL-08 chillguy_vpn 1653 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: SOCIAL-09 v2reya88 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cb0be83e-ff5c-4601-8572-18deac592958
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: nimahavok.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: nimahavok.pages.dev
-  udp: true
-- name: SOCIAL-10 v2rayngvpn US - 2026-06-01
+- name: ID-09 AU AU - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: trojan
-  password: mitivpn
+  password: rYuChHcwQZskq9E0zdoR
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: cdn.linkman1.ir
+  sni: vpn5.rnmcnm.com
   ws-opts:
-    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
+    path: /ws-79dffb8106db
     headers:
-      Host: cdn.linkman1.ir
+      Host: vpn5.rnmcnm.com
   udp: true
-- name: SOCIAL-11 LINK 10.lowh.net - 2026-06-01
+- name: ID-10 v2raydia - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 179718c1-27b3-449d-9626-98c2c854d010
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: del.ccnnx.ir
+  ws-opts:
+    path: /@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia
+    headers:
+      Host: del.ccnnx.ir
+  udp: true
+- name: ID-11 LINK 10.lowh.net - 2026-06-02
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -918,7 +559,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: SOCIAL-12 LINK bel432 xl - 2026-06-01
+- name: ID-12 LINK bel432 xl - 2026-06-02
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -934,7 +575,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: SOCIAL-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
+- name: ID-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02
   type: vless
   server: 104.17.3.81
   port: 443
@@ -948,7 +589,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: SOCIAL-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
+- name: ID-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-02
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -964,22 +605,22 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: WORK-01 kurdconfig 3248 - 2026-06-01
+- name: STREAM-01 chillguy_vpn 1896 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  servername: juzi.qea.ccwu.cc
   ws-opts:
-    path: /id-pusat
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048
     headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+      Host: juzi.qea.ccwu.cc
   udp: true
-- name: WORK-02 oneclickvpnkeys US 3556 - 2026-06-01
+- name: STREAM-02 96 oneclickvpnkeys - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
@@ -990,11 +631,41 @@ proxies:
   network: ws
   servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
-    path: /fp=random
+    path: /fp=chrome
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: WORK-03 kurdconfig - 2026-06-01
+- name: STREAM-03 config_free2 2365 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: STREAM-04 hi_proxy_iran 4084 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: STREAM-05 kurdconfig - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1009,111 +680,81 @@ proxies:
     headers:
       Host: support.zoom.us.cyylr.eu.cc
   udp: true
-- name: WORK-04 config_free2 9041 - 2026-06-01
+- name: STREAM-06 kurdconfig 6843 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  uuid: 266c0d10-d0f4-41f2-9d82-37cedf863fe7
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: juzi.qea.ccwu.cc
+  servername: cyylr.eu.cc
   ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    path: /in-pdr
     headers:
-      Host: juzi.qea.ccwu.cc
+      Host: cyylr.eu.cc
   udp: true
-- name: WORK-05 42 oneclickvpnkeys - 2026-06-01
+- name: STREAM-07 oneclickvpnkeys US 8733 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: edgetunnell-1dc.pages.dev
+  servername: up2-df6.pages.dev
   ws-opts:
-    path: /fp=chrome
+    path: /uTZSXPBI2IfoxF86
     headers:
-      Host: edgetunnell-1dc.pages.dev
+      Host: up2-df6.pages.dev
   udp: true
-- name: WORK-06 96 oneclickvpnkeys - 2026-06-01
+- name: STREAM-08 filtershekan_channel 7 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
+  servername: octopusss5.info
   ws-opts:
-    path: /fp=chrome
+    path: /udfyfws
     headers:
-      Host: hhlfy.twiladaphne.ndjp.net
+      Host: octopusss5.info
   udp: true
-- name: WORK-07 hi_proxy_iran 1123 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: WORK-08 chillguy_vpn 1653 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: WORK-09 v2reya88 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cb0be83e-ff5c-4601-8572-18deac592958
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: nimahavok.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: nimahavok.pages.dev
-  udp: true
-- name: WORK-10 v2rayngvpn US - 2026-06-01
+- name: STREAM-09 AU AU - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: trojan
-  password: mitivpn
+  password: rYuChHcwQZskq9E0zdoR
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: cdn.linkman1.ir
+  sni: vpn5.rnmcnm.com
   ws-opts:
-    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
+    path: /ws-79dffb8106db
     headers:
-      Host: cdn.linkman1.ir
+      Host: vpn5.rnmcnm.com
   udp: true
-- name: WORK-11 LINK 10.lowh.net - 2026-06-01
+- name: STREAM-10 v2raydia - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 179718c1-27b3-449d-9626-98c2c854d010
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: del.ccnnx.ir
+  ws-opts:
+    path: /@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia
+    headers:
+      Host: del.ccnnx.ir
+  udp: true
+- name: STREAM-11 LINK 10.lowh.net - 2026-06-02
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -1129,7 +770,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: WORK-12 LINK bel432 xl - 2026-06-01
+- name: STREAM-12 LINK bel432 xl - 2026-06-02
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -1145,7 +786,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: WORK-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
+- name: STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02
   type: vless
   server: 104.17.3.81
   port: 443
@@ -1159,7 +800,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: WORK-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
+- name: STREAM-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-02
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -1175,22 +816,22 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GEN-01 kurdconfig 3248 - 2026-06-01
+- name: GAME-01 chillguy_vpn 1896 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  servername: juzi.qea.ccwu.cc
   ws-opts:
-    path: /id-pusat
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048
     headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+      Host: juzi.qea.ccwu.cc
   udp: true
-- name: GEN-02 oneclickvpnkeys US 3556 - 2026-06-01
+- name: GAME-02 96 oneclickvpnkeys - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1201,11 +842,41 @@ proxies:
   network: ws
   servername: hhlfy.twiladaphne.ndjp.net
   ws-opts:
-    path: /fp=random
+    path: /fp=chrome
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: GEN-03 kurdconfig - 2026-06-01
+- name: GAME-03 config_free2 2365 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: GAME-04 hi_proxy_iran 4084 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GAME-05 kurdconfig - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1220,111 +891,81 @@ proxies:
     headers:
       Host: support.zoom.us.cyylr.eu.cc
   udp: true
-- name: GEN-04 config_free2 9041 - 2026-06-01
+- name: GAME-06 kurdconfig 6843 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  uuid: 266c0d10-d0f4-41f2-9d82-37cedf863fe7
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: juzi.qea.ccwu.cc
+  servername: cyylr.eu.cc
   ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    path: /in-pdr
     headers:
-      Host: juzi.qea.ccwu.cc
+      Host: cyylr.eu.cc
   udp: true
-- name: GEN-05 42 oneclickvpnkeys - 2026-06-01
+- name: GAME-07 oneclickvpnkeys US 8733 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: edgetunnell-1dc.pages.dev
+  servername: up2-df6.pages.dev
   ws-opts:
-    path: /fp=chrome
+    path: /uTZSXPBI2IfoxF86
     headers:
-      Host: edgetunnell-1dc.pages.dev
+      Host: up2-df6.pages.dev
   udp: true
-- name: GEN-06 96 oneclickvpnkeys - 2026-06-01
+- name: GAME-08 filtershekan_channel 7 - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
+  servername: octopusss5.info
   ws-opts:
-    path: /fp=chrome
+    path: /udfyfws
     headers:
-      Host: hhlfy.twiladaphne.ndjp.net
+      Host: octopusss5.info
   udp: true
-- name: GEN-07 hi_proxy_iran 1123 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: GEN-08 chillguy_vpn 1653 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: GEN-09 v2reya88 - 2026-06-01
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: cb0be83e-ff5c-4601-8572-18deac592958
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: nimahavok.pages.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: nimahavok.pages.dev
-  udp: true
-- name: GEN-10 v2rayngvpn US - 2026-06-01
+- name: GAME-09 AU AU - 2026-06-02
   server: 104.17.3.81
   port: 443
   type: trojan
-  password: mitivpn
+  password: rYuChHcwQZskq9E0zdoR
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: cdn.linkman1.ir
+  sni: vpn5.rnmcnm.com
   ws-opts:
-    path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings
+    path: /ws-79dffb8106db
     headers:
-      Host: cdn.linkman1.ir
+      Host: vpn5.rnmcnm.com
   udp: true
-- name: GEN-11 LINK 10.lowh.net - 2026-06-01
+- name: GAME-10 v2raydia - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 179718c1-27b3-449d-9626-98c2c854d010
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: del.ccnnx.ir
+  ws-opts:
+    path: /@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia
+    headers:
+      Host: del.ccnnx.ir
+  udp: true
+- name: GAME-11 LINK 10.lowh.net - 2026-06-02
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -1340,7 +981,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: GEN-12 LINK bel432 xl - 2026-06-01
+- name: GAME-12 LINK bel432 xl - 2026-06-02
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -1356,7 +997,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
+- name: GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02
   type: vless
   server: 104.17.3.81
   port: 443
@@ -1370,7 +1011,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: GEN-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
+- name: GAME-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-02
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -1386,15 +1027,684 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
+- name: SOCIAL-01 chillguy_vpn 1896 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: SOCIAL-02 96 oneclickvpnkeys - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: SOCIAL-03 config_free2 2365 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: SOCIAL-04 hi_proxy_iran 4084 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: SOCIAL-05 kurdconfig - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 006e96ff-db44-4086-a374-7b8aa7351fe2
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: support.zoom.us.cyylr.eu.cc
+  ws-opts:
+    path: /sg-do
+    headers:
+      Host: support.zoom.us.cyylr.eu.cc
+  udp: true
+- name: SOCIAL-06 kurdconfig 6843 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 266c0d10-d0f4-41f2-9d82-37cedf863fe7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: cyylr.eu.cc
+  ws-opts:
+    path: /in-pdr
+    headers:
+      Host: cyylr.eu.cc
+  udp: true
+- name: SOCIAL-07 oneclickvpnkeys US 8733 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: SOCIAL-08 filtershekan_channel 7 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss5.info
+  ws-opts:
+    path: /udfyfws
+    headers:
+      Host: octopusss5.info
+  udp: true
+- name: SOCIAL-09 AU AU - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: rYuChHcwQZskq9E0zdoR
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: vpn5.rnmcnm.com
+  ws-opts:
+    path: /ws-79dffb8106db
+    headers:
+      Host: vpn5.rnmcnm.com
+  udp: true
+- name: SOCIAL-10 IN) DigitalOcean LLC IN - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 559ab675-567f-4d61-a742-877bfd51d87c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: zaintest.vuclip.com.cyylr.eu.cc
+  ws-opts:
+    path: /in-do
+    headers:
+      Host: zaintest.vuclip.com.cyylr.eu.cc
+  udp: true
+- name: SOCIAL-11 kurdconfig 3200 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 565b50d4-604d-4a60-9fc2-d9d3dac0aec6
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: SOCIAL-12 v2raydia - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 179718c1-27b3-449d-9626-98c2c854d010
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: del.ccnnx.ir
+  ws-opts:
+    path: /@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia
+    headers:
+      Host: del.ccnnx.ir
+  udp: true
+- name: SOCIAL-13 LINK 10.lowh.net - 2026-06-02
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: SOCIAL-14 LINK bel432 xl - 2026-06-02
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: SOCIAL-15 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: WORK-01 chillguy_vpn 1896 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: WORK-02 96 oneclickvpnkeys - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: WORK-03 config_free2 2365 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: WORK-04 hi_proxy_iran 4084 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: WORK-05 kurdconfig - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 006e96ff-db44-4086-a374-7b8aa7351fe2
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: support.zoom.us.cyylr.eu.cc
+  ws-opts:
+    path: /sg-do
+    headers:
+      Host: support.zoom.us.cyylr.eu.cc
+  udp: true
+- name: WORK-06 kurdconfig 6843 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 266c0d10-d0f4-41f2-9d82-37cedf863fe7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: cyylr.eu.cc
+  ws-opts:
+    path: /in-pdr
+    headers:
+      Host: cyylr.eu.cc
+  udp: true
+- name: WORK-07 oneclickvpnkeys US 8733 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: WORK-08 filtershekan_channel 7 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss5.info
+  ws-opts:
+    path: /udfyfws
+    headers:
+      Host: octopusss5.info
+  udp: true
+- name: WORK-09 AU AU - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: rYuChHcwQZskq9E0zdoR
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: vpn5.rnmcnm.com
+  ws-opts:
+    path: /ws-79dffb8106db
+    headers:
+      Host: vpn5.rnmcnm.com
+  udp: true
+- name: WORK-10 v2raydia - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 179718c1-27b3-449d-9626-98c2c854d010
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: del.ccnnx.ir
+  ws-opts:
+    path: /@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia
+    headers:
+      Host: del.ccnnx.ir
+  udp: true
+- name: WORK-11 LINK 10.lowh.net - 2026-06-02
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: WORK-12 LINK bel432 xl - 2026-06-02
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: WORK-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: WORK-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-02
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: GEN-01 chillguy_vpn 1896 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: GEN-02 96 oneclickvpnkeys - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GEN-03 config_free2 2365 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: GEN-04 hi_proxy_iran 4084 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GEN-05 kurdconfig - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 006e96ff-db44-4086-a374-7b8aa7351fe2
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: support.zoom.us.cyylr.eu.cc
+  ws-opts:
+    path: /sg-do
+    headers:
+      Host: support.zoom.us.cyylr.eu.cc
+  udp: true
+- name: GEN-06 kurdconfig 6843 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 266c0d10-d0f4-41f2-9d82-37cedf863fe7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: cyylr.eu.cc
+  ws-opts:
+    path: /in-pdr
+    headers:
+      Host: cyylr.eu.cc
+  udp: true
+- name: GEN-07 oneclickvpnkeys US 8733 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: ce69190e-935a-4394-9e5e-2ab2872ba242
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: up2-df6.pages.dev
+  ws-opts:
+    path: /uTZSXPBI2IfoxF86
+    headers:
+      Host: up2-df6.pages.dev
+  udp: true
+- name: GEN-08 filtershekan_channel 7 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss5.info
+  ws-opts:
+    path: /udfyfws
+    headers:
+      Host: octopusss5.info
+  udp: true
+- name: GEN-09 AU AU - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: rYuChHcwQZskq9E0zdoR
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: vpn5.rnmcnm.com
+  ws-opts:
+    path: /ws-79dffb8106db
+    headers:
+      Host: vpn5.rnmcnm.com
+  udp: true
+- name: GEN-10 oneclickvpnkeys US 3718 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: m.udemy.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: m.udemy.com.cyylr.eu.cc
+  udp: true
+- name: GEN-11 oneclickvpnkeys US - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: graph.instagram.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: graph.instagram.com.cyylr.eu.cc
+  udp: true
+- name: GEN-12 oneclickvpnkeys US 8863 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: cc752a3e-1537-4e86-bb50-1b897bf7b33c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: cyylr.eu.cc
+  udp: true
+- name: GEN-13 oneclickvpnkeys US 1139 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: GEN-14 oneclickvpnkeys US 9332 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=random
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GEN-15 oneclickvpnkeys US 9675 - 2026-06-02
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
 proxy-groups:
 - name: INDONESIA-BEST
   type: url-test
   proxies:
-  - ID-01 kurdconfig 3248 - 2026-06-01
-  - ID-02 LINK 10.lowh.net - 2026-06-01
-  - ID-03 LINK bel432 xl - 2026-06-01
-  - ID-04 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
-  - ID-05 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
+  - ID-01 chillguy_vpn 1896 - 2026-06-02
+  - ID-02 96 oneclickvpnkeys - 2026-06-02
+  - ID-03 config_free2 2365 - 2026-06-02
+  - ID-04 hi_proxy_iran 4084 - 2026-06-02
+  - ID-05 kurdconfig - 2026-06-02
+  - ID-06 kurdconfig 6843 - 2026-06-02
+  - ID-07 oneclickvpnkeys US 8733 - 2026-06-02
+  - ID-08 filtershekan_channel 7 - 2026-06-02
+  - ID-09 AU AU - 2026-06-02
+  - ID-10 v2raydia - 2026-06-02
+  - ID-11 LINK 10.lowh.net - 2026-06-02
+  - ID-12 LINK bel432 xl - 2026-06-02
+  - ID-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02
+  - ID-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1406,7 +1716,16 @@ proxy-groups:
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
-  - kurdconfig 3248 - 2026-06-01
+  - chillguy_vpn 1896 - 2026-06-02
+  - 96 oneclickvpnkeys - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - AU AU - 2026-06-02
+  - v2raydia - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - kurdconfig 6843 - 2026-06-02
+  - oneclickvpnkeys US 8733 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1420,7 +1739,26 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 3248 - 2026-06-01
+  - chillguy_vpn 1896 - 2026-06-02
+  - 96 oneclickvpnkeys - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - AU AU - 2026-06-02
+  - v2raydia - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - kurdconfig 6843 - 2026-06-02
+  - oneclickvpnkeys US 8733 - 2026-06-02
+  - oneclickvpnkeys US 9332 - 2026-06-02
+  - kurdconfig 3200 - 2026-06-02
+  - oneclickvpnkeys US 6870 - 2026-06-02
+  - oneclickvpnkeys US 8863 - 2026-06-02
+  - IN) DigitalOcean LLC IN - 2026-06-02
+  - oneclickvpnkeys US 3718 - 2026-06-02
+  - oneclickvpnkeys US 9675 - 2026-06-02
+  - oneclickvpnkeys US - 2026-06-02
+  - oneclickvpnkeys US 1139 - 2026-06-02
+  - v2raybaaz - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1433,124 +1771,124 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 3248 - 2026-06-01
-  - hi_proxy_iran 1123 - 2026-06-01
-  - kurdconfig - 2026-06-01
-  - oneclickvpnkeys US 3556 - 2026-06-01
-  - 96 oneclickvpnkeys - 2026-06-01
-  - v2reya88 - 2026-06-01
-  - chillguy_vpn 1653 - 2026-06-01
-  - 42 oneclickvpnkeys - 2026-06-01
-  - config_free2 9041 - 2026-06-01
-  - v2rayngvpn US - 2026-06-01
+  - chillguy_vpn 1896 - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
+  - 96 oneclickvpnkeys - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - AU AU - 2026-06-02
+  - v2raydia - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - kurdconfig 6843 - 2026-06-02
+  - oneclickvpnkeys US 8733 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
+  lazy: false
 - name: SOCIAL MEDIA STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 3248 - 2026-06-01
-  - kurdconfig - 2026-06-01
-  - hi_proxy_iran 1123 - 2026-06-01
-  - oneclickvpnkeys US 3556 - 2026-06-01
-  - 96 oneclickvpnkeys - 2026-06-01
-  - config_free2 9041 - 2026-06-01
-  - chillguy_vpn 1653 - 2026-06-01
-  - v2reya88 - 2026-06-01
-  - 42 oneclickvpnkeys - 2026-06-01
-  - v2rayngvpn US - 2026-06-01
+  - chillguy_vpn 1896 - 2026-06-02
+  - 96 oneclickvpnkeys - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - AU AU - 2026-06-02
+  - v2raydia - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - kurdconfig 6843 - 2026-06-02
+  - oneclickvpnkeys US 8733 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
+  lazy: false
 - name: STREAMING STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 3248 - 2026-06-01
-  - kurdconfig - 2026-06-01
-  - hi_proxy_iran 1123 - 2026-06-01
-  - oneclickvpnkeys US 3556 - 2026-06-01
-  - 96 oneclickvpnkeys - 2026-06-01
-  - chillguy_vpn 1653 - 2026-06-01
-  - v2reya88 - 2026-06-01
-  - config_free2 9041 - 2026-06-01
-  - 42 oneclickvpnkeys - 2026-06-01
-  - v2rayngvpn US - 2026-06-01
+  - chillguy_vpn 1896 - 2026-06-02
+  - 96 oneclickvpnkeys - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - AU AU - 2026-06-02
+  - v2raydia - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - kurdconfig 6843 - 2026-06-02
+  - oneclickvpnkeys US 8733 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
+  lazy: false
 - name: WORKING STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 3248 - 2026-06-01
-  - hi_proxy_iran 1123 - 2026-06-01
-  - kurdconfig - 2026-06-01
-  - oneclickvpnkeys US 3556 - 2026-06-01
-  - 96 oneclickvpnkeys - 2026-06-01
-  - chillguy_vpn 1653 - 2026-06-01
-  - v2reya88 - 2026-06-01
-  - 42 oneclickvpnkeys - 2026-06-01
-  - config_free2 9041 - 2026-06-01
-  - v2rayngvpn US - 2026-06-01
+  - chillguy_vpn 1896 - 2026-06-02
+  - 96 oneclickvpnkeys - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - AU AU - 2026-06-02
+  - v2raydia - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - kurdconfig 6843 - 2026-06-02
+  - oneclickvpnkeys US 8733 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
+  lazy: false
 - name: GENERAL STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 3248 - 2026-06-01
-  - kurdconfig - 2026-06-01
-  - hi_proxy_iran 1123 - 2026-06-01
-  - oneclickvpnkeys US 3556 - 2026-06-01
-  - 96 oneclickvpnkeys - 2026-06-01
-  - config_free2 9041 - 2026-06-01
-  - chillguy_vpn 1653 - 2026-06-01
-  - v2reya88 - 2026-06-01
-  - 42 oneclickvpnkeys - 2026-06-01
-  - v2rayngvpn US - 2026-06-01
+  - chillguy_vpn 1896 - 2026-06-02
+  - 96 oneclickvpnkeys - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - AU AU - 2026-06-02
+  - v2raydia - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - kurdconfig 6843 - 2026-06-02
+  - oneclickvpnkeys US 8733 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
+  lazy: false
 - name: URL-TEST TOP GLOBAL
   type: url-test
   proxies:
-  - kurdconfig 3248 - 2026-06-01
-  - kurdconfig - 2026-06-01
-  - hi_proxy_iran 1123 - 2026-06-01
-  - oneclickvpnkeys US 3556 - 2026-06-01
-  - 96 oneclickvpnkeys - 2026-06-01
-  - config_free2 9041 - 2026-06-01
-  - chillguy_vpn 1653 - 2026-06-01
-  - v2reya88 - 2026-06-01
-  - 42 oneclickvpnkeys - 2026-06-01
-  - v2rayngvpn US - 2026-06-01
+  - chillguy_vpn 1896 - 2026-06-02
+  - 96 oneclickvpnkeys - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - AU AU - 2026-06-02
+  - v2raydia - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - kurdconfig 6843 - 2026-06-02
+  - oneclickvpnkeys US 8733 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1562,16 +1900,26 @@ proxy-groups:
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - kurdconfig 3248 - 2026-06-01
-  - kurdconfig - 2026-06-01
-  - hi_proxy_iran 1123 - 2026-06-01
-  - oneclickvpnkeys US 3556 - 2026-06-01
-  - 96 oneclickvpnkeys - 2026-06-01
-  - config_free2 9041 - 2026-06-01
-  - chillguy_vpn 1653 - 2026-06-01
-  - v2reya88 - 2026-06-01
-  - 42 oneclickvpnkeys - 2026-06-01
-  - v2rayngvpn US - 2026-06-01
+  - chillguy_vpn 1896 - 2026-06-02
+  - 96 oneclickvpnkeys - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - AU AU - 2026-06-02
+  - v2raydia - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - kurdconfig 6843 - 2026-06-02
+  - oneclickvpnkeys US 8733 - 2026-06-02
+  - oneclickvpnkeys US 9332 - 2026-06-02
+  - kurdconfig 3200 - 2026-06-02
+  - oneclickvpnkeys US 6870 - 2026-06-02
+  - oneclickvpnkeys US 8863 - 2026-06-02
+  - IN) DigitalOcean LLC IN - 2026-06-02
+  - oneclickvpnkeys US 3718 - 2026-06-02
+  - oneclickvpnkeys US 9675 - 2026-06-02
+  - oneclickvpnkeys US - 2026-06-02
+  - oneclickvpnkeys US 1139 - 2026-06-02
+  - v2raybaaz - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1585,7 +1933,26 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - kurdconfig 3248 - 2026-06-01
+  - chillguy_vpn 1896 - 2026-06-02
+  - 96 oneclickvpnkeys - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - AU AU - 2026-06-02
+  - v2raydia - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - kurdconfig 6843 - 2026-06-02
+  - oneclickvpnkeys US 8733 - 2026-06-02
+  - oneclickvpnkeys US 9332 - 2026-06-02
+  - kurdconfig 3200 - 2026-06-02
+  - oneclickvpnkeys US 6870 - 2026-06-02
+  - oneclickvpnkeys US 8863 - 2026-06-02
+  - IN) DigitalOcean LLC IN - 2026-06-02
+  - oneclickvpnkeys US 3718 - 2026-06-02
+  - oneclickvpnkeys US 9675 - 2026-06-02
+  - oneclickvpnkeys US - 2026-06-02
+  - oneclickvpnkeys US 1139 - 2026-06-02
+  - v2raybaaz - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1625,16 +1992,16 @@ proxy-groups:
 - name: BEST-STABLE
   type: url-test
   proxies:
-  - 96 oneclickvpnkeys - 2026-06-01
-  - v2reya88 - 2026-06-01
-  - v2rayngvpn US - 2026-06-01
-  - kurdconfig 3248 - 2026-06-01
-  - oneclickvpnkeys US 3556 - 2026-06-01
-  - kurdconfig - 2026-06-01
-  - 42 oneclickvpnkeys - 2026-06-01
-  - config_free2 9041 - 2026-06-01
-  - hi_proxy_iran 1123 - 2026-06-01
-  - chillguy_vpn 1653 - 2026-06-01
+  - 96 oneclickvpnkeys - 2026-06-02
+  - oneclickvpnkeys US - 2026-06-02
+  - v2raybaaz - 2026-06-02
+  - IN) DigitalOcean LLC IN - 2026-06-02
+  - kurdconfig - 2026-06-02
+  - filtershekan_channel 7 - 2026-06-02
+  - v2raydia - 2026-06-02
+  - chillguy_vpn 1896 - 2026-06-02
+  - config_free2 2365 - 2026-06-02
+  - hi_proxy_iran 4084 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1666,20 +2033,20 @@ proxy-groups:
 - name: STREAMING-BEST
   type: url-test
   proxies:
-  - STREAM-01 kurdconfig 3248 - 2026-06-01
-  - STREAM-02 oneclickvpnkeys US 3556 - 2026-06-01
-  - STREAM-03 kurdconfig - 2026-06-01
-  - STREAM-04 config_free2 9041 - 2026-06-01
-  - STREAM-05 42 oneclickvpnkeys - 2026-06-01
-  - STREAM-06 96 oneclickvpnkeys - 2026-06-01
-  - STREAM-07 hi_proxy_iran 1123 - 2026-06-01
-  - STREAM-08 chillguy_vpn 1653 - 2026-06-01
-  - STREAM-09 v2reya88 - 2026-06-01
-  - STREAM-10 v2rayngvpn US - 2026-06-01
-  - STREAM-11 LINK 10.lowh.net - 2026-06-01
-  - STREAM-12 LINK bel432 xl - 2026-06-01
-  - STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
-  - STREAM-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
+  - STREAM-01 chillguy_vpn 1896 - 2026-06-02
+  - STREAM-02 96 oneclickvpnkeys - 2026-06-02
+  - STREAM-03 config_free2 2365 - 2026-06-02
+  - STREAM-04 hi_proxy_iran 4084 - 2026-06-02
+  - STREAM-05 kurdconfig - 2026-06-02
+  - STREAM-06 kurdconfig 6843 - 2026-06-02
+  - STREAM-07 oneclickvpnkeys US 8733 - 2026-06-02
+  - STREAM-08 filtershekan_channel 7 - 2026-06-02
+  - STREAM-09 AU AU - 2026-06-02
+  - STREAM-10 v2raydia - 2026-06-02
+  - STREAM-11 LINK 10.lowh.net - 2026-06-02
+  - STREAM-12 LINK bel432 xl - 2026-06-02
+  - STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02
+  - STREAM-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1691,20 +2058,20 @@ proxy-groups:
 - name: GAMING-BEST
   type: url-test
   proxies:
-  - GAME-01 kurdconfig 3248 - 2026-06-01
-  - GAME-02 oneclickvpnkeys US 3556 - 2026-06-01
-  - GAME-03 kurdconfig - 2026-06-01
-  - GAME-04 config_free2 9041 - 2026-06-01
-  - GAME-05 42 oneclickvpnkeys - 2026-06-01
-  - GAME-06 96 oneclickvpnkeys - 2026-06-01
-  - GAME-07 hi_proxy_iran 1123 - 2026-06-01
-  - GAME-08 chillguy_vpn 1653 - 2026-06-01
-  - GAME-09 v2reya88 - 2026-06-01
-  - GAME-10 v2rayngvpn US - 2026-06-01
-  - GAME-11 LINK 10.lowh.net - 2026-06-01
-  - GAME-12 LINK bel432 xl - 2026-06-01
-  - GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
-  - GAME-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
+  - GAME-01 chillguy_vpn 1896 - 2026-06-02
+  - GAME-02 96 oneclickvpnkeys - 2026-06-02
+  - GAME-03 config_free2 2365 - 2026-06-02
+  - GAME-04 hi_proxy_iran 4084 - 2026-06-02
+  - GAME-05 kurdconfig - 2026-06-02
+  - GAME-06 kurdconfig 6843 - 2026-06-02
+  - GAME-07 oneclickvpnkeys US 8733 - 2026-06-02
+  - GAME-08 filtershekan_channel 7 - 2026-06-02
+  - GAME-09 AU AU - 2026-06-02
+  - GAME-10 v2raydia - 2026-06-02
+  - GAME-11 LINK 10.lowh.net - 2026-06-02
+  - GAME-12 LINK bel432 xl - 2026-06-02
+  - GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02
+  - GAME-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1716,20 +2083,21 @@ proxy-groups:
 - name: SOCIAL-BEST
   type: url-test
   proxies:
-  - SOCIAL-01 kurdconfig 3248 - 2026-06-01
-  - SOCIAL-02 oneclickvpnkeys US 3556 - 2026-06-01
-  - SOCIAL-03 kurdconfig - 2026-06-01
-  - SOCIAL-04 config_free2 9041 - 2026-06-01
-  - SOCIAL-05 42 oneclickvpnkeys - 2026-06-01
-  - SOCIAL-06 96 oneclickvpnkeys - 2026-06-01
-  - SOCIAL-07 hi_proxy_iran 1123 - 2026-06-01
-  - SOCIAL-08 chillguy_vpn 1653 - 2026-06-01
-  - SOCIAL-09 v2reya88 - 2026-06-01
-  - SOCIAL-10 v2rayngvpn US - 2026-06-01
-  - SOCIAL-11 LINK 10.lowh.net - 2026-06-01
-  - SOCIAL-12 LINK bel432 xl - 2026-06-01
-  - SOCIAL-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
-  - SOCIAL-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
+  - SOCIAL-01 chillguy_vpn 1896 - 2026-06-02
+  - SOCIAL-02 96 oneclickvpnkeys - 2026-06-02
+  - SOCIAL-03 config_free2 2365 - 2026-06-02
+  - SOCIAL-04 hi_proxy_iran 4084 - 2026-06-02
+  - SOCIAL-05 kurdconfig - 2026-06-02
+  - SOCIAL-06 kurdconfig 6843 - 2026-06-02
+  - SOCIAL-07 oneclickvpnkeys US 8733 - 2026-06-02
+  - SOCIAL-08 filtershekan_channel 7 - 2026-06-02
+  - SOCIAL-09 AU AU - 2026-06-02
+  - SOCIAL-10 IN) DigitalOcean LLC IN - 2026-06-02
+  - SOCIAL-11 kurdconfig 3200 - 2026-06-02
+  - SOCIAL-12 v2raydia - 2026-06-02
+  - SOCIAL-13 LINK 10.lowh.net - 2026-06-02
+  - SOCIAL-14 LINK bel432 xl - 2026-06-02
+  - SOCIAL-15 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1741,20 +2109,20 @@ proxy-groups:
 - name: WORKING-BEST
   type: url-test
   proxies:
-  - WORK-01 kurdconfig 3248 - 2026-06-01
-  - WORK-02 oneclickvpnkeys US 3556 - 2026-06-01
-  - WORK-03 kurdconfig - 2026-06-01
-  - WORK-04 config_free2 9041 - 2026-06-01
-  - WORK-05 42 oneclickvpnkeys - 2026-06-01
-  - WORK-06 96 oneclickvpnkeys - 2026-06-01
-  - WORK-07 hi_proxy_iran 1123 - 2026-06-01
-  - WORK-08 chillguy_vpn 1653 - 2026-06-01
-  - WORK-09 v2reya88 - 2026-06-01
-  - WORK-10 v2rayngvpn US - 2026-06-01
-  - WORK-11 LINK 10.lowh.net - 2026-06-01
-  - WORK-12 LINK bel432 xl - 2026-06-01
-  - WORK-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
-  - WORK-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
+  - WORK-01 chillguy_vpn 1896 - 2026-06-02
+  - WORK-02 96 oneclickvpnkeys - 2026-06-02
+  - WORK-03 config_free2 2365 - 2026-06-02
+  - WORK-04 hi_proxy_iran 4084 - 2026-06-02
+  - WORK-05 kurdconfig - 2026-06-02
+  - WORK-06 kurdconfig 6843 - 2026-06-02
+  - WORK-07 oneclickvpnkeys US 8733 - 2026-06-02
+  - WORK-08 filtershekan_channel 7 - 2026-06-02
+  - WORK-09 AU AU - 2026-06-02
+  - WORK-10 v2raydia - 2026-06-02
+  - WORK-11 LINK 10.lowh.net - 2026-06-02
+  - WORK-12 LINK bel432 xl - 2026-06-02
+  - WORK-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02
+  - WORK-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1766,20 +2134,21 @@ proxy-groups:
 - name: GENERAL-BEST
   type: url-test
   proxies:
-  - GEN-01 kurdconfig 3248 - 2026-06-01
-  - GEN-02 oneclickvpnkeys US 3556 - 2026-06-01
-  - GEN-03 kurdconfig - 2026-06-01
-  - GEN-04 config_free2 9041 - 2026-06-01
-  - GEN-05 42 oneclickvpnkeys - 2026-06-01
-  - GEN-06 96 oneclickvpnkeys - 2026-06-01
-  - GEN-07 hi_proxy_iran 1123 - 2026-06-01
-  - GEN-08 chillguy_vpn 1653 - 2026-06-01
-  - GEN-09 v2reya88 - 2026-06-01
-  - GEN-10 v2rayngvpn US - 2026-06-01
-  - GEN-11 LINK 10.lowh.net - 2026-06-01
-  - GEN-12 LINK bel432 xl - 2026-06-01
-  - GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-01
-  - GEN-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-01
+  - GEN-01 chillguy_vpn 1896 - 2026-06-02
+  - GEN-02 96 oneclickvpnkeys - 2026-06-02
+  - GEN-03 config_free2 2365 - 2026-06-02
+  - GEN-04 hi_proxy_iran 4084 - 2026-06-02
+  - GEN-05 kurdconfig - 2026-06-02
+  - GEN-06 kurdconfig 6843 - 2026-06-02
+  - GEN-07 oneclickvpnkeys US 8733 - 2026-06-02
+  - GEN-08 filtershekan_channel 7 - 2026-06-02
+  - GEN-09 AU AU - 2026-06-02
+  - GEN-10 oneclickvpnkeys US 3718 - 2026-06-02
+  - GEN-11 oneclickvpnkeys US - 2026-06-02
+  - GEN-12 oneclickvpnkeys US 8863 - 2026-06-02
+  - GEN-13 oneclickvpnkeys US 1139 - 2026-06-02
+  - GEN-14 oneclickvpnkeys US 9332 - 2026-06-02
+  - GEN-15 oneclickvpnkeys US 9675 - 2026-06-02
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1819,6 +2188,7 @@ rules:
 - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
 - IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
 - IP-CIDR,255.255.255.255/32,DIRECT,no-resolve
+- RULE-SET,goodbyeads-youtube,REJECT
 - DOMAIN-SUFFIX,id,INDONESIA-BEST
 - DOMAIN-SUFFIX,go.id,INDONESIA-BEST
 - DOMAIN-SUFFIX,ac.id,INDONESIA-BEST
@@ -1914,6 +2284,13 @@ rule-providers:
     format: yaml
     path: ./rule_provider/youtube-ads.yaml
     url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/youtube-ads.yaml
+    interval: 86400
+  goodbyeads-youtube:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/goodbyeads-youtube.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/goodbyeads-youtube.yaml
     interval: 86400
   game-block:
     type: http

@@ -1,9 +1,9 @@
 {
   "ok": true,
   "profile_dir": "output/SingBox",
-  "files_scanned": 112,
-  "files_changed": 62,
-  "tun_inbounds_changed": 62,
+  "files_scanned": 115,
+  "files_changed": 63,
+  "tun_inbounds_changed": 63,
   "note": "Trusted manual accounts from input/links.txt or input.txt are not filtered or removed by this script.",
   "files": [
     {
@@ -888,6 +888,30 @@
     },
     {
       "file": "output/SingBox/mobile-stable.json",
+      "ok": true,
+      "changed": false,
+      "tun_inbounds_changed": 0,
+      "details": [],
+      "error": ""
+    },
+    {
+      "file": "output/SingBox/performance-lite-safe.json",
+      "ok": true,
+      "changed": true,
+      "tun_inbounds_changed": 1,
+      "details": [
+        {
+          "tag": "tun-in",
+          "changed": true,
+          "removed_fields": [
+            "inet4_address"
+          ]
+        }
+      ],
+      "error": ""
+    },
+    {
+      "file": "output/SingBox/performance-lite.json",
       "ok": true,
       "changed": false,
       "tun_inbounds_changed": 0,

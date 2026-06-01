@@ -5,8 +5,8 @@
   "primary_dns": "1.1.1.1",
   "fallback_tag": "google",
   "fallback_dns": "8.8.8.8",
-  "processed_count": 98,
-  "skipped_count": 14,
+  "processed_count": 99,
+  "skipped_count": 15,
   "error_count": 0,
   "processed": [
     {
@@ -690,6 +690,16 @@
       "stale_dns_rule_refs_fixed": 0
     },
     {
+      "file": "output/SingBox/performance-lite.json",
+      "format": "legacy",
+      "primary": "1.1.1.1",
+      "fallback": "8.8.8.8",
+      "final": "cloudflare",
+      "server_count_before": 1,
+      "server_count_after": 2,
+      "stale_dns_rule_refs_fixed": 0
+    },
+    {
       "file": "output/SingBox/social_media-legacy-tun-safe.json",
       "format": "legacy",
       "primary": "1.1.1.1",
@@ -1017,6 +1027,10 @@
     },
     {
       "file": "output/SingBox/summary_import_sanitize.json",
+      "reason": "summary/report file"
+    },
+    {
+      "file": "output/SingBox/summary_legacy_inbound_migration.json",
       "reason": "summary/report file"
     },
     {

@@ -1,0 +1,557 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "cloudflare",
+        "address": "1.1.1.1"
+      },
+      {
+        "tag": "google",
+        "address": "8.8.8.8"
+      }
+    ],
+    "final": "cloudflare"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system",
+      "address": [
+        "172.19.0.1/30"
+      ]
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 7893
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "urltest",
+      "tag": "AUTO-BEST-STABLE",
+      "outbounds": [
+        "9https t.me VIPV2rayNGNP",
+        "v2rayvpno",
+        "v2ray_dalghak",
+        "V2raysCollector",
+        "v2ray_dalghak 2076",
+        "55 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "43 oneclickvpnkeys",
+        "outline_ir",
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK 10.lowh.net",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK 10.lowh.net 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80
+    },
+    {
+      "type": "selector",
+      "tag": "PROXY",
+      "outbounds": [
+        "DIRECT",
+        "AUTO-BEST-STABLE",
+        "AUTO-BEST-PING",
+        "9https t.me VIPV2rayNGNP",
+        "v2rayvpno",
+        "v2ray_dalghak",
+        "V2raysCollector",
+        "v2ray_dalghak 2076",
+        "55 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "43 oneclickvpnkeys",
+        "outline_ir",
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK 10.lowh.net",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK 10.lowh.net 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "AUTO-PERFORMANCE-LITE",
+      "outbounds": [
+        "9https t.me VIPV2rayNGNP",
+        "v2rayvpno",
+        "v2ray_dalghak",
+        "V2raysCollector",
+        "v2ray_dalghak 2076",
+        "55 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "43 oneclickvpnkeys",
+        "outline_ir"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80
+    },
+    {
+      "type": "urltest",
+      "tag": "AUTO-BEST-PING",
+      "outbounds": [
+        "9https t.me VIPV2rayNGNP",
+        "v2rayvpno",
+        "v2ray_dalghak",
+        "V2raysCollector",
+        "v2ray_dalghak 2076",
+        "55 oneclickvpnkeys",
+        "30 oneclickvpnkeys",
+        "SC 33723 Telegram t.me SOSkeyNET",
+        "43 oneclickvpnkeys",
+        "outline_ir",
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK 10.lowh.net",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK 10.lowh.net 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80
+    },
+    {
+      "type": "vless",
+      "tag": "9https t.me VIPV2rayNGNP - 2026-06-02",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e258977b-e413-4718-a3af-02d75492c349",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp.aniua.qzz.io",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "jp.aniua.qzz.io"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2rayvpno - 2026-06-02",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "536d0d54-53a5-455a-ad7c-a525d8ff629f",
+      "tls": {
+        "enabled": true,
+        "server_name": "tesdt.arvanabr.xyz",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "tesdt.arvanabr.xyz"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2ray_dalghak - 2026-06-02",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "06b65903-406d-4a41-8463-6fd5c0ee7798",
+      "tls": {
+        "enabled": true,
+        "server_name": "sni.skylee4.cloudns.ch",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/proxyip=ProxyIP.CMLiussss.net",
+        "headers": {
+          "Host": "sni.skylee4.cloudns.ch"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "V2raysCollector - 2026-06-02",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "06b65903-406d-4a41-8463-6fd5c0ee7798",
+      "tls": {
+        "enabled": true,
+        "server_name": "sni.skylee4.cloudns.ch",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "sni.skylee4.cloudns.ch"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2ray_dalghak 2076 - 2026-06-02",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "06b65903-406d-4a41-8463-6fd5c0ee7798",
+      "tls": {
+        "enabled": true,
+        "server_name": "sni.skylee4.cloudns.ch",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/proxyip",
+        "headers": {
+          "Host": "sni.skylee4.cloudns.ch"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "55 oneclickvpnkeys - 2026-06-02",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ae0dd58e-e222-40bf-84ae-365a97532737",
+      "tls": {
+        "enabled": true,
+        "server_name": "pagescm.freen31.cc.cd",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/dh/images/group",
+        "headers": {
+          "Host": "pagescm.freen31.cc.cd"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "30 oneclickvpnkeys - 2026-06-02",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "9d27a374-26d9-46df-9895-312a2062bc47",
+      "tls": {
+        "enabled": true,
+        "server_name": "uin-ape.pages.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "uin-ape.pages.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SC 33723 Telegram t.me SOSkeyNET - 2026-06-02",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ada4ea8a-41d8-41b2-bcf5-9bf961b7d676",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn12.kaiserping.site",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "cdn12.kaiserping.site"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "43 oneclickvpnkeys - 2026-06-02",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ae0dd58e-e222-40bf-84ae-365a97532737",
+      "tls": {
+        "enabled": true,
+        "server_name": "pagescm.freen31.cc.cd",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sitefp=chrome",
+        "headers": {
+          "Host": "pagescm.freen31.cc.cd"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "outline_ir - 2026-06-02",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c2f0a8f0-36fe-4a94-824b-bca271ca642b",
+      "tls": {
+        "enabled": true,
+        "server_name": "alphacdn.alphashops.shop",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "alphacdn.alphashops.shop"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 xl",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK VMess-WS-TLS-443-akuku8",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "fbcdn.sbs"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "fbcdn.sbs"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK 10.lowh.net",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "10.lowh.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "10.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "tls": {
+        "enabled": true,
+        "server_name": "akamaized.my",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "akamaized.my"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 xl 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 xl 2 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK VMess-WS-TLS-443-akuku8 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "fbcdn.sbs"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "fbcdn.sbs"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 telk",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK 10.lowh.net 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "10.lowh.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "10.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "tls": {
+        "enabled": true,
+        "server_name": "akamaized.my",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "akamaized.my"
+        }
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "ip_cidr": [
+          "10.0.0.0/8",
+          "172.16.0.0/12",
+          "192.168.0.0/16",
+          "127.0.0.0/8",
+          "169.254.0.0/16",
+          "224.0.0.0/4",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
+        "outbound": "DIRECT"
+      }
+    ],
+    "final": "PROXY"
+  }
+}
