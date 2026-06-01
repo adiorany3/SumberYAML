@@ -34,36 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "GozargahAzad"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 88e4d1a6-39cd-413a-bc1f-b9b76a758536
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "cdn-pro3.postshup.ir"
-    ws-opts:
-      path: "/news"
-      headers:
-        Host: "cdn-pro3.postshup.ir"
-    udp: true
-  - name: "7 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "cdn.linkman1.ir"
-    ws-opts:
-      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
-      headers:
-        Host: "cdn.linkman1.ir"
-    udp: true
-  - name: "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp"
+  - name: "v2reya88 6445"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -76,6 +47,20 @@ proxies:
       path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
       headers:
         Host: "www.linkman1.ir"
+    udp: true
+  - name: "Wiizard_Net"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cdn.linkman1.ir"
+    ws-opts:
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      headers:
+        Host: "cdn.linkman1.ir"
     udp: true
 
 proxy-groups:

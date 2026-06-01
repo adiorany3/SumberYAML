@@ -1,4 +1,34 @@
 proxies:
+  - name: "CF20"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "edgetunnell-1dc.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "edgetunnell-1dc.pages.dev"
+    udp: true
+  - name: "v2reya88 3061"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cb0be83e-ff5c-4601-8572-18deac592958
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nimahavok.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "nimahavok.pages.dev"
+    udp: true
   - name: "https telegraph.rayan-config.workers.dev persian"
     server: "104.17.3.81"
     port: 443
@@ -14,7 +44,7 @@ proxies:
       headers:
         Host: "rayan-007.nastaran.dpdns.org"
     udp: true
-  - name: "https telegraph.rayan-config.workers.dev persian 5440"
+  - name: "https telegraph.rayan-config.workers.dev persian 3631"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -29,7 +59,7 @@ proxies:
       headers:
         Host: "rayan-007.foton.dpdns.org"
     udp: true
-  - name: "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 1106"
+  - name: "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan-config 7701"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -59,7 +89,7 @@ proxies:
       headers:
         Host: "v2.v2configlab.workers.dev"
     udp: true
-  - name: "config_free2 4884"
+  - name: "config_free2 6639"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -89,67 +119,7 @@ proxies:
       headers:
         Host: "orange-math-8a2e.parsa-esfandpoor89.workers.dev"
     udp: true
-  - name: "38 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 7f3faff8-41db-403d-8329-6b9072aaabe2
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "edgetunnell-1dc.pages.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "edgetunnell-1dc.pages.dev"
-    udp: true
-  - name: "V2ray_official 1313"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 8525fe74-67e6-4a55-8a26-95f227bd1384
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "white-forest-2c01.alvlirm222.workers.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "white-forest-2c01.alvlirm222.workers.dev"
-    udp: true
-  - name: "chillguy_vpn"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 88e4d1a6-39cd-413a-bc1f-b9b76a758536
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "cdn-pro3.postshup.ir."
-    ws-opts:
-      path: "/news"
-      headers:
-        Host: "cdn-pro3.postshup.ir."
-    udp: true
-  - name: "chillguy_vpn 4886"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 88e4d1a6-39cd-413a-bc1f-b9b76a758536
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "cdn-pro2.postshup.ir."
-    ws-opts:
-      path: "/news"
-      headers:
-        Host: "cdn-pro2.postshup.ir."
-    udp: true
-  - name: "hi_proxy_iran 2867"
+  - name: "hi_proxy_iran 3939"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -164,22 +134,7 @@ proxies:
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
-  - name: "v2reya88"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: cb0be83e-ff5c-4601-8572-18deac592958
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "nimahavok.pages.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "nimahavok.pages.dev"
-    udp: true
-  - name: "chillguy_vpn 1653"
+  - name: "chillguy_vpn 1523"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -194,7 +149,35 @@ proxies:
       headers:
         Host: "noisy-union-b9de.whatletmego.workers.dev"
     udp: true
-  - name: "vpnbaz 2298"
+  - name: "telegram tajrobe_wiki"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "v2reya88 6783"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "Diachi Humanity CF11-MCI"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -208,7 +191,7 @@ proxies:
       headers:
         Host: "www.calmloud.com"
     udp: true
-  - name: "KAFING_2 7308"
+  - name: "KAFING_2 8032"
     server: "104.17.3.81"
     port: 443
     type: trojan
