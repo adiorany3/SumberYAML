@@ -11,6 +11,10 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
 
 profile:
@@ -30,35 +34,26 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "FI t.me Natrixo AA"
+  - name: "oneclickvpnkeys FI"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 4d70a474-aa93-457b-a2fb-98b05272ce25
+    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "finland.blackkwolff.com"
+    servername: "octopusss4.com"
     ws-opts:
-      path: "/cf"
+      path: "/tsghdws"
       headers:
-        Host: "finland.blackkwolff.com"
+        Host: "octopusss4.com"
     udp: true
 
 proxy-groups:
-  - name: "URL-TEST FI - Finland"
-    type: url-test
-    proxies:
-      - "FI t.me Natrixo AA"
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: "PROXY"
     type: select
     proxies:
-      - "URL-TEST FI - Finland"
       - "DIRECT"
       - "REJECT"
 

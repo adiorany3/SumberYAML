@@ -39,11 +39,7 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "oneclickvpnkeys US",
-        "config_free2 3497",
-        "oneclickvpnkeys US 2983",
-        "chillguy_vpn 7012",
-        "oneclickvpnkeys US 2108",
+        "kurdconfig 8214",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -63,11 +59,7 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "oneclickvpnkeys US",
-        "config_free2 3497",
-        "oneclickvpnkeys US 2983",
-        "chillguy_vpn 7012",
-        "oneclickvpnkeys US 2108",
+        "kurdconfig 8214",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -79,127 +71,46 @@
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 50
+      "tolerance": 80
     },
     {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "LINK bel432 xl",
+        "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
+        "DIRECT",
+        "kurdconfig 8214",
+        "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "DIRECT",
-        "oneclickvpnkeys US",
-        "config_free2 3497",
-        "oneclickvpnkeys US 2983",
-        "chillguy_vpn 7012",
-        "oneclickvpnkeys US 2108",
-        "AUTO-BEST-STABLE",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
-      ],
-      "default": "AUTO-BEST-STABLE"
+      ]
     },
     {
       "type": "vless",
-      "tag": "oneclickvpnkeys US",
+      "tag": "kurdconfig 8214",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "3b01a777-55e7-49f6-8637-d94ee69607c6",
+      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
       "tls": {
         "enabled": true,
-        "server_name": "m.udemy.com.cyylr.eu.cc",
+        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/id-tksi",
+        "path": "/id-pusat",
         "headers": {
-          "Host": "m.udemy.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "config_free2 3497",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "oneclickvpnkeys US 2983",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "7872e85d-fd7e-4472-99e5-49cb48d0f668",
-      "tls": {
-        "enabled": true,
-        "server_name": "freepol2.3r8sv.workers.dev",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "freepol2.3r8sv.workers.dev"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "chillguy_vpn 7012",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "oneclickvpnkeys US 2108",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
+          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
         }
       }
     },

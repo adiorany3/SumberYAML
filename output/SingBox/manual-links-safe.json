@@ -1,10 +1,32 @@
 {
   "outbounds": [
     {
+      "type": "urltest",
+      "tag": "AUTO-BEST-PING",
+      "outbounds": [
+        "LINK bel432 xl",
+        "LINK bel432 xl 2",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK bel432 telk",
+        "LINK 10.lowh.net",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK bel432 xl 3",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk 2",
+        "LINK 10.lowh.net 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80
+    },
+    {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
         "AUTO-BEST-STABLE",
+        "AUTO-BEST-PING",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -18,8 +40,7 @@
         "LINK bel432 telk 2",
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
-      ],
-      "default": "AUTO-BEST-STABLE"
+      ]
     },
     {
       "type": "urltest",
@@ -306,10 +327,12 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "system"
+      "stack": "system",
+      "address": [
+        "172.19.0.1/30"
+      ]
     },
     {
       "type": "mixed",

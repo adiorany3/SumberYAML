@@ -6,14 +6,12 @@
   "dns": {
     "servers": [
       {
-        "type": "udp",
         "tag": "cloudflare",
-        "server": "1.1.1.1"
+        "address": "1.1.1.1"
       },
       {
-        "type": "udp",
         "tag": "google",
-        "server": "8.8.8.8"
+        "address": "8.8.8.8"
       }
     ],
     "final": "cloudflare"
@@ -41,14 +39,14 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "bel432 xl",
+        "DIRECT",
         "AUTO-BEST-PING",
+        "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
-        "VLESS-WS-TLS-443-apt50atpprem",
-        "DIRECT"
+        "VLESS-WS-TLS-443-apt50atpprem"
       ]
     },
     {
@@ -62,9 +60,9 @@
         "10.lowh.net",
         "VLESS-WS-TLS-443-apt50atpprem"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 50
+      "tolerance": 80
     },
     {
       "type": "vmess",

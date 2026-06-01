@@ -1,4 +1,19 @@
 proxies:
+  - name: "2 DE av2ngFast"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2730487f-0ed5-4f04-92d5-f95f9253d4f4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jovego2551.workers.dev"
+    udp: true
   - name: "v2configlab_ DE"
     server: "104.17.3.81"
     port: 443

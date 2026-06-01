@@ -1,0 +1,295 @@
+{
+  "ok": true,
+  "generated_at": "2026-06-01T05:37:35+00:00",
+  "mode": "standard",
+  "repo": "adiorany3/SumberYAML",
+  "branch": "main",
+  "provider_names": [
+    "whitelist",
+    "malware-adware",
+    "general-ads",
+    "indonesia-ads",
+    "android-ads"
+  ],
+  "providers": [
+    {
+      "name": "whitelist",
+      "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/whitelist.yaml",
+      "rule_count": 36
+    },
+    {
+      "name": "malware-adware",
+      "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/malware-adware.yaml",
+      "rule_count": 10000
+    },
+    {
+      "name": "general-ads",
+      "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/general-ads.yaml",
+      "rule_count": 7000
+    },
+    {
+      "name": "indonesia-ads",
+      "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/indonesia-ads.yaml",
+      "rule_count": 476
+    },
+    {
+      "name": "android-ads",
+      "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/android-ads.yaml",
+      "rule_count": 5000
+    }
+  ],
+  "sources": {
+    "whitelist": [
+      {
+        "source": "local-seed",
+        "ok": true,
+        "added": 36
+      }
+    ],
+    "malware-adware": [
+      {
+        "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/tif.txt",
+        "ok": true,
+        "error": null,
+        "added": 1514009
+      },
+      {
+        "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/multi.txt",
+        "ok": true,
+        "error": null,
+        "added": 295343
+      },
+      {
+        "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts",
+        "ok": true,
+        "error": null,
+        "added": 123177
+      }
+    ],
+    "general-ads": [
+      {
+        "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
+        "ok": true,
+        "error": null,
+        "added": 81360
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt",
+        "ok": true,
+        "error": null,
+        "added": 268186
+      }
+    ],
+    "indonesia-ads": [
+      {
+        "url": "https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt",
+        "ok": true,
+        "error": null,
+        "added": 459
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo_noelemhide.txt",
+        "ok": true,
+        "error": null,
+        "added": 0
+      }
+    ],
+    "android-ads": [
+      {
+        "url": "https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt",
+        "ok": true,
+        "error": null,
+        "added": 277755
+      },
+      {
+        "url": "https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds-Android-AdBlock.txt",
+        "ok": false,
+        "error": "HTTP 404",
+        "added": 0
+      }
+    ]
+  },
+  "yaml_files": [
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/openclash-ready.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/lengkap.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/lengkap_alive.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/strict_alive.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/lite.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/fast.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/gaming.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/social_media.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/streaming.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/working.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/general.yaml",
+      "exists": true,
+      "changed": true,
+      "rule_providers": [
+        "whitelist",
+        "malware-adware",
+        "general-ads",
+        "indonesia-ads",
+        "android-ads"
+      ],
+      "rule_count": 72
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "providers": {
+      "whitelist": {
+        "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/whitelist.yaml",
+        "exists": true,
+        "payload_count": 36,
+        "duplicate_count": 0
+      },
+      "malware-adware": {
+        "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/malware-adware.yaml",
+        "exists": true,
+        "payload_count": 10000,
+        "duplicate_count": 0
+      },
+      "general-ads": {
+        "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/general-ads.yaml",
+        "exists": true,
+        "payload_count": 7000,
+        "duplicate_count": 0
+      },
+      "indonesia-ads": {
+        "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/indonesia-ads.yaml",
+        "exists": true,
+        "payload_count": 476,
+        "duplicate_count": 0
+      },
+      "android-ads": {
+        "path": "/home/runner/work/SumberYAML/SumberYAML/output/RuleProviders/android-ads.yaml",
+        "exists": true,
+        "payload_count": 5000,
+        "duplicate_count": 0
+      }
+    },
+    "protected_hits": [],
+    "empty": []
+  },
+  "note": "input.txt/input/links.txt accounts are not filtered or modified by this script."
+}
