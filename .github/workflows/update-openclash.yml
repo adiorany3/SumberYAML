@@ -25,6 +25,7 @@ on:
           - optimize_openclash
           - purpose_groups
           - adblock
+          - game_block
           - build_ready
           - diagnostics
           - rollback_latest_good
@@ -300,6 +301,22 @@ jobs:
           fi
           cat output/Validation/summary_goodbyeads_youtube_provider.json || true
 
+      - name: Apply game block rule-provider
+        if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
+        run: |
+          set -e
+          if [ -f scripts/apply_openclash_game_block_provider.py ]; then
+            python scripts/apply_openclash_game_block_provider.py \
+              --repo "${{ github.repository }}" \
+              --branch "${{ github.ref_name }}" \
+              --url-source raw
+          else
+            echo "::error::scripts/apply_openclash_game_block_provider.py not found."
+            exit 1
+          fi
+          echo "Game block provider summary:"
+          cat output/Validation/summary_game_block_provider.json || true
+
       - name: Ensure adblock rule-providers in final OpenClash YAML
         if: ${{ github.event.inputs.mode != 'rollback_latest_good' && github.event.inputs.mode != 'diagnostics' && github.event.inputs.mode != 'build_v2raybox' && github.event.inputs.mode != 'build_nekobox' }}
         run: |
@@ -415,7 +432,8 @@ jobs:
             output/NekoBox/mobile-stable.txt \
             output/RuleProviders/youtube-ads.yaml \
             output/RuleProviders/goodbyeads-youtube.yaml \
-            output/RuleProviders/general-ads.yaml; do
+            output/RuleProviders/general-ads.yaml \
+            output/RuleProviders/game-block.yaml; do
             url="https://purge.jsdelivr.net/gh/${{ github.repository }}@${{ github.ref_name }}/$path"
             echo "Purging $url"
             curl -fsSL "$url" || true
