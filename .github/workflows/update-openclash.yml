@@ -26,30 +26,44 @@ on:
           - purpose_groups
           - adblock
           - security_block
-          - game_block
           - build_ready
           - diagnostics
           - rollback_latest_good
           - build_v2raybox
           - build_nekobox
+      block_mode:
+        description: Mode blocklist untuk OpenClash rule-provider
+        required: false
+        default: standard
+        type: choice
+        options:
+          - light
+          - standard
+          - aggressive
       enable_proxy_test:
-        description: Jalankan test proxy
+        description: Jalankan test proxy/ping untuk sumber otomatis
         required: false
         default: 'true'
         type: choice
-        options: ['true', 'false']
+        options:
+          - 'true'
+          - 'false'
       filter_alive_only:
-        description: Filter output utama hanya proxy alive
+        description: lengkap.yaml hanya berisi proxy hidup dari sumber otomatis
         required: false
         default: 'true'
         type: choice
-        options: ['true', 'false']
+        options:
+          - 'true'
+          - 'false'
       strict_alive_only:
-        description: Buat strict alive output
+        description: Pakai hanya akun sumber otomatis yang lolos test beberapa ronde
         required: false
         default: 'true'
         type: choice
-        options: ['true', 'false']
+        options:
+          - 'true'
+          - 'false'
   schedule:
     - cron: '0 */6 * * *'
 
@@ -58,334 +72,437 @@ permissions:
   actions: read
 
 concurrency:
-  group: sumberyaml-update-${{ github.ref }}
+  group: update-openclash-${{ github.ref }}
   cancel-in-progress: false
 
+env:
+  PYTHONUNBUFFERED: '1'
+  MODE: ${{ github.event.inputs.mode || 'update' }}
+  RUN_MODE: ${{ github.event.inputs.mode || 'update' }}
+  BLOCK_MODE: ${{ github.event.inputs.block_mode || 'standard' }}
+  ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
+  FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
+  STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
+
+  TEST_ROUNDS: '2'
+  REQUIRE_SUCCESS_ROUNDS: '1'
+  STRICT_MAX_DELAY_MS: '8000'
+  STRICT_OUTPUT_FILE: 'strict_alive.yaml'
+  TCP_FALLBACK: 'true'
+  DISABLE_TCP_ONLY_OUTPUT: 'false'
+  STRICT_FALLBACK_TO_ALIVE: 'true'
+  STRICT_FALLBACK_TO_VALID: 'true'
+
+  BEST_PING_TOP_N: '10'
+  BEST_PING_COUNTRY_FILTER: 'ID'
+  BEST_PING_URL_TEST_NAME: 'URL-TEST TOP 10 INDONESIA'
+  BEST_PING_BALANCE_ENABLE: 'true'
+  URL_TEST_INTERVAL: '300'
+  URL_TEST_TOLERANCE: '80'
+  URL_TEST_LAZY: 'true'
+  MAX_DELAY_MS: '8000'
+  FILTER_MAX_DELAY_FOR_OUTPUT: 'false'
+
+  BLACKLIST_FILE: 'blacklist.txt'
+  SOURCE_CACHE_ENABLE: 'true'
+  SOURCE_CACHE_DIR: 'output/Cache/sources'
+  USE_PREVIOUS_OUTPUT_IF_EMPTY: 'true'
+  FAST_REUSE_WHEN_NO_SOURCE_CHANGE: 'true'
+  PREVIOUS_OUTPUT_DIR: '.previous_output'
+
+  LITE_OUTPUT_FILE: 'lite.yaml'
+  LITE_GLOBAL_TOP_N: '10'
+  LITE_MAX_TOTAL: '25'
+  ENABLE_USAGE_RULES: 'true'
+  ENABLE_DEFAULT_RULES: 'true'
+  ENABLE_PROFILE_RULES: 'true'
+  RESPONSIVE_MAX_AVG_DELAY_MS: '8000'
+  RESPONSIVE_MAX_JITTER_MS: '5000'
+  RESPONSIVE_MIN_SUCCESS_RATE: '0.50'
+  RESPONSIVE_TOP_N: '20'
+  RESPONSIVE_COMBINED_MAX: '40'
+  FAST_OUTPUT_FILE: 'fast.yaml'
+  FAST_MAX_TOTAL: '20'
+  FAST_FALLBACK_NAME: 'FALLBACK CEPAT'
+  ENABLE_FAST_FALLBACK_GROUP: 'true'
+  ENABLE_PERFORMANCE_OPTIONS: 'true'
+
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
 jobs:
-  update:
+  build:
+    name: Build stable OpenClash, sing-box, subscriptions, and providers
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-    env:
-      MODE: ${{ github.event.inputs.mode || 'update' }}
-      SOURCE: ${{ github.event.inputs.source || 'schedule' }}
-      ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
-      FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
-      STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
-      BEST_PING_TOP_N: '10'
-      BEST_PING_COUNTRY_FILTER: 'ID'
-      BEST_PING_URL_TEST_NAME: 'URL-TEST TOP 10 INDONESIA'
-      URL_TEST_INTERVAL: '300'
-      URL_TEST_TOLERANCE: '80'
-      URL_TEST_LAZY: 'true'
-      RESPONSIVE_TOP_N: '20'
-      RESPONSIVE_COMBINED_MAX: '40'
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    timeout-minutes: 75
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true
 
-      - name: Configure git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Sync remote branch before build
+      - name: Sync with latest remote main
         run: |
           set -e
-          git fetch origin "${GITHUB_REF_NAME}"
-          git merge --ff-only "origin/${GITHUB_REF_NAME}" || true
+          git fetch origin "${GITHUB_REF_NAME:-main}"
+          git merge --ff-only "origin/${GITHUB_REF_NAME:-main}" || true
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: pip
+
+      - name: Show debug info
+        run: |
+          echo "Event: $GITHUB_EVENT_NAME"
+          echo "Branch: ${GITHUB_REF_NAME:-main}"
+          echo "Mode: $MODE"
+          echo "Block mode: $BLOCK_MODE"
+          echo "Source: ${{ github.event.inputs.source || 'schedule/manual' }}"
+          echo "Trusted manual links: input/links.txt and input.txt are appended without alive/dead validation."
+          ls -la
 
       - name: Install dependencies
         run: |
           set -e
           python -m pip install --upgrade pip
-          pip install requests pyyaml qrcode[pil] pillow
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          pip install pyyaml requests qrcode[pil] pillow
 
-      - name: Prepare output directories
+      - name: Backup previous output for diff and rollback
         run: |
-          mkdir -p output output/RuleProviders output/Validation output/SingBox output/V2RayBox output/NekoBox output/Final output/Health output/Backup
+          set -e
+          rm -rf .previous_output
+          mkdir -p .previous_output
+          if [ -d output ]; then
+            cp -a output/. .previous_output/ || true
+            echo "Previous output files:"
+            find .previous_output -type f | wc -l
+          else
+            echo "No previous output directory."
+          fi
 
-      - name: Generate OpenClash base outputs
-        if: ${{ contains(fromJson('["update","update_ping","test","test_ping"]'), env.MODE) }}
+      - name: Restore latest-good backup
+        if: ${{ env.MODE == 'rollback_latest_good' }}
+        run: |
+          set -e
+          if [ -f scripts/manage_latest_good_backup.py ]; then
+            python scripts/manage_latest_good_backup.py --restore
+          else
+            echo "::error::scripts/manage_latest_good_backup.py not found."
+            exit 1
+          fi
+
+      - name: Clear health quarantine
+        if: ${{ env.MODE == 'clear_quarantine' }}
+        run: |
+          set -e
+          if [ -f scripts/clear_health_quarantine.py ]; then
+            python scripts/clear_health_quarantine.py
+          else
+            mkdir -p output/Health
+            echo 'name,reason,created_at' > output/Health/quarantine.csv
+            echo '{"ok": true, "note": "quarantine cleared by workflow fallback"}' > output/Health/summary_clear_quarantine.json
+          fi
+
+      - name: Generate OpenClash outputs from automatic sources
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_ready' && env.MODE != 'optimize_openclash' && env.MODE != 'purpose_groups' && env.MODE != 'adblock' && env.MODE != 'security_block' && env.MODE != 'build_stable' && env.MODE != 'merge_links' && env.MODE != 'build_v2raybox' && env.MODE != 'build_nekobox' }}
         run: |
           set -e
           if [ -f telegram_openclash_alive.py ]; then
-            python telegram_openclash_alive.py
+            echo "Running root telegram_openclash_alive.py"
+            python telegram_openclash_alive.py \
+              --mode "$MODE" \
+              --enable-proxy-test "$ENABLE_PROXY_TEST" \
+              --filter-alive-only "$FILTER_ALIVE_ONLY" \
+              --strict-alive-only "$STRICT_ALIVE_ONLY" \
+              --test-rounds "$TEST_ROUNDS" \
+              --require-success-rounds "$REQUIRE_SUCCESS_ROUNDS" || python telegram_openclash_alive.py
+          elif [ -f scripts/telegram_openclash_alive.py ]; then
+            echo "Running scripts/telegram_openclash_alive.py"
+            python scripts/telegram_openclash_alive.py || true
           elif [ -f scripts/generate_configs.py ]; then
-            python scripts/generate_configs.py
+            echo "Running scripts/generate_configs.py"
+            RUN_MODE="$MODE" python scripts/generate_configs.py
           elif [ -f scripts/generate_configs_basic.py ]; then
+            echo "Running scripts/generate_configs_basic.py"
             python scripts/generate_configs_basic.py
           else
-            echo "No base OpenClash generator found; continuing with existing output files."
+            echo "No generator found. Existing output will be reused."
+          fi
+          find output -maxdepth 4 -type f | sort || true
+
+      - name: Merge trusted input links into OpenClash YAML
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' && env.MODE != 'build_v2raybox' && env.MODE != 'build_nekobox' }}
+        run: |
+          set -e
+          if [ -f scripts/merge_links_into_openclash_yaml.py ]; then
+            python scripts/merge_links_into_openclash_yaml.py || true
+          else
+            echo "merge_links_into_openclash_yaml.py not found; skip."
           fi
 
-      - name: Merge trusted manual links into OpenClash YAML
-        if: ${{ hashFiles('scripts/merge_links_into_openclash_yaml.py') != '' }}
+      - name: Fix YAML group references
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' && env.MODE != 'build_v2raybox' && env.MODE != 'build_nekobox' }}
         run: |
           set -e
-          python scripts/merge_links_into_openclash_yaml.py || true
+          if [ -f scripts/fix_yaml_group_refs.py ]; then
+            python scripts/fix_yaml_group_refs.py || true
+            cat output/Validation/group_ref_fix_report.json || true
+          fi
 
-      - name: Fix OpenClash YAML group references
-        if: ${{ hashFiles('scripts/fix_yaml_group_refs.py') != '' }}
+      - name: Apply OpenClash anti-bengong optimization
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' && env.MODE != 'build_v2raybox' && env.MODE != 'build_nekobox' }}
         run: |
           set -e
-          python scripts/fix_yaml_group_refs.py || true
+          if [ -f scripts/apply_openclash_no_bengong.py ]; then
+            python scripts/apply_openclash_no_bengong.py --max-stable 10
+            cat output/Validation/summary_openclash_no_bengong.json || true
+          elif [ -f scripts/apply_openclash_responsive_stability.py ]; then
+            python scripts/apply_openclash_responsive_stability.py --max-stable 10
+            cat output/Validation/summary_openclash_responsive_stability.json || true
+          fi
 
-      - name: Apply OpenClash no-bengong optimization
-        if: ${{ hashFiles('scripts/apply_openclash_no_bengong.py') != '' && (env.MODE == 'update' || env.MODE == 'optimize_openclash') }}
+      - name: Add trusted manual best-link and fallback-link groups
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' && env.MODE != 'build_v2raybox' && env.MODE != 'build_nekobox' }}
         run: |
           set -e
-          python scripts/apply_openclash_no_bengong.py --max-stable 10 || true
+          if [ -f scripts/add_best_link_group.py ]; then
+            python scripts/add_best_link_group.py || true
+          fi
+          if [ -f scripts/add_input_fallback_group.py ]; then
+            python scripts/add_input_fallback_group.py || true
+          fi
 
-      - name: Apply responsive OpenClash stability
-        if: ${{ hashFiles('scripts/apply_openclash_responsive_stability.py') != '' && (env.MODE == 'update' || env.MODE == 'optimize_openclash') }}
+      - name: Route Indonesian connections to best Indonesian proxy
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' && env.MODE != 'build_v2raybox' && env.MODE != 'build_nekobox' }}
         run: |
           set -e
-          python scripts/apply_openclash_responsive_stability.py --max-stable 10 || true
+          if [ -f scripts/apply_openclash_indonesia_best_proxy.py ]; then
+            python scripts/apply_openclash_indonesia_best_proxy.py --max-indonesia 10 || true
+            cat output/Validation/summary_indonesia_best_proxy.json || true
+          fi
 
-      - name: Apply purpose-specific groups
-        if: ${{ hashFiles('scripts/apply_openclash_purpose_groups.py') != '' && (env.MODE == 'update' || env.MODE == 'purpose_groups' || env.MODE == 'optimize_openclash') }}
+      - name: Apply purpose-specific OpenClash groups and rules
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' && env.MODE != 'build_v2raybox' && env.MODE != 'build_nekobox' }}
         run: |
           set -e
-          python scripts/apply_openclash_purpose_groups.py --max-per-group 15 --max-indonesia 20 --tolerance 80 || true
+          if [ -f scripts/apply_openclash_purpose_groups.py ]; then
+            python scripts/apply_openclash_purpose_groups.py \
+              --max-per-group 15 \
+              --max-indonesia 20 \
+              --tolerance 80
+            cat output/Validation/summary_purpose_groups.json || true
+          fi
 
-      - name: Apply Indonesian best proxy rules
-        if: ${{ hashFiles('scripts/apply_openclash_indonesia_best_proxy.py') != '' && (env.MODE == 'update' || env.MODE == 'purpose_groups' || env.MODE == 'optimize_openclash') }}
+      - name: Validate OpenClash outputs before final post-processing
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'sanitize_import' && env.MODE != 'build_stable' && env.MODE != 'build_v2raybox' && env.MODE != 'build_nekobox' && env.MODE != 'security_block' && env.MODE != 'adblock' }}
         run: |
           set -e
-          python scripts/apply_openclash_indonesia_best_proxy.py --max-indonesia 10 || true
+          if [ -f scripts/validate_openclash_outputs.py ]; then
+            python scripts/validate_openclash_outputs.py
+          else
+            echo "No OpenClash validator found; skip."
+          fi
 
-      - name: Apply best-link group
-        if: ${{ hashFiles('scripts/add_best_link_group.py') != '' }}
+      - name: Build final sing-box profiles
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' && env.MODE != 'build_v2raybox' && env.MODE != 'build_nekobox' }}
         run: |
           set -e
-          python scripts/add_best_link_group.py || true
+          if [ -f scripts/build_singbox_final.py ]; then
+            python scripts/build_singbox_final.py --link-input input/links.txt || true
+          fi
+          if [ -f scripts/build_best_stable.py ]; then
+            python scripts/build_best_stable.py || true
+          fi
+          if [ -f scripts/stabilize_singbox_mobile_idle.py ]; then
+            python scripts/stabilize_singbox_mobile_idle.py || true
+          fi
+          if [ -f scripts/apply_dns_fallback_stable.py ]; then
+            python scripts/apply_dns_fallback_stable.py || true
+          fi
+          if [ -f scripts/sanitize_singbox_import.py ]; then
+            python scripts/sanitize_singbox_import.py || true
+          fi
+          if [ -f scripts/enforce_trusted_manual_accounts.py ]; then
+            python scripts/enforce_trusted_manual_accounts.py || true
+          fi
+          if [ -f scripts/fix_singbox_dependencies.py ]; then
+            python scripts/fix_singbox_dependencies.py || true
+          fi
+          if [ -f scripts/remove_selector_default_legacy.py ]; then
+            python scripts/remove_selector_default_legacy.py || true
+          fi
+          if [ -f scripts/fix_tun_address_modern.py ]; then
+            python scripts/fix_tun_address_modern.py || true
+          fi
+          if [ -f scripts/build_final_ready_profiles.py ]; then
+            python scripts/build_final_ready_profiles.py || true
+          fi
 
-      - name: Apply fallback-link group
-        if: ${{ hashFiles('scripts/add_input_fallback_group.py') != '' }}
+      - name: Build V2RayBox Android subscription outputs
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' }}
         run: |
           set -e
-          python scripts/add_input_fallback_group.py || true
+          if [ -f scripts/build_v2raybox_outputs.py ]; then
+            python scripts/build_v2raybox_outputs.py || true
+            cat output/V2RayBox/summary_v2raybox.json || true
+          else
+            echo "build_v2raybox_outputs.py not found; skip."
+          fi
 
-      - name: Build final sing-box JSON and merge trusted input links
-        if: ${{ hashFiles('scripts/build_singbox_final.py') != '' && env.MODE != 'rollback_latest_good' }}
+      - name: Build NekoBox Android subscription outputs
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' }}
         run: |
           set -e
-          python scripts/build_singbox_final.py --link-input input/links.txt || true
+          if [ -f scripts/build_nekobox_outputs.py ]; then
+            python scripts/build_nekobox_outputs.py || true
+            cat output/NekoBox/summary_nekobox.json || true
+          else
+            echo "build_nekobox_outputs.py not found; skip."
+          fi
 
-      - name: Build best stable profiles
-        if: ${{ hashFiles('scripts/build_best_stable.py') != '' && (env.MODE == 'update' || env.MODE == 'build_stable') }}
+      - name: Apply security/adblock rule-provider mode
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'clear_quarantine' }}
         run: |
           set -e
-          python scripts/build_best_stable.py || true
+          if [ -f scripts/apply_openclash_security_block_modes.py ]; then
+            python scripts/apply_openclash_security_block_modes.py \
+              --mode "$BLOCK_MODE" \
+              --repo "${{ github.repository }}" \
+              --branch "${{ github.ref_name }}" \
+              --url-source raw
+          else
+            echo "::warning::scripts/apply_openclash_security_block_modes.py not found; skip security block mode."
+          fi
+          cat output/Validation/summary_security_block_modes.json || true
 
-      - name: Sanitize sing-box import profiles
-        if: ${{ hashFiles('scripts/sanitize_singbox_import.py') != '' && (env.MODE == 'update' || env.MODE == 'sanitize_import') }}
+      - name: Validate rule-provider payloads
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'clear_quarantine' }}
         run: |
           set -e
-          python scripts/sanitize_singbox_import.py || true
+          if [ -f scripts/validate_rule_providers.py ]; then
+            python scripts/validate_rule_providers.py || true
+          else
+            echo "validate_rule_providers.py not found; skip."
+          fi
+          cat output/Validation/summary_rule_provider_validation.json || true
 
-      - name: Fix sing-box dependencies
-        if: ${{ hashFiles('scripts/fix_singbox_dependencies.py') != '' }}
+      - name: Ensure legacy rule-provider finalizer compatibility
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'clear_quarantine' }}
         run: |
           set -e
-          python scripts/fix_singbox_dependencies.py || true
-
-      - name: Remove selector.default for legacy clients
-        if: ${{ hashFiles('scripts/remove_selector_default_legacy.py') != '' }}
-        run: |
-          set -e
-          python scripts/remove_selector_default_legacy.py || true
-
-      - name: Fix modern TUN address fields
-        if: ${{ hashFiles('scripts/fix_tun_address_modern.py') != '' }}
-        run: |
-          set -e
-          python scripts/fix_tun_address_modern.py || true
-
-      - name: Enforce trusted manual accounts
-        if: ${{ hashFiles('scripts/enforce_trusted_manual_accounts.py') != '' }}
-        run: |
-          set -e
-          python scripts/enforce_trusted_manual_accounts.py || true
-
-      - name: Apply DNS fallback stable
-        if: ${{ hashFiles('scripts/apply_dns_fallback_stable.py') != '' }}
-        run: |
-          set -e
-          python scripts/apply_dns_fallback_stable.py || true
-
-      - name: Build final ready profiles
-        if: ${{ hashFiles('scripts/build_final_ready_profiles.py') != '' && (env.MODE == 'update' || env.MODE == 'build_ready') }}
-        run: |
-          set -e
-          python scripts/build_final_ready_profiles.py || true
-
-      - name: Build V2RayBox outputs
-        if: ${{ hashFiles('scripts/build_v2raybox_outputs.py') != '' && (env.MODE == 'update' || env.MODE == 'build_v2raybox') }}
-        run: |
-          set -e
-          python scripts/build_v2raybox_outputs.py || true
-
-      - name: Build NekoBox outputs
-        if: ${{ hashFiles('scripts/build_nekobox_outputs.py') != '' && (env.MODE == 'update' || env.MODE == 'build_nekobox') }}
-        run: |
-          set -e
-          python scripts/build_nekobox_outputs.py || true
-
-      - name: Apply YouTube GoodbyeAds provider
-        if: ${{ hashFiles('scripts/apply_goodbyeads_youtube_provider.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock') }}
-        run: |
-          set -e
-          python scripts/apply_goodbyeads_youtube_provider.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
-
-      - name: Apply general adblock provider
-        if: ${{ hashFiles('scripts/apply_openclash_general_adblock_provider.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock') }}
-        run: |
-          set -e
-          python scripts/apply_openclash_general_adblock_provider.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
-
-      - name: Apply game block provider
-        if: ${{ hashFiles('scripts/apply_openclash_game_block_provider.py') != '' && (env.MODE == 'game_block') }}
-        run: |
-          set -e
-          python scripts/apply_openclash_game_block_provider.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
-
-      - name: Apply Indonesia, Android, malware, and adware block providers
-        if: ${{ env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block' }}
-        run: |
-          set -e
-          python scripts/apply_openclash_indonesia_android_security_block.py \
-            --repo "${{ github.repository }}" \
-            --branch "${{ github.ref_name }}" \
-            --url-source raw \
-            --max-indonesia 5000 \
-            --max-android 12000 \
-            --max-malware 50000 \
-            --max-general 25000
-
-          echo "Indonesia/Android/security block summary:"
-          cat output/Validation/summary_indonesia_android_security_block.json || true
-
-      - name: Force create base rule-provider files
-        if: ${{ hashFiles('scripts/create_rule_provider_files.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block') }}
-        run: |
-          set -e
-          python scripts/create_rule_provider_files.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" || true
-
-      - name: Ensure all rule-providers are attached to final OpenClash YAML
-        if: ${{ hashFiles('scripts/ensure_openclash_rule_providers_final.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block' || env.MODE == 'game_block') }}
-        run: |
-          set -e
-          python scripts/ensure_openclash_rule_providers_final.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" || true
-
-      - name: Validate OpenClash outputs
-        if: ${{ hashFiles('scripts/validate_openclash_outputs.py') != '' && env.MODE != 'rollback_latest_good' }}
-        run: |
-          set -e
-          python scripts/validate_openclash_outputs.py || true
-
-      - name: Build diagnostics
-        if: ${{ hashFiles('scripts/build_admin_diagnostic_summary.py') != '' && (env.MODE == 'update' || env.MODE == 'diagnostics') }}
-        run: |
-          set -e
-          python scripts/build_admin_diagnostic_summary.py || true
-
-      - name: Build config diff report
-        if: ${{ hashFiles('scripts/build_config_diff_report.py') != '' && (env.MODE == 'update' || env.MODE == 'diagnostics') }}
-        run: |
-          set -e
-          python scripts/build_config_diff_report.py || true
+          if [ -f scripts/create_rule_provider_files.py ]; then
+            python scripts/create_rule_provider_files.py \
+              --repo "${{ github.repository }}" \
+              --branch "${{ github.ref_name }}" || true
+          fi
+          if [ -f scripts/ensure_openclash_rule_providers_final.py ]; then
+            python scripts/ensure_openclash_rule_providers_final.py \
+              --repo "${{ github.repository }}" \
+              --branch "${{ github.ref_name }}" || true
+          fi
+          cat output/Validation/summary_rule_provider_files.json || true
+          cat output/Validation/summary_rule_providers_final.json || true
 
       - name: Update node score history
-        if: ${{ hashFiles('scripts/update_node_score_history.py') != '' && (env.MODE == 'update' || env.MODE == 'diagnostics') }}
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'clear_quarantine' }}
         run: |
           set -e
-          python scripts/update_node_score_history.py || true
+          if [ -f scripts/update_node_score_history.py ]; then
+            python scripts/update_node_score_history.py || true
+          fi
 
-      - name: Manage latest-good backup or rollback
-        if: ${{ hashFiles('scripts/manage_latest_good_backup.py') != '' }}
+      - name: Build config diff report
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'clear_quarantine' }}
         run: |
           set -e
-          if [ "$MODE" = "rollback_latest_good" ]; then
-            python scripts/manage_latest_good_backup.py --restore || true
-          else
+          if [ -f scripts/build_config_diff_report.py ]; then
+            python scripts/build_config_diff_report.py || true
+            cat output/Final/diff_report.md || true
+          fi
+
+      - name: Save latest-good backup if current output is healthy
+        if: ${{ env.MODE != 'rollback_latest_good' && env.MODE != 'diagnostics' && env.MODE != 'clear_quarantine' }}
+        run: |
+          set -e
+          if [ -f scripts/manage_latest_good_backup.py ]; then
             python scripts/manage_latest_good_backup.py --backup || true
+            cat output/Backup/latest_good_summary.json || true
           fi
 
-      - name: List rule provider output
-        run: |
-          echo "RuleProviders:"
-          find output/RuleProviders -maxdepth 1 -type f -print | sort || true
-          echo "Validation summaries:"
-          find output/Validation -maxdepth 1 -type f -name '*provider*.json' -print | sort || true
-
-      - name: Commit output files
+      - name: Build admin diagnostic summary
+        if: always()
         run: |
           set -e
-          git add output || true
-          git add .github/workflows/update-openclash.yml || true
-          git add scripts || true
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-            exit 0
+          if [ -f scripts/build_admin_diagnostic_summary.py ]; then
+            python scripts/build_admin_diagnostic_summary.py || true
+            cat output/Final/admin_diagnostic_summary.json || true
           fi
-          git commit -m "Update SumberYAML outputs, providers, and diagnostics"
-
-          for attempt in 1 2 3 4 5; do
-            echo "Push attempt $attempt"
-            if git push origin HEAD:${GITHUB_REF_NAME}; then
-              echo "Push success"
-              exit 0
-            fi
-            echo "Push failed; syncing remote and retrying..."
-            git fetch origin "${GITHUB_REF_NAME}"
-            git merge -X ours --no-edit "origin/${GITHUB_REF_NAME}" || true
-            sleep $((attempt * 3))
-          done
-          echo "Push failed after retries."
-          exit 1
 
       - name: Purge jsDelivr cache
         if: always()
         run: |
           set +e
-          for file in \
-            output/SingBox/mobile-stable-safe.json \
-            output/SingBox/import-ready.json \
-            output/openclash-ready.yaml \
-            output/RuleProviders/youtube-ads.yaml \
-            output/RuleProviders/goodbyeads-youtube.yaml \
-            output/RuleProviders/general-ads.yaml \
-            output/RuleProviders/indonesia-ads.yaml \
-            output/RuleProviders/android-ads.yaml \
-            output/RuleProviders/malware-adware.yaml \
-            output/RuleProviders/game-block.yaml; do
-            curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}@${{ github.ref_name }}/$file" || true
+          FILES="
+          output/SingBox/mobile-stable-safe.json
+          output/SingBox/import-ready.json
+          output/SingBox/latest-safe.json
+          output/openclash-ready.yaml
+          output/V2RayBox/mobile-stable.txt
+          output/NekoBox/mobile-stable.txt
+          output/RuleProviders/whitelist.yaml
+          output/RuleProviders/youtube-ads.yaml
+          output/RuleProviders/general-ads.yaml
+          output/RuleProviders/indonesia-ads.yaml
+          output/RuleProviders/android-ads.yaml
+          output/RuleProviders/malware-adware.yaml
+          output/RuleProviders/game-block.yaml
+          "
+          for f in $FILES; do
+            url="https://purge.jsdelivr.net/gh/${{ github.repository }}@${{ github.ref_name }}/$f"
+            echo "Purging $url"
+            curl -LfsS "$url" || true
           done
 
-      - name: Notify Telegram
+      - name: Commit output files with retry
+        if: always()
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output .github/workflows/update-openclash.yml scripts streamlit_app.py requirements.txt input || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Update SumberYAML outputs, providers, and diagnostics"
+          for attempt in 1 2 3 4 5; do
+            echo "Push attempt $attempt"
+            if git push; then
+              echo "Push successful."
+              exit 0
+            fi
+            echo "Push failed. Fetching and rebasing/merging latest remote changes."
+            git fetch origin "${GITHUB_REF_NAME:-main}" || true
+            git merge -X ours --no-edit "origin/${GITHUB_REF_NAME:-main}" || true
+            sleep $((attempt * 3))
+          done
+          echo "::error::Push failed after retries."
+          exit 1
+
+      - name: Notify Telegram result
         if: always()
         run: |
           set +e
-          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
-            echo "Telegram secrets not configured; skipping notification."
-            exit 0
+          if [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
+            STATUS="${{ job.status }}"
+            TEXT="SumberYAML workflow selesai.%0AMode: ${MODE}%0ABlock mode: ${BLOCK_MODE}%0AStatus: ${STATUS}%0ARepo: ${{ github.repository }}%0ARun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            curl -sS "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d "chat_id=${TELEGRAM_CHAT_ID}" \
+              -d "text=${TEXT}" || true
           fi
-          STATUS="${{ job.status }}"
-          TEXT="SumberYAML workflow selesai.%0AMode: ${MODE}%0AStatus: ${STATUS}%0ARepo: ${{ github.repository }}%0ABranch: ${{ github.ref_name }}"
-          curl -fsS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            -d "chat_id=${TELEGRAM_CHAT_ID}" \
-            -d "text=${TEXT}" \
-            -d "parse_mode=HTML" || true
