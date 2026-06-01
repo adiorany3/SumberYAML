@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "By EbraSha 9881"
+  - name: "By EbraSha 3971"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -49,22 +49,6 @@ proxies:
       path: "/7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm"
       headers:
         Host: "vienna-bread-threats-amendment.trycloudflare.com"
-    udp: true
-  - name: "By EbraSha 6065"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "renderer-stream-1-411.mirra.now"
-    network: ws
-    ws-opts:
-      path: "/api/v1/gpu-stream/socket"
-      headers:
-        Host: "renderer-stream-1-411.mirra.now"
     udp: true
 
 proxy-groups:
