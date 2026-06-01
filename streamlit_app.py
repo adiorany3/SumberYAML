@@ -458,7 +458,7 @@ def get_workflow():
     return response.json()
 
 
-def dispatch_workflow(mode='update', enable_proxy_test='true', filter_alive_only='true', strict_alive_only='true'):
+def dispatch_workflow(mode='update', enable_proxy_test='true', filter_alive_only='true', strict_alive_only='true', extra_inputs=None):
     workflow_info = get_workflow()
 
     if workflow_info.get("state") != "active":
@@ -479,6 +479,11 @@ def dispatch_workflow(mode='update', enable_proxy_test='true', filter_alive_only
             "strict_alive_only": strict_alive_only,
         },
     }
+
+    if extra_inputs:
+        for key, value in dict(extra_inputs).items():
+            if value is not None:
+                payload["inputs"][str(key)] = str(value)
 
     response = requests.post(
         url,
@@ -3322,6 +3327,102 @@ def _status_text(ok: bool, good: str = "OK", bad: str = "CHECK") -> str:
     return good if ok else bad
 
 
+
+def render_admin_security_blocking():
+    """Panel admin untuk mode blocklist dan validasi rule-provider."""
+    st.markdown('<div class="pet-section-title">Security / Adblock Rules</div>', unsafe_allow_html=True)
+
+    st.markdown(
+        """
+        <div class="pet-panel">
+            <div class="pet-small-note" style="text-align:left;margin-top:0;">
+                <b>Mode blocking:</b><br>
+                <b>Light</b> = whitelist + malware/adware saja.<br>
+                <b>Standard</b> = malware/adware + iklan umum + iklan Indonesia + Android ads.<br>
+                <b>Aggressive</b> = Standard + YouTube ads + game block.<br><br>
+                Akun dari <code>input.txt</code> / <code>input/links.txt</code> tetap trusted dan tidak disaring.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    mode_labels = {
+        "light": "Light — aman, minimal false positive",
+        "standard": "Standard — rekomendasi harian",
+        "aggressive": "Aggressive — blokir lebih banyak, risiko false positive lebih tinggi",
+    }
+    selected_label = st.selectbox(
+        "Mode blocklist OpenClash",
+        list(mode_labels.values()),
+        index=1,
+        key="security_block_mode_select",
+    )
+    selected_mode = next(key for key, label in mode_labels.items() if label == selected_label)
+
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("🛡️ Build Security Rules", use_container_width=True, key="btn_build_security_rules"):
+            try:
+                dispatch_workflow(
+                    mode="security_block",
+                    enable_proxy_test="false",
+                    filter_alive_only="false",
+                    strict_alive_only="false",
+                    extra_inputs={"block_mode": selected_mode},
+                )
+                set_pet_action(f"Security rules mode {selected_mode} berhasil dipicu lewat GitHub Actions.")
+                st.success(f"Security rules mode {selected_mode} berhasil dipicu.")
+            except Exception as exc:
+                set_pet_action("Gagal memicu security rules. Cek workflow input dan token GitHub.")
+                st.error(str(exc))
+            st.rerun()
+    with col2:
+        if st.button("🔄 Refresh Security Summary", use_container_width=True, key="btn_refresh_security_summary"):
+            try:
+                load_workflow_status_data.clear()
+            except Exception:
+                pass
+            st.rerun()
+
+    summary = read_json_from_github("output/Validation/summary_security_block_modes.json")
+    validation = read_json_from_github("output/Validation/summary_rule_provider_validation.json")
+
+    if summary:
+        provider_names = summary.get("provider_names", [])
+        providers = summary.get("providers", [])
+        total_rules = sum(int(item.get("rule_count", 0) or 0) for item in providers if isinstance(item, dict))
+        mode = summary.get("mode", "-")
+        ok = summary.get("ok", False)
+        status = "✅ OK" if ok else "⚠️ CHECK"
+        st.markdown(
+            f"""
+            <div class="pet-panel">
+                <div style="font-weight:900;color:#eef6ff;font-size:15px;">{status} Security block mode: <b>{escape(str(mode))}</b></div>
+                <div class="pet-small-note" style="text-align:left;margin-top:8px;">
+                    Providers aktif: <b>{escape(', '.join(map(str, provider_names)) or '-')}</b><br>
+                    Total rule provider: <b>{total_rules}</b><br>
+                    Generated: <b>{escape(str(summary.get('generated_at', '-')))}</b>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        with st.expander("Detail security summary"):
+            st.json(summary)
+    else:
+        st.info("Security summary belum tersedia. Jalankan tombol Build Security Rules atau workflow mode security_block.")
+
+    if validation:
+        ok = validation.get("ok", False)
+        if ok:
+            st.success("Rule-provider validation OK.")
+        else:
+            st.warning("Rule-provider perlu dicek. Lihat detail validation.")
+        with st.expander("Detail rule-provider validation"):
+            st.json(validation)
+
+
 def render_admin_header():
     """Compact admin dashboard header. Does not expose this info on public page."""
     telegram_ok = bool(TELEGRAM_BOT_TOKEN)
@@ -3405,6 +3506,7 @@ if is_admin_route():
             render_admin_actions()
             render_admin_singbox_merge()
             render_admin_singbox_stability()
+            render_admin_security_blocking()
 
         with tab_health:
             render_admin_diagnostic_summary("health")
