@@ -39,14 +39,14 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "DIRECT",
-        "AUTO-BEST-PING",
         "bel432 xl",
+        "AUTO-BEST-PING",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
-        "VLESS-WS-TLS-443-apt50atpprem"
+        "VLESS-WS-TLS-443-apt50atpprem",
+        "DIRECT"
       ]
     },
     {
@@ -60,9 +60,9 @@
         "10.lowh.net",
         "VLESS-WS-TLS-443-apt50atpprem"
       ],
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80
+      "tolerance": 50
     },
     {
       "type": "vmess",
@@ -86,7 +86,7 @@
     },
     {
       "type": "vmess",
-      "tag": "bel432 xl 2",
+      "tag": "bel432 xl 2 - 2026-06-01",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",

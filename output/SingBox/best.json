@@ -38,7 +38,7 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "kurdconfig 8379",
+        "kurdconfig 3248",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -60,7 +60,7 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "kurdconfig 8379",
+        "kurdconfig 3248",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -82,10 +82,10 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
+        "DIRECT",
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
-        "DIRECT",
-        "kurdconfig 8379",
+        "kurdconfig 3248",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -101,7 +101,7 @@
     },
     {
       "type": "vless",
-      "tag": "kurdconfig 8379",
+      "tag": "kurdconfig 3248 - 2026-06-01",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
@@ -201,10 +201,6 @@
         }
       },
       "connect_timeout": "15s"
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
     },
     {
       "type": "vmess",
@@ -324,6 +320,10 @@
           "Host": "akamaized.my"
         }
       }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     }
   ],
   "route": {

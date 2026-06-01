@@ -71,10 +71,10 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
+        "VLESS-WS-TLS-443-apt50atpprem",
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
         "DIRECT",
-        "VLESS-WS-TLS-443-apt50atpprem",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -101,10 +101,6 @@
           "Host": "akamaized.my"
         }
       }
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
     },
     {
       "type": "vmess",
@@ -224,6 +220,10 @@
           "Host": "akamaized.my"
         }
       }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     }
   ],
   "route": {

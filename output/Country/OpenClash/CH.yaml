@@ -34,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "vpnbaz"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.skylee4.cloudns.ch"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "sni.skylee4.cloudns.ch"
-    udp: true
   - name: "v2raybaaz"
     server: "104.17.3.81"
     port: 443
@@ -76,6 +61,21 @@ proxies:
     servername: "sni.skylee4.cloudns.ch"
     ws-opts:
       path: "/proxyip=ProxyIP.CMLiussss.net"
+      headers:
+        Host: "sni.skylee4.cloudns.ch"
+    udp: true
+  - name: "vpnbaz 9555"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sni.skylee4.cloudns.ch"
+    ws-opts:
+      path: "/"
       headers:
         Host: "sni.skylee4.cloudns.ch"
     udp: true

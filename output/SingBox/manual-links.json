@@ -1,4 +1,39 @@
 {
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "cloudflare",
+        "address": "1.1.1.1"
+      },
+      {
+        "tag": "google",
+        "address": "8.8.8.8"
+      }
+    ],
+    "final": "cloudflare"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "address": [
+        "172.19.0.1/30"
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system"
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 7893
+    }
+  ],
   "outbounds": [
     {
       "type": "urltest",
@@ -27,9 +62,9 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
+        "LINK bel432 xl",
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
-        "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK bel432 telk",
@@ -188,10 +223,6 @@
       }
     },
     {
-      "type": "direct",
-      "tag": "DIRECT"
-    },
-    {
       "type": "vmess",
       "tag": "LINK bel432 xl 3",
       "server": "104.17.3.81",
@@ -309,41 +340,10 @@
           "Host": "akamaized.my"
         }
       }
-    }
-  ],
-  "log": {
-    "level": "info",
-    "timestamp": true
-  },
-  "dns": {
-    "servers": [
-      {
-        "tag": "cloudflare",
-        "address": "1.1.1.1"
-      },
-      {
-        "tag": "google",
-        "address": "8.8.8.8"
-      }
-    ],
-    "final": "cloudflare"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "address": [
-        "172.19.0.1/30"
-      ],
-      "auto_route": true,
-      "strict_route": true,
-      "stack": "system"
     },
     {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "127.0.0.1",
-      "listen_port": 7893
+      "type": "direct",
+      "tag": "DIRECT"
     }
   ],
   "route": {

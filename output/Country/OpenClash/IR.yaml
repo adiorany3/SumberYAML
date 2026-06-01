@@ -34,19 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "TEL Father_vpn 6370"
+  - name: "v2raydia"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "mitivpn"
+    type: vless
+    uuid: 179718c1-27b3-449d-9626-98c2c854d010
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.linkman1.ir"
+    servername: "del.ccnnx.ir"
     ws-opts:
-      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      path: "/@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia--@v2raydia"
       headers:
-        Host: "www.linkman1.ir"
+        Host: "del.ccnnx.ir"
     udp: true
 
 proxy-groups:
