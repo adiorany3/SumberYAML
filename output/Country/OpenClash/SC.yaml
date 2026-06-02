@@ -34,6 +34,36 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "SC 43408 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1eb8c38b-0bc2-4a6f-a860-5239c446abc8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "support.zoom.us.cyylr.eu.cc"
+    udp: true
+  - name: "SC 43448 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d08d180d-cb07-4d82-b1bd-1e42fa523cd7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ads.ruangguru.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-orcl"
+      headers:
+        Host: "ads.ruangguru.com.cyylr.eu.cc"
+    udp: true
   - name: "freenettir SC SeychellesVictoriaping 43ms"
     server: "104.17.3.81"
     port: 443

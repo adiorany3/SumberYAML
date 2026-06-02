@@ -1,4 +1,19 @@
 proxies:
+  - name: "v2configlab_ DE"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 72f85026-7062-4cca-9c95-882e0a1da56f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v2configlab.v2configlab7-5a2.workers.dev"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "v2configlab.v2configlab7-5a2.workers.dev"
+    udp: true
   - name: "DE t.me Natrixo BB"
     server: "104.17.3.81"
     port: 443
