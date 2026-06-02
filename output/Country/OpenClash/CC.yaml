@@ -34,34 +34,33 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "config_free2 6745"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "juzi.qea.ccwu.cc"
-    ws-opts:
-      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
-      headers:
-        Host: "juzi.qea.ccwu.cc"
-    udp: true
-  - name: "v2reya88 6484"
+  - name: "69379 - Telegram V2All"
     server: "104.17.3.81"
     port: 443
     type: trojan
-    password: "386bd471-4e29-4e79-9a3c-6bc6076ce4b6"
+    password: "cf3d48cf-750c-4f18-89a7-f81d2e153fbe"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "edu.ruangguru.com.cyylr.eu.cc"
+    sni: "blog.webex.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "blog.webex.com.cyylr.eu.cc"
+    udp: true
+  - name: "Config0plus EA"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "bb45f73f-795b-4a05-a8e0-ba717bce87e3"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "api24-normal.tiktokv.com.cyylr.eu.cc"
     ws-opts:
       path: "/id-tksi"
       headers:
-        Host: "edu.ruangguru.com.cyylr.eu.cc"
+        Host: "api24-normal.tiktokv.com.cyylr.eu.cc"
     udp: true
   - name: "Config0plus"
     server: "104.17.3.81"
@@ -76,20 +75,6 @@ proxies:
       path: "/id-tksi"
       headers:
         Host: "api24-normal.tiktokv.com.cyylr.eu.cc"
-    udp: true
-  - name: "69379 - Telegram V2All"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "cf3d48cf-750c-4f18-89a7-f81d2e153fbe"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "blog.webex.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/in-do"
-      headers:
-        Host: "blog.webex.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

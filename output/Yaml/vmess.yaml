@@ -1,0 +1,17 @@
+proxies:
+  - name: "By EbraSha"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 0632bfa9-b15c-4257-8c75-32f7c0c53b27
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "cg1c12.waimaojd.com"
+    network: ws
+    ws-opts:
+      path: "/api/v1/graphql"
+      headers:
+        Host: "cg1c12.waimaojd.com"
+    udp: true

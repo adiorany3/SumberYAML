@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "chillguy_vpn 6972"
+  - name: "chillguy_vpn 4494"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,7 +49,7 @@ proxies:
       headers:
         Host: "graph.instagram.com.cyylr.eu.cc"
     udp: true
-  - name: "meliproxyy 4260"
+  - name: "meliproxyy"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -64,34 +64,20 @@ proxies:
       headers:
         Host: "cloudflare.vhub.pro"
     udp: true
-  - name: "69380 - Telegram V2All"
+  - name: "chillguy_vpn 8580"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: e277ac9b-3225-4381-a9fb-3585419f7142
+    uuid: 0e9dd08d-e341-4c5d-b116-923842f5a9f9
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "37cdnws.iamali.info"
+    servername: "web.whatsapp.com.cyylr.eu.cc"
     ws-opts:
-      path: "/37cdnws"
+      path: "/sg-melbi"
       headers:
-        Host: "37cdnws.iamali.info"
-    udp: true
-  - name: "vpnbaz"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.calmloud.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.calmloud.com"
+        Host: "web.whatsapp.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:
