@@ -34,20 +34,34 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "hi_proxy_iran 2487"
+  - name: "chillguy_vpn 7911"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 429f43ca-087a-4fbc-9d88-9d9007bf30bc
+    uuid: 9dd05602-de19-494a-af15-6ac1cd6fb4b2
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "unnes.ac.id.cyylr.eu.cc"
+    servername: "graph.instagram.com.cyylr.eu.cc"
     ws-opts:
       path: "/my-wbv"
       headers:
-        Host: "unnes.ac.id.cyylr.eu.cc"
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
+  - name: "TEL Father_vpn 1899"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "de4dbc41-fe13-4498-b5b4-083e451270f6"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "zaintest.vuclip.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/my-wbv"
+      headers:
+        Host: "zaintest.vuclip.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

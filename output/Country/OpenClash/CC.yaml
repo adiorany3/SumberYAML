@@ -34,19 +34,50 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "69379 - Telegram V2All"
+  - name: "mhdi"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "cf3d48cf-750c-4f18-89a7-f81d2e153fbe"
+    type: vless
+    uuid: d3310d18-c198-4974-a3f1-f9fe7896d4dc
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "blog.webex.com.cyylr.eu.cc"
+    servername: "zaintest.vuclip.com.cyylr.eu.cc"
     ws-opts:
-      path: "/in-do"
+      path: "/ae-bo"
       headers:
-        Host: "blog.webex.com.cyylr.eu.cc"
+        Host: "zaintest.vuclip.com.cyylr.eu.cc"
+    udp: true
+  - name: "25 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+    udp: true
+  - name: "41 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
     udp: true
   - name: "Config0plus EA"
     server: "104.17.3.81"
