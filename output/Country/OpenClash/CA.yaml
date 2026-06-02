@@ -34,7 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "freenettir CA CanadaTorontoping 46.18ms 6859"
+  - name: "CA 44795 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 3322b604-f8f6-45dc-9453-116d816d4d92
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.genflix.co.id.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-do"
+      headers:
+        Host: "www.genflix.co.id.cyylr.eu.cc"
+    udp: true
+  - name: "freenettir CA CanadaTorontoping 46.18ms 5449"
     server: "104.17.3.81"
     port: 443
     type: vless

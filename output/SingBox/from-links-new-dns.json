@@ -41,16 +41,15 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "bel432 xl",
         "AUTO-BEST-PING",
+        "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
         "VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT"
-      ],
-      "interrupt_exist_connections": false
+      ]
     },
     {
       "type": "urltest",
@@ -65,9 +64,7 @@
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 50,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
+      "tolerance": 50
     },
     {
       "type": "vmess",
@@ -77,6 +74,7 @@
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
       "security": "auto",
       "alter_id": 0,
+      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "belnet.jsvpn.site"
@@ -97,6 +95,7 @@
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
       "security": "auto",
       "alter_id": 0,
+      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "belnet.jsvpn.site"
@@ -117,6 +116,7 @@
       "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
       "security": "auto",
       "alter_id": 0,
+      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "fbcdn.sbs"
@@ -137,6 +137,7 @@
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
       "security": "auto",
       "alter_id": 0,
+      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "belnet.jsvpn.site"
@@ -157,6 +158,7 @@
       "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
       "security": "auto",
       "alter_id": 0,
+      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "10.lowh.net"
@@ -175,6 +177,7 @@
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "akamaized.my",

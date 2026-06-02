@@ -1,15 +1,16 @@
 proxies:
-  - name: "kurdconfig 8509"
+  - name: "Echo_Center 2"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "mitivpn"
+    type: vless
+    uuid: e77b4920-6d01-4a4e-b45b-62ca479f2acc
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "s1.linko1.ir"
+    servername: "Irancellx2.nscl.ir"
     ws-opts:
-      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      path: "/dash"
       headers:
-        Host: "s1.linko1.ir"
+        Host: "Irancellx2.nscl.ir"
     udp: true

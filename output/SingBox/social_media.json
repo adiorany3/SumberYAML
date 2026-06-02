@@ -20,11 +20,11 @@
     {
       "type": "tun",
       "tag": "tun-in",
+      "auto_route": true,
+      "strict_route": true,
       "address": [
         "172.19.0.1/30"
-      ],
-      "auto_route": true,
-      "strict_route": true
+      ]
     },
     {
       "type": "mixed",
@@ -36,181 +36,22 @@
   "outbounds": [
     {
       "type": "urltest",
-      "tag": "AUTO-BEST-PING",
-      "outbounds": [
-        "chillguy_vpn 7911",
-        "68 oneclickvpnkeys",
-        "41 oneclickvpnkeys",
-        "chillguy_vpn 5879",
-        "freenettir",
-        "freenettir CA CanadaTorontoping 46.18ms 6859",
-        "v2reya88 confinghub2 9862",
-        "Config0plus",
-        "DE All14 meliproxyy",
-        "DE t.me Natrixo BB",
-        "LINK bel432 xl",
-        "LINK VMess-WS-TLS-443-akuku8",
-        "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "ID-01 DE t.me Natrixo BB",
-        "ID-02 LINK bel432 xl",
-        "STREAM-01 chillguy_vpn 7911",
-        "STREAM-02 68 oneclickvpnkeys",
-        "STREAM-03 41 oneclickvpnkeys",
-        "STREAM-04 chillguy_vpn 5879",
-        "STREAM-05 freenettir",
-        "STREAM-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "STREAM-07 Config0plus",
-        "STREAM-08 v2reya88 confinghub2 9862",
-        "STREAM-09 DE All14 meliproxyy",
-        "STREAM-10 DE t.me Natrixo BB",
-        "STREAM-11 LINK 10.lowh.net",
-        "STREAM-12 LINK bel432 xl",
-        "STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "STREAM-14 LINK VMess-WS-TLS-443-akuku8",
-        "GAME-01 chillguy_vpn 7911",
-        "GAME-02 68 oneclickvpnkeys",
-        "GAME-03 41 oneclickvpnkeys",
-        "GAME-04 chillguy_vpn 5879",
-        "GAME-05 freenettir",
-        "GAME-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "GAME-07 Config0plus",
-        "GAME-08 v2reya88 confinghub2 9862",
-        "GAME-09 DE All14 meliproxyy",
-        "GAME-10 DE t.me Natrixo BB",
-        "SOCIAL-01 chillguy_vpn 7911",
-        "SOCIAL-02 68 oneclickvpnkeys",
-        "SOCIAL-03 41 oneclickvpnkeys",
-        "SOCIAL-04 chillguy_vpn 5879",
-        "SOCIAL-05 freenettir",
-        "SOCIAL-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "SOCIAL-07 Config0plus",
-        "SOCIAL-08 v2reya88 confinghub2 9862",
-        "SOCIAL-09 DE All14 meliproxyy",
-        "SOCIAL-10 DE t.me Natrixo BB",
-        "SOCIAL-11 LINK 10.lowh.net",
-        "SOCIAL-12 LINK bel432 xl",
-        "SOCIAL-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "SOCIAL-14 LINK VMess-WS-TLS-443-akuku8",
-        "WORK-01 chillguy_vpn 7911",
-        "WORK-02 68 oneclickvpnkeys",
-        "WORK-03 41 oneclickvpnkeys",
-        "WORK-04 chillguy_vpn 5879",
-        "WORK-05 freenettir",
-        "WORK-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "WORK-07 Config0plus",
-        "WORK-08 v2reya88 confinghub2 9862",
-        "WORK-09 DE All14 meliproxyy",
-        "WORK-10 DE t.me Natrixo BB",
-        "GEN-01 chillguy_vpn 7911",
-        "GEN-02 68 oneclickvpnkeys",
-        "GEN-03 41 oneclickvpnkeys",
-        "GEN-04 chillguy_vpn 5879",
-        "GEN-05 freenettir",
-        "GEN-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "GEN-07 Config0plus",
-        "GEN-08 v2reya88 confinghub2 9862",
-        "GEN-09 DE All14 meliproxyy",
-        "GEN-10 DE t.me Natrixo BB",
-        "GEN-11 LINK 10.lowh.net",
-        "GEN-12 LINK bel432 xl",
-        "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "GEN-14 LINK VMess-WS-TLS-443-akuku8",
-        "LINK bel432 xl 2",
-        "LINK bel432 xl 2 2",
-        "LINK VMess-WS-TLS-443-akuku8 2",
-        "LINK bel432 telk",
-        "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "chillguy_vpn 7911",
-        "68 oneclickvpnkeys",
-        "41 oneclickvpnkeys",
-        "chillguy_vpn 5879",
-        "freenettir",
-        "freenettir CA CanadaTorontoping 46.18ms 6859",
-        "v2reya88 confinghub2 9862",
-        "Config0plus",
+        "80 oneclickvpnkeys",
         "DE All14 meliproxyy",
-        "DE t.me Natrixo BB",
+        "chillguy_vpn 4076",
+        "25 oneclickvpnkeys",
+        "chillguy_vpn 2126",
+        "oneclickvpnkeys US 2518",
+        "v2reya88 3982",
+        "v2reya88 confinghub2 2991",
+        "GozargahAzad",
+        "TEL Father_vpn 7120",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "ID-01 DE t.me Natrixo BB",
-        "ID-02 LINK bel432 xl",
-        "STREAM-01 chillguy_vpn 7911",
-        "STREAM-02 68 oneclickvpnkeys",
-        "STREAM-03 41 oneclickvpnkeys",
-        "STREAM-04 chillguy_vpn 5879",
-        "STREAM-05 freenettir",
-        "STREAM-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "STREAM-07 Config0plus",
-        "STREAM-08 v2reya88 confinghub2 9862",
-        "STREAM-09 DE All14 meliproxyy",
-        "STREAM-10 DE t.me Natrixo BB",
-        "STREAM-11 LINK 10.lowh.net",
-        "STREAM-12 LINK bel432 xl",
-        "STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "STREAM-14 LINK VMess-WS-TLS-443-akuku8",
-        "GAME-01 chillguy_vpn 7911",
-        "GAME-02 68 oneclickvpnkeys",
-        "GAME-03 41 oneclickvpnkeys",
-        "GAME-04 chillguy_vpn 5879",
-        "GAME-05 freenettir",
-        "GAME-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "GAME-07 Config0plus",
-        "GAME-08 v2reya88 confinghub2 9862",
-        "GAME-09 DE All14 meliproxyy",
-        "GAME-10 DE t.me Natrixo BB",
-        "SOCIAL-01 chillguy_vpn 7911",
-        "SOCIAL-02 68 oneclickvpnkeys",
-        "SOCIAL-03 41 oneclickvpnkeys",
-        "SOCIAL-04 chillguy_vpn 5879",
-        "SOCIAL-05 freenettir",
-        "SOCIAL-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "SOCIAL-07 Config0plus",
-        "SOCIAL-08 v2reya88 confinghub2 9862",
-        "SOCIAL-09 DE All14 meliproxyy",
-        "SOCIAL-10 DE t.me Natrixo BB",
-        "SOCIAL-11 LINK 10.lowh.net",
-        "SOCIAL-12 LINK bel432 xl",
-        "SOCIAL-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "SOCIAL-14 LINK VMess-WS-TLS-443-akuku8",
-        "WORK-01 chillguy_vpn 7911",
-        "WORK-02 68 oneclickvpnkeys",
-        "WORK-03 41 oneclickvpnkeys",
-        "WORK-04 chillguy_vpn 5879",
-        "WORK-05 freenettir",
-        "WORK-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "WORK-07 Config0plus",
-        "WORK-08 v2reya88 confinghub2 9862",
-        "WORK-09 DE All14 meliproxyy",
-        "WORK-10 DE t.me Natrixo BB",
-        "GEN-01 chillguy_vpn 7911",
-        "GEN-02 68 oneclickvpnkeys",
-        "GEN-03 41 oneclickvpnkeys",
-        "GEN-04 chillguy_vpn 5879",
-        "GEN-05 freenettir",
-        "GEN-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "GEN-07 Config0plus",
-        "GEN-08 v2reya88 confinghub2 9862",
-        "GEN-09 DE All14 meliproxyy",
-        "GEN-10 DE t.me Natrixo BB",
-        "GEN-11 LINK 10.lowh.net",
-        "GEN-12 LINK bel432 xl",
-        "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "GEN-14 LINK VMess-WS-TLS-443-akuku8",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -225,40 +66,23 @@
       "interrupt_exist_connections": false
     },
     {
-      "type": "urltest",
-      "tag": "INDONESIA-BEST",
-      "outbounds": [
-        "chillguy_vpn 7911",
-        "Config0plus",
-        "DE All14 meliproxyy",
-        "DE t.me Natrixo BB",
-        "68 oneclickvpnkeys",
-        "41 oneclickvpnkeys",
-        "chillguy_vpn 5879",
-        "freenettir",
-        "freenettir CA CanadaTorontoping 46.18ms 6859",
-        "v2reya88 confinghub2 9862"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "300s",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
+      "type": "direct",
+      "tag": "DIRECT"
     },
     {
       "type": "urltest",
-      "tag": "SOCIAL MEDIA STABIL",
+      "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "chillguy_vpn 7911",
-        "68 oneclickvpnkeys",
-        "41 oneclickvpnkeys",
-        "chillguy_vpn 5879",
-        "freenettir",
-        "freenettir CA CanadaTorontoping 46.18ms 6859",
-        "v2reya88 confinghub2 9862",
-        "Config0plus",
+        "80 oneclickvpnkeys",
         "DE All14 meliproxyy",
-        "DE t.me Natrixo BB",
+        "chillguy_vpn 4076",
+        "25 oneclickvpnkeys",
+        "chillguy_vpn 2126",
+        "oneclickvpnkeys US 2518",
+        "v2reya88 3982",
+        "v2reya88 confinghub2 2991",
+        "GozargahAzad",
+        "TEL Father_vpn 7120",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -270,126 +94,296 @@
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "80 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "trojan",
+      "password": "aa710f78-eddb-45b4-bd32-1f8692a754e5",
+      "tls": {
+        "enabled": true,
+        "server_name": "s.blibli.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ae-bo",
+        "headers": {
+          "Host": "s.blibli.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "tag": "DE All14 meliproxyy",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "d2992c0d-53cb-489c-85af-5eb80e6d9e79",
+      "tls": {
+        "enabled": true,
+        "server_name": "blog.webex.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/in-do",
+        "headers": {
+          "Host": "blog.webex.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "tag": "chillguy_vpn 4076",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "9dd05602-de19-494a-af15-6ac1cd6fb4b2",
+      "tls": {
+        "enabled": true,
+        "server_name": "graph.instagram.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/my-wbv",
+        "headers": {
+          "Host": "graph.instagram.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "tag": "25 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
+      "tls": {
+        "enabled": true,
+        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-pusat",
+        "headers": {
+          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "tag": "chillguy_vpn 2126",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "ea651176-c3b3-410f-b506-49f82325a319",
+      "tls": {
+        "enabled": true,
+        "server_name": "ads.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ae-bo",
+        "headers": {
+          "Host": "ads.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "tag": "oneclickvpnkeys US 2518",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "tls": {
+        "enabled": true,
+        "server_name": "juzi.qea.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "juzi.qea.ccwu.cc"
+        }
+      }
+    },
+    {
+      "tag": "v2reya88 3982",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "aa0e6991-6eaa-4bbb-9497-abc04d54de2f",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.opensignal.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "cdn.opensignal.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "tag": "v2reya88 confinghub2 2991",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
+      "tls": {
+        "enabled": true,
+        "server_name": "partner.catchplay.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ae-bo",
+        "headers": {
+          "Host": "partner.catchplay.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "tag": "GozargahAzad",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "58341346-98dd-4094-a26c-c378e86261e1",
+      "tls": {
+        "enabled": true,
+        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/in-pdr",
+        "headers": {
+          "Host": "support.zoom.us.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "tag": "TEL Father_vpn 7120",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "d08d180d-cb07-4d82-b1bd-1e42fa523cd7",
+      "tls": {
+        "enabled": true,
+        "server_name": "ads.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-orcl",
+        "headers": {
+          "Host": "ads.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "tag": "LINK bel432 xl",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "tag": "LINK VMess-WS-TLS-443-akuku8",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "fbcdn.sbs",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "fbcdn.sbs"
+        }
+      }
+    },
+    {
+      "tag": "LINK 10.lowh.net",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "10.lowh.net",
+        "insecure": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "10.lowh.net"
+        }
+      }
+    },
+    {
+      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "tls": {
+        "enabled": true,
+        "server_name": "akamaized.my",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "akamaized.my"
+        }
+      }
+    },
+    {
+      "type": "urltest",
+      "tag": "fallback-link",
+      "outbounds": [
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK 10.lowh.net",
+        "LINK VLESS-WS-TLS-443-apt50atpprem"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "300s",
       "tolerance": 30,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "selector",
-      "tag": "PROXY",
-      "outbounds": [
-        "DIRECT",
-        "AUTO-BEST-STABLE",
-        "AUTO-BEST-PING",
-        "LINK bel432 xl",
-        "LINK VMess-WS-TLS-443-akuku8",
-        "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "chillguy_vpn 7911",
-        "68 oneclickvpnkeys",
-        "41 oneclickvpnkeys",
-        "chillguy_vpn 5879",
-        "freenettir",
-        "freenettir CA CanadaTorontoping 46.18ms 6859",
-        "v2reya88 confinghub2 9862",
-        "Config0plus",
-        "DE All14 meliproxyy",
-        "DE t.me Natrixo BB",
-        "ID-01 DE t.me Natrixo BB",
-        "ID-02 LINK bel432 xl",
-        "STREAM-01 chillguy_vpn 7911",
-        "STREAM-02 68 oneclickvpnkeys",
-        "STREAM-03 41 oneclickvpnkeys",
-        "STREAM-04 chillguy_vpn 5879",
-        "STREAM-05 freenettir",
-        "STREAM-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "STREAM-07 Config0plus",
-        "STREAM-08 v2reya88 confinghub2 9862",
-        "STREAM-09 DE All14 meliproxyy",
-        "STREAM-10 DE t.me Natrixo BB",
-        "STREAM-11 LINK 10.lowh.net",
-        "STREAM-12 LINK bel432 xl",
-        "STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "STREAM-14 LINK VMess-WS-TLS-443-akuku8",
-        "GAME-01 chillguy_vpn 7911",
-        "GAME-02 68 oneclickvpnkeys",
-        "GAME-03 41 oneclickvpnkeys",
-        "GAME-04 chillguy_vpn 5879",
-        "GAME-05 freenettir",
-        "GAME-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "GAME-07 Config0plus",
-        "GAME-08 v2reya88 confinghub2 9862",
-        "GAME-09 DE All14 meliproxyy",
-        "GAME-10 DE t.me Natrixo BB",
-        "SOCIAL-01 chillguy_vpn 7911",
-        "SOCIAL-02 68 oneclickvpnkeys",
-        "SOCIAL-03 41 oneclickvpnkeys",
-        "SOCIAL-04 chillguy_vpn 5879",
-        "SOCIAL-05 freenettir",
-        "SOCIAL-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "SOCIAL-07 Config0plus",
-        "SOCIAL-08 v2reya88 confinghub2 9862",
-        "SOCIAL-09 DE All14 meliproxyy",
-        "SOCIAL-10 DE t.me Natrixo BB",
-        "SOCIAL-11 LINK 10.lowh.net",
-        "SOCIAL-12 LINK bel432 xl",
-        "SOCIAL-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "SOCIAL-14 LINK VMess-WS-TLS-443-akuku8",
-        "WORK-01 chillguy_vpn 7911",
-        "WORK-02 68 oneclickvpnkeys",
-        "WORK-03 41 oneclickvpnkeys",
-        "WORK-04 chillguy_vpn 5879",
-        "WORK-05 freenettir",
-        "WORK-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "WORK-07 Config0plus",
-        "WORK-08 v2reya88 confinghub2 9862",
-        "WORK-09 DE All14 meliproxyy",
-        "WORK-10 DE t.me Natrixo BB",
-        "GEN-01 chillguy_vpn 7911",
-        "GEN-02 68 oneclickvpnkeys",
-        "GEN-03 41 oneclickvpnkeys",
-        "GEN-04 chillguy_vpn 5879",
-        "GEN-05 freenettir",
-        "GEN-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "GEN-07 Config0plus",
-        "GEN-08 v2reya88 confinghub2 9862",
-        "GEN-09 DE All14 meliproxyy",
-        "GEN-10 DE t.me Natrixo BB",
-        "GEN-11 LINK 10.lowh.net",
-        "GEN-12 LINK bel432 xl",
-        "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "GEN-14 LINK VMess-WS-TLS-443-akuku8",
-        "LINK bel432 xl 2",
-        "LINK bel432 xl 2 2",
-        "LINK VMess-WS-TLS-443-akuku8 2",
-        "LINK bel432 telk",
-        "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
-      ],
-      "interrupt_exist_connections": false,
-      "default": "AUTO-BEST-STABLE"
-    },
-    {
-      "type": "urltest",
-      "tag": "BEST-STABLE",
-      "outbounds": [
-        "Config0plus",
-        "chillguy_vpn 7911",
-        "68 oneclickvpnkeys",
-        "41 oneclickvpnkeys",
-        "chillguy_vpn 5879",
-        "freenettir",
-        "freenettir CA CanadaTorontoping 46.18ms 6859",
-        "v2reya88 confinghub2 9862",
-        "DE All14 meliproxyy",
-        "DE t.me Natrixo BB"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "300s",
-      "tolerance": 80,
-      "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
     {
@@ -404,1652 +398,71 @@
       "url": "https://www.gstatic.com/generate_204",
       "interval": "300s",
       "tolerance": 80,
-      "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
     {
       "type": "urltest",
-      "tag": "fallback-link",
+      "tag": "SOCIAL MEDIA STABIL",
       "outbounds": [
+        "80 oneclickvpnkeys",
+        "DE All14 meliproxyy",
+        "chillguy_vpn 4076",
+        "25 oneclickvpnkeys",
+        "chillguy_vpn 2126",
+        "oneclickvpnkeys US 2518",
+        "v2reya88 3982",
+        "v2reya88 confinghub2 2991",
+        "GozargahAzad",
+        "TEL Father_vpn 7120",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem"
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK 10.lowh.net 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "300s",
       "tolerance": 30,
-      "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
     {
-      "type": "urltest",
-      "tag": "STREAMING-BEST",
+      "type": "selector",
+      "tag": "PROXY",
       "outbounds": [
-        "STREAM-01 chillguy_vpn 7911",
-        "STREAM-02 68 oneclickvpnkeys",
-        "STREAM-03 41 oneclickvpnkeys",
-        "STREAM-04 chillguy_vpn 5879",
-        "STREAM-05 freenettir",
-        "STREAM-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "STREAM-07 Config0plus",
-        "STREAM-08 v2reya88 confinghub2 9862",
-        "STREAM-09 DE All14 meliproxyy",
-        "STREAM-10 DE t.me Natrixo BB",
-        "STREAM-11 LINK 10.lowh.net",
-        "STREAM-12 LINK bel432 xl",
-        "STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "STREAM-14 LINK VMess-WS-TLS-443-akuku8"
+        "fallback-link",
+        "AUTO-BEST-PING",
+        "best-link",
+        "SOCIAL MEDIA STABIL",
+        "DIRECT",
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK 10.lowh.net",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "80 oneclickvpnkeys",
+        "DE All14 meliproxyy",
+        "chillguy_vpn 4076",
+        "25 oneclickvpnkeys",
+        "chillguy_vpn 2126",
+        "oneclickvpnkeys US 2518",
+        "v2reya88 3982",
+        "v2reya88 confinghub2 2991",
+        "GozargahAzad",
+        "TEL Father_vpn 7120",
+        "AUTO-BEST-STABLE",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK 10.lowh.net 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "300s",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "urltest",
-      "tag": "GAMING-BEST",
-      "outbounds": [
-        "GAME-01 chillguy_vpn 7911",
-        "GAME-02 68 oneclickvpnkeys",
-        "GAME-03 41 oneclickvpnkeys",
-        "GAME-04 chillguy_vpn 5879",
-        "GAME-05 freenettir",
-        "GAME-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "GAME-07 Config0plus",
-        "GAME-08 v2reya88 confinghub2 9862",
-        "GAME-09 DE All14 meliproxyy",
-        "GAME-10 DE t.me Natrixo BB"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "300s",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "urltest",
-      "tag": "SOCIAL-BEST",
-      "outbounds": [
-        "SOCIAL-01 chillguy_vpn 7911",
-        "SOCIAL-02 68 oneclickvpnkeys",
-        "SOCIAL-03 41 oneclickvpnkeys",
-        "SOCIAL-04 chillguy_vpn 5879",
-        "SOCIAL-05 freenettir",
-        "SOCIAL-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "SOCIAL-07 Config0plus",
-        "SOCIAL-08 v2reya88 confinghub2 9862",
-        "SOCIAL-09 DE All14 meliproxyy",
-        "SOCIAL-10 DE t.me Natrixo BB",
-        "SOCIAL-11 LINK 10.lowh.net",
-        "SOCIAL-12 LINK bel432 xl",
-        "SOCIAL-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "SOCIAL-14 LINK VMess-WS-TLS-443-akuku8"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "300s",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "urltest",
-      "tag": "WORKING-BEST",
-      "outbounds": [
-        "WORK-01 chillguy_vpn 7911",
-        "WORK-02 68 oneclickvpnkeys",
-        "WORK-03 41 oneclickvpnkeys",
-        "WORK-04 chillguy_vpn 5879",
-        "WORK-05 freenettir",
-        "WORK-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "WORK-07 Config0plus",
-        "WORK-08 v2reya88 confinghub2 9862",
-        "WORK-09 DE All14 meliproxyy",
-        "WORK-10 DE t.me Natrixo BB"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "300s",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "urltest",
-      "tag": "GENERAL-BEST",
-      "outbounds": [
-        "GEN-01 chillguy_vpn 7911",
-        "GEN-02 68 oneclickvpnkeys",
-        "GEN-03 41 oneclickvpnkeys",
-        "GEN-04 chillguy_vpn 5879",
-        "GEN-05 freenettir",
-        "GEN-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-        "GEN-07 Config0plus",
-        "GEN-08 v2reya88 confinghub2 9862",
-        "GEN-09 DE All14 meliproxyy",
-        "GEN-10 DE t.me Natrixo BB",
-        "GEN-11 LINK 10.lowh.net",
-        "GEN-12 LINK bel432 xl",
-        "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-        "GEN-14 LINK VMess-WS-TLS-443-akuku8"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "300s",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "vless",
-      "tag": "chillguy_vpn 7911",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "9dd05602-de19-494a-af15-6ac1cd6fb4b2",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/my-wbv",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "68 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "1eb8c38b-0bc2-4a6f-a860-5239c446abc8",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-amz",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "41 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "chillguy_vpn 5879",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8df10d83-3963-446d-a4e3-8bc043bda561",
-      "tls": {
-        "enabled": true,
-        "server_name": "space.byu.id.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-pdr",
-        "headers": {
-          "Host": "space.byu.id.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "freenettir",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "ca6d9308-b3a2-4f1b-b43c-185a59a55f71",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "freenettir CA CanadaTorontoping 46.18ms 6859",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a9cd18d2-dbf3-462b-9380-920a08fbc16b",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-do",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "v2reya88 confinghub2 9862",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "Config0plus",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "Config0plus",
-      "tls": {
-        "enabled": true,
-        "server_name": "api24-normal.tiktokv.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "api24-normal.tiktokv.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "DE All14 meliproxyy",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "d2992c0d-53cb-489c-85af-5eb80e6d9e79",
-      "tls": {
-        "enabled": true,
-        "server_name": "blog.webex.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "blog.webex.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "DE t.me Natrixo BB",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "fcdfab7b-caa2-425f-9356-5fd7742d98c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK bel432 xl",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK VMess-WS-TLS-443-akuku8",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "fbcdn.sbs",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "fbcdn.sbs"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK 10.lowh.net",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "10.lowh.net",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/hello",
-        "headers": {
-          "Host": "10.lowh.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
-      "tls": {
-        "enabled": true,
-        "server_name": "akamaized.my",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "akamaized.my"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "ID-01 DE t.me Natrixo BB",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "fcdfab7b-caa2-425f-9356-5fd7742d98c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "ID-02 LINK bel432 xl",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-01 chillguy_vpn 7911",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "9dd05602-de19-494a-af15-6ac1cd6fb4b2",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/my-wbv",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-02 68 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "1eb8c38b-0bc2-4a6f-a860-5239c446abc8",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-amz",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-03 41 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-04 chillguy_vpn 5879",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8df10d83-3963-446d-a4e3-8bc043bda561",
-      "tls": {
-        "enabled": true,
-        "server_name": "space.byu.id.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-pdr",
-        "headers": {
-          "Host": "space.byu.id.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-05 freenettir",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "ca6d9308-b3a2-4f1b-b43c-185a59a55f71",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a9cd18d2-dbf3-462b-9380-920a08fbc16b",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-do",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "STREAM-07 Config0plus",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "Config0plus",
-      "tls": {
-        "enabled": true,
-        "server_name": "api24-normal.tiktokv.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "api24-normal.tiktokv.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-08 v2reya88 confinghub2 9862",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-09 DE All14 meliproxyy",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "d2992c0d-53cb-489c-85af-5eb80e6d9e79",
-      "tls": {
-        "enabled": true,
-        "server_name": "blog.webex.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "blog.webex.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-10 DE t.me Natrixo BB",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "fcdfab7b-caa2-425f-9356-5fd7742d98c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "STREAM-11 LINK 10.lowh.net",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "10.lowh.net",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/hello",
-        "headers": {
-          "Host": "10.lowh.net"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "STREAM-12 LINK bel432 xl",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
-      "tls": {
-        "enabled": true,
-        "server_name": "akamaized.my",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "akamaized.my"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "STREAM-14 LINK VMess-WS-TLS-443-akuku8",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "fbcdn.sbs",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "fbcdn.sbs"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-01 chillguy_vpn 7911",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "9dd05602-de19-494a-af15-6ac1cd6fb4b2",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/my-wbv",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-02 68 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "1eb8c38b-0bc2-4a6f-a860-5239c446abc8",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-amz",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-03 41 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-04 chillguy_vpn 5879",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8df10d83-3963-446d-a4e3-8bc043bda561",
-      "tls": {
-        "enabled": true,
-        "server_name": "space.byu.id.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-pdr",
-        "headers": {
-          "Host": "space.byu.id.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-05 freenettir",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "ca6d9308-b3a2-4f1b-b43c-185a59a55f71",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a9cd18d2-dbf3-462b-9380-920a08fbc16b",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-do",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "GAME-07 Config0plus",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "Config0plus",
-      "tls": {
-        "enabled": true,
-        "server_name": "api24-normal.tiktokv.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "api24-normal.tiktokv.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-08 v2reya88 confinghub2 9862",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-09 DE All14 meliproxyy",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "d2992c0d-53cb-489c-85af-5eb80e6d9e79",
-      "tls": {
-        "enabled": true,
-        "server_name": "blog.webex.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "blog.webex.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-10 DE t.me Natrixo BB",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "fcdfab7b-caa2-425f-9356-5fd7742d98c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-01 chillguy_vpn 7911",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "9dd05602-de19-494a-af15-6ac1cd6fb4b2",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/my-wbv",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-02 68 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "1eb8c38b-0bc2-4a6f-a860-5239c446abc8",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-amz",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-03 41 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-04 chillguy_vpn 5879",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8df10d83-3963-446d-a4e3-8bc043bda561",
-      "tls": {
-        "enabled": true,
-        "server_name": "space.byu.id.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-pdr",
-        "headers": {
-          "Host": "space.byu.id.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-05 freenettir",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "ca6d9308-b3a2-4f1b-b43c-185a59a55f71",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a9cd18d2-dbf3-462b-9380-920a08fbc16b",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-do",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "SOCIAL-07 Config0plus",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "Config0plus",
-      "tls": {
-        "enabled": true,
-        "server_name": "api24-normal.tiktokv.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "api24-normal.tiktokv.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-08 v2reya88 confinghub2 9862",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-09 DE All14 meliproxyy",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "d2992c0d-53cb-489c-85af-5eb80e6d9e79",
-      "tls": {
-        "enabled": true,
-        "server_name": "blog.webex.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "blog.webex.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-10 DE t.me Natrixo BB",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "fcdfab7b-caa2-425f-9356-5fd7742d98c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "SOCIAL-11 LINK 10.lowh.net",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "10.lowh.net",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/hello",
-        "headers": {
-          "Host": "10.lowh.net"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "SOCIAL-12 LINK bel432 xl",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
-      "tls": {
-        "enabled": true,
-        "server_name": "akamaized.my",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "akamaized.my"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "SOCIAL-14 LINK VMess-WS-TLS-443-akuku8",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "fbcdn.sbs",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "fbcdn.sbs"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-01 chillguy_vpn 7911",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "9dd05602-de19-494a-af15-6ac1cd6fb4b2",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/my-wbv",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-02 68 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "1eb8c38b-0bc2-4a6f-a860-5239c446abc8",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-amz",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-03 41 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-04 chillguy_vpn 5879",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8df10d83-3963-446d-a4e3-8bc043bda561",
-      "tls": {
-        "enabled": true,
-        "server_name": "space.byu.id.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-pdr",
-        "headers": {
-          "Host": "space.byu.id.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-05 freenettir",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "ca6d9308-b3a2-4f1b-b43c-185a59a55f71",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a9cd18d2-dbf3-462b-9380-920a08fbc16b",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-do",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "WORK-07 Config0plus",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "Config0plus",
-      "tls": {
-        "enabled": true,
-        "server_name": "api24-normal.tiktokv.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "api24-normal.tiktokv.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-08 v2reya88 confinghub2 9862",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-09 DE All14 meliproxyy",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "d2992c0d-53cb-489c-85af-5eb80e6d9e79",
-      "tls": {
-        "enabled": true,
-        "server_name": "blog.webex.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "blog.webex.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-10 DE t.me Natrixo BB",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "fcdfab7b-caa2-425f-9356-5fd7742d98c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-01 chillguy_vpn 7911",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "9dd05602-de19-494a-af15-6ac1cd6fb4b2",
-      "tls": {
-        "enabled": true,
-        "server_name": "graph.instagram.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/my-wbv",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-02 68 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "1eb8c38b-0bc2-4a6f-a860-5239c446abc8",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-amz",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-03 41 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-04 chillguy_vpn 5879",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8df10d83-3963-446d-a4e3-8bc043bda561",
-      "tls": {
-        "enabled": true,
-        "server_name": "space.byu.id.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-pdr",
-        "headers": {
-          "Host": "space.byu.id.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-05 freenettir",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "ca6d9308-b3a2-4f1b-b43c-185a59a55f71",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-06 freenettir CA CanadaTorontoping 46.18ms 6859",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a9cd18d2-dbf3-462b-9380-920a08fbc16b",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-do",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "GEN-07 Config0plus",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "Config0plus",
-      "tls": {
-        "enabled": true,
-        "server_name": "api24-normal.tiktokv.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "api24-normal.tiktokv.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-08 v2reya88 confinghub2 9862",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-09 DE All14 meliproxyy",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "d2992c0d-53cb-489c-85af-5eb80e6d9e79",
-      "tls": {
-        "enabled": true,
-        "server_name": "blog.webex.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "blog.webex.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-10 DE t.me Natrixo BB",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "fcdfab7b-caa2-425f-9356-5fd7742d98c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "GEN-11 LINK 10.lowh.net",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "10.lowh.net",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/hello",
-        "headers": {
-          "Host": "10.lowh.net"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "GEN-12 LINK bel432 xl",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
-      "tls": {
-        "enabled": true,
-        "server_name": "akamaized.my",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "akamaized.my"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "GEN-14 LINK VMess-WS-TLS-443-akuku8",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "fbcdn.sbs",
-        "insecure": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "fbcdn.sbs"
-        }
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
+      "interrupt_exist_connections": false,
+      "default": "AUTO-BEST-STABLE"
     },
     {
       "type": "vmess",
@@ -2172,8 +585,14 @@
     }
   ],
   "route": {
-    "auto_detect_interface": true,
     "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
       {
         "ip_cidr": [
           "10.0.0.0/8",
@@ -2186,9 +605,11 @@
           "fc00::/7",
           "fe80::/10"
         ],
+        "action": "route",
         "outbound": "DIRECT"
       }
     ],
-    "final": "PROXY"
+    "final": "PROXY",
+    "auto_detect_interface": true
   }
 }
