@@ -6,12 +6,14 @@
   "dns": {
     "servers": [
       {
+        "type": "udp",
         "tag": "cloudflare",
-        "address": "1.1.1.1"
+        "server": "1.1.1.1"
       },
       {
+        "type": "udp",
         "tag": "google",
-        "address": "8.8.8.8"
+        "server": "8.8.8.8"
       }
     ],
     "final": "cloudflare"
@@ -38,72 +40,76 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "69132 - Telegram V2All",
-        "chillguy_vpn 1662",
-        "IN) DigitalOcean LLC IN",
-        "US 43409 Telegram t.me SOSkeyNET",
-        "chillguy_vpn 3926",
-        "llFreak 4494",
-        "musiclovers85 1744",
-        "69134 - Telegram V2All",
-        "CA 43419 Telegram t.me SOSkeyNET",
         "US 43427 Telegram t.me SOSkeyNET",
+        "chillguy_vpn 1935",
+        "musiclovers85",
+        "v2reya88",
+        "v2reya88 2235",
+        "v2reya88 7814",
+        "44 oneclickvpnkeys",
+        "69134 - Telegram V2All",
+        "oneclickvpnkeys US 9583",
+        "CA 43443 Telegram t.me SOSkeyNET",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "ID-01 musiclovers85 1744",
+        "ID-01 musiclovers85",
         "ID-02 LINK bel432 xl",
-        "STREAM-01 musiclovers85 1744",
-        "STREAM-02 llFreak 4494",
-        "STREAM-03 IN) DigitalOcean LLC IN",
-        "STREAM-04 chillguy_vpn 1662",
-        "STREAM-05 69132 - Telegram V2All",
-        "STREAM-06 CA 43419 Telegram t.me SOSkeyNET",
-        "STREAM-07 US 43409 Telegram t.me SOSkeyNET",
-        "STREAM-08 69134 - Telegram V2All",
-        "STREAM-09 US 43427 Telegram t.me SOSkeyNET",
-        "STREAM-10 chillguy_vpn 3926",
-        "GAME-01 musiclovers85 1744",
-        "GAME-02 llFreak 4494",
-        "GAME-03 IN) DigitalOcean LLC IN",
-        "GAME-04 chillguy_vpn 1662",
-        "GAME-05 69132 - Telegram V2All",
-        "GAME-06 CA 43419 Telegram t.me SOSkeyNET",
-        "GAME-07 US 43409 Telegram t.me SOSkeyNET",
-        "GAME-08 69134 - Telegram V2All",
-        "GAME-09 US 43427 Telegram t.me SOSkeyNET",
-        "GAME-10 chillguy_vpn 3926",
+        "STREAM-01 musiclovers85",
+        "STREAM-02 CA 43443 Telegram t.me SOSkeyNET",
+        "STREAM-03 US 43427 Telegram t.me SOSkeyNET",
+        "STREAM-04 69134 - Telegram V2All",
+        "STREAM-05 44 oneclickvpnkeys",
+        "STREAM-06 v2reya88",
+        "STREAM-07 chillguy_vpn 1935",
+        "STREAM-08 v2reya88 7814",
+        "STREAM-09 v2reya88 2235",
+        "STREAM-10 oneclickvpnkeys US 9583",
+        "GAME-01 musiclovers85",
+        "GAME-02 CA 43443 Telegram t.me SOSkeyNET",
+        "GAME-03 US 43427 Telegram t.me SOSkeyNET",
+        "GAME-04 69134 - Telegram V2All",
+        "GAME-05 44 oneclickvpnkeys",
+        "GAME-06 v2reya88",
+        "GAME-07 chillguy_vpn 1935",
+        "GAME-08 v2reya88 7814",
+        "GAME-09 v2reya88 2235",
+        "GAME-10 oneclickvpnkeys US 9583",
         "GAME-11 LINK 10.lowh.net",
         "GAME-12 LINK bel432 xl",
         "GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem",
         "GAME-14 LINK VMess-WS-TLS-443-akuku8",
-        "SOCIAL-01 IN) DigitalOcean LLC IN",
-        "SOCIAL-02 69132 - Telegram V2All",
-        "SOCIAL-03 CA 43419 Telegram t.me SOSkeyNET",
-        "SOCIAL-04 US 43409 Telegram t.me SOSkeyNET",
-        "SOCIAL-05 69134 - Telegram V2All",
-        "SOCIAL-06 US 43427 Telegram t.me SOSkeyNET",
-        "WORK-01 musiclovers85 1744",
-        "WORK-02 llFreak 4494",
-        "WORK-03 IN) DigitalOcean LLC IN",
-        "WORK-04 chillguy_vpn 1662",
-        "WORK-05 69132 - Telegram V2All",
-        "WORK-06 CA 43419 Telegram t.me SOSkeyNET",
-        "WORK-07 US 43409 Telegram t.me SOSkeyNET",
-        "WORK-08 69134 - Telegram V2All",
-        "WORK-09 US 43427 Telegram t.me SOSkeyNET",
-        "WORK-10 chillguy_vpn 3926",
-        "GEN-01 musiclovers85 1744",
-        "GEN-02 llFreak 4494",
-        "GEN-03 IN) DigitalOcean LLC IN",
-        "GEN-04 chillguy_vpn 1662",
-        "GEN-05 69132 - Telegram V2All",
-        "GEN-06 CA 43419 Telegram t.me SOSkeyNET",
-        "GEN-07 US 43409 Telegram t.me SOSkeyNET",
-        "GEN-08 69134 - Telegram V2All",
-        "GEN-09 US 43427 Telegram t.me SOSkeyNET",
-        "GEN-10 chillguy_vpn 3926",
+        "SOCIAL-01 musiclovers85",
+        "SOCIAL-02 CA 43443 Telegram t.me SOSkeyNET",
+        "SOCIAL-03 US 43427 Telegram t.me SOSkeyNET",
+        "SOCIAL-04 69134 - Telegram V2All",
+        "SOCIAL-05 44 oneclickvpnkeys",
+        "SOCIAL-06 v2reya88",
+        "SOCIAL-07 chillguy_vpn 1935",
+        "SOCIAL-08 v2reya88 7814",
+        "SOCIAL-09 v2reya88 2235",
+        "SOCIAL-10 oneclickvpnkeys US 9583",
+        "WORK-01 musiclovers85",
+        "WORK-02 CA 43443 Telegram t.me SOSkeyNET",
+        "WORK-03 US 43427 Telegram t.me SOSkeyNET",
+        "WORK-04 69134 - Telegram V2All",
+        "WORK-05 44 oneclickvpnkeys",
+        "WORK-06 v2reya88",
+        "WORK-07 chillguy_vpn 1935",
+        "WORK-08 v2reya88 7814",
+        "WORK-09 v2reya88 2235",
+        "WORK-10 oneclickvpnkeys US 9583",
+        "GEN-01 musiclovers85",
+        "GEN-02 CA 43443 Telegram t.me SOSkeyNET",
+        "GEN-03 US 43427 Telegram t.me SOSkeyNET",
+        "GEN-04 69134 - Telegram V2All",
+        "GEN-05 44 oneclickvpnkeys",
+        "GEN-06 v2reya88",
+        "GEN-07 chillguy_vpn 1935",
+        "GEN-08 v2reya88 7814",
+        "GEN-09 v2reya88 2235",
+        "GEN-10 oneclickvpnkeys US 9583",
         "GEN-11 LINK 10.lowh.net",
         "GEN-12 LINK bel432 xl",
         "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
@@ -125,72 +131,76 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "69132 - Telegram V2All",
-        "chillguy_vpn 1662",
-        "IN) DigitalOcean LLC IN",
-        "US 43409 Telegram t.me SOSkeyNET",
-        "chillguy_vpn 3926",
-        "llFreak 4494",
-        "musiclovers85 1744",
-        "69134 - Telegram V2All",
-        "CA 43419 Telegram t.me SOSkeyNET",
         "US 43427 Telegram t.me SOSkeyNET",
+        "chillguy_vpn 1935",
+        "musiclovers85",
+        "v2reya88",
+        "v2reya88 2235",
+        "v2reya88 7814",
+        "44 oneclickvpnkeys",
+        "69134 - Telegram V2All",
+        "oneclickvpnkeys US 9583",
+        "CA 43443 Telegram t.me SOSkeyNET",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "ID-01 musiclovers85 1744",
+        "ID-01 musiclovers85",
         "ID-02 LINK bel432 xl",
-        "STREAM-01 musiclovers85 1744",
-        "STREAM-02 llFreak 4494",
-        "STREAM-03 IN) DigitalOcean LLC IN",
-        "STREAM-04 chillguy_vpn 1662",
-        "STREAM-05 69132 - Telegram V2All",
-        "STREAM-06 CA 43419 Telegram t.me SOSkeyNET",
-        "STREAM-07 US 43409 Telegram t.me SOSkeyNET",
-        "STREAM-08 69134 - Telegram V2All",
-        "STREAM-09 US 43427 Telegram t.me SOSkeyNET",
-        "STREAM-10 chillguy_vpn 3926",
-        "GAME-01 musiclovers85 1744",
-        "GAME-02 llFreak 4494",
-        "GAME-03 IN) DigitalOcean LLC IN",
-        "GAME-04 chillguy_vpn 1662",
-        "GAME-05 69132 - Telegram V2All",
-        "GAME-06 CA 43419 Telegram t.me SOSkeyNET",
-        "GAME-07 US 43409 Telegram t.me SOSkeyNET",
-        "GAME-08 69134 - Telegram V2All",
-        "GAME-09 US 43427 Telegram t.me SOSkeyNET",
-        "GAME-10 chillguy_vpn 3926",
+        "STREAM-01 musiclovers85",
+        "STREAM-02 CA 43443 Telegram t.me SOSkeyNET",
+        "STREAM-03 US 43427 Telegram t.me SOSkeyNET",
+        "STREAM-04 69134 - Telegram V2All",
+        "STREAM-05 44 oneclickvpnkeys",
+        "STREAM-06 v2reya88",
+        "STREAM-07 chillguy_vpn 1935",
+        "STREAM-08 v2reya88 7814",
+        "STREAM-09 v2reya88 2235",
+        "STREAM-10 oneclickvpnkeys US 9583",
+        "GAME-01 musiclovers85",
+        "GAME-02 CA 43443 Telegram t.me SOSkeyNET",
+        "GAME-03 US 43427 Telegram t.me SOSkeyNET",
+        "GAME-04 69134 - Telegram V2All",
+        "GAME-05 44 oneclickvpnkeys",
+        "GAME-06 v2reya88",
+        "GAME-07 chillguy_vpn 1935",
+        "GAME-08 v2reya88 7814",
+        "GAME-09 v2reya88 2235",
+        "GAME-10 oneclickvpnkeys US 9583",
         "GAME-11 LINK 10.lowh.net",
         "GAME-12 LINK bel432 xl",
         "GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem",
         "GAME-14 LINK VMess-WS-TLS-443-akuku8",
-        "SOCIAL-01 IN) DigitalOcean LLC IN",
-        "SOCIAL-02 69132 - Telegram V2All",
-        "SOCIAL-03 CA 43419 Telegram t.me SOSkeyNET",
-        "SOCIAL-04 US 43409 Telegram t.me SOSkeyNET",
-        "SOCIAL-05 69134 - Telegram V2All",
-        "SOCIAL-06 US 43427 Telegram t.me SOSkeyNET",
-        "WORK-01 musiclovers85 1744",
-        "WORK-02 llFreak 4494",
-        "WORK-03 IN) DigitalOcean LLC IN",
-        "WORK-04 chillguy_vpn 1662",
-        "WORK-05 69132 - Telegram V2All",
-        "WORK-06 CA 43419 Telegram t.me SOSkeyNET",
-        "WORK-07 US 43409 Telegram t.me SOSkeyNET",
-        "WORK-08 69134 - Telegram V2All",
-        "WORK-09 US 43427 Telegram t.me SOSkeyNET",
-        "WORK-10 chillguy_vpn 3926",
-        "GEN-01 musiclovers85 1744",
-        "GEN-02 llFreak 4494",
-        "GEN-03 IN) DigitalOcean LLC IN",
-        "GEN-04 chillguy_vpn 1662",
-        "GEN-05 69132 - Telegram V2All",
-        "GEN-06 CA 43419 Telegram t.me SOSkeyNET",
-        "GEN-07 US 43409 Telegram t.me SOSkeyNET",
-        "GEN-08 69134 - Telegram V2All",
-        "GEN-09 US 43427 Telegram t.me SOSkeyNET",
-        "GEN-10 chillguy_vpn 3926",
+        "SOCIAL-01 musiclovers85",
+        "SOCIAL-02 CA 43443 Telegram t.me SOSkeyNET",
+        "SOCIAL-03 US 43427 Telegram t.me SOSkeyNET",
+        "SOCIAL-04 69134 - Telegram V2All",
+        "SOCIAL-05 44 oneclickvpnkeys",
+        "SOCIAL-06 v2reya88",
+        "SOCIAL-07 chillguy_vpn 1935",
+        "SOCIAL-08 v2reya88 7814",
+        "SOCIAL-09 v2reya88 2235",
+        "SOCIAL-10 oneclickvpnkeys US 9583",
+        "WORK-01 musiclovers85",
+        "WORK-02 CA 43443 Telegram t.me SOSkeyNET",
+        "WORK-03 US 43427 Telegram t.me SOSkeyNET",
+        "WORK-04 69134 - Telegram V2All",
+        "WORK-05 44 oneclickvpnkeys",
+        "WORK-06 v2reya88",
+        "WORK-07 chillguy_vpn 1935",
+        "WORK-08 v2reya88 7814",
+        "WORK-09 v2reya88 2235",
+        "WORK-10 oneclickvpnkeys US 9583",
+        "GEN-01 musiclovers85",
+        "GEN-02 CA 43443 Telegram t.me SOSkeyNET",
+        "GEN-03 US 43427 Telegram t.me SOSkeyNET",
+        "GEN-04 69134 - Telegram V2All",
+        "GEN-05 44 oneclickvpnkeys",
+        "GEN-06 v2reya88",
+        "GEN-07 chillguy_vpn 1935",
+        "GEN-08 v2reya88 7814",
+        "GEN-09 v2reya88 2235",
+        "GEN-10 oneclickvpnkeys US 9583",
         "GEN-11 LINK 10.lowh.net",
         "GEN-12 LINK bel432 xl",
         "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
@@ -212,11 +222,15 @@
       "type": "urltest",
       "tag": "INDONESIA-BEST",
       "outbounds": [
-        "ID-01 musiclovers85 1744",
-        "ID-02 LINK bel432 xl"
+        "musiclovers85",
+        "GAME-12 LINK bel432 xl",
+        "GEN-12 LINK bel432 xl",
+        "ID-01 musiclovers85",
+        "ID-02 LINK bel432 xl",
+        "LINK bel432 xl"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -225,16 +239,16 @@
       "type": "urltest",
       "tag": "GAMING STABIL",
       "outbounds": [
-        "69132 - Telegram V2All",
-        "chillguy_vpn 1662",
-        "IN) DigitalOcean LLC IN",
-        "US 43409 Telegram t.me SOSkeyNET",
-        "chillguy_vpn 3926",
-        "llFreak 4494",
-        "musiclovers85 1744",
-        "69134 - Telegram V2All",
-        "CA 43419 Telegram t.me SOSkeyNET",
         "US 43427 Telegram t.me SOSkeyNET",
+        "chillguy_vpn 1935",
+        "musiclovers85",
+        "v2reya88",
+        "v2reya88 2235",
+        "v2reya88 7814",
+        "44 oneclickvpnkeys",
+        "69134 - Telegram V2All",
+        "oneclickvpnkeys US 9583",
+        "CA 43443 Telegram t.me SOSkeyNET",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -246,9 +260,9 @@
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80,
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "300s",
+      "tolerance": 30,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
@@ -259,72 +273,76 @@
         "DIRECT",
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
-        "69132 - Telegram V2All",
-        "chillguy_vpn 1662",
-        "IN) DigitalOcean LLC IN",
-        "US 43409 Telegram t.me SOSkeyNET",
-        "chillguy_vpn 3926",
-        "llFreak 4494",
-        "musiclovers85 1744",
-        "69134 - Telegram V2All",
-        "CA 43419 Telegram t.me SOSkeyNET",
-        "US 43427 Telegram t.me SOSkeyNET",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "ID-01 musiclovers85 1744",
+        "US 43427 Telegram t.me SOSkeyNET",
+        "chillguy_vpn 1935",
+        "musiclovers85",
+        "v2reya88",
+        "v2reya88 2235",
+        "v2reya88 7814",
+        "44 oneclickvpnkeys",
+        "69134 - Telegram V2All",
+        "oneclickvpnkeys US 9583",
+        "CA 43443 Telegram t.me SOSkeyNET",
+        "ID-01 musiclovers85",
         "ID-02 LINK bel432 xl",
-        "STREAM-01 musiclovers85 1744",
-        "STREAM-02 llFreak 4494",
-        "STREAM-03 IN) DigitalOcean LLC IN",
-        "STREAM-04 chillguy_vpn 1662",
-        "STREAM-05 69132 - Telegram V2All",
-        "STREAM-06 CA 43419 Telegram t.me SOSkeyNET",
-        "STREAM-07 US 43409 Telegram t.me SOSkeyNET",
-        "STREAM-08 69134 - Telegram V2All",
-        "STREAM-09 US 43427 Telegram t.me SOSkeyNET",
-        "STREAM-10 chillguy_vpn 3926",
-        "GAME-01 musiclovers85 1744",
-        "GAME-02 llFreak 4494",
-        "GAME-03 IN) DigitalOcean LLC IN",
-        "GAME-04 chillguy_vpn 1662",
-        "GAME-05 69132 - Telegram V2All",
-        "GAME-06 CA 43419 Telegram t.me SOSkeyNET",
-        "GAME-07 US 43409 Telegram t.me SOSkeyNET",
-        "GAME-08 69134 - Telegram V2All",
-        "GAME-09 US 43427 Telegram t.me SOSkeyNET",
-        "GAME-10 chillguy_vpn 3926",
+        "STREAM-01 musiclovers85",
+        "STREAM-02 CA 43443 Telegram t.me SOSkeyNET",
+        "STREAM-03 US 43427 Telegram t.me SOSkeyNET",
+        "STREAM-04 69134 - Telegram V2All",
+        "STREAM-05 44 oneclickvpnkeys",
+        "STREAM-06 v2reya88",
+        "STREAM-07 chillguy_vpn 1935",
+        "STREAM-08 v2reya88 7814",
+        "STREAM-09 v2reya88 2235",
+        "STREAM-10 oneclickvpnkeys US 9583",
+        "GAME-01 musiclovers85",
+        "GAME-02 CA 43443 Telegram t.me SOSkeyNET",
+        "GAME-03 US 43427 Telegram t.me SOSkeyNET",
+        "GAME-04 69134 - Telegram V2All",
+        "GAME-05 44 oneclickvpnkeys",
+        "GAME-06 v2reya88",
+        "GAME-07 chillguy_vpn 1935",
+        "GAME-08 v2reya88 7814",
+        "GAME-09 v2reya88 2235",
+        "GAME-10 oneclickvpnkeys US 9583",
         "GAME-11 LINK 10.lowh.net",
         "GAME-12 LINK bel432 xl",
         "GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem",
         "GAME-14 LINK VMess-WS-TLS-443-akuku8",
-        "SOCIAL-01 IN) DigitalOcean LLC IN",
-        "SOCIAL-02 69132 - Telegram V2All",
-        "SOCIAL-03 CA 43419 Telegram t.me SOSkeyNET",
-        "SOCIAL-04 US 43409 Telegram t.me SOSkeyNET",
-        "SOCIAL-05 69134 - Telegram V2All",
-        "SOCIAL-06 US 43427 Telegram t.me SOSkeyNET",
-        "WORK-01 musiclovers85 1744",
-        "WORK-02 llFreak 4494",
-        "WORK-03 IN) DigitalOcean LLC IN",
-        "WORK-04 chillguy_vpn 1662",
-        "WORK-05 69132 - Telegram V2All",
-        "WORK-06 CA 43419 Telegram t.me SOSkeyNET",
-        "WORK-07 US 43409 Telegram t.me SOSkeyNET",
-        "WORK-08 69134 - Telegram V2All",
-        "WORK-09 US 43427 Telegram t.me SOSkeyNET",
-        "WORK-10 chillguy_vpn 3926",
-        "GEN-01 musiclovers85 1744",
-        "GEN-02 llFreak 4494",
-        "GEN-03 IN) DigitalOcean LLC IN",
-        "GEN-04 chillguy_vpn 1662",
-        "GEN-05 69132 - Telegram V2All",
-        "GEN-06 CA 43419 Telegram t.me SOSkeyNET",
-        "GEN-07 US 43409 Telegram t.me SOSkeyNET",
-        "GEN-08 69134 - Telegram V2All",
-        "GEN-09 US 43427 Telegram t.me SOSkeyNET",
-        "GEN-10 chillguy_vpn 3926",
+        "SOCIAL-01 musiclovers85",
+        "SOCIAL-02 CA 43443 Telegram t.me SOSkeyNET",
+        "SOCIAL-03 US 43427 Telegram t.me SOSkeyNET",
+        "SOCIAL-04 69134 - Telegram V2All",
+        "SOCIAL-05 44 oneclickvpnkeys",
+        "SOCIAL-06 v2reya88",
+        "SOCIAL-07 chillguy_vpn 1935",
+        "SOCIAL-08 v2reya88 7814",
+        "SOCIAL-09 v2reya88 2235",
+        "SOCIAL-10 oneclickvpnkeys US 9583",
+        "WORK-01 musiclovers85",
+        "WORK-02 CA 43443 Telegram t.me SOSkeyNET",
+        "WORK-03 US 43427 Telegram t.me SOSkeyNET",
+        "WORK-04 69134 - Telegram V2All",
+        "WORK-05 44 oneclickvpnkeys",
+        "WORK-06 v2reya88",
+        "WORK-07 chillguy_vpn 1935",
+        "WORK-08 v2reya88 7814",
+        "WORK-09 v2reya88 2235",
+        "WORK-10 oneclickvpnkeys US 9583",
+        "GEN-01 musiclovers85",
+        "GEN-02 CA 43443 Telegram t.me SOSkeyNET",
+        "GEN-03 US 43427 Telegram t.me SOSkeyNET",
+        "GEN-04 69134 - Telegram V2All",
+        "GEN-05 44 oneclickvpnkeys",
+        "GEN-06 v2reya88",
+        "GEN-07 chillguy_vpn 1935",
+        "GEN-08 v2reya88 7814",
+        "GEN-09 v2reya88 2235",
+        "GEN-10 oneclickvpnkeys US 9583",
         "GEN-11 LINK 10.lowh.net",
         "GEN-12 LINK bel432 xl",
         "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
@@ -336,25 +354,26 @@
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "interrupt_exist_connections": false
+      "interrupt_exist_connections": false,
+      "default": "AUTO-BEST-STABLE"
     },
     {
       "type": "urltest",
       "tag": "BEST-STABLE",
       "outbounds": [
-        "IN) DigitalOcean LLC IN",
-        "musiclovers85 1744",
-        "llFreak 4494",
-        "chillguy_vpn 1662",
-        "69132 - Telegram V2All",
-        "CA 43419 Telegram t.me SOSkeyNET",
-        "US 43409 Telegram t.me SOSkeyNET",
-        "US 43427 Telegram t.me SOSkeyNET",
         "69134 - Telegram V2All",
-        "chillguy_vpn 3926"
+        "CA 43443 Telegram t.me SOSkeyNET",
+        "US 43427 Telegram t.me SOSkeyNET",
+        "musiclovers85",
+        "44 oneclickvpnkeys",
+        "v2reya88",
+        "chillguy_vpn 1935",
+        "v2reya88 7814",
+        "v2reya88 2235",
+        "oneclickvpnkeys US 9583"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -369,7 +388,7 @@
         "LINK VLESS-WS-TLS-443-apt50atpprem"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -384,8 +403,8 @@
         "LINK VLESS-WS-TLS-443-apt50atpprem"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80,
+      "interval": "300s",
+      "tolerance": 30,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
@@ -393,19 +412,19 @@
       "type": "urltest",
       "tag": "STREAMING-BEST",
       "outbounds": [
-        "STREAM-01 musiclovers85 1744",
-        "STREAM-02 llFreak 4494",
-        "STREAM-03 IN) DigitalOcean LLC IN",
-        "STREAM-04 chillguy_vpn 1662",
-        "STREAM-05 69132 - Telegram V2All",
-        "STREAM-06 CA 43419 Telegram t.me SOSkeyNET",
-        "STREAM-07 US 43409 Telegram t.me SOSkeyNET",
-        "STREAM-08 69134 - Telegram V2All",
-        "STREAM-09 US 43427 Telegram t.me SOSkeyNET",
-        "STREAM-10 chillguy_vpn 3926"
+        "STREAM-01 musiclovers85",
+        "STREAM-02 CA 43443 Telegram t.me SOSkeyNET",
+        "STREAM-03 US 43427 Telegram t.me SOSkeyNET",
+        "STREAM-04 69134 - Telegram V2All",
+        "STREAM-05 44 oneclickvpnkeys",
+        "STREAM-06 v2reya88",
+        "STREAM-07 chillguy_vpn 1935",
+        "STREAM-08 v2reya88 7814",
+        "STREAM-09 v2reya88 2235",
+        "STREAM-10 oneclickvpnkeys US 9583"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -414,23 +433,23 @@
       "type": "urltest",
       "tag": "GAMING-BEST",
       "outbounds": [
-        "GAME-01 musiclovers85 1744",
-        "GAME-02 llFreak 4494",
-        "GAME-03 IN) DigitalOcean LLC IN",
-        "GAME-04 chillguy_vpn 1662",
-        "GAME-05 69132 - Telegram V2All",
-        "GAME-06 CA 43419 Telegram t.me SOSkeyNET",
-        "GAME-07 US 43409 Telegram t.me SOSkeyNET",
-        "GAME-08 69134 - Telegram V2All",
-        "GAME-09 US 43427 Telegram t.me SOSkeyNET",
-        "GAME-10 chillguy_vpn 3926",
+        "GAME-01 musiclovers85",
+        "GAME-02 CA 43443 Telegram t.me SOSkeyNET",
+        "GAME-03 US 43427 Telegram t.me SOSkeyNET",
+        "GAME-04 69134 - Telegram V2All",
+        "GAME-05 44 oneclickvpnkeys",
+        "GAME-06 v2reya88",
+        "GAME-07 chillguy_vpn 1935",
+        "GAME-08 v2reya88 7814",
+        "GAME-09 v2reya88 2235",
+        "GAME-10 oneclickvpnkeys US 9583",
         "GAME-11 LINK 10.lowh.net",
         "GAME-12 LINK bel432 xl",
         "GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem",
         "GAME-14 LINK VMess-WS-TLS-443-akuku8"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -439,15 +458,19 @@
       "type": "urltest",
       "tag": "SOCIAL-BEST",
       "outbounds": [
-        "SOCIAL-01 IN) DigitalOcean LLC IN",
-        "SOCIAL-02 69132 - Telegram V2All",
-        "SOCIAL-03 CA 43419 Telegram t.me SOSkeyNET",
-        "SOCIAL-04 US 43409 Telegram t.me SOSkeyNET",
-        "SOCIAL-05 69134 - Telegram V2All",
-        "SOCIAL-06 US 43427 Telegram t.me SOSkeyNET"
+        "SOCIAL-01 musiclovers85",
+        "SOCIAL-02 CA 43443 Telegram t.me SOSkeyNET",
+        "SOCIAL-03 US 43427 Telegram t.me SOSkeyNET",
+        "SOCIAL-04 69134 - Telegram V2All",
+        "SOCIAL-05 44 oneclickvpnkeys",
+        "SOCIAL-06 v2reya88",
+        "SOCIAL-07 chillguy_vpn 1935",
+        "SOCIAL-08 v2reya88 7814",
+        "SOCIAL-09 v2reya88 2235",
+        "SOCIAL-10 oneclickvpnkeys US 9583"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -456,19 +479,19 @@
       "type": "urltest",
       "tag": "WORKING-BEST",
       "outbounds": [
-        "WORK-01 musiclovers85 1744",
-        "WORK-02 llFreak 4494",
-        "WORK-03 IN) DigitalOcean LLC IN",
-        "WORK-04 chillguy_vpn 1662",
-        "WORK-05 69132 - Telegram V2All",
-        "WORK-06 CA 43419 Telegram t.me SOSkeyNET",
-        "WORK-07 US 43409 Telegram t.me SOSkeyNET",
-        "WORK-08 69134 - Telegram V2All",
-        "WORK-09 US 43427 Telegram t.me SOSkeyNET",
-        "WORK-10 chillguy_vpn 3926"
+        "WORK-01 musiclovers85",
+        "WORK-02 CA 43443 Telegram t.me SOSkeyNET",
+        "WORK-03 US 43427 Telegram t.me SOSkeyNET",
+        "WORK-04 69134 - Telegram V2All",
+        "WORK-05 44 oneclickvpnkeys",
+        "WORK-06 v2reya88",
+        "WORK-07 chillguy_vpn 1935",
+        "WORK-08 v2reya88 7814",
+        "WORK-09 v2reya88 2235",
+        "WORK-10 oneclickvpnkeys US 9583"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
@@ -477,210 +500,30 @@
       "type": "urltest",
       "tag": "GENERAL-BEST",
       "outbounds": [
-        "GEN-01 musiclovers85 1744",
-        "GEN-02 llFreak 4494",
-        "GEN-03 IN) DigitalOcean LLC IN",
-        "GEN-04 chillguy_vpn 1662",
-        "GEN-05 69132 - Telegram V2All",
-        "GEN-06 CA 43419 Telegram t.me SOSkeyNET",
-        "GEN-07 US 43409 Telegram t.me SOSkeyNET",
-        "GEN-08 69134 - Telegram V2All",
-        "GEN-09 US 43427 Telegram t.me SOSkeyNET",
-        "GEN-10 chillguy_vpn 3926",
+        "GEN-01 musiclovers85",
+        "GEN-02 CA 43443 Telegram t.me SOSkeyNET",
+        "GEN-03 US 43427 Telegram t.me SOSkeyNET",
+        "GEN-04 69134 - Telegram V2All",
+        "GEN-05 44 oneclickvpnkeys",
+        "GEN-06 v2reya88",
+        "GEN-07 chillguy_vpn 1935",
+        "GEN-08 v2reya88 7814",
+        "GEN-09 v2reya88 2235",
+        "GEN-10 oneclickvpnkeys US 9583",
         "GEN-11 LINK 10.lowh.net",
         "GEN-12 LINK bel432 xl",
         "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
         "GEN-14 LINK VMess-WS-TLS-443-akuku8"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "interval": "300s",
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
     {
       "type": "vless",
-      "tag": "69132 - Telegram V2All - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "chillguy_vpn 1662 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "IN) DigitalOcean LLC IN - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "559ab675-567f-4d61-a742-877bfd51d87c",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "US 43409 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "baacd960-2601-4b33-aaf8-2395e5fc5af4",
-      "tls": {
-        "enabled": true,
-        "server_name": "grabacademyportal.grab.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "chillguy_vpn 3926 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "llFreak 4494 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "47422044-85e3-426b-b6c4-3588cb24a3e5",
-      "tls": {
-        "enabled": true,
-        "server_name": "s.blibli.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "s.blibli.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "trojan",
-      "tag": "musiclovers85 1744 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "386bd471-4e29-4e79-9a3c-6bc6076ce4b6",
-      "tls": {
-        "enabled": true,
-        "server_name": "edu.ruangguru.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "edu.ruangguru.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "69134 - Telegram V2All - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "CA 43419 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp=chrome",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "US 43427 Telegram t.me SOSkeyNET - 2026-06-02",
+      "tag": "US 43427 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "dc5e82fd-9f20-4be4-abc0-0cafc4c1eaf7",
@@ -695,8 +538,178 @@
         "headers": {
           "Host": "support.zoom.us.cyylr.eu.cc"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "chillguy_vpn 1935",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ea651176-c3b3-410f-b506-49f82325a319",
+      "tls": {
+        "enabled": true,
+        "server_name": "ads.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
       },
-      "connect_timeout": "15s"
+      "transport": {
+        "type": "ws",
+        "path": "/ae-bo",
+        "headers": {
+          "Host": "ads.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "musiclovers85",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "386bd471-4e29-4e79-9a3c-6bc6076ce4b6",
+      "tls": {
+        "enabled": true,
+        "server_name": "edu.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "edu.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "tls": {
+        "enabled": true,
+        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "support.zoom.us.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2reya88 2235",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "15a8fadd-3a43-422f-8e63-a87ea7c13221",
+      "tls": {
+        "enabled": true,
+        "server_name": "blog.webex.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "blog.webex.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "v2reya88 7814",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "77777777-8a3e-6666-b6d1-a9c5f0e8b3a2",
+      "tls": {
+        "enabled": true,
+        "server_name": "fgnix832fx.fx6hsv0.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "fgnix832fx.fx6hsv0.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "44 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ed0e05af-49ab-4ea8-a39c-634855811b03",
+      "tls": {
+        "enabled": true,
+        "server_name": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "69134 - Telegram V2All",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "oneclickvpnkeys US 9583",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "CA 43443 Telegram t.me SOSkeyNET",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "tls": {
+        "enabled": true,
+        "server_name": "juzi.qea.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2048",
+        "headers": {
+          "Host": "juzi.qea.ccwu.cc"
+        }
+      }
     },
     {
       "type": "vmess",
@@ -717,8 +730,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -739,8 +751,7 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -761,8 +772,7 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
@@ -781,12 +791,11 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "trojan",
-      "tag": "ID-01 musiclovers85 1744 - 2026-06-02",
+      "tag": "ID-01 musiclovers85",
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "386bd471-4e29-4e79-9a3c-6bc6076ce4b6",
@@ -801,12 +810,11 @@
         "headers": {
           "Host": "edu.ruangguru.com.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
-      "tag": "ID-02 LINK bel432 xl - 2026-06-02",
+      "tag": "ID-02 LINK bel432 xl",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
@@ -823,12 +831,11 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "trojan",
-      "tag": "STREAM-01 musiclovers85 1744 - 2026-06-02",
+      "tag": "STREAM-01 musiclovers85",
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "386bd471-4e29-4e79-9a3c-6bc6076ce4b6",
@@ -843,72 +850,11 @@
         "headers": {
           "Host": "edu.ruangguru.com.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "STREAM-02 llFreak 4494 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "47422044-85e3-426b-b6c4-3588cb24a3e5",
-      "tls": {
-        "enabled": true,
-        "server_name": "s.blibli.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "s.blibli.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-03 IN) DigitalOcean LLC IN - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "559ab675-567f-4d61-a742-877bfd51d87c",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-04 chillguy_vpn 1662 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-05 69132 - Telegram V2All - 2026-06-02",
+      "tag": "STREAM-02 CA 43443 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -919,76 +865,15 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
+        "path": "/?ed=2048",
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "STREAM-06 CA 43419 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp=chrome",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-07 US 43409 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "baacd960-2601-4b33-aaf8-2395e5fc5af4",
-      "tls": {
-        "enabled": true,
-        "server_name": "grabacademyportal.grab.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-08 69134 - Telegram V2All - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "STREAM-09 US 43427 Telegram t.me SOSkeyNET - 2026-06-02",
+      "tag": "STREAM-03 US 43427 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "dc5e82fd-9f20-4be4-abc0-0cafc4c1eaf7",
@@ -1003,32 +888,144 @@
         "headers": {
           "Host": "support.zoom.us.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "STREAM-10 chillguy_vpn 3926 - 2026-06-02",
+      "tag": "STREAM-04 69134 - Telegram V2All",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
       "tls": {
         "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
         "headers": {
-          "Host": "juzi.qea.ccwu.cc"
+          "Host": "hhlfy.twiladaphne.ndjp.net"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-05 44 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ed0e05af-49ab-4ea8-a39c-634855811b03",
+      "tls": {
+        "enabled": true,
+        "server_name": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev",
+        "insecure": true
       },
-      "connect_timeout": "15s"
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-06 v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "tls": {
+        "enabled": true,
+        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "support.zoom.us.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-07 chillguy_vpn 1935",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ea651176-c3b3-410f-b506-49f82325a319",
+      "tls": {
+        "enabled": true,
+        "server_name": "ads.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ae-bo",
+        "headers": {
+          "Host": "ads.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-08 v2reya88 7814",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "77777777-8a3e-6666-b6d1-a9c5f0e8b3a2",
+      "tls": {
+        "enabled": true,
+        "server_name": "fgnix832fx.fx6hsv0.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "fgnix832fx.fx6hsv0.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-09 v2reya88 2235",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "15a8fadd-3a43-422f-8e63-a87ea7c13221",
+      "tls": {
+        "enabled": true,
+        "server_name": "blog.webex.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "blog.webex.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "STREAM-10 oneclickvpnkeys US 9583",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
     },
     {
       "type": "trojan",
-      "tag": "GAME-01 musiclovers85 1744 - 2026-06-02",
+      "tag": "GAME-01 musiclovers85",
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "386bd471-4e29-4e79-9a3c-6bc6076ce4b6",
@@ -1043,72 +1040,11 @@
         "headers": {
           "Host": "edu.ruangguru.com.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GAME-02 llFreak 4494 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "47422044-85e3-426b-b6c4-3588cb24a3e5",
-      "tls": {
-        "enabled": true,
-        "server_name": "s.blibli.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "s.blibli.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-03 IN) DigitalOcean LLC IN - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "559ab675-567f-4d61-a742-877bfd51d87c",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-04 chillguy_vpn 1662 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-05 69132 - Telegram V2All - 2026-06-02",
+      "tag": "GAME-02 CA 43443 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1119,76 +1055,15 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
+        "path": "/?ed=2048",
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GAME-06 CA 43419 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp=chrome",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-07 US 43409 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "baacd960-2601-4b33-aaf8-2395e5fc5af4",
-      "tls": {
-        "enabled": true,
-        "server_name": "grabacademyportal.grab.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-08 69134 - Telegram V2All - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GAME-09 US 43427 Telegram t.me SOSkeyNET - 2026-06-02",
+      "tag": "GAME-03 US 43427 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "dc5e82fd-9f20-4be4-abc0-0cafc4c1eaf7",
@@ -1203,32 +1078,144 @@
         "headers": {
           "Host": "support.zoom.us.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GAME-10 chillguy_vpn 3926 - 2026-06-02",
+      "tag": "GAME-04 69134 - Telegram V2All",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
       "tls": {
         "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
         "headers": {
-          "Host": "juzi.qea.ccwu.cc"
+          "Host": "hhlfy.twiladaphne.ndjp.net"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GAME-05 44 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ed0e05af-49ab-4ea8-a39c-634855811b03",
+      "tls": {
+        "enabled": true,
+        "server_name": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev",
+        "insecure": true
       },
-      "connect_timeout": "15s"
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GAME-06 v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "tls": {
+        "enabled": true,
+        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "support.zoom.us.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GAME-07 chillguy_vpn 1935",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ea651176-c3b3-410f-b506-49f82325a319",
+      "tls": {
+        "enabled": true,
+        "server_name": "ads.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ae-bo",
+        "headers": {
+          "Host": "ads.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GAME-08 v2reya88 7814",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "77777777-8a3e-6666-b6d1-a9c5f0e8b3a2",
+      "tls": {
+        "enabled": true,
+        "server_name": "fgnix832fx.fx6hsv0.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "fgnix832fx.fx6hsv0.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GAME-09 v2reya88 2235",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "15a8fadd-3a43-422f-8e63-a87ea7c13221",
+      "tls": {
+        "enabled": true,
+        "server_name": "blog.webex.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "blog.webex.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GAME-10 oneclickvpnkeys US 9583",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
     },
     {
       "type": "vmess",
-      "tag": "GAME-11 LINK 10.lowh.net - 2026-06-02",
+      "tag": "GAME-11 LINK 10.lowh.net",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
@@ -1245,12 +1232,11 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
-      "tag": "GAME-12 LINK bel432 xl - 2026-06-02",
+      "tag": "GAME-12 LINK bel432 xl",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
@@ -1267,12 +1253,11 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02",
+      "tag": "GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
@@ -1287,12 +1272,11 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
-      "tag": "GAME-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-02",
+      "tag": "GAME-14 LINK VMess-WS-TLS-443-akuku8",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
@@ -1309,132 +1293,11 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-01 IN) DigitalOcean LLC IN - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "559ab675-567f-4d61-a742-877bfd51d87c",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-02 69132 - Telegram V2All - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-03 CA 43419 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp=chrome",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-04 US 43409 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "baacd960-2601-4b33-aaf8-2395e5fc5af4",
-      "tls": {
-        "enabled": true,
-        "server_name": "grabacademyportal.grab.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-05 69134 - Telegram V2All - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "SOCIAL-06 US 43427 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "dc5e82fd-9f20-4be4-abc0-0cafc4c1eaf7",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "trojan",
-      "tag": "WORK-01 musiclovers85 1744 - 2026-06-02",
+      "tag": "SOCIAL-01 musiclovers85",
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "386bd471-4e29-4e79-9a3c-6bc6076ce4b6",
@@ -1449,72 +1312,11 @@
         "headers": {
           "Host": "edu.ruangguru.com.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "WORK-02 llFreak 4494 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "47422044-85e3-426b-b6c4-3588cb24a3e5",
-      "tls": {
-        "enabled": true,
-        "server_name": "s.blibli.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "s.blibli.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-03 IN) DigitalOcean LLC IN - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "559ab675-567f-4d61-a742-877bfd51d87c",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-04 chillguy_vpn 1662 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-05 69132 - Telegram V2All - 2026-06-02",
+      "tag": "SOCIAL-02 CA 43443 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1525,76 +1327,15 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
+        "path": "/?ed=2048",
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "WORK-06 CA 43419 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp=chrome",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-07 US 43409 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "baacd960-2601-4b33-aaf8-2395e5fc5af4",
-      "tls": {
-        "enabled": true,
-        "server_name": "grabacademyportal.grab.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-08 69134 - Telegram V2All - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "WORK-09 US 43427 Telegram t.me SOSkeyNET - 2026-06-02",
+      "tag": "SOCIAL-03 US 43427 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "dc5e82fd-9f20-4be4-abc0-0cafc4c1eaf7",
@@ -1609,32 +1350,144 @@
         "headers": {
           "Host": "support.zoom.us.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "WORK-10 chillguy_vpn 3926 - 2026-06-02",
+      "tag": "SOCIAL-04 69134 - Telegram V2All",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
       "tls": {
         "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
         "insecure": true
       },
       "transport": {
         "type": "ws",
         "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
         "headers": {
-          "Host": "juzi.qea.ccwu.cc"
+          "Host": "hhlfy.twiladaphne.ndjp.net"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SOCIAL-05 44 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ed0e05af-49ab-4ea8-a39c-634855811b03",
+      "tls": {
+        "enabled": true,
+        "server_name": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev",
+        "insecure": true
       },
-      "connect_timeout": "15s"
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SOCIAL-06 v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "tls": {
+        "enabled": true,
+        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "support.zoom.us.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SOCIAL-07 chillguy_vpn 1935",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ea651176-c3b3-410f-b506-49f82325a319",
+      "tls": {
+        "enabled": true,
+        "server_name": "ads.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ae-bo",
+        "headers": {
+          "Host": "ads.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SOCIAL-08 v2reya88 7814",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "77777777-8a3e-6666-b6d1-a9c5f0e8b3a2",
+      "tls": {
+        "enabled": true,
+        "server_name": "fgnix832fx.fx6hsv0.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "fgnix832fx.fx6hsv0.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SOCIAL-09 v2reya88 2235",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "15a8fadd-3a43-422f-8e63-a87ea7c13221",
+      "tls": {
+        "enabled": true,
+        "server_name": "blog.webex.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "blog.webex.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "SOCIAL-10 oneclickvpnkeys US 9583",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
     },
     {
       "type": "trojan",
-      "tag": "GEN-01 musiclovers85 1744 - 2026-06-02",
+      "tag": "WORK-01 musiclovers85",
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "386bd471-4e29-4e79-9a3c-6bc6076ce4b6",
@@ -1649,72 +1502,11 @@
         "headers": {
           "Host": "edu.ruangguru.com.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GEN-02 llFreak 4494 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "47422044-85e3-426b-b6c4-3588cb24a3e5",
-      "tls": {
-        "enabled": true,
-        "server_name": "s.blibli.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "s.blibli.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-03 IN) DigitalOcean LLC IN - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "559ab675-567f-4d61-a742-877bfd51d87c",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-04 chillguy_vpn 1662 - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "8ad2869d-1571-45cc-8d02-10aea6d600ac",
-      "tls": {
-        "enabled": true,
-        "server_name": "partner.catchplay.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "partner.catchplay.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-05 69132 - Telegram V2All - 2026-06-02",
+      "tag": "WORK-02 CA 43443 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1725,76 +1517,15 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512",
+        "path": "/?ed=2048",
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GEN-06 CA 43419 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
-      "tls": {
-        "enabled": true,
-        "server_name": "juzi.qea.ccwu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp=chrome",
-        "headers": {
-          "Host": "juzi.qea.ccwu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-07 US 43409 Telegram t.me SOSkeyNET - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "baacd960-2601-4b33-aaf8-2395e5fc5af4",
-      "tls": {
-        "enabled": true,
-        "server_name": "grabacademyportal.grab.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-08 69134 - Telegram V2All - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
-      "tls": {
-        "enabled": true,
-        "server_name": "hhlfy.twiladaphne.ndjp.net",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
-        "headers": {
-          "Host": "hhlfy.twiladaphne.ndjp.net"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "GEN-09 US 43427 Telegram t.me SOSkeyNET - 2026-06-02",
+      "tag": "WORK-03 US 43427 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "dc5e82fd-9f20-4be4-abc0-0cafc4c1eaf7",
@@ -1809,12 +1540,163 @@
         "headers": {
           "Host": "support.zoom.us.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GEN-10 chillguy_vpn 3926 - 2026-06-02",
+      "tag": "WORK-04 69134 - Telegram V2All",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "WORK-05 44 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ed0e05af-49ab-4ea8-a39c-634855811b03",
+      "tls": {
+        "enabled": true,
+        "server_name": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "WORK-06 v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "tls": {
+        "enabled": true,
+        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "support.zoom.us.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "WORK-07 chillguy_vpn 1935",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ea651176-c3b3-410f-b506-49f82325a319",
+      "tls": {
+        "enabled": true,
+        "server_name": "ads.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ae-bo",
+        "headers": {
+          "Host": "ads.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "WORK-08 v2reya88 7814",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "77777777-8a3e-6666-b6d1-a9c5f0e8b3a2",
+      "tls": {
+        "enabled": true,
+        "server_name": "fgnix832fx.fx6hsv0.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "fgnix832fx.fx6hsv0.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "WORK-09 v2reya88 2235",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "15a8fadd-3a43-422f-8e63-a87ea7c13221",
+      "tls": {
+        "enabled": true,
+        "server_name": "blog.webex.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "blog.webex.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "WORK-10 oneclickvpnkeys US 9583",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "GEN-01 musiclovers85",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "386bd471-4e29-4e79-9a3c-6bc6076ce4b6",
+      "tls": {
+        "enabled": true,
+        "server_name": "edu.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "edu.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-02 CA 43443 Telegram t.me SOSkeyNET",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
@@ -1825,16 +1707,167 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
+        "path": "/?ed=2048",
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-03 US 43427 Telegram t.me SOSkeyNET",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "dc5e82fd-9f20-4be4-abc0-0cafc4c1eaf7",
+      "tls": {
+        "enabled": true,
+        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "insecure": true
       },
-      "connect_timeout": "15s"
+      "transport": {
+        "type": "ws",
+        "path": "/ae-bo",
+        "headers": {
+          "Host": "support.zoom.us.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-04 69134 - Telegram V2All",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-05 44 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ed0e05af-49ab-4ea8-a39c-634855811b03",
+      "tls": {
+        "enabled": true,
+        "server_name": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wild-grass-1917.tmpduardoolfsonerluke15.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-06 v2reya88",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cc752a3e-1537-4e86-bb50-1b897bf7b33c",
+      "tls": {
+        "enabled": true,
+        "server_name": "support.zoom.us.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "support.zoom.us.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-07 chillguy_vpn 1935",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "ea651176-c3b3-410f-b506-49f82325a319",
+      "tls": {
+        "enabled": true,
+        "server_name": "ads.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ae-bo",
+        "headers": {
+          "Host": "ads.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-08 v2reya88 7814",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "77777777-8a3e-6666-b6d1-a9c5f0e8b3a2",
+      "tls": {
+        "enabled": true,
+        "server_name": "fgnix832fx.fx6hsv0.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "fgnix832fx.fx6hsv0.ccwu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-09 v2reya88 2235",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "15a8fadd-3a43-422f-8e63-a87ea7c13221",
+      "tls": {
+        "enabled": true,
+        "server_name": "blog.webex.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "blog.webex.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "GEN-10 oneclickvpnkeys US 9583",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      }
     },
     {
       "type": "vmess",
-      "tag": "GEN-11 LINK 10.lowh.net - 2026-06-02",
+      "tag": "GEN-11 LINK 10.lowh.net",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
@@ -1851,12 +1884,11 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
-      "tag": "GEN-12 LINK bel432 xl - 2026-06-02",
+      "tag": "GEN-12 LINK bel432 xl",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
@@ -1873,12 +1905,11 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem - 2026-06-02",
+      "tag": "GEN-13 LINK VLESS-WS-TLS-443-apt50atpprem",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
@@ -1893,12 +1924,11 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
-      "tag": "GEN-14 LINK VMess-WS-TLS-443-akuku8 - 2026-06-02",
+      "tag": "GEN-14 LINK VMess-WS-TLS-443-akuku8",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
@@ -1915,8 +1945,11 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      },
-      "connect_timeout": "15s"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     },
     {
       "type": "vmess",
@@ -2036,10 +2069,6 @@
           "Host": "akamaized.my"
         }
       }
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
     }
   ],
   "route": {

@@ -1,68 +1,11 @@
 {
-  "log": {
-    "level": "info",
-    "timestamp": true
-  },
-  "dns": {
-    "servers": [
-      {
-        "tag": "cloudflare",
-        "address": "1.1.1.1"
-      },
-      {
-        "tag": "google",
-        "address": "8.8.8.8"
-      }
-    ],
-    "final": "cloudflare"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "auto_route": true,
-      "strict_route": true,
-      "stack": "system",
-      "address": [
-        "172.19.0.1/30"
-      ]
-    },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "127.0.0.1",
-      "listen_port": 7893
-    }
-  ],
   "outbounds": [
-    {
-      "type": "urltest",
-      "tag": "AUTO-BEST-PING",
-      "outbounds": [
-        "LINK bel432 xl",
-        "LINK bel432 xl 2",
-        "LINK VMess-WS-TLS-443-akuku8",
-        "LINK bel432 telk",
-        "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 2",
-        "LINK VMess-WS-TLS-443-akuku8 2",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80
-    },
     {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "LINK bel432 xl",
         "AUTO-BEST-STABLE",
-        "AUTO-BEST-PING",
+        "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK bel432 telk",
@@ -75,7 +18,8 @@
         "LINK bel432 telk 2",
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
-      ]
+      ],
+      "default": "AUTO-BEST-STABLE"
     },
     {
       "type": "urltest",
@@ -218,6 +162,10 @@
       }
     },
     {
+      "type": "direct",
+      "tag": "DIRECT"
+    },
+    {
       "type": "vmess",
       "tag": "LINK bel432 xl 3",
       "server": "104.17.3.81",
@@ -335,10 +283,39 @@
           "Host": "akamaized.my"
         }
       }
+    }
+  ],
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "cloudflare",
+        "address": "1.1.1.1"
+      },
+      {
+        "tag": "google",
+        "address": "8.8.8.8"
+      }
+    ],
+    "final": "cloudflare"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system"
     },
     {
-      "type": "direct",
-      "tag": "DIRECT"
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 7893
     }
   ],
   "route": {

@@ -37,24 +37,6 @@
   "outbounds": [
     {
       "type": "urltest",
-      "tag": "AUTO-BEST-PING",
-      "outbounds": [
-        "VLESS-WS-TLS-443-apt50atpprem",
-        "LINK bel432 xl",
-        "LINK bel432 xl 2",
-        "LINK VMess-WS-TLS-443-akuku8",
-        "LINK bel432 telk",
-        "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
         "VLESS-WS-TLS-443-apt50atpprem",
@@ -76,9 +58,8 @@
       "tag": "PROXY",
       "outbounds": [
         "VLESS-WS-TLS-443-apt50atpprem",
-        "AUTO-BEST-STABLE",
-        "AUTO-BEST-PING",
         "DIRECT",
+        "AUTO-BEST-STABLE",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -86,6 +67,7 @@
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem"
       ],
+      "default": "AUTO-BEST-STABLE",
       "interrupt_exist_connections": false
     },
     {
@@ -94,6 +76,7 @@
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "akamaized.my",
@@ -106,6 +89,10 @@
           "Host": "akamaized.my"
         }
       }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     },
     {
       "type": "vmess",
@@ -225,10 +212,6 @@
           "Host": "akamaized.my"
         }
       }
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
     }
   ],
   "route": {

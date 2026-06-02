@@ -81,7 +81,8 @@
         "LINK bel432 telk",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem"
-      ]
+      ],
+      "default": "AUTO-BEST-STABLE"
     },
     {
       "type": "vless",
@@ -101,6 +102,10 @@
           "Host": "akamaized.my"
         }
       }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     },
     {
       "type": "vmess",
@@ -220,10 +225,6 @@
           "Host": "akamaized.my"
         }
       }
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
     }
   ],
   "route": {

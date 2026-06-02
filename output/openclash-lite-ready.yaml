@@ -349,6 +349,10 @@ proxy-groups:
   - fallback-link
   - best-link
   - DIRECT
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
 - name: ANTI-BENGONG
   type: fallback
   proxies:
@@ -357,6 +361,10 @@ proxy-groups:
   - fallback-link
   - best-link
   - DIRECT
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -373,6 +381,10 @@ proxy-groups:
   - chillguy_vpn 6298
   - IN) DigitalOcean LLC IN
   - chillguy_vpn 4937
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -383,6 +395,10 @@ proxy-groups:
   - musiclovers85 1744
   - filembad
   - Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -411,6 +427,10 @@ proxy-groups:
   tolerance: 80
   lazy: true
 rules:
+- RULE-SET,malware-adware,REJECT
+- RULE-SET,android-ads,REJECT
+- RULE-SET,indonesia-ads,REJECT
+- RULE-SET,general-ads,REJECT
 - RULE-SET,marketplace-protect,INDONESIA-BEST
 - DOMAIN-SUFFIX,id,INDONESIA-BEST
 - DOMAIN-SUFFIX,go.id,INDONESIA-BEST
@@ -438,3 +458,32 @@ rules:
 - IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
 - IP-CIDR,255.255.255.255/32,DIRECT,no-resolve
 - MATCH,PROXY
+rule-providers:
+  malware-adware:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/malware-adware.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/malware-adware.yaml
+    interval: 86400
+  android-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/android-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/android-ads.yaml
+    interval: 86400
+  indonesia-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/indonesia-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/indonesia-ads.yaml
+    interval: 86400
+  general-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/general-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/general-ads.yaml
+    interval: 86400

@@ -6,12 +6,14 @@
   "dns": {
     "servers": [
       {
+        "type": "udp",
         "tag": "cloudflare",
-        "address": "1.1.1.1"
+        "server": "1.1.1.1"
       },
       {
+        "type": "udp",
         "tag": "google",
-        "address": "8.8.8.8"
+        "server": "8.8.8.8"
       }
     ],
     "final": "cloudflare"
@@ -38,8 +40,7 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "musiclovers85 1744",
-        "filembad",
+        "musiclovers85",
         "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -62,8 +63,7 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "musiclovers85 1744",
-        "filembad",
+        "musiclovers85",
         "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -76,9 +76,9 @@
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "url": "https://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80,
+      "tolerance": 50,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
@@ -86,16 +86,15 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "DIRECT",
-        "AUTO-BEST-STABLE",
-        "AUTO-BEST-PING",
-        "musiclovers85 1744",
-        "filembad",
-        "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp",
         "LINK bel432 xl",
+        "AUTO-BEST-PING",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "DIRECT",
+        "musiclovers85",
+        "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp",
+        "AUTO-BEST-STABLE",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -103,11 +102,12 @@
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "interrupt_exist_connections": false
+      "interrupt_exist_connections": false,
+      "default": "AUTO-BEST-STABLE"
     },
     {
       "type": "trojan",
-      "tag": "musiclovers85 1744 - 2026-06-02",
+      "tag": "musiclovers85",
       "server": "104.17.3.81",
       "server_port": 443,
       "password": "386bd471-4e29-4e79-9a3c-6bc6076ce4b6",
@@ -122,32 +122,11 @@
         "headers": {
           "Host": "edu.ruangguru.com.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
-      "tag": "filembad - 2026-06-02",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "1a5b24bc-6180-4fa7-922d-ba7ee8a7a2b7",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-pusat",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
-        }
-      },
-      "connect_timeout": "15s"
-    },
-    {
-      "type": "vless",
-      "tag": "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp - 2026-06-02",
+      "tag": "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "9232a847-8f7d-4548-a23a-a8b3550e0f15",
@@ -162,8 +141,7 @@
         "headers": {
           "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -183,8 +161,7 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -204,8 +181,7 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vmess",
@@ -225,8 +201,7 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      },
-      "connect_timeout": "15s"
+      }
     },
     {
       "type": "vless",
@@ -245,8 +220,11 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      },
-      "connect_timeout": "15s"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     },
     {
       "type": "vmess",
@@ -366,10 +344,6 @@
           "Host": "akamaized.my"
         }
       }
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
     }
   ],
   "route": {
