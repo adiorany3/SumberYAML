@@ -34,11 +34,11 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "chillguy_vpn 3711"
+  - name: "chillguy_vpn 7426"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 6a8f6dc6-2a42-4a03-8047-e39ce6df3ec9
+    uuid: adffad16-ed8f-4020-97b5-64d1c4548222
     cipher: none
     tls: true
     skip-cert-verify: true
@@ -48,6 +48,21 @@ proxies:
       path: "/my-wbv"
       headers:
         Host: "www.genflix.co.id.cyylr.eu.cc"
+    udp: true
+  - name: "GozargahAzad 8767"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cab13ce2-3808-45ce-aa93-4da670fa88e3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "space.byu.id.cyylr.eu.cc"
+    ws-opts:
+      path: "/my-wbv"
+      headers:
+        Host: "space.byu.id.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

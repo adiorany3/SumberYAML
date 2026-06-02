@@ -37,6 +37,27 @@
   "outbounds": [
     {
       "type": "urltest",
+      "tag": "best-link",
+      "outbounds": [
+        "LINK bel432 xl",
+        "LINK VMess-WS-TLS-443-akuku8",
+        "LINK 10.lowh.net",
+        "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK bel432 xl 2",
+        "LINK bel432 xl 2 2",
+        "LINK VMess-WS-TLS-443-akuku8 2",
+        "LINK bel432 telk",
+        "LINK 10.lowh.net 2",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
+    },
+    {
+      "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
         "meliproxyy",
@@ -58,7 +79,13 @@
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
+        "LINK bel432 xl 3",
+        "LINK bel432 xl 2 3",
+        "LINK VMess-WS-TLS-443-akuku8 3",
+        "LINK bel432 telk 2",
+        "LINK 10.lowh.net 3",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -87,7 +114,13 @@
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
+        "LINK bel432 xl 3",
+        "LINK bel432 xl 2 3",
+        "LINK VMess-WS-TLS-443-akuku8 3",
+        "LINK bel432 telk 2",
+        "LINK 10.lowh.net 3",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -120,9 +153,10 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "DIRECT",
         "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
+        "best-link",
+        "DIRECT",
         "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp",
         "IN) DigitalOcean LLC IN",
         "filembad",
@@ -142,7 +176,13 @@
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
+        "LINK bel432 xl 3",
+        "LINK bel432 xl 2 3",
+        "LINK VMess-WS-TLS-443-akuku8 3",
+        "LINK bel432 telk 2",
+        "LINK 10.lowh.net 3",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
       ],
       "default": "AUTO-BEST-STABLE"
     },
@@ -525,6 +565,125 @@
     {
       "type": "vless",
       "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "tls": {
+        "enabled": true,
+        "server_name": "akamaized.my",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "akamaized.my"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 xl 3",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 xl 2 3",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK VMess-WS-TLS-443-akuku8 3",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "fbcdn.sbs"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "fbcdn.sbs"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 telk 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK 10.lowh.net 3",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "10.lowh.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "10.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 3",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",

@@ -1,20 +1,5 @@
 proxies:
-  - name: "llFreak"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 1ce9392f-caf4-48f7-bbb9-475b101fbde0
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "graph.instagram.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/id-tksi"
-      headers:
-        Host: "graph.instagram.com.cyylr.eu.cc"
-    udp: true
-  - name: "config_free2 6212"
+  - name: "config_free2 6745"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -29,22 +14,7 @@ proxies:
       headers:
         Host: "juzi.qea.ccwu.cc"
     udp: true
-  - name: "69221 - Telegram V2All"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/id-pusat"
-      headers:
-        Host: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-    udp: true
-  - name: "v2reya88 2938"
+  - name: "v2reya88 6484"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -57,4 +27,32 @@ proxies:
       path: "/id-tksi"
       headers:
         Host: "edu.ruangguru.com.cyylr.eu.cc"
+    udp: true
+  - name: "Config0plus"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "api24-normal.tiktokv.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "api24-normal.tiktokv.com.cyylr.eu.cc"
+    udp: true
+  - name: "69379 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "cf3d48cf-750c-4f18-89a7-f81d2e153fbe"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "blog.webex.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "blog.webex.com.cyylr.eu.cc"
     udp: true

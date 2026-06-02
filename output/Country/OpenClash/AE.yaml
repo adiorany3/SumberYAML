@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "GozargahAzad 5243"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5e0108a1-35e1-4d6d-aa0f-adaed4975440
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ads.ruangguru.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "ads.ruangguru.com.cyylr.eu.cc"
+    udp: true
   - name: "Net2ray 2"
     server: "104.17.3.81"
     port: 443

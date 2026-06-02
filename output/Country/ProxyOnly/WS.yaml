@@ -1,15 +1,60 @@
 proxies:
-  - name: "KAFING_2 9023"
+  - name: "chillguy_vpn 6972"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    type: vless
+    uuid: 9bab5218-ce9f-4991-9887-8b3605a27d5e
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "uk1.test3.net"
+    servername: "graph.instagram.com.cyylr.eu.cc"
     ws-opts:
-      path: "/howdy"
+      path: "/sg-amz"
       headers:
-        Host: "uk1.test3.net"
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
+  - name: "meliproxyy 4260"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e2350ba4-16aa-455e-ae8b-f65102227cf4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cloudflare.vhub.pro"
+    ws-opts:
+      path: "/sequre/ws"
+      headers:
+        Host: "cloudflare.vhub.pro"
+    udp: true
+  - name: "69380 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e277ac9b-3225-4381-a9fb-3585419f7142
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "37cdnws.iamali.info"
+    ws-opts:
+      path: "/37cdnws"
+      headers:
+        Host: "37cdnws.iamali.info"
+    udp: true
+  - name: "vpnbaz"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
     udp: true
