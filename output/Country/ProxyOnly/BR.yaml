@@ -1,0 +1,15 @@
+proxies:
+  - name: "BR BR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "cf3d48cf-750c-4f18-89a7-f81d2e153fbe"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "blog.webex.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "blog.webex.com.cyylr.eu.cc"
+    udp: true

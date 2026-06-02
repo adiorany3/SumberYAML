@@ -1,19 +1,4 @@
 proxies:
-  - name: "llFreak 7853"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 228639b0-48de-4162-a818-d5651ee297b3
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "investors.spotify.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/in-do"
-      headers:
-        Host: "investors.spotify.com.cyylr.eu.cc"
-    udp: true
   - name: "IN) DigitalOcean LLC IN"
     server: "104.17.3.81"
     port: 443
@@ -43,4 +28,19 @@ proxies:
       path: "/in-pdr"
       headers:
         Host: "space.byu.id.cyylr.eu.cc"
+    udp: true
+  - name: "filembad"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cff04824-47a3-4a85-a9df-83af9181f84c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-pdr"
+      headers:
+        Host: "zaintest.vuclip.com.cyylr.eu.cc"
     udp: true

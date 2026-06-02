@@ -34,20 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "US 43952 Telegram t.me SOSkeyNET"
+  - name: "BR BR"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 28f79470-c550-40b0-9e46-834a46ac8da8
-    cipher: none
+    type: trojan
+    password: "cf3d48cf-750c-4f18-89a7-f81d2e153fbe"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "help.viu.com.cyylr.eu.cc"
+    sni: "blog.webex.com.cyylr.eu.cc"
     ws-opts:
-      path: "/id-pusat"
+      path: "/in-do"
       headers:
-        Host: "help.viu.com.cyylr.eu.cc"
+        Host: "blog.webex.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

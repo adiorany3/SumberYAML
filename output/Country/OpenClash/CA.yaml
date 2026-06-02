@@ -34,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA 43638 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 5dc15e15-f285-4a9d-959b-0e4fbdd77b63
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "powered-by-surena.user68f797c2f3e1b.workers.dev"
-    ws-opts:
-      path: "/?ed=2560"
-      headers:
-        Host: "powered-by-surena.user68f797c2f3e1b.workers.dev"
-    udp: true
   - name: "CA 43724 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
@@ -64,65 +49,79 @@ proxies:
       headers:
         Host: "m.udemy.com.cyylr.eu.cc"
     udp: true
-  - name: "CA 43483 Telegram t.me SOSkeyNET"
+  - name: "freenettir CA CanadaTorontoping 35ms"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 6bc1bd81-b763-4213-80ad-4586224e3079
+    uuid: 0e9dd08d-e341-4c5d-b116-923842f5a9f9
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "tohidza.et6m22266a.workers.dev"
+    servername: "web.whatsapp.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "web.whatsapp.com.cyylr.eu.cc"
+    udp: true
+  - name: "CA 44056 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2244d9e4-dc80-4c61-9362-dde0afd034dd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hs.qoogl.workers.dev"
     ws-opts:
       path: "/?ed=2048"
       headers:
-        Host: "tohidza.et6m22266a.workers.dev"
+        Host: "hs.qoogl.workers.dev"
     udp: true
-  - name: "CA 43436 Telegram t.me SOSkeyNET"
+  - name: "CA 44093 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 94daa8ad-75ed-4dbf-a6de-d05036d98df5
+    uuid: 429f43ca-087a-4fbc-9d88-9d9007bf30bc
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "vangoghhh.info"
+    servername: "unnes.ac.id.cyylr.eu.cc"
     ws-opts:
-      path: "/tixvuws"
+      path: "/my-wbv"
       headers:
-        Host: "vangoghhh.info"
+        Host: "unnes.ac.id.cyylr.eu.cc"
     udp: true
-  - name: "CA 43419 Telegram t.me SOSkeyNET"
+  - name: "CA 43942 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    uuid: afc4be1d-07cc-4a73-a4ad-90c3d333efa0
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "juzi.qea.ccwu.cc"
+    servername: "ads.ruangguru.com.cyylr.eu.cc"
     ws-opts:
-      path: "/fp=chrome"
+      path: "/id-tksi"
       headers:
-        Host: "juzi.qea.ccwu.cc"
+        Host: "ads.ruangguru.com.cyylr.eu.cc"
     udp: true
-  - name: "CA 43443 Telegram t.me SOSkeyNET"
+  - name: "CA 44092 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-    cipher: none
+    type: trojan
+    password: "bpb-trojan"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "juzi.qea.ccwu.cc"
+    sni: "vless.herogoing.top"
     ws-opts:
-      path: "/?ed=2048"
+      path: "/tr?ed=2560"
       headers:
-        Host: "juzi.qea.ccwu.cc"
+        Host: "vless.herogoing.top"
     udp: true
   - name: "CA 43723 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
