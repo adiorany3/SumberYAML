@@ -1,0 +1,16 @@
+proxies:
+  - name: "proxy_kafee"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d0dc32f6-e531-41af-9df6-1547adfb2f35
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.genflix.co.id.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "www.genflix.co.id.cyylr.eu.cc"
+    udp: true

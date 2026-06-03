@@ -1,16 +1,31 @@
 proxies:
-  - name: "chillguy_vpn 7307"
+  - name: "VLESS"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: ea651176-c3b3-410f-b506-49f82325a319
+    uuid: 8ad2869d-1571-45cc-8d02-10aea6d600ac
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "ads.ruangguru.com.cyylr.eu.cc"
+    servername: "partner.catchplay.com.cyylr.eu.cc"
     ws-opts:
       path: "/ae-bo"
       headers:
-        Host: "ads.ruangguru.com.cyylr.eu.cc"
+        Host: "partner.catchplay.com.cyylr.eu.cc"
+    udp: true
+  - name: "chillguy_vpn 4880"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fcdfab7b-caa2-425f-9356-5fd7742d98c7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "zaintest.vuclip.com.cyylr.eu.cc"
     udp: true

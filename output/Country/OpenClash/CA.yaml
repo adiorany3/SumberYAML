@@ -34,20 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2ray_configs_pool CA CanadaTorontoping 44.05ms"
+  - name: "CA 46278 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 5e0108a1-35e1-4d6d-aa0f-adaed4975440
+    uuid: 9dd05602-de19-494a-af15-6ac1cd6fb4b2
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "ads.ruangguru.com.cyylr.eu.cc"
+    servername: "graph.instagram.com.cyylr.eu.cc"
     ws-opts:
-      path: "/ae-bo"
+      path: "/my-wbv"
       headers:
-        Host: "ads.ruangguru.com.cyylr.eu.cc"
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
+  - name: "CA 46279 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: adffad16-ed8f-4020-97b5-64d1c4548222
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.genflix.co.id.cyylr.eu.cc"
+    ws-opts:
+      path: "/my-wbv"
+      headers:
+        Host: "www.genflix.co.id.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

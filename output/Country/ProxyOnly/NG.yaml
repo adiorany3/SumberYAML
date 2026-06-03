@@ -17,14 +17,15 @@ proxies:
   - name: "config_NG"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "mitivpn"
+    type: vless
+    uuid: 565b50d4-604d-4a60-9fc2-d9d3dac0aec6
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "cdn.de.linko1.ir"
+    servername: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
     ws-opts:
-      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      path: "/id-pusat"
       headers:
-        Host: "cdn.de.linko1.ir"
+        Host: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
     udp: true
