@@ -1,18 +1,17 @@
 proxies:
-  - name: "meliproxyy 5104"
+  - name: "V2ray_official 9252"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 58341346-98dd-4094-a26c-c378e86261e1
-    cipher: none
+    type: trojan
+    password: "Config0plus"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "support.zoom.us.cyylr.eu.cc"
+    sni: "investors.spotify.com.cyylr.eu.cc"
     ws-opts:
       path: "/in-pdr"
       headers:
-        Host: "support.zoom.us.cyylr.eu.cc"
+        Host: "investors.spotify.com.cyylr.eu.cc"
     udp: true
   - name: "BIGAntony"
     server: "104.17.3.81"

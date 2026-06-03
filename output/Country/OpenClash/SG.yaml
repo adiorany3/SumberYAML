@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "meliproxyy 4728"
+  - name: "meliproxyy 4014"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -46,36 +46,6 @@ proxies:
     servername: "support.zoom.us.cyylr.eu.cc"
     ws-opts:
       path: "/sg-orcl"
-      headers:
-        Host: "support.zoom.us.cyylr.eu.cc"
-    udp: true
-  - name: "meliproxyy 9901"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: a9cd18d2-dbf3-462b-9380-920a08fbc16b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "support.zoom.us.cyylr.eu.cc"
-    ws-opts:
-      path: "/sg-do"
-      headers:
-        Host: "support.zoom.us.cyylr.eu.cc"
-    udp: true
-  - name: "meliproxyy 3168"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ca6d9308-b3a2-4f1b-b43c-185a59a55f71
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "support.zoom.us.cyylr.eu.cc"
-    ws-opts:
-      path: "/sg-melbi"
       headers:
         Host: "support.zoom.us.cyylr.eu.cc"
     udp: true

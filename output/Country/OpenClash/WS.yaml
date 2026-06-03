@@ -34,37 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "RoseCommunity-MCI"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 310c0eea-aecb-4b16-9281-fd45c35315e4
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "rose.netfre.space"
-    ws-opts:
-      path: "/@RoseCommunity?ed=2052"
-      headers:
-        Host: "rose.netfre.space"
-    udp: true
-  - name: "GozargahAzad 1167"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: c1966cf1-c60a-4828-9c15-7a631f41b278
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "wAndeRiNG-moOn-5C28.whOAMIPotaTO.wOrKErs.DeV"
-    ws-opts:
-      path: "/eyJqdW5rIjoiRzlQQkUxYlgyY1hqdnhMMiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzI2MDI6ZmM1OTpiMDo2NDo6XSJdfQ==?ed=2560"
-      headers:
-        Host: "wandering-moon-5c28.whoamipotato.workers.dev"
-    udp: true
-  - name: "hi_proxy_iran 9693"
+  - name: "hi_proxy_iran"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -94,7 +64,21 @@ proxies:
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
-  - name: "74 oneclickvpnkeys"
+  - name: "KAFING_2 2210"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "appsooner 6070"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -102,39 +86,11 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.calmlunch.com"
+    sni: "www.gossipglove.com"
     ws-opts:
-      path: "/assignment"
+      path: "/assignment?TELEGRAM--KANAL--UnNurmal--UnNurmal--UnNurmal--UnNurmal--UnNurmal--UnNurmal"
       headers:
-        Host: "www.calmlunch.com"
-    udp: true
-  - name: "V2ray_official 3090"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "0jvOqSPtoC"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "da.aananas.ir"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "da.aananas.ir"
-    udp: true
-  - name: "GozargahAzad 8620"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "mitivpn.global.ssl.95r.ir"
-    ws-opts:
-      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
-      headers:
-        Host: "mitivpn.global.ssl.95r.ir"
+        Host: "www.gossipglove.com"
     udp: true
 
 proxy-groups:
