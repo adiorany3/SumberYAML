@@ -43,20 +43,34 @@ dns:
   - +.pool.ntp.org
   - +.ntp.org
 proxies:
-- name: config_free2
+- name: GozargahAzad 2494
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  servername: edu.ruangguru.com.cyylr.eu.cc
   ws-opts:
     path: /id-tksi
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: edu.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: Config0plus 7866
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: Config0plus
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: unnes.ac.id.cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: unnes.ac.id.cyylr.eu.cc
   udp: true
 - name: LINK bel432 xl
   type: vmess
@@ -120,22 +134,36 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: ID-01 config_free2
+- name: ID-01 GozargahAzad 2494
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  servername: edu.ruangguru.com.cyylr.eu.cc
   ws-opts:
     path: /id-tksi
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: edu.ruangguru.com.cyylr.eu.cc
   udp: true
-- name: ID-02 LINK 10.lowh.net
+- name: ID-02 Config0plus 7866
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: Config0plus
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: unnes.ac.id.cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: unnes.ac.id.cyylr.eu.cc
+  udp: true
+- name: ID-03 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -151,7 +179,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: ID-03 LINK bel432 xl
+- name: ID-04 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -167,7 +195,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: ID-04 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: ID-05 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -181,7 +209,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: ID-05 LINK VMess-WS-TLS-443-akuku8
+- name: ID-06 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -197,20 +225,20 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: STREAM-01 config_free2
+- name: STREAM-01 GozargahAzad 2494
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  servername: edu.ruangguru.com.cyylr.eu.cc
   ws-opts:
     path: /id-tksi
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: edu.ruangguru.com.cyylr.eu.cc
   udp: true
 - name: STREAM-02 LINK 10.lowh.net
   type: vmess
@@ -274,20 +302,20 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GAME-01 config_free2
+- name: GAME-01 GozargahAzad 2494
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  servername: edu.ruangguru.com.cyylr.eu.cc
   ws-opts:
     path: /id-tksi
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: edu.ruangguru.com.cyylr.eu.cc
   udp: true
 - name: GAME-02 LINK 10.lowh.net
   type: vmess
@@ -351,22 +379,36 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: SOCIAL-01 config_free2
+- name: SOCIAL-01 GozargahAzad 2494
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  servername: edu.ruangguru.com.cyylr.eu.cc
   ws-opts:
     path: /id-tksi
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: edu.ruangguru.com.cyylr.eu.cc
   udp: true
-- name: SOCIAL-02 LINK 10.lowh.net
+- name: SOCIAL-02 Config0plus 7866
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: Config0plus
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: unnes.ac.id.cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: unnes.ac.id.cyylr.eu.cc
+  udp: true
+- name: SOCIAL-03 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -382,7 +424,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: SOCIAL-03 LINK bel432 xl
+- name: SOCIAL-04 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -398,7 +440,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: SOCIAL-04 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: SOCIAL-05 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -412,7 +454,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: SOCIAL-05 LINK VMess-WS-TLS-443-akuku8
+- name: SOCIAL-06 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -428,20 +470,20 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: WORK-01 config_free2
+- name: WORK-01 GozargahAzad 2494
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  servername: edu.ruangguru.com.cyylr.eu.cc
   ws-opts:
     path: /id-tksi
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: edu.ruangguru.com.cyylr.eu.cc
   udp: true
 - name: WORK-02 LINK 10.lowh.net
   type: vmess
@@ -505,22 +547,36 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GEN-01 config_free2
+- name: GEN-01 GozargahAzad 2494
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 19804f6b-3661-4eca-b294-ba37196dab5b
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
+  servername: edu.ruangguru.com.cyylr.eu.cc
   ws-opts:
     path: /id-tksi
     headers:
-      Host: graph.instagram.com.cyylr.eu.cc
+      Host: edu.ruangguru.com.cyylr.eu.cc
   udp: true
-- name: GEN-02 LINK 10.lowh.net
+- name: GEN-02 Config0plus 7866
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: Config0plus
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: unnes.ac.id.cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: unnes.ac.id.cyylr.eu.cc
+  udp: true
+- name: GEN-03 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -536,7 +592,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: GEN-03 LINK bel432 xl
+- name: GEN-04 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -552,7 +608,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: GEN-04 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: GEN-05 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -566,7 +622,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: GEN-05 LINK VMess-WS-TLS-443-akuku8
+- name: GEN-06 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -586,16 +642,17 @@ proxy-groups:
 - name: INDONESIA-BEST
   type: url-test
   proxies:
-  - config_free2
+  - GozargahAzad 2494
+  - Config0plus 7866
   - GAME-03 LINK bel432 xl
-  - GEN-03 LINK bel432 xl
-  - ID-01 config_free2
-  - ID-02 LINK 10.lowh.net
-  - ID-03 LINK bel432 xl
-  - ID-04 LINK VLESS-WS-TLS-443-apt50atpprem
-  - ID-05 LINK VMess-WS-TLS-443-akuku8
+  - GEN-04 LINK bel432 xl
+  - ID-01 GozargahAzad 2494
+  - ID-02 Config0plus 7866
+  - ID-03 LINK 10.lowh.net
+  - ID-04 LINK bel432 xl
+  - ID-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-06 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
-  - SOCIAL-03 LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
@@ -606,7 +663,8 @@ proxy-groups:
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
-  - config_free2
+  - GozargahAzad 2494
+  - Config0plus 7866
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -620,7 +678,8 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - config_free2
+  - GozargahAzad 2494
+  - Config0plus 7866
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -633,6 +692,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - GozargahAzad 2494
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -645,6 +705,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - GozargahAzad 2494
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -657,6 +718,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - GozargahAzad 2494
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -669,6 +731,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - GozargahAzad 2494
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -681,6 +744,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - GozargahAzad 2494
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -691,7 +755,8 @@ proxy-groups:
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - config_free2
+  - GozargahAzad 2494
+  - Config0plus 7866
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -705,7 +770,8 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - config_free2
+  - GozargahAzad 2494
+  - Config0plus 7866
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -744,7 +810,8 @@ proxy-groups:
 - name: BEST-STABLE
   type: url-test
   proxies:
-  - config_free2
+  - GozargahAzad 2494
+  - Config0plus 7866
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -776,7 +843,7 @@ proxy-groups:
 - name: STREAMING-BEST
   type: url-test
   proxies:
-  - STREAM-01 config_free2
+  - STREAM-01 GozargahAzad 2494
   - STREAM-02 LINK 10.lowh.net
   - STREAM-03 LINK bel432 xl
   - STREAM-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -792,7 +859,7 @@ proxy-groups:
 - name: GAMING-BEST
   type: url-test
   proxies:
-  - GAME-01 config_free2
+  - GAME-01 GozargahAzad 2494
   - GAME-02 LINK 10.lowh.net
   - GAME-03 LINK bel432 xl
   - GAME-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -808,11 +875,12 @@ proxy-groups:
 - name: SOCIAL-BEST
   type: url-test
   proxies:
-  - SOCIAL-01 config_free2
-  - SOCIAL-02 LINK 10.lowh.net
-  - SOCIAL-03 LINK bel432 xl
-  - SOCIAL-04 LINK VLESS-WS-TLS-443-apt50atpprem
-  - SOCIAL-05 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-01 GozargahAzad 2494
+  - SOCIAL-02 Config0plus 7866
+  - SOCIAL-03 LINK 10.lowh.net
+  - SOCIAL-04 LINK bel432 xl
+  - SOCIAL-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - SOCIAL-06 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -824,7 +892,7 @@ proxy-groups:
 - name: WORKING-BEST
   type: url-test
   proxies:
-  - WORK-01 config_free2
+  - WORK-01 GozargahAzad 2494
   - WORK-02 LINK 10.lowh.net
   - WORK-03 LINK bel432 xl
   - WORK-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -840,11 +908,12 @@ proxy-groups:
 - name: GENERAL-BEST
   type: url-test
   proxies:
-  - GEN-01 config_free2
-  - GEN-02 LINK 10.lowh.net
-  - GEN-03 LINK bel432 xl
-  - GEN-04 LINK VLESS-WS-TLS-443-apt50atpprem
-  - GEN-05 LINK VMess-WS-TLS-443-akuku8
+  - GEN-01 GozargahAzad 2494
+  - GEN-02 Config0plus 7866
+  - GEN-03 LINK 10.lowh.net
+  - GEN-04 LINK bel432 xl
+  - GEN-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GEN-06 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net

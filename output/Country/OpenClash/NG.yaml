@@ -34,19 +34,34 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2ray1_ng FR"
+  - name: "v2ray1_ng US"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "humanity"
+    type: vless
+    uuid: 1ce9392f-caf4-48f7-bbb9-475b101fbde0
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.calmlunch.com"
+    servername: "graph.instagram.com.cyylr.eu.cc"
     ws-opts:
-      path: "/assignment"
+      path: "/id-tksi"
       headers:
-        Host: "www.calmlunch.com"
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
+  - name: "config_NG"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cdn.de.linko1.ir"
+    ws-opts:
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      headers:
+        Host: "cdn.de.linko1.ir"
     udp: true
 
 proxy-groups:
