@@ -39,8 +39,9 @@
   "outbounds": [
     {
       "type": "urltest",
-      "tag": "best-link",
+      "tag": "AUTO-BEST-STABLE",
       "outbounds": [
+        "config_free2",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -54,49 +55,13 @@
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "urltest",
-      "tag": "AUTO-BEST-STABLE",
-      "outbounds": [
-        "chillguy_vpn 7911",
-        "Config0plus",
-        "DE All14 meliproxyy",
-        "DE t.me Natrixo BB",
-        "68 oneclickvpnkeys",
-        "LINK bel432 xl",
-        "LINK VMess-WS-TLS-443-akuku8",
-        "LINK 10.lowh.net",
-        "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "LINK bel432 xl 2",
-        "LINK bel432 xl 2 2",
-        "LINK VMess-WS-TLS-443-akuku8 2",
-        "LINK bel432 telk",
-        "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 3",
-        "LINK VMess-WS-TLS-443-akuku8 3",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 3",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
       "tolerance": 80
     },
     {
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "chillguy_vpn 7911",
-        "Config0plus",
-        "DE All14 meliproxyy",
-        "DE t.me Natrixo BB",
-        "68 oneclickvpnkeys",
+        "config_free2",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -106,13 +71,7 @@
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 3",
-        "LINK VMess-WS-TLS-443-akuku8 3",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 3",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
@@ -122,40 +81,29 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "AUTO-BEST-STABLE",
-        "AUTO-BEST-PING",
-        "best-link",
         "LINK bel432 xl",
+        "AUTO-BEST-PING",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT",
-        "chillguy_vpn 7911",
-        "Config0plus",
-        "DE All14 meliproxyy",
-        "DE t.me Natrixo BB",
-        "68 oneclickvpnkeys",
+        "config_free2",
+        "AUTO-BEST-STABLE",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
         "LINK bel432 telk",
         "LINK 10.lowh.net 2",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-        "LINK bel432 xl 3",
-        "LINK bel432 xl 2 3",
-        "LINK VMess-WS-TLS-443-akuku8 3",
-        "LINK bel432 telk 2",
-        "LINK 10.lowh.net 3",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 3"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
       "default": "AUTO-BEST-STABLE"
     },
     {
       "type": "vless",
-      "tag": "chillguy_vpn 7911",
+      "tag": "config_free2",
       "server": "104.17.3.81",
       "server_port": 443,
-      "uuid": "9dd05602-de19-494a-af15-6ac1cd6fb4b2",
+      "uuid": "19804f6b-3661-4eca-b294-ba37196dab5b",
       "tls": {
         "enabled": true,
         "server_name": "graph.instagram.com.cyylr.eu.cc",
@@ -163,85 +111,9 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/my-wbv",
-        "headers": {
-          "Host": "graph.instagram.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "Config0plus",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "Config0plus",
-      "tls": {
-        "enabled": true,
-        "server_name": "api24-normal.tiktokv.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
         "path": "/id-tksi",
         "headers": {
-          "Host": "api24-normal.tiktokv.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "DE All14 meliproxyy",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "d2992c0d-53cb-489c-85af-5eb80e6d9e79",
-      "tls": {
-        "enabled": true,
-        "server_name": "blog.webex.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/in-do",
-        "headers": {
-          "Host": "blog.webex.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "DE t.me Natrixo BB",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "fcdfab7b-caa2-425f-9356-5fd7742d98c7",
-      "tls": {
-        "enabled": true,
-        "server_name": "zaintest.vuclip.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ae-bo",
-        "headers": {
-          "Host": "zaintest.vuclip.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "68 oneclickvpnkeys",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "1eb8c38b-0bc2-4a6f-a860-5239c446abc8",
-      "tls": {
-        "enabled": true,
-        "server_name": "support.zoom.us.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-amz",
-        "headers": {
-          "Host": "support.zoom.us.cyylr.eu.cc"
+          "Host": "graph.instagram.com.cyylr.eu.cc"
         }
       }
     },
@@ -431,125 +303,6 @@
     {
       "type": "vless",
       "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 2",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
-      "tls": {
-        "enabled": true,
-        "server_name": "akamaized.my",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "akamaized.my"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK bel432 xl 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK bel432 xl 2 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK VMess-WS-TLS-443-akuku8 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "fbcdn.sbs"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
-        "headers": {
-          "Host": "fbcdn.sbs"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK bel432 telk 2",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "belnet.jsvpn.site"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "belnet.jsvpn.site"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "LINK 10.lowh.net 3",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "10.lowh.net"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/hello",
-        "headers": {
-          "Host": "10.lowh.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 3",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",

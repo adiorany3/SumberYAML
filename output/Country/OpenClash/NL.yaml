@@ -34,19 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys NL"
+  - name: "NL BIGAntony"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "humanity"
+    type: vless
+    uuid: 9232a847-8f7d-4548-a23a-a8b3550e0f15
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.multiplydose.com"
+    servername: "grabacademyportal.grab.com.cyylr.eu.cc"
     ws-opts:
-      path: "/assignment"
+      path: "/id-tksi"
       headers:
-        Host: "www.multiplydose.com"
+        Host: "grabacademyportal.grab.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

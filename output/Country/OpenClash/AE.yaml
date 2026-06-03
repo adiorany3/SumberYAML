@@ -34,20 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2reya88 confinghub2 2991"
+  - name: "hi_proxy_iran 6960"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 8ad2869d-1571-45cc-8d02-10aea6d600ac
+    uuid: 334e484f-7f7c-4895-a6e4-8951de2626f8
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "partner.catchplay.com.cyylr.eu.cc"
+    servername: "unnes.ac.id.cyylr.eu.cc"
     ws-opts:
       path: "/ae-bo"
       headers:
-        Host: "partner.catchplay.com.cyylr.eu.cc"
+        Host: "unnes.ac.id.cyylr.eu.cc"
+    udp: true
+  - name: "Studio_Sjd"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fcdfab7b-caa2-425f-9356-5fd7742d98c7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "zaintest.vuclip.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:
