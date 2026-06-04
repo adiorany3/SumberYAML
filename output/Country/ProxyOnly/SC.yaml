@@ -1,17 +1,18 @@
 proxies:
-  - name: "SC 48218 Telegram t.me SOSkeyNET"
+  - name: "SC 48300 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "ProxyEliteVPN"
+    type: vless
+    uuid: 2d1e9abf-9656-4367-9585-44fe82f54f7a
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "api24-normal.tiktokv.com.cyylr.eu.cc"
+    servername: "ssj.new-persian-song.ir"
     ws-opts:
-      path: "/id-tksi"
+      path: "/?ed=80"
       headers:
-        Host: "api24-normal.tiktokv.com.cyylr.eu.cc"
+        Host: "ssj.new-persian-song.ir"
     udp: true
   - name: "SC 48318 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"

@@ -1,0 +1,16 @@
+proxies:
+  - name: "chillguy_vpn 9476"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f1defc40-6193-46c8-9523-30d5269a81a5
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "qrc.nimstream.ir"
+    ws-opts:
+      path: "/wss?ed=2048"
+      headers:
+        Host: "qrc.nimstream.ir"
+    udp: true
