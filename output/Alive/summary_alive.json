@@ -1,7 +1,7 @@
 {
   "run_mode": "update",
   "enable_proxy_test": true,
-  "filter_alive_only": true,
+  "filter_alive_only": false,
   "strict_alive_only": true,
   "test_rounds": 2,
   "require_success_rounds": 2,
@@ -21,23 +21,23 @@
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 87,
+      "alive": 99,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 37,
+      "alive": 44,
       "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1362,
-  "alive": 34,
-  "strict_alive": 34,
-  "dead": 1328,
+  "total": 1408,
+  "alive": 44,
+  "strict_alive": 44,
+  "dead": 1364,
   "untested": 0,
   "final_output_filter": "strict/balanced alive 2/2 <= 8000ms",
   "best_ping_top_n": 10,
@@ -47,14 +47,14 @@
   "best_ping_group_type": "url-test",
   "best_ping_count": 2,
   "best_ping_names": [
-    "Config0plus 6948",
-    "ProxyVPN11 9267"
+    "internet_azad_2026",
+    "Config0plus 4094"
   ],
   "responsive_top_n": 20,
   "responsive_count": 2,
   "responsive_names": [
-    "Config0plus 6948",
-    "ProxyVPN11 9267"
+    "internet_azad_2026",
+    "Config0plus 4094"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -66,5 +66,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 34
+  "strict_output_count": 44
 }

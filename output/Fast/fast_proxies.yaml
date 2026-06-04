@@ -1,5 +1,20 @@
 proxies:
-  - name: "Config0plus 6948"
+  - name: "internet_azad_2026"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b3ddc03c-0be7-4b46-8a4e-9f79de03d4f5
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "unnes.ac.id.cyylr.eu.cc"
+    udp: true
+  - name: "Config0plus 4094"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -12,19 +27,4 @@ proxies:
       path: "/sg-melbi"
       headers:
         Host: "unnes.ac.id.cyylr.eu.cc"
-    udp: true
-  - name: "ProxyVPN11 9267"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "edu.ruangguru.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/id-tksi"
-      headers:
-        Host: "edu.ruangguru.com.cyylr.eu.cc"
     udp: true

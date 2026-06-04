@@ -1,16 +1,15 @@
 proxies:
-  - name: "oneclickvpnkeys NL"
+  - name: "oneclickvpnkeys NL 9490"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: e277ac9b-3225-4381-a9fb-3585419f7142
-    cipher: none
+    type: trojan
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "37cdnws.iamali.info"
+    sni: "www.multiplydose.com"
     ws-opts:
-      path: "/37cdnws"
+      path: "/assignment"
       headers:
-        Host: "37cdnws.iamali.info"
+        Host: "www.multiplydose.com"
     udp: true

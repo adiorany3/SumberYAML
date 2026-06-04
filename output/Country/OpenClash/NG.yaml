@@ -34,35 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2ray1_ng US 1418"
+  - name: "v2ray1_ng FR"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: ace095c0-debd-46fd-903f-d29b9c8b4101
-    cipher: none
+    type: trojan
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "collection.linefriends.com.cyylr.eu.cc"
+    sni: "www.calmlunch.com"
     ws-opts:
-      path: "/ae-bo"
+      path: "/assignment"
       headers:
-        Host: "collection.linefriends.com.cyylr.eu.cc"
-    udp: true
-  - name: "config_NG"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 565b50d4-604d-4a60-9fc2-d9d3dac0aec6
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/id-pusat"
-      headers:
-        Host: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+        Host: "www.calmlunch.com"
     udp: true
 
 proxy-groups:

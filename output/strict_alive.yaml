@@ -6,7 +6,7 @@ tproxy-port: 7895
 allow-lan: true
 bind-address: '*'
 mode: rule
-log-level: warning
+log-level: info
 ipv6: false
 unified-delay: true
 tcp-concurrent: true
@@ -23,25 +23,10 @@ dns:
   listen: 0.0.0.0:7874
   nameserver:
   - 1.1.1.1
+  - 8.8.8.8
   fallback:
-  - 8.8.8.8
-  default-nameserver:
-  - 1.1.1.1
-  - 8.8.8.8
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter:
-  - '*.lan'
-  - '*.local'
-  - localhost.ptlogin2.qq.com
-  - +.msftconnecttest.com
-  - +.msftncsi.com
-  - time.*.com
-  - time.*.gov
-  - time.*.edu.cn
-  - time.*.apple.com
-  - time-ios.apple.com
-  - +.pool.ntp.org
-  - +.ntp.org
+  - 1.0.0.1
+  - 8.8.4.4
 proxies:
 - name: FI 47491 Telegram t.me SOSkeyNET
   type: vmess
@@ -59,161 +44,161 @@ proxies:
     headers:
       Host: MciNnnnew.dr-ping.ir
   udp: true
-- name: v2ray1_ng US 1418
+- name: oneclickvpnkeys US
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: ace095c0-debd-46fd-903f-d29b9c8b4101
+  uuid: 0440e93c-a9d3-4998-aeaa-d0e2363131e4
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: collection.linefriends.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: collection.linefriends.com.cyylr.eu.cc
-  udp: true
-- name: v2rayngvpn US 1690
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: d2992c0d-53cb-489c-85af-5eb80e6d9e79
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: blog.webex.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-do
-    headers:
-      Host: blog.webex.com.cyylr.eu.cc
-  udp: true
-- name: oneclickvpnkeys US 5666
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: ed0e05af-49ab-4ea8-a39c-634855811b03
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: wild-grass-1917.tmpduardoolfsonerluke15.workers.dev
+  servername: rahammahar.photoazadeh9100.workers.dev
   ws-opts:
     path: /
     headers:
-      Host: wild-grass-1917.tmpduardoolfsonerluke15.workers.dev
+      Host: rahammahar.photoazadeh9100.workers.dev
   udp: true
-- name: Arvand_soul 4
+- name: configV2rayNG US
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 0e9dd08d-e341-4c5d-b116-923842f5a9f9
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: web.whatsapp.com.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: web.whatsapp.com.cyylr.eu.cc
-  udp: true
-- name: CA 47485 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 1c4046d3-333f-4e8d-b9cc-333e7ec3143b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: Drping.nscl.ir
-  ws-opts:
-    path: /DrPing_channel
-    headers:
-      Host: Drping.nscl.ir
-  udp: true
-- name: meliproxyy
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 1ed1436c-a3fd-449d-9f08-801f8b4d98ba
+  uuid: 1a5b24bc-6180-4fa7-922d-ba7ee8a7a2b7
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
   servername: support.zoom.us.cyylr.eu.cc
   ws-opts:
-    path: /sg-orcl
+    path: /id-pusat
     headers:
       Host: support.zoom.us.cyylr.eu.cc
   udp: true
-- name: ProxyVPN11 9267
+- name: oneclickvpnkeys US 3461
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
+  uuid: 3b01a777-55e7-49f6-8637-d94ee69607c6
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: edu.ruangguru.com.cyylr.eu.cc
+  servername: m.udemy.com.cyylr.eu.cc
   ws-opts:
     path: /id-tksi
     headers:
-      Host: edu.ruangguru.com.cyylr.eu.cc
+      Host: m.udemy.com.cyylr.eu.cc
   udp: true
-- name: hi_proxy_iran 2331
+- name: v2rayngvpn US 6775
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 559ab675-567f-4d61-a742-877bfd51d87c
+  uuid: 65b59dc4-216b-4fbb-a2db-2e21469532f1
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: zaintest.vuclip.com.cyylr.eu.cc
+  servername: graph.instagram.com.cyylr.eu.cc
   ws-opts:
-    path: /in-do
+    path: /id-tksi
     headers:
-      Host: zaintest.vuclip.com.cyylr.eu.cc
+      Host: graph.instagram.com.cyylr.eu.cc
   udp: true
-- name: config_NG
+- name: oneclickvpnkeys US 7369
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 565b50d4-604d-4a60-9fc2-d9d3dac0aec6
+  uuid: 6bc1bd81-b763-4213-80ad-4586224e3079
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  servername: tohidza.et6m22266a.workers.dev
   ws-opts:
-    path: /id-pusat
+    path: /
     headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+      Host: tohidza.et6m22266a.workers.dev
   udp: true
-- name: Arvand_soul Arvand_soul
+- name: oneclickvpnkeys US 5925
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 5dbfed06-dd62-48c0-8e39-b4835defcdb0
+  uuid: 8df10d83-3963-446d-a4e3-8bc043bda561
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: investors.spotify.com.cyylr.eu.cc
+  servername: space.byu.id.cyylr.eu.cc
   ws-opts:
-    path: /sg-amz
+    path: /in-pdr
     headers:
-      Host: investors.spotify.com.cyylr.eu.cc
+      Host: space.byu.id.cyylr.eu.cc
   udp: true
-- name: CA 47468 Telegram t.me SOSkeyNET
+- name: oneclickvpnkeys US 4184
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 686575d1-f184-4bb8-8c91-18d488a6b37e
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: oneclickvpnkeys US 4367
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: oneclickvpnkeys US 8480
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: v2reya88 5775
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: aa0e6991-6eaa-4bbb-9497-abc04d54de2f
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: cdn.opensignal.com.cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: cdn.opensignal.com.cyylr.eu.cc
+  udp: true
+- name: mhdi
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: d3310d18-c198-4974-a3f1-f9fe7896d4dc
   cipher: none
   tls: true
   skip-cert-verify: true
@@ -224,35 +209,35 @@ proxies:
     headers:
       Host: zaintest.vuclip.com.cyylr.eu.cc
   udp: true
-- name: chillguy_vpn 1196
+- name: VPNine1
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 6a8f6dc6-2a42-4a03-8047-e39ce6df3ec9
+  uuid: afc4be1d-07cc-4a73-a4ad-90c3d333efa0
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: www.genflix.co.id.cyylr.eu.cc
+  servername: ads.ruangguru.com.cyylr.eu.cc
   ws-opts:
-    path: /my-wbv
+    path: /id-tksi
     headers:
-      Host: www.genflix.co.id.cyylr.eu.cc
+      Host: ads.ruangguru.com.cyylr.eu.cc
   udp: true
-- name: 1https t.me ConfigX2ray
+- name: Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 790df6a3-c3b3-4642-8505-925c8871f612
+  uuid: 1b730662-586f-486f-8b7b-60a93d804175
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: somersby.pt.cyylr.eu.cc
+  servername: graph.instagram.com.cyylr.eu.cc
   ws-opts:
     path: /ae-bo
     headers:
-      Host: somersby.pt.cyylr.eu.cc
+      Host: graph.instagram.com.cyylr.eu.cc
   udp: true
 - name: CA 47469 Telegram t.me SOSkeyNET
   server: 104.17.3.81
@@ -269,22 +254,7 @@ proxies:
     headers:
       Host: graph.instagram.com.cyylr.eu.cc
   udp: true
-- name: CA 47376 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: meliproxyy 9171
+- name: meliproxyy 7683
   server: 104.17.3.81
   port: 443
   type: vless
@@ -299,37 +269,7 @@ proxies:
     headers:
       Host: support.zoom.us.cyylr.eu.cc
   udp: true
-- name: CA 47544 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: b9eef4fb-1a50-4bd2-ced3-7caba7a465e4
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: newspeedbypass.wt4p2ppro.me
-  ws-opts:
-    path: /
-    headers:
-      Host: newspeedbypass.wt4p2ppro.me
-  udp: true
-- name: meliproxyy 6443
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: ca6d9308-b3a2-4f1b-b43c-185a59a55f71
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: support.zoom.us.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: support.zoom.us.cyylr.eu.cc
-  udp: true
-- name: VPsave 7775
+- name: VPsave 8342
   server: 104.17.3.81
   port: 443
   type: vless
@@ -344,7 +284,7 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: Arvand_soul 3312
+- name: Arvand_soul 1246
   server: 104.17.3.81
   port: 443
   type: vless
@@ -359,21 +299,127 @@ proxies:
     headers:
       Host: octopusss4.com
   udp: true
-- name: telegram tajrobe_wiki
+- name: CA 48224 Telegram t.me SOSkeyNET
   server: 104.17.3.81
   port: 443
-  type: trojan
-  password: humanity
+  type: vless
+  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+  cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: www.multiplydose.com
+  servername: hamrah.dgclix.ir
   ws-opts:
-    path: /assignment
+    path: /?RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS
     headers:
-      Host: www.multiplydose.com
+      Host: hamrah.dgclix.ir
   udp: true
-- name: v2reya88 3835
+- name: DE Germany Falkenstein 1082ms 394KB s NamazVPN
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hamrah.dgclix.ir
+  ws-opts:
+    path: /?RK_VPS--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1--@VPNine1
+    headers:
+      Host: hamrah.dgclix.ir
+  udp: true
+- name: MCi DE JKVPN
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hamrah.dgclix.ir
+  ws-opts:
+    path: /?TELEGRAM--BYA--CHANEL---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN--@JKVPN---@JKVPN---@JKVPN---@JKVPN
+    headers:
+      Host: hamrah.dgclix.ir
+  udp: true
+- name: v2reya88 confinghub2
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 9a74144f-6218-4257-9e70-a4c50fe1e5a4
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: zaintest.vuclip.com.cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: zaintest.vuclip.com.cyylr.eu.cc
+  udp: true
+- name: internet_azad_2026
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: b3ddc03c-0be7-4b46-8a4e-9f79de03d4f5
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: unnes.ac.id.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: unnes.ac.id.cyylr.eu.cc
+  udp: true
+- name: v2reya88 confinghub2 3211
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c39c8197-0861-4c3d-b404-9d52df00349b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: spider.moji.lat
+  ws-opts:
+    path: /
+    headers:
+      Host: spider.moji.lat
+  udp: true
+- name: 70780 - Telegram V2All
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c75c49cd-4930-47c9-8247-29889a13f23c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: zaintest.vuclip.com.cyylr.eu.cc
+  ws-opts:
+    path: /my-wbv
+    headers:
+      Host: zaintest.vuclip.com.cyylr.eu.cc
+  udp: true
+- name: MoOon_proxy
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: cff2c9e5-8403-436e-a60a-48e558453ab8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: de1.nagona.top
+  ws-opts:
+    path: /
+    headers:
+      Host: de1.nagona.top
+  udp: true
+- name: oneclickvpnkeys US 5229
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -387,7 +433,21 @@ proxies:
     headers:
       Host: edu.ruangguru.com.cyylr.eu.cc
   udp: true
-- name: Config0plus EA
+- name: oneclickvpnkeys US 9586
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: aa710f78-eddb-45b4-bd32-1f8692a754e5
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: s.blibli.com.cyylr.eu.cc
+  ws-opts:
+    path: /ae-bo
+    headers:
+      Host: s.blibli.com.cyylr.eu.cc
+  udp: true
+- name: v2rayngvpn US 1124
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -400,6 +460,76 @@ proxies:
     path: /id-tksi
     headers:
       Host: api24-normal.tiktokv.com.cyylr.eu.cc
+  udp: true
+- name: configV2rayNG FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmloud.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmloud.com
+  udp: true
+- name: v2ray1_ng FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmlunch.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmlunch.com
+  udp: true
+- name: oneclickvpnkeys NL 9490
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.multiplydose.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.multiplydose.com
+  udp: true
+- name: oneclickvpnkeys US 2351
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: cf3d48cf-750c-4f18-89a7-f81d2e153fbe
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: blog.webex.com.cyylr.eu.cc
+  ws-opts:
+    path: /in-do
+    headers:
+      Host: blog.webex.com.cyylr.eu.cc
+  udp: true
+- name: oneclickvpnkeys FR 6929
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.ignitelimit.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
   udp: true
 - name: Config0plus
   server: 104.17.3.81
@@ -415,7 +545,7 @@ proxies:
     headers:
       Host: api24-normal.tiktokv.com.cyylr.eu.cc
   udp: true
-- name: Config0plus 6948
+- name: Config0plus 4094
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -428,48 +558,6 @@ proxies:
     path: /sg-melbi
     headers:
       Host: unnes.ac.id.cyylr.eu.cc
-  udp: true
-- name: 80 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: aa710f78-eddb-45b4-bd32-1f8692a754e5
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: s.blibli.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: s.blibli.com.cyylr.eu.cc
-  udp: true
-- name: oneclickvpnkeys US 9548
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: cf3d48cf-750c-4f18-89a7-f81d2e153fbe
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: blog.webex.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-do
-    headers:
-      Host: blog.webex.com.cyylr.eu.cc
-  udp: true
-- name: KAFING_2 2493
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: 20ba0c60-0133-11f1-95ef-1239d0255272
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: uk1.test3.net
-  ws-opts:
-    path: /howdy
-    headers:
-      Host: uk1.test3.net
   udp: true
 - name: Arvand_soul 8
   server: 104.17.3.81
@@ -485,7 +573,7 @@ proxies:
     headers:
       Host: cyylr.eu.cc
   udp: true
-- name: V2ray_official 9695
+- name: V2ray_official 6645
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -499,7 +587,7 @@ proxies:
     headers:
       Host: investors.spotify.com.cyylr.eu.cc
   udp: true
-- name: TEL Father_vpn 8421
+- name: TEL Father_vpn 7438
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -513,7 +601,7 @@ proxies:
     headers:
       Host: zaintest.vuclip.com.cyylr.eu.cc
   udp: true
-- name: Arvand_soul 4174
+- name: Arvand_soul 8405
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -527,7 +615,7 @@ proxies:
     headers:
       Host: www.calmloud.com
   udp: true
-- name: internet_azad_2026
+- name: internet_azad_2026 3762
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -540,6 +628,48 @@ proxies:
     path: /720f09dba195249b423f771661162528/workers/services/view/mitivpn/production
     headers:
       Host: www.mitivpn.in.net
+  udp: true
+- name: GozargahAzad 3176
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: 2t5hATPZBk
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: dd.aananas.ir.
+  ws-opts:
+    path: /?ed=2048
+    headers:
+      Host: dd.aananas.ir.
+  udp: true
+- name: 70773 - Telegram V2All
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: 6b7f37af-a853-4f01-a031-5fa4eca4f5bf
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: ads.ruangguru.com.cyylr.eu.cc
+  ws-opts:
+    path: /in-do
+    headers:
+      Host: ads.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: SC 48218 Telegram t.me SOSkeyNET
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: ProxyEliteVPN
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: api24-normal.tiktokv.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: api24-normal.tiktokv.com.cyylr.eu.cc
   udp: true
 - name: LINK bel432 xl
   type: vmess
@@ -603,1167 +733,19 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: ID-01 Config0plus 6948
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: unnes.ac.id.cyylr.eu.cc
-  udp: true
-- name: ID-02 ProxyVPN11 9267
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: edu.ruangguru.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: edu.ruangguru.com.cyylr.eu.cc
-  udp: true
-- name: ID-03 LINK 10.lowh.net
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: ID-04 LINK bel432 xl
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: ID-05 LINK VLESS-WS-TLS-443-apt50atpprem
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  tls: true
-  servername: akamaized.my
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
-- name: ID-06 LINK VMess-WS-TLS-443-akuku8
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: STREAM-01 Config0plus 6948
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: unnes.ac.id.cyylr.eu.cc
-  udp: true
-- name: STREAM-02 CA 47468 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 686575d1-f184-4bb8-8c91-18d488a6b37e
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: zaintest.vuclip.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: zaintest.vuclip.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-03 CA 47376 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: STREAM-04 CA 47469 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7a422005-fbc1-4e92-b56c-3306ddbcd8c8
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
-  ws-opts:
-    path: /sg-amz
-    headers:
-      Host: graph.instagram.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-05 v2reya88 3835
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: 386bd471-4e29-4e79-9a3c-6bc6076ce4b6
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: edu.ruangguru.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: edu.ruangguru.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-06 Config0plus EA
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: bb45f73f-795b-4a05-a8e0-ba717bce87e3
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: api24-normal.tiktokv.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: api24-normal.tiktokv.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-07 80 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: aa710f78-eddb-45b4-bd32-1f8692a754e5
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: s.blibli.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: s.blibli.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-08 oneclickvpnkeys US 9548
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: cf3d48cf-750c-4f18-89a7-f81d2e153fbe
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: blog.webex.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-do
-    headers:
-      Host: blog.webex.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-09 Arvand_soul 8
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: A_amr79
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: cyylr.eu.cc
-  udp: true
-- name: STREAM-10 V2ray_official 9695
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: investors.spotify.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: investors.spotify.com.cyylr.eu.cc
-  udp: true
-- name: STREAM-11 LINK 10.lowh.net
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: STREAM-12 LINK bel432 xl
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  tls: true
-  servername: akamaized.my
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
-- name: STREAM-14 LINK VMess-WS-TLS-443-akuku8
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: GAME-01 Config0plus 6948
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: unnes.ac.id.cyylr.eu.cc
-  udp: true
-- name: GAME-02 CA 47468 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 686575d1-f184-4bb8-8c91-18d488a6b37e
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: zaintest.vuclip.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: zaintest.vuclip.com.cyylr.eu.cc
-  udp: true
-- name: GAME-03 CA 47376 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: GAME-04 CA 47469 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7a422005-fbc1-4e92-b56c-3306ddbcd8c8
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
-  ws-opts:
-    path: /sg-amz
-    headers:
-      Host: graph.instagram.com.cyylr.eu.cc
-  udp: true
-- name: GAME-05 v2reya88 3835
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: 386bd471-4e29-4e79-9a3c-6bc6076ce4b6
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: edu.ruangguru.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: edu.ruangguru.com.cyylr.eu.cc
-  udp: true
-- name: GAME-06 Config0plus EA
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: bb45f73f-795b-4a05-a8e0-ba717bce87e3
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: api24-normal.tiktokv.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: api24-normal.tiktokv.com.cyylr.eu.cc
-  udp: true
-- name: GAME-07 80 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: aa710f78-eddb-45b4-bd32-1f8692a754e5
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: s.blibli.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: s.blibli.com.cyylr.eu.cc
-  udp: true
-- name: GAME-08 oneclickvpnkeys US 9548
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: cf3d48cf-750c-4f18-89a7-f81d2e153fbe
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: blog.webex.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-do
-    headers:
-      Host: blog.webex.com.cyylr.eu.cc
-  udp: true
-- name: GAME-09 Arvand_soul 8
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: A_amr79
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: cyylr.eu.cc
-  udp: true
-- name: GAME-10 V2ray_official 9695
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: investors.spotify.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: investors.spotify.com.cyylr.eu.cc
-  udp: true
-- name: GAME-11 LINK 10.lowh.net
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: GAME-12 LINK bel432 xl
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  tls: true
-  servername: akamaized.my
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
-- name: GAME-14 LINK VMess-WS-TLS-443-akuku8
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: SOCIAL-01 Config0plus 6948
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: unnes.ac.id.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-02 config_NG
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 565b50d4-604d-4a60-9fc2-d9d3dac0aec6
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-03 CA 47468 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 686575d1-f184-4bb8-8c91-18d488a6b37e
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: zaintest.vuclip.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: zaintest.vuclip.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-04 1https t.me ConfigX2ray
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 790df6a3-c3b3-4642-8505-925c8871f612
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: somersby.pt.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: somersby.pt.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-05 CA 47376 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: SOCIAL-06 CA 47469 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7a422005-fbc1-4e92-b56c-3306ddbcd8c8
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
-  ws-opts:
-    path: /sg-amz
-    headers:
-      Host: graph.instagram.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-07 v2reya88 3835
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: 386bd471-4e29-4e79-9a3c-6bc6076ce4b6
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: edu.ruangguru.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: edu.ruangguru.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-08 Config0plus EA
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: bb45f73f-795b-4a05-a8e0-ba717bce87e3
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: api24-normal.tiktokv.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: api24-normal.tiktokv.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-09 Config0plus
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: api24-normal.tiktokv.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: api24-normal.tiktokv.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-10 80 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: aa710f78-eddb-45b4-bd32-1f8692a754e5
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: s.blibli.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: s.blibli.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-11 oneclickvpnkeys US 9548
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: cf3d48cf-750c-4f18-89a7-f81d2e153fbe
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: blog.webex.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-do
-    headers:
-      Host: blog.webex.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-12 Arvand_soul 8
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: A_amr79
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: cyylr.eu.cc
-  udp: true
-- name: SOCIAL-13 V2ray_official 9695
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: investors.spotify.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: investors.spotify.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-14 CA 47485 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 1c4046d3-333f-4e8d-b9cc-333e7ec3143b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: Drping.nscl.ir
-  ws-opts:
-    path: /DrPing_channel
-    headers:
-      Host: Drping.nscl.ir
-  udp: true
-- name: SOCIAL-15 telegram tajrobe_wiki
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.multiplydose.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.multiplydose.com
-  udp: true
-- name: WORK-01 Config0plus 6948
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: unnes.ac.id.cyylr.eu.cc
-  udp: true
-- name: WORK-02 config_NG
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 565b50d4-604d-4a60-9fc2-d9d3dac0aec6
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: WORK-03 CA 47468 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 686575d1-f184-4bb8-8c91-18d488a6b37e
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: zaintest.vuclip.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: zaintest.vuclip.com.cyylr.eu.cc
-  udp: true
-- name: WORK-04 chillguy_vpn 1196
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6a8f6dc6-2a42-4a03-8047-e39ce6df3ec9
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: www.genflix.co.id.cyylr.eu.cc
-  ws-opts:
-    path: /my-wbv
-    headers:
-      Host: www.genflix.co.id.cyylr.eu.cc
-  udp: true
-- name: WORK-05 CA 47376 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: WORK-06 CA 47469 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7a422005-fbc1-4e92-b56c-3306ddbcd8c8
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
-  ws-opts:
-    path: /sg-amz
-    headers:
-      Host: graph.instagram.com.cyylr.eu.cc
-  udp: true
-- name: WORK-07 Config0plus EA
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: bb45f73f-795b-4a05-a8e0-ba717bce87e3
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: api24-normal.tiktokv.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: api24-normal.tiktokv.com.cyylr.eu.cc
-  udp: true
-- name: WORK-08 80 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: aa710f78-eddb-45b4-bd32-1f8692a754e5
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: s.blibli.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: s.blibli.com.cyylr.eu.cc
-  udp: true
-- name: WORK-09 Arvand_soul 8
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: A_amr79
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: cyylr.eu.cc
-  udp: true
-- name: WORK-10 V2ray_official 9695
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: investors.spotify.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: investors.spotify.com.cyylr.eu.cc
-  udp: true
-- name: WORK-11 LINK 10.lowh.net
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: WORK-12 LINK bel432 xl
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: WORK-13 LINK VLESS-WS-TLS-443-apt50atpprem
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  tls: true
-  servername: akamaized.my
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
-- name: WORK-14 LINK VMess-WS-TLS-443-akuku8
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: GEN-01 Config0plus 6948
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: unnes.ac.id.cyylr.eu.cc
-  udp: true
-- name: GEN-02 ProxyVPN11 9267
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: edu.ruangguru.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: edu.ruangguru.com.cyylr.eu.cc
-  udp: true
-- name: GEN-03 v2ray1_ng US 1418
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: ace095c0-debd-46fd-903f-d29b9c8b4101
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: collection.linefriends.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: collection.linefriends.com.cyylr.eu.cc
-  udp: true
-- name: GEN-04 v2rayngvpn US 1690
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: d2992c0d-53cb-489c-85af-5eb80e6d9e79
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: blog.webex.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-do
-    headers:
-      Host: blog.webex.com.cyylr.eu.cc
-  udp: true
-- name: GEN-05 oneclickvpnkeys US 5666
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: ed0e05af-49ab-4ea8-a39c-634855811b03
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: wild-grass-1917.tmpduardoolfsonerluke15.workers.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: wild-grass-1917.tmpduardoolfsonerluke15.workers.dev
-  udp: true
-- name: GEN-06 Arvand_soul 4
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 0e9dd08d-e341-4c5d-b116-923842f5a9f9
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: web.whatsapp.com.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: web.whatsapp.com.cyylr.eu.cc
-  udp: true
-- name: GEN-07 meliproxyy
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 1ed1436c-a3fd-449d-9f08-801f8b4d98ba
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: support.zoom.us.cyylr.eu.cc
-  ws-opts:
-    path: /sg-orcl
-    headers:
-      Host: support.zoom.us.cyylr.eu.cc
-  udp: true
-- name: GEN-08 hi_proxy_iran 2331
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 559ab675-567f-4d61-a742-877bfd51d87c
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: zaintest.vuclip.com.cyylr.eu.cc
-  ws-opts:
-    path: /in-do
-    headers:
-      Host: zaintest.vuclip.com.cyylr.eu.cc
-  udp: true
-- name: GEN-09 config_NG
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 565b50d4-604d-4a60-9fc2-d9d3dac0aec6
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: GEN-10 Arvand_soul Arvand_soul
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 5dbfed06-dd62-48c0-8e39-b4835defcdb0
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: investors.spotify.com.cyylr.eu.cc
-  ws-opts:
-    path: /sg-amz
-    headers:
-      Host: investors.spotify.com.cyylr.eu.cc
-  udp: true
-- name: GEN-11 CA 47468 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 686575d1-f184-4bb8-8c91-18d488a6b37e
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: zaintest.vuclip.com.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: zaintest.vuclip.com.cyylr.eu.cc
-  udp: true
-- name: GEN-12 chillguy_vpn 1196
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6a8f6dc6-2a42-4a03-8047-e39ce6df3ec9
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: www.genflix.co.id.cyylr.eu.cc
-  ws-opts:
-    path: /my-wbv
-    headers:
-      Host: www.genflix.co.id.cyylr.eu.cc
-  udp: true
-- name: GEN-13 1https t.me ConfigX2ray
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 790df6a3-c3b3-4642-8505-925c8871f612
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: somersby.pt.cyylr.eu.cc
-  ws-opts:
-    path: /ae-bo
-    headers:
-      Host: somersby.pt.cyylr.eu.cc
-  udp: true
-- name: GEN-14 CA 47376 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: juzi.qea.ccwu.cc
-  ws-opts:
-    path: /?ed=2048
-    headers:
-      Host: juzi.qea.ccwu.cc
-  udp: true
-- name: GEN-15 CA 47469 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7a422005-fbc1-4e92-b56c-3306ddbcd8c8
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: graph.instagram.com.cyylr.eu.cc
-  ws-opts:
-    path: /sg-amz
-    headers:
-      Host: graph.instagram.com.cyylr.eu.cc
-  udp: true
 proxy-groups:
-- name: INDONESIA-BEST
+- name: fallback-link
+  type: fallback
+  proxies:
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+- name: best-link
   type: url-test
   proxies:
-  - Config0plus 6948
-  - ProxyVPN11 9267
-  - GAME-12 LINK bel432 xl
-  - ID-01 Config0plus 6948
-  - ID-02 ProxyVPN11 9267
-  - ID-03 LINK 10.lowh.net
-  - ID-04 LINK bel432 xl
-  - ID-05 LINK VLESS-WS-TLS-443-apt50atpprem
-  - ID-06 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1771,12 +753,11 @@ proxy-groups:
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-  lazy: true
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
-  - Config0plus 6948
-  - ProxyVPN11 9267
+  - internet_azad_2026
+  - Config0plus 4094
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1790,8 +771,8 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - Config0plus 6948
-  - ProxyVPN11 9267
+  - internet_azad_2026
+  - Config0plus 4094
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1804,111 +785,111 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - CA 47376 Telegram t.me SOSkeyNET
-  - CA 47468 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 9548
-  - v2reya88 3835
-  - 80 oneclickvpnkeys
-  - Arvand_soul 8
+  - 70780 - Telegram V2All
   - CA 47469 Telegram t.me SOSkeyNET
-  - Config0plus 6948
-  - Config0plus EA
-  - V2ray_official 9695
+  - SC 48218 Telegram t.me SOSkeyNET
+  - VPNine1
+  - configV2rayNG US
+  - oneclickvpnkeys US 2351
+  - oneclickvpnkeys US 7369
+  - v2rayngvpn US 1124
+  - internet_azad_2026
+  - meliproxyy 7683
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
+  lazy: false
 - name: SOCIAL MEDIA STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - CA 47376 Telegram t.me SOSkeyNET
-  - CA 47468 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 9548
-  - v2reya88 3835
-  - 80 oneclickvpnkeys
-  - Arvand_soul 8
+  - internet_azad_2026
+  - meliproxyy 7683
+  - oneclickvpnkeys US 4184
+  - oneclickvpnkeys US 9586
+  - 70780 - Telegram V2All
   - CA 47469 Telegram t.me SOSkeyNET
-  - Config0plus 6948
-  - Config0plus EA
-  - V2ray_official 9695
+  - SC 48218 Telegram t.me SOSkeyNET
+  - VPNine1
+  - configV2rayNG US
+  - oneclickvpnkeys US 2351
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
+  lazy: false
 - name: STREAMING STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - CA 47376 Telegram t.me SOSkeyNET
-  - CA 47468 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 9548
-  - v2reya88 3835
-  - 80 oneclickvpnkeys
-  - Arvand_soul 8
+  - 70780 - Telegram V2All
   - CA 47469 Telegram t.me SOSkeyNET
-  - Config0plus 6948
-  - Config0plus EA
-  - V2ray_official 9695
+  - SC 48218 Telegram t.me SOSkeyNET
+  - VPNine1
+  - configV2rayNG US
+  - oneclickvpnkeys US 2351
+  - oneclickvpnkeys US 7369
+  - v2rayngvpn US 1124
+  - internet_azad_2026
+  - meliproxyy 7683
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
+  lazy: false
 - name: WORKING STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - 80 oneclickvpnkeys
-  - Arvand_soul 8
+  - 70780 - Telegram V2All
   - CA 47469 Telegram t.me SOSkeyNET
-  - Config0plus 6948
-  - Config0plus EA
-  - V2ray_official 9695
-  - chillguy_vpn 1196
-  - config_NG
-  - CA 47376 Telegram t.me SOSkeyNET
-  - CA 47468 Telegram t.me SOSkeyNET
+  - SC 48218 Telegram t.me SOSkeyNET
+  - VPNine1
+  - configV2rayNG US
+  - oneclickvpnkeys US 2351
+  - oneclickvpnkeys US 7369
+  - v2rayngvpn US 1124
+  - internet_azad_2026
+  - meliproxyy 7683
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
+  lazy: false
 - name: GENERAL STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
-  - CA 47376 Telegram t.me SOSkeyNET
-  - CA 47468 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys US 9548
-  - v2reya88 3835
-  - 80 oneclickvpnkeys
-  - Arvand_soul 8
+  - internet_azad_2026
+  - meliproxyy 7683
+  - oneclickvpnkeys US 4184
+  - oneclickvpnkeys US 9586
+  - 70780 - Telegram V2All
   - CA 47469 Telegram t.me SOSkeyNET
-  - Config0plus 6948
-  - Config0plus EA
-  - V2ray_official 9695
+  - SC 48218 Telegram t.me SOSkeyNET
+  - VPNine1
+  - configV2rayNG US
+  - oneclickvpnkeys US 2351
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: true
+  lazy: false
 - name: URL-TEST VMESS
   type: url-test
   proxies:
@@ -1924,26 +905,31 @@ proxy-groups:
 - name: URL-TEST VLESS
   type: url-test
   proxies:
-  - v2ray1_ng US 1418
-  - v2rayngvpn US 1690
-  - oneclickvpnkeys US 5666
-  - Arvand_soul 4
-  - CA 47485 Telegram t.me SOSkeyNET
-  - meliproxyy
-  - ProxyVPN11 9267
-  - hi_proxy_iran 2331
-  - config_NG
-  - Arvand_soul Arvand_soul
-  - CA 47468 Telegram t.me SOSkeyNET
-  - chillguy_vpn 1196
-  - 1https t.me ConfigX2ray
+  - oneclickvpnkeys US
+  - configV2rayNG US
+  - oneclickvpnkeys US 3461
+  - v2rayngvpn US 6775
+  - oneclickvpnkeys US 7369
+  - oneclickvpnkeys US 5925
+  - oneclickvpnkeys US 4184
+  - oneclickvpnkeys US 4367
+  - oneclickvpnkeys US 8480
+  - v2reya88 5775
+  - mhdi
+  - VPNine1
+  - Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp
   - CA 47469 Telegram t.me SOSkeyNET
-  - CA 47376 Telegram t.me SOSkeyNET
-  - meliproxyy 9171
-  - CA 47544 Telegram t.me SOSkeyNET
-  - meliproxyy 6443
-  - VPsave 7775
-  - Arvand_soul 3312
+  - meliproxyy 7683
+  - VPsave 8342
+  - Arvand_soul 1246
+  - CA 48224 Telegram t.me SOSkeyNET
+  - DE Germany Falkenstein 1082ms 394KB s NamazVPN
+  - MCi DE JKVPN
+  - v2reya88 confinghub2
+  - internet_azad_2026
+  - v2reya88 confinghub2 3211
+  - 70780 - Telegram V2All
+  - MoOon_proxy
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1955,19 +941,24 @@ proxy-groups:
 - name: URL-TEST TROJAN
   type: url-test
   proxies:
-  - telegram tajrobe_wiki
-  - v2reya88 3835
-  - Config0plus EA
+  - oneclickvpnkeys US 5229
+  - oneclickvpnkeys US 9586
+  - v2rayngvpn US 1124
+  - configV2rayNG FR
+  - v2ray1_ng FR
+  - oneclickvpnkeys NL 9490
+  - oneclickvpnkeys US 2351
+  - oneclickvpnkeys FR 6929
   - Config0plus
-  - Config0plus 6948
-  - 80 oneclickvpnkeys
-  - oneclickvpnkeys US 9548
-  - KAFING_2 2493
+  - Config0plus 4094
   - Arvand_soul 8
-  - V2ray_official 9695
-  - TEL Father_vpn 8421
-  - Arvand_soul 4174
-  - internet_azad_2026
+  - V2ray_official 6645
+  - TEL Father_vpn 7438
+  - Arvand_soul 8405
+  - internet_azad_2026 3762
+  - GozargahAzad 3176
+  - 70773 - Telegram V2All
+  - SC 48218 Telegram t.me SOSkeyNET
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1980,39 +971,45 @@ proxy-groups:
   type: url-test
   proxies:
   - FI 47491 Telegram t.me SOSkeyNET
-  - v2ray1_ng US 1418
-  - v2rayngvpn US 1690
-  - oneclickvpnkeys US 5666
-  - Arvand_soul 4
-  - CA 47485 Telegram t.me SOSkeyNET
-  - meliproxyy
-  - ProxyVPN11 9267
-  - hi_proxy_iran 2331
-  - config_NG
-  - Arvand_soul Arvand_soul
-  - CA 47468 Telegram t.me SOSkeyNET
-  - chillguy_vpn 1196
-  - 1https t.me ConfigX2ray
+  - oneclickvpnkeys US
+  - configV2rayNG US
+  - oneclickvpnkeys US 3461
+  - v2rayngvpn US 6775
+  - oneclickvpnkeys US 7369
+  - oneclickvpnkeys US 5925
+  - oneclickvpnkeys US 4184
+  - oneclickvpnkeys US 4367
+  - oneclickvpnkeys US 8480
+  - v2reya88 5775
+  - mhdi
+  - VPNine1
+  - Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp
   - CA 47469 Telegram t.me SOSkeyNET
-  - CA 47376 Telegram t.me SOSkeyNET
-  - meliproxyy 9171
-  - CA 47544 Telegram t.me SOSkeyNET
-  - meliproxyy 6443
-  - VPsave 7775
-  - Arvand_soul 3312
-  - telegram tajrobe_wiki
-  - v2reya88 3835
-  - Config0plus EA
-  - Config0plus
-  - Config0plus 6948
-  - 80 oneclickvpnkeys
-  - oneclickvpnkeys US 9548
-  - KAFING_2 2493
-  - Arvand_soul 8
-  - V2ray_official 9695
-  - TEL Father_vpn 8421
-  - Arvand_soul 4174
+  - meliproxyy 7683
+  - VPsave 8342
+  - Arvand_soul 1246
+  - CA 48224 Telegram t.me SOSkeyNET
+  - DE Germany Falkenstein 1082ms 394KB s NamazVPN
+  - MCi DE JKVPN
+  - v2reya88 confinghub2
   - internet_azad_2026
+  - v2reya88 confinghub2 3211
+  - 70780 - Telegram V2All
+  - MoOon_proxy
+  - oneclickvpnkeys US 5229
+  - oneclickvpnkeys US 9586
+  - v2rayngvpn US 1124
+  - configV2rayNG FR
+  - v2ray1_ng FR
+  - oneclickvpnkeys NL 9490
+  - oneclickvpnkeys US 2351
+  - oneclickvpnkeys FR 6929
+  - Config0plus
+  - Config0plus 4094
+  - Arvand_soul 8
+  - V2ray_official 6645
+  - TEL Father_vpn 7438
+  - Arvand_soul 8405
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -2026,8 +1023,8 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - Config0plus 6948
-  - ProxyVPN11 9267
+  - internet_azad_2026
+  - Config0plus 4094
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -2038,18 +1035,8 @@ proxy-groups:
 - name: PROXY
   type: select
   proxies:
-  - INDONESIA-BEST
-  - ANTI-BENGONG
-  - STREAMING-BEST
-  - GAMING-BEST
-  - SOCIAL-BEST
-  - WORKING-BEST
-  - GENERAL-BEST
   - fallback-link
   - best-link
-  - DIRECT
-  - BEST-STABLE
-  - FALLBACK
   - URL-TEST TOP 10 INDONESIA
   - FALLBACK CEPAT
   - GAMING STABIL
@@ -2058,312 +1045,15 @@ proxy-groups:
   - WORKING STABIL
   - GENERAL STABIL
   - URL-TEST GABUNGAN
+  - FALLBACK
   - URL-TEST VMESS
   - URL-TEST VLESS
   - URL-TEST TROJAN
+  - DIRECT
   - REJECT
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-- name: BEST-STABLE
-  type: url-test
-  proxies:
-  - Config0plus EA
-  - Config0plus
-  - config_NG
-  - telegram tajrobe_wiki
-  - CA 47468 Telegram t.me SOSkeyNET
-  - 1https t.me ConfigX2ray
-  - Arvand_soul 8
-  - CA 47376 Telegram t.me SOSkeyNET
-  - internet_azad_2026
-  - CA 47485 Telegram t.me SOSkeyNET
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
-- name: best-link
-  type: url-test
-  proxies:
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
-- name: fallback-link
-  type: fallback
-  proxies:
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-- name: STREAMING-BEST
-  type: url-test
-  proxies:
-  - STREAM-01 Config0plus 6948
-  - STREAM-02 CA 47468 Telegram t.me SOSkeyNET
-  - STREAM-03 CA 47376 Telegram t.me SOSkeyNET
-  - STREAM-04 CA 47469 Telegram t.me SOSkeyNET
-  - STREAM-05 v2reya88 3835
-  - STREAM-06 Config0plus EA
-  - STREAM-07 80 oneclickvpnkeys
-  - STREAM-08 oneclickvpnkeys US 9548
-  - STREAM-09 Arvand_soul 8
-  - STREAM-10 V2ray_official 9695
-  - STREAM-11 LINK 10.lowh.net
-  - STREAM-12 LINK bel432 xl
-  - STREAM-13 LINK VLESS-WS-TLS-443-apt50atpprem
-  - STREAM-14 LINK VMess-WS-TLS-443-akuku8
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
-- name: GAMING-BEST
-  type: url-test
-  proxies:
-  - GAME-01 Config0plus 6948
-  - GAME-02 CA 47468 Telegram t.me SOSkeyNET
-  - GAME-03 CA 47376 Telegram t.me SOSkeyNET
-  - GAME-04 CA 47469 Telegram t.me SOSkeyNET
-  - GAME-05 v2reya88 3835
-  - GAME-06 Config0plus EA
-  - GAME-07 80 oneclickvpnkeys
-  - GAME-08 oneclickvpnkeys US 9548
-  - GAME-09 Arvand_soul 8
-  - GAME-10 V2ray_official 9695
-  - GAME-11 LINK 10.lowh.net
-  - GAME-12 LINK bel432 xl
-  - GAME-13 LINK VLESS-WS-TLS-443-apt50atpprem
-  - GAME-14 LINK VMess-WS-TLS-443-akuku8
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
-- name: SOCIAL-BEST
-  type: url-test
-  proxies:
-  - SOCIAL-01 Config0plus 6948
-  - SOCIAL-02 config_NG
-  - SOCIAL-03 CA 47468 Telegram t.me SOSkeyNET
-  - SOCIAL-04 1https t.me ConfigX2ray
-  - SOCIAL-05 CA 47376 Telegram t.me SOSkeyNET
-  - SOCIAL-06 CA 47469 Telegram t.me SOSkeyNET
-  - SOCIAL-07 v2reya88 3835
-  - SOCIAL-08 Config0plus EA
-  - SOCIAL-09 Config0plus
-  - SOCIAL-10 80 oneclickvpnkeys
-  - SOCIAL-11 oneclickvpnkeys US 9548
-  - SOCIAL-12 Arvand_soul 8
-  - SOCIAL-13 V2ray_official 9695
-  - SOCIAL-14 CA 47485 Telegram t.me SOSkeyNET
-  - SOCIAL-15 telegram tajrobe_wiki
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
-- name: WORKING-BEST
-  type: url-test
-  proxies:
-  - WORK-01 Config0plus 6948
-  - WORK-02 config_NG
-  - WORK-03 CA 47468 Telegram t.me SOSkeyNET
-  - WORK-04 chillguy_vpn 1196
-  - WORK-05 CA 47376 Telegram t.me SOSkeyNET
-  - WORK-06 CA 47469 Telegram t.me SOSkeyNET
-  - WORK-07 Config0plus EA
-  - WORK-08 80 oneclickvpnkeys
-  - WORK-09 Arvand_soul 8
-  - WORK-10 V2ray_official 9695
-  - WORK-11 LINK 10.lowh.net
-  - WORK-12 LINK bel432 xl
-  - WORK-13 LINK VLESS-WS-TLS-443-apt50atpprem
-  - WORK-14 LINK VMess-WS-TLS-443-akuku8
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
-- name: GENERAL-BEST
-  type: url-test
-  proxies:
-  - GEN-01 Config0plus 6948
-  - GEN-02 ProxyVPN11 9267
-  - GEN-03 v2ray1_ng US 1418
-  - GEN-04 v2rayngvpn US 1690
-  - GEN-05 oneclickvpnkeys US 5666
-  - GEN-06 Arvand_soul 4
-  - GEN-07 meliproxyy
-  - GEN-08 hi_proxy_iran 2331
-  - GEN-09 config_NG
-  - GEN-10 Arvand_soul Arvand_soul
-  - GEN-11 CA 47468 Telegram t.me SOSkeyNET
-  - GEN-12 chillguy_vpn 1196
-  - GEN-13 1https t.me ConfigX2ray
-  - GEN-14 CA 47376 Telegram t.me SOSkeyNET
-  - GEN-15 CA 47469 Telegram t.me SOSkeyNET
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
-- name: ANTI-BENGONG
-  type: fallback
-  proxies:
-  - INDONESIA-BEST
-  - GENERAL-BEST
-  - BEST-STABLE
-  - fallback-link
-  - best-link
-  - FALLBACK
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
 rules:
-- DOMAIN-SUFFIX,local,DIRECT
-- DOMAIN-SUFFIX,lan,DIRECT
-- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
-- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
-- IP-CIDR,255.255.255.255/32,DIRECT,no-resolve
-- RULE-SET,malware-adware,REJECT
-- RULE-SET,android-ads,REJECT
-- RULE-SET,indonesia-ads,REJECT
-- RULE-SET,goodbyeads-youtube,REJECT
-- DOMAIN-SUFFIX,shopee.co.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,youtube.com,STREAMING-BEST
-- DOMAIN-SUFFIX,googlevideo.com,STREAMING-BEST
-- DOMAIN-SUFFIX,ytimg.com,STREAMING-BEST
-- DOMAIN-SUFFIX,netflix.com,STREAMING-BEST
-- DOMAIN-SUFFIX,nflxvideo.net,STREAMING-BEST
-- DOMAIN-SUFFIX,disneyplus.com,STREAMING-BEST
-- DOMAIN-SUFFIX,hotstar.com,STREAMING-BEST
-- DOMAIN-SUFFIX,spotify.com,STREAMING-BEST
-- DOMAIN-SUFFIX,scdn.co,STREAMING-BEST
-- DOMAIN-SUFFIX,steamcontent.com,GAMING-BEST
-- DOMAIN-SUFFIX,steampowered.com,GAMING-BEST
-- DOMAIN-SUFFIX,steamstatic.com,GAMING-BEST
-- DOMAIN-SUFFIX,epicgames.com,GAMING-BEST
-- DOMAIN-SUFFIX,riotgames.com,GAMING-BEST
-- DOMAIN-SUFFIX,garena.com,GAMING-BEST
-- DOMAIN-SUFFIX,pubgmobile.com,GAMING-BEST
-- DOMAIN-SUFFIX,mihoyo.com,GAMING-BEST
-- DOMAIN-SUFFIX,hoyoverse.com,GAMING-BEST
-- DOMAIN-SUFFIX,playstation.net,GAMING-BEST
-- DOMAIN-SUFFIX,xboxlive.com,GAMING-BEST
-- DOMAIN-SUFFIX,facebook.com,SOCIAL-BEST
-- DOMAIN-SUFFIX,fbcdn.net,SOCIAL-BEST
-- DOMAIN-SUFFIX,instagram.com,SOCIAL-BEST
-- DOMAIN-SUFFIX,whatsapp.net,SOCIAL-BEST
-- DOMAIN-SUFFIX,tiktok.com,SOCIAL-BEST
-- DOMAIN-SUFFIX,tiktokcdn.com,SOCIAL-BEST
-- DOMAIN-SUFFIX,twitter.com,SOCIAL-BEST
-- DOMAIN-SUFFIX,x.com,SOCIAL-BEST
-- DOMAIN-SUFFIX,telegram.org,SOCIAL-BEST
-- DOMAIN-SUFFIX,t.me,SOCIAL-BEST
-- DOMAIN-SUFFIX,github.com,WORKING-BEST
-- DOMAIN-SUFFIX,githubusercontent.com,WORKING-BEST
-- DOMAIN-SUFFIX,gitlab.com,WORKING-BEST
-- DOMAIN-SUFFIX,google.com,WORKING-BEST
-- DOMAIN-SUFFIX,gstatic.com,WORKING-BEST
-- DOMAIN-SUFFIX,microsoft.com,WORKING-BEST
-- DOMAIN-SUFFIX,office.com,WORKING-BEST
-- DOMAIN-SUFFIX,office365.com,WORKING-BEST
-- DOMAIN-SUFFIX,zoom.us,WORKING-BEST
-- DOMAIN-SUFFIX,slack.com,WORKING-BEST
-- DOMAIN-SUFFIX,cloudflare.com,WORKING-BEST
-- DOMAIN-SUFFIX,id,INDONESIA-BEST
-- DOMAIN-SUFFIX,go.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,ac.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,co.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,or.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,my.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,web.id,INDONESIA-BEST
-- DOMAIN-SUFFIX,detik.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,kompas.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,tribunnews.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,tokopedia.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,bukalapak.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,gojek.com,INDONESIA-BEST
-- DOMAIN-SUFFIX,grab.com,INDONESIA-BEST
-- GEOIP,ID,INDONESIA-BEST,no-resolve
-- RULE-SET,youtube-ads,REJECT
-- RULE-SET,general-ads,REJECT
 - MATCH,PROXY
-rule-providers:
-  youtube-ads:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./rule_provider/youtube-ads.yaml
-    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/youtube-ads.yaml
-    interval: 86400
-  goodbyeads-youtube:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./rule_provider/goodbyeads-youtube.yaml
-    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/goodbyeads-youtube.yaml
-    interval: 86400
-  general-ads:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./rule_provider/general-ads.yaml
-    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/general-ads.yaml
-    interval: 86400
-  malware-adware:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./rule_provider/malware-adware.yaml
-    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/malware-adware.yaml
-    interval: 86400
-  android-ads:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./rule_provider/android-ads.yaml
-    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/android-ads.yaml
-    interval: 86400
-  indonesia-ads:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./rule_provider/indonesia-ads.yaml
-    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/indonesia-ads.yaml
-    interval: 86400
