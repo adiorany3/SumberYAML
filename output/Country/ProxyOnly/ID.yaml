@@ -1,16 +1,60 @@
 proxies:
-  - name: "appsooner 6560"
+  - name: "ProxyVPN11 5290"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 1a5b24bc-6180-4fa7-922d-ba7ee8a7a2b7
+    uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "support.zoom.us.cyylr.eu.cc"
+    servername: "edu.ruangguru.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "edu.ruangguru.com.cyylr.eu.cc"
+    udp: true
+  - name: "Arvand_soul Arvand_soul 3274"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
     ws-opts:
       path: "/id-pusat"
       headers:
-        Host: "support.zoom.us.cyylr.eu.cc"
+        Host: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+    udp: true
+  - name: "70376 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 8df10d83-3963-446d-a4e3-8bc043bda561
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "space.byu.id.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-pdr"
+      headers:
+        Host: "space.byu.id.cyylr.eu.cc"
+    udp: true
+  - name: "Config0plus 8839"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "unnes.ac.id.cyylr.eu.cc"
     udp: true

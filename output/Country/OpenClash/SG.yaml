@@ -34,18 +34,63 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "meliproxyy 4014"
+  - name: "Arvand_soul Arvand_soul 4536"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 1ed1436c-a3fd-449d-9f08-801f8b4d98ba
+    uuid: 5dbfed06-dd62-48c0-8e39-b4835defcdb0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "investors.spotify.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "investors.spotify.com.cyylr.eu.cc"
+    udp: true
+  - name: "filembad"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-7777-4777-8777-777777777777
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
     servername: "support.zoom.us.cyylr.eu.cc"
     ws-opts:
-      path: "/sg-orcl"
+      path: "/sg-melbi"
+      headers:
+        Host: "support.zoom.us.cyylr.eu.cc"
+    udp: true
+  - name: "meliproxyy 3102"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a9cd18d2-dbf3-462b-9380-920a08fbc16b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-do"
+      headers:
+        Host: "support.zoom.us.cyylr.eu.cc"
+    udp: true
+  - name: "meliproxyy 8435"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ca6d9308-b3a2-4f1b-b43c-185a59a55f71
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
       headers:
         Host: "support.zoom.us.cyylr.eu.cc"
     udp: true
