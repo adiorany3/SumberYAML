@@ -43,37 +43,7 @@ dns:
   - +.pool.ntp.org
   - +.ntp.org
 proxies:
-- name: Arvand_soul Arvand_soul 3274
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: 70376 - Telegram V2All
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 8df10d83-3963-446d-a4e3-8bc043bda561
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: space.byu.id.cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: space.byu.id.cyylr.eu.cc
-  udp: true
-- name: Config0plus 8839
+- name: Config0plus 6948
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -87,7 +57,7 @@ proxies:
     headers:
       Host: unnes.ac.id.cyylr.eu.cc
   udp: true
-- name: ProxyVPN11 5290
+- name: ProxyVPN11 9267
   server: 104.17.3.81
   port: 443
   type: vless
@@ -164,37 +134,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: ID-01 Arvand_soul Arvand_soul 3274
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: ID-02 70376 - Telegram V2All
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 8df10d83-3963-446d-a4e3-8bc043bda561
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: space.byu.id.cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: space.byu.id.cyylr.eu.cc
-  udp: true
-- name: ID-03 Config0plus 8839
+- name: ID-01 Config0plus 6948
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -208,7 +148,7 @@ proxies:
     headers:
       Host: unnes.ac.id.cyylr.eu.cc
   udp: true
-- name: ID-04 ProxyVPN11 5290
+- name: ID-02 ProxyVPN11 9267
   server: 104.17.3.81
   port: 443
   type: vless
@@ -223,7 +163,7 @@ proxies:
     headers:
       Host: edu.ruangguru.com.cyylr.eu.cc
   udp: true
-- name: ID-05 LINK 10.lowh.net
+- name: ID-03 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -239,7 +179,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: ID-06 LINK bel432 xl
+- name: ID-04 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -255,7 +195,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: ID-07 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: ID-05 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -269,7 +209,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: ID-08 LINK VMess-WS-TLS-443-akuku8
+- name: ID-06 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -285,20 +225,19 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: STREAM-01 Arvand_soul Arvand_soul 3274
+- name: STREAM-01 Config0plus 6948
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
+  type: trojan
+  password: Config0plus
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  sni: unnes.ac.id.cyylr.eu.cc
   ws-opts:
-    path: /id-pusat
+    path: /sg-melbi
     headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+      Host: unnes.ac.id.cyylr.eu.cc
   udp: true
 - name: STREAM-02 LINK 10.lowh.net
   type: vmess
@@ -362,20 +301,19 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GAME-01 70376 - Telegram V2All
+- name: GAME-01 Config0plus 6948
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 8df10d83-3963-446d-a4e3-8bc043bda561
-  cipher: none
+  type: trojan
+  password: Config0plus
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: space.byu.id.cyylr.eu.cc
+  sni: unnes.ac.id.cyylr.eu.cc
   ws-opts:
-    path: /in-pdr
+    path: /sg-melbi
     headers:
-      Host: space.byu.id.cyylr.eu.cc
+      Host: unnes.ac.id.cyylr.eu.cc
   udp: true
 - name: GAME-02 LINK 10.lowh.net
   type: vmess
@@ -439,37 +377,7 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: SOCIAL-01 Arvand_soul Arvand_soul 3274
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-02 70376 - Telegram V2All
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 8df10d83-3963-446d-a4e3-8bc043bda561
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: space.byu.id.cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: space.byu.id.cyylr.eu.cc
-  udp: true
-- name: SOCIAL-03 Config0plus 8839
+- name: SOCIAL-01 Config0plus 6948
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -483,7 +391,7 @@ proxies:
     headers:
       Host: unnes.ac.id.cyylr.eu.cc
   udp: true
-- name: SOCIAL-04 LINK 10.lowh.net
+- name: SOCIAL-02 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -499,7 +407,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: SOCIAL-05 LINK bel432 xl
+- name: SOCIAL-03 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -515,7 +423,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: SOCIAL-06 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: SOCIAL-04 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -529,7 +437,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: SOCIAL-07 LINK VMess-WS-TLS-443-akuku8
+- name: SOCIAL-05 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -545,20 +453,19 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: WORK-01 Arvand_soul Arvand_soul 3274
+- name: WORK-01 Config0plus 6948
   server: 104.17.3.81
   port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
+  type: trojan
+  password: Config0plus
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  sni: unnes.ac.id.cyylr.eu.cc
   ws-opts:
-    path: /id-pusat
+    path: /sg-melbi
     headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+      Host: unnes.ac.id.cyylr.eu.cc
   udp: true
 - name: WORK-02 LINK 10.lowh.net
   type: vmess
@@ -622,37 +529,7 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GEN-01 Arvand_soul Arvand_soul 3274
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
-  udp: true
-- name: GEN-02 70376 - Telegram V2All
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 8df10d83-3963-446d-a4e3-8bc043bda561
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: space.byu.id.cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: space.byu.id.cyylr.eu.cc
-  udp: true
-- name: GEN-03 Config0plus 8839
+- name: GEN-01 Config0plus 6948
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -666,7 +543,7 @@ proxies:
     headers:
       Host: unnes.ac.id.cyylr.eu.cc
   udp: true
-- name: GEN-04 ProxyVPN11 5290
+- name: GEN-02 ProxyVPN11 9267
   server: 104.17.3.81
   port: 443
   type: vless
@@ -681,7 +558,7 @@ proxies:
     headers:
       Host: edu.ruangguru.com.cyylr.eu.cc
   udp: true
-- name: GEN-05 LINK 10.lowh.net
+- name: GEN-03 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -697,7 +574,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: GEN-06 LINK bel432 xl
+- name: GEN-04 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -713,7 +590,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: GEN-07 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: GEN-05 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -727,7 +604,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: GEN-08 LINK VMess-WS-TLS-443-akuku8
+- name: GEN-06 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -747,16 +624,16 @@ proxy-groups:
 - name: INDONESIA-BEST
   type: url-test
   proxies:
-  - Arvand_soul Arvand_soul 3274
-  - ProxyVPN11 5290
-  - 70376 - Telegram V2All
-  - Config0plus 8839
+  - Config0plus 6948
+  - ProxyVPN11 9267
   - GAME-03 LINK bel432 xl
-  - GEN-06 LINK bel432 xl
-  - ID-01 Arvand_soul Arvand_soul 3274
-  - ID-02 70376 - Telegram V2All
-  - ID-03 Config0plus 8839
-  - ID-04 ProxyVPN11 5290
+  - GEN-04 LINK bel432 xl
+  - ID-01 Config0plus 6948
+  - ID-02 ProxyVPN11 9267
+  - ID-03 LINK 10.lowh.net
+  - ID-04 LINK bel432 xl
+  - ID-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-06 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -768,10 +645,8 @@ proxy-groups:
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
-  - Arvand_soul Arvand_soul 3274
-  - 70376 - Telegram V2All
-  - Config0plus 8839
-  - ProxyVPN11 5290
+  - Config0plus 6948
+  - ProxyVPN11 9267
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -785,10 +660,8 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - Arvand_soul Arvand_soul 3274
-  - 70376 - Telegram V2All
-  - Config0plus 8839
-  - ProxyVPN11 5290
+  - Config0plus 6948
+  - ProxyVPN11 9267
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -801,7 +674,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - 70376 - Telegram V2All
+  - Config0plus 6948
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -814,7 +687,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - Arvand_soul Arvand_soul 3274
+  - Config0plus 6948
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -827,7 +700,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - Arvand_soul Arvand_soul 3274
+  - Config0plus 6948
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -840,7 +713,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - Arvand_soul Arvand_soul 3274
+  - Config0plus 6948
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -853,7 +726,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - Arvand_soul Arvand_soul 3274
+  - Config0plus 6948
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -864,10 +737,8 @@ proxy-groups:
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - Arvand_soul Arvand_soul 3274
-  - 70376 - Telegram V2All
-  - Config0plus 8839
-  - ProxyVPN11 5290
+  - Config0plus 6948
+  - ProxyVPN11 9267
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -881,10 +752,8 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - Arvand_soul Arvand_soul 3274
-  - 70376 - Telegram V2All
-  - Config0plus 8839
-  - ProxyVPN11 5290
+  - Config0plus 6948
+  - ProxyVPN11 9267
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -923,10 +792,8 @@ proxy-groups:
 - name: BEST-STABLE
   type: url-test
   proxies:
-  - Arvand_soul Arvand_soul 3274
-  - 70376 - Telegram V2All
-  - Config0plus 8839
-  - ProxyVPN11 5290
+  - Config0plus 6948
+  - ProxyVPN11 9267
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -958,7 +825,7 @@ proxy-groups:
 - name: STREAMING-BEST
   type: url-test
   proxies:
-  - STREAM-01 Arvand_soul Arvand_soul 3274
+  - STREAM-01 Config0plus 6948
   - STREAM-02 LINK 10.lowh.net
   - STREAM-03 LINK bel432 xl
   - STREAM-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -974,7 +841,7 @@ proxy-groups:
 - name: GAMING-BEST
   type: url-test
   proxies:
-  - GAME-01 70376 - Telegram V2All
+  - GAME-01 Config0plus 6948
   - GAME-02 LINK 10.lowh.net
   - GAME-03 LINK bel432 xl
   - GAME-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -990,13 +857,11 @@ proxy-groups:
 - name: SOCIAL-BEST
   type: url-test
   proxies:
-  - SOCIAL-01 Arvand_soul Arvand_soul 3274
-  - SOCIAL-02 70376 - Telegram V2All
-  - SOCIAL-03 Config0plus 8839
-  - SOCIAL-04 LINK 10.lowh.net
-  - SOCIAL-05 LINK bel432 xl
-  - SOCIAL-06 LINK VLESS-WS-TLS-443-apt50atpprem
-  - SOCIAL-07 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-01 Config0plus 6948
+  - SOCIAL-02 LINK 10.lowh.net
+  - SOCIAL-03 LINK bel432 xl
+  - SOCIAL-04 LINK VLESS-WS-TLS-443-apt50atpprem
+  - SOCIAL-05 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -1008,7 +873,7 @@ proxy-groups:
 - name: WORKING-BEST
   type: url-test
   proxies:
-  - WORK-01 Arvand_soul Arvand_soul 3274
+  - WORK-01 Config0plus 6948
   - WORK-02 LINK 10.lowh.net
   - WORK-03 LINK bel432 xl
   - WORK-04 LINK VLESS-WS-TLS-443-apt50atpprem
@@ -1024,14 +889,12 @@ proxy-groups:
 - name: GENERAL-BEST
   type: url-test
   proxies:
-  - GEN-01 Arvand_soul Arvand_soul 3274
-  - GEN-02 70376 - Telegram V2All
-  - GEN-03 Config0plus 8839
-  - GEN-04 ProxyVPN11 5290
-  - GEN-05 LINK 10.lowh.net
-  - GEN-06 LINK bel432 xl
-  - GEN-07 LINK VLESS-WS-TLS-443-apt50atpprem
-  - GEN-08 LINK VMess-WS-TLS-443-akuku8
+  - GEN-01 Config0plus 6948
+  - GEN-02 ProxyVPN11 9267
+  - GEN-03 LINK 10.lowh.net
+  - GEN-04 LINK bel432 xl
+  - GEN-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GEN-06 LINK VMess-WS-TLS-443-akuku8
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net

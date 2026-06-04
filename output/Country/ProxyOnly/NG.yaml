@@ -1,4 +1,19 @@
 proxies:
+  - name: "v2ray1_ng US 1418"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ace095c0-debd-46fd-903f-d29b9c8b4101
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "collection.linefriends.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "collection.linefriends.com.cyylr.eu.cc"
+    udp: true
   - name: "config_NG"
     server: "104.17.3.81"
     port: 443

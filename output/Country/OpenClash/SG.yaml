@@ -34,7 +34,37 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "Arvand_soul Arvand_soul 4536"
+  - name: "Arvand_soul 4"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0e9dd08d-e341-4c5d-b116-923842f5a9f9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "web.whatsapp.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "web.whatsapp.com.cyylr.eu.cc"
+    udp: true
+  - name: "meliproxyy"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1ed1436c-a3fd-449d-9f08-801f8b4d98ba
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-orcl"
+      headers:
+        Host: "support.zoom.us.cyylr.eu.cc"
+    udp: true
+  - name: "Arvand_soul Arvand_soul"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,22 +79,7 @@ proxies:
       headers:
         Host: "investors.spotify.com.cyylr.eu.cc"
     udp: true
-  - name: "filembad"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 77777777-7777-4777-8777-777777777777
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "support.zoom.us.cyylr.eu.cc"
-    ws-opts:
-      path: "/sg-melbi"
-      headers:
-        Host: "support.zoom.us.cyylr.eu.cc"
-    udp: true
-  - name: "meliproxyy 3102"
+  - name: "meliproxyy 9171"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -79,7 +94,7 @@ proxies:
       headers:
         Host: "support.zoom.us.cyylr.eu.cc"
     udp: true
-  - name: "meliproxyy 8435"
+  - name: "meliproxyy 6443"
     server: "104.17.3.81"
     port: 443
     type: vless
