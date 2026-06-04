@@ -34,20 +34,50 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2reya88 confinghub2 4596"
+  - name: "hi_proxy_iran"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: c39c8197-0861-4c3d-b404-9d52df00349b
+    uuid: e2350ba4-16aa-455e-ae8b-f65102227cf4
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "spider.moji.lat"
+    servername: "cloudflare.vhub.pro"
     ws-opts:
-      path: "/"
+      path: "/sequre/ws"
       headers:
-        Host: "spider.moji.lat"
+        Host: "cloudflare.vhub.pro"
+    udp: true
+  - name: "VPsave 3091"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "Arvand_soul 1199"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss4.com"
+    ws-opts:
+      path: "/tsghdws?brand=@Arvand_soul"
+      headers:
+        Host: "octopusss4.com"
     udp: true
   - name: "MoOon_proxy"
     server: "104.17.3.81"
@@ -64,37 +94,21 @@ proxies:
       headers:
         Host: "de1.nagona.top"
     udp: true
-  - name: "VPsave 7846"
+  - name: "V2rayAlpha 2"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-    cipher: none
+    type: trojan
+    password: "mitivpn"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "hhlfy.twiladaphne.ndjp.net"
+    sni: "www.mitivpn.in.net"
     ws-opts:
-      path: "/fp"
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production"
       headers:
-        Host: "hhlfy.twiladaphne.ndjp.net"
+        Host: "www.mitivpn.in.net"
     udp: true
-  - name: "Arvand_soul 6118"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "octopusss4.com"
-    ws-opts:
-      path: "/tsghdws?brand=@Arvand_soul"
-      headers:
-        Host: "octopusss4.com"
-    udp: true
-  - name: "70 oneclickvpnkeys"
+  - name: "Arvand_soul 5740"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -102,11 +116,25 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.calmlunch.com"
+    sni: "www.calmloud.com"
     ws-opts:
-      path: "/assignment"
+      path: "/assignment?brand=@Arvand_soul"
       headers:
-        Host: "www.calmlunch.com"
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "GozargahAzad 4506"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "2t5hATPZBk"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dd.aananas.ir."
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dd.aananas.ir."
     udp: true
 
 proxy-groups:

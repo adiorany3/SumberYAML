@@ -1,15 +1,16 @@
 proxies:
-  - name: "oneclickvpnkeys FR 6011"
+  - name: "oneclickvpnkeys FR 3363"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "humanity"
+    type: vless
+    uuid: e277ac9b-3225-4381-a9fb-3585419f7142
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.ignitelimit.com"
+    servername: "35cdnws.frnstatic.info"
     ws-opts:
-      path: "/assignment"
+      path: "/35cdnws"
       headers:
-        Host: "www.ignitelimit.com"
+        Host: "35cdnws.frnstatic.info"
     udp: true
