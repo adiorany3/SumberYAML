@@ -20,11 +20,11 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "auto_route": true,
-      "strict_route": true,
       "address": [
         "172.19.0.1/30"
-      ]
+      ],
+      "auto_route": true,
+      "strict_route": true
     },
     {
       "type": "mixed",
@@ -38,8 +38,8 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "ProxyVPN11 4728",
-        "Config0plus 8606",
+        "ProxyVPN11 4890",
+        "Config0plus 9497",
         "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -60,53 +60,11 @@
       "interrupt_exist_connections": false
     },
     {
-      "type": "direct",
-      "tag": "DIRECT"
-    },
-    {
-      "tag": "ProxyVPN11 4728",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "type": "vless",
-      "uuid": "4b3a429f-e110-48e0-9b8a-10debbe2aefc",
-      "tls": {
-        "enabled": true,
-        "server_name": "edu.ruangguru.com.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-tksi",
-        "headers": {
-          "Host": "edu.ruangguru.com.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "tag": "Config0plus 8606",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "type": "trojan",
-      "password": "Config0plus",
-      "tls": {
-        "enabled": true,
-        "server_name": "unnes.ac.id.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi",
-        "headers": {
-          "Host": "unnes.ac.id.cyylr.eu.cc"
-        }
-      }
-    },
-    {
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "ProxyVPN11 4728",
-        "Config0plus 8606",
+        "ProxyVPN11 4890",
+        "Config0plus 9497",
         "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -123,21 +81,22 @@
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 50,
+      "idle_timeout": "2h",
       "interrupt_exist_connections": false
     },
     {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "AUTO-BEST-PING",
         "LINK (ID)+PUSATMEDIA",
+        "AUTO-BEST-PING",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT",
-        "ProxyVPN11 4728",
-        "Config0plus 8606",
+        "ProxyVPN11 4890",
+        "Config0plus 9497",
         "AUTO-BEST-STABLE",
         "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
@@ -152,11 +111,48 @@
     },
     {
       "type": "vless",
+      "tag": "ProxyVPN11 4890",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "4b3a429f-e110-48e0-9b8a-10debbe2aefc",
+      "tls": {
+        "enabled": true,
+        "server_name": "edu.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "edu.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Config0plus 9497",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "Config0plus",
+      "tls": {
+        "enabled": true,
+        "server_name": "unnes.ac.id.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "unnes.ac.id.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
       "tag": "LINK (ID)+PUSATMEDIA",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "cb97db68-1ad9-441b-8e90-bf9d8a7f3fec",
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "unnes.ac.id.ex33r.eu.cc"
@@ -177,7 +173,6 @@
       "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
       "security": "auto",
       "alter_id": 0,
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "belnet.jsvpn.site"
@@ -198,7 +193,6 @@
       "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
       "security": "auto",
       "alter_id": 0,
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "fbcdn.sbs"
@@ -219,7 +213,6 @@
       "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
       "security": "auto",
       "alter_id": 0,
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "10.lowh.net"
@@ -238,7 +231,6 @@
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
-      "network": "tcp",
       "tls": {
         "enabled": true,
         "server_name": "akamaized.my",
@@ -251,6 +243,10 @@
           "Host": "akamaized.my"
         }
       }
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
     },
     {
       "type": "vless",
@@ -391,14 +387,8 @@
     }
   ],
   "route": {
+    "auto_detect_interface": true,
     "rules": [
-      {
-        "action": "sniff"
-      },
-      {
-        "protocol": "dns",
-        "action": "hijack-dns"
-      },
       {
         "ip_cidr": [
           "10.0.0.0/8",
@@ -411,11 +401,9 @@
           "fc00::/7",
           "fe80::/10"
         ],
-        "action": "route",
         "outbound": "DIRECT"
       }
     ],
-    "final": "PROXY",
-    "auto_detect_interface": true
+    "final": "PROXY"
   }
 }

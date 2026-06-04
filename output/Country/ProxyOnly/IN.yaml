@@ -1,16 +1,29 @@
 proxies:
-  - name: "hi_proxy_iran 9450"
+  - name: "Arvand_soul 8"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 559ab675-567f-4d61-a742-877bfd51d87c
-    cipher: none
+    type: trojan
+    password: "A_amr79"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "zaintest.vuclip.com.cyylr.eu.cc"
+    sni: "cyylr.eu.cc"
     ws-opts:
-      path: "/in-do"
+      path: "/in-pdr"
       headers:
-        Host: "zaintest.vuclip.com.cyylr.eu.cc"
+        Host: "cyylr.eu.cc"
+    udp: true
+  - name: "V2ray_official 3284"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "investors.spotify.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-pdr"
+      headers:
+        Host: "investors.spotify.com.cyylr.eu.cc"
     udp: true

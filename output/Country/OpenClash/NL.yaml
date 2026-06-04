@@ -34,35 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "NL proxy_kafee"
+  - name: "v2line NL"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 9232a847-8f7d-4548-a23a-a8b3550e0f15
-    cipher: none
+    type: trojan
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "grabacademyportal.grab.com.cyylr.eu.cc"
+    sni: "www.gossipglove.com"
     ws-opts:
-      path: "/id-tksi"
+      path: "/assignment"
       headers:
-        Host: "grabacademyportal.grab.com.cyylr.eu.cc"
-    udp: true
-  - name: "oneclickvpnkeys NL"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e277ac9b-3225-4381-a9fb-3585419f7142
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "37cdnws.iamali.info"
-    ws-opts:
-      path: "/37cdnws"
-      headers:
-        Host: "37cdnws.iamali.info"
+        Host: "www.gossipglove.com"
     udp: true
 
 proxy-groups:

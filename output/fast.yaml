@@ -6,7 +6,7 @@ tproxy-port: 7895
 allow-lan: true
 bind-address: '*'
 mode: rule
-log-level: info
+log-level: warning
 ipv6: false
 unified-delay: true
 tcp-concurrent: true
@@ -23,12 +23,27 @@ dns:
   listen: 0.0.0.0:7874
   nameserver:
   - 1.1.1.1
-  - 8.8.8.8
   fallback:
-  - 1.0.0.1
-  - 8.8.4.4
+  - 8.8.8.8
+  default-nameserver:
+  - 1.1.1.1
+  - 8.8.8.8
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - localhost.ptlogin2.qq.com
+  - +.msftconnecttest.com
+  - +.msftncsi.com
+  - time.*.com
+  - time.*.gov
+  - time.*.edu.cn
+  - time.*.apple.com
+  - time-ios.apple.com
+  - +.pool.ntp.org
+  - +.ntp.org
 proxies:
-- name: ProxyVPN11 4728
+- name: ProxyVPN11 4890
   server: 104.17.3.81
   port: 443
   type: vless
@@ -43,7 +58,7 @@ proxies:
     headers:
       Host: edu.ruangguru.com.cyylr.eu.cc
   udp: true
-- name: Config0plus 8606
+- name: Config0plus 9497
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -133,20 +148,608 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
+- name: ID-01 ProxyVPN11 4890
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: edu.ruangguru.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: edu.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: ID-02 Config0plus 9497
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: Config0plus
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: unnes.ac.id.cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: unnes.ac.id.cyylr.eu.cc
+  udp: true
+- name: ID-03 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: ID-04 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: ID-05 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: ID-06 LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: ID-07 LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: STREAM-01 ProxyVPN11 4890
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: edu.ruangguru.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: edu.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: STREAM-02 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: STREAM-03 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: STREAM-04 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: STREAM-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: STREAM-06 LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: GAME-01 ProxyVPN11 4890
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: edu.ruangguru.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: edu.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: GAME-02 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: GAME-03 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: GAME-04 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: GAME-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: GAME-06 LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: SOCIAL-01 ProxyVPN11 4890
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: edu.ruangguru.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: edu.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: SOCIAL-02 Config0plus 9497
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: Config0plus
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: unnes.ac.id.cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: unnes.ac.id.cyylr.eu.cc
+  udp: true
+- name: SOCIAL-03 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: SOCIAL-04 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: SOCIAL-05 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: SOCIAL-06 LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: SOCIAL-07 LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: WORK-01 ProxyVPN11 4890
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: edu.ruangguru.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: edu.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: WORK-02 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: WORK-03 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: WORK-04 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: WORK-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: WORK-06 LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: GEN-01 ProxyVPN11 4890
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 4b3a429f-e110-48e0-9b8a-10debbe2aefc
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: edu.ruangguru.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: edu.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: GEN-02 Config0plus 9497
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: Config0plus
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: unnes.ac.id.cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: unnes.ac.id.cyylr.eu.cc
+  udp: true
+- name: GEN-03 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: GEN-04 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: GEN-05 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: GEN-06 LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: GEN-07 LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
 proxy-groups:
-- name: fallback-link
-  type: fallback
-  proxies:
-  - LINK (ID)+PUSATMEDIA
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-- name: best-link
+- name: INDONESIA-BEST
   type: url-test
   proxies:
+  - ProxyVPN11 4890
+  - Config0plus 9497
+  - GAME-04 LINK bel432 xl
+  - GEN-05 LINK bel432 xl
+  - ID-01 ProxyVPN11 4890
+  - ID-02 Config0plus 9497
+  - ID-03 LINK (ID)+PUSATMEDIA
+  - ID-04 LINK 10.lowh.net
+  - ID-05 LINK bel432 xl
+  - ID-06 LINK VLESS-WS-TLS-443-apt50atpprem
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -155,11 +758,12 @@ proxy-groups:
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
+  lazy: true
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
-  - ProxyVPN11 4728
-  - Config0plus 8606
+  - ProxyVPN11 4890
+  - Config0plus 9497
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -174,8 +778,8 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - ProxyVPN11 4728
-  - Config0plus 8606
+  - ProxyVPN11 4890
+  - Config0plus 9497
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -189,6 +793,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - ProxyVPN11 4890
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -196,12 +801,13 @@ proxy-groups:
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: false
+  lazy: true
 - name: SOCIAL MEDIA STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
+  - ProxyVPN11 4890
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -209,12 +815,13 @@ proxy-groups:
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: false
+  lazy: true
 - name: STREAMING STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
+  - ProxyVPN11 4890
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -222,12 +829,13 @@ proxy-groups:
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: false
+  lazy: true
 - name: WORKING STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
+  - ProxyVPN11 4890
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -235,12 +843,13 @@ proxy-groups:
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: false
+  lazy: true
 - name: GENERAL STABIL
   type: fallback
   proxies:
   - fallback-link
   - best-link
+  - ProxyVPN11 4890
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -248,12 +857,12 @@ proxy-groups:
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 300
-  lazy: false
+  lazy: true
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - ProxyVPN11 4728
-  - Config0plus 8606
+  - ProxyVPN11 4890
+  - Config0plus 9497
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -268,8 +877,8 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - ProxyVPN11 4728
-  - Config0plus 8606
+  - ProxyVPN11 4890
+  - Config0plus 9497
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -281,8 +890,18 @@ proxy-groups:
 - name: PROXY
   type: select
   proxies:
+  - INDONESIA-BEST
+  - ANTI-BENGONG
+  - STREAMING-BEST
+  - GAMING-BEST
+  - SOCIAL-BEST
+  - WORKING-BEST
+  - GENERAL-BEST
   - fallback-link
   - best-link
+  - DIRECT
+  - BEST-STABLE
+  - FALLBACK
   - URL-TEST TOP 10 INDONESIA
   - FALLBACK CEPAT
   - GAMING STABIL
@@ -291,13 +910,271 @@ proxy-groups:
   - WORKING STABIL
   - GENERAL STABIL
   - URL-TEST GABUNGAN
-  - FALLBACK
-  - DIRECT
   - REJECT
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+- name: BEST-STABLE
+  type: url-test
+  proxies:
+  - ProxyVPN11 4890
+  - Config0plus 9497
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: best-link
+  type: url-test
+  proxies:
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: fallback-link
+  type: fallback
+  proxies:
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+- name: STREAMING-BEST
+  type: url-test
+  proxies:
+  - STREAM-01 ProxyVPN11 4890
+  - STREAM-02 LINK (ID)+PUSATMEDIA
+  - STREAM-03 LINK 10.lowh.net
+  - STREAM-04 LINK bel432 xl
+  - STREAM-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-06 LINK VMess-WS-TLS-443-akuku8
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: GAMING-BEST
+  type: url-test
+  proxies:
+  - GAME-01 ProxyVPN11 4890
+  - GAME-02 LINK (ID)+PUSATMEDIA
+  - GAME-03 LINK 10.lowh.net
+  - GAME-04 LINK bel432 xl
+  - GAME-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-06 LINK VMess-WS-TLS-443-akuku8
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: SOCIAL-BEST
+  type: url-test
+  proxies:
+  - SOCIAL-01 ProxyVPN11 4890
+  - SOCIAL-02 Config0plus 9497
+  - SOCIAL-03 LINK (ID)+PUSATMEDIA
+  - SOCIAL-04 LINK 10.lowh.net
+  - SOCIAL-05 LINK bel432 xl
+  - SOCIAL-06 LINK VLESS-WS-TLS-443-apt50atpprem
+  - SOCIAL-07 LINK VMess-WS-TLS-443-akuku8
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: WORKING-BEST
+  type: url-test
+  proxies:
+  - WORK-01 ProxyVPN11 4890
+  - WORK-02 LINK (ID)+PUSATMEDIA
+  - WORK-03 LINK 10.lowh.net
+  - WORK-04 LINK bel432 xl
+  - WORK-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-06 LINK VMess-WS-TLS-443-akuku8
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: GENERAL-BEST
+  type: url-test
+  proxies:
+  - GEN-01 ProxyVPN11 4890
+  - GEN-02 Config0plus 9497
+  - GEN-03 LINK (ID)+PUSATMEDIA
+  - GEN-04 LINK 10.lowh.net
+  - GEN-05 LINK bel432 xl
+  - GEN-06 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GEN-07 LINK VMess-WS-TLS-443-akuku8
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
+  tolerance: 80
+- name: ANTI-BENGONG
+  type: fallback
+  proxies:
+  - INDONESIA-BEST
+  - GENERAL-BEST
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  lazy: true
 rules:
+- DOMAIN-SUFFIX,local,DIRECT
+- DOMAIN-SUFFIX,lan,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+- IP-CIDR,255.255.255.255/32,DIRECT,no-resolve
+- RULE-SET,malware-adware,REJECT
+- RULE-SET,android-ads,REJECT
+- RULE-SET,indonesia-ads,REJECT
+- RULE-SET,goodbyeads-youtube,REJECT
+- DOMAIN-SUFFIX,shopee.co.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,youtube.com,STREAMING-BEST
+- DOMAIN-SUFFIX,googlevideo.com,STREAMING-BEST
+- DOMAIN-SUFFIX,ytimg.com,STREAMING-BEST
+- DOMAIN-SUFFIX,netflix.com,STREAMING-BEST
+- DOMAIN-SUFFIX,nflxvideo.net,STREAMING-BEST
+- DOMAIN-SUFFIX,disneyplus.com,STREAMING-BEST
+- DOMAIN-SUFFIX,hotstar.com,STREAMING-BEST
+- DOMAIN-SUFFIX,spotify.com,STREAMING-BEST
+- DOMAIN-SUFFIX,scdn.co,STREAMING-BEST
+- DOMAIN-SUFFIX,steamcontent.com,GAMING-BEST
+- DOMAIN-SUFFIX,steampowered.com,GAMING-BEST
+- DOMAIN-SUFFIX,steamstatic.com,GAMING-BEST
+- DOMAIN-SUFFIX,epicgames.com,GAMING-BEST
+- DOMAIN-SUFFIX,riotgames.com,GAMING-BEST
+- DOMAIN-SUFFIX,garena.com,GAMING-BEST
+- DOMAIN-SUFFIX,pubgmobile.com,GAMING-BEST
+- DOMAIN-SUFFIX,mihoyo.com,GAMING-BEST
+- DOMAIN-SUFFIX,hoyoverse.com,GAMING-BEST
+- DOMAIN-SUFFIX,playstation.net,GAMING-BEST
+- DOMAIN-SUFFIX,xboxlive.com,GAMING-BEST
+- DOMAIN-SUFFIX,facebook.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,fbcdn.net,SOCIAL-BEST
+- DOMAIN-SUFFIX,instagram.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,whatsapp.net,SOCIAL-BEST
+- DOMAIN-SUFFIX,tiktok.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,tiktokcdn.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,twitter.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,x.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,telegram.org,SOCIAL-BEST
+- DOMAIN-SUFFIX,t.me,SOCIAL-BEST
+- DOMAIN-SUFFIX,github.com,WORKING-BEST
+- DOMAIN-SUFFIX,githubusercontent.com,WORKING-BEST
+- DOMAIN-SUFFIX,gitlab.com,WORKING-BEST
+- DOMAIN-SUFFIX,google.com,WORKING-BEST
+- DOMAIN-SUFFIX,gstatic.com,WORKING-BEST
+- DOMAIN-SUFFIX,microsoft.com,WORKING-BEST
+- DOMAIN-SUFFIX,office.com,WORKING-BEST
+- DOMAIN-SUFFIX,office365.com,WORKING-BEST
+- DOMAIN-SUFFIX,zoom.us,WORKING-BEST
+- DOMAIN-SUFFIX,slack.com,WORKING-BEST
+- DOMAIN-SUFFIX,cloudflare.com,WORKING-BEST
+- DOMAIN-SUFFIX,id,INDONESIA-BEST
+- DOMAIN-SUFFIX,go.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,ac.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,co.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,or.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,my.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,web.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,detik.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,kompas.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,tribunnews.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,tokopedia.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,bukalapak.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,gojek.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,grab.com,INDONESIA-BEST
+- GEOIP,ID,INDONESIA-BEST,no-resolve
+- RULE-SET,youtube-ads,REJECT
+- RULE-SET,general-ads,REJECT
 - MATCH,PROXY
+rule-providers:
+  youtube-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/youtube-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/youtube-ads.yaml
+    interval: 86400
+  goodbyeads-youtube:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/goodbyeads-youtube.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/goodbyeads-youtube.yaml
+    interval: 86400
+  general-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/general-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/general-ads.yaml
+    interval: 86400
+  malware-adware:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/malware-adware.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/malware-adware.yaml
+    interval: 86400
+  android-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/android-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/android-ads.yaml
+    interval: 86400
+  indonesia-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/indonesia-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/indonesia-ads.yaml
+    interval: 86400

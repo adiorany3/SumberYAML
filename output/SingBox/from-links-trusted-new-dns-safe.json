@@ -38,30 +38,17 @@
   ],
   "outbounds": [
     {
-      "type": "urltest",
-      "tag": "best-link",
-      "outbounds": [
-        "LINK (ID)+PUSATMEDIA"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
-      "tolerance": 80,
-      "idle_timeout": "2h",
-      "interrupt_exist_connections": false
-    },
-    {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
+        "(ID)+PUSATMEDIA",
         "AUTO-BEST-PING",
-        "best-link",
         "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
         "VLESS-WS-TLS-443-apt50atpprem",
-        "LINK (ID)+PUSATMEDIA",
         "DIRECT"
       ]
     },
@@ -69,17 +56,35 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
+        "(ID)+PUSATMEDIA",
         "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
-        "VLESS-WS-TLS-443-apt50atpprem",
-        "LINK (ID)+PUSATMEDIA"
+        "VLESS-WS-TLS-443-apt50atpprem"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m",
       "tolerance": 50
+    },
+    {
+      "type": "vless",
+      "tag": "(ID)+PUSATMEDIA",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb97db68-1ad9-441b-8e90-bf9d8a7f3fec",
+      "tls": {
+        "enabled": true,
+        "server_name": "unnes.ac.id.ex33r.eu.cc"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-pusat",
+        "headers": {
+          "Host": "unnes.ac.id.ex33r.eu.cc"
+        }
+      }
     },
     {
       "type": "vmess",
@@ -203,25 +208,6 @@
     {
       "type": "direct",
       "tag": "DIRECT"
-    },
-    {
-      "type": "vless",
-      "tag": "LINK (ID)+PUSATMEDIA",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "uuid": "cb97db68-1ad9-441b-8e90-bf9d8a7f3fec",
-      "network": "tcp",
-      "tls": {
-        "enabled": true,
-        "server_name": "unnes.ac.id.ex33r.eu.cc"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/id-pusat",
-        "headers": {
-          "Host": "unnes.ac.id.ex33r.eu.cc"
-        }
-      }
     }
   ],
   "route": {

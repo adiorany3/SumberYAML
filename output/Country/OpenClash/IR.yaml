@@ -34,20 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "Echo_Center 2"
+  - name: "GOLD_VPN_IR"
+    type: vmess
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: e77b4920-6d01-4a4e-b45b-62ca479f2acc
-    cipher: none
+    uuid: 78bb6c0b-a773-40d1-8bc6-55331bd49138
+    alterId: 0
+    cipher: auto
     tls: true
     skip-cert-verify: true
+    servername: "MciNnnnew.dr-ping.ir"
     network: ws
-    servername: "Irancellx2.nscl.ir"
     ws-opts:
-      path: "/dash"
+      path: "/DrPing_channel"
       headers:
-        Host: "Irancellx2.nscl.ir"
+        Host: "MciNnnnew.dr-ping.ir"
     udp: true
 
 proxy-groups:
