@@ -1,15 +1,31 @@
 proxies:
-  - name: "v2ray1_ng FR"
+  - name: "v2ray1_ng US 1760"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "humanity"
+    type: vless
+    uuid: 197f5e5c-fc15-4db6-8444-50248c2c394d
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.calmlunch.com"
+    servername: "somersby.pt.cyylr.eu.cc"
     ws-opts:
-      path: "/assignment"
+      path: "/sg-amz"
       headers:
-        Host: "www.calmlunch.com"
+        Host: "somersby.pt.cyylr.eu.cc"
+    udp: true
+  - name: "config_NG"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 565b50d4-604d-4a60-9fc2-d9d3dac0aec6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "dl.cvs.freefiremobile.com.cyylr.eu.cc"
     udp: true

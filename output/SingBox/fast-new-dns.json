@@ -40,12 +40,14 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
+        "Config0plus 2376",
         "internet_azad_2026",
-        "Config0plus 4094",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -67,12 +69,14 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
+        "Config0plus 2376",
         "internet_azad_2026",
-        "Config0plus 4094",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -85,6 +89,25 @@
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
+    },
+    {
+      "tag": "Config0plus 2376",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "type": "trojan",
+      "password": "Config0plus",
+      "tls": {
+        "enabled": true,
+        "server_name": "unnes.ac.id.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/sg-melbi",
+        "headers": {
+          "Host": "unnes.ac.id.cyylr.eu.cc"
+        }
+      }
     },
     {
       "tag": "internet_azad_2026",
@@ -106,21 +129,21 @@
       }
     },
     {
-      "tag": "Config0plus 4094",
+      "tag": "LINK (ID)+PUSATMEDIA",
       "server": "104.17.3.81",
       "server_port": 443,
-      "type": "trojan",
-      "password": "Config0plus",
+      "type": "vless",
+      "uuid": "cb97db68-1ad9-441b-8e90-bf9d8a7f3fec",
       "tls": {
         "enabled": true,
-        "server_name": "unnes.ac.id.cyylr.eu.cc",
-        "insecure": true
+        "server_name": "unnes.ac.id.ex33r.eu.cc",
+        "insecure": false
       },
       "transport": {
         "type": "ws",
-        "path": "/sg-melbi",
+        "path": "/id-pusat",
         "headers": {
-          "Host": "unnes.ac.id.cyylr.eu.cc"
+          "Host": "unnes.ac.id.ex33r.eu.cc"
         }
       }
     },
@@ -210,6 +233,7 @@
       "type": "urltest",
       "tag": "fallback-link",
       "outbounds": [
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -224,6 +248,7 @@
       "type": "urltest",
       "tag": "best-link",
       "outbounds": [
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -238,8 +263,9 @@
       "type": "urltest",
       "tag": "URL-TEST TOP 10 INDONESIA",
       "outbounds": [
+        "Config0plus 2376",
         "internet_azad_2026",
-        "Config0plus 4094",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -254,8 +280,9 @@
       "type": "urltest",
       "tag": "FALLBACK CEPAT",
       "outbounds": [
+        "Config0plus 2376",
         "internet_azad_2026",
-        "Config0plus 4094",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -270,11 +297,12 @@
       "type": "urltest",
       "tag": "GAMING STABIL",
       "outbounds": [
-        "internet_azad_2026",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -291,11 +319,12 @@
       "type": "urltest",
       "tag": "SOCIAL MEDIA STABIL",
       "outbounds": [
-        "internet_azad_2026",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -312,11 +341,12 @@
       "type": "urltest",
       "tag": "STREAMING STABIL",
       "outbounds": [
-        "internet_azad_2026",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -333,11 +363,12 @@
       "type": "urltest",
       "tag": "WORKING STABIL",
       "outbounds": [
-        "internet_azad_2026",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -354,11 +385,12 @@
       "type": "urltest",
       "tag": "GENERAL STABIL",
       "outbounds": [
-        "internet_azad_2026",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -375,8 +407,9 @@
       "type": "urltest",
       "tag": "URL-TEST GABUNGAN",
       "outbounds": [
+        "Config0plus 2376",
         "internet_azad_2026",
-        "Config0plus 4094",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -391,8 +424,9 @@
       "type": "urltest",
       "tag": "FALLBACK",
       "outbounds": [
+        "Config0plus 2376",
         "internet_azad_2026",
-        "Config0plus 4094",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
@@ -420,13 +454,15 @@
         "URL-TEST GABUNGAN",
         "FALLBACK",
         "DIRECT",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "Config0plus 2376",
         "internet_azad_2026",
-        "Config0plus 4094",
         "AUTO-BEST-STABLE",
+        "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -436,6 +472,24 @@
       ],
       "interrupt_exist_connections": false,
       "default": "AUTO-BEST-STABLE"
+    },
+    {
+      "type": "vless",
+      "tag": "LINK (ID)+PUSATMEDIA 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb97db68-1ad9-441b-8e90-bf9d8a7f3fec",
+      "tls": {
+        "enabled": true,
+        "server_name": "unnes.ac.id.ex33r.eu.cc"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-pusat",
+        "headers": {
+          "Host": "unnes.ac.id.ex33r.eu.cc"
+        }
+      }
     },
     {
       "type": "vmess",

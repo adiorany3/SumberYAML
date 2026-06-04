@@ -28,6 +28,20 @@ dns:
   - 1.0.0.1
   - 8.8.4.4
 proxies:
+- name: Config0plus 2376
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: Config0plus
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: unnes.ac.id.cyylr.eu.cc
+  ws-opts:
+    path: /sg-melbi
+    headers:
+      Host: unnes.ac.id.cyylr.eu.cc
+  udp: true
 - name: internet_azad_2026
   server: 104.17.3.81
   port: 443
@@ -43,20 +57,20 @@ proxies:
     headers:
       Host: unnes.ac.id.cyylr.eu.cc
   udp: true
-- name: Config0plus 4094
+- name: LINK (ID)+PUSATMEDIA
+  type: vless
   server: 104.17.3.81
   port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: unnes.ac.id.cyylr.eu.cc
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
   udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
 - name: LINK bel432 xl
   type: vmess
   server: 104.17.3.81
@@ -123,6 +137,7 @@ proxy-groups:
 - name: fallback-link
   type: fallback
   proxies:
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -132,6 +147,7 @@ proxy-groups:
 - name: best-link
   type: url-test
   proxies:
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -142,8 +158,9 @@ proxy-groups:
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
+  - Config0plus 2376
   - internet_azad_2026
-  - Config0plus 4094
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -157,8 +174,9 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - Config0plus 2376
   - internet_azad_2026
-  - Config0plus 4094
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -171,7 +189,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - internet_azad_2026
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -184,7 +202,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - internet_azad_2026
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -197,7 +215,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - internet_azad_2026
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -210,7 +228,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - internet_azad_2026
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -223,7 +241,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - internet_azad_2026
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -234,8 +252,9 @@ proxy-groups:
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
+  - Config0plus 2376
   - internet_azad_2026
-  - Config0plus 4094
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -249,8 +268,9 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - Config0plus 2376
   - internet_azad_2026
-  - Config0plus 4094
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
@@ -274,6 +294,7 @@ proxy-groups:
   - FALLBACK
   - DIRECT
   - REJECT
+  - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net

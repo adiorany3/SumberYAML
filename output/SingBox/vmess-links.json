@@ -44,6 +44,7 @@
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -69,6 +70,7 @@
         "10.lowh.net",
         "DIRECT",
         "AUTO-BEST-STABLE",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -88,6 +90,7 @@
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -207,6 +210,24 @@
     {
       "type": "direct",
       "tag": "DIRECT"
+    },
+    {
+      "type": "vless",
+      "tag": "LINK (ID)+PUSATMEDIA",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb97db68-1ad9-441b-8e90-bf9d8a7f3fec",
+      "tls": {
+        "enabled": true,
+        "server_name": "unnes.ac.id.ex33r.eu.cc"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-pusat",
+        "headers": {
+          "Host": "unnes.ac.id.ex33r.eu.cc"
+        }
+      }
     },
     {
       "type": "vmess",

@@ -5,6 +5,7 @@
       "tag": "PROXY",
       "outbounds": [
         "AUTO-BEST-STABLE",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -12,6 +13,7 @@
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT",
+        "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 3",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -26,12 +28,14 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK bel432 xl 2",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK bel432 telk",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
+        "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 3",
         "LINK bel432 xl 2 2",
         "LINK VMess-WS-TLS-443-akuku8 2",
@@ -44,6 +48,24 @@
       "tolerance": 80,
       "idle_timeout": "2h",
       "interrupt_exist_connections": false
+    },
+    {
+      "type": "vless",
+      "tag": "LINK (ID)+PUSATMEDIA",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb97db68-1ad9-441b-8e90-bf9d8a7f3fec",
+      "tls": {
+        "enabled": true,
+        "server_name": "unnes.ac.id.ex33r.eu.cc"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-pusat",
+        "headers": {
+          "Host": "unnes.ac.id.ex33r.eu.cc"
+        }
+      }
     },
     {
       "type": "vmess",
@@ -167,6 +189,24 @@
     {
       "type": "direct",
       "tag": "DIRECT"
+    },
+    {
+      "type": "vless",
+      "tag": "LINK (ID)+PUSATMEDIA 2",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb97db68-1ad9-441b-8e90-bf9d8a7f3fec",
+      "tls": {
+        "enabled": true,
+        "server_name": "unnes.ac.id.ex33r.eu.cc"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-pusat",
+        "headers": {
+          "Host": "unnes.ac.id.ex33r.eu.cc"
+        }
+      }
     },
     {
       "type": "vmess",

@@ -1,4 +1,18 @@
 proxies:
+  - name: "Config0plus 2376"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "unnes.ac.id.cyylr.eu.cc"
+    udp: true
   - name: "internet_azad_2026"
     server: "104.17.3.81"
     port: 443
@@ -11,20 +25,6 @@ proxies:
     servername: "unnes.ac.id.cyylr.eu.cc"
     ws-opts:
       path: "/id-tksi"
-      headers:
-        Host: "unnes.ac.id.cyylr.eu.cc"
-    udp: true
-  - name: "Config0plus 4094"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "Config0plus"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "unnes.ac.id.cyylr.eu.cc"
-    ws-opts:
-      path: "/sg-melbi"
       headers:
         Host: "unnes.ac.id.cyylr.eu.cc"
     udp: true

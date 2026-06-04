@@ -34,7 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "TEL Father_vpn 7438"
+  - name: "chillguy_vpn 2856"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6a8f6dc6-2a42-4a03-8047-e39ce6df3ec9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.genflix.co.id.cyylr.eu.cc"
+    ws-opts:
+      path: "/my-wbv"
+      headers:
+        Host: "www.genflix.co.id.cyylr.eu.cc"
+    udp: true
+  - name: "TEL Father_vpn 7277"
     server: "104.17.3.81"
     port: 443
     type: trojan

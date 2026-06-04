@@ -339,6 +339,20 @@ proxies:
     headers:
       Host: grabacademyportal.grab.com.cyylr.eu.cc
   udp: true
+- name: LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
 proxy-groups:
 - name: PROXY
   type: select
@@ -353,6 +367,7 @@ proxy-groups:
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK (ID)+PUSATMEDIA
 - name: ANTI-BENGONG
   type: fallback
   proxies:
@@ -365,6 +380,7 @@ proxy-groups:
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK (ID)+PUSATMEDIA
   url: https://www.gstatic.com/generate_204
   interval: 300
   lazy: true
@@ -385,6 +401,7 @@ proxy-groups:
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK (ID)+PUSATMEDIA
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -399,6 +416,7 @@ proxy-groups:
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - LINK (ID)+PUSATMEDIA
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -416,6 +434,7 @@ proxy-groups:
   - LINK bel432 telk
   - 'LINK 10.lowh.net #2'
   - 'LINK VLESS-WS-TLS-443-apt50atpprem #2'
+  - LINK (ID)+PUSATMEDIA
   url: https://www.gstatic.com/generate_204
   interval: 300
   lazy: true

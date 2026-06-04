@@ -34,50 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2reya88 5775"
+  - name: "v2reya88 8902"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: aa0e6991-6eaa-4bbb-9497-abc04d54de2f
+    uuid: 15a8fadd-3a43-422f-8e63-a87ea7c13221
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "cdn.opensignal.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/sg-melbi"
-      headers:
-        Host: "cdn.opensignal.com.cyylr.eu.cc"
-    udp: true
-  - name: "mhdi"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: d3310d18-c198-4974-a3f1-f9fe7896d4dc
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "zaintest.vuclip.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/ae-bo"
-      headers:
-        Host: "zaintest.vuclip.com.cyylr.eu.cc"
-    udp: true
-  - name: "VPNine1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: afc4be1d-07cc-4a73-a4ad-90c3d333efa0
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "ads.ruangguru.com.cyylr.eu.cc"
+    servername: "blog.webex.com.cyylr.eu.cc"
     ws-opts:
       path: "/id-tksi"
       headers:
-        Host: "ads.ruangguru.com.cyylr.eu.cc"
+        Host: "blog.webex.com.cyylr.eu.cc"
     udp: true
   - name: "70780 - Telegram V2All"
     server: "104.17.3.81"
@@ -93,6 +63,20 @@ proxies:
       path: "/my-wbv"
       headers:
         Host: "zaintest.vuclip.com.cyylr.eu.cc"
+    udp: true
+  - name: "80 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "aa710f78-eddb-45b4-bd32-1f8692a754e5"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "s.blibli.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "s.blibli.com.cyylr.eu.cc"
     udp: true
   - name: "Config0plus"
     server: "104.17.3.81"
