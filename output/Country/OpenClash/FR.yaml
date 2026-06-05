@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys FR 1706"
+  - name: "oneclickvpnkeys FR 9606"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,7 +49,7 @@ proxies:
       headers:
         Host: "35cdnws.frnstatic.info"
     udp: true
-  - name: "oneclickvpnkeys FR 9040"
+  - name: "oneclickvpnkeys FR 6217"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -62,34 +62,6 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.calmloud.com"
-    udp: true
-  - name: "FreakConfig FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.gossipglove.com"
-    udp: true
-  - name: "V2rayNG3 FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment?L=tls"
-      headers:
-        Host: "www.gossipglove.com"
     udp: true
   - name: "configV2rayNG FR"
     server: "104.17.3.81"

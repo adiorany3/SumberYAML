@@ -1,0 +1,215 @@
+# Auto generated usage profile OpenClash config
+# Output: output/gaming.yaml
+# Profile group: GAMING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "VPsave 4583"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "ProxyVPN11 6227"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "v2raydia"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store"
+    ws-opts:
+      path: "/https://chatgpt.com"
+      headers:
+        Host: "mItIvPN.glOBaL.ssl.mItIvPN.store"
+    udp: true
+  - name: "By EbraSha"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "vienna-bread-threats-amendment.trycloudflare.com"
+    network: ws
+    ws-opts:
+      path: "/7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm"
+      headers:
+        Host: "vienna-bread-threats-amendment.trycloudflare.com"
+    udp: true
+  - name: "oneclickvpnkeys US 7059"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "HiByeVPNN 48"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7270612b-49f6-4b04-999c-34d8263da767
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "picassooo.info"
+    ws-opts:
+      path: "/aymdlws"
+      headers:
+        Host: "picassooo.info"
+    udp: true
+  - name: "oneclickvpnkeys FR 9606"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e277ac9b-3225-4381-a9fb-3585419f7142
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "35cdnws.frnstatic.info"
+    ws-opts:
+      path: "/35cdnws"
+      headers:
+        Host: "35cdnws.frnstatic.info"
+    udp: true
+  - name: "CA 50354 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c7addea9-6d8a-48d6-8a00-aa99b8ece143
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ws35.adsvxpro.com"
+    ws-opts:
+      path: "/path"
+      headers:
+        Host: "ws35.adsvxpro.com"
+    udp: true
+  - name: "US 50392 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0fe6ae0f-3202-41c2-8af4-e237956c9b3f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "faster.rainzone.ir"
+    ws-opts:
+      path: "/25425/sha"
+      headers:
+        Host: "faster.rainzone.ir"
+    udp: true
+  - name: "bird_angry (mci"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hamrah.dgclix.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hamrah.dgclix.ir"
+    udp: true
+
+proxy-groups:
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "VPsave 4583"
+      - "ProxyVPN11 6227"
+      - "v2raydia"
+      - "By EbraSha"
+      - "oneclickvpnkeys US 7059"
+      - "HiByeVPNN 48"
+      - "oneclickvpnkeys FR 9606"
+      - "CA 50354 Telegram t.me SOSkeyNET"
+      - "US 50392 Telegram t.me SOSkeyNET"
+      - "bird_angry (mci"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GAMING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
