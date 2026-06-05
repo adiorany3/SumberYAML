@@ -3,24 +3,26 @@
   "generated_by": "apply_openclash_responsive_stability.py",
   "files_processed": 12,
   "max_stable": 20,
+  "max_combined": 40,
   "trusted_manual_policy": "input/links.txt and input.txt accounts are trusted/manual. This script does not test, filter, quarantine, delete, or remove them; it only groups existing proxies.",
   "responsive_policy": {
     "fast_profiles": {
-      "interval": 120,
-      "fallback_interval": 120,
-      "tolerance": 50,
-      "timeout": 3000,
+      "interval": 30,
+      "fallback_interval": 30,
+      "tolerance": 10,
+      "timeout": 1500,
       "lazy": "false"
     },
     "stable_profiles": {
-      "interval": 300,
-      "fallback_interval": 240,
-      "tolerance": 80,
-      "timeout": 3000,
-      "lazy": "true"
+      "interval": 180,
+      "fallback_interval": 120,
+      "tolerance": 50,
+      "timeout": 1500,
+      "lazy": "false"
     }
   },
   "groups": {
+    "SAT-SET": "fallback group placed first for the fastest practical failover path",
     "BEST-STABLE": "url-test for best stable non-manual nodes",
     "ANTI-BENGONG": "fallback group combining stable nodes and manual nodes for quicker failover",
     "best-link": "url-test containing trusted manual links when their generated names are identifiable",
@@ -30,27 +32,29 @@
     {
       "file": "output/lengkap.yaml",
       "ok": true,
-      "proxy_count": 37,
+      "proxy_count": 25,
       "manual_count": 5,
       "stable_count": 20,
       "actions": [
+        "created:SAT-SET",
         "created:BEST-STABLE",
         "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
+        "sat_set": 25,
         "best_stable": 20,
-        "anti_bengong": 31,
+        "anti_bengong": 25,
         "best_link": 5,
         "fallback_link": 5
       },
       "tuning": {
-        "interval": 300,
-        "fallback_interval": 240,
-        "tolerance": 80,
-        "timeout": 3000,
-        "lazy": true
+        "interval": 180,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 1500,
+        "lazy": false
       },
       "main": {
         "main_group": "PROXY",
@@ -58,33 +62,36 @@
         "secondary_groups_changed": 2
       },
       "tuned_existing_groups": 11,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
     {
       "file": "output/lengkap_alive.yaml",
       "ok": true,
-      "proxy_count": 37,
+      "proxy_count": 25,
       "manual_count": 5,
       "stable_count": 20,
       "actions": [
+        "created:SAT-SET",
         "created:BEST-STABLE",
         "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
+        "sat_set": 25,
         "best_stable": 20,
-        "anti_bengong": 31,
+        "anti_bengong": 25,
         "best_link": 5,
         "fallback_link": 5
       },
       "tuning": {
-        "interval": 300,
-        "fallback_interval": 240,
-        "tolerance": 80,
-        "timeout": 3000,
-        "lazy": true
+        "interval": 180,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 1500,
+        "lazy": false
       },
       "main": {
         "main_group": "PROXY",
@@ -92,33 +99,36 @@
         "secondary_groups_changed": 2
       },
       "tuned_existing_groups": 11,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
     {
       "file": "output/strict_alive.yaml",
       "ok": true,
-      "proxy_count": 37,
+      "proxy_count": 25,
       "manual_count": 5,
       "stable_count": 20,
       "actions": [
+        "created:SAT-SET",
         "created:BEST-STABLE",
         "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
+        "sat_set": 25,
         "best_stable": 20,
-        "anti_bengong": 31,
+        "anti_bengong": 25,
         "best_link": 5,
         "fallback_link": 5
       },
       "tuning": {
-        "interval": 300,
-        "fallback_interval": 240,
-        "tolerance": 80,
-        "timeout": 3000,
-        "lazy": true
+        "interval": 180,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 1500,
+        "lazy": false
       },
       "main": {
         "main_group": "PROXY",
@@ -126,6 +136,7 @@
         "secondary_groups_changed": 2
       },
       "tuned_existing_groups": 11,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
@@ -136,22 +147,24 @@
       "manual_count": 5,
       "stable_count": 20,
       "actions": [
+        "created:SAT-SET",
         "created:BEST-STABLE",
         "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
+        "sat_set": 25,
         "best_stable": 20,
         "anti_bengong": 25,
         "best_link": 5,
         "fallback_link": 5
       },
       "tuning": {
-        "interval": 120,
-        "fallback_interval": 120,
-        "tolerance": 50,
-        "timeout": 3000,
+        "interval": 30,
+        "fallback_interval": 30,
+        "tolerance": 10,
+        "timeout": 1500,
         "lazy": false
       },
       "main": {
@@ -160,6 +173,7 @@
         "secondary_groups_changed": 2
       },
       "tuned_existing_groups": 10,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
@@ -170,22 +184,24 @@
       "manual_count": 5,
       "stable_count": 20,
       "actions": [
+        "created:SAT-SET",
         "created:BEST-STABLE",
         "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
+        "sat_set": 25,
         "best_stable": 20,
         "anti_bengong": 25,
         "best_link": 5,
         "fallback_link": 5
       },
       "tuning": {
-        "interval": 120,
-        "fallback_interval": 120,
-        "tolerance": 50,
-        "timeout": 3000,
+        "interval": 30,
+        "fallback_interval": 30,
+        "tolerance": 10,
+        "timeout": 1500,
         "lazy": false
       },
       "main": {
@@ -194,6 +210,7 @@
         "secondary_groups_changed": 2
       },
       "tuned_existing_groups": 9,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
@@ -204,22 +221,24 @@
       "manual_count": 5,
       "stable_count": 10,
       "actions": [
+        "created:SAT-SET",
         "created:BEST-STABLE",
         "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
+        "sat_set": 15,
         "best_stable": 10,
         "anti_bengong": 15,
         "best_link": 5,
         "fallback_link": 5
       },
       "tuning": {
-        "interval": 120,
-        "fallback_interval": 120,
-        "tolerance": 50,
-        "timeout": 3000,
+        "interval": 30,
+        "fallback_interval": 30,
+        "tolerance": 10,
+        "timeout": 1500,
         "lazy": false
       },
       "main": {
@@ -228,6 +247,7 @@
         "secondary_groups_changed": 0
       },
       "tuned_existing_groups": 1,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
@@ -238,23 +258,25 @@
       "manual_count": 5,
       "stable_count": 10,
       "actions": [
+        "created:SAT-SET",
         "created:BEST-STABLE",
         "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
+        "sat_set": 15,
         "best_stable": 10,
         "anti_bengong": 15,
         "best_link": 5,
         "fallback_link": 5
       },
       "tuning": {
-        "interval": 300,
-        "fallback_interval": 240,
-        "tolerance": 80,
-        "timeout": 3000,
-        "lazy": true
+        "interval": 180,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 1500,
+        "lazy": false
       },
       "main": {
         "main_group": "PROXY",
@@ -262,6 +284,7 @@
         "secondary_groups_changed": 0
       },
       "tuned_existing_groups": 1,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
@@ -272,23 +295,25 @@
       "manual_count": 5,
       "stable_count": 10,
       "actions": [
+        "created:SAT-SET",
         "created:BEST-STABLE",
         "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
+        "sat_set": 15,
         "best_stable": 10,
         "anti_bengong": 15,
         "best_link": 5,
         "fallback_link": 5
       },
       "tuning": {
-        "interval": 300,
-        "fallback_interval": 240,
-        "tolerance": 80,
-        "timeout": 3000,
-        "lazy": true
+        "interval": 180,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 1500,
+        "lazy": false
       },
       "main": {
         "main_group": "PROXY",
@@ -296,6 +321,7 @@
         "secondary_groups_changed": 0
       },
       "tuned_existing_groups": 1,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
@@ -306,23 +332,25 @@
       "manual_count": 5,
       "stable_count": 10,
       "actions": [
+        "created:SAT-SET",
         "created:BEST-STABLE",
         "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
+        "sat_set": 15,
         "best_stable": 10,
         "anti_bengong": 15,
         "best_link": 5,
         "fallback_link": 5
       },
       "tuning": {
-        "interval": 300,
-        "fallback_interval": 240,
-        "tolerance": 80,
-        "timeout": 3000,
-        "lazy": true
+        "interval": 180,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 1500,
+        "lazy": false
       },
       "main": {
         "main_group": "PROXY",
@@ -330,6 +358,7 @@
         "secondary_groups_changed": 0
       },
       "tuned_existing_groups": 1,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
@@ -340,23 +369,25 @@
       "manual_count": 5,
       "stable_count": 10,
       "actions": [
+        "created:SAT-SET",
         "created:BEST-STABLE",
         "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
+        "sat_set": 15,
         "best_stable": 10,
         "anti_bengong": 15,
         "best_link": 5,
         "fallback_link": 5
       },
       "tuning": {
-        "interval": 300,
-        "fallback_interval": 240,
-        "tolerance": 80,
-        "timeout": 3000,
-        "lazy": true
+        "interval": 180,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 1500,
+        "lazy": false
       },
       "main": {
         "main_group": "PROXY",
@@ -364,66 +395,72 @@
         "secondary_groups_changed": 0
       },
       "tuned_existing_groups": 1,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
     {
       "file": "output/openclash-ready.yaml",
       "ok": true,
-      "proxy_count": 153,
-      "manual_count": 25,
+      "proxy_count": 127,
+      "manual_count": 28,
       "stable_count": 20,
       "actions": [
+        "created:SAT-SET",
         "updated:BEST-STABLE",
         "updated:ANTI-BENGONG",
         "updated:best-link",
         "updated:fallback-link"
       ],
       "counts": {
+        "sat_set": 68,
         "best_stable": 20,
-        "anti_bengong": 57,
-        "best_link": 25,
-        "fallback_link": 25
+        "anti_bengong": 68,
+        "best_link": 28,
+        "fallback_link": 28
       },
       "tuning": {
-        "interval": 120,
-        "fallback_interval": 120,
-        "tolerance": 50,
-        "timeout": 3000,
+        "interval": 30,
+        "fallback_interval": 30,
+        "tolerance": 10,
+        "timeout": 1500,
         "lazy": false
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
-        "secondary_groups_changed": 3
+        "secondary_groups_changed": 1
       },
       "tuned_existing_groups": 17,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     },
     {
       "file": "output/openclash-lite-ready.yaml",
       "ok": true,
-      "proxy_count": 23,
-      "manual_count": 11,
-      "stable_count": 4,
+      "proxy_count": 22,
+      "manual_count": 13,
+      "stable_count": 9,
       "actions": [
+        "created:SAT-SET",
         "updated:BEST-STABLE",
         "updated:ANTI-BENGONG",
         "updated:best-link",
         "updated:fallback-link"
       ],
       "counts": {
-        "best_stable": 4,
-        "anti_bengong": 23,
-        "best_link": 11,
-        "fallback_link": 11
+        "sat_set": 22,
+        "best_stable": 9,
+        "anti_bengong": 22,
+        "best_link": 13,
+        "fallback_link": 13
       },
       "tuning": {
-        "interval": 120,
-        "fallback_interval": 120,
-        "tolerance": 50,
-        "timeout": 3000,
+        "interval": 30,
+        "fallback_interval": 30,
+        "tolerance": 10,
+        "timeout": 1500,
         "lazy": false
       },
       "main": {
@@ -432,6 +469,7 @@
         "secondary_groups_changed": 1
       },
       "tuned_existing_groups": 1,
+      "low_latency_core_changed": true,
       "dns_changed": true,
       "rules_changed": true
     }
