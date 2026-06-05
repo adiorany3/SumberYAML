@@ -98,6 +98,7 @@ env:
   RESPONSIVE_TOLERANCE_STABLE: "50"
   OPENCLASH_KEEP_META_OPTIONS: "false"
   OPENCLASH_ADD_LAN_DIRECT: "false"
+  MANUAL_INPUT_FILES: "input/links.txt,input.txt,links.txt"
 
   BLACKLIST_FILE: "blacklist.txt"
   SOURCE_CACHE_ENABLE: "true"
@@ -206,12 +207,12 @@ jobs:
           echo "Output directory:"
           find output -maxdepth 3 -type f | sort || true
 
-      - name: Apply safe sat-set OpenClash compatibility repair
+      - name: Apply safe sat-set and manual-link fallback repair
         run: |
           set -e
           if [ -f scripts/apply_openclash_responsive_stability.py ]; then
             python scripts/apply_openclash_responsive_stability.py --root .
-            echo "Safe sat-set summary:"
+            echo "Safe sat-set/manual-link summary:"
             cat output/Validation/summary_openclash_safe_satset.json || true
           else
             echo "ERROR: scripts/apply_openclash_responsive_stability.py tidak ditemukan."
@@ -244,6 +245,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import sys
+          import json
           import yaml
 
           files = [
@@ -281,6 +283,23 @@ jobs:
                       if ref == gname or ref not in allowed:
                           print(f'Invalid proxy-group reference: {path}: {gname} -> {ref}')
                           failed = True
+          # Manual-link groups are expected only when direct proxy URIs were successfully parsed.
+          manual_templates_loaded = 0
+          summary_path = Path('output/Validation/summary_openclash_safe_satset.json')
+          if summary_path.exists():
+              try:
+                  manual_templates_loaded = int((json.loads(summary_path.read_text(encoding='utf-8')).get('manual_input_templates_loaded') or 0))
+              except Exception:
+                  manual_templates_loaded = 0
+          if manual_templates_loaded > 0:
+              for path in files:
+                  if not path.exists():
+                      continue
+                  data = yaml.safe_load(path.read_text(encoding='utf-8', errors='replace')) or {}
+                  group_names = {str(g.get('name')) for g in (data.get('proxy-groups') or []) if isinstance(g, dict)}
+                  if {'MANUAL-LINK', 'MANUAL-FALLBACK'} - group_names:
+                      print(f'Manual fallback groups missing in {path}')
+                      failed = True
           if failed:
               sys.exit(1)
           print('Fallback YAML validation OK')
@@ -314,7 +333,7 @@ jobs:
               echo "Tidak ada perubahan output untuk di-commit."
               exit 0
             fi
-            git commit -m "Fix OpenClash safe sat-set output"
+            git commit -m "Update OpenClash output with safe manual fallback"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
