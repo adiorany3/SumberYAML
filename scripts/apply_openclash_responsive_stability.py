@@ -5,9 +5,10 @@ Apply a more responsive OpenClash YAML structure for SumberYAML.
 Design goals:
 - Do not test, filter, quarantine, remove, or rewrite trusted/manual accounts.
 - Keep existing proxies intact; only organize proxy-groups, DNS fallback, and LAN DIRECT rules.
-- Make fast/lite/ready profiles fail over more quickly by using lower intervals and lazy=false.
-- Keep full/stable profiles conservative enough for routers with limited CPU/RAM.
-- Build/refresh BEST-STABLE, ANTI-BENGONG, best-link, and fallback-link groups when data exists.
+- Make fast/lite/ready profiles fail over as quickly as practical by using short intervals, lazy=false, and short timeout.
+- Enable low-latency Mihomo/OpenClash options such as unified-delay and tcp-concurrent.
+- Keep trusted/manual accounts intact; never test, filter, quarantine, or remove them.
+- Build/refresh SAT-SET, BEST-STABLE, ANTI-BENGONG, best-link, and fallback-link groups when data exists.
 """
 
 from __future__ import annotations
@@ -98,12 +99,13 @@ CANDIDATE_SCORE_FILES = [
 ]
 
 RESPONSIVE_FRONT_ORDER = [
-    "BEST-STABLE",
+    "SAT-SET",
     "ANTI-BENGONG",
-    "INDONESIA-BEST",
-    "URL-TEST TOP 10 INDONESIA",
+    "BEST-STABLE",
     "fallback-link",
     "best-link",
+    "INDONESIA-BEST",
+    "URL-TEST TOP 10 INDONESIA",
     "URL-TEST",
     "FALLBACK",
     "DIRECT",
@@ -278,17 +280,17 @@ def profile_tuning(path: Path, args: argparse.Namespace) -> HealthcheckTuning:
     )
     if is_fast_profile:
         return HealthcheckTuning(
-            interval=max(30, args.fast_interval),
-            fallback_interval=max(30, args.fallback_interval),
+            interval=max(10, args.fast_interval),
+            fallback_interval=max(10, args.fallback_interval),
             tolerance=max(0, args.fast_tolerance),
-            timeout=max(1000, args.timeout),
+            timeout=max(500, args.timeout),
             lazy=args.fast_lazy,
         )
     return HealthcheckTuning(
-        interval=max(60, args.stable_interval),
-        fallback_interval=max(60, args.stable_fallback_interval),
+        interval=max(30, args.stable_interval),
+        fallback_interval=max(30, args.stable_fallback_interval),
         tolerance=max(0, args.stable_tolerance),
-        timeout=max(1000, args.timeout),
+        timeout=max(500, args.timeout),
         lazy=args.stable_lazy,
     )
 
@@ -424,6 +426,42 @@ def tune_existing_groups(data: Dict[str, Any], tuning: HealthcheckTuning) -> int
     return changed
 
 
+def apply_low_latency_core(data: Dict[str, Any]) -> bool:
+    before = json.dumps(
+        {
+            "unified-delay": data.get("unified-delay"),
+            "tcp-concurrent": data.get("tcp-concurrent"),
+            "profile": data.get("profile"),
+        },
+        sort_keys=True,
+        ensure_ascii=False,
+    )
+
+    # Supported by modern Clash.Meta/Mihomo cores used by OpenClash. Older cores generally ignore unknown keys.
+    data["unified-delay"] = True
+    data["tcp-concurrent"] = True
+
+    profile = data.get("profile")
+    if not isinstance(profile, dict):
+        profile = {}
+        data["profile"] = profile
+
+    # Sat-set mode should not stick to a stale selected node after config reload.
+    profile["store-selected"] = False
+    profile.setdefault("store-fake-ip", True)
+
+    after = json.dumps(
+        {
+            "unified-delay": data.get("unified-delay"),
+            "tcp-concurrent": data.get("tcp-concurrent"),
+            "profile": data.get("profile"),
+        },
+        sort_keys=True,
+        ensure_ascii=False,
+    )
+    return before != after
+
+
 def apply_dns(data: Dict[str, Any]) -> bool:
     dns = data.get("dns")
     if not isinstance(dns, dict):
@@ -434,17 +472,18 @@ def apply_dns(data: Dict[str, Any]) -> bool:
     dns["enable"] = True
     dns["ipv6"] = False
     dns.setdefault("enhanced-mode", "fake-ip")
-    dns["default-nameserver"] = unique_keep_order(
-        [str(x) for x in dns.get("default-nameserver", []) if str(x).strip()]
-        + ["1.1.1.1", "8.8.8.8"]
-    )
+    existing_default = [str(x) for x in dns.get("default-nameserver", []) if str(x).strip()]
+    existing_nameserver = [str(x) for x in dns.get("nameserver", []) if str(x).strip()]
+    existing_fallback = [str(x) for x in dns.get("fallback", []) if str(x).strip()]
+
+    dns["default-nameserver"] = unique_keep_order(["1.1.1.1", "8.8.8.8", "9.9.9.9"] + existing_default)
     dns["nameserver"] = unique_keep_order(
-        [str(x) for x in dns.get("nameserver", []) if str(x).strip()]
-        + ["https://dns.cloudflare.com/dns-query", "1.1.1.1"]
+        ["https://dns.cloudflare.com/dns-query", "https://dns.google/dns-query", "1.1.1.1"]
+        + existing_nameserver
     )
     dns["fallback"] = unique_keep_order(
-        [str(x) for x in dns.get("fallback", []) if str(x).strip()]
-        + ["https://dns.google/dns-query", "8.8.8.8", "1.0.0.1"]
+        ["https://dns.google/dns-query", "https://dns.cloudflare.com/dns-query", "8.8.8.8", "1.0.0.1"]
+        + existing_fallback
     )
     dns["fake-ip-filter"] = unique_keep_order(
         [str(x) for x in dns.get("fake-ip-filter", []) if str(x).strip()]
@@ -454,7 +493,7 @@ def apply_dns(data: Dict[str, Any]) -> bool:
     return before != after
 
 
-def apply_lan_direct_rules(data: Dict[str, Any]) -> bool:
+def apply_lan_direct_rules(data: Dict[str, Any], match_group: str = "PROXY") -> bool:
     rules = data.get("rules")
     if not isinstance(rules, list):
         rules = []
@@ -467,7 +506,7 @@ def apply_lan_direct_rules(data: Dict[str, Any]) -> bool:
     if match_rules:
         new_rules += unique_keep_order(match_rules)
     else:
-        new_rules.append("MATCH,PROXY")
+        new_rules.append(f"MATCH,{match_group or 'PROXY'}")
 
     data["rules"] = new_rules
     return before != new_rules
@@ -498,6 +537,14 @@ def apply_to_file(path: Path, root: Path, args: argparse.Namespace) -> Optional[
     counts: Dict[str, int] = {}
 
     if stable_names:
+        satset_candidates = unique_keep_order(stable_names + manual_names + non_manual_names[: args.max_combined])
+        action, count = upsert_group(
+            data,
+            build_group("SAT-SET", "fallback", satset_candidates, tuning),
+        )
+        actions.append(f"{action}:SAT-SET")
+        counts["sat_set"] = count
+
         action, count = upsert_group(
             data,
             build_group("BEST-STABLE", "url-test", stable_names, tuning, tolerance=tuning.tolerance),
@@ -505,7 +552,7 @@ def apply_to_file(path: Path, root: Path, args: argparse.Namespace) -> Optional[
         actions.append(f"{action}:BEST-STABLE")
         counts["best_stable"] = count
 
-        anti_bengong_candidates = unique_keep_order(stable_names + manual_names + non_manual_names[: args.max_stable])
+        anti_bengong_candidates = unique_keep_order(stable_names + manual_names + non_manual_names[: args.max_combined])
         action, count = upsert_group(
             data,
             build_group("ANTI-BENGONG", "fallback", anti_bengong_candidates, tuning),
@@ -530,8 +577,9 @@ def apply_to_file(path: Path, root: Path, args: argparse.Namespace) -> Optional[
 
     tuned_existing_groups = tune_existing_groups(data, tuning)
     main_info = ensure_responsive_main_order(data, proxy_names)
+    low_latency_core_changed = apply_low_latency_core(data)
     dns_changed = apply_dns(data)
-    rules_changed = apply_lan_direct_rules(data)
+    rules_changed = apply_lan_direct_rules(data, str(main_info.get("main_group") or "PROXY"))
     dump_yaml(path, data)
 
     return {
@@ -551,6 +599,7 @@ def apply_to_file(path: Path, root: Path, args: argparse.Namespace) -> Optional[
         },
         "main": main_info,
         "tuned_existing_groups": tuned_existing_groups,
+        "low_latency_core_changed": low_latency_core_changed,
         "dns_changed": dns_changed,
         "rules_changed": rules_changed,
     }
@@ -560,17 +609,18 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Apply responsive/stable OpenClash group layout.")
     parser.add_argument("--root", default=".", help="Repository root")
     parser.add_argument("--max-stable", type=int, default=env_int("RESPONSIVE_TOP_N", 20))
+    parser.add_argument("--max-combined", type=int, default=env_int("RESPONSIVE_COMBINED_MAX", 40))
     parser.add_argument("--files", nargs="*", default=DEFAULT_OUTPUT_FILES, help="YAML files to update")
     parser.add_argument("--report", default="output/Validation/summary_openclash_responsive_stability.json")
-    parser.add_argument("--fast-interval", type=int, default=env_int("RESPONSIVE_INTERVAL_FAST", env_int("URL_TEST_INTERVAL", 120)))
-    parser.add_argument("--stable-interval", type=int, default=env_int("RESPONSIVE_INTERVAL_STABLE", 300))
-    parser.add_argument("--fallback-interval", type=int, default=env_int("RESPONSIVE_FALLBACK_INTERVAL", 120))
-    parser.add_argument("--stable-fallback-interval", type=int, default=env_int("RESPONSIVE_STABLE_FALLBACK_INTERVAL", 240))
-    parser.add_argument("--fast-tolerance", type=int, default=env_int("RESPONSIVE_TOLERANCE_FAST", env_int("URL_TEST_TOLERANCE", 50)))
-    parser.add_argument("--stable-tolerance", type=int, default=env_int("RESPONSIVE_TOLERANCE_STABLE", 80))
-    parser.add_argument("--timeout", type=int, default=env_int("RESPONSIVE_TIMEOUT_MS", 3000))
+    parser.add_argument("--fast-interval", type=int, default=env_int("RESPONSIVE_INTERVAL_FAST", env_int("URL_TEST_INTERVAL", 30)))
+    parser.add_argument("--stable-interval", type=int, default=env_int("RESPONSIVE_INTERVAL_STABLE", 180))
+    parser.add_argument("--fallback-interval", type=int, default=env_int("RESPONSIVE_FALLBACK_INTERVAL", 30))
+    parser.add_argument("--stable-fallback-interval", type=int, default=env_int("RESPONSIVE_STABLE_FALLBACK_INTERVAL", 120))
+    parser.add_argument("--fast-tolerance", type=int, default=env_int("RESPONSIVE_TOLERANCE_FAST", env_int("URL_TEST_TOLERANCE", 10)))
+    parser.add_argument("--stable-tolerance", type=int, default=env_int("RESPONSIVE_TOLERANCE_STABLE", 50))
+    parser.add_argument("--timeout", type=int, default=env_int("RESPONSIVE_TIMEOUT_MS", 1500))
     parser.add_argument("--fast-lazy", action=argparse.BooleanOptionalAction, default=env_bool("RESPONSIVE_FAST_LAZY", env_bool("URL_TEST_LAZY", False)))
-    parser.add_argument("--stable-lazy", action=argparse.BooleanOptionalAction, default=env_bool("RESPONSIVE_STABLE_LAZY", True))
+    parser.add_argument("--stable-lazy", action=argparse.BooleanOptionalAction, default=env_bool("RESPONSIVE_STABLE_LAZY", False))
     return parser.parse_args()
 
 
@@ -578,6 +628,7 @@ def main() -> int:
     args = parse_args()
     root = Path(args.root).resolve()
     args.max_stable = max(1, int(args.max_stable))
+    args.max_combined = max(args.max_stable, int(args.max_combined))
     report_path = root / args.report
     report_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -592,6 +643,7 @@ def main() -> int:
         "generated_by": "apply_openclash_responsive_stability.py",
         "files_processed": len(results),
         "max_stable": args.max_stable,
+        "max_combined": args.max_combined,
         "trusted_manual_policy": (
             "input/links.txt and input.txt accounts are trusted/manual. "
             "This script does not test, filter, quarantine, delete, or remove them; it only groups existing proxies."
@@ -613,6 +665,7 @@ def main() -> int:
             },
         },
         "groups": {
+            "SAT-SET": "fallback group placed first for the fastest practical failover path",
             "BEST-STABLE": "url-test for best stable non-manual nodes",
             "ANTI-BENGONG": "fallback group combining stable nodes and manual nodes for quicker failover",
             "best-link": "url-test containing trusted manual links when their generated names are identifiable",
