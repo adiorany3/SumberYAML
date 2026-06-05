@@ -1,23 +1,23 @@
 #!/usr/bin/env python3
 """
-Apply responsive/stable OpenClash YAML structure for SumberYAML.
+Apply a more responsive OpenClash YAML structure for SumberYAML.
 
-Goals:
-- Keep trusted/manual accounts from input/links.txt or input.txt untouched.
-- Build best-link and fallback-link groups from trusted/manual accounts.
-- Build BEST-STABLE from Health/BestPing/Alive data when available.
-- Put stable groups near the top of PROXY-like selectors.
-- Add conservative DNS fallback and LAN DIRECT rules.
-
-This script does not perform alive/dead validation and does not remove trusted
-manual accounts. It only organizes generated YAML for better responsiveness.
+Design goals:
+- Do not test, filter, quarantine, remove, or rewrite trusted/manual accounts.
+- Keep existing proxies intact; only organize proxy-groups, DNS fallback, and LAN DIRECT rules.
+- Make fast/lite/ready profiles fail over more quickly by using lower intervals and lazy=false.
+- Keep full/stable profiles conservative enough for routers with limited CPU/RAM.
+- Build/refresh BEST-STABLE, ANTI-BENGONG, best-link, and fallback-link groups when data exists.
 """
+
 from __future__ import annotations
 
 import argparse
 import csv
 import json
+import os
 import re
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
@@ -34,9 +34,14 @@ DEFAULT_OUTPUT_FILES = [
     "output/streaming.yaml",
     "output/working.yaml",
     "output/general.yaml",
+    "output/openclash-ready.yaml",
+    "output/openclash-lite-ready.yaml",
+    "output/Performance/performance-lite.yaml",
 ]
 
 CHECK_URL = "https://www.gstatic.com/generate_204"
+SPECIAL_DIRECT_REJECT = {"DIRECT", "REJECT", "PASS"}
+
 MANUAL_NAME_PREFIXES = (
     "LINK ",
     "LINK-",
@@ -57,7 +62,7 @@ MAIN_GROUP_CANDIDATES = [
     "GLOBAL",
     "MANUAL",
     "SELECT",
-    "🚀 PROXY",
+    "AUTO",
     "Proxy",
     "proxy",
 ]
@@ -69,16 +74,72 @@ SECONDARY_SELECTOR_CANDIDATES = [
     "URL TEST",
     "AUTO",
     "AUTO-BEST-PING",
+    "INDONESIA-BEST",
 ]
 
 LAN_DIRECT_RULES = [
     "DOMAIN-SUFFIX,local,DIRECT",
+    "DOMAIN-SUFFIX,lan,DIRECT",
     "IP-CIDR,127.0.0.0/8,DIRECT,no-resolve",
     "IP-CIDR,10.0.0.0/8,DIRECT,no-resolve",
     "IP-CIDR,172.16.0.0/12,DIRECT,no-resolve",
     "IP-CIDR,192.168.0.0/16,DIRECT,no-resolve",
     "IP-CIDR,169.254.0.0/16,DIRECT,no-resolve",
 ]
+
+CANDIDATE_SCORE_FILES = [
+    "output/Health/healthy.csv",
+    "output/BestPing/top5_indonesia_ping.csv",
+    "output/BestPing/top10_indonesia_ping.csv",
+    "output/BestPing/top5_best_ping.csv",
+    "output/BestPing/top10_best_ping.csv",
+    "output/Alive/alive.csv",
+    "output/Alive/check_result.csv",
+]
+
+RESPONSIVE_FRONT_ORDER = [
+    "BEST-STABLE",
+    "ANTI-BENGONG",
+    "INDONESIA-BEST",
+    "URL-TEST TOP 10 INDONESIA",
+    "fallback-link",
+    "best-link",
+    "URL-TEST",
+    "FALLBACK",
+    "DIRECT",
+]
+
+
+@dataclass(frozen=True)
+class HealthcheckTuning:
+    interval: int
+    fallback_interval: int
+    tolerance: int
+    timeout: int
+    lazy: bool
+
+
+def env_int(name: str, default: int) -> int:
+    value = os.getenv(name, "").strip()
+    if not value:
+        return default
+    try:
+        return int(value)
+    except ValueError:
+        return default
+
+
+def env_bool(name: str, default: bool) -> bool:
+    value = os.getenv(name, "").strip().lower()
+    if value in {"1", "true", "yes", "y", "on"}:
+        return True
+    if value in {"0", "false", "no", "n", "off"}:
+        return False
+    return default
+
+
+def bool_text(value: bool) -> str:
+    return "true" if value else "false"
 
 
 def load_yaml(path: Path) -> Dict[str, Any]:
@@ -143,8 +204,29 @@ def is_manual_name(name: str) -> bool:
     upper = str(name or "").strip().upper()
     if upper.startswith(MANUAL_NAME_PREFIXES):
         return True
-    # Common names created by link importers usually include a clear manual marker.
     return bool(re.search(r"(^|[\s_\-\[])(LINK|INPUT|MANUAL|TRUSTED)([\s_\-\]]|$)", upper))
+
+
+def parse_delay_ms(row: Dict[str, str]) -> Optional[float]:
+    delay_keys = (
+        "delay",
+        "delay_ms",
+        "avg_delay",
+        "avg_delay_ms",
+        "latency",
+        "latency_ms",
+        "ping",
+        "ping_ms",
+    )
+    for key in delay_keys:
+        raw = str(row.get(key) or "").strip().lower().replace("ms", "")
+        if not raw:
+            continue
+        try:
+            return float(raw)
+        except ValueError:
+            continue
+    return None
 
 
 def read_csv_names(path: Path) -> List[str]:
@@ -153,12 +235,16 @@ def read_csv_names(path: Path) -> List[str]:
     try:
         with path.open("r", encoding="utf-8", errors="replace", newline="") as fh:
             reader = csv.DictReader(fh)
-            out: List[str] = []
-            for row in reader:
+            rows: List[Tuple[float, int, str]] = []
+            for order, row in enumerate(reader):
                 name = (row.get("name") or row.get("proxy") or row.get("tag") or "").strip()
-                if name:
-                    out.append(name)
-            return unique_keep_order(out)
+                if not name:
+                    continue
+                delay = parse_delay_ms(row)
+                score = delay if delay is not None else 999999.0
+                rows.append((score, order, name))
+            rows.sort(key=lambda item: (item[0], item[1]))
+            return unique_keep_order(name for _, _, name in rows)
     except Exception:
         return []
 
@@ -167,35 +253,63 @@ def stable_candidates_from_outputs(
     root: Path,
     existing_names: Set[str],
     manual_names: Set[str],
-    max_count: Optional[int] = None,
-    max_stable: Optional[int] = None,
+    max_stable: int,
 ) -> List[str]:
-    limit = int(max_stable if max_stable is not None else (max_count if max_count is not None else 10))
-    limit = max(1, limit)
-
-    candidate_paths = [
-        root / "output/Health/healthy.csv",
-        root / "output/BestPing/top5_indonesia_ping.csv",
-        root / "output/BestPing/top5_best_ping.csv",
-        root / "output/Alive/alive.csv",
-        root / "output/Alive/check_result.csv",
-    ]
     names: List[str] = []
-    for path in candidate_paths:
+    for relative in CANDIDATE_SCORE_FILES:
+        path = root / relative
         for name in read_csv_names(path):
             if name in existing_names and name not in manual_names:
                 names.append(name)
-    return unique_keep_order(names)[:limit]
+    return unique_keep_order(names)[: max(1, max_stable)]
 
 
-def build_group(name: str, group_type: str, proxies: Sequence[str], *, tolerance: Optional[int] = None) -> Dict[str, Any]:
+def profile_tuning(path: Path, args: argparse.Namespace) -> HealthcheckTuning:
+    lower = str(path).replace("\\", "/").lower()
+    is_fast_profile = any(
+        token in lower
+        for token in (
+            "fast",
+            "lite",
+            "ready",
+            "performance",
+            "gaming",
+        )
+    )
+    if is_fast_profile:
+        return HealthcheckTuning(
+            interval=max(30, args.fast_interval),
+            fallback_interval=max(30, args.fallback_interval),
+            tolerance=max(0, args.fast_tolerance),
+            timeout=max(1000, args.timeout),
+            lazy=args.fast_lazy,
+        )
+    return HealthcheckTuning(
+        interval=max(60, args.stable_interval),
+        fallback_interval=max(60, args.stable_fallback_interval),
+        tolerance=max(0, args.stable_tolerance),
+        timeout=max(1000, args.timeout),
+        lazy=args.stable_lazy,
+    )
+
+
+def build_group(
+    name: str,
+    group_type: str,
+    proxies: Sequence[str],
+    tuning: HealthcheckTuning,
+    *,
+    tolerance: Optional[int] = None,
+) -> Dict[str, Any]:
+    interval = tuning.fallback_interval if group_type == "fallback" else tuning.interval
     group: Dict[str, Any] = {
         "name": name,
         "type": group_type,
         "proxies": unique_keep_order(proxies),
         "url": CHECK_URL,
-        "interval": 300,
-        "lazy": True,
+        "interval": int(interval),
+        "lazy": bool(tuning.lazy),
+        "timeout": int(tuning.timeout),
     }
     if tolerance is not None:
         group["tolerance"] = int(tolerance)
@@ -219,13 +333,9 @@ def find_or_create_main_group(data: Dict[str, Any], proxy_names: List[str]) -> D
         for group in groups:
             if isinstance(group, dict) and str(group.get("name") or "") == candidate:
                 return group
-
-    # Fallback: first selector-like group.
     for group in groups:
         if isinstance(group, dict) and str(group.get("type") or "").lower() in {"select", "selector"}:
             return group
-
-    # Create PROXY when no suitable group exists.
     main = {
         "name": "PROXY",
         "type": "select",
@@ -235,40 +345,83 @@ def find_or_create_main_group(data: Dict[str, Any], proxy_names: List[str]) -> D
     return main
 
 
+def valid_refs(
+    refs: Sequence[str],
+    group_names: Set[str],
+    proxy_names: Set[str],
+    current_group_name: str,
+) -> List[str]:
+    out: List[str] = []
+    for ref in refs:
+        value = str(ref).strip()
+        if not value or value == current_group_name:
+            continue
+        if value in SPECIAL_DIRECT_REJECT or value in group_names or value in proxy_names:
+            out.append(value)
+    return unique_keep_order(out)
+
+
 def ensure_group_refs(group: Dict[str, Any], refs_to_front: Sequence[str]) -> int:
     existing = group.get("proxies") or []
     if not isinstance(existing, list):
         existing = []
-    before = list(existing)
-    merged = unique_keep_order(list(refs_to_front) + [str(x).strip() for x in existing if str(x).strip()])
+    before = [str(x).strip() for x in existing if str(x).strip()]
+    merged = unique_keep_order(list(refs_to_front) + before)
     group["proxies"] = merged
     return 1 if merged != before else 0
 
 
 def ensure_responsive_main_order(data: Dict[str, Any], proxy_names: List[str]) -> Dict[str, Any]:
-    group_names = set(get_group_names(data))
+    group_name_set = set(get_group_names(data))
+    proxy_name_set = set(proxy_names)
     main = find_or_create_main_group(data, proxy_names)
-    desired = []
-    for item in ["BEST-STABLE", "fallback-link", "best-link", "URL-TEST", "FALLBACK", "DIRECT"]:
-        if item == "DIRECT" or item in group_names or item in proxy_names:
-            desired.append(item)
+    main_name = str(main.get("name") or "PROXY")
+    desired = valid_refs(RESPONSIVE_FRONT_ORDER, group_name_set, proxy_name_set, main_name)
     changed = ensure_group_refs(main, desired)
 
-    # Also expose manual fallback groups in common selectors/fallback selectors when present.
     secondary_updates = 0
     for group in get_groups(data):
         if not isinstance(group, dict):
             continue
         name = str(group.get("name") or "")
-        if name in SECONDARY_SELECTOR_CANDIDATES and name != main.get("name"):
-            refs = [x for x in ["fallback-link", "best-link"] if x in group_names]
+        if name == main_name:
+            continue
+        if name in SECONDARY_SELECTOR_CANDIDATES or str(group.get("type") or "").lower() in {"select", "selector"}:
+            refs = valid_refs(
+                ["BEST-STABLE", "ANTI-BENGONG", "fallback-link", "best-link"],
+                group_name_set,
+                proxy_name_set,
+                name,
+            )
             secondary_updates += ensure_group_refs(group, refs)
 
     return {
-        "main_group": str(main.get("name") or "-"),
+        "main_group": main_name,
         "main_group_changed": bool(changed),
         "secondary_groups_changed": secondary_updates,
     }
+
+
+def tune_existing_groups(data: Dict[str, Any], tuning: HealthcheckTuning) -> int:
+    changed = 0
+    for group in get_groups(data):
+        if not isinstance(group, dict):
+            continue
+        group_type = str(group.get("type") or "").lower().strip()
+        if group_type not in {"url-test", "fallback", "load-balance"}:
+            continue
+
+        before = json.dumps(group, sort_keys=True, ensure_ascii=False)
+        group["url"] = group.get("url") or CHECK_URL
+        group["interval"] = int(tuning.fallback_interval if group_type == "fallback" else tuning.interval)
+        group["lazy"] = bool(tuning.lazy)
+        group["timeout"] = int(tuning.timeout)
+        if group_type == "url-test":
+            group["tolerance"] = int(tuning.tolerance)
+        after = json.dumps(group, sort_keys=True, ensure_ascii=False)
+        if before != after:
+            changed += 1
+    return changed
 
 
 def apply_dns(data: Dict[str, Any]) -> bool:
@@ -280,11 +433,23 @@ def apply_dns(data: Dict[str, Any]) -> bool:
     before = json.dumps(dns, sort_keys=True, ensure_ascii=False)
     dns["enable"] = True
     dns["ipv6"] = False
-    dns["enhanced-mode"] = dns.get("enhanced-mode") or "fake-ip"
-    dns["nameserver"] = ["1.1.1.1"]
-    dns["fallback"] = ["8.8.8.8"]
-    dns["default-nameserver"] = unique_keep_order((dns.get("default-nameserver") or []) + ["1.1.1.1", "8.8.8.8"])
-    dns.setdefault("fake-ip-filter", ["*.lan", "*.local", "localhost.ptlogin2.qq.com"])
+    dns.setdefault("enhanced-mode", "fake-ip")
+    dns["default-nameserver"] = unique_keep_order(
+        [str(x) for x in dns.get("default-nameserver", []) if str(x).strip()]
+        + ["1.1.1.1", "8.8.8.8"]
+    )
+    dns["nameserver"] = unique_keep_order(
+        [str(x) for x in dns.get("nameserver", []) if str(x).strip()]
+        + ["https://dns.cloudflare.com/dns-query", "1.1.1.1"]
+    )
+    dns["fallback"] = unique_keep_order(
+        [str(x) for x in dns.get("fallback", []) if str(x).strip()]
+        + ["https://dns.google/dns-query", "8.8.8.8", "1.0.0.1"]
+    )
+    dns["fake-ip-filter"] = unique_keep_order(
+        [str(x) for x in dns.get("fake-ip-filter", []) if str(x).strip()]
+        + ["*.lan", "*.local", "localhost", "localhost.*"]
+    )
     after = json.dumps(dns, sort_keys=True, ensure_ascii=False)
     return before != after
 
@@ -293,14 +458,11 @@ def apply_lan_direct_rules(data: Dict[str, Any]) -> bool:
     rules = data.get("rules")
     if not isinstance(rules, list):
         rules = []
+    before = [str(rule).strip() for rule in rules if str(rule).strip()]
 
-    before = list(rules)
-    clean_rules = [str(rule).strip() for rule in rules if str(rule).strip()]
-    clean_rules = [rule for rule in clean_rules if rule not in LAN_DIRECT_RULES]
-
+    clean_rules = [rule for rule in before if rule not in LAN_DIRECT_RULES]
     match_rules = [rule for rule in clean_rules if rule.upper().startswith("MATCH,")]
     non_match_rules = [rule for rule in clean_rules if not rule.upper().startswith("MATCH,")]
-
     new_rules = unique_keep_order(LAN_DIRECT_RULES + non_match_rules)
     if match_rules:
         new_rules += unique_keep_order(match_rules)
@@ -311,76 +473,117 @@ def apply_lan_direct_rules(data: Dict[str, Any]) -> bool:
     return before != new_rules
 
 
-def apply_to_file(path: Path, root: Path, max_stable: int) -> Optional[Dict[str, Any]]:
+def apply_to_file(path: Path, root: Path, args: argparse.Namespace) -> Optional[Dict[str, Any]]:
     if not path.exists():
         return None
+
     data = load_yaml(path)
     proxy_names = get_proxy_names(data)
     if not proxy_names:
-        return {"file": str(path), "ok": False, "reason": "no proxies found"}
+        return {"file": str(path.relative_to(root)), "ok": False, "reason": "no proxies found"}
 
+    tuning = profile_tuning(path, args)
     proxy_set = set(proxy_names)
     manual_names = [name for name in proxy_names if is_manual_name(name)]
     manual_set = set(manual_names)
     non_manual_names = [name for name in proxy_names if name not in manual_set]
 
-    stable_names = stable_candidates_from_outputs(root, proxy_set, manual_set, max_stable=max_stable)
+    stable_names = stable_candidates_from_outputs(root, proxy_set, manual_set, max_stable=args.max_stable)
     if not stable_names:
-        stable_names = non_manual_names[:max_stable]
+        stable_names = non_manual_names[: args.max_stable]
     if not stable_names:
-        stable_names = proxy_names[:max_stable]
+        stable_names = proxy_names[: args.max_stable]
 
     actions: List[str] = []
     counts: Dict[str, int] = {}
 
     if stable_names:
-        action, count = upsert_group(data, build_group("BEST-STABLE", "url-test", stable_names, tolerance=80))
+        action, count = upsert_group(
+            data,
+            build_group("BEST-STABLE", "url-test", stable_names, tuning, tolerance=tuning.tolerance),
+        )
         actions.append(f"{action}:BEST-STABLE")
         counts["best_stable"] = count
 
+        anti_bengong_candidates = unique_keep_order(stable_names + manual_names + non_manual_names[: args.max_stable])
+        action, count = upsert_group(
+            data,
+            build_group("ANTI-BENGONG", "fallback", anti_bengong_candidates, tuning),
+        )
+        actions.append(f"{action}:ANTI-BENGONG")
+        counts["anti_bengong"] = count
+
     if manual_names:
-        action, count = upsert_group(data, build_group("best-link", "url-test", manual_names, tolerance=80))
+        action, count = upsert_group(
+            data,
+            build_group("best-link", "url-test", manual_names, tuning, tolerance=tuning.tolerance),
+        )
         actions.append(f"{action}:best-link")
         counts["best_link"] = count
 
-        action, count = upsert_group(data, build_group("fallback-link", "fallback", manual_names))
+        action, count = upsert_group(
+            data,
+            build_group("fallback-link", "fallback", manual_names, tuning),
+        )
         actions.append(f"{action}:fallback-link")
         counts["fallback_link"] = count
 
+    tuned_existing_groups = tune_existing_groups(data, tuning)
     main_info = ensure_responsive_main_order(data, proxy_names)
     dns_changed = apply_dns(data)
     rules_changed = apply_lan_direct_rules(data)
-
     dump_yaml(path, data)
+
     return {
-        "file": str(path),
+        "file": str(path.relative_to(root)),
         "ok": True,
         "proxy_count": len(proxy_names),
         "manual_count": len(manual_names),
         "stable_count": len(stable_names),
         "actions": actions,
         "counts": counts,
+        "tuning": {
+            "interval": tuning.interval,
+            "fallback_interval": tuning.fallback_interval,
+            "tolerance": tuning.tolerance,
+            "timeout": tuning.timeout,
+            "lazy": tuning.lazy,
+        },
         "main": main_info,
+        "tuned_existing_groups": tuned_existing_groups,
         "dns_changed": dns_changed,
         "rules_changed": rules_changed,
     }
 
 
-def main() -> int:
+def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Apply responsive/stable OpenClash group layout.")
     parser.add_argument("--root", default=".", help="Repository root")
-    parser.add_argument("--max-stable", type=int, default=10, help="Max proxies in BEST-STABLE")
+    parser.add_argument("--max-stable", type=int, default=env_int("RESPONSIVE_TOP_N", 20))
     parser.add_argument("--files", nargs="*", default=DEFAULT_OUTPUT_FILES, help="YAML files to update")
     parser.add_argument("--report", default="output/Validation/summary_openclash_responsive_stability.json")
-    args = parser.parse_args()
+    parser.add_argument("--fast-interval", type=int, default=env_int("RESPONSIVE_INTERVAL_FAST", env_int("URL_TEST_INTERVAL", 120)))
+    parser.add_argument("--stable-interval", type=int, default=env_int("RESPONSIVE_INTERVAL_STABLE", 300))
+    parser.add_argument("--fallback-interval", type=int, default=env_int("RESPONSIVE_FALLBACK_INTERVAL", 120))
+    parser.add_argument("--stable-fallback-interval", type=int, default=env_int("RESPONSIVE_STABLE_FALLBACK_INTERVAL", 240))
+    parser.add_argument("--fast-tolerance", type=int, default=env_int("RESPONSIVE_TOLERANCE_FAST", env_int("URL_TEST_TOLERANCE", 50)))
+    parser.add_argument("--stable-tolerance", type=int, default=env_int("RESPONSIVE_TOLERANCE_STABLE", 80))
+    parser.add_argument("--timeout", type=int, default=env_int("RESPONSIVE_TIMEOUT_MS", 3000))
+    parser.add_argument("--fast-lazy", action=argparse.BooleanOptionalAction, default=env_bool("RESPONSIVE_FAST_LAZY", env_bool("URL_TEST_LAZY", False)))
+    parser.add_argument("--stable-lazy", action=argparse.BooleanOptionalAction, default=env_bool("RESPONSIVE_STABLE_LAZY", True))
+    return parser.parse_args()
 
+
+def main() -> int:
+    args = parse_args()
     root = Path(args.root).resolve()
+    args.max_stable = max(1, int(args.max_stable))
     report_path = root / args.report
     report_path.parent.mkdir(parents=True, exist_ok=True)
 
-    results = []
+    results: List[Dict[str, Any]] = []
     for file_name in args.files:
-        result = apply_to_file(root / file_name, root, max(1, args.max_stable))
+        result = apply_to_file(root / file_name, root, args)
         if result is not None:
             results.append(result)
 
@@ -388,19 +591,49 @@ def main() -> int:
         "ok": True,
         "generated_by": "apply_openclash_responsive_stability.py",
         "files_processed": len(results),
-        "max_stable": max(1, args.max_stable),
-        "trusted_manual_policy": "input/links.txt and input.txt accounts are not filtered; script only groups existing manual proxy entries.",
+        "max_stable": args.max_stable,
+        "trusted_manual_policy": (
+            "input/links.txt and input.txt accounts are trusted/manual. "
+            "This script does not test, filter, quarantine, delete, or remove them; it only groups existing proxies."
+        ),
+        "responsive_policy": {
+            "fast_profiles": {
+                "interval": args.fast_interval,
+                "fallback_interval": args.fallback_interval,
+                "tolerance": args.fast_tolerance,
+                "timeout": args.timeout,
+                "lazy": bool_text(args.fast_lazy),
+            },
+            "stable_profiles": {
+                "interval": args.stable_interval,
+                "fallback_interval": args.stable_fallback_interval,
+                "tolerance": args.stable_tolerance,
+                "timeout": args.timeout,
+                "lazy": bool_text(args.stable_lazy),
+            },
+        },
         "groups": {
-            "BEST-STABLE": "url-test for stable non-manual nodes",
-            "best-link": "url-test containing trusted manual links",
-            "fallback-link": "fallback containing trusted manual links",
+            "BEST-STABLE": "url-test for best stable non-manual nodes",
+            "ANTI-BENGONG": "fallback group combining stable nodes and manual nodes for quicker failover",
+            "best-link": "url-test containing trusted manual links when their generated names are identifiable",
+            "fallback-link": "fallback containing trusted manual links when their generated names are identifiable",
         },
         "results": results,
     }
     report_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+
     print(f"OpenClash responsive stability report: {report_path}")
     for item in results:
-        print(f"[{ 'OK' if item.get('ok') else 'SKIP' }] {item.get('file')} manual={item.get('manual_count', 0)} stable={item.get('stable_count', 0)}")
+        status = "OK" if item.get("ok") else "SKIP"
+        tuning = item.get("tuning") or {}
+        print(
+            f"[{status}] {item.get('file')} "
+            f"manual={item.get('manual_count', 0)} "
+            f"stable={item.get('stable_count', 0)} "
+            f"interval={tuning.get('interval', '-')} "
+            f"fallback={tuning.get('fallback_interval', '-')} "
+            f"lazy={tuning.get('lazy', '-')}"
+        )
     return 0
 
 
