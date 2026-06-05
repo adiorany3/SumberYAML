@@ -8,8 +8,9 @@ YAML on older Clash/OpenClash cores.
 
 What it does:
 - keeps every existing proxy account intact, including manual/trusted links;
-- never tests, filters, quarantines, deletes, or removes proxies;
-- builds safe SAT-SET / ANTI-BENGONG / BEST-STABLE groups;
+- injects direct proxy nodes from input/links.txt/input.txt into every output YAML;
+- never tests, filters, quarantines, deletes, or removes manual input accounts;
+- builds safe MANUAL-FALLBACK / SAT-SET / ANTI-BENGONG / BEST-STABLE groups;
 - uses only broadly compatible proxy-group keys;
 - repairs risky keys from the previous turbo/no-delay patch.
 """
@@ -19,6 +20,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import base64
 import os
 import re
 import shutil
@@ -26,6 +28,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Set, Tuple
+from urllib.parse import parse_qs, unquote, urlparse
 
 import yaml
 
@@ -47,6 +50,17 @@ DEFAULT_OUTPUT_FILES = [
     "output/openclash-lite-ready.yaml",
     "output/Performance/performance-lite.yaml",
 ]
+
+MANUAL_INPUT_FILES = [
+    "input/links.txt",
+    "input.txt",
+    "links.txt",
+]
+
+MANUAL_GROUP_SELECT = "MANUAL-LINK"
+MANUAL_GROUP_FALLBACK = "MANUAL-FALLBACK"
+MANUAL_GROUP_URLTEST = "MANUAL-BEST"
+MANUAL_PROXY_PREFIX = "MANUAL-LINK"
 
 CANDIDATE_SCORE_FILES = [
     "output/Health/healthy.csv",
@@ -151,6 +165,425 @@ def unique_keep_order(items: Iterable[str]) -> List[str]:
         seen.add(value)
         out.append(value)
     return out
+
+def split_env_list(value: str) -> List[str]:
+    return [item.strip() for item in str(value or "").split(",") if item.strip()]
+
+
+def b64_decode_text(value: str) -> Optional[str]:
+    raw = str(value or "").strip()
+    if not raw:
+        return None
+    raw = raw.replace("-", "+").replace("_", "/")
+    raw += "=" * (-len(raw) % 4)
+    for decoder in (base64.b64decode, base64.urlsafe_b64decode):
+        try:
+            return decoder(raw.encode("utf-8")).decode("utf-8", errors="replace")
+        except Exception:
+            continue
+    return None
+
+
+def q_one(query: Dict[str, List[str]], key: str, default: str = "") -> str:
+    values = query.get(key) or []
+    if not values:
+        return default
+    return unquote(str(values[0]))
+
+
+def parse_int(value: Any, default: int = 0) -> int:
+    try:
+        return int(str(value).strip())
+    except Exception:
+        return default
+
+
+def parse_host_port(value: str) -> Tuple[str, int]:
+    raw = str(value or "").strip()
+    if not raw:
+        return "", 0
+    parsed = urlparse("//" + raw)
+    host = parsed.hostname or ""
+    try:
+        port = int(parsed.port or 0)
+    except Exception:
+        port = 0
+    return host, port
+
+
+def clean_display_name(value: str, fallback: str) -> str:
+    name = unquote(str(value or "")).strip()
+    name = re.sub(r"[\r\n\t]+", " ", name)
+    name = re.sub(r"\s+", " ", name).strip()
+    if not name:
+        name = fallback
+    return name[:72]
+
+
+def make_manual_name(index: int, preferred: str, used_names: Set[str]) -> str:
+    display = clean_display_name(preferred, f"Input {index:03d}")
+    base = f"{MANUAL_PROXY_PREFIX}-{index:03d} {display}"[:96]
+    name = base
+    suffix = 2
+    while name in used_names:
+        tail = f" #{suffix}"
+        name = f"{base[:96-len(tail)]}{tail}"
+        suffix += 1
+    used_names.add(name)
+    return name
+
+
+def add_transport_opts(proxy: Dict[str, Any], network: str, query_or_dict: Dict[str, Any]) -> None:
+    net = str(network or "").strip().lower()
+    if net and net != "tcp":
+        proxy["network"] = net
+
+    def get_value(key: str, default: str = "") -> str:
+        if isinstance(query_or_dict, dict):
+            value = query_or_dict.get(key, default)
+            if isinstance(value, list):
+                value = value[0] if value else default
+            return unquote(str(value or default))
+        return default
+
+    if net == "ws":
+        path = get_value("path") or "/"
+        host = get_value("host")
+        opts: Dict[str, Any] = {"path": path}
+        if host:
+            opts["headers"] = {"Host": host}
+        proxy["ws-opts"] = opts
+    elif net == "grpc":
+        service = get_value("serviceName") or get_value("service-name") or get_value("path")
+        if service:
+            proxy["grpc-opts"] = {"grpc-service-name": service}
+    elif net in {"h2", "http"}:
+        host = get_value("host")
+        path = get_value("path") or "/"
+        opts: Dict[str, Any] = {"path": [path]}
+        if host:
+            opts["host"] = [host]
+        proxy["h2-opts"] = opts
+
+
+def parse_vmess_link(line: str) -> Tuple[Optional[Dict[str, Any]], str]:
+    payload = line[len("vmess://"):].strip()
+    decoded = b64_decode_text(payload)
+    if not decoded:
+        return None, "vmess base64 decode failed"
+    try:
+        item = json.loads(decoded)
+    except Exception as exc:
+        return None, f"vmess json decode failed: {exc}"
+    server = str(item.get("add") or item.get("server") or "").strip()
+    port = parse_int(item.get("port"), 0)
+    uuid = str(item.get("id") or item.get("uuid") or "").strip()
+    if not server or not port or not uuid:
+        return None, "vmess missing server/port/uuid"
+    proxy: Dict[str, Any] = {
+        "name": clean_display_name(str(item.get("ps") or ""), "VMess Manual"),
+        "type": "vmess",
+        "server": server,
+        "port": port,
+        "uuid": uuid,
+        "alterId": parse_int(item.get("aid"), 0),
+        "cipher": str(item.get("scy") or "auto"),
+        "udp": True,
+    }
+    tls_value = str(item.get("tls") or "").strip().lower()
+    if tls_value in {"tls", "true", "1"}:
+        proxy["tls"] = True
+        sni = str(item.get("sni") or item.get("host") or "").strip()
+        if sni:
+            proxy["servername"] = sni
+    network = str(item.get("net") or "tcp").strip().lower()
+    add_transport_opts(proxy, network, {
+        "path": item.get("path") or "/",
+        "host": item.get("host") or "",
+        "serviceName": item.get("path") or "",
+    })
+    return proxy, ""
+
+
+def parse_vless_link(line: str) -> Tuple[Optional[Dict[str, Any]], str]:
+    parsed = urlparse(line)
+    uuid = unquote(parsed.username or "")
+    server = parsed.hostname or ""
+    try:
+        port = int(parsed.port or 0)
+    except Exception:
+        port = 0
+    if not uuid or not server or not port:
+        return None, "vless missing uuid/server/port"
+    query = parse_qs(parsed.query, keep_blank_values=True)
+    security = q_one(query, "security").lower()
+    network = q_one(query, "type", "tcp").lower()
+    proxy: Dict[str, Any] = {
+        "name": clean_display_name(parsed.fragment, "VLESS Manual"),
+        "type": "vless",
+        "server": server,
+        "port": port,
+        "uuid": uuid,
+        "udp": True,
+    }
+    encryption = q_one(query, "encryption")
+    if encryption:
+        proxy["encryption"] = encryption
+    flow = q_one(query, "flow")
+    if flow:
+        proxy["flow"] = flow
+    if security in {"tls", "reality"}:
+        proxy["tls"] = True
+        sni = q_one(query, "sni") or q_one(query, "servername") or q_one(query, "peer")
+        if sni:
+            proxy["servername"] = sni
+        fp = q_one(query, "fp") or q_one(query, "fingerprint")
+        if fp:
+            proxy["client-fingerprint"] = fp
+    if security == "reality":
+        reality: Dict[str, Any] = {}
+        pbk = q_one(query, "pbk") or q_one(query, "public-key")
+        sid = q_one(query, "sid") or q_one(query, "short-id")
+        if pbk:
+            reality["public-key"] = pbk
+        if sid:
+            reality["short-id"] = sid
+        if reality:
+            proxy["reality-opts"] = reality
+    add_transport_opts(proxy, network, query)
+    return proxy, ""
+
+
+def parse_trojan_link(line: str) -> Tuple[Optional[Dict[str, Any]], str]:
+    parsed = urlparse(line)
+    password = unquote(parsed.username or "")
+    server = parsed.hostname or ""
+    try:
+        port = int(parsed.port or 0)
+    except Exception:
+        port = 0
+    if not password or not server or not port:
+        return None, "trojan missing password/server/port"
+    query = parse_qs(parsed.query, keep_blank_values=True)
+    network = q_one(query, "type", "tcp").lower()
+    proxy: Dict[str, Any] = {
+        "name": clean_display_name(parsed.fragment, "Trojan Manual"),
+        "type": "trojan",
+        "server": server,
+        "port": port,
+        "password": password,
+        "udp": True,
+    }
+    sni = q_one(query, "sni") or q_one(query, "peer") or q_one(query, "servername")
+    if sni:
+        proxy["sni"] = sni
+    security = q_one(query, "security")
+    if security in {"tls", ""}:
+        proxy["tls"] = True
+    add_transport_opts(proxy, network, query)
+    return proxy, ""
+
+
+def parse_ss_link(line: str) -> Tuple[Optional[Dict[str, Any]], str]:
+    raw = line[len("ss://"):].strip()
+    main, _, fragment = raw.partition("#")
+    main, _, query_text = main.partition("?")
+    name = clean_display_name(fragment, "SS Manual")
+    if "@" in main:
+        userinfo, hostport = main.rsplit("@", 1)
+        if ":" not in userinfo:
+            decoded = b64_decode_text(userinfo)
+            if not decoded:
+                return None, "ss userinfo base64 decode failed"
+            userinfo = decoded
+    else:
+        decoded = b64_decode_text(main)
+        if not decoded or "@" not in decoded:
+            return None, "ss base64 decode failed"
+        userinfo, hostport = decoded.rsplit("@", 1)
+    if ":" not in userinfo:
+        return None, "ss missing cipher/password"
+    cipher, password = userinfo.split(":", 1)
+    server, port = parse_host_port(hostport)
+    if not cipher or not password or not server or not port:
+        return None, "ss missing cipher/password/server/port"
+    proxy: Dict[str, Any] = {
+        "name": name,
+        "type": "ss",
+        "server": server,
+        "port": port,
+        "cipher": unquote(cipher),
+        "password": unquote(password),
+        "udp": True,
+    }
+    query = parse_qs(query_text, keep_blank_values=True)
+    plugin = q_one(query, "plugin")
+    if plugin.startswith("obfs"):
+        proxy["plugin"] = "obfs"
+        plugin_opts: Dict[str, Any] = {}
+        for part in plugin.split(";")[1:]:
+            if "=" in part:
+                key, value = part.split("=", 1)
+                if key == "obfs":
+                    plugin_opts["mode"] = value
+                elif key == "obfs-host":
+                    plugin_opts["host"] = value
+        if plugin_opts:
+            proxy["plugin-opts"] = plugin_opts
+    return proxy, ""
+
+
+def parse_ssr_link(line: str) -> Tuple[Optional[Dict[str, Any]], str]:
+    decoded = b64_decode_text(line[len("ssr://"):].strip())
+    if not decoded:
+        return None, "ssr base64 decode failed"
+    try:
+        head, _, query_text = decoded.partition("/?")
+        server, port, protocol, method, obfs, password_b64 = head.split(":", 5)
+        password = b64_decode_text(password_b64) or password_b64
+        query = parse_qs(query_text, keep_blank_values=True)
+        remarks = b64_decode_text(q_one(query, "remarks")) or "SSR Manual"
+        proxy: Dict[str, Any] = {
+            "name": clean_display_name(remarks, "SSR Manual"),
+            "type": "ssr",
+            "server": server,
+            "port": parse_int(port, 0),
+            "protocol": protocol,
+            "cipher": method,
+            "obfs": obfs,
+            "password": password,
+            "udp": True,
+        }
+        obfs_param = b64_decode_text(q_one(query, "obfsparam") or "")
+        proto_param = b64_decode_text(q_one(query, "protoparam") or "")
+        if obfs_param:
+            proxy["obfs-param"] = obfs_param
+        if proto_param:
+            proxy["protocol-param"] = proto_param
+        if not proxy["server"] or not proxy["port"]:
+            return None, "ssr missing server/port"
+        return proxy, ""
+    except Exception as exc:
+        return None, f"ssr parse failed: {exc}"
+
+
+def parse_clash_proxy_line(line: str) -> Tuple[Optional[Dict[str, Any]], str]:
+    candidate = line.strip()
+    if candidate.startswith("-"):
+        candidate = candidate[1:].strip()
+    try:
+        data = yaml.safe_load(candidate)
+    except Exception as exc:
+        return None, f"inline clash yaml parse failed: {exc}"
+    if not isinstance(data, dict):
+        return None, "inline clash yaml is not a mapping"
+    if not data.get("type") or not data.get("server"):
+        return None, "inline clash proxy missing type/server"
+    data = dict(data)
+    data.setdefault("name", "Manual Clash Proxy")
+    return data, ""
+
+
+def parse_manual_link_line(line: str) -> Tuple[Optional[Dict[str, Any]], str]:
+    value = str(line or "").strip()
+    if not value or value.startswith("#"):
+        return None, "blank/comment"
+    lowered = value.lower()
+    if lowered.startswith("vmess://"):
+        return parse_vmess_link(value)
+    if lowered.startswith("vless://"):
+        return parse_vless_link(value)
+    if lowered.startswith("trojan://"):
+        return parse_trojan_link(value)
+    if lowered.startswith("ss://"):
+        return parse_ss_link(value)
+    if lowered.startswith("ssr://"):
+        return parse_ssr_link(value)
+    if value.startswith("{") or value.startswith("-"):
+        return parse_clash_proxy_line(value)
+    if lowered.startswith("http://") or lowered.startswith("https://"):
+        return None, "subscription/http source, not a direct proxy node"
+    return None, "unsupported or unparsable direct proxy format"
+
+
+def load_manual_proxy_templates(root: Path, input_files: Sequence[str]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    templates: List[Dict[str, Any]] = []
+    skipped: List[Dict[str, Any]] = []
+    sequence = 0
+    for rel in input_files:
+        path = root / rel
+        if not path.exists() or not path.is_file():
+            continue
+        for line_no, raw_line in enumerate(path.read_text(encoding="utf-8", errors="replace").splitlines(), start=1):
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+            sequence += 1
+            proxy, reason = parse_manual_link_line(line)
+            if proxy is None:
+                skipped.append({
+                    "source": rel,
+                    "line": line_no,
+                    "reason": reason,
+                    "preview": line[:120],
+                })
+                continue
+            proxy = dict(proxy)
+            proxy["_manual_index"] = sequence
+            proxy["_manual_original_name"] = str(proxy.get("name") or f"Input {sequence:03d}")
+            templates.append(proxy)
+    return templates, skipped
+
+
+def prepare_manual_proxies(templates: Sequence[Dict[str, Any]], existing_names: Set[str]) -> List[Dict[str, Any]]:
+    used_names = set(existing_names)
+    out: List[Dict[str, Any]] = []
+    for local_index, template in enumerate(templates, start=1):
+        proxy = {k: v for k, v in template.items() if not str(k).startswith("_manual_")}
+        original_index = parse_int(template.get("_manual_index"), local_index)
+        preferred = str(template.get("_manual_original_name") or proxy.get("name") or f"Input {original_index:03d}")
+        proxy["name"] = make_manual_name(original_index, preferred, used_names)
+        out.append(proxy)
+    return out
+
+
+def inject_manual_input_proxies(data: Dict[str, Any], manual_templates: Sequence[Dict[str, Any]], tuning: Tuning) -> Dict[str, Any]:
+    if not manual_templates:
+        return {"manual_input_count": 0, "manual_inserted": 0, "manual_replaced": 0, "manual_group_count": 0}
+
+    proxies = data.get("proxies")
+    if not isinstance(proxies, list):
+        proxies = []
+    existing = [item for item in proxies if isinstance(item, dict)]
+    existing_names = {str(item.get("name") or "").strip() for item in existing if str(item.get("name") or "").strip()}
+    manual_proxies = prepare_manual_proxies(manual_templates, existing_names)
+    manual_names = [str(item.get("name")) for item in manual_proxies if item.get("name")]
+    manual_name_set = set(manual_names)
+
+    remaining: List[Dict[str, Any]] = []
+    replaced = 0
+    for item in existing:
+        name = str(item.get("name") or "").strip()
+        if name in manual_name_set:
+            replaced += 1
+            continue
+        remaining.append(item)
+
+    # Manual links are placed at the top of the account section so their order
+    # follows input/links.txt exactly before generated/filtered accounts.
+    data["proxies"] = manual_proxies + remaining
+
+    upsert_group(data, build_select_group(MANUAL_GROUP_SELECT, manual_names + ["DIRECT"]))
+    upsert_group(data, build_fallback_group(MANUAL_GROUP_FALLBACK, manual_names, tuning))
+    upsert_group(data, build_urltest_group(MANUAL_GROUP_URLTEST, manual_names, tuning))
+
+    return {
+        "manual_input_count": len(manual_templates),
+        "manual_inserted": len(manual_proxies),
+        "manual_replaced": replaced,
+        "manual_group_count": len(manual_names),
+        "manual_groups": [MANUAL_GROUP_SELECT, MANUAL_GROUP_FALLBACK, MANUAL_GROUP_URLTEST],
+    }
 
 
 def read_yaml(path: Path) -> Dict[str, Any]:
@@ -464,6 +897,9 @@ def add_responsive_groups(data: Dict[str, Any], root: Path, path: Path, args: ar
     main = find_or_create_main_group(data, proxy_names)
     main_name = str(main.get("name") or "PROXY")
     preferred = [
+        MANUAL_GROUP_FALLBACK,
+        MANUAL_GROUP_SELECT,
+        MANUAL_GROUP_URLTEST,
         "SAT-SET",
         "ANTI-BENGONG",
         "BEST-STABLE",
@@ -484,10 +920,16 @@ def add_responsive_groups(data: Dict[str, Any], root: Path, path: Path, args: ar
     for group in get_groups(data):
         if not isinstance(group, dict):
             continue
-        if str(group.get("name") or "") == main_name:
+        group_name = str(group.get("name") or "")
+        if group_name in {main_name, MANUAL_GROUP_SELECT}:
             continue
         if str(group.get("type") or "").lower() in {"select", "selector"}:
-            if put_refs_front(group, ["SAT-SET", "ANTI-BENGONG", "BEST-STABLE", "DIRECT"], data, proxy_names):
+            if put_refs_front(
+                group,
+                [MANUAL_GROUP_FALLBACK, MANUAL_GROUP_SELECT, "SAT-SET", "ANTI-BENGONG", "BEST-STABLE", "DIRECT"],
+                data,
+                proxy_names,
+            ):
                 selector_changed += 1
 
     return {
@@ -543,7 +985,7 @@ def backup_file(path: Path, root: Path, backup_dir: Path) -> Optional[str]:
     return str(target.relative_to(root))
 
 
-def apply_to_file(path: Path, root: Path, args: argparse.Namespace, backup_dir: Path) -> Optional[Dict[str, Any]]:
+def apply_to_file(path: Path, root: Path, args: argparse.Namespace, backup_dir: Path, manual_templates: Sequence[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
     if not path.exists():
         return None
 
@@ -552,12 +994,14 @@ def apply_to_file(path: Path, root: Path, args: argparse.Namespace, backup_dir: 
     except Exception as exc:
         return {"file": str(path.relative_to(root)), "ok": False, "reason": f"YAML read failed: {exc}"}
 
+    backup_rel = backup_file(path, root, backup_dir)
+    tuning = profile_tuning(path, args)
+
+    manual_injection = inject_manual_input_proxies(data, manual_templates, tuning)
+
     proxy_names = get_proxy_names(data)
     if not proxy_names:
         return {"file": str(path.relative_to(root)), "ok": False, "reason": "no proxies found"}
-
-    backup_rel = backup_file(path, root, backup_dir)
-    tuning = profile_tuning(path, args)
 
     root_removed = clean_root_options(data, keep_meta_options=args.keep_meta_options)
 
@@ -598,6 +1042,7 @@ def apply_to_file(path: Path, root: Path, args: argparse.Namespace, backup_dir: 
         "removed_group_keys": group_removed_keys,
         "reference_repair": ref_stats,
         "rules": rule_stats,
+        "manual_injection": manual_injection,
         **info,
     }
 
@@ -607,6 +1052,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--root", default=".", help="Repository root")
     parser.add_argument("--files", nargs="*", default=DEFAULT_OUTPUT_FILES, help="YAML files to update")
     parser.add_argument("--report", default="output/Validation/summary_openclash_safe_satset.json")
+    parser.add_argument(
+        "--manual-input-files",
+        default=os.getenv("MANUAL_INPUT_FILES", ",".join(MANUAL_INPUT_FILES)),
+        help="Comma-separated trusted direct proxy link files to inject into every output YAML",
+    )
     parser.add_argument("--max-stable", type=int, default=env_int("RESPONSIVE_TOP_N", 15))
     parser.add_argument("--max-combined", type=int, default=env_int("RESPONSIVE_COMBINED_MAX", 30))
     parser.add_argument("--fast-interval", type=int, default=env_int("RESPONSIVE_INTERVAL_FAST", env_int("URL_TEST_INTERVAL", 60)))
@@ -625,6 +1075,8 @@ def main() -> int:
     root = Path(args.root).resolve()
     args.max_stable = max(1, int(args.max_stable))
     args.max_combined = max(args.max_stable, int(args.max_combined))
+    args.manual_input_files = split_env_list(args.manual_input_files) or MANUAL_INPUT_FILES
+    manual_templates, manual_skipped = load_manual_proxy_templates(root, args.manual_input_files)
 
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
     backup_dir = root / "output" / "Backup" / f"openclash-safe-satset-{stamp}"
@@ -633,7 +1085,7 @@ def main() -> int:
 
     results: List[Dict[str, Any]] = []
     for rel in args.files:
-        result = apply_to_file(root / rel, root, args, backup_dir)
+        result = apply_to_file(root / rel, root, args, backup_dir, manual_templates)
         if result is not None:
             results.append(result)
 
@@ -643,7 +1095,11 @@ def main() -> int:
         "mode": "safe-satset-openclash-compatible",
         "files_processed": len(results),
         "backup_dir": str(backup_dir.relative_to(root)) if backup_dir.exists() else None,
-        "trusted_manual_policy": "Existing proxies are never tested, filtered, quarantined, deleted, or removed by this post-processor.",
+        "trusted_manual_policy": "Existing proxies and direct proxy links from input/links.txt/input.txt are never tested, filtered, quarantined, deleted, or removed by this post-processor. Direct links are injected into every processed output YAML when they can be converted into valid Clash proxy objects.",
+        "manual_input_files": args.manual_input_files,
+        "manual_input_templates_loaded": len(manual_templates),
+        "manual_input_skipped_unparsable": manual_skipped,
+        "manual_input_groups": [MANUAL_GROUP_SELECT, MANUAL_GROUP_FALLBACK, MANUAL_GROUP_URLTEST, "fallback-link", "best-link"],
         "compatibility_policy": {
             "root_meta_options_removed_by_default": RISKY_ROOT_KEYS,
             "group_fields_removed_by_default": RISKY_GROUP_KEYS,
@@ -662,6 +1118,7 @@ def main() -> int:
             f"[{status}] {item.get('file')} "
             f"proxy={item.get('proxy_count', 0)} "
             f"manual={item.get('manual_count', 0)} "
+            f"manual_input={(item.get('manual_injection') or {}).get('manual_inserted', 0)} "
             f"stable={item.get('stable_count', 0)} "
             f"interval={tuning.get('interval', '-')} "
             f"fallback={tuning.get('fallback_interval', '-')}"

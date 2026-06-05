@@ -1,13 +1,23 @@
 {
-  "name": "SumberYAML OpenClash Safe Sat-Set Fix",
-  "version": "2026-06-05-safe-satset-fix",
-  "purpose": "Repair OpenClash errors caused by overly aggressive no-delay settings while keeping a fast failover layout.",
+  "name": "SumberYAML Manual Input Fallback Safe Patch",
+  "version": "2026-06-05-manual-fallback-safe",
+  "purpose": "Inject direct proxy nodes from input/links.txt/input.txt into every processed OpenClash YAML output without alive filtering, then build a dedicated manual fallback group.",
   "files": [
     "scripts/apply_openclash_responsive_stability.py",
     ".github/workflows/update-openclash.yml",
-    "README_OPENCLASH_SAFE_SATSET_FIX.md",
+    "README_MANUAL_FALLBACK_SAFE_PATCH.md",
     "install_patch.sh"
   ],
+  "manual_accounts_policy": {
+    "input_files": ["input/links.txt", "input.txt", "links.txt"],
+    "filtering": false,
+    "alive_testing_for_removal": false,
+    "quarantine": false,
+    "removal_by_sanitizer": false,
+    "insertion_order": "same order as input file, placed at top of proxies section",
+    "fallback_groups": ["MANUAL-FALLBACK", "MANUAL-LINK", "MANUAL-BEST", "fallback-link", "best-link"],
+    "unparsable_policy": "reported but not forced into YAML, because invalid proxy objects make OpenClash fail to run"
+  },
   "compatibility": {
     "removed_risky_root_keys_by_default": ["unified-delay", "tcp-concurrent"],
     "removed_risky_proxy_group_keys_by_default": ["lazy", "timeout"],
@@ -15,6 +25,5 @@
     "fast_interval_seconds": 60,
     "fast_fallback_interval_seconds": 60,
     "fast_tolerance": 20
-  },
-  "manual_accounts_policy": "Accounts from input/links.txt or input.txt remain trusted. This patch never filters, tests for removal, quarantines, deletes, or removes existing proxies."
+  }
 }
