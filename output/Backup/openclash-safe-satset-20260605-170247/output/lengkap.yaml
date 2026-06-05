@@ -1,0 +1,586 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "v2ray313"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 7fd8d1db-96ec-4e46-80a8-74ad9472384e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "graph-keep-beds-catalog.trycloudflare.com"
+    network: ws
+    ws-opts:
+      path: "/7fd8d1db-96ec-4e46-80a8-74ad9472384e-vm"
+      headers:
+        Host: "graph-keep-beds-catalog.trycloudflare.com"
+    udp: true
+  - name: "By EbraSha 6021"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 0632bfa9-b15c-4257-8c75-32f7c0c53b27
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "cg1c12.waimaojd.com"
+    network: ws
+    ws-opts:
+      path: "/api/v1/graphql"
+      headers:
+        Host: "cg1c12.waimaojd.com"
+    udp: true
+  - name: "oneclickvpnkeys US 8923"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 1220"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "v2nodes DE"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sheynezterary.iran-tube-movie.ir"
+    ws-opts:
+      path: "/?edfp=firefox"
+      headers:
+        Host: "sheynezterary.iran-tube-movie.ir"
+    udp: true
+  - name: "oneclickvpnkeys US 1700"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 2771"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 9576"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys FI"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss4.com"
+    ws-opts:
+      path: "/tsghdws"
+      headers:
+        Host: "octopusss4.com"
+    udp: true
+  - name: "HiByeVPNN 48"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7270612b-49f6-4b04-999c-34d8263da767
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "picassooo.info"
+    ws-opts:
+      path: "/aymdlws"
+      headers:
+        Host: "picassooo.info"
+    udp: true
+  - name: "11 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "MCi DE JKVPN"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hamrah.dgclix.ir"
+    ws-opts:
+      path: "/?TELEGRAM--BYA--CHANEL---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN--@JKVPN---@JKVPN---@JKVPN---@JKVPN"
+      headers:
+        Host: "hamrah.dgclix.ir"
+    udp: true
+  - name: "ProxyVPN11 2220"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "v2ray_configs_pools 1691"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sheynezterary.iran-tube-movie.ir"
+    ws-opts:
+      path: "/?edfp"
+      headers:
+        Host: "sheynezterary.iran-tube-movie.ir"
+    udp: true
+  - name: "HiByeVPNN 72"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss5.info"
+    ws-opts:
+      path: "/udfyfws"
+      headers:
+        Host: "octopusss5.info"
+    udp: true
+  - name: "VPsave 7950"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "v2ray1_ng FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "V2rayNG3 FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?L=tls"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "configV2rayNG FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "KAFING_2 4544"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "v2raydia"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store"
+    ws-opts:
+      path: "/https://chatgpt.com"
+      headers:
+        Host: "mItIvPN.glOBaL.ssl.mItIvPN.store"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "v2raydia"
+      - "HiByeVPNN 48"
+      - "v2ray_configs_pools 1691"
+      - "ProxyVPN11 2220"
+      - "oneclickvpnkeys US 1220"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    tolerance: 20
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "v2raydia"
+      - "HiByeVPNN 48"
+      - "v2ray_configs_pools 1691"
+      - "ProxyVPN11 2220"
+      - "oneclickvpnkeys US 1220"
+      - "oneclickvpnkeys US 1700"
+      - "oneclickvpnkeys US 2771"
+      - "11 oneclickvpnkeys"
+      - "oneclickvpnkeys US 8923"
+      - "oneclickvpnkeys US 9576"
+      - "VPsave 7950"
+      - "v2nodes DE"
+      - "oneclickvpnkeys FI"
+      - "v2ray1_ng FR"
+      - "V2rayNG3 FR"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "v2raydia"
+      - "HiByeVPNN 48"
+      - "v2ray_configs_pools 1691"
+      - "ProxyVPN11 2220"
+      - "oneclickvpnkeys US 1220"
+      - "oneclickvpnkeys US 1700"
+      - "oneclickvpnkeys US 2771"
+      - "11 oneclickvpnkeys"
+      - "oneclickvpnkeys US 8923"
+      - "oneclickvpnkeys US 9576"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "v2raydia"
+      - "HiByeVPNN 48"
+      - "v2ray_configs_pools 1691"
+      - "ProxyVPN11 2220"
+      - "oneclickvpnkeys US 1220"
+      - "oneclickvpnkeys US 1700"
+      - "oneclickvpnkeys US 2771"
+      - "11 oneclickvpnkeys"
+      - "oneclickvpnkeys US 8923"
+      - "oneclickvpnkeys US 9576"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "v2raydia"
+      - "HiByeVPNN 48"
+      - "v2ray_configs_pools 1691"
+      - "KAFING_2 4544"
+      - "ProxyVPN11 2220"
+      - "oneclickvpnkeys US 1220"
+      - "oneclickvpnkeys US 1700"
+      - "oneclickvpnkeys US 2771"
+      - "11 oneclickvpnkeys"
+      - "oneclickvpnkeys US 8923"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "v2raydia"
+      - "HiByeVPNN 48"
+      - "v2ray_configs_pools 1691"
+      - "KAFING_2 4544"
+      - "ProxyVPN11 2220"
+      - "oneclickvpnkeys US 1220"
+      - "oneclickvpnkeys US 1700"
+      - "oneclickvpnkeys US 2771"
+      - "11 oneclickvpnkeys"
+      - "oneclickvpnkeys US 8923"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "v2raydia"
+      - "HiByeVPNN 48"
+      - "v2ray_configs_pools 1691"
+      - "KAFING_2 4544"
+      - "ProxyVPN11 2220"
+      - "oneclickvpnkeys US 1220"
+      - "oneclickvpnkeys US 1700"
+      - "oneclickvpnkeys US 2771"
+      - "11 oneclickvpnkeys"
+      - "oneclickvpnkeys US 8923"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    lazy: false
+
+  - name: "URL-TEST VMESS"
+    type: url-test
+    proxies:
+      - "v2ray313"
+      - "By EbraSha 6021"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    tolerance: 20
+    lazy: false
+
+  - name: "URL-TEST VLESS"
+    type: url-test
+    proxies:
+      - "oneclickvpnkeys US 8923"
+      - "oneclickvpnkeys US 1220"
+      - "v2nodes DE"
+      - "oneclickvpnkeys US 1700"
+      - "oneclickvpnkeys US 2771"
+      - "oneclickvpnkeys US 9576"
+      - "oneclickvpnkeys FI"
+      - "HiByeVPNN 48"
+      - "11 oneclickvpnkeys"
+      - "MCi DE JKVPN"
+      - "ProxyVPN11 2220"
+      - "v2ray_configs_pools 1691"
+      - "HiByeVPNN 72"
+      - "VPsave 7950"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    tolerance: 20
+    lazy: false
+
+  - name: "URL-TEST TROJAN"
+    type: url-test
+    proxies:
+      - "v2ray1_ng FR"
+      - "V2rayNG3 FR"
+      - "configV2rayNG FR"
+      - "KAFING_2 4544"
+      - "v2raydia"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    tolerance: 20
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "v2ray313"
+      - "By EbraSha 6021"
+      - "oneclickvpnkeys US 8923"
+      - "oneclickvpnkeys US 1220"
+      - "v2nodes DE"
+      - "oneclickvpnkeys US 1700"
+      - "oneclickvpnkeys US 2771"
+      - "oneclickvpnkeys US 9576"
+      - "oneclickvpnkeys FI"
+      - "HiByeVPNN 48"
+      - "11 oneclickvpnkeys"
+      - "MCi DE JKVPN"
+      - "ProxyVPN11 2220"
+      - "v2ray_configs_pools 1691"
+      - "HiByeVPNN 72"
+      - "VPsave 7950"
+      - "v2ray1_ng FR"
+      - "V2rayNG3 FR"
+      - "configV2rayNG FR"
+      - "KAFING_2 4544"
+      - "v2raydia"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    tolerance: 20
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "v2raydia"
+      - "HiByeVPNN 48"
+      - "v2ray_configs_pools 1691"
+      - "ProxyVPN11 2220"
+      - "oneclickvpnkeys US 1220"
+      - "oneclickvpnkeys US 1700"
+      - "oneclickvpnkeys US 2771"
+      - "11 oneclickvpnkeys"
+      - "oneclickvpnkeys US 8923"
+      - "oneclickvpnkeys US 9576"
+      - "VPsave 7950"
+      - "v2nodes DE"
+      - "oneclickvpnkeys FI"
+      - "v2ray1_ng FR"
+      - "V2rayNG3 FR"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "URL-TEST VMESS"
+      - "URL-TEST VLESS"
+      - "URL-TEST TROJAN"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

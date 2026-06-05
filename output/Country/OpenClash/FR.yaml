@@ -34,20 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys FR 6876"
+  - name: "V2rayNG3 FR"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: e277ac9b-3225-4381-a9fb-3585419f7142
-    cipher: none
+    type: trojan
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "35cdnws.frnstatic.info"
+    sni: "www.gossipglove.com"
     ws-opts:
-      path: "/35cdnws"
+      path: "/assignment?L=tls"
       headers:
-        Host: "35cdnws.frnstatic.info"
+        Host: "www.gossipglove.com"
     udp: true
   - name: "configV2rayNG FR"
     server: "104.17.3.81"

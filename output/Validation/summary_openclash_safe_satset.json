@@ -3,8 +3,22 @@
   "generated_by": "apply_openclash_responsive_stability.py",
   "mode": "safe-satset-openclash-compatible",
   "files_processed": 12,
-  "backup_dir": "output/Backup/openclash-safe-satset-20260605-162340",
-  "trusted_manual_policy": "Existing proxies are never tested, filtered, quarantined, deleted, or removed by this post-processor.",
+  "backup_dir": "output/Backup/openclash-safe-satset-20260605-170247",
+  "trusted_manual_policy": "Existing proxies and direct proxy links from input/links.txt/input.txt are never tested, filtered, quarantined, deleted, or removed by this post-processor. Direct links are injected into every processed output YAML when they can be converted into valid Clash proxy objects.",
+  "manual_input_files": [
+    "input/links.txt",
+    "input.txt",
+    "links.txt"
+  ],
+  "manual_input_templates_loaded": 7,
+  "manual_input_skipped_unparsable": [],
+  "manual_input_groups": [
+    "MANUAL-LINK",
+    "MANUAL-FALLBACK",
+    "MANUAL-BEST",
+    "fallback-link",
+    "best-link"
+  ],
   "compatibility_policy": {
     "root_meta_options_removed_by_default": [
       "unified-delay",
@@ -21,7 +35,7 @@
     {
       "file": "output/lengkap.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/lengkap.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/lengkap.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
@@ -78,27 +92,42 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
         "created:SAT-SET",
         "created:ANTI-BENGONG",
-        "created:BEST-STABLE"
+        "created:BEST-STABLE",
+        "created:best-link",
+        "created:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 21,
-        "ANTI-BENGONG": 21,
-        "BEST-STABLE": 15
+        "SAT-SET": 28,
+        "ANTI-BENGONG": 28,
+        "BEST-STABLE": 15,
+        "best-link": 7,
+        "fallback-link": 7
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 21,
-      "manual_count": 0,
+      "proxy_count": 28,
+      "manual_count": 7,
       "stable_count": 15
     },
     {
       "file": "output/lengkap_alive.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/lengkap_alive.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/lengkap_alive.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
@@ -155,27 +184,42 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
         "created:SAT-SET",
         "created:ANTI-BENGONG",
-        "created:BEST-STABLE"
+        "created:BEST-STABLE",
+        "created:best-link",
+        "created:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 21,
-        "ANTI-BENGONG": 21,
-        "BEST-STABLE": 15
+        "SAT-SET": 28,
+        "ANTI-BENGONG": 28,
+        "BEST-STABLE": 15,
+        "best-link": 7,
+        "fallback-link": 7
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 21,
-      "manual_count": 0,
+      "proxy_count": 28,
+      "manual_count": 7,
       "stable_count": 15
     },
     {
       "file": "output/strict_alive.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/strict_alive.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/strict_alive.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
@@ -232,27 +276,42 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
         "created:SAT-SET",
         "created:ANTI-BENGONG",
-        "created:BEST-STABLE"
+        "created:BEST-STABLE",
+        "created:best-link",
+        "created:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 21,
-        "ANTI-BENGONG": 21,
-        "BEST-STABLE": 15
+        "SAT-SET": 28,
+        "ANTI-BENGONG": 28,
+        "BEST-STABLE": 15,
+        "best-link": 7,
+        "fallback-link": 7
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 21,
-      "manual_count": 0,
+      "proxy_count": 28,
+      "manual_count": 7,
       "stable_count": 15
     },
     {
       "file": "output/lite.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/lite.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/lite.yaml",
       "tuning": {
         "interval": 60,
         "fallback_interval": 60,
@@ -295,7 +354,7 @@
         ]
       },
       "reference_repair": {
-        "unknown_removed": 0,
+        "unknown_removed": 3,
         "empty_repaired": 0,
         "self_removed": 0
       },
@@ -303,27 +362,42 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
         "created:SAT-SET",
         "created:ANTI-BENGONG",
-        "created:BEST-STABLE"
+        "created:BEST-STABLE",
+        "created:best-link",
+        "created:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 15,
-        "ANTI-BENGONG": 15,
-        "BEST-STABLE": 15
+        "SAT-SET": 22,
+        "ANTI-BENGONG": 22,
+        "BEST-STABLE": 15,
+        "best-link": 7,
+        "fallback-link": 7
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 15,
-      "manual_count": 0,
+      "proxy_count": 22,
+      "manual_count": 7,
       "stable_count": 15
     },
     {
       "file": "output/fast.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/fast.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/fast.yaml",
       "tuning": {
         "interval": 60,
         "fallback_interval": 60,
@@ -363,7 +437,7 @@
         ]
       },
       "reference_repair": {
-        "unknown_removed": 0,
+        "unknown_removed": 3,
         "empty_repaired": 0,
         "self_removed": 0
       },
@@ -371,27 +445,42 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
         "created:SAT-SET",
         "created:ANTI-BENGONG",
-        "created:BEST-STABLE"
+        "created:BEST-STABLE",
+        "created:best-link",
+        "created:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 15,
-        "ANTI-BENGONG": 15,
-        "BEST-STABLE": 15
+        "SAT-SET": 22,
+        "ANTI-BENGONG": 22,
+        "BEST-STABLE": 15,
+        "best-link": 7,
+        "fallback-link": 7
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 15,
-      "manual_count": 0,
+      "proxy_count": 22,
+      "manual_count": 7,
       "stable_count": 15
     },
     {
       "file": "output/gaming.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/gaming.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/gaming.yaml",
       "tuning": {
         "interval": 60,
         "fallback_interval": 60,
@@ -415,27 +504,42 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
         "created:SAT-SET",
         "created:ANTI-BENGONG",
-        "created:BEST-STABLE"
+        "created:BEST-STABLE",
+        "created:best-link",
+        "created:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 10,
-        "ANTI-BENGONG": 10,
-        "BEST-STABLE": 10
+        "SAT-SET": 17,
+        "ANTI-BENGONG": 17,
+        "BEST-STABLE": 10,
+        "best-link": 7,
+        "fallback-link": 7
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 10,
-      "manual_count": 0,
+      "proxy_count": 17,
+      "manual_count": 7,
       "stable_count": 10
     },
     {
       "file": "output/social_media.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/social_media.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/social_media.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
@@ -459,27 +563,42 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
         "created:SAT-SET",
         "created:ANTI-BENGONG",
-        "created:BEST-STABLE"
+        "created:BEST-STABLE",
+        "created:best-link",
+        "created:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 10,
-        "ANTI-BENGONG": 10,
-        "BEST-STABLE": 10
+        "SAT-SET": 17,
+        "ANTI-BENGONG": 17,
+        "BEST-STABLE": 10,
+        "best-link": 7,
+        "fallback-link": 7
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 10,
-      "manual_count": 0,
+      "proxy_count": 17,
+      "manual_count": 7,
       "stable_count": 10
     },
     {
       "file": "output/streaming.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/streaming.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/streaming.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
@@ -503,27 +622,42 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
         "created:SAT-SET",
         "created:ANTI-BENGONG",
-        "created:BEST-STABLE"
+        "created:BEST-STABLE",
+        "created:best-link",
+        "created:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 10,
-        "ANTI-BENGONG": 10,
-        "BEST-STABLE": 10
+        "SAT-SET": 17,
+        "ANTI-BENGONG": 17,
+        "BEST-STABLE": 10,
+        "best-link": 7,
+        "fallback-link": 7
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 10,
-      "manual_count": 0,
+      "proxy_count": 17,
+      "manual_count": 7,
       "stable_count": 10
     },
     {
       "file": "output/working.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/working.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/working.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
@@ -547,27 +681,42 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
         "created:SAT-SET",
         "created:ANTI-BENGONG",
-        "created:BEST-STABLE"
+        "created:BEST-STABLE",
+        "created:best-link",
+        "created:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 10,
-        "ANTI-BENGONG": 10,
-        "BEST-STABLE": 10
+        "SAT-SET": 17,
+        "ANTI-BENGONG": 17,
+        "BEST-STABLE": 10,
+        "best-link": 7,
+        "fallback-link": 7
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 10,
-      "manual_count": 0,
+      "proxy_count": 17,
+      "manual_count": 7,
       "stable_count": 10
     },
     {
       "file": "output/general.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/general.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/general.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
@@ -591,120 +740,49 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
         "created:SAT-SET",
         "created:ANTI-BENGONG",
-        "created:BEST-STABLE"
+        "created:BEST-STABLE",
+        "created:best-link",
+        "created:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 10,
-        "ANTI-BENGONG": 10,
-        "BEST-STABLE": 10
+        "SAT-SET": 17,
+        "ANTI-BENGONG": 17,
+        "BEST-STABLE": 10,
+        "best-link": 7,
+        "fallback-link": 7
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 10,
-      "manual_count": 0,
+      "proxy_count": 17,
+      "manual_count": 7,
       "stable_count": 10
     },
     {
       "file": "output/openclash-ready.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/openclash-ready.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/openclash-ready.yaml",
       "tuning": {
         "interval": 60,
         "fallback_interval": 60,
         "tolerance": 20
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "INDONESIA-BEST": [
-          "lazy"
-        ],
-        "URL-TEST TOP 10 INDONESIA": [
-          "lazy",
-          "timeout"
-        ],
-        "FALLBACK CEPAT": [
-          "lazy",
-          "timeout"
-        ],
-        "GAMING STABIL": [
-          "lazy",
-          "timeout"
-        ],
-        "SOCIAL MEDIA STABIL": [
-          "lazy",
-          "timeout"
-        ],
-        "STREAMING STABIL": [
-          "lazy",
-          "timeout"
-        ],
-        "WORKING STABIL": [
-          "lazy",
-          "timeout"
-        ],
-        "GENERAL STABIL": [
-          "lazy",
-          "timeout"
-        ],
-        "URL-TEST VMESS": [
-          "lazy",
-          "timeout"
-        ],
-        "URL-TEST VLESS": [
-          "lazy",
-          "timeout"
-        ],
-        "URL-TEST TROJAN": [
-          "lazy",
-          "timeout"
-        ],
-        "URL-TEST GABUNGAN": [
-          "lazy",
-          "timeout"
-        ],
-        "FALLBACK": [
-          "lazy",
-          "timeout"
-        ],
-        "SAT-SET": [
-          "lazy",
-          "timeout"
-        ],
-        "BEST-STABLE": [
-          "lazy"
-        ],
-        "ANTI-BENGONG": [
-          "lazy"
-        ],
-        "best-link": [
-          "lazy"
-        ],
-        "fallback-link": [
-          "lazy"
-        ],
-        "STREAMING-BEST": [
-          "lazy"
-        ],
-        "GAMING-BEST": [
-          "lazy"
-        ],
-        "SOCIAL-BEST": [
-          "lazy"
-        ],
-        "WORKING-BEST": [
-          "lazy"
-        ],
-        "GENERAL-BEST": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -713,6 +791,17 @@
       "rules": {
         "lan_added": 0,
         "match_repaired": 0
+      },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
       },
       "actions": [
         "updated:SAT-SET",
@@ -722,49 +811,30 @@
         "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 58,
-        "ANTI-BENGONG": 58,
+        "SAT-SET": 65,
+        "ANTI-BENGONG": 65,
         "BEST-STABLE": 15,
-        "best-link": 28,
-        "fallback-link": 28
+        "best-link": 35,
+        "fallback-link": 35
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 120,
-      "manual_count": 28,
+      "proxy_count": 127,
+      "manual_count": 35,
       "stable_count": 15
     },
     {
       "file": "output/openclash-lite-ready.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-162340/output/openclash-lite-ready.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-170247/output/openclash-lite-ready.yaml",
       "tuning": {
         "interval": 60,
         "fallback_interval": 60,
         "tolerance": 20
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "ANTI-BENGONG": [
-          "lazy"
-        ],
-        "BEST-STABLE": [
-          "lazy"
-        ],
-        "INDONESIA-BEST": [
-          "lazy"
-        ],
-        "fallback-link": [
-          "lazy"
-        ],
-        "best-link": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -774,25 +844,36 @@
         "lan_added": 0,
         "match_repaired": 0
       },
+      "manual_injection": {
+        "manual_input_count": 7,
+        "manual_inserted": 7,
+        "manual_replaced": 0,
+        "manual_group_count": 7,
+        "manual_groups": [
+          "MANUAL-LINK",
+          "MANUAL-FALLBACK",
+          "MANUAL-BEST"
+        ]
+      },
       "actions": [
-        "created:SAT-SET",
+        "updated:SAT-SET",
         "updated:ANTI-BENGONG",
         "updated:BEST-STABLE",
         "updated:best-link",
         "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 30,
-        "ANTI-BENGONG": 30,
+        "SAT-SET": 37,
+        "ANTI-BENGONG": 37,
         "BEST-STABLE": 7,
-        "best-link": 15,
-        "fallback-link": 15
+        "best-link": 22,
+        "fallback-link": 22
       },
       "main_group": "PROXY",
       "main_changed": true,
       "selector_changed": 0,
-      "proxy_count": 30,
-      "manual_count": 15,
+      "proxy_count": 37,
+      "manual_count": 22,
       "stable_count": 7
     }
   ]

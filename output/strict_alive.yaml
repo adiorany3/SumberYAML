@@ -26,7 +26,126 @@ dns:
   - 1.0.0.1
   - 8.8.4.4
 proxies:
-- name: By EbraSha 8133
+- name: MANUAL-LINK-001 (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: MANUAL-LINK-002 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-003 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: MANUAL-LINK-005 bel432 telk
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-006 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: v2ray313
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 7fd8d1db-96ec-4e46-80a8-74ad9472384e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: graph-keep-beds-catalog.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: /7fd8d1db-96ec-4e46-80a8-74ad9472384e-vm
+    headers:
+      Host: graph-keep-beds-catalog.trycloudflare.com
+  udp: true
+- name: By EbraSha 6021
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -42,37 +161,7 @@ proxies:
     headers:
       Host: cg1c12.waimaojd.com
   udp: true
-- name: v2reya88
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: fgnix832fx.fx6hsv0.ccwu.cc
-  ws-opts:
-    path: /
-    headers:
-      Host: fgnix832fx.fx6hsv0.ccwu.cc
-  udp: true
-- name: 10https t.me irconfiig
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: octopusss4.com
-  ws-opts:
-    path: /tsghdws
-    headers:
-      Host: octopusss4.com
-  udp: true
-- name: oneclickvpnkeys US 7051
+- name: oneclickvpnkeys US 8923
   server: 104.17.3.81
   port: 443
   type: vless
@@ -87,7 +176,7 @@ proxies:
     headers:
       Host: juzi.qea.ccwu.cc
   udp: true
-- name: oneclickvpnkeys US 2680
+- name: oneclickvpnkeys US 1220
   server: 104.17.3.81
   port: 443
   type: vless
@@ -117,22 +206,7 @@ proxies:
     headers:
       Host: sheynezterary.iran-tube-movie.ir
   udp: true
-- name: oneclickvpnkeys FR 6876
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e277ac9b-3225-4381-a9fb-3585419f7142
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: 35cdnws.frnstatic.info
-  ws-opts:
-    path: /35cdnws
-    headers:
-      Host: 35cdnws.frnstatic.info
-  udp: true
-- name: oneclickvpnkeys US 2856
+- name: oneclickvpnkeys US 1700
   server: 104.17.3.81
   port: 443
   type: vless
@@ -147,7 +221,7 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: oneclickvpnkeys US 7615
+- name: oneclickvpnkeys US 2771
   server: 104.17.3.81
   port: 443
   type: vless
@@ -162,7 +236,7 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: oneclickvpnkeys US 8567
+- name: oneclickvpnkeys US 9576
   server: 104.17.3.81
   port: 443
   type: vless
@@ -176,6 +250,21 @@ proxies:
     path: /fp=chrome
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: oneclickvpnkeys FI
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss4.com
+  ws-opts:
+    path: /tsghdws
+    headers:
+      Host: octopusss4.com
   udp: true
 - name: HiByeVPNN 48
   server: 104.17.3.81
@@ -192,7 +281,37 @@ proxies:
     headers:
       Host: picassooo.info
   udp: true
-- name: ProxyVPN11 5355
+- name: 11 oneclickvpnkeys
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: fgnix832fx.fx6hsv0.ccwu.cc
+  ws-opts:
+    path: /
+    headers:
+      Host: fgnix832fx.fx6hsv0.ccwu.cc
+  udp: true
+- name: MCi DE JKVPN
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hamrah.dgclix.ir
+  ws-opts:
+    path: /?TELEGRAM--BYA--CHANEL---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN--@JKVPN---@JKVPN---@JKVPN---@JKVPN
+    headers:
+      Host: hamrah.dgclix.ir
+  udp: true
+- name: ProxyVPN11 2220
   server: 104.17.3.81
   port: 443
   type: vless
@@ -207,7 +326,7 @@ proxies:
     headers:
       Host: juzi.qea.ccwu.cc
   udp: true
-- name: v2ray_configs_pools 8389
+- name: v2ray_configs_pools 1691
   server: 104.17.3.81
   port: 443
   type: vless
@@ -237,7 +356,7 @@ proxies:
     headers:
       Host: octopusss5.info
   udp: true
-- name: VPsave 7488
+- name: VPsave 7950
   server: 104.17.3.81
   port: 443
   type: vless
@@ -252,21 +371,7 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: https t.me VIPV2rayNGNP
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.calmloud.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmloud.com
-  udp: true
-- name: 74 oneclickvpnkeys
+- name: v2ray1_ng FR
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -280,7 +385,7 @@ proxies:
     headers:
       Host: www.calmlunch.com
   udp: true
-- name: telegram tajrobe_wiki
+- name: V2rayNG3 FR
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -288,11 +393,11 @@ proxies:
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: www.multiplydose.com
+  sni: www.gossipglove.com
   ws-opts:
-    path: /assignment
+    path: /assignment?L=tls
     headers:
-      Host: www.multiplydose.com
+      Host: www.gossipglove.com
   udp: true
 - name: configV2rayNG FR
   server: 104.17.3.81
@@ -308,19 +413,19 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: configshub2 PL
+- name: KAFING_2 4544
   server: 104.17.3.81
   port: 443
   type: trojan
-  password: humanity
+  password: 20ba0c60-0133-11f1-95ef-1239d0255272
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: www.creationlong.org
+  sni: uk1.test3.net
   ws-opts:
-    path: /assignment
+    path: /howdy
     headers:
-      Host: www.creationlong.org
+      Host: uk1.test3.net
   udp: true
 - name: v2raydia
   server: 104.17.3.81
@@ -340,144 +445,144 @@ proxy-groups:
 - name: URL-TEST TOP 5 INDONESIA
   type: url-test
   proxies:
-  - oneclickvpnkeys US 2680
   - v2raydia
-  - VPsave 7488
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 8567
+  - HiByeVPNN 48
+  - v2ray_configs_pools 1691
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
   url: http://www.gstatic.com/generate_204
   interval: 180
   tolerance: 50
 - name: FALLBACK CEPAT
   type: fallback
   proxies:
-  - oneclickvpnkeys US 2680
   - v2raydia
-  - VPsave 7488
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 8567
-  - 74 oneclickvpnkeys
-  - v2ray_configs_pools 8389
-  - HiByeVPNN 72
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7051
-  - v2reya88
-  - oneclickvpnkeys US 7615
   - HiByeVPNN 48
-  - By EbraSha 8133
-  - telegram tajrobe_wiki
+  - v2ray_configs_pools 1691
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - 11 oneclickvpnkeys
+  - oneclickvpnkeys US 8923
+  - oneclickvpnkeys US 9576
+  - VPsave 7950
+  - v2nodes DE
+  - oneclickvpnkeys FI
+  - v2ray1_ng FR
+  - V2rayNG3 FR
   url: http://www.gstatic.com/generate_204
   interval: 180
 - name: GAMING STABIL
   type: fallback
   proxies:
-  - oneclickvpnkeys US 2680
   - v2raydia
-  - VPsave 7488
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 8567
-  - 74 oneclickvpnkeys
-  - v2ray_configs_pools 8389
-  - HiByeVPNN 72
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7051
+  - HiByeVPNN 48
+  - v2ray_configs_pools 1691
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - 11 oneclickvpnkeys
+  - oneclickvpnkeys US 8923
+  - oneclickvpnkeys US 9576
   url: http://www.gstatic.com/generate_204
   interval: 180
 - name: SOCIAL MEDIA STABIL
   type: fallback
   proxies:
-  - oneclickvpnkeys US 2680
   - v2raydia
-  - VPsave 7488
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 8567
-  - 74 oneclickvpnkeys
-  - v2ray_configs_pools 8389
-  - HiByeVPNN 72
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7051
+  - HiByeVPNN 48
+  - v2ray_configs_pools 1691
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - 11 oneclickvpnkeys
+  - oneclickvpnkeys US 8923
+  - oneclickvpnkeys US 9576
   url: http://www.gstatic.com/generate_204
   interval: 180
 - name: STREAMING STABIL
   type: fallback
   proxies:
-  - oneclickvpnkeys US 2680
   - v2raydia
-  - VPsave 7488
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 8567
-  - 74 oneclickvpnkeys
-  - v2ray_configs_pools 8389
-  - HiByeVPNN 72
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7051
+  - HiByeVPNN 48
+  - v2ray_configs_pools 1691
+  - KAFING_2 4544
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - 11 oneclickvpnkeys
+  - oneclickvpnkeys US 8923
   url: http://www.gstatic.com/generate_204
   interval: 180
 - name: WORKING STABIL
   type: fallback
   proxies:
-  - oneclickvpnkeys US 2680
   - v2raydia
-  - VPsave 7488
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 8567
-  - 74 oneclickvpnkeys
-  - v2ray_configs_pools 8389
-  - HiByeVPNN 72
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7051
+  - HiByeVPNN 48
+  - v2ray_configs_pools 1691
+  - KAFING_2 4544
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - 11 oneclickvpnkeys
+  - oneclickvpnkeys US 8923
   url: http://www.gstatic.com/generate_204
   interval: 180
 - name: GENERAL STABIL
   type: fallback
   proxies:
-  - oneclickvpnkeys US 2680
   - v2raydia
-  - VPsave 7488
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 8567
-  - 74 oneclickvpnkeys
-  - v2ray_configs_pools 8389
-  - HiByeVPNN 72
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7051
+  - HiByeVPNN 48
+  - v2ray_configs_pools 1691
+  - KAFING_2 4544
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - 11 oneclickvpnkeys
+  - oneclickvpnkeys US 8923
   url: http://www.gstatic.com/generate_204
   interval: 180
 - name: URL-TEST VMESS
   type: url-test
   proxies:
-  - By EbraSha 8133
+  - v2ray313
+  - By EbraSha 6021
   url: http://www.gstatic.com/generate_204
   interval: 180
   tolerance: 50
 - name: URL-TEST VLESS
   type: url-test
   proxies:
-  - v2reya88
-  - 10https t.me irconfiig
-  - oneclickvpnkeys US 7051
-  - oneclickvpnkeys US 2680
+  - oneclickvpnkeys US 8923
+  - oneclickvpnkeys US 1220
   - v2nodes DE
-  - oneclickvpnkeys FR 6876
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7615
-  - oneclickvpnkeys US 8567
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - oneclickvpnkeys US 9576
+  - oneclickvpnkeys FI
   - HiByeVPNN 48
-  - ProxyVPN11 5355
-  - v2ray_configs_pools 8389
+  - 11 oneclickvpnkeys
+  - MCi DE JKVPN
+  - ProxyVPN11 2220
+  - v2ray_configs_pools 1691
   - HiByeVPNN 72
-  - VPsave 7488
+  - VPsave 7950
   url: http://www.gstatic.com/generate_204
   interval: 180
   tolerance: 50
 - name: URL-TEST TROJAN
   type: url-test
   proxies:
-  - https t.me VIPV2rayNGNP
-  - 74 oneclickvpnkeys
-  - telegram tajrobe_wiki
+  - v2ray1_ng FR
+  - V2rayNG3 FR
   - configV2rayNG FR
-  - configshub2 PL
+  - KAFING_2 4544
   - v2raydia
   url: http://www.gstatic.com/generate_204
   interval: 180
@@ -485,26 +590,26 @@ proxy-groups:
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - By EbraSha 8133
-  - v2reya88
-  - 10https t.me irconfiig
-  - oneclickvpnkeys US 7051
-  - oneclickvpnkeys US 2680
+  - v2ray313
+  - By EbraSha 6021
+  - oneclickvpnkeys US 8923
+  - oneclickvpnkeys US 1220
   - v2nodes DE
-  - oneclickvpnkeys FR 6876
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7615
-  - oneclickvpnkeys US 8567
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - oneclickvpnkeys US 9576
+  - oneclickvpnkeys FI
   - HiByeVPNN 48
-  - ProxyVPN11 5355
-  - v2ray_configs_pools 8389
+  - 11 oneclickvpnkeys
+  - MCi DE JKVPN
+  - ProxyVPN11 2220
+  - v2ray_configs_pools 1691
   - HiByeVPNN 72
-  - VPsave 7488
-  - https t.me VIPV2rayNGNP
-  - 74 oneclickvpnkeys
-  - telegram tajrobe_wiki
+  - VPsave 7950
+  - v2ray1_ng FR
+  - V2rayNG3 FR
   - configV2rayNG FR
-  - configshub2 PL
+  - KAFING_2 4544
   - v2raydia
   url: http://www.gstatic.com/generate_204
   interval: 180
@@ -512,29 +617,34 @@ proxy-groups:
 - name: FALLBACK
   type: fallback
   proxies:
-  - oneclickvpnkeys US 2680
   - v2raydia
-  - VPsave 7488
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 8567
-  - 74 oneclickvpnkeys
-  - v2ray_configs_pools 8389
-  - HiByeVPNN 72
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7051
-  - v2reya88
-  - oneclickvpnkeys US 7615
   - HiByeVPNN 48
-  - By EbraSha 8133
-  - telegram tajrobe_wiki
+  - v2ray_configs_pools 1691
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - 11 oneclickvpnkeys
+  - oneclickvpnkeys US 8923
+  - oneclickvpnkeys US 9576
+  - VPsave 7950
+  - v2nodes DE
+  - oneclickvpnkeys FI
+  - v2ray1_ng FR
+  - V2rayNG3 FR
   url: http://www.gstatic.com/generate_204
   interval: 180
 - name: PROXY
   type: select
   proxies:
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
   - SAT-SET
   - ANTI-BENGONG
   - BEST-STABLE
+  - fallback-link
+  - best-link
   - FALLBACK CEPAT
   - FALLBACK
   - URL-TEST TOP 5 INDONESIA
@@ -549,78 +659,153 @@ proxy-groups:
   - URL-TEST VLESS
   - URL-TEST TROJAN
   - REJECT
+- name: MANUAL-LINK
+  type: select
+  proxies:
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - DIRECT
+- name: MANUAL-FALLBACK
+  type: fallback
+  proxies:
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  url: http://www.gstatic.com/generate_204
+  interval: 180
+- name: MANUAL-BEST
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  url: http://www.gstatic.com/generate_204
+  interval: 180
+  tolerance: 50
 - name: SAT-SET
   type: fallback
   proxies:
-  - v2reya88
   - v2raydia
   - HiByeVPNN 48
   - configV2rayNG FR
+  - MCi DE JKVPN
   - HiByeVPNN 72
   - v2nodes DE
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 2680
-  - VPsave 7488
-  - oneclickvpnkeys US 8567
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7051
-  - oneclickvpnkeys US 7615
-  - By EbraSha 8133
-  - 74 oneclickvpnkeys
-  - 10https t.me irconfiig
-  - oneclickvpnkeys FR 6876
-  - v2ray_configs_pools 8389
-  - https t.me VIPV2rayNGNP
-  - telegram tajrobe_wiki
-  - configshub2 PL
+  - oneclickvpnkeys FI
+  - V2rayNG3 FR
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
+  - v2ray_configs_pools 1691
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - oneclickvpnkeys US 8923
+  - 11 oneclickvpnkeys
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - v2ray313
+  - By EbraSha 6021
+  - oneclickvpnkeys US 9576
+  - VPsave 7950
+  - v2ray1_ng FR
+  - KAFING_2 4544
   url: http://www.gstatic.com/generate_204
   interval: 180
 - name: ANTI-BENGONG
   type: fallback
   proxies:
-  - v2reya88
   - v2raydia
   - HiByeVPNN 48
   - configV2rayNG FR
+  - MCi DE JKVPN
   - HiByeVPNN 72
   - v2nodes DE
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 2680
-  - VPsave 7488
-  - oneclickvpnkeys US 8567
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7051
-  - oneclickvpnkeys US 7615
-  - By EbraSha 8133
-  - 74 oneclickvpnkeys
-  - 10https t.me irconfiig
-  - oneclickvpnkeys FR 6876
-  - v2ray_configs_pools 8389
-  - https t.me VIPV2rayNGNP
-  - telegram tajrobe_wiki
-  - configshub2 PL
+  - oneclickvpnkeys FI
+  - V2rayNG3 FR
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
+  - v2ray_configs_pools 1691
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - oneclickvpnkeys US 8923
+  - 11 oneclickvpnkeys
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - v2ray313
+  - By EbraSha 6021
+  - oneclickvpnkeys US 9576
+  - VPsave 7950
+  - v2ray1_ng FR
+  - KAFING_2 4544
   url: http://www.gstatic.com/generate_204
   interval: 180
 - name: BEST-STABLE
   type: url-test
   proxies:
-  - v2reya88
   - v2raydia
   - HiByeVPNN 48
   - configV2rayNG FR
+  - MCi DE JKVPN
   - HiByeVPNN 72
   - v2nodes DE
-  - ProxyVPN11 5355
-  - oneclickvpnkeys US 2680
-  - VPsave 7488
-  - oneclickvpnkeys US 8567
-  - oneclickvpnkeys US 2856
-  - oneclickvpnkeys US 7051
-  - oneclickvpnkeys US 7615
-  - By EbraSha 8133
-  - 74 oneclickvpnkeys
+  - oneclickvpnkeys FI
+  - V2rayNG3 FR
+  - ProxyVPN11 2220
+  - oneclickvpnkeys US 1220
+  - v2ray_configs_pools 1691
+  - oneclickvpnkeys US 1700
+  - oneclickvpnkeys US 2771
+  - oneclickvpnkeys US 8923
+  - 11 oneclickvpnkeys
   url: http://www.gstatic.com/generate_204
   interval: 180
   tolerance: 50
+- name: best-link
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  url: http://www.gstatic.com/generate_204
+  interval: 180
+  tolerance: 50
+- name: fallback-link
+  type: fallback
+  proxies:
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  url: http://www.gstatic.com/generate_204
+  interval: 180
 rules:
 - MATCH,PROXY
