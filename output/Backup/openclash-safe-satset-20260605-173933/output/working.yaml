@@ -26,124 +26,6 @@ dns:
   - 1.0.0.1
   - 8.8.4.4
 proxies:
-- name: MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
-  alterId: 0
-  cipher: zero
-  udp: true
-  tls: true
-  servername: r3xxe.eu.cc
-  network: ws
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: r3xxe.eu.cc
-- name: MANUAL-LINK-002 (ID)+PUSATMEDIA
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
-  udp: true
-  encryption: none
-  tls: true
-  servername: unnes.ac.id.ex33r.eu.cc
-  network: ws
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: unnes.ac.id.ex33r.eu.cc
-- name: 'MANUAL-LINK-003 bel432 xl #2'
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-004 bel432 xl
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: MANUAL-LINK-006 bel432 telk
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-007 10.lowh.net
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  encryption: none
-  tls: true
-  servername: akamaized.my
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
 - name: MANUAL-LINK-001 (ID)+PUSATMEDIA
   type: vless
   server: 104.17.3.81
@@ -291,6 +173,21 @@ proxies:
     headers:
       Host: mItIvPN.glOBaL.ssl.mItIvPN.store
   udp: true
+- name: oneclickvpnkeys US 7059
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
 - name: By EbraSha
   type: vmess
   server: 104.17.3.81
@@ -306,21 +203,6 @@ proxies:
     path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
     headers:
       Host: vienna-bread-threats-amendment.trycloudflare.com
-  udp: true
-- name: oneclickvpnkeys US 7059
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
   udp: true
 - name: HiByeVPNN 48
   server: 104.17.3.81
@@ -398,21 +280,21 @@ proxies:
       Host: hamrah.dgclix.ir
   udp: true
 proxy-groups:
-- name: GAMING STABIL
+- name: WORKING STABIL
   type: fallback
   proxies:
   - VPsave 4583
   - ProxyVPN11 6227
   - v2raydia
-  - By EbraSha
   - oneclickvpnkeys US 7059
+  - By EbraSha
   - HiByeVPNN 48
   - oneclickvpnkeys FR 9606
   - CA 50354 Telegram t.me SOSkeyNET
   - US 50392 Telegram t.me SOSkeyNET
   - bird_angry (mci
   url: http://www.gstatic.com/generate_204
-  interval: 60
+  interval: 180
 - name: PROXY
   type: select
   proxies:
@@ -425,47 +307,44 @@ proxy-groups:
   - fallback-link
   - best-link
   - DIRECT
-  - GAMING STABIL
+  - WORKING STABIL
   - REJECT
 - name: MANUAL-LINK
   type: select
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   - DIRECT
 - name: MANUAL-FALLBACK
   type: fallback
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
+  interval: 180
 - name: MANUAL-BEST
   type: url-test
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 180
+  tolerance: 50
 - name: SAT-SET
   type: fallback
   proxies:
@@ -479,14 +358,6 @@ proxy-groups:
   - CA 50354 Telegram t.me SOSkeyNET
   - oneclickvpnkeys FR 9606
   - US 50392 Telegram t.me SOSkeyNET
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID)+PUSATMEDIA
   - MANUAL-LINK-002 bel432 xl
   - MANUAL-LINK-003 bel432 xl
@@ -495,7 +366,7 @@ proxy-groups:
   - MANUAL-LINK-006 10.lowh.net
   - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
+  interval: 180
 - name: ANTI-BENGONG
   type: fallback
   proxies:
@@ -509,14 +380,6 @@ proxy-groups:
   - CA 50354 Telegram t.me SOSkeyNET
   - oneclickvpnkeys FR 9606
   - US 50392 Telegram t.me SOSkeyNET
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID)+PUSATMEDIA
   - MANUAL-LINK-002 bel432 xl
   - MANUAL-LINK-003 bel432 xl
@@ -525,7 +388,7 @@ proxy-groups:
   - MANUAL-LINK-006 10.lowh.net
   - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
+  interval: 180
 - name: BEST-STABLE
   type: url-test
   proxies:
@@ -540,19 +403,11 @@ proxy-groups:
   - oneclickvpnkeys FR 9606
   - US 50392 Telegram t.me SOSkeyNET
   url: http://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 180
+  tolerance: 50
 - name: best-link
   type: url-test
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID)+PUSATMEDIA
   - MANUAL-LINK-002 bel432 xl
   - MANUAL-LINK-003 bel432 xl
@@ -561,19 +416,11 @@ proxy-groups:
   - MANUAL-LINK-006 10.lowh.net
   - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 180
+  tolerance: 50
 - name: fallback-link
   type: fallback
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID)+PUSATMEDIA
   - MANUAL-LINK-002 bel432 xl
   - MANUAL-LINK-003 bel432 xl
@@ -582,6 +429,6 @@ proxy-groups:
   - MANUAL-LINK-006 10.lowh.net
   - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
+  interval: 180
 rules:
 - MATCH,PROXY

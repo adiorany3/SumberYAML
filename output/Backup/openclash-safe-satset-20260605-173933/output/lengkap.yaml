@@ -26,124 +26,6 @@ dns:
   - 1.0.0.1
   - 8.8.4.4
 proxies:
-- name: MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
-  alterId: 0
-  cipher: zero
-  udp: true
-  tls: true
-  servername: r3xxe.eu.cc
-  network: ws
-  ws-opts:
-    path: /id-tksi
-    headers:
-      Host: r3xxe.eu.cc
-- name: MANUAL-LINK-002 (ID)+PUSATMEDIA
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
-  udp: true
-  encryption: none
-  tls: true
-  servername: unnes.ac.id.ex33r.eu.cc
-  network: ws
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: unnes.ac.id.ex33r.eu.cc
-- name: 'MANUAL-LINK-003 bel432 xl #2'
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-004 bel432 xl
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: MANUAL-LINK-006 bel432 telk
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-007 10.lowh.net
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  encryption: none
-  tls: true
-  servername: akamaized.my
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
 - name: MANUAL-LINK-001 (ID)+PUSATMEDIA
   type: vless
   server: 104.17.3.81
@@ -979,39 +861,36 @@ proxy-groups:
 - name: MANUAL-LINK
   type: select
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   - DIRECT
 - name: MANUAL-FALLBACK
   type: fallback
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 180
 - name: MANUAL-BEST
   type: url-test
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 180
   tolerance: 50
@@ -1033,14 +912,6 @@ proxy-groups:
   - VPsave 4583
   - oneclickvpnkeys US 7059
   - oneclickvpnkeys US 8265
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID)+PUSATMEDIA
   - MANUAL-LINK-002 bel432 xl
   - MANUAL-LINK-003 bel432 xl
@@ -1084,14 +955,6 @@ proxy-groups:
   - VPsave 4583
   - oneclickvpnkeys US 7059
   - oneclickvpnkeys US 8265
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID)+PUSATMEDIA
   - MANUAL-LINK-002 bel432 xl
   - MANUAL-LINK-003 bel432 xl
@@ -1141,14 +1004,6 @@ proxy-groups:
 - name: best-link
   type: url-test
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID)+PUSATMEDIA
   - MANUAL-LINK-002 bel432 xl
   - MANUAL-LINK-003 bel432 xl
@@ -1162,14 +1017,6 @@ proxy-groups:
 - name: fallback-link
   type: fallback
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID)+PUSATMEDIA
   - MANUAL-LINK-002 bel432 xl
   - MANUAL-LINK-003 bel432 xl

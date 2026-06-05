@@ -3,20 +3,20 @@
   "generated_by": "apply_openclash_responsive_stability.py",
   "mode": "safe-satset-no-ss-ssr-input-links-server-104",
   "files_processed": 12,
-  "backup_dir": "output/Backup/openclash-safe-satset-20260605-173653",
+  "backup_dir": "output/Backup/openclash-safe-satset-20260605-173933",
   "trusted_manual_policy": "Compatible direct proxy links from input/links.txt/input.txt/links.txt are injected into every processed output YAML when they can be converted into valid Clash proxy objects. ss:// and ssr:// links are intentionally skipped/removed for OpenClash compatibility.",
   "manual_input_files": [
     "input/links.txt",
     "input.txt",
     "links.txt"
   ],
-  "manual_input_templates_loaded": 7,
+  "manual_input_templates_loaded": 8,
   "manual_server_override": "104.17.3.81",
   "manual_server_override_types": [
     "all"
   ],
-  "manual_input_server_seen": 7,
-  "manual_input_server_overridden": 0,
+  "manual_input_server_seen": 8,
+  "manual_input_server_overridden": 1,
   "manual_input_ss_ssr_server_overridden": 0,
   "manual_input_skipped_unparsable": [],
   "drop_proxy_types": [
@@ -28,7 +28,7 @@
   "extra_ss_ssr_templates_loaded": 0,
   "extra_ss_ssr_skipped_unparsable": [],
   "ss_ssr_server_override": "disabled; ss/ssr removed",
-  "total_injected_templates_loaded": 7,
+  "total_injected_templates_loaded": 8,
   "manual_input_groups": [
     "MANUAL-LINK",
     "MANUAL-FALLBACK",
@@ -54,54 +54,14 @@
     {
       "file": "output/lengkap.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/lengkap.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/lengkap.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
         "tolerance": 50
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "URL-TEST TOP 5 INDONESIA": [
-          "lazy"
-        ],
-        "FALLBACK CEPAT": [
-          "lazy"
-        ],
-        "GAMING STABIL": [
-          "lazy"
-        ],
-        "SOCIAL MEDIA STABIL": [
-          "lazy"
-        ],
-        "STREAMING STABIL": [
-          "lazy"
-        ],
-        "WORKING STABIL": [
-          "lazy"
-        ],
-        "GENERAL STABIL": [
-          "lazy"
-        ],
-        "URL-TEST VMESS": [
-          "lazy"
-        ],
-        "URL-TEST VLESS": [
-          "lazy"
-        ],
-        "URL-TEST TROJAN": [
-          "lazy"
-        ],
-        "URL-TEST GABUNGAN": [
-          "lazy"
-        ],
-        "FALLBACK": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -112,10 +72,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -125,7 +85,7 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 7
+        "seen": 15
       },
       "dropped_proxy_types": {
         "drop_types": [
@@ -143,77 +103,37 @@
         "disabled": true
       },
       "actions": [
-        "created:SAT-SET",
-        "created:ANTI-BENGONG",
-        "created:BEST-STABLE",
-        "created:best-link",
-        "created:fallback-link"
+        "updated:SAT-SET",
+        "updated:ANTI-BENGONG",
+        "updated:BEST-STABLE",
+        "updated:best-link",
+        "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 38,
-        "ANTI-BENGONG": 38,
+        "SAT-SET": 46,
+        "ANTI-BENGONG": 46,
         "BEST-STABLE": 15,
-        "best-link": 7,
-        "fallback-link": 7
+        "best-link": 15,
+        "fallback-link": 15
       },
       "main_group": "PROXY",
-      "main_changed": true,
+      "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 40,
-      "manual_count": 7,
+      "proxy_count": 48,
+      "manual_count": 15,
       "stable_count": 15
     },
     {
       "file": "output/lengkap_alive.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/lengkap_alive.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/lengkap_alive.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
         "tolerance": 50
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "URL-TEST TOP 5 INDONESIA": [
-          "lazy"
-        ],
-        "FALLBACK CEPAT": [
-          "lazy"
-        ],
-        "GAMING STABIL": [
-          "lazy"
-        ],
-        "SOCIAL MEDIA STABIL": [
-          "lazy"
-        ],
-        "STREAMING STABIL": [
-          "lazy"
-        ],
-        "WORKING STABIL": [
-          "lazy"
-        ],
-        "GENERAL STABIL": [
-          "lazy"
-        ],
-        "URL-TEST VMESS": [
-          "lazy"
-        ],
-        "URL-TEST VLESS": [
-          "lazy"
-        ],
-        "URL-TEST TROJAN": [
-          "lazy"
-        ],
-        "URL-TEST GABUNGAN": [
-          "lazy"
-        ],
-        "FALLBACK": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -224,10 +144,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -237,7 +157,7 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 7
+        "seen": 15
       },
       "dropped_proxy_types": {
         "drop_types": [
@@ -255,77 +175,37 @@
         "disabled": true
       },
       "actions": [
-        "created:SAT-SET",
-        "created:ANTI-BENGONG",
-        "created:BEST-STABLE",
-        "created:best-link",
-        "created:fallback-link"
+        "updated:SAT-SET",
+        "updated:ANTI-BENGONG",
+        "updated:BEST-STABLE",
+        "updated:best-link",
+        "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 38,
-        "ANTI-BENGONG": 38,
+        "SAT-SET": 46,
+        "ANTI-BENGONG": 46,
         "BEST-STABLE": 15,
-        "best-link": 7,
-        "fallback-link": 7
+        "best-link": 15,
+        "fallback-link": 15
       },
       "main_group": "PROXY",
-      "main_changed": true,
+      "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 40,
-      "manual_count": 7,
+      "proxy_count": 48,
+      "manual_count": 15,
       "stable_count": 15
     },
     {
       "file": "output/strict_alive.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/strict_alive.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/strict_alive.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
         "tolerance": 50
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "URL-TEST TOP 5 INDONESIA": [
-          "lazy"
-        ],
-        "FALLBACK CEPAT": [
-          "lazy"
-        ],
-        "GAMING STABIL": [
-          "lazy"
-        ],
-        "SOCIAL MEDIA STABIL": [
-          "lazy"
-        ],
-        "STREAMING STABIL": [
-          "lazy"
-        ],
-        "WORKING STABIL": [
-          "lazy"
-        ],
-        "GENERAL STABIL": [
-          "lazy"
-        ],
-        "URL-TEST VMESS": [
-          "lazy"
-        ],
-        "URL-TEST VLESS": [
-          "lazy"
-        ],
-        "URL-TEST TROJAN": [
-          "lazy"
-        ],
-        "URL-TEST GABUNGAN": [
-          "lazy"
-        ],
-        "FALLBACK": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -336,10 +216,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -349,7 +229,7 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 7
+        "seen": 15
       },
       "dropped_proxy_types": {
         "drop_types": [
@@ -367,71 +247,37 @@
         "disabled": true
       },
       "actions": [
-        "created:SAT-SET",
-        "created:ANTI-BENGONG",
-        "created:BEST-STABLE",
-        "created:best-link",
-        "created:fallback-link"
+        "updated:SAT-SET",
+        "updated:ANTI-BENGONG",
+        "updated:BEST-STABLE",
+        "updated:best-link",
+        "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 38,
-        "ANTI-BENGONG": 38,
+        "SAT-SET": 46,
+        "ANTI-BENGONG": 46,
         "BEST-STABLE": 15,
-        "best-link": 7,
-        "fallback-link": 7
+        "best-link": 15,
+        "fallback-link": 15
       },
       "main_group": "PROXY",
-      "main_changed": true,
+      "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 40,
-      "manual_count": 7,
+      "proxy_count": 48,
+      "manual_count": 15,
       "stable_count": 15
     },
     {
       "file": "output/lite.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/lite.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/lite.yaml",
       "tuning": {
         "interval": 60,
         "fallback_interval": 60,
         "tolerance": 20
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "URL-TEST TOP 5 INDONESIA": [
-          "lazy"
-        ],
-        "FALLBACK CEPAT": [
-          "lazy"
-        ],
-        "GAMING STABIL": [
-          "lazy"
-        ],
-        "SOCIAL MEDIA STABIL": [
-          "lazy"
-        ],
-        "STREAMING STABIL": [
-          "lazy"
-        ],
-        "WORKING STABIL": [
-          "lazy"
-        ],
-        "GENERAL STABIL": [
-          "lazy"
-        ],
-        "URL-TEST TOP GLOBAL": [
-          "lazy"
-        ],
-        "URL-TEST GABUNGAN": [
-          "lazy"
-        ],
-        "FALLBACK": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -442,10 +288,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -455,7 +301,7 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 7
+        "seen": 15
       },
       "dropped_proxy_types": {
         "drop_types": [
@@ -473,68 +319,37 @@
         "disabled": true
       },
       "actions": [
-        "created:SAT-SET",
-        "created:ANTI-BENGONG",
-        "created:BEST-STABLE",
-        "created:best-link",
-        "created:fallback-link"
+        "updated:SAT-SET",
+        "updated:ANTI-BENGONG",
+        "updated:BEST-STABLE",
+        "updated:best-link",
+        "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 22,
-        "ANTI-BENGONG": 22,
+        "SAT-SET": 30,
+        "ANTI-BENGONG": 30,
         "BEST-STABLE": 15,
-        "best-link": 7,
-        "fallback-link": 7
+        "best-link": 15,
+        "fallback-link": 15
       },
       "main_group": "PROXY",
-      "main_changed": true,
+      "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 22,
-      "manual_count": 7,
+      "proxy_count": 30,
+      "manual_count": 15,
       "stable_count": 15
     },
     {
       "file": "output/fast.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/fast.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/fast.yaml",
       "tuning": {
         "interval": 60,
         "fallback_interval": 60,
         "tolerance": 20
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "URL-TEST TOP 5 INDONESIA": [
-          "lazy"
-        ],
-        "FALLBACK CEPAT": [
-          "lazy"
-        ],
-        "GAMING STABIL": [
-          "lazy"
-        ],
-        "SOCIAL MEDIA STABIL": [
-          "lazy"
-        ],
-        "STREAMING STABIL": [
-          "lazy"
-        ],
-        "WORKING STABIL": [
-          "lazy"
-        ],
-        "GENERAL STABIL": [
-          "lazy"
-        ],
-        "URL-TEST GABUNGAN": [
-          "lazy"
-        ],
-        "FALLBACK": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -545,10 +360,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -558,7 +373,7 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 7
+        "seen": 15
       },
       "dropped_proxy_types": {
         "drop_types": [
@@ -576,44 +391,37 @@
         "disabled": true
       },
       "actions": [
-        "created:SAT-SET",
-        "created:ANTI-BENGONG",
-        "created:BEST-STABLE",
-        "created:best-link",
-        "created:fallback-link"
+        "updated:SAT-SET",
+        "updated:ANTI-BENGONG",
+        "updated:BEST-STABLE",
+        "updated:best-link",
+        "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 22,
-        "ANTI-BENGONG": 22,
+        "SAT-SET": 30,
+        "ANTI-BENGONG": 30,
         "BEST-STABLE": 15,
-        "best-link": 7,
-        "fallback-link": 7
+        "best-link": 15,
+        "fallback-link": 15
       },
       "main_group": "PROXY",
-      "main_changed": true,
+      "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 22,
-      "manual_count": 7,
+      "proxy_count": 30,
+      "manual_count": 15,
       "stable_count": 15
     },
     {
       "file": "output/gaming.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/gaming.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/gaming.yaml",
       "tuning": {
         "interval": 60,
         "fallback_interval": 60,
         "tolerance": 20
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "GAMING STABIL": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -624,10 +432,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -637,7 +445,7 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 7
+        "seen": 15
       },
       "dropped_proxy_types": {
         "drop_types": [
@@ -655,44 +463,37 @@
         "disabled": true
       },
       "actions": [
-        "created:SAT-SET",
-        "created:ANTI-BENGONG",
-        "created:BEST-STABLE",
-        "created:best-link",
-        "created:fallback-link"
+        "updated:SAT-SET",
+        "updated:ANTI-BENGONG",
+        "updated:BEST-STABLE",
+        "updated:best-link",
+        "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 17,
-        "ANTI-BENGONG": 17,
+        "SAT-SET": 25,
+        "ANTI-BENGONG": 25,
         "BEST-STABLE": 10,
-        "best-link": 7,
-        "fallback-link": 7
+        "best-link": 15,
+        "fallback-link": 15
       },
       "main_group": "PROXY",
-      "main_changed": true,
+      "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 17,
-      "manual_count": 7,
+      "proxy_count": 25,
+      "manual_count": 15,
       "stable_count": 10
     },
     {
       "file": "output/social_media.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/social_media.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/social_media.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
         "tolerance": 50
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "SOCIAL MEDIA STABIL": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -703,10 +504,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -716,7 +517,7 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 7
+        "seen": 15
       },
       "dropped_proxy_types": {
         "drop_types": [
@@ -734,44 +535,37 @@
         "disabled": true
       },
       "actions": [
-        "created:SAT-SET",
-        "created:ANTI-BENGONG",
-        "created:BEST-STABLE",
-        "created:best-link",
-        "created:fallback-link"
+        "updated:SAT-SET",
+        "updated:ANTI-BENGONG",
+        "updated:BEST-STABLE",
+        "updated:best-link",
+        "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 17,
-        "ANTI-BENGONG": 17,
+        "SAT-SET": 25,
+        "ANTI-BENGONG": 25,
         "BEST-STABLE": 10,
-        "best-link": 7,
-        "fallback-link": 7
+        "best-link": 15,
+        "fallback-link": 15
       },
       "main_group": "PROXY",
-      "main_changed": true,
+      "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 17,
-      "manual_count": 7,
+      "proxy_count": 25,
+      "manual_count": 15,
       "stable_count": 10
     },
     {
       "file": "output/streaming.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/streaming.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/streaming.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
         "tolerance": 50
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "STREAMING STABIL": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -782,10 +576,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -795,7 +589,7 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 7
+        "seen": 15
       },
       "dropped_proxy_types": {
         "drop_types": [
@@ -813,44 +607,37 @@
         "disabled": true
       },
       "actions": [
-        "created:SAT-SET",
-        "created:ANTI-BENGONG",
-        "created:BEST-STABLE",
-        "created:best-link",
-        "created:fallback-link"
+        "updated:SAT-SET",
+        "updated:ANTI-BENGONG",
+        "updated:BEST-STABLE",
+        "updated:best-link",
+        "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 17,
-        "ANTI-BENGONG": 17,
+        "SAT-SET": 25,
+        "ANTI-BENGONG": 25,
         "BEST-STABLE": 10,
-        "best-link": 7,
-        "fallback-link": 7
+        "best-link": 15,
+        "fallback-link": 15
       },
       "main_group": "PROXY",
-      "main_changed": true,
+      "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 17,
-      "manual_count": 7,
+      "proxy_count": 25,
+      "manual_count": 15,
       "stable_count": 10
     },
     {
       "file": "output/working.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/working.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/working.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
         "tolerance": 50
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "WORKING STABIL": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -861,10 +648,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -874,7 +661,7 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 7
+        "seen": 15
       },
       "dropped_proxy_types": {
         "drop_types": [
@@ -892,44 +679,37 @@
         "disabled": true
       },
       "actions": [
-        "created:SAT-SET",
-        "created:ANTI-BENGONG",
-        "created:BEST-STABLE",
-        "created:best-link",
-        "created:fallback-link"
+        "updated:SAT-SET",
+        "updated:ANTI-BENGONG",
+        "updated:BEST-STABLE",
+        "updated:best-link",
+        "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 17,
-        "ANTI-BENGONG": 17,
+        "SAT-SET": 25,
+        "ANTI-BENGONG": 25,
         "BEST-STABLE": 10,
-        "best-link": 7,
-        "fallback-link": 7
+        "best-link": 15,
+        "fallback-link": 15
       },
       "main_group": "PROXY",
-      "main_changed": true,
+      "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 17,
-      "manual_count": 7,
+      "proxy_count": 25,
+      "manual_count": 15,
       "stable_count": 10
     },
     {
       "file": "output/general.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/general.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/general.yaml",
       "tuning": {
         "interval": 180,
         "fallback_interval": 180,
         "tolerance": 50
       },
-      "removed_root_keys": [
-        "unified-delay",
-        "tcp-concurrent"
-      ],
-      "removed_group_keys": {
-        "GENERAL STABIL": [
-          "lazy"
-        ]
-      },
+      "removed_root_keys": [],
+      "removed_group_keys": {},
       "reference_repair": {
         "unknown_removed": 0,
         "empty_repaired": 0,
@@ -940,10 +720,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -953,7 +733,7 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 7
+        "seen": 15
       },
       "dropped_proxy_types": {
         "drop_types": [
@@ -971,30 +751,30 @@
         "disabled": true
       },
       "actions": [
-        "created:SAT-SET",
-        "created:ANTI-BENGONG",
-        "created:BEST-STABLE",
-        "created:best-link",
-        "created:fallback-link"
+        "updated:SAT-SET",
+        "updated:ANTI-BENGONG",
+        "updated:BEST-STABLE",
+        "updated:best-link",
+        "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 17,
-        "ANTI-BENGONG": 17,
+        "SAT-SET": 25,
+        "ANTI-BENGONG": 25,
         "BEST-STABLE": 10,
-        "best-link": 7,
-        "fallback-link": 7
+        "best-link": 15,
+        "fallback-link": 15
       },
       "main_group": "PROXY",
-      "main_changed": true,
+      "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 17,
-      "manual_count": 7,
+      "proxy_count": 25,
+      "manual_count": 15,
       "stable_count": 10
     },
     {
       "file": "output/openclash-ready.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/openclash-ready.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/openclash-ready.yaml",
       "tuning": {
         "interval": 60,
         "fallback_interval": 60,
@@ -1012,10 +792,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -1025,232 +805,16 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 56
+        "seen": 64
       },
       "dropped_proxy_types": {
         "drop_types": [
           "ss",
           "ssr"
         ],
-        "removed": 215,
-        "removed_names": [
-          "MANUAL-LINK-008 🇬🇧",
-          "MANUAL-LINK-009 🇮🇷50351",
-          "MANUAL-LINK-010 @HiByeVPNN",
-          "MANUAL-LINK-011 @v2ray313",
-          "MANUAL-LINK-012 🖲️61@oneclickvpnkeys",
-          "MANUAL-LINK-013 🌾",
-          "MANUAL-LINK-014 @v2ray313",
-          "MANUAL-LINK-015 🇲🇽",
-          "MANUAL-LINK-016 @VPsave",
-          "MANUAL-LINK-017 @Ap_Ir6",
-          "MANUAL-LINK-018 @",
-          "MANUAL-LINK-019 @v2rayconfigamir",
-          "MANUAL-LINK-020 @CUSTOMVPNSERVER",
-          "MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-022 @VPsave",
-          "MANUAL-LINK-023 SS Manual",
-          "MANUAL-LINK-024 @v2rayconfigamir",
-          "MANUAL-LINK-025 @HiByeVPNN",
-          "MANUAL-LINK-026 🌾",
-          "MANUAL-LINK-027 @outline_ir",
-          "MANUAL-LINK-028 @VPsave",
-          "MANUAL-LINK-029 TEL;Father_vpn⁶",
-          "MANUAL-LINK-030 @Proxy_Vpney",
-          "MANUAL-LINK-031 TEL;FATHER_VPN³",
-          "MANUAL-LINK-032 @v2rayconfigamir",
-          "MANUAL-LINK-033 @VPsave",
-          "MANUAL-LINK-034 V2rayng_Fast",
-          "MANUAL-LINK-035 TEL;FATHER_VPN¹⁰",
-          "MANUAL-LINK-036 TEL;FATHER_VPN⁹",
-          "MANUAL-LINK-037 @v2rayconfigamir",
-          "MANUAL-LINK-038 🌾",
-          "MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1",
-          "MANUAL-LINK-040 @Hope_Net",
-          "MANUAL-LINK-041 @v2rayconfigamir",
-          "MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt",
-          "MANUAL-LINK-043 ⚡@V2ray_official",
-          "MANUAL-LINK-044 @Filtershekan_channel",
-          "MANUAL-LINK-045 @KAFING_2",
-          "MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️",
-          "MANUAL-LINK-047 @Hope_Net",
-          "MANUAL-LINK-048 @HiByeVPNN",
-          "MANUAL-LINK-049 @moodfa",
-          "MANUAL-LINK-050 @FreeConffning",
-          "MANUAL-LINK-051 @v2ray313",
-          "MANUAL-LINK-052 @netzone_ir",
-          "MANUAL-LINK-053 🇰🇿",
-          "MANUAL-LINK-054 🇺🇸50458",
-          "MANUAL-LINK-055 @v2rayngzendegimamad🕊️",
-          "MANUAL-LINK-056 TEL;FATHER_VPN¹¹",
-          "MANUAL-LINK-057 @Hope_Net",
-          "MANUAL-LINK-058 IR-@V2rayAlpha-3",
-          "MANUAL-LINK-059 🇳🇱50524",
-          "MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn",
-          "MANUAL-LINK-061 @v2ray313",
-          "MANUAL-LINK-062 IR-@V2rayAlpha-1",
-          "MANUAL-LINK-063 @v2rayngzendegimamad🕊️",
-          "MANUAL-LINK-064 @KAFING_2",
-          "MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-066 @CUSTOMVPNSERVER",
-          "MANUAL-LINK-067 @FarazV2ray",
-          "MANUAL-LINK-068 🇮🇷@tanhant",
-          "MANUAL-LINK-069 🇮🇷",
-          "MANUAL-LINK-070 @VPsave",
-          "MANUAL-LINK-071 @VPsave",
-          "MANUAL-LINK-072 🫑18@oneclickvpnkeys",
-          "MANUAL-LINK-073 🇩🇪49502",
-          "MANUAL-LINK-074 @hi_proxy_iran",
-          "MANUAL-LINK-075 @v2rayconfigamir",
-          "MANUAL-LINK-076 @v2rayconfigamir",
-          "MANUAL-LINK-077 @HiByeVPNN",
-          "MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-080 TEL;FATHER_VPN⁸",
-          "MANUAL-LINK-081 @vmesskhodam",
-          "MANUAL-LINK-082 @nitruStore",
-          "MANUAL-LINK-083 @meliproxyy",
-          "MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1",
-          "MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-087 @mtproto_proserver",
-          "MANUAL-LINK-088 🇩🇪@internet_azad_2026",
-          "MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-090 @v2rayconfigamir",
-          "MANUAL-LINK-091 @Hope_Net",
-          "MANUAL-LINK-092 @Hope_Net",
-          "MANUAL-LINK-093 @Hope_Net",
-          "MANUAL-LINK-094 @Hope_Net",
-          "MANUAL-LINK-095 @Hope_Net",
-          "MANUAL-LINK-096 @Hope_Net",
-          "MANUAL-LINK-097 @Hope_Net",
-          "MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org",
-          "MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000",
-          "MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990",
-          "MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443",
-          "MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443",
-          "MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080",
-          "MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483",
-          "MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990",
-          "MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443",
-          "MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989",
-          "MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011",
-          "MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM",
-          "MANUAL-LINK-110 德國節點丨yoyapai.com\\r",
-          "MANUAL-LINK-111 荷蘭節點丨yoyapai.com\\r",
-          "MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)",
-          "MANUAL-LINK-113 🇭🇰_HK_中国香港",
-          "MANUAL-LINK-114 🇷🇺RU俄罗斯",
-          "MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1",
-          "MANUAL-LINK-116 🇳🇱50137",
-          "MANUAL-LINK-117 @FarazV2ray",
-          "MANUAL-LINK-118 @v2rayconfigamir",
-          "MANUAL-LINK-119 @V2raySup0",
-          "MANUAL-LINK-120 🇫🇷50106",
-          "MANUAL-LINK-121 🖲️77@oneclickvpnkeys",
-          "MANUAL-LINK-122 @Hope_Net",
-          "MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms",
-          "MANUAL-LINK-124 @Hope_Net",
-          "MANUAL-LINK-125 🇸🇬50068",
-          "MANUAL-LINK-126 V2rayng_Fast",
-          "MANUAL-LINK-127 V2rayng_Fast",
-          "MANUAL-LINK-128 @filembad",
-          "MANUAL-LINK-129 🖲️98@oneclickvpnkeys",
-          "MANUAL-LINK-130 @Hope_Net",
-          "MANUAL-LINK-131 🇩🇪",
-          "MANUAL-LINK-132 @Hope_Net",
-          "MANUAL-LINK-133 @Hope_Net",
-          "MANUAL-LINK-134 @Hope_Net",
-          "MANUAL-LINK-135 @Hope_Net",
-          "MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1",
-          "MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1",
-          "MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1",
-          "MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss",
-          "MANUAL-LINK-140 SSR Manual",
-          "MANUAL-LINK-141 SSR Manual",
-          "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\u0005���i�k��%\b �yk�} �",
-          "MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi",
-          "MANUAL-LINK-144 SSR Manual",
-          "MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg",
-          "MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk",
-          "MANUAL-LINK-147 SSR Manual",
-          "MANUAL-LINK-148 SSR Manual",
-          "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\u0005���i�k��\u0006 /��jr����,��(�K]�\u0017 �\u0007 TK �\u0018,�u�M��^��",
-          "MANUAL-LINK-150 SSR Manual",
-          "MANUAL-LINK-151 @ho3ino00🇳🇱",
-          "MANUAL-LINK-152 @ho3ino00🤗❤",
-          "MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI",
-          "MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو",
-          "MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو",
-          "MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj",
-          "MANUAL-LINK-157 t.me/V2ray_Custom😉",
-          "MANUAL-LINK-158 SS Manual",
-          "MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R",
-          "MANUAL-LINK-160 hichkas mciهمراه",
-          "MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک",
-          "MANUAL-LINK-162 @RIP_VPN 3╭",
-          "MANUAL-LINK-163 >>@v2nodes::DE",
-          "MANUAL-LINK-164 >>@oneclickvpnkeys::NL",
-          "MANUAL-LINK-165 >>@V2rayNg_madam::GB",
-          "MANUAL-LINK-166 >>@oneclickvpnkeys::GB",
-          "MANUAL-LINK-167 >>@oneclickvpnkeys::NL",
-          "MANUAL-LINK-168 >>@v2ray_configs_pool::US",
-          "MANUAL-LINK-169 >>@v2ray_configs_pool::XX",
-          "MANUAL-LINK-170 >>@FOX_VPN66::ZA",
-          "MANUAL-LINK-171 >>@oneclickvpnkeys::NL",
-          "MANUAL-LINK-172 >>@v2ray_configs_pool::TH",
-          "MANUAL-LINK-173 >>@oneclickvpnkeys::US",
-          "MANUAL-LINK-174 >>@V2rayNG3::NL",
-          "MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114",
-          "MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120",
-          "MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095",
-          "MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119",
-          "MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655",
-          "MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100",
-          "MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690",
-          "MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612",
-          "MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781",
-          "MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681",
-          "MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285",
-          "MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777",
-          "MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150",
-          "MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229",
-          "MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167",
-          "MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607",
-          "MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606",
-          "MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605",
-          "MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183",
-          "MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179",
-          "MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193",
-          "MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640",
-          "MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152",
-          "MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178",
-          "MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774",
-          "MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174",
-          "MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775",
-          "MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365",
-          "MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196",
-          "MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160",
-          "MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203",
-          "MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213",
-          "MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217",
-          "MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220",
-          "MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221",
-          "MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230",
-          "MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086",
-          "MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239",
-          "MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084",
-          "MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244",
-          "MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250",
-          "MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255",
-          "MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048",
-          "MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047",
-          "MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046",
-          "MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045",
-          "MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044",
-          "MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029"
-        ],
-        "group_refs_removed": 860
+        "removed": 0,
+        "removed_names": [],
+        "group_refs_removed": 0
       },
       "ss_ssr_server_override": {
         "target": "",
@@ -1266,23 +830,23 @@
         "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 86,
-        "ANTI-BENGONG": 86,
+        "SAT-SET": 94,
+        "ANTI-BENGONG": 94,
         "BEST-STABLE": 15,
-        "best-link": 56,
-        "fallback-link": 56
+        "best-link": 64,
+        "fallback-link": 64
       },
       "main_group": "PROXY",
       "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 148,
-      "manual_count": 56,
+      "proxy_count": 156,
+      "manual_count": 64,
       "stable_count": 15
     },
     {
       "file": "output/openclash-lite-ready.yaml",
       "ok": true,
-      "backup": "output/Backup/openclash-safe-satset-20260605-173653/output/openclash-lite-ready.yaml",
+      "backup": "output/Backup/openclash-safe-satset-20260605-173933/output/openclash-lite-ready.yaml",
       "tuning": {
         "interval": 60,
         "fallback_interval": 60,
@@ -1300,10 +864,10 @@
         "match_repaired": 0
       },
       "manual_injection": {
-        "manual_input_count": 7,
-        "manual_inserted": 7,
+        "manual_input_count": 8,
+        "manual_inserted": 8,
         "manual_replaced": 0,
-        "manual_group_count": 7,
+        "manual_group_count": 8,
         "manual_groups": [
           "MANUAL-LINK",
           "MANUAL-FALLBACK",
@@ -1313,232 +877,16 @@
       "manual_server_override": {
         "target": "104.17.3.81",
         "changed": 0,
-        "seen": 43
+        "seen": 51
       },
       "dropped_proxy_types": {
         "drop_types": [
           "ss",
           "ssr"
         ],
-        "removed": 215,
-        "removed_names": [
-          "MANUAL-LINK-008 🇬🇧",
-          "MANUAL-LINK-009 🇮🇷50351",
-          "MANUAL-LINK-010 @HiByeVPNN",
-          "MANUAL-LINK-011 @v2ray313",
-          "MANUAL-LINK-012 🖲️61@oneclickvpnkeys",
-          "MANUAL-LINK-013 🌾",
-          "MANUAL-LINK-014 @v2ray313",
-          "MANUAL-LINK-015 🇲🇽",
-          "MANUAL-LINK-016 @VPsave",
-          "MANUAL-LINK-017 @Ap_Ir6",
-          "MANUAL-LINK-018 @",
-          "MANUAL-LINK-019 @v2rayconfigamir",
-          "MANUAL-LINK-020 @CUSTOMVPNSERVER",
-          "MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-022 @VPsave",
-          "MANUAL-LINK-023 SS Manual",
-          "MANUAL-LINK-024 @v2rayconfigamir",
-          "MANUAL-LINK-025 @HiByeVPNN",
-          "MANUAL-LINK-026 🌾",
-          "MANUAL-LINK-027 @outline_ir",
-          "MANUAL-LINK-028 @VPsave",
-          "MANUAL-LINK-029 TEL;Father_vpn⁶",
-          "MANUAL-LINK-030 @Proxy_Vpney",
-          "MANUAL-LINK-031 TEL;FATHER_VPN³",
-          "MANUAL-LINK-032 @v2rayconfigamir",
-          "MANUAL-LINK-033 @VPsave",
-          "MANUAL-LINK-034 V2rayng_Fast",
-          "MANUAL-LINK-035 TEL;FATHER_VPN¹⁰",
-          "MANUAL-LINK-036 TEL;FATHER_VPN⁹",
-          "MANUAL-LINK-037 @v2rayconfigamir",
-          "MANUAL-LINK-038 🌾",
-          "MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1",
-          "MANUAL-LINK-040 @Hope_Net",
-          "MANUAL-LINK-041 @v2rayconfigamir",
-          "MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt",
-          "MANUAL-LINK-043 ⚡@V2ray_official",
-          "MANUAL-LINK-044 @Filtershekan_channel",
-          "MANUAL-LINK-045 @KAFING_2",
-          "MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️",
-          "MANUAL-LINK-047 @Hope_Net",
-          "MANUAL-LINK-048 @HiByeVPNN",
-          "MANUAL-LINK-049 @moodfa",
-          "MANUAL-LINK-050 @FreeConffning",
-          "MANUAL-LINK-051 @v2ray313",
-          "MANUAL-LINK-052 @netzone_ir",
-          "MANUAL-LINK-053 🇰🇿",
-          "MANUAL-LINK-054 🇺🇸50458",
-          "MANUAL-LINK-055 @v2rayngzendegimamad🕊️",
-          "MANUAL-LINK-056 TEL;FATHER_VPN¹¹",
-          "MANUAL-LINK-057 @Hope_Net",
-          "MANUAL-LINK-058 IR-@V2rayAlpha-3",
-          "MANUAL-LINK-059 🇳🇱50524",
-          "MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn",
-          "MANUAL-LINK-061 @v2ray313",
-          "MANUAL-LINK-062 IR-@V2rayAlpha-1",
-          "MANUAL-LINK-063 @v2rayngzendegimamad🕊️",
-          "MANUAL-LINK-064 @KAFING_2",
-          "MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-066 @CUSTOMVPNSERVER",
-          "MANUAL-LINK-067 @FarazV2ray",
-          "MANUAL-LINK-068 🇮🇷@tanhant",
-          "MANUAL-LINK-069 🇮🇷",
-          "MANUAL-LINK-070 @VPsave",
-          "MANUAL-LINK-071 @VPsave",
-          "MANUAL-LINK-072 🫑18@oneclickvpnkeys",
-          "MANUAL-LINK-073 🇩🇪49502",
-          "MANUAL-LINK-074 @hi_proxy_iran",
-          "MANUAL-LINK-075 @v2rayconfigamir",
-          "MANUAL-LINK-076 @v2rayconfigamir",
-          "MANUAL-LINK-077 @HiByeVPNN",
-          "MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-080 TEL;FATHER_VPN⁸",
-          "MANUAL-LINK-081 @vmesskhodam",
-          "MANUAL-LINK-082 @nitruStore",
-          "MANUAL-LINK-083 @meliproxyy",
-          "MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1",
-          "MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-087 @mtproto_proserver",
-          "MANUAL-LINK-088 🇩🇪@internet_azad_2026",
-          "MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷",
-          "MANUAL-LINK-090 @v2rayconfigamir",
-          "MANUAL-LINK-091 @Hope_Net",
-          "MANUAL-LINK-092 @Hope_Net",
-          "MANUAL-LINK-093 @Hope_Net",
-          "MANUAL-LINK-094 @Hope_Net",
-          "MANUAL-LINK-095 @Hope_Net",
-          "MANUAL-LINK-096 @Hope_Net",
-          "MANUAL-LINK-097 @Hope_Net",
-          "MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org",
-          "MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000",
-          "MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990",
-          "MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443",
-          "MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443",
-          "MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080",
-          "MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483",
-          "MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990",
-          "MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443",
-          "MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989",
-          "MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011",
-          "MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM",
-          "MANUAL-LINK-110 德國節點丨yoyapai.com\\r",
-          "MANUAL-LINK-111 荷蘭節點丨yoyapai.com\\r",
-          "MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)",
-          "MANUAL-LINK-113 🇭🇰_HK_中国香港",
-          "MANUAL-LINK-114 🇷🇺RU俄罗斯",
-          "MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1",
-          "MANUAL-LINK-116 🇳🇱50137",
-          "MANUAL-LINK-117 @FarazV2ray",
-          "MANUAL-LINK-118 @v2rayconfigamir",
-          "MANUAL-LINK-119 @V2raySup0",
-          "MANUAL-LINK-120 🇫🇷50106",
-          "MANUAL-LINK-121 🖲️77@oneclickvpnkeys",
-          "MANUAL-LINK-122 @Hope_Net",
-          "MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms",
-          "MANUAL-LINK-124 @Hope_Net",
-          "MANUAL-LINK-125 🇸🇬50068",
-          "MANUAL-LINK-126 V2rayng_Fast",
-          "MANUAL-LINK-127 V2rayng_Fast",
-          "MANUAL-LINK-128 @filembad",
-          "MANUAL-LINK-129 🖲️98@oneclickvpnkeys",
-          "MANUAL-LINK-130 @Hope_Net",
-          "MANUAL-LINK-131 🇩🇪",
-          "MANUAL-LINK-132 @Hope_Net",
-          "MANUAL-LINK-133 @Hope_Net",
-          "MANUAL-LINK-134 @Hope_Net",
-          "MANUAL-LINK-135 @Hope_Net",
-          "MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1",
-          "MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1",
-          "MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1",
-          "MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss",
-          "MANUAL-LINK-140 SSR Manual",
-          "MANUAL-LINK-141 SSR Manual",
-          "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\u0005���i�k��%\b �yk�} �",
-          "MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi",
-          "MANUAL-LINK-144 SSR Manual",
-          "MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg",
-          "MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk",
-          "MANUAL-LINK-147 SSR Manual",
-          "MANUAL-LINK-148 SSR Manual",
-          "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\u0005���i�k��\u0006 /��jr����,��(�K]�\u0017 �\u0007 TK �\u0018,�u�M��^��",
-          "MANUAL-LINK-150 SSR Manual",
-          "MANUAL-LINK-151 @ho3ino00🇳🇱",
-          "MANUAL-LINK-152 @ho3ino00🤗❤",
-          "MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI",
-          "MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو",
-          "MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو",
-          "MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj",
-          "MANUAL-LINK-157 t.me/V2ray_Custom😉",
-          "MANUAL-LINK-158 SS Manual",
-          "MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R",
-          "MANUAL-LINK-160 hichkas mciهمراه",
-          "MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک",
-          "MANUAL-LINK-162 @RIP_VPN 3╭",
-          "MANUAL-LINK-163 >>@v2nodes::DE",
-          "MANUAL-LINK-164 >>@oneclickvpnkeys::NL",
-          "MANUAL-LINK-165 >>@V2rayNg_madam::GB",
-          "MANUAL-LINK-166 >>@oneclickvpnkeys::GB",
-          "MANUAL-LINK-167 >>@oneclickvpnkeys::NL",
-          "MANUAL-LINK-168 >>@v2ray_configs_pool::US",
-          "MANUAL-LINK-169 >>@v2ray_configs_pool::XX",
-          "MANUAL-LINK-170 >>@FOX_VPN66::ZA",
-          "MANUAL-LINK-171 >>@oneclickvpnkeys::NL",
-          "MANUAL-LINK-172 >>@v2ray_configs_pool::TH",
-          "MANUAL-LINK-173 >>@oneclickvpnkeys::US",
-          "MANUAL-LINK-174 >>@V2rayNG3::NL",
-          "MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114",
-          "MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120",
-          "MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095",
-          "MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119",
-          "MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655",
-          "MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100",
-          "MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690",
-          "MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612",
-          "MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781",
-          "MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681",
-          "MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285",
-          "MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777",
-          "MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150",
-          "MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229",
-          "MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167",
-          "MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607",
-          "MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606",
-          "MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605",
-          "MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183",
-          "MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179",
-          "MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193",
-          "MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640",
-          "MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152",
-          "MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178",
-          "MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774",
-          "MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174",
-          "MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775",
-          "MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365",
-          "MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196",
-          "MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160",
-          "MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203",
-          "MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213",
-          "MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217",
-          "MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220",
-          "MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221",
-          "MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230",
-          "MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086",
-          "MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239",
-          "MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084",
-          "MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244",
-          "MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250",
-          "MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255",
-          "MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048",
-          "MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047",
-          "MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046",
-          "MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045",
-          "MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044",
-          "MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029"
-        ],
-        "group_refs_removed": 860
+        "removed": 0,
+        "removed_names": [],
+        "group_refs_removed": 0
       },
       "ss_ssr_server_override": {
         "target": "",
@@ -1554,17 +902,17 @@
         "updated:fallback-link"
       ],
       "counts": {
-        "SAT-SET": 58,
-        "ANTI-BENGONG": 58,
+        "SAT-SET": 66,
+        "ANTI-BENGONG": 66,
         "BEST-STABLE": 7,
-        "best-link": 43,
-        "fallback-link": 43
+        "best-link": 51,
+        "fallback-link": 51
       },
       "main_group": "PROXY",
       "main_changed": false,
       "selector_changed": 0,
-      "proxy_count": 58,
-      "manual_count": 43,
+      "proxy_count": 66,
+      "manual_count": 51,
       "stable_count": 7
     }
   ]
