@@ -8,8 +8,6 @@ bind-address: '*'
 mode: rule
 log-level: warning
 ipv6: false
-unified-delay: true
-tcp-concurrent: true
 keep-alive-idle: 600
 keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
@@ -1857,9 +1855,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-  lazy: true
+  interval: 60
+  tolerance: 20
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
@@ -1879,10 +1876,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
-  lazy: true
-  timeout: 1500
+  interval: 60
+  tolerance: 20
 - name: FALLBACK CEPAT
   type: fallback
   proxies:
@@ -1916,9 +1911,7 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 120
-  lazy: true
-  timeout: 1500
+  interval: 60
 - name: GAMING STABIL
   type: fallback
   proxies:
@@ -1940,9 +1933,7 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 120
-  lazy: true
-  timeout: 1500
+  interval: 60
 - name: SOCIAL MEDIA STABIL
   type: fallback
   proxies:
@@ -1964,9 +1955,7 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 120
-  lazy: true
-  timeout: 1500
+  interval: 60
 - name: STREAMING STABIL
   type: fallback
   proxies:
@@ -1988,9 +1977,7 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 120
-  lazy: true
-  timeout: 1500
+  interval: 60
 - name: WORKING STABIL
   type: fallback
   proxies:
@@ -2012,9 +1999,7 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 120
-  lazy: true
-  timeout: 1500
+  interval: 60
 - name: GENERAL STABIL
   type: fallback
   proxies:
@@ -2036,9 +2021,7 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 120
-  lazy: true
-  timeout: 1500
+  interval: 60
 - name: URL-TEST VMESS
   type: url-test
   proxies:
@@ -2049,10 +2032,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
-  lazy: true
-  timeout: 1500
+  interval: 60
+  tolerance: 20
 - name: URL-TEST VLESS
   type: url-test
   proxies:
@@ -2079,10 +2060,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
-  lazy: true
-  timeout: 1500
+  interval: 60
+  tolerance: 20
 - name: URL-TEST TROJAN
   type: url-test
   proxies:
@@ -2099,10 +2078,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
-  lazy: true
-  timeout: 1500
+  interval: 60
+  tolerance: 20
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
@@ -2137,10 +2114,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
-  lazy: true
-  timeout: 1500
+  interval: 60
+  tolerance: 20
 - name: FALLBACK
   type: fallback
   proxies:
@@ -2174,27 +2149,25 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 120
-  lazy: true
-  timeout: 1500
+  interval: 60
 - name: PROXY
   type: select
   proxies:
+  - SAT-SET
+  - ANTI-BENGONG
   - BEST-STABLE
   - fallback-link
   - best-link
-  - FALLBACK
   - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
   - DIRECT
   - INDONESIA-BEST
-  - ANTI-BENGONG
   - STREAMING-BEST
   - GAMING-BEST
   - SOCIAL-BEST
   - WORKING-BEST
   - GENERAL-BEST
-  - SAT-SET
-  - URL-TEST TOP 10 INDONESIA
   - GAMING STABIL
   - SOCIAL MEDIA STABIL
   - STREAMING STABIL
@@ -2213,48 +2186,72 @@ proxy-groups:
 - name: SAT-SET
   type: fallback
   proxies:
-  - fallback-link
-  - best-link
-  - v2raydia
-  - HiByeVPNN 48
-  - v2nodes DE
-  - V2rayNG3 FR
-  - FreakConfig FR
-  - oneclickvpnkeys FI
-  - configV2rayNG FR
   - ProxyVPN11 6456
-  - oneclickvpnkeys US 6805
   - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
   - VPsave 8921
-  - By EbraSha
-  - oneclickvpnkeys NL 7340
-  - v2ray_configs_pools 4582
-  - HiByeVPNN 72
   - oneclickvpnkeys US 7518
   - oneclickvpnkeys US 8779
   - v2reya88
   - oneclickvpnkeys US 6214
+  - v2raydia
+  - By EbraSha
+  - HiByeVPNN 48
+  - configV2rayNG FR
   - MCi DE JKVPN
+  - oneclickvpnkeys NL 7340
+  - bird_angry (mci
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - ID-12 LINK 10.lowh.net
+  - ID-13 LINK bel432 xl
+  - ID-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-15 LINK VMess-WS-TLS-443-akuku8
+  - STREAM-11 LINK (ID)+PUSATMEDIA
+  - STREAM-12 LINK 10.lowh.net
+  - STREAM-13 LINK bel432 xl
+  - STREAM-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  - GAME-11 LINK (ID)+PUSATMEDIA
+  - GAME-12 LINK 10.lowh.net
+  - GAME-13 LINK bel432 xl
+  - GAME-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-15 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-13 LINK (ID)+PUSATMEDIA
+  - SOCIAL-14 LINK 10.lowh.net
+  - SOCIAL-15 LINK bel432 xl
+  - WORK-11 LINK (ID)+PUSATMEDIA
+  - WORK-12 LINK 10.lowh.net
+  - WORK-13 LINK bel432 xl
+  - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  - v2nodes DE
   - oneclickvpnkeys FR 9264
-  - bird_angry (mci
+  - oneclickvpnkeys FI
   - mci DE RK_VPS
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
   - oneclickvpnkeys FR 3889
+  - FreakConfig FR
+  - V2rayNG3 FR
   - appsooner 2085
-  url: https://www.gstatic.com/generate_204
-  interval: 120
-  lazy: true
-  timeout: 1500
+  - ID-01 ProxyVPN11 6456
+  - ID-02 VPsave 8921
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-05 v2raydia
+  url: http://www.gstatic.com/generate_204
+  interval: 60
 - name: BEST-STABLE
   type: url-test
   proxies:
   - ProxyVPN11 6456
-  - oneclickvpnkeys US 6805
   - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
   - VPsave 8921
   - oneclickvpnkeys US 7518
   - oneclickvpnkeys US 8779
@@ -2262,27 +2259,77 @@ proxy-groups:
   - oneclickvpnkeys US 6214
   - v2raydia
   - By EbraSha
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-  lazy: true
+  - HiByeVPNN 48
+  - configV2rayNG FR
+  - MCi DE JKVPN
+  - oneclickvpnkeys NL 7340
+  - bird_angry (mci
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
 - name: ANTI-BENGONG
   type: fallback
   proxies:
-  - INDONESIA-BEST
-  - GENERAL-BEST
-  - BEST-STABLE
-  - fallback-link
-  - best-link
-  - FALLBACK
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - VPsave 8921
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 8779
+  - v2reya88
+  - oneclickvpnkeys US 6214
+  - v2raydia
+  - By EbraSha
+  - HiByeVPNN 48
+  - configV2rayNG FR
+  - MCi DE JKVPN
+  - oneclickvpnkeys NL 7340
+  - bird_angry (mci
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - ID-12 LINK 10.lowh.net
+  - ID-13 LINK bel432 xl
+  - ID-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-15 LINK VMess-WS-TLS-443-akuku8
+  - STREAM-11 LINK (ID)+PUSATMEDIA
+  - STREAM-12 LINK 10.lowh.net
+  - STREAM-13 LINK bel432 xl
+  - STREAM-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  - GAME-11 LINK (ID)+PUSATMEDIA
+  - GAME-12 LINK 10.lowh.net
+  - GAME-13 LINK bel432 xl
+  - GAME-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-15 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-13 LINK (ID)+PUSATMEDIA
+  - SOCIAL-14 LINK 10.lowh.net
+  - SOCIAL-15 LINK bel432 xl
+  - WORK-11 LINK (ID)+PUSATMEDIA
+  - WORK-12 LINK 10.lowh.net
+  - WORK-13 LINK bel432 xl
+  - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  - v2nodes DE
+  - oneclickvpnkeys FR 9264
+  - oneclickvpnkeys FI
+  - mci DE RK_VPS
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
+  - oneclickvpnkeys FR 3889
+  - FreakConfig FR
+  - V2rayNG3 FR
+  - appsooner 2085
+  - ID-01 ProxyVPN11 6456
+  - ID-02 VPsave 8921
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-05 v2raydia
+  url: http://www.gstatic.com/generate_204
+  interval: 60
 - name: best-link
   type: url-test
   proxies:
@@ -2291,10 +2338,32 @@ proxy-groups:
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-  lazy: true
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - ID-12 LINK 10.lowh.net
+  - ID-13 LINK bel432 xl
+  - ID-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-15 LINK VMess-WS-TLS-443-akuku8
+  - STREAM-11 LINK (ID)+PUSATMEDIA
+  - STREAM-12 LINK 10.lowh.net
+  - STREAM-13 LINK bel432 xl
+  - STREAM-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  - GAME-11 LINK (ID)+PUSATMEDIA
+  - GAME-12 LINK 10.lowh.net
+  - GAME-13 LINK bel432 xl
+  - GAME-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-15 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-13 LINK (ID)+PUSATMEDIA
+  - SOCIAL-14 LINK 10.lowh.net
+  - SOCIAL-15 LINK bel432 xl
+  - WORK-11 LINK (ID)+PUSATMEDIA
+  - WORK-12 LINK 10.lowh.net
+  - WORK-13 LINK bel432 xl
+  - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
 - name: fallback-link
   type: fallback
   proxies:
@@ -2303,9 +2372,31 @@ proxy-groups:
   - LINK VMess-WS-TLS-443-akuku8
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - ID-12 LINK 10.lowh.net
+  - ID-13 LINK bel432 xl
+  - ID-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-15 LINK VMess-WS-TLS-443-akuku8
+  - STREAM-11 LINK (ID)+PUSATMEDIA
+  - STREAM-12 LINK 10.lowh.net
+  - STREAM-13 LINK bel432 xl
+  - STREAM-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  - GAME-11 LINK (ID)+PUSATMEDIA
+  - GAME-12 LINK 10.lowh.net
+  - GAME-13 LINK bel432 xl
+  - GAME-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-15 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-13 LINK (ID)+PUSATMEDIA
+  - SOCIAL-14 LINK 10.lowh.net
+  - SOCIAL-15 LINK bel432 xl
+  - WORK-11 LINK (ID)+PUSATMEDIA
+  - WORK-12 LINK 10.lowh.net
+  - WORK-13 LINK bel432 xl
+  - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  url: http://www.gstatic.com/generate_204
+  interval: 60
 - name: STREAMING-BEST
   type: url-test
   proxies:
@@ -2330,9 +2421,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
+  interval: 60
+  tolerance: 20
 - name: GAMING-BEST
   type: url-test
   proxies:
@@ -2357,9 +2447,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
+  interval: 60
+  tolerance: 20
 - name: SOCIAL-BEST
   type: url-test
   proxies:
@@ -2384,9 +2473,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
+  interval: 60
+  tolerance: 20
 - name: WORKING-BEST
   type: url-test
   proxies:
@@ -2411,9 +2499,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
+  interval: 60
+  tolerance: 20
 - name: GENERAL-BEST
   type: url-test
   proxies:
@@ -2438,9 +2525,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
-  tolerance: 80
+  interval: 60
+  tolerance: 20
 rules:
 - DOMAIN-SUFFIX,local,DIRECT
 - DOMAIN-SUFFIX,lan,DIRECT

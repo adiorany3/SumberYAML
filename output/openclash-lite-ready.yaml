@@ -2,8 +2,6 @@ mixed-port: 7893
 allow-lan: true
 mode: rule
 log-level: warning
-unified-delay: true
-tcp-concurrent: true
 profile:
   store-selected: true
   store-fake-ip: true
@@ -457,23 +455,48 @@ proxy-groups:
 - name: PROXY
   type: select
   proxies:
+  - SAT-SET
   - ANTI-BENGONG
   - BEST-STABLE
-  - INDONESIA-BEST
   - fallback-link
   - best-link
   - DIRECT
+  - INDONESIA-BEST
 - name: ANTI-BENGONG
   type: fallback
   proxies:
-  - BEST-STABLE
-  - INDONESIA-BEST
-  - fallback-link
-  - best-link
-  - DIRECT
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
+  - v2raydia
+  - HiByeVPNN 48
+  - configV2rayNG FR
+  - v2nodes DE
+  - oneclickvpnkeys FI
+  - FreakConfig FR
+  - V2rayNG3 FR
+  - GAME-13 LINK bel432 xl
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - 'LINK (ID)+PUSATMEDIA #2'
+  - 'LINK bel432 xl #2'
+  - 'LINK bel432 xl #3'
+  - 'LINK VMess-WS-TLS-443-akuku8 #2'
+  - LINK bel432 telk
+  - 'LINK 10.lowh.net #2'
+  - 'LINK VLESS-WS-TLS-443-apt50atpprem #2'
+  - ID-18 LINK 10.lowh.net
+  - ID-12 LINK 10.lowh.net
+  - ID-01 ProxyVPN11 9011
+  - ID-01 v2raydia
+  - ID-04 oneclickvpnkeys US 9096
+  - ID-08 oneclickvpnkeys US 6589
+  - ID-03 configV2rayNG FR
+  - ID-09 HiByeVPNN 48
+  - ID-03 VPsave 3886
+  - ID-15 HiByeVPNN 48
+  url: http://www.gstatic.com/generate_204
+  interval: 60
 - name: BEST-STABLE
   type: url-test
   proxies:
@@ -484,13 +507,9 @@ proxy-groups:
   - oneclickvpnkeys FI
   - FreakConfig FR
   - V2rayNG3 FR
-  - GAME-13 LINK bel432 xl
-  - ID-01 ProxyVPN11 9011
-  - ID-01 v2raydia
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-  lazy: true
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
 - name: INDONESIA-BEST
   type: url-test
   proxies:
@@ -505,12 +524,12 @@ proxy-groups:
   - ID-03 VPsave 3886
   - ID-15 HiByeVPNN 48
   url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-  lazy: true
+  interval: 60
+  tolerance: 20
 - name: fallback-link
   type: fallback
-  proxies: &id001
+  proxies:
+  - GAME-13 LINK bel432 xl
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -523,16 +542,66 @@ proxy-groups:
   - LINK bel432 telk
   - 'LINK 10.lowh.net #2'
   - 'LINK VLESS-WS-TLS-443-apt50atpprem #2'
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  lazy: true
+  - ID-18 LINK 10.lowh.net
+  - ID-12 LINK 10.lowh.net
+  url: http://www.gstatic.com/generate_204
+  interval: 60
 - name: best-link
   type: url-test
-  proxies: *id001
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-  lazy: true
+  proxies:
+  - GAME-13 LINK bel432 xl
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - 'LINK (ID)+PUSATMEDIA #2'
+  - 'LINK bel432 xl #2'
+  - 'LINK bel432 xl #3'
+  - 'LINK VMess-WS-TLS-443-akuku8 #2'
+  - LINK bel432 telk
+  - 'LINK 10.lowh.net #2'
+  - 'LINK VLESS-WS-TLS-443-apt50atpprem #2'
+  - ID-18 LINK 10.lowh.net
+  - ID-12 LINK 10.lowh.net
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
+- name: SAT-SET
+  type: fallback
+  proxies:
+  - v2raydia
+  - HiByeVPNN 48
+  - configV2rayNG FR
+  - v2nodes DE
+  - oneclickvpnkeys FI
+  - FreakConfig FR
+  - V2rayNG3 FR
+  - GAME-13 LINK bel432 xl
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - 'LINK (ID)+PUSATMEDIA #2'
+  - 'LINK bel432 xl #2'
+  - 'LINK bel432 xl #3'
+  - 'LINK VMess-WS-TLS-443-akuku8 #2'
+  - LINK bel432 telk
+  - 'LINK 10.lowh.net #2'
+  - 'LINK VLESS-WS-TLS-443-apt50atpprem #2'
+  - ID-18 LINK 10.lowh.net
+  - ID-12 LINK 10.lowh.net
+  - ID-01 ProxyVPN11 9011
+  - ID-01 v2raydia
+  - ID-04 oneclickvpnkeys US 9096
+  - ID-08 oneclickvpnkeys US 6589
+  - ID-03 configV2rayNG FR
+  - ID-09 HiByeVPNN 48
+  - ID-03 VPsave 3886
+  - ID-15 HiByeVPNN 48
+  url: http://www.gstatic.com/generate_204
+  interval: 60
 rules:
 - RULE-SET,malware-adware,REJECT
 - RULE-SET,android-ads,REJECT
