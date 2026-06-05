@@ -6,7 +6,7 @@ tproxy-port: 7895
 allow-lan: true
 bind-address: '*'
 mode: rule
-log-level: info
+log-level: warning
 ipv6: false
 keep-alive-idle: 600
 keep-alive-interval: 30
@@ -21,10 +21,28 @@ dns:
   listen: 0.0.0.0:7874
   nameserver:
   - 1.1.1.1
-  - 8.8.8.8
   fallback:
-  - 1.0.0.1
-  - 8.8.4.4
+  - 8.8.8.8
+  default-nameserver:
+  - 1.1.1.1
+  - 8.8.8.8
+  - 9.9.9.9
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - localhost.ptlogin2.qq.com
+  - +.msftconnecttest.com
+  - +.msftncsi.com
+  - time.*.com
+  - time.*.gov
+  - time.*.edu.cn
+  - time.*.apple.com
+  - time-ios.apple.com
+  - +.pool.ntp.org
+  - +.ntp.org
+  - localhost
+  - localhost.*
 proxies:
 - name: 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
   type: vless
@@ -116,109 +134,6 @@ proxies:
     headers:
       Host: 10.lowh.net
 - name: 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  encryption: none
-  tls: true
-  servername: akamaized.my
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
-- name: MANUAL-LINK-001 (ID)+PUSATMEDIA
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
-  udp: true
-  encryption: none
-  tls: true
-  servername: unnes.ac.id.ex33r.eu.cc
-  network: ws
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: unnes.ac.id.ex33r.eu.cc
-- name: MANUAL-LINK-002 bel432 xl
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-003 bel432 xl
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: MANUAL-LINK-005 bel432 telk
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-006 10.lowh.net
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -1784,23 +1699,126 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: HZb52eFfHGeb
   udp: true
-- name: By EbraSha 1140
+- name: MANUAL-LINK-001 (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: MANUAL-LINK-002 bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
-  uuid: 0632bfa9-b15c-4257-8c75-32f7c0c53b27
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-003 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: MANUAL-LINK-005 bel432 telk
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-006 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: By EbraSha
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: cg1c12.waimaojd.com
+  servername: vienna-bread-threats-amendment.trycloudflare.com
   network: ws
   ws-opts:
-    path: /api/v1/graphql
+    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
     headers:
-      Host: cg1c12.waimaojd.com
+      Host: vienna-bread-threats-amendment.trycloudflare.com
   udp: true
-- name: oneclickvpnkeys US 1101
+- name: oneclickvpnkeys US 8779
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1815,7 +1833,7 @@ proxies:
     headers:
       Host: juzi.qea.ccwu.cc
   udp: true
-- name: oneclickvpnkeys US 3094
+- name: oneclickvpnkeys US 6214
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1845,7 +1863,7 @@ proxies:
     headers:
       Host: sheynezterary.iran-tube-movie.ir
   udp: true
-- name: oneclickvpnkeys FR 1706
+- name: oneclickvpnkeys FR 9264
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1860,7 +1878,7 @@ proxies:
     headers:
       Host: 35cdnws.frnstatic.info
   udp: true
-- name: oneclickvpnkeys US 1788
+- name: oneclickvpnkeys US 7518
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1875,7 +1893,7 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: oneclickvpnkeys US 6329
+- name: oneclickvpnkeys US 4120
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1890,7 +1908,7 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: oneclickvpnkeys US 4946
+- name: oneclickvpnkeys US 6805
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1950,7 +1968,52 @@ proxies:
     headers:
       Host: picassooo.info
   udp: true
-- name: ProxyVPN11 1742
+- name: bird_angry (mci
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hamrah.dgclix.ir
+  ws-opts:
+    path: /
+    headers:
+      Host: hamrah.dgclix.ir
+  udp: true
+- name: mci DE RK_VPS
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hamrah.dgclix.ir
+  ws-opts:
+    path: /?RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS
+    headers:
+      Host: hamrah.dgclix.ir
+  udp: true
+- name: MCi DE JKVPN
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hamrah.dgclix.ir
+  ws-opts:
+    path: /?TELEGRAM--BYA--CHANEL---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN--@JKVPN---@JKVPN---@JKVPN---@JKVPN
+    headers:
+      Host: hamrah.dgclix.ir
+  udp: true
+- name: ProxyVPN11 6456
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1965,7 +2028,7 @@ proxies:
     headers:
       Host: juzi.qea.ccwu.cc
   udp: true
-- name: v2ray_configs_pools 1963
+- name: v2ray_configs_pools 4582
   server: 104.17.3.81
   port: 443
   type: vless
@@ -1995,7 +2058,7 @@ proxies:
     headers:
       Host: octopusss5.info
   udp: true
-- name: VPsave 7378
+- name: VPsave 8921
   server: 104.17.3.81
   port: 443
   type: vless
@@ -2010,141 +2073,7 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: chillguy_vpn 8596
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 0284cc16-1e0f-40f0-900d-dfada20ff258
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: ssj.new-persian-song.ir
-  ws-opts:
-    path: /?ed=80
-    headers:
-      Host: ssj.new-persian-song.ir
-  udp: true
-- name: US 50392 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 0fe6ae0f-3202-41c2-8af4-e237956c9b3f
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: faster.rainzone.ir
-  ws-opts:
-    path: /25425/sha
-    headers:
-      Host: faster.rainzone.ir
-  udp: true
-- name: CA 50449 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 17540a16-a0dd-5694-7e1e-14e281ccc032
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: crm.lotussec.com
-  ws-opts:
-    path: /@JavidnamanIran/Javid-SHAH-KingRezaPahlavi/
-    headers:
-      Host: crm.lotussec.com
-  udp: true
-- name: meliproxyy 3551
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 358ca5cf-5406-493d-b872-a344988b2e11
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: ssj.new-persian-song.ir
-  ws-opts:
-    path: /?ed=80
-    headers:
-      Host: ssj.new-persian-song.ir
-  udp: true
-- name: SC SC- V2Ray_Hub1200
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 358ca5cf-5406-493d-b872-a344988b2e11
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: ssj.new-persian-song.ir
-  ws-opts:
-    path: /?ed
-    headers:
-      Host: ssj.new-persian-song.ir
-  udp: true
-- name: CA 50508 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 8671df15-35a0-41ad-a10d-e5692ffb6876
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: sarina.powernad.ir
-  ws-opts:
-    path: /swerfwerfmklm
-    headers:
-      Host: sarina.powernad.ir
-  udp: true
-- name: CA 50354 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: c7addea9-6d8a-48d6-8a00-aa99b8ece143
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: ws35.adsvxpro.com
-  ws-opts:
-    path: /path
-    headers:
-      Host: ws35.adsvxpro.com
-  udp: true
-- name: SC SC- V2Ray_Hub1200 4459
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: f887c999-a829-44a6-ab71-c862d5889892
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: ssj.new-persian-song.ir
-  ws-opts:
-    path: /?ed
-    headers:
-      Host: ssj.new-persian-song.ir
-  udp: true
-- name: 74 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.calmlunch.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
-  udp: true
-- name: oneclickvpnkeys FR 9040
+- name: oneclickvpnkeys FR 3889
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -2172,7 +2101,7 @@ proxies:
     headers:
       Host: www.gossipglove.com
   udp: true
-- name: oneclickvpnkeys NL 6520
+- name: oneclickvpnkeys NL 7340
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -2214,35 +2143,7 @@ proxies:
     headers:
       Host: www.ignitelimit.com
   udp: true
-- name: configshub2 PL
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.creationlong.org
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.creationlong.org
-  udp: true
-- name: KAFING_2 2662
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: 20ba0c60-0133-11f1-95ef-1239d0255272
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: uk1.test3.net
-  ws-opts:
-    path: /howdy
-    headers:
-      Host: uk1.test3.net
-  udp: true
-- name: appsooner 4698
+- name: appsooner 2085
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -2270,235 +2171,1743 @@ proxies:
     headers:
       Host: mItIvPN.glOBaL.ssl.mItIvPN.store
   udp: true
-- name: NETMelliAnti 7940
+- name: LINK (ID)+PUSATMEDIA
+  type: vless
   server: 104.17.3.81
   port: 443
-  type: trojan
-  password: aNQNxDIiNd
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: ID-01 ProxyVPN11 6456
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: dd.aananas.ir.
+  servername: JoinProxyVPN11.qea.ccwu.cc
   ws-opts:
-    path: /?ed=2048
+    path: /?ed @ProxyVPN11
     headers:
-      Host: dd.aananas.ir.
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: ID-02 VPsave 8921
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: ID-03 oneclickvpnkeys US 6805
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: ID-04 oneclickvpnkeys US 4120
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=random
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: ID-05 v2raydia
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: mitivpn
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store
+  ws-opts:
+    path: /https://chatgpt.com
+    headers:
+      Host: mItIvPN.glOBaL.ssl.mItIvPN.store
+  udp: true
+- name: ID-06 By EbraSha
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: vienna-bread-threats-amendment.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
+    headers:
+      Host: vienna-bread-threats-amendment.trycloudflare.com
+  udp: true
+- name: ID-07 HiByeVPNN 48
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: picassooo.info
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassooo.info
+  udp: true
+- name: ID-08 oneclickvpnkeys NL 7340
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.multiplydose.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.multiplydose.com
+  udp: true
+- name: ID-09 v2ray_configs_pools 4582
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: sheynezterary.iran-tube-movie.ir
+  ws-opts:
+    path: /?edfp
+    headers:
+      Host: sheynezterary.iran-tube-movie.ir
+  udp: true
+- name: ID-10 HiByeVPNN 72
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss5.info
+  ws-opts:
+    path: /udfyfws
+    headers:
+      Host: octopusss5.info
+  udp: true
+- name: ID-11 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: ID-12 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: ID-13 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: ID-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: ID-15 LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: STREAM-01 ProxyVPN11 6456
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: JoinProxyVPN11.qea.ccwu.cc
+  ws-opts:
+    path: /?ed @ProxyVPN11
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: STREAM-02 VPsave 8921
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: STREAM-03 oneclickvpnkeys US 6805
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: STREAM-04 oneclickvpnkeys US 4120
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=random
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: STREAM-05 v2raydia
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: mitivpn
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store
+  ws-opts:
+    path: /https://chatgpt.com
+    headers:
+      Host: mItIvPN.glOBaL.ssl.mItIvPN.store
+  udp: true
+- name: STREAM-06 By EbraSha
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: vienna-bread-threats-amendment.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
+    headers:
+      Host: vienna-bread-threats-amendment.trycloudflare.com
+  udp: true
+- name: STREAM-07 HiByeVPNN 48
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: picassooo.info
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassooo.info
+  udp: true
+- name: STREAM-08 oneclickvpnkeys NL 7340
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.multiplydose.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.multiplydose.com
+  udp: true
+- name: STREAM-09 v2ray_configs_pools 4582
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: sheynezterary.iran-tube-movie.ir
+  ws-opts:
+    path: /?edfp
+    headers:
+      Host: sheynezterary.iran-tube-movie.ir
+  udp: true
+- name: STREAM-10 HiByeVPNN 72
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss5.info
+  ws-opts:
+    path: /udfyfws
+    headers:
+      Host: octopusss5.info
+  udp: true
+- name: STREAM-11 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: STREAM-12 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: STREAM-13 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: STREAM-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: GAME-01 ProxyVPN11 6456
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: JoinProxyVPN11.qea.ccwu.cc
+  ws-opts:
+    path: /?ed @ProxyVPN11
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: GAME-02 VPsave 8921
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GAME-03 oneclickvpnkeys US 6805
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GAME-04 oneclickvpnkeys US 4120
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=random
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GAME-05 v2raydia
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: mitivpn
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store
+  ws-opts:
+    path: /https://chatgpt.com
+    headers:
+      Host: mItIvPN.glOBaL.ssl.mItIvPN.store
+  udp: true
+- name: GAME-06 By EbraSha
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: vienna-bread-threats-amendment.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
+    headers:
+      Host: vienna-bread-threats-amendment.trycloudflare.com
+  udp: true
+- name: GAME-07 HiByeVPNN 48
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: picassooo.info
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassooo.info
+  udp: true
+- name: GAME-08 oneclickvpnkeys NL 7340
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.multiplydose.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.multiplydose.com
+  udp: true
+- name: GAME-09 v2ray_configs_pools 4582
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: sheynezterary.iran-tube-movie.ir
+  ws-opts:
+    path: /?edfp
+    headers:
+      Host: sheynezterary.iran-tube-movie.ir
+  udp: true
+- name: GAME-10 HiByeVPNN 72
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss5.info
+  ws-opts:
+    path: /udfyfws
+    headers:
+      Host: octopusss5.info
+  udp: true
+- name: GAME-11 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: GAME-12 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: GAME-13 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: GAME-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: GAME-15 LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: SOCIAL-01 ProxyVPN11 6456
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: JoinProxyVPN11.qea.ccwu.cc
+  ws-opts:
+    path: /?ed @ProxyVPN11
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: SOCIAL-02 VPsave 8921
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: SOCIAL-03 oneclickvpnkeys US 6805
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: SOCIAL-04 oneclickvpnkeys US 4120
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=random
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: SOCIAL-05 v2raydia
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: mitivpn
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store
+  ws-opts:
+    path: /https://chatgpt.com
+    headers:
+      Host: mItIvPN.glOBaL.ssl.mItIvPN.store
+  udp: true
+- name: SOCIAL-06 By EbraSha
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: vienna-bread-threats-amendment.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
+    headers:
+      Host: vienna-bread-threats-amendment.trycloudflare.com
+  udp: true
+- name: SOCIAL-07 HiByeVPNN 48
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: picassooo.info
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassooo.info
+  udp: true
+- name: SOCIAL-08 oneclickvpnkeys NL 7340
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.multiplydose.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.multiplydose.com
+  udp: true
+- name: SOCIAL-09 v2ray_configs_pools 4582
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: sheynezterary.iran-tube-movie.ir
+  ws-opts:
+    path: /?edfp
+    headers:
+      Host: sheynezterary.iran-tube-movie.ir
+  udp: true
+- name: SOCIAL-10 HiByeVPNN 72
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss5.info
+  ws-opts:
+    path: /udfyfws
+    headers:
+      Host: octopusss5.info
+  udp: true
+- name: SOCIAL-11 configV2rayNG FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.ignitelimit.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: SOCIAL-12 FreakConfig FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.gossipglove.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.gossipglove.com
+  udp: true
+- name: SOCIAL-13 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: SOCIAL-14 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: SOCIAL-15 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: WORK-01 ProxyVPN11 6456
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: JoinProxyVPN11.qea.ccwu.cc
+  ws-opts:
+    path: /?ed @ProxyVPN11
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: WORK-02 VPsave 8921
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: WORK-03 oneclickvpnkeys US 6805
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: WORK-04 oneclickvpnkeys US 4120
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=random
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: WORK-05 v2raydia
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: mitivpn
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store
+  ws-opts:
+    path: /https://chatgpt.com
+    headers:
+      Host: mItIvPN.glOBaL.ssl.mItIvPN.store
+  udp: true
+- name: WORK-06 By EbraSha
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: vienna-bread-threats-amendment.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
+    headers:
+      Host: vienna-bread-threats-amendment.trycloudflare.com
+  udp: true
+- name: WORK-07 HiByeVPNN 48
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: picassooo.info
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassooo.info
+  udp: true
+- name: WORK-08 oneclickvpnkeys NL 7340
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.multiplydose.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.multiplydose.com
+  udp: true
+- name: WORK-09 v2ray_configs_pools 4582
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: sheynezterary.iran-tube-movie.ir
+  ws-opts:
+    path: /?edfp
+    headers:
+      Host: sheynezterary.iran-tube-movie.ir
+  udp: true
+- name: WORK-10 HiByeVPNN 72
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss5.info
+  ws-opts:
+    path: /udfyfws
+    headers:
+      Host: octopusss5.info
+  udp: true
+- name: WORK-11 LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: WORK-12 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: WORK-13 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: WORK-15 LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: GEN-01 ProxyVPN11 6456
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: JoinProxyVPN11.qea.ccwu.cc
+  ws-opts:
+    path: /?ed @ProxyVPN11
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: GEN-02 VPsave 8921
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GEN-03 oneclickvpnkeys US 6805
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=chrome
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GEN-04 oneclickvpnkeys US 4120
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=random
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GEN-05 v2raydia
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: mitivpn
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store
+  ws-opts:
+    path: /https://chatgpt.com
+    headers:
+      Host: mItIvPN.glOBaL.ssl.mItIvPN.store
+  udp: true
+- name: GEN-06 By EbraSha
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: vienna-bread-threats-amendment.trycloudflare.com
+  network: ws
+  ws-opts:
+    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
+    headers:
+      Host: vienna-bread-threats-amendment.trycloudflare.com
+  udp: true
+- name: GEN-07 HiByeVPNN 48
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: picassooo.info
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassooo.info
+  udp: true
+- name: GEN-08 oneclickvpnkeys NL 7340
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.multiplydose.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.multiplydose.com
+  udp: true
+- name: GEN-09 v2ray_configs_pools 4582
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: sheynezterary.iran-tube-movie.ir
+  ws-opts:
+    path: /?edfp
+    headers:
+      Host: sheynezterary.iran-tube-movie.ir
+  udp: true
+- name: GEN-10 HiByeVPNN 72
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss5.info
+  ws-opts:
+    path: /udfyfws
+    headers:
+      Host: octopusss5.info
+  udp: true
+- name: GEN-11 oneclickvpnkeys US 8779
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: GEN-12 oneclickvpnkeys US 7518
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: GEN-13 oneclickvpnkeys US 6214
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: GEN-14 v2reya88
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: fgnix832fx.fx6hsv0.ccwu.cc
+  ws-opts:
+    path: /
+    headers:
+      Host: fgnix832fx.fx6hsv0.ccwu.cc
+  udp: true
+- name: GEN-15 configV2rayNG FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.ignitelimit.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
   udp: true
 proxy-groups:
-- name: URL-TEST TOP 5 INDONESIA
+- name: INDONESIA-BEST
   type: url-test
   proxies:
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 6805
+  - oneclickvpnkeys US 4120
+  - VPsave 8921
   - v2raydia
+  - By EbraSha
   - HiByeVPNN 48
+  - oneclickvpnkeys NL 7340
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
+- name: URL-TEST TOP 10 INDONESIA
+  type: url-test
+  proxies:
+  - VPsave 8921
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 6805
+  - v2raydia
+  - By EbraSha
+  - HiByeVPNN 48
+  - oneclickvpnkeys NL 7340
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
+  - oneclickvpnkeys US 4120
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
+  interval: 60
+  tolerance: 20
 - name: FALLBACK CEPAT
   type: fallback
   proxies:
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
+  - BEST-STABLE
+  - ANTI-BENGONG
+  - fallback-link
+  - best-link
+  - VPsave 8921
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 6805
   - v2raydia
+  - By EbraSha
   - HiByeVPNN 48
-  - CA 50354 Telegram t.me SOSkeyNET
-  - 74 oneclickvpnkeys
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50508 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
-  - chillguy_vpn 8596
-  - v2ray_configs_pools 1963
+  - oneclickvpnkeys NL 7340
+  - v2ray_configs_pools 4582
   - HiByeVPNN 72
-  - CA 50449 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys NL 6520
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 8779
+  - v2reya88
+  - oneclickvpnkeys US 6214
+  - configV2rayNG FR
+  - MCi DE JKVPN
+  - bird_angry (mci
+  - oneclickvpnkeys FR 9264
+  - mci DE RK_VPS
+  - v2nodes DE
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
+  interval: 60
 - name: GAMING STABIL
   type: fallback
   proxies:
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
+  - fallback-link
+  - best-link
+  - VPsave 8921
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 6805
   - v2raydia
+  - By EbraSha
   - HiByeVPNN 48
-  - CA 50354 Telegram t.me SOSkeyNET
-  - 74 oneclickvpnkeys
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50508 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - oneclickvpnkeys NL 7340
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
+  - oneclickvpnkeys US 4120
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
+  interval: 60
 - name: SOCIAL MEDIA STABIL
   type: fallback
   proxies:
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
+  - fallback-link
+  - best-link
+  - VPsave 8921
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 6805
   - v2raydia
+  - By EbraSha
   - HiByeVPNN 48
-  - CA 50354 Telegram t.me SOSkeyNET
-  - 74 oneclickvpnkeys
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50508 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - oneclickvpnkeys NL 7340
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
+  - oneclickvpnkeys US 4120
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
+  interval: 60
 - name: STREAMING STABIL
   type: fallback
   proxies:
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
+  - fallback-link
+  - best-link
+  - VPsave 8921
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 6805
   - v2raydia
+  - By EbraSha
   - HiByeVPNN 48
-  - CA 50354 Telegram t.me SOSkeyNET
-  - 74 oneclickvpnkeys
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50508 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - oneclickvpnkeys NL 7340
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
+  - oneclickvpnkeys US 4120
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
+  interval: 60
 - name: WORKING STABIL
   type: fallback
   proxies:
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
+  - fallback-link
+  - best-link
+  - VPsave 8921
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 6805
   - v2raydia
+  - By EbraSha
   - HiByeVPNN 48
-  - CA 50354 Telegram t.me SOSkeyNET
-  - 74 oneclickvpnkeys
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50508 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - oneclickvpnkeys NL 7340
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
+  - oneclickvpnkeys US 4120
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
+  interval: 60
 - name: GENERAL STABIL
   type: fallback
   proxies:
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
+  - fallback-link
+  - best-link
+  - VPsave 8921
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 6805
   - v2raydia
+  - By EbraSha
   - HiByeVPNN 48
-  - CA 50354 Telegram t.me SOSkeyNET
-  - 74 oneclickvpnkeys
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50508 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
+  - oneclickvpnkeys NL 7340
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
+  - oneclickvpnkeys US 4120
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
+  interval: 60
 - name: URL-TEST VMESS
   type: url-test
   proxies:
-  - By EbraSha 1140
+  - By EbraSha
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
+  interval: 60
+  tolerance: 20
 - name: URL-TEST VLESS
   type: url-test
   proxies:
-  - oneclickvpnkeys US 1101
-  - oneclickvpnkeys US 3094
+  - oneclickvpnkeys US 8779
+  - oneclickvpnkeys US 6214
   - v2nodes DE
-  - oneclickvpnkeys FR 1706
-  - oneclickvpnkeys US 1788
-  - oneclickvpnkeys US 6329
-  - oneclickvpnkeys US 4946
+  - oneclickvpnkeys FR 9264
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
   - oneclickvpnkeys FI
   - v2reya88
   - HiByeVPNN 48
-  - ProxyVPN11 1742
-  - v2ray_configs_pools 1963
+  - bird_angry (mci
+  - mci DE RK_VPS
+  - MCi DE JKVPN
+  - ProxyVPN11 6456
+  - v2ray_configs_pools 4582
   - HiByeVPNN 72
-  - VPsave 7378
-  - chillguy_vpn 8596
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50449 Telegram t.me SOSkeyNET
-  - meliproxyy 3551
-  - SC SC- V2Ray_Hub1200
-  - CA 50508 Telegram t.me SOSkeyNET
-  - CA 50354 Telegram t.me SOSkeyNET
-  - SC SC- V2Ray_Hub1200 4459
+  - VPsave 8921
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
+  interval: 60
+  tolerance: 20
 - name: URL-TEST TROJAN
   type: url-test
   proxies:
-  - 74 oneclickvpnkeys
-  - oneclickvpnkeys FR 9040
+  - oneclickvpnkeys FR 3889
   - FreakConfig FR
-  - oneclickvpnkeys NL 6520
+  - oneclickvpnkeys NL 7340
   - V2rayNG3 FR
   - configV2rayNG FR
-  - configshub2 PL
-  - KAFING_2 2662
-  - appsooner 4698
+  - appsooner 2085
   - v2raydia
-  - NETMelliAnti 7940
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
+  interval: 60
+  tolerance: 20
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - By EbraSha 1140
-  - oneclickvpnkeys US 1101
-  - oneclickvpnkeys US 3094
+  - By EbraSha
+  - oneclickvpnkeys US 8779
+  - oneclickvpnkeys US 6214
   - v2nodes DE
-  - oneclickvpnkeys FR 1706
-  - oneclickvpnkeys US 1788
-  - oneclickvpnkeys US 6329
-  - oneclickvpnkeys US 4946
+  - oneclickvpnkeys FR 9264
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
   - oneclickvpnkeys FI
   - v2reya88
   - HiByeVPNN 48
-  - ProxyVPN11 1742
-  - v2ray_configs_pools 1963
+  - bird_angry (mci
+  - mci DE RK_VPS
+  - MCi DE JKVPN
+  - ProxyVPN11 6456
+  - v2ray_configs_pools 4582
   - HiByeVPNN 72
-  - VPsave 7378
-  - chillguy_vpn 8596
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50449 Telegram t.me SOSkeyNET
-  - meliproxyy 3551
-  - SC SC- V2Ray_Hub1200
-  - CA 50508 Telegram t.me SOSkeyNET
-  - CA 50354 Telegram t.me SOSkeyNET
-  - SC SC- V2Ray_Hub1200 4459
-  - 74 oneclickvpnkeys
-  - oneclickvpnkeys FR 9040
+  - VPsave 8921
+  - oneclickvpnkeys FR 3889
   - FreakConfig FR
-  - oneclickvpnkeys NL 6520
+  - oneclickvpnkeys NL 7340
   - V2rayNG3 FR
   - configV2rayNG FR
-  - configshub2 PL
+  - appsooner 2085
+  - v2raydia
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
+  interval: 60
+  tolerance: 20
 - name: FALLBACK
   type: fallback
   proxies:
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
+  - BEST-STABLE
+  - ANTI-BENGONG
+  - fallback-link
+  - best-link
+  - VPsave 8921
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 6805
   - v2raydia
+  - By EbraSha
   - HiByeVPNN 48
-  - CA 50354 Telegram t.me SOSkeyNET
-  - 74 oneclickvpnkeys
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50508 Telegram t.me SOSkeyNET
-  - configV2rayNG FR
-  - chillguy_vpn 8596
-  - v2ray_configs_pools 1963
+  - oneclickvpnkeys NL 7340
+  - v2ray_configs_pools 4582
   - HiByeVPNN 72
-  - CA 50449 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys NL 6520
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 8779
+  - v2reya88
+  - oneclickvpnkeys US 6214
+  - configV2rayNG FR
+  - MCi DE JKVPN
+  - bird_angry (mci
+  - oneclickvpnkeys FR 9264
+  - mci DE RK_VPS
+  - v2nodes DE
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 180
+  interval: 60
 - name: PROXY
   type: select
   proxies:
@@ -2512,8 +3921,14 @@ proxy-groups:
   - best-link
   - FALLBACK CEPAT
   - FALLBACK
-  - URL-TEST TOP 5 INDONESIA
+  - URL-TEST TOP 10 INDONESIA
   - DIRECT
+  - INDONESIA-BEST
+  - STREAMING-BEST
+  - GAMING-BEST
+  - SOCIAL-BEST
+  - WORKING-BEST
+  - GENERAL-BEST
   - GAMING STABIL
   - SOCIAL MEDIA STABIL
   - STREAMING STABIL
@@ -2524,6 +3939,1271 @@ proxy-groups:
   - URL-TEST VLESS
   - URL-TEST TROJAN
   - REJECT
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+- name: SAT-SET
+  type: fallback
+  proxies:
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - VPsave 8921
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 8779
+  - v2reya88
+  - oneclickvpnkeys US 6214
+  - v2raydia
+  - By EbraSha
+  - HiByeVPNN 48
+  - configV2rayNG FR
+  - MCi DE JKVPN
+  - oneclickvpnkeys NL 7340
+  - bird_angry (mci
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - 'MANUAL-LINK-002 bel432 xl #2'
+  - 'MANUAL-LINK-003 bel432 xl #2'
+  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #2'
+  - 'MANUAL-LINK-005 bel432 telk #2'
+  - 'MANUAL-LINK-006 10.lowh.net #2'
+  - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
+  - MANUAL-LINK-008 🇬🇧
+  - MANUAL-LINK-009 🇮🇷50351
+  - MANUAL-LINK-010 @HiByeVPNN
+  - MANUAL-LINK-011 @v2ray313
+  - MANUAL-LINK-012 🖲️61@oneclickvpnkeys
+  - MANUAL-LINK-013 🌾
+  - MANUAL-LINK-014 @v2ray313
+  - MANUAL-LINK-015 🇲🇽
+  - MANUAL-LINK-016 @VPsave
+  - MANUAL-LINK-017 @Ap_Ir6
+  - MANUAL-LINK-018 @
+  - MANUAL-LINK-019 @v2rayconfigamir
+  - MANUAL-LINK-020 @CUSTOMVPNSERVER
+  - MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-022 @VPsave
+  - MANUAL-LINK-023 SS Manual
+  - MANUAL-LINK-024 @v2rayconfigamir
+  - MANUAL-LINK-025 @HiByeVPNN
+  - MANUAL-LINK-026 🌾
+  - MANUAL-LINK-027 @outline_ir
+  - MANUAL-LINK-028 @VPsave
+  - MANUAL-LINK-029 TEL;Father_vpn⁶
+  - MANUAL-LINK-030 @Proxy_Vpney
+  - MANUAL-LINK-031 TEL;FATHER_VPN³
+  - MANUAL-LINK-032 @v2rayconfigamir
+  - MANUAL-LINK-033 @VPsave
+  - MANUAL-LINK-034 V2rayng_Fast
+  - MANUAL-LINK-035 TEL;FATHER_VPN¹⁰
+  - MANUAL-LINK-036 TEL;FATHER_VPN⁹
+  - MANUAL-LINK-037 @v2rayconfigamir
+  - MANUAL-LINK-038 🌾
+  - MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-040 @Hope_Net
+  - MANUAL-LINK-041 @v2rayconfigamir
+  - MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt
+  - MANUAL-LINK-043 ⚡@V2ray_official
+  - MANUAL-LINK-044 @Filtershekan_channel
+  - MANUAL-LINK-045 @KAFING_2
+  - MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️
+  - MANUAL-LINK-047 @Hope_Net
+  - MANUAL-LINK-048 @HiByeVPNN
+  - MANUAL-LINK-049 @moodfa
+  - MANUAL-LINK-050 @FreeConffning
+  - MANUAL-LINK-051 @v2ray313
+  - MANUAL-LINK-052 @netzone_ir
+  - MANUAL-LINK-053 🇰🇿
+  - MANUAL-LINK-054 🇺🇸50458
+  - MANUAL-LINK-055 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-056 TEL;FATHER_VPN¹¹
+  - MANUAL-LINK-057 @Hope_Net
+  - MANUAL-LINK-058 IR-@V2rayAlpha-3
+  - MANUAL-LINK-059 🇳🇱50524
+  - MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn
+  - MANUAL-LINK-061 @v2ray313
+  - MANUAL-LINK-062 IR-@V2rayAlpha-1
+  - MANUAL-LINK-063 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-064 @KAFING_2
+  - MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-066 @CUSTOMVPNSERVER
+  - MANUAL-LINK-067 @FarazV2ray
+  - MANUAL-LINK-068 🇮🇷@tanhant
+  - MANUAL-LINK-069 🇮🇷
+  - MANUAL-LINK-070 @VPsave
+  - MANUAL-LINK-071 @VPsave
+  - MANUAL-LINK-072 🫑18@oneclickvpnkeys
+  - MANUAL-LINK-073 🇩🇪49502
+  - MANUAL-LINK-074 @hi_proxy_iran
+  - MANUAL-LINK-075 @v2rayconfigamir
+  - MANUAL-LINK-076 @v2rayconfigamir
+  - MANUAL-LINK-077 @HiByeVPNN
+  - MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-080 TEL;FATHER_VPN⁸
+  - MANUAL-LINK-081 @vmesskhodam
+  - MANUAL-LINK-082 @nitruStore
+  - MANUAL-LINK-083 @meliproxyy
+  - MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-087 @mtproto_proserver
+  - MANUAL-LINK-088 🇩🇪@internet_azad_2026
+  - MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-090 @v2rayconfigamir
+  - MANUAL-LINK-091 @Hope_Net
+  - MANUAL-LINK-092 @Hope_Net
+  - MANUAL-LINK-093 @Hope_Net
+  - MANUAL-LINK-094 @Hope_Net
+  - MANUAL-LINK-095 @Hope_Net
+  - MANUAL-LINK-096 @Hope_Net
+  - MANUAL-LINK-097 @Hope_Net
+  - MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org
+  - MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000
+  - MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990
+  - MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443
+  - MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443
+  - MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080
+  - MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483
+  - MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990
+  - MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443
+  - MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989
+  - MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011
+  - MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM
+  - MANUAL-LINK-110 德國節點丨yoyapai.com\r
+  - MANUAL-LINK-111 荷蘭節點丨yoyapai.com\r
+  - MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)
+  - MANUAL-LINK-113 🇭🇰_HK_中国香港
+  - MANUAL-LINK-114 🇷🇺RU俄罗斯
+  - MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-116 🇳🇱50137
+  - MANUAL-LINK-117 @FarazV2ray
+  - MANUAL-LINK-118 @v2rayconfigamir
+  - MANUAL-LINK-119 @V2raySup0
+  - MANUAL-LINK-120 🇫🇷50106
+  - MANUAL-LINK-121 🖲️77@oneclickvpnkeys
+  - MANUAL-LINK-122 @Hope_Net
+  - MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms
+  - MANUAL-LINK-124 @Hope_Net
+  - MANUAL-LINK-125 🇸🇬50068
+  - MANUAL-LINK-126 V2rayng_Fast
+  - MANUAL-LINK-127 V2rayng_Fast
+  - MANUAL-LINK-128 @filembad
+  - MANUAL-LINK-129 🖲️98@oneclickvpnkeys
+  - MANUAL-LINK-130 @Hope_Net
+  - MANUAL-LINK-131 🇩🇪
+  - MANUAL-LINK-132 @Hope_Net
+  - MANUAL-LINK-133 @Hope_Net
+  - MANUAL-LINK-134 @Hope_Net
+  - MANUAL-LINK-135 @Hope_Net
+  - 'MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1'
+  - 'MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1'
+  - 'MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1'
+  - MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss
+  - MANUAL-LINK-140 SSR Manual
+  - MANUAL-LINK-141 SSR Manual
+  - "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��%\b �yk�} �"
+  - MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi
+  - MANUAL-LINK-144 SSR Manual
+  - MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg
+  - MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk
+  - MANUAL-LINK-147 SSR Manual
+  - MANUAL-LINK-148 SSR Manual
+  - "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��\x06 /��jr����,��(�K]�\x17 �\a TK �\x18,�u�M��^��"
+  - MANUAL-LINK-150 SSR Manual
+  - MANUAL-LINK-151 @ho3ino00🇳🇱
+  - MANUAL-LINK-152 @ho3ino00🤗❤
+  - MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI
+  - MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj
+  - MANUAL-LINK-157 t.me/V2ray_Custom😉
+  - MANUAL-LINK-158 SS Manual
+  - MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R
+  - MANUAL-LINK-160 hichkas mciهمراه
+  - MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک
+  - MANUAL-LINK-162 @RIP_VPN 3╭
+  - MANUAL-LINK-163 >>@v2nodes::DE
+  - MANUAL-LINK-164 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-165 >>@V2rayNg_madam::GB
+  - MANUAL-LINK-166 >>@oneclickvpnkeys::GB
+  - MANUAL-LINK-167 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-168 >>@v2ray_configs_pool::US
+  - MANUAL-LINK-169 >>@v2ray_configs_pool::XX
+  - MANUAL-LINK-170 >>@FOX_VPN66::ZA
+  - MANUAL-LINK-171 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-172 >>@v2ray_configs_pool::TH
+  - MANUAL-LINK-173 >>@oneclickvpnkeys::US
+  - MANUAL-LINK-174 >>@V2rayNG3::NL
+  - MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114
+  - MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120
+  - MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095
+  - MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119
+  - MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655
+  - MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100
+  - MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690
+  - MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612
+  - MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781
+  - MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681
+  - MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285
+  - MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777
+  - MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150
+  - MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229
+  - MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167
+  - MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607
+  - MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606
+  - MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605
+  - MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183
+  - MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179
+  - MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193
+  - MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640
+  - MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152
+  - MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178
+  - MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774
+  - MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174
+  - MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775
+  - MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365
+  - MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196
+  - MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160
+  - MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203
+  - MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213
+  - MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217
+  - MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220
+  - MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221
+  - MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230
+  - MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086
+  - MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239
+  - MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084
+  - MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244
+  - MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250
+  - MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255
+  - MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048
+  - MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047
+  - MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046
+  - MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045
+  - MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044
+  - MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - ID-12 LINK 10.lowh.net
+  - ID-13 LINK bel432 xl
+  - ID-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-15 LINK VMess-WS-TLS-443-akuku8
+  - STREAM-11 LINK (ID)+PUSATMEDIA
+  - STREAM-12 LINK 10.lowh.net
+  - STREAM-13 LINK bel432 xl
+  - STREAM-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  - GAME-11 LINK (ID)+PUSATMEDIA
+  - GAME-12 LINK 10.lowh.net
+  - GAME-13 LINK bel432 xl
+  - GAME-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-15 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-13 LINK (ID)+PUSATMEDIA
+  - SOCIAL-14 LINK 10.lowh.net
+  - SOCIAL-15 LINK bel432 xl
+  - WORK-11 LINK (ID)+PUSATMEDIA
+  - WORK-12 LINK 10.lowh.net
+  - WORK-13 LINK bel432 xl
+  - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  - v2nodes DE
+  - oneclickvpnkeys FR 9264
+  - oneclickvpnkeys FI
+  - mci DE RK_VPS
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
+  - oneclickvpnkeys FR 3889
+  - FreakConfig FR
+  - V2rayNG3 FR
+  - appsooner 2085
+  - ID-01 ProxyVPN11 6456
+  - ID-02 VPsave 8921
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-05 v2raydia
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+- name: BEST-STABLE
+  type: url-test
+  proxies:
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - VPsave 8921
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 8779
+  - v2reya88
+  - oneclickvpnkeys US 6214
+  - v2raydia
+  - By EbraSha
+  - HiByeVPNN 48
+  - configV2rayNG FR
+  - MCi DE JKVPN
+  - oneclickvpnkeys NL 7340
+  - bird_angry (mci
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
+- name: ANTI-BENGONG
+  type: fallback
+  proxies:
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - VPsave 8921
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 8779
+  - v2reya88
+  - oneclickvpnkeys US 6214
+  - v2raydia
+  - By EbraSha
+  - HiByeVPNN 48
+  - configV2rayNG FR
+  - MCi DE JKVPN
+  - oneclickvpnkeys NL 7340
+  - bird_angry (mci
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - 'MANUAL-LINK-002 bel432 xl #2'
+  - 'MANUAL-LINK-003 bel432 xl #2'
+  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #2'
+  - 'MANUAL-LINK-005 bel432 telk #2'
+  - 'MANUAL-LINK-006 10.lowh.net #2'
+  - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
+  - MANUAL-LINK-008 🇬🇧
+  - MANUAL-LINK-009 🇮🇷50351
+  - MANUAL-LINK-010 @HiByeVPNN
+  - MANUAL-LINK-011 @v2ray313
+  - MANUAL-LINK-012 🖲️61@oneclickvpnkeys
+  - MANUAL-LINK-013 🌾
+  - MANUAL-LINK-014 @v2ray313
+  - MANUAL-LINK-015 🇲🇽
+  - MANUAL-LINK-016 @VPsave
+  - MANUAL-LINK-017 @Ap_Ir6
+  - MANUAL-LINK-018 @
+  - MANUAL-LINK-019 @v2rayconfigamir
+  - MANUAL-LINK-020 @CUSTOMVPNSERVER
+  - MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-022 @VPsave
+  - MANUAL-LINK-023 SS Manual
+  - MANUAL-LINK-024 @v2rayconfigamir
+  - MANUAL-LINK-025 @HiByeVPNN
+  - MANUAL-LINK-026 🌾
+  - MANUAL-LINK-027 @outline_ir
+  - MANUAL-LINK-028 @VPsave
+  - MANUAL-LINK-029 TEL;Father_vpn⁶
+  - MANUAL-LINK-030 @Proxy_Vpney
+  - MANUAL-LINK-031 TEL;FATHER_VPN³
+  - MANUAL-LINK-032 @v2rayconfigamir
+  - MANUAL-LINK-033 @VPsave
+  - MANUAL-LINK-034 V2rayng_Fast
+  - MANUAL-LINK-035 TEL;FATHER_VPN¹⁰
+  - MANUAL-LINK-036 TEL;FATHER_VPN⁹
+  - MANUAL-LINK-037 @v2rayconfigamir
+  - MANUAL-LINK-038 🌾
+  - MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-040 @Hope_Net
+  - MANUAL-LINK-041 @v2rayconfigamir
+  - MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt
+  - MANUAL-LINK-043 ⚡@V2ray_official
+  - MANUAL-LINK-044 @Filtershekan_channel
+  - MANUAL-LINK-045 @KAFING_2
+  - MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️
+  - MANUAL-LINK-047 @Hope_Net
+  - MANUAL-LINK-048 @HiByeVPNN
+  - MANUAL-LINK-049 @moodfa
+  - MANUAL-LINK-050 @FreeConffning
+  - MANUAL-LINK-051 @v2ray313
+  - MANUAL-LINK-052 @netzone_ir
+  - MANUAL-LINK-053 🇰🇿
+  - MANUAL-LINK-054 🇺🇸50458
+  - MANUAL-LINK-055 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-056 TEL;FATHER_VPN¹¹
+  - MANUAL-LINK-057 @Hope_Net
+  - MANUAL-LINK-058 IR-@V2rayAlpha-3
+  - MANUAL-LINK-059 🇳🇱50524
+  - MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn
+  - MANUAL-LINK-061 @v2ray313
+  - MANUAL-LINK-062 IR-@V2rayAlpha-1
+  - MANUAL-LINK-063 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-064 @KAFING_2
+  - MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-066 @CUSTOMVPNSERVER
+  - MANUAL-LINK-067 @FarazV2ray
+  - MANUAL-LINK-068 🇮🇷@tanhant
+  - MANUAL-LINK-069 🇮🇷
+  - MANUAL-LINK-070 @VPsave
+  - MANUAL-LINK-071 @VPsave
+  - MANUAL-LINK-072 🫑18@oneclickvpnkeys
+  - MANUAL-LINK-073 🇩🇪49502
+  - MANUAL-LINK-074 @hi_proxy_iran
+  - MANUAL-LINK-075 @v2rayconfigamir
+  - MANUAL-LINK-076 @v2rayconfigamir
+  - MANUAL-LINK-077 @HiByeVPNN
+  - MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-080 TEL;FATHER_VPN⁸
+  - MANUAL-LINK-081 @vmesskhodam
+  - MANUAL-LINK-082 @nitruStore
+  - MANUAL-LINK-083 @meliproxyy
+  - MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-087 @mtproto_proserver
+  - MANUAL-LINK-088 🇩🇪@internet_azad_2026
+  - MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-090 @v2rayconfigamir
+  - MANUAL-LINK-091 @Hope_Net
+  - MANUAL-LINK-092 @Hope_Net
+  - MANUAL-LINK-093 @Hope_Net
+  - MANUAL-LINK-094 @Hope_Net
+  - MANUAL-LINK-095 @Hope_Net
+  - MANUAL-LINK-096 @Hope_Net
+  - MANUAL-LINK-097 @Hope_Net
+  - MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org
+  - MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000
+  - MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990
+  - MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443
+  - MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443
+  - MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080
+  - MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483
+  - MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990
+  - MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443
+  - MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989
+  - MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011
+  - MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM
+  - MANUAL-LINK-110 德國節點丨yoyapai.com\r
+  - MANUAL-LINK-111 荷蘭節點丨yoyapai.com\r
+  - MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)
+  - MANUAL-LINK-113 🇭🇰_HK_中国香港
+  - MANUAL-LINK-114 🇷🇺RU俄罗斯
+  - MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-116 🇳🇱50137
+  - MANUAL-LINK-117 @FarazV2ray
+  - MANUAL-LINK-118 @v2rayconfigamir
+  - MANUAL-LINK-119 @V2raySup0
+  - MANUAL-LINK-120 🇫🇷50106
+  - MANUAL-LINK-121 🖲️77@oneclickvpnkeys
+  - MANUAL-LINK-122 @Hope_Net
+  - MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms
+  - MANUAL-LINK-124 @Hope_Net
+  - MANUAL-LINK-125 🇸🇬50068
+  - MANUAL-LINK-126 V2rayng_Fast
+  - MANUAL-LINK-127 V2rayng_Fast
+  - MANUAL-LINK-128 @filembad
+  - MANUAL-LINK-129 🖲️98@oneclickvpnkeys
+  - MANUAL-LINK-130 @Hope_Net
+  - MANUAL-LINK-131 🇩🇪
+  - MANUAL-LINK-132 @Hope_Net
+  - MANUAL-LINK-133 @Hope_Net
+  - MANUAL-LINK-134 @Hope_Net
+  - MANUAL-LINK-135 @Hope_Net
+  - 'MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1'
+  - 'MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1'
+  - 'MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1'
+  - MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss
+  - MANUAL-LINK-140 SSR Manual
+  - MANUAL-LINK-141 SSR Manual
+  - "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��%\b �yk�} �"
+  - MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi
+  - MANUAL-LINK-144 SSR Manual
+  - MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg
+  - MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk
+  - MANUAL-LINK-147 SSR Manual
+  - MANUAL-LINK-148 SSR Manual
+  - "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��\x06 /��jr����,��(�K]�\x17 �\a TK �\x18,�u�M��^��"
+  - MANUAL-LINK-150 SSR Manual
+  - MANUAL-LINK-151 @ho3ino00🇳🇱
+  - MANUAL-LINK-152 @ho3ino00🤗❤
+  - MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI
+  - MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj
+  - MANUAL-LINK-157 t.me/V2ray_Custom😉
+  - MANUAL-LINK-158 SS Manual
+  - MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R
+  - MANUAL-LINK-160 hichkas mciهمراه
+  - MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک
+  - MANUAL-LINK-162 @RIP_VPN 3╭
+  - MANUAL-LINK-163 >>@v2nodes::DE
+  - MANUAL-LINK-164 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-165 >>@V2rayNg_madam::GB
+  - MANUAL-LINK-166 >>@oneclickvpnkeys::GB
+  - MANUAL-LINK-167 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-168 >>@v2ray_configs_pool::US
+  - MANUAL-LINK-169 >>@v2ray_configs_pool::XX
+  - MANUAL-LINK-170 >>@FOX_VPN66::ZA
+  - MANUAL-LINK-171 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-172 >>@v2ray_configs_pool::TH
+  - MANUAL-LINK-173 >>@oneclickvpnkeys::US
+  - MANUAL-LINK-174 >>@V2rayNG3::NL
+  - MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114
+  - MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120
+  - MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095
+  - MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119
+  - MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655
+  - MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100
+  - MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690
+  - MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612
+  - MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781
+  - MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681
+  - MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285
+  - MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777
+  - MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150
+  - MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229
+  - MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167
+  - MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607
+  - MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606
+  - MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605
+  - MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183
+  - MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179
+  - MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193
+  - MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640
+  - MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152
+  - MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178
+  - MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774
+  - MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174
+  - MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775
+  - MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365
+  - MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196
+  - MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160
+  - MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203
+  - MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213
+  - MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217
+  - MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220
+  - MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221
+  - MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230
+  - MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086
+  - MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239
+  - MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084
+  - MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244
+  - MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250
+  - MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255
+  - MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048
+  - MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047
+  - MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046
+  - MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045
+  - MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044
+  - MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - ID-12 LINK 10.lowh.net
+  - ID-13 LINK bel432 xl
+  - ID-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-15 LINK VMess-WS-TLS-443-akuku8
+  - STREAM-11 LINK (ID)+PUSATMEDIA
+  - STREAM-12 LINK 10.lowh.net
+  - STREAM-13 LINK bel432 xl
+  - STREAM-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  - GAME-11 LINK (ID)+PUSATMEDIA
+  - GAME-12 LINK 10.lowh.net
+  - GAME-13 LINK bel432 xl
+  - GAME-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-15 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-13 LINK (ID)+PUSATMEDIA
+  - SOCIAL-14 LINK 10.lowh.net
+  - SOCIAL-15 LINK bel432 xl
+  - WORK-11 LINK (ID)+PUSATMEDIA
+  - WORK-12 LINK 10.lowh.net
+  - WORK-13 LINK bel432 xl
+  - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  - v2nodes DE
+  - oneclickvpnkeys FR 9264
+  - oneclickvpnkeys FI
+  - mci DE RK_VPS
+  - v2ray_configs_pools 4582
+  - HiByeVPNN 72
+  - oneclickvpnkeys FR 3889
+  - FreakConfig FR
+  - V2rayNG3 FR
+  - appsooner 2085
+  - ID-01 ProxyVPN11 6456
+  - ID-02 VPsave 8921
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-05 v2raydia
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+- name: best-link
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - 'MANUAL-LINK-002 bel432 xl #2'
+  - 'MANUAL-LINK-003 bel432 xl #2'
+  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #2'
+  - 'MANUAL-LINK-005 bel432 telk #2'
+  - 'MANUAL-LINK-006 10.lowh.net #2'
+  - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
+  - MANUAL-LINK-008 🇬🇧
+  - MANUAL-LINK-009 🇮🇷50351
+  - MANUAL-LINK-010 @HiByeVPNN
+  - MANUAL-LINK-011 @v2ray313
+  - MANUAL-LINK-012 🖲️61@oneclickvpnkeys
+  - MANUAL-LINK-013 🌾
+  - MANUAL-LINK-014 @v2ray313
+  - MANUAL-LINK-015 🇲🇽
+  - MANUAL-LINK-016 @VPsave
+  - MANUAL-LINK-017 @Ap_Ir6
+  - MANUAL-LINK-018 @
+  - MANUAL-LINK-019 @v2rayconfigamir
+  - MANUAL-LINK-020 @CUSTOMVPNSERVER
+  - MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-022 @VPsave
+  - MANUAL-LINK-023 SS Manual
+  - MANUAL-LINK-024 @v2rayconfigamir
+  - MANUAL-LINK-025 @HiByeVPNN
+  - MANUAL-LINK-026 🌾
+  - MANUAL-LINK-027 @outline_ir
+  - MANUAL-LINK-028 @VPsave
+  - MANUAL-LINK-029 TEL;Father_vpn⁶
+  - MANUAL-LINK-030 @Proxy_Vpney
+  - MANUAL-LINK-031 TEL;FATHER_VPN³
+  - MANUAL-LINK-032 @v2rayconfigamir
+  - MANUAL-LINK-033 @VPsave
+  - MANUAL-LINK-034 V2rayng_Fast
+  - MANUAL-LINK-035 TEL;FATHER_VPN¹⁰
+  - MANUAL-LINK-036 TEL;FATHER_VPN⁹
+  - MANUAL-LINK-037 @v2rayconfigamir
+  - MANUAL-LINK-038 🌾
+  - MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-040 @Hope_Net
+  - MANUAL-LINK-041 @v2rayconfigamir
+  - MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt
+  - MANUAL-LINK-043 ⚡@V2ray_official
+  - MANUAL-LINK-044 @Filtershekan_channel
+  - MANUAL-LINK-045 @KAFING_2
+  - MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️
+  - MANUAL-LINK-047 @Hope_Net
+  - MANUAL-LINK-048 @HiByeVPNN
+  - MANUAL-LINK-049 @moodfa
+  - MANUAL-LINK-050 @FreeConffning
+  - MANUAL-LINK-051 @v2ray313
+  - MANUAL-LINK-052 @netzone_ir
+  - MANUAL-LINK-053 🇰🇿
+  - MANUAL-LINK-054 🇺🇸50458
+  - MANUAL-LINK-055 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-056 TEL;FATHER_VPN¹¹
+  - MANUAL-LINK-057 @Hope_Net
+  - MANUAL-LINK-058 IR-@V2rayAlpha-3
+  - MANUAL-LINK-059 🇳🇱50524
+  - MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn
+  - MANUAL-LINK-061 @v2ray313
+  - MANUAL-LINK-062 IR-@V2rayAlpha-1
+  - MANUAL-LINK-063 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-064 @KAFING_2
+  - MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-066 @CUSTOMVPNSERVER
+  - MANUAL-LINK-067 @FarazV2ray
+  - MANUAL-LINK-068 🇮🇷@tanhant
+  - MANUAL-LINK-069 🇮🇷
+  - MANUAL-LINK-070 @VPsave
+  - MANUAL-LINK-071 @VPsave
+  - MANUAL-LINK-072 🫑18@oneclickvpnkeys
+  - MANUAL-LINK-073 🇩🇪49502
+  - MANUAL-LINK-074 @hi_proxy_iran
+  - MANUAL-LINK-075 @v2rayconfigamir
+  - MANUAL-LINK-076 @v2rayconfigamir
+  - MANUAL-LINK-077 @HiByeVPNN
+  - MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-080 TEL;FATHER_VPN⁸
+  - MANUAL-LINK-081 @vmesskhodam
+  - MANUAL-LINK-082 @nitruStore
+  - MANUAL-LINK-083 @meliproxyy
+  - MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-087 @mtproto_proserver
+  - MANUAL-LINK-088 🇩🇪@internet_azad_2026
+  - MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-090 @v2rayconfigamir
+  - MANUAL-LINK-091 @Hope_Net
+  - MANUAL-LINK-092 @Hope_Net
+  - MANUAL-LINK-093 @Hope_Net
+  - MANUAL-LINK-094 @Hope_Net
+  - MANUAL-LINK-095 @Hope_Net
+  - MANUAL-LINK-096 @Hope_Net
+  - MANUAL-LINK-097 @Hope_Net
+  - MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org
+  - MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000
+  - MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990
+  - MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443
+  - MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443
+  - MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080
+  - MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483
+  - MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990
+  - MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443
+  - MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989
+  - MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011
+  - MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM
+  - MANUAL-LINK-110 德國節點丨yoyapai.com\r
+  - MANUAL-LINK-111 荷蘭節點丨yoyapai.com\r
+  - MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)
+  - MANUAL-LINK-113 🇭🇰_HK_中国香港
+  - MANUAL-LINK-114 🇷🇺RU俄罗斯
+  - MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-116 🇳🇱50137
+  - MANUAL-LINK-117 @FarazV2ray
+  - MANUAL-LINK-118 @v2rayconfigamir
+  - MANUAL-LINK-119 @V2raySup0
+  - MANUAL-LINK-120 🇫🇷50106
+  - MANUAL-LINK-121 🖲️77@oneclickvpnkeys
+  - MANUAL-LINK-122 @Hope_Net
+  - MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms
+  - MANUAL-LINK-124 @Hope_Net
+  - MANUAL-LINK-125 🇸🇬50068
+  - MANUAL-LINK-126 V2rayng_Fast
+  - MANUAL-LINK-127 V2rayng_Fast
+  - MANUAL-LINK-128 @filembad
+  - MANUAL-LINK-129 🖲️98@oneclickvpnkeys
+  - MANUAL-LINK-130 @Hope_Net
+  - MANUAL-LINK-131 🇩🇪
+  - MANUAL-LINK-132 @Hope_Net
+  - MANUAL-LINK-133 @Hope_Net
+  - MANUAL-LINK-134 @Hope_Net
+  - MANUAL-LINK-135 @Hope_Net
+  - 'MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1'
+  - 'MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1'
+  - 'MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1'
+  - MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss
+  - MANUAL-LINK-140 SSR Manual
+  - MANUAL-LINK-141 SSR Manual
+  - "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��%\b �yk�} �"
+  - MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi
+  - MANUAL-LINK-144 SSR Manual
+  - MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg
+  - MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk
+  - MANUAL-LINK-147 SSR Manual
+  - MANUAL-LINK-148 SSR Manual
+  - "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��\x06 /��jr����,��(�K]�\x17 �\a TK �\x18,�u�M��^��"
+  - MANUAL-LINK-150 SSR Manual
+  - MANUAL-LINK-151 @ho3ino00🇳🇱
+  - MANUAL-LINK-152 @ho3ino00🤗❤
+  - MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI
+  - MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj
+  - MANUAL-LINK-157 t.me/V2ray_Custom😉
+  - MANUAL-LINK-158 SS Manual
+  - MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R
+  - MANUAL-LINK-160 hichkas mciهمراه
+  - MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک
+  - MANUAL-LINK-162 @RIP_VPN 3╭
+  - MANUAL-LINK-163 >>@v2nodes::DE
+  - MANUAL-LINK-164 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-165 >>@V2rayNg_madam::GB
+  - MANUAL-LINK-166 >>@oneclickvpnkeys::GB
+  - MANUAL-LINK-167 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-168 >>@v2ray_configs_pool::US
+  - MANUAL-LINK-169 >>@v2ray_configs_pool::XX
+  - MANUAL-LINK-170 >>@FOX_VPN66::ZA
+  - MANUAL-LINK-171 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-172 >>@v2ray_configs_pool::TH
+  - MANUAL-LINK-173 >>@oneclickvpnkeys::US
+  - MANUAL-LINK-174 >>@V2rayNG3::NL
+  - MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114
+  - MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120
+  - MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095
+  - MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119
+  - MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655
+  - MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100
+  - MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690
+  - MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612
+  - MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781
+  - MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681
+  - MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285
+  - MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777
+  - MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150
+  - MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229
+  - MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167
+  - MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607
+  - MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606
+  - MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605
+  - MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183
+  - MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179
+  - MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193
+  - MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640
+  - MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152
+  - MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178
+  - MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774
+  - MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174
+  - MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775
+  - MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365
+  - MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196
+  - MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160
+  - MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203
+  - MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213
+  - MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217
+  - MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220
+  - MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221
+  - MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230
+  - MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086
+  - MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239
+  - MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084
+  - MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244
+  - MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250
+  - MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255
+  - MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048
+  - MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047
+  - MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046
+  - MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045
+  - MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044
+  - MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - ID-12 LINK 10.lowh.net
+  - ID-13 LINK bel432 xl
+  - ID-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-15 LINK VMess-WS-TLS-443-akuku8
+  - STREAM-11 LINK (ID)+PUSATMEDIA
+  - STREAM-12 LINK 10.lowh.net
+  - STREAM-13 LINK bel432 xl
+  - STREAM-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  - GAME-11 LINK (ID)+PUSATMEDIA
+  - GAME-12 LINK 10.lowh.net
+  - GAME-13 LINK bel432 xl
+  - GAME-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-15 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-13 LINK (ID)+PUSATMEDIA
+  - SOCIAL-14 LINK 10.lowh.net
+  - SOCIAL-15 LINK bel432 xl
+  - WORK-11 LINK (ID)+PUSATMEDIA
+  - WORK-12 LINK 10.lowh.net
+  - WORK-13 LINK bel432 xl
+  - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
+- name: fallback-link
+  type: fallback
+  proxies:
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - 'MANUAL-LINK-002 bel432 xl #2'
+  - 'MANUAL-LINK-003 bel432 xl #2'
+  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #2'
+  - 'MANUAL-LINK-005 bel432 telk #2'
+  - 'MANUAL-LINK-006 10.lowh.net #2'
+  - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
+  - MANUAL-LINK-008 🇬🇧
+  - MANUAL-LINK-009 🇮🇷50351
+  - MANUAL-LINK-010 @HiByeVPNN
+  - MANUAL-LINK-011 @v2ray313
+  - MANUAL-LINK-012 🖲️61@oneclickvpnkeys
+  - MANUAL-LINK-013 🌾
+  - MANUAL-LINK-014 @v2ray313
+  - MANUAL-LINK-015 🇲🇽
+  - MANUAL-LINK-016 @VPsave
+  - MANUAL-LINK-017 @Ap_Ir6
+  - MANUAL-LINK-018 @
+  - MANUAL-LINK-019 @v2rayconfigamir
+  - MANUAL-LINK-020 @CUSTOMVPNSERVER
+  - MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-022 @VPsave
+  - MANUAL-LINK-023 SS Manual
+  - MANUAL-LINK-024 @v2rayconfigamir
+  - MANUAL-LINK-025 @HiByeVPNN
+  - MANUAL-LINK-026 🌾
+  - MANUAL-LINK-027 @outline_ir
+  - MANUAL-LINK-028 @VPsave
+  - MANUAL-LINK-029 TEL;Father_vpn⁶
+  - MANUAL-LINK-030 @Proxy_Vpney
+  - MANUAL-LINK-031 TEL;FATHER_VPN³
+  - MANUAL-LINK-032 @v2rayconfigamir
+  - MANUAL-LINK-033 @VPsave
+  - MANUAL-LINK-034 V2rayng_Fast
+  - MANUAL-LINK-035 TEL;FATHER_VPN¹⁰
+  - MANUAL-LINK-036 TEL;FATHER_VPN⁹
+  - MANUAL-LINK-037 @v2rayconfigamir
+  - MANUAL-LINK-038 🌾
+  - MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-040 @Hope_Net
+  - MANUAL-LINK-041 @v2rayconfigamir
+  - MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt
+  - MANUAL-LINK-043 ⚡@V2ray_official
+  - MANUAL-LINK-044 @Filtershekan_channel
+  - MANUAL-LINK-045 @KAFING_2
+  - MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️
+  - MANUAL-LINK-047 @Hope_Net
+  - MANUAL-LINK-048 @HiByeVPNN
+  - MANUAL-LINK-049 @moodfa
+  - MANUAL-LINK-050 @FreeConffning
+  - MANUAL-LINK-051 @v2ray313
+  - MANUAL-LINK-052 @netzone_ir
+  - MANUAL-LINK-053 🇰🇿
+  - MANUAL-LINK-054 🇺🇸50458
+  - MANUAL-LINK-055 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-056 TEL;FATHER_VPN¹¹
+  - MANUAL-LINK-057 @Hope_Net
+  - MANUAL-LINK-058 IR-@V2rayAlpha-3
+  - MANUAL-LINK-059 🇳🇱50524
+  - MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn
+  - MANUAL-LINK-061 @v2ray313
+  - MANUAL-LINK-062 IR-@V2rayAlpha-1
+  - MANUAL-LINK-063 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-064 @KAFING_2
+  - MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-066 @CUSTOMVPNSERVER
+  - MANUAL-LINK-067 @FarazV2ray
+  - MANUAL-LINK-068 🇮🇷@tanhant
+  - MANUAL-LINK-069 🇮🇷
+  - MANUAL-LINK-070 @VPsave
+  - MANUAL-LINK-071 @VPsave
+  - MANUAL-LINK-072 🫑18@oneclickvpnkeys
+  - MANUAL-LINK-073 🇩🇪49502
+  - MANUAL-LINK-074 @hi_proxy_iran
+  - MANUAL-LINK-075 @v2rayconfigamir
+  - MANUAL-LINK-076 @v2rayconfigamir
+  - MANUAL-LINK-077 @HiByeVPNN
+  - MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-080 TEL;FATHER_VPN⁸
+  - MANUAL-LINK-081 @vmesskhodam
+  - MANUAL-LINK-082 @nitruStore
+  - MANUAL-LINK-083 @meliproxyy
+  - MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-087 @mtproto_proserver
+  - MANUAL-LINK-088 🇩🇪@internet_azad_2026
+  - MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-090 @v2rayconfigamir
+  - MANUAL-LINK-091 @Hope_Net
+  - MANUAL-LINK-092 @Hope_Net
+  - MANUAL-LINK-093 @Hope_Net
+  - MANUAL-LINK-094 @Hope_Net
+  - MANUAL-LINK-095 @Hope_Net
+  - MANUAL-LINK-096 @Hope_Net
+  - MANUAL-LINK-097 @Hope_Net
+  - MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org
+  - MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000
+  - MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990
+  - MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443
+  - MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443
+  - MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080
+  - MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483
+  - MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990
+  - MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443
+  - MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989
+  - MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011
+  - MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM
+  - MANUAL-LINK-110 德國節點丨yoyapai.com\r
+  - MANUAL-LINK-111 荷蘭節點丨yoyapai.com\r
+  - MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)
+  - MANUAL-LINK-113 🇭🇰_HK_中国香港
+  - MANUAL-LINK-114 🇷🇺RU俄罗斯
+  - MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-116 🇳🇱50137
+  - MANUAL-LINK-117 @FarazV2ray
+  - MANUAL-LINK-118 @v2rayconfigamir
+  - MANUAL-LINK-119 @V2raySup0
+  - MANUAL-LINK-120 🇫🇷50106
+  - MANUAL-LINK-121 🖲️77@oneclickvpnkeys
+  - MANUAL-LINK-122 @Hope_Net
+  - MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms
+  - MANUAL-LINK-124 @Hope_Net
+  - MANUAL-LINK-125 🇸🇬50068
+  - MANUAL-LINK-126 V2rayng_Fast
+  - MANUAL-LINK-127 V2rayng_Fast
+  - MANUAL-LINK-128 @filembad
+  - MANUAL-LINK-129 🖲️98@oneclickvpnkeys
+  - MANUAL-LINK-130 @Hope_Net
+  - MANUAL-LINK-131 🇩🇪
+  - MANUAL-LINK-132 @Hope_Net
+  - MANUAL-LINK-133 @Hope_Net
+  - MANUAL-LINK-134 @Hope_Net
+  - MANUAL-LINK-135 @Hope_Net
+  - 'MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1'
+  - 'MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1'
+  - 'MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1'
+  - MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss
+  - MANUAL-LINK-140 SSR Manual
+  - MANUAL-LINK-141 SSR Manual
+  - "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��%\b �yk�} �"
+  - MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi
+  - MANUAL-LINK-144 SSR Manual
+  - MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg
+  - MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk
+  - MANUAL-LINK-147 SSR Manual
+  - MANUAL-LINK-148 SSR Manual
+  - "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��\x06 /��jr����,��(�K]�\x17 �\a TK �\x18,�u�M��^��"
+  - MANUAL-LINK-150 SSR Manual
+  - MANUAL-LINK-151 @ho3ino00🇳🇱
+  - MANUAL-LINK-152 @ho3ino00🤗❤
+  - MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI
+  - MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj
+  - MANUAL-LINK-157 t.me/V2ray_Custom😉
+  - MANUAL-LINK-158 SS Manual
+  - MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R
+  - MANUAL-LINK-160 hichkas mciهمراه
+  - MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک
+  - MANUAL-LINK-162 @RIP_VPN 3╭
+  - MANUAL-LINK-163 >>@v2nodes::DE
+  - MANUAL-LINK-164 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-165 >>@V2rayNg_madam::GB
+  - MANUAL-LINK-166 >>@oneclickvpnkeys::GB
+  - MANUAL-LINK-167 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-168 >>@v2ray_configs_pool::US
+  - MANUAL-LINK-169 >>@v2ray_configs_pool::XX
+  - MANUAL-LINK-170 >>@FOX_VPN66::ZA
+  - MANUAL-LINK-171 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-172 >>@v2ray_configs_pool::TH
+  - MANUAL-LINK-173 >>@oneclickvpnkeys::US
+  - MANUAL-LINK-174 >>@V2rayNG3::NL
+  - MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114
+  - MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120
+  - MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095
+  - MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119
+  - MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655
+  - MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100
+  - MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690
+  - MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612
+  - MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781
+  - MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681
+  - MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285
+  - MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777
+  - MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150
+  - MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229
+  - MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167
+  - MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607
+  - MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606
+  - MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605
+  - MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183
+  - MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179
+  - MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193
+  - MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640
+  - MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152
+  - MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178
+  - MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774
+  - MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174
+  - MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775
+  - MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365
+  - MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196
+  - MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160
+  - MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203
+  - MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213
+  - MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217
+  - MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220
+  - MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221
+  - MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230
+  - MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086
+  - MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239
+  - MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084
+  - MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244
+  - MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250
+  - MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255
+  - MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048
+  - MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047
+  - MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046
+  - MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045
+  - MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044
+  - MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - ID-12 LINK 10.lowh.net
+  - ID-13 LINK bel432 xl
+  - ID-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - ID-15 LINK VMess-WS-TLS-443-akuku8
+  - STREAM-11 LINK (ID)+PUSATMEDIA
+  - STREAM-12 LINK 10.lowh.net
+  - STREAM-13 LINK bel432 xl
+  - STREAM-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  - GAME-11 LINK (ID)+PUSATMEDIA
+  - GAME-12 LINK 10.lowh.net
+  - GAME-13 LINK bel432 xl
+  - GAME-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-15 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-13 LINK (ID)+PUSATMEDIA
+  - SOCIAL-14 LINK 10.lowh.net
+  - SOCIAL-15 LINK bel432 xl
+  - WORK-11 LINK (ID)+PUSATMEDIA
+  - WORK-12 LINK 10.lowh.net
+  - WORK-13 LINK bel432 xl
+  - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+- name: STREAMING-BEST
+  type: url-test
+  proxies:
+  - STREAM-01 ProxyVPN11 6456
+  - STREAM-02 VPsave 8921
+  - STREAM-03 oneclickvpnkeys US 6805
+  - STREAM-04 oneclickvpnkeys US 4120
+  - STREAM-05 v2raydia
+  - STREAM-06 By EbraSha
+  - STREAM-07 HiByeVPNN 48
+  - STREAM-08 oneclickvpnkeys NL 7340
+  - STREAM-09 v2ray_configs_pools 4582
+  - STREAM-10 HiByeVPNN 72
+  - STREAM-11 LINK (ID)+PUSATMEDIA
+  - STREAM-12 LINK 10.lowh.net
+  - STREAM-13 LINK bel432 xl
+  - STREAM-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
+- name: GAMING-BEST
+  type: url-test
+  proxies:
+  - GAME-01 ProxyVPN11 6456
+  - GAME-02 VPsave 8921
+  - GAME-03 oneclickvpnkeys US 6805
+  - GAME-04 oneclickvpnkeys US 4120
+  - GAME-05 v2raydia
+  - GAME-06 By EbraSha
+  - GAME-07 HiByeVPNN 48
+  - GAME-08 oneclickvpnkeys NL 7340
+  - GAME-09 v2ray_configs_pools 4582
+  - GAME-10 HiByeVPNN 72
+  - GAME-11 LINK (ID)+PUSATMEDIA
+  - GAME-12 LINK 10.lowh.net
+  - GAME-13 LINK bel432 xl
+  - GAME-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-15 LINK VMess-WS-TLS-443-akuku8
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
+- name: SOCIAL-BEST
+  type: url-test
+  proxies:
+  - SOCIAL-01 ProxyVPN11 6456
+  - SOCIAL-02 VPsave 8921
+  - SOCIAL-03 oneclickvpnkeys US 6805
+  - SOCIAL-04 oneclickvpnkeys US 4120
+  - SOCIAL-05 v2raydia
+  - SOCIAL-06 By EbraSha
+  - SOCIAL-07 HiByeVPNN 48
+  - SOCIAL-08 oneclickvpnkeys NL 7340
+  - SOCIAL-09 v2ray_configs_pools 4582
+  - SOCIAL-10 HiByeVPNN 72
+  - SOCIAL-11 configV2rayNG FR
+  - SOCIAL-12 FreakConfig FR
+  - SOCIAL-13 LINK (ID)+PUSATMEDIA
+  - SOCIAL-14 LINK 10.lowh.net
+  - SOCIAL-15 LINK bel432 xl
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
+- name: WORKING-BEST
+  type: url-test
+  proxies:
+  - WORK-01 ProxyVPN11 6456
+  - WORK-02 VPsave 8921
+  - WORK-03 oneclickvpnkeys US 6805
+  - WORK-04 oneclickvpnkeys US 4120
+  - WORK-05 v2raydia
+  - WORK-06 By EbraSha
+  - WORK-07 HiByeVPNN 48
+  - WORK-08 oneclickvpnkeys NL 7340
+  - WORK-09 v2ray_configs_pools 4582
+  - WORK-10 HiByeVPNN 72
+  - WORK-11 LINK (ID)+PUSATMEDIA
+  - WORK-12 LINK 10.lowh.net
+  - WORK-13 LINK bel432 xl
+  - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
+- name: GENERAL-BEST
+  type: url-test
+  proxies:
+  - GEN-01 ProxyVPN11 6456
+  - GEN-02 VPsave 8921
+  - GEN-03 oneclickvpnkeys US 6805
+  - GEN-04 oneclickvpnkeys US 4120
+  - GEN-05 v2raydia
+  - GEN-06 By EbraSha
+  - GEN-07 HiByeVPNN 48
+  - GEN-08 oneclickvpnkeys NL 7340
+  - GEN-09 v2ray_configs_pools 4582
+  - GEN-10 HiByeVPNN 72
+  - GEN-11 oneclickvpnkeys US 8779
+  - GEN-12 oneclickvpnkeys US 7518
+  - GEN-13 oneclickvpnkeys US 6214
+  - GEN-14 v2reya88
+  - GEN-15 configV2rayNG FR
+  - LINK (ID)+PUSATMEDIA
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - LINK VLESS-WS-TLS-443-apt50atpprem
+  url: https://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
 - name: MANUAL-LINK
   type: select
   proxies:
@@ -2534,6 +5214,221 @@ proxy-groups:
   - 'MANUAL-LINK-005 bel432 telk #2'
   - 'MANUAL-LINK-006 10.lowh.net #2'
   - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
+  - MANUAL-LINK-008 🇬🇧
+  - MANUAL-LINK-009 🇮🇷50351
+  - MANUAL-LINK-010 @HiByeVPNN
+  - MANUAL-LINK-011 @v2ray313
+  - MANUAL-LINK-012 🖲️61@oneclickvpnkeys
+  - MANUAL-LINK-013 🌾
+  - MANUAL-LINK-014 @v2ray313
+  - MANUAL-LINK-015 🇲🇽
+  - MANUAL-LINK-016 @VPsave
+  - MANUAL-LINK-017 @Ap_Ir6
+  - MANUAL-LINK-018 @
+  - MANUAL-LINK-019 @v2rayconfigamir
+  - MANUAL-LINK-020 @CUSTOMVPNSERVER
+  - MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-022 @VPsave
+  - MANUAL-LINK-023 SS Manual
+  - MANUAL-LINK-024 @v2rayconfigamir
+  - MANUAL-LINK-025 @HiByeVPNN
+  - MANUAL-LINK-026 🌾
+  - MANUAL-LINK-027 @outline_ir
+  - MANUAL-LINK-028 @VPsave
+  - MANUAL-LINK-029 TEL;Father_vpn⁶
+  - MANUAL-LINK-030 @Proxy_Vpney
+  - MANUAL-LINK-031 TEL;FATHER_VPN³
+  - MANUAL-LINK-032 @v2rayconfigamir
+  - MANUAL-LINK-033 @VPsave
+  - MANUAL-LINK-034 V2rayng_Fast
+  - MANUAL-LINK-035 TEL;FATHER_VPN¹⁰
+  - MANUAL-LINK-036 TEL;FATHER_VPN⁹
+  - MANUAL-LINK-037 @v2rayconfigamir
+  - MANUAL-LINK-038 🌾
+  - MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-040 @Hope_Net
+  - MANUAL-LINK-041 @v2rayconfigamir
+  - MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt
+  - MANUAL-LINK-043 ⚡@V2ray_official
+  - MANUAL-LINK-044 @Filtershekan_channel
+  - MANUAL-LINK-045 @KAFING_2
+  - MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️
+  - MANUAL-LINK-047 @Hope_Net
+  - MANUAL-LINK-048 @HiByeVPNN
+  - MANUAL-LINK-049 @moodfa
+  - MANUAL-LINK-050 @FreeConffning
+  - MANUAL-LINK-051 @v2ray313
+  - MANUAL-LINK-052 @netzone_ir
+  - MANUAL-LINK-053 🇰🇿
+  - MANUAL-LINK-054 🇺🇸50458
+  - MANUAL-LINK-055 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-056 TEL;FATHER_VPN¹¹
+  - MANUAL-LINK-057 @Hope_Net
+  - MANUAL-LINK-058 IR-@V2rayAlpha-3
+  - MANUAL-LINK-059 🇳🇱50524
+  - MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn
+  - MANUAL-LINK-061 @v2ray313
+  - MANUAL-LINK-062 IR-@V2rayAlpha-1
+  - MANUAL-LINK-063 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-064 @KAFING_2
+  - MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-066 @CUSTOMVPNSERVER
+  - MANUAL-LINK-067 @FarazV2ray
+  - MANUAL-LINK-068 🇮🇷@tanhant
+  - MANUAL-LINK-069 🇮🇷
+  - MANUAL-LINK-070 @VPsave
+  - MANUAL-LINK-071 @VPsave
+  - MANUAL-LINK-072 🫑18@oneclickvpnkeys
+  - MANUAL-LINK-073 🇩🇪49502
+  - MANUAL-LINK-074 @hi_proxy_iran
+  - MANUAL-LINK-075 @v2rayconfigamir
+  - MANUAL-LINK-076 @v2rayconfigamir
+  - MANUAL-LINK-077 @HiByeVPNN
+  - MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-080 TEL;FATHER_VPN⁸
+  - MANUAL-LINK-081 @vmesskhodam
+  - MANUAL-LINK-082 @nitruStore
+  - MANUAL-LINK-083 @meliproxyy
+  - MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-087 @mtproto_proserver
+  - MANUAL-LINK-088 🇩🇪@internet_azad_2026
+  - MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-090 @v2rayconfigamir
+  - MANUAL-LINK-091 @Hope_Net
+  - MANUAL-LINK-092 @Hope_Net
+  - MANUAL-LINK-093 @Hope_Net
+  - MANUAL-LINK-094 @Hope_Net
+  - MANUAL-LINK-095 @Hope_Net
+  - MANUAL-LINK-096 @Hope_Net
+  - MANUAL-LINK-097 @Hope_Net
+  - MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org
+  - MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000
+  - MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990
+  - MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443
+  - MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443
+  - MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080
+  - MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483
+  - MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990
+  - MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443
+  - MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989
+  - MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011
+  - MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM
+  - MANUAL-LINK-110 德國節點丨yoyapai.com\r
+  - MANUAL-LINK-111 荷蘭節點丨yoyapai.com\r
+  - MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)
+  - MANUAL-LINK-113 🇭🇰_HK_中国香港
+  - MANUAL-LINK-114 🇷🇺RU俄罗斯
+  - MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-116 🇳🇱50137
+  - MANUAL-LINK-117 @FarazV2ray
+  - MANUAL-LINK-118 @v2rayconfigamir
+  - MANUAL-LINK-119 @V2raySup0
+  - MANUAL-LINK-120 🇫🇷50106
+  - MANUAL-LINK-121 🖲️77@oneclickvpnkeys
+  - MANUAL-LINK-122 @Hope_Net
+  - MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms
+  - MANUAL-LINK-124 @Hope_Net
+  - MANUAL-LINK-125 🇸🇬50068
+  - MANUAL-LINK-126 V2rayng_Fast
+  - MANUAL-LINK-127 V2rayng_Fast
+  - MANUAL-LINK-128 @filembad
+  - MANUAL-LINK-129 🖲️98@oneclickvpnkeys
+  - MANUAL-LINK-130 @Hope_Net
+  - MANUAL-LINK-131 🇩🇪
+  - MANUAL-LINK-132 @Hope_Net
+  - MANUAL-LINK-133 @Hope_Net
+  - MANUAL-LINK-134 @Hope_Net
+  - MANUAL-LINK-135 @Hope_Net
+  - 'MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1'
+  - 'MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1'
+  - 'MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1'
+  - MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss
+  - MANUAL-LINK-140 SSR Manual
+  - MANUAL-LINK-141 SSR Manual
+  - "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��%\b �yk�} �"
+  - MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi
+  - MANUAL-LINK-144 SSR Manual
+  - MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg
+  - MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk
+  - MANUAL-LINK-147 SSR Manual
+  - MANUAL-LINK-148 SSR Manual
+  - "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��\x06 /��jr����,��(�K]�\x17 �\a TK �\x18,�u�M��^��"
+  - MANUAL-LINK-150 SSR Manual
+  - MANUAL-LINK-151 @ho3ino00🇳🇱
+  - MANUAL-LINK-152 @ho3ino00🤗❤
+  - MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI
+  - MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj
+  - MANUAL-LINK-157 t.me/V2ray_Custom😉
+  - MANUAL-LINK-158 SS Manual
+  - MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R
+  - MANUAL-LINK-160 hichkas mciهمراه
+  - MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک
+  - MANUAL-LINK-162 @RIP_VPN 3╭
+  - MANUAL-LINK-163 >>@v2nodes::DE
+  - MANUAL-LINK-164 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-165 >>@V2rayNg_madam::GB
+  - MANUAL-LINK-166 >>@oneclickvpnkeys::GB
+  - MANUAL-LINK-167 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-168 >>@v2ray_configs_pool::US
+  - MANUAL-LINK-169 >>@v2ray_configs_pool::XX
+  - MANUAL-LINK-170 >>@FOX_VPN66::ZA
+  - MANUAL-LINK-171 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-172 >>@v2ray_configs_pool::TH
+  - MANUAL-LINK-173 >>@oneclickvpnkeys::US
+  - MANUAL-LINK-174 >>@V2rayNG3::NL
+  - MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114
+  - MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120
+  - MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095
+  - MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119
+  - MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655
+  - MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100
+  - MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690
+  - MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612
+  - MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781
+  - MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681
+  - MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285
+  - MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777
+  - MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150
+  - MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229
+  - MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167
+  - MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607
+  - MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606
+  - MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605
+  - MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183
+  - MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179
+  - MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193
+  - MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640
+  - MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152
+  - MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178
+  - MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774
+  - MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174
+  - MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775
+  - MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365
+  - MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196
+  - MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160
+  - MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203
+  - MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213
+  - MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217
+  - MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220
+  - MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221
+  - MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230
+  - MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086
+  - MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239
+  - MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084
+  - MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244
+  - MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250
+  - MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255
+  - MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048
+  - MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047
+  - MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046
+  - MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045
+  - MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044
+  - MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029
   - DIRECT
 - name: MANUAL-FALLBACK
   type: fallback
@@ -2545,8 +5440,223 @@ proxy-groups:
   - 'MANUAL-LINK-005 bel432 telk #2'
   - 'MANUAL-LINK-006 10.lowh.net #2'
   - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
+  - MANUAL-LINK-008 🇬🇧
+  - MANUAL-LINK-009 🇮🇷50351
+  - MANUAL-LINK-010 @HiByeVPNN
+  - MANUAL-LINK-011 @v2ray313
+  - MANUAL-LINK-012 🖲️61@oneclickvpnkeys
+  - MANUAL-LINK-013 🌾
+  - MANUAL-LINK-014 @v2ray313
+  - MANUAL-LINK-015 🇲🇽
+  - MANUAL-LINK-016 @VPsave
+  - MANUAL-LINK-017 @Ap_Ir6
+  - MANUAL-LINK-018 @
+  - MANUAL-LINK-019 @v2rayconfigamir
+  - MANUAL-LINK-020 @CUSTOMVPNSERVER
+  - MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-022 @VPsave
+  - MANUAL-LINK-023 SS Manual
+  - MANUAL-LINK-024 @v2rayconfigamir
+  - MANUAL-LINK-025 @HiByeVPNN
+  - MANUAL-LINK-026 🌾
+  - MANUAL-LINK-027 @outline_ir
+  - MANUAL-LINK-028 @VPsave
+  - MANUAL-LINK-029 TEL;Father_vpn⁶
+  - MANUAL-LINK-030 @Proxy_Vpney
+  - MANUAL-LINK-031 TEL;FATHER_VPN³
+  - MANUAL-LINK-032 @v2rayconfigamir
+  - MANUAL-LINK-033 @VPsave
+  - MANUAL-LINK-034 V2rayng_Fast
+  - MANUAL-LINK-035 TEL;FATHER_VPN¹⁰
+  - MANUAL-LINK-036 TEL;FATHER_VPN⁹
+  - MANUAL-LINK-037 @v2rayconfigamir
+  - MANUAL-LINK-038 🌾
+  - MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-040 @Hope_Net
+  - MANUAL-LINK-041 @v2rayconfigamir
+  - MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt
+  - MANUAL-LINK-043 ⚡@V2ray_official
+  - MANUAL-LINK-044 @Filtershekan_channel
+  - MANUAL-LINK-045 @KAFING_2
+  - MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️
+  - MANUAL-LINK-047 @Hope_Net
+  - MANUAL-LINK-048 @HiByeVPNN
+  - MANUAL-LINK-049 @moodfa
+  - MANUAL-LINK-050 @FreeConffning
+  - MANUAL-LINK-051 @v2ray313
+  - MANUAL-LINK-052 @netzone_ir
+  - MANUAL-LINK-053 🇰🇿
+  - MANUAL-LINK-054 🇺🇸50458
+  - MANUAL-LINK-055 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-056 TEL;FATHER_VPN¹¹
+  - MANUAL-LINK-057 @Hope_Net
+  - MANUAL-LINK-058 IR-@V2rayAlpha-3
+  - MANUAL-LINK-059 🇳🇱50524
+  - MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn
+  - MANUAL-LINK-061 @v2ray313
+  - MANUAL-LINK-062 IR-@V2rayAlpha-1
+  - MANUAL-LINK-063 @v2rayngzendegimamad🕊️
+  - MANUAL-LINK-064 @KAFING_2
+  - MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-066 @CUSTOMVPNSERVER
+  - MANUAL-LINK-067 @FarazV2ray
+  - MANUAL-LINK-068 🇮🇷@tanhant
+  - MANUAL-LINK-069 🇮🇷
+  - MANUAL-LINK-070 @VPsave
+  - MANUAL-LINK-071 @VPsave
+  - MANUAL-LINK-072 🫑18@oneclickvpnkeys
+  - MANUAL-LINK-073 🇩🇪49502
+  - MANUAL-LINK-074 @hi_proxy_iran
+  - MANUAL-LINK-075 @v2rayconfigamir
+  - MANUAL-LINK-076 @v2rayconfigamir
+  - MANUAL-LINK-077 @HiByeVPNN
+  - MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-080 TEL;FATHER_VPN⁸
+  - MANUAL-LINK-081 @vmesskhodam
+  - MANUAL-LINK-082 @nitruStore
+  - MANUAL-LINK-083 @meliproxyy
+  - MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-087 @mtproto_proserver
+  - MANUAL-LINK-088 🇩🇪@internet_azad_2026
+  - MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷
+  - MANUAL-LINK-090 @v2rayconfigamir
+  - MANUAL-LINK-091 @Hope_Net
+  - MANUAL-LINK-092 @Hope_Net
+  - MANUAL-LINK-093 @Hope_Net
+  - MANUAL-LINK-094 @Hope_Net
+  - MANUAL-LINK-095 @Hope_Net
+  - MANUAL-LINK-096 @Hope_Net
+  - MANUAL-LINK-097 @Hope_Net
+  - MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org
+  - MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000
+  - MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990
+  - MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443
+  - MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443
+  - MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080
+  - MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483
+  - MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990
+  - MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443
+  - MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989
+  - MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011
+  - MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM
+  - MANUAL-LINK-110 德國節點丨yoyapai.com\r
+  - MANUAL-LINK-111 荷蘭節點丨yoyapai.com\r
+  - MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)
+  - MANUAL-LINK-113 🇭🇰_HK_中国香港
+  - MANUAL-LINK-114 🇷🇺RU俄罗斯
+  - MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1
+  - MANUAL-LINK-116 🇳🇱50137
+  - MANUAL-LINK-117 @FarazV2ray
+  - MANUAL-LINK-118 @v2rayconfigamir
+  - MANUAL-LINK-119 @V2raySup0
+  - MANUAL-LINK-120 🇫🇷50106
+  - MANUAL-LINK-121 🖲️77@oneclickvpnkeys
+  - MANUAL-LINK-122 @Hope_Net
+  - MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms
+  - MANUAL-LINK-124 @Hope_Net
+  - MANUAL-LINK-125 🇸🇬50068
+  - MANUAL-LINK-126 V2rayng_Fast
+  - MANUAL-LINK-127 V2rayng_Fast
+  - MANUAL-LINK-128 @filembad
+  - MANUAL-LINK-129 🖲️98@oneclickvpnkeys
+  - MANUAL-LINK-130 @Hope_Net
+  - MANUAL-LINK-131 🇩🇪
+  - MANUAL-LINK-132 @Hope_Net
+  - MANUAL-LINK-133 @Hope_Net
+  - MANUAL-LINK-134 @Hope_Net
+  - MANUAL-LINK-135 @Hope_Net
+  - 'MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1'
+  - 'MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1'
+  - 'MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1'
+  - MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss
+  - MANUAL-LINK-140 SSR Manual
+  - MANUAL-LINK-141 SSR Manual
+  - "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��%\b �yk�} �"
+  - MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi
+  - MANUAL-LINK-144 SSR Manual
+  - MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg
+  - MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk
+  - MANUAL-LINK-147 SSR Manual
+  - MANUAL-LINK-148 SSR Manual
+  - "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��\x06 /��jr����,��(�K]�\x17 �\a TK �\x18,�u�M��^��"
+  - MANUAL-LINK-150 SSR Manual
+  - MANUAL-LINK-151 @ho3ino00🇳🇱
+  - MANUAL-LINK-152 @ho3ino00🤗❤
+  - MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI
+  - MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
+  - MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj
+  - MANUAL-LINK-157 t.me/V2ray_Custom😉
+  - MANUAL-LINK-158 SS Manual
+  - MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R
+  - MANUAL-LINK-160 hichkas mciهمراه
+  - MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک
+  - MANUAL-LINK-162 @RIP_VPN 3╭
+  - MANUAL-LINK-163 >>@v2nodes::DE
+  - MANUAL-LINK-164 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-165 >>@V2rayNg_madam::GB
+  - MANUAL-LINK-166 >>@oneclickvpnkeys::GB
+  - MANUAL-LINK-167 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-168 >>@v2ray_configs_pool::US
+  - MANUAL-LINK-169 >>@v2ray_configs_pool::XX
+  - MANUAL-LINK-170 >>@FOX_VPN66::ZA
+  - MANUAL-LINK-171 >>@oneclickvpnkeys::NL
+  - MANUAL-LINK-172 >>@v2ray_configs_pool::TH
+  - MANUAL-LINK-173 >>@oneclickvpnkeys::US
+  - MANUAL-LINK-174 >>@V2rayNG3::NL
+  - MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114
+  - MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120
+  - MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095
+  - MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119
+  - MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655
+  - MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100
+  - MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690
+  - MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612
+  - MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781
+  - MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681
+  - MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285
+  - MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777
+  - MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150
+  - MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229
+  - MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167
+  - MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607
+  - MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606
+  - MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605
+  - MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183
+  - MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179
+  - MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193
+  - MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640
+  - MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152
+  - MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178
+  - MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774
+  - MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174
+  - MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775
+  - MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365
+  - MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196
+  - MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160
+  - MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203
+  - MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213
+  - MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217
+  - MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220
+  - MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221
+  - MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230
+  - MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086
+  - MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239
+  - MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084
+  - MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244
+  - MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250
+  - MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255
+  - MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048
+  - MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047
+  - MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046
+  - MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045
+  - MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044
+  - MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029
   url: http://www.gstatic.com/generate_204
-  interval: 180
+  interval: 60
 - name: MANUAL-BEST
   type: url-test
   proxies:
@@ -2557,577 +5667,6 @@ proxy-groups:
   - 'MANUAL-LINK-005 bel432 telk #2'
   - 'MANUAL-LINK-006 10.lowh.net #2'
   - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
-  url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
-- name: SAT-SET
-  type: fallback
-  proxies:
-  - v2reya88
-  - v2raydia
-  - HiByeVPNN 48
-  - configV2rayNG FR
-  - HiByeVPNN 72
-  - v2nodes DE
-  - oneclickvpnkeys FI
-  - FreakConfig FR
-  - V2rayNG3 FR
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
-  - oneclickvpnkeys US 1101
-  - oneclickvpnkeys US 6329
-  - oneclickvpnkeys US 4946
-  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
-  - 'MANUAL-LINK-002 bel432 xl #2'
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #2'
-  - 'MANUAL-LINK-005 bel432 telk #2'
-  - 'MANUAL-LINK-006 10.lowh.net #2'
-  - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
-  - MANUAL-LINK-001 (ID)+PUSATMEDIA
-  - MANUAL-LINK-002 bel432 xl
-  - MANUAL-LINK-003 bel432 xl
-  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-005 bel432 telk
-  - MANUAL-LINK-006 10.lowh.net
-  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
-  - MANUAL-LINK-008 🇬🇧
-  - MANUAL-LINK-009 🇮🇷50351
-  - MANUAL-LINK-010 @HiByeVPNN
-  - MANUAL-LINK-011 @v2ray313
-  - MANUAL-LINK-012 🖲️61@oneclickvpnkeys
-  - MANUAL-LINK-013 🌾
-  - MANUAL-LINK-014 @v2ray313
-  - MANUAL-LINK-015 🇲🇽
-  - MANUAL-LINK-016 @VPsave
-  - MANUAL-LINK-017 @Ap_Ir6
-  - MANUAL-LINK-018 @
-  - MANUAL-LINK-019 @v2rayconfigamir
-  - MANUAL-LINK-020 @CUSTOMVPNSERVER
-  - MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-022 @VPsave
-  - MANUAL-LINK-023 SS Manual
-  - MANUAL-LINK-024 @v2rayconfigamir
-  - MANUAL-LINK-025 @HiByeVPNN
-  - MANUAL-LINK-026 🌾
-  - MANUAL-LINK-027 @outline_ir
-  - MANUAL-LINK-028 @VPsave
-  - MANUAL-LINK-029 TEL;Father_vpn⁶
-  - MANUAL-LINK-030 @Proxy_Vpney
-  - MANUAL-LINK-031 TEL;FATHER_VPN³
-  - MANUAL-LINK-032 @v2rayconfigamir
-  - MANUAL-LINK-033 @VPsave
-  - MANUAL-LINK-034 V2rayng_Fast
-  - MANUAL-LINK-035 TEL;FATHER_VPN¹⁰
-  - MANUAL-LINK-036 TEL;FATHER_VPN⁹
-  - MANUAL-LINK-037 @v2rayconfigamir
-  - MANUAL-LINK-038 🌾
-  - MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1
-  - MANUAL-LINK-040 @Hope_Net
-  - MANUAL-LINK-041 @v2rayconfigamir
-  - MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt
-  - MANUAL-LINK-043 ⚡@V2ray_official
-  - MANUAL-LINK-044 @Filtershekan_channel
-  - MANUAL-LINK-045 @KAFING_2
-  - MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️
-  - MANUAL-LINK-047 @Hope_Net
-  - MANUAL-LINK-048 @HiByeVPNN
-  - MANUAL-LINK-049 @moodfa
-  - MANUAL-LINK-050 @FreeConffning
-  - MANUAL-LINK-051 @v2ray313
-  - MANUAL-LINK-052 @netzone_ir
-  - MANUAL-LINK-053 🇰🇿
-  - MANUAL-LINK-054 🇺🇸50458
-  - MANUAL-LINK-055 @v2rayngzendegimamad🕊️
-  - MANUAL-LINK-056 TEL;FATHER_VPN¹¹
-  - MANUAL-LINK-057 @Hope_Net
-  - MANUAL-LINK-058 IR-@V2rayAlpha-3
-  - MANUAL-LINK-059 🇳🇱50524
-  - MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn
-  - MANUAL-LINK-061 @v2ray313
-  - MANUAL-LINK-062 IR-@V2rayAlpha-1
-  - MANUAL-LINK-063 @v2rayngzendegimamad🕊️
-  - MANUAL-LINK-064 @KAFING_2
-  - MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-066 @CUSTOMVPNSERVER
-  - MANUAL-LINK-067 @FarazV2ray
-  - MANUAL-LINK-068 🇮🇷@tanhant
-  - MANUAL-LINK-069 🇮🇷
-  - MANUAL-LINK-070 @VPsave
-  - MANUAL-LINK-071 @VPsave
-  - MANUAL-LINK-072 🫑18@oneclickvpnkeys
-  - MANUAL-LINK-073 🇩🇪49502
-  - MANUAL-LINK-074 @hi_proxy_iran
-  - MANUAL-LINK-075 @v2rayconfigamir
-  - MANUAL-LINK-076 @v2rayconfigamir
-  - MANUAL-LINK-077 @HiByeVPNN
-  - MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-080 TEL;FATHER_VPN⁸
-  - MANUAL-LINK-081 @vmesskhodam
-  - MANUAL-LINK-082 @nitruStore
-  - MANUAL-LINK-083 @meliproxyy
-  - MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1
-  - MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-087 @mtproto_proserver
-  - MANUAL-LINK-088 🇩🇪@internet_azad_2026
-  - MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-090 @v2rayconfigamir
-  - MANUAL-LINK-091 @Hope_Net
-  - MANUAL-LINK-092 @Hope_Net
-  - MANUAL-LINK-093 @Hope_Net
-  - MANUAL-LINK-094 @Hope_Net
-  - MANUAL-LINK-095 @Hope_Net
-  - MANUAL-LINK-096 @Hope_Net
-  - MANUAL-LINK-097 @Hope_Net
-  - MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org
-  - MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000
-  - MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990
-  - MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443
-  - MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443
-  - MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080
-  - MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483
-  - MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990
-  - MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443
-  - MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989
-  - MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011
-  - MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM
-  - MANUAL-LINK-110 德國節點丨yoyapai.com\r
-  - MANUAL-LINK-111 荷蘭節點丨yoyapai.com\r
-  - MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)
-  - MANUAL-LINK-113 🇭🇰_HK_中国香港
-  - MANUAL-LINK-114 🇷🇺RU俄罗斯
-  - MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1
-  - MANUAL-LINK-116 🇳🇱50137
-  - MANUAL-LINK-117 @FarazV2ray
-  - MANUAL-LINK-118 @v2rayconfigamir
-  - MANUAL-LINK-119 @V2raySup0
-  - MANUAL-LINK-120 🇫🇷50106
-  - MANUAL-LINK-121 🖲️77@oneclickvpnkeys
-  - MANUAL-LINK-122 @Hope_Net
-  - MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms
-  - MANUAL-LINK-124 @Hope_Net
-  - MANUAL-LINK-125 🇸🇬50068
-  - MANUAL-LINK-126 V2rayng_Fast
-  - MANUAL-LINK-127 V2rayng_Fast
-  - MANUAL-LINK-128 @filembad
-  - MANUAL-LINK-129 🖲️98@oneclickvpnkeys
-  - MANUAL-LINK-130 @Hope_Net
-  - MANUAL-LINK-131 🇩🇪
-  - MANUAL-LINK-132 @Hope_Net
-  - MANUAL-LINK-133 @Hope_Net
-  - MANUAL-LINK-134 @Hope_Net
-  - MANUAL-LINK-135 @Hope_Net
-  - 'MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1'
-  - 'MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1'
-  - 'MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1'
-  - MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss
-  - MANUAL-LINK-140 SSR Manual
-  - MANUAL-LINK-141 SSR Manual
-  - "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��%\b �yk�} �"
-  - MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi
-  - MANUAL-LINK-144 SSR Manual
-  - MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg
-  - MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk
-  - MANUAL-LINK-147 SSR Manual
-  - MANUAL-LINK-148 SSR Manual
-  - "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��\x06 /��jr����,��(�K]�\x17 �\a TK �\x18,�u�M��^��"
-  - MANUAL-LINK-150 SSR Manual
-  - MANUAL-LINK-151 @ho3ino00🇳🇱
-  - MANUAL-LINK-152 @ho3ino00🤗❤
-  - MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI
-  - MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
-  - MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
-  - MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj
-  - MANUAL-LINK-157 t.me/V2ray_Custom😉
-  - MANUAL-LINK-158 SS Manual
-  - MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R
-  - MANUAL-LINK-160 hichkas mciهمراه
-  - MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک
-  - MANUAL-LINK-162 @RIP_VPN 3╭
-  - MANUAL-LINK-163 >>@v2nodes::DE
-  - MANUAL-LINK-164 >>@oneclickvpnkeys::NL
-  - MANUAL-LINK-165 >>@V2rayNg_madam::GB
-  - MANUAL-LINK-166 >>@oneclickvpnkeys::GB
-  - MANUAL-LINK-167 >>@oneclickvpnkeys::NL
-  - MANUAL-LINK-168 >>@v2ray_configs_pool::US
-  - MANUAL-LINK-169 >>@v2ray_configs_pool::XX
-  - MANUAL-LINK-170 >>@FOX_VPN66::ZA
-  - MANUAL-LINK-171 >>@oneclickvpnkeys::NL
-  - MANUAL-LINK-172 >>@v2ray_configs_pool::TH
-  - MANUAL-LINK-173 >>@oneclickvpnkeys::US
-  - MANUAL-LINK-174 >>@V2rayNG3::NL
-  - MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114
-  - MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120
-  - MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095
-  - MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119
-  - MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655
-  - MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100
-  - MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690
-  - MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612
-  - MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781
-  - MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681
-  - MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285
-  - MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777
-  - MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150
-  - MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229
-  - MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167
-  - MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607
-  - MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606
-  - MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605
-  - MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183
-  - MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179
-  - MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193
-  - MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640
-  - MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152
-  - MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178
-  - MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774
-  - MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174
-  - MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775
-  - MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365
-  - MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196
-  - MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160
-  - MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203
-  - MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213
-  - MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217
-  - MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220
-  - MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221
-  - MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230
-  - MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086
-  - MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239
-  - MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084
-  - MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244
-  - MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250
-  - MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255
-  - MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048
-  - MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047
-  - MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046
-  - MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045
-  - MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044
-  - MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029
-  - By EbraSha 1140
-  - oneclickvpnkeys US 3094
-  - oneclickvpnkeys FR 1706
-  - v2ray_configs_pools 1963
-  - chillguy_vpn 8596
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50449 Telegram t.me SOSkeyNET
-  - meliproxyy 3551
-  - SC SC- V2Ray_Hub1200
-  - CA 50508 Telegram t.me SOSkeyNET
-  - CA 50354 Telegram t.me SOSkeyNET
-  - SC SC- V2Ray_Hub1200 4459
-  - 74 oneclickvpnkeys
-  - oneclickvpnkeys FR 9040
-  - oneclickvpnkeys NL 6520
-  - configshub2 PL
-  url: http://www.gstatic.com/generate_204
-  interval: 180
-- name: ANTI-BENGONG
-  type: fallback
-  proxies:
-  - v2reya88
-  - v2raydia
-  - HiByeVPNN 48
-  - configV2rayNG FR
-  - HiByeVPNN 72
-  - v2nodes DE
-  - oneclickvpnkeys FI
-  - FreakConfig FR
-  - V2rayNG3 FR
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
-  - oneclickvpnkeys US 1101
-  - oneclickvpnkeys US 6329
-  - oneclickvpnkeys US 4946
-  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
-  - 'MANUAL-LINK-002 bel432 xl #2'
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #2'
-  - 'MANUAL-LINK-005 bel432 telk #2'
-  - 'MANUAL-LINK-006 10.lowh.net #2'
-  - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
-  - MANUAL-LINK-001 (ID)+PUSATMEDIA
-  - MANUAL-LINK-002 bel432 xl
-  - MANUAL-LINK-003 bel432 xl
-  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-005 bel432 telk
-  - MANUAL-LINK-006 10.lowh.net
-  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
-  - MANUAL-LINK-008 🇬🇧
-  - MANUAL-LINK-009 🇮🇷50351
-  - MANUAL-LINK-010 @HiByeVPNN
-  - MANUAL-LINK-011 @v2ray313
-  - MANUAL-LINK-012 🖲️61@oneclickvpnkeys
-  - MANUAL-LINK-013 🌾
-  - MANUAL-LINK-014 @v2ray313
-  - MANUAL-LINK-015 🇲🇽
-  - MANUAL-LINK-016 @VPsave
-  - MANUAL-LINK-017 @Ap_Ir6
-  - MANUAL-LINK-018 @
-  - MANUAL-LINK-019 @v2rayconfigamir
-  - MANUAL-LINK-020 @CUSTOMVPNSERVER
-  - MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-022 @VPsave
-  - MANUAL-LINK-023 SS Manual
-  - MANUAL-LINK-024 @v2rayconfigamir
-  - MANUAL-LINK-025 @HiByeVPNN
-  - MANUAL-LINK-026 🌾
-  - MANUAL-LINK-027 @outline_ir
-  - MANUAL-LINK-028 @VPsave
-  - MANUAL-LINK-029 TEL;Father_vpn⁶
-  - MANUAL-LINK-030 @Proxy_Vpney
-  - MANUAL-LINK-031 TEL;FATHER_VPN³
-  - MANUAL-LINK-032 @v2rayconfigamir
-  - MANUAL-LINK-033 @VPsave
-  - MANUAL-LINK-034 V2rayng_Fast
-  - MANUAL-LINK-035 TEL;FATHER_VPN¹⁰
-  - MANUAL-LINK-036 TEL;FATHER_VPN⁹
-  - MANUAL-LINK-037 @v2rayconfigamir
-  - MANUAL-LINK-038 🌾
-  - MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1
-  - MANUAL-LINK-040 @Hope_Net
-  - MANUAL-LINK-041 @v2rayconfigamir
-  - MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt
-  - MANUAL-LINK-043 ⚡@V2ray_official
-  - MANUAL-LINK-044 @Filtershekan_channel
-  - MANUAL-LINK-045 @KAFING_2
-  - MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️
-  - MANUAL-LINK-047 @Hope_Net
-  - MANUAL-LINK-048 @HiByeVPNN
-  - MANUAL-LINK-049 @moodfa
-  - MANUAL-LINK-050 @FreeConffning
-  - MANUAL-LINK-051 @v2ray313
-  - MANUAL-LINK-052 @netzone_ir
-  - MANUAL-LINK-053 🇰🇿
-  - MANUAL-LINK-054 🇺🇸50458
-  - MANUAL-LINK-055 @v2rayngzendegimamad🕊️
-  - MANUAL-LINK-056 TEL;FATHER_VPN¹¹
-  - MANUAL-LINK-057 @Hope_Net
-  - MANUAL-LINK-058 IR-@V2rayAlpha-3
-  - MANUAL-LINK-059 🇳🇱50524
-  - MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn
-  - MANUAL-LINK-061 @v2ray313
-  - MANUAL-LINK-062 IR-@V2rayAlpha-1
-  - MANUAL-LINK-063 @v2rayngzendegimamad🕊️
-  - MANUAL-LINK-064 @KAFING_2
-  - MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-066 @CUSTOMVPNSERVER
-  - MANUAL-LINK-067 @FarazV2ray
-  - MANUAL-LINK-068 🇮🇷@tanhant
-  - MANUAL-LINK-069 🇮🇷
-  - MANUAL-LINK-070 @VPsave
-  - MANUAL-LINK-071 @VPsave
-  - MANUAL-LINK-072 🫑18@oneclickvpnkeys
-  - MANUAL-LINK-073 🇩🇪49502
-  - MANUAL-LINK-074 @hi_proxy_iran
-  - MANUAL-LINK-075 @v2rayconfigamir
-  - MANUAL-LINK-076 @v2rayconfigamir
-  - MANUAL-LINK-077 @HiByeVPNN
-  - MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-080 TEL;FATHER_VPN⁸
-  - MANUAL-LINK-081 @vmesskhodam
-  - MANUAL-LINK-082 @nitruStore
-  - MANUAL-LINK-083 @meliproxyy
-  - MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1
-  - MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-087 @mtproto_proserver
-  - MANUAL-LINK-088 🇩🇪@internet_azad_2026
-  - MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-090 @v2rayconfigamir
-  - MANUAL-LINK-091 @Hope_Net
-  - MANUAL-LINK-092 @Hope_Net
-  - MANUAL-LINK-093 @Hope_Net
-  - MANUAL-LINK-094 @Hope_Net
-  - MANUAL-LINK-095 @Hope_Net
-  - MANUAL-LINK-096 @Hope_Net
-  - MANUAL-LINK-097 @Hope_Net
-  - MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org
-  - MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000
-  - MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990
-  - MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443
-  - MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443
-  - MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080
-  - MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483
-  - MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990
-  - MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443
-  - MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989
-  - MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011
-  - MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM
-  - MANUAL-LINK-110 德國節點丨yoyapai.com\r
-  - MANUAL-LINK-111 荷蘭節點丨yoyapai.com\r
-  - MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)
-  - MANUAL-LINK-113 🇭🇰_HK_中国香港
-  - MANUAL-LINK-114 🇷🇺RU俄罗斯
-  - MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1
-  - MANUAL-LINK-116 🇳🇱50137
-  - MANUAL-LINK-117 @FarazV2ray
-  - MANUAL-LINK-118 @v2rayconfigamir
-  - MANUAL-LINK-119 @V2raySup0
-  - MANUAL-LINK-120 🇫🇷50106
-  - MANUAL-LINK-121 🖲️77@oneclickvpnkeys
-  - MANUAL-LINK-122 @Hope_Net
-  - MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms
-  - MANUAL-LINK-124 @Hope_Net
-  - MANUAL-LINK-125 🇸🇬50068
-  - MANUAL-LINK-126 V2rayng_Fast
-  - MANUAL-LINK-127 V2rayng_Fast
-  - MANUAL-LINK-128 @filembad
-  - MANUAL-LINK-129 🖲️98@oneclickvpnkeys
-  - MANUAL-LINK-130 @Hope_Net
-  - MANUAL-LINK-131 🇩🇪
-  - MANUAL-LINK-132 @Hope_Net
-  - MANUAL-LINK-133 @Hope_Net
-  - MANUAL-LINK-134 @Hope_Net
-  - MANUAL-LINK-135 @Hope_Net
-  - 'MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1'
-  - 'MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1'
-  - 'MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1'
-  - MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss
-  - MANUAL-LINK-140 SSR Manual
-  - MANUAL-LINK-141 SSR Manual
-  - "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��%\b �yk�} �"
-  - MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi
-  - MANUAL-LINK-144 SSR Manual
-  - MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg
-  - MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk
-  - MANUAL-LINK-147 SSR Manual
-  - MANUAL-LINK-148 SSR Manual
-  - "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��\x06 /��jr����,��(�K]�\x17 �\a TK �\x18,�u�M��^��"
-  - MANUAL-LINK-150 SSR Manual
-  - MANUAL-LINK-151 @ho3ino00🇳🇱
-  - MANUAL-LINK-152 @ho3ino00🤗❤
-  - MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI
-  - MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
-  - MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
-  - MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj
-  - MANUAL-LINK-157 t.me/V2ray_Custom😉
-  - MANUAL-LINK-158 SS Manual
-  - MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R
-  - MANUAL-LINK-160 hichkas mciهمراه
-  - MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک
-  - MANUAL-LINK-162 @RIP_VPN 3╭
-  - MANUAL-LINK-163 >>@v2nodes::DE
-  - MANUAL-LINK-164 >>@oneclickvpnkeys::NL
-  - MANUAL-LINK-165 >>@V2rayNg_madam::GB
-  - MANUAL-LINK-166 >>@oneclickvpnkeys::GB
-  - MANUAL-LINK-167 >>@oneclickvpnkeys::NL
-  - MANUAL-LINK-168 >>@v2ray_configs_pool::US
-  - MANUAL-LINK-169 >>@v2ray_configs_pool::XX
-  - MANUAL-LINK-170 >>@FOX_VPN66::ZA
-  - MANUAL-LINK-171 >>@oneclickvpnkeys::NL
-  - MANUAL-LINK-172 >>@v2ray_configs_pool::TH
-  - MANUAL-LINK-173 >>@oneclickvpnkeys::US
-  - MANUAL-LINK-174 >>@V2rayNG3::NL
-  - MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114
-  - MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120
-  - MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095
-  - MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119
-  - MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655
-  - MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100
-  - MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690
-  - MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612
-  - MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781
-  - MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681
-  - MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285
-  - MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777
-  - MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150
-  - MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229
-  - MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167
-  - MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607
-  - MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606
-  - MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605
-  - MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183
-  - MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179
-  - MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193
-  - MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640
-  - MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152
-  - MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178
-  - MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774
-  - MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174
-  - MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775
-  - MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365
-  - MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196
-  - MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160
-  - MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203
-  - MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213
-  - MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217
-  - MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220
-  - MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221
-  - MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230
-  - MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086
-  - MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239
-  - MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084
-  - MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244
-  - MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250
-  - MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255
-  - MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048
-  - MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047
-  - MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046
-  - MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045
-  - MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044
-  - MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029
-  - By EbraSha 1140
-  - oneclickvpnkeys US 3094
-  - oneclickvpnkeys FR 1706
-  - v2ray_configs_pools 1963
-  - chillguy_vpn 8596
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50449 Telegram t.me SOSkeyNET
-  - meliproxyy 3551
-  - SC SC- V2Ray_Hub1200
-  - CA 50508 Telegram t.me SOSkeyNET
-  - CA 50354 Telegram t.me SOSkeyNET
-  - SC SC- V2Ray_Hub1200 4459
-  - 74 oneclickvpnkeys
-  - oneclickvpnkeys FR 9040
-  - oneclickvpnkeys NL 6520
-  - configshub2 PL
-  url: http://www.gstatic.com/generate_204
-  interval: 180
-- name: BEST-STABLE
-  type: url-test
-  proxies:
-  - v2reya88
-  - v2raydia
-  - HiByeVPNN 48
-  - configV2rayNG FR
-  - HiByeVPNN 72
-  - v2nodes DE
-  - oneclickvpnkeys FI
-  - FreakConfig FR
-  - V2rayNG3 FR
-  - ProxyVPN11 1742
-  - oneclickvpnkeys US 1788
-  - VPsave 7378
-  - oneclickvpnkeys US 1101
-  - oneclickvpnkeys US 6329
-  - oneclickvpnkeys US 4946
-  url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
-- name: best-link
-  type: url-test
-  proxies:
-  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
-  - 'MANUAL-LINK-002 bel432 xl #2'
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #2'
-  - 'MANUAL-LINK-005 bel432 telk #2'
-  - 'MANUAL-LINK-006 10.lowh.net #2'
-  - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
-  - MANUAL-LINK-001 (ID)+PUSATMEDIA
-  - MANUAL-LINK-002 bel432 xl
-  - MANUAL-LINK-003 bel432 xl
-  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-005 bel432 telk
-  - MANUAL-LINK-006 10.lowh.net
-  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-008 🇬🇧
   - MANUAL-LINK-009 🇮🇷50351
   - MANUAL-LINK-010 @HiByeVPNN
@@ -3344,241 +5883,129 @@ proxy-groups:
   - MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044
   - MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029
   url: http://www.gstatic.com/generate_204
-  interval: 180
-  tolerance: 50
-- name: fallback-link
-  type: fallback
-  proxies:
-  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
-  - 'MANUAL-LINK-002 bel432 xl #2'
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #2'
-  - 'MANUAL-LINK-005 bel432 telk #2'
-  - 'MANUAL-LINK-006 10.lowh.net #2'
-  - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
-  - MANUAL-LINK-001 (ID)+PUSATMEDIA
-  - MANUAL-LINK-002 bel432 xl
-  - MANUAL-LINK-003 bel432 xl
-  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-005 bel432 telk
-  - MANUAL-LINK-006 10.lowh.net
-  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
-  - MANUAL-LINK-008 🇬🇧
-  - MANUAL-LINK-009 🇮🇷50351
-  - MANUAL-LINK-010 @HiByeVPNN
-  - MANUAL-LINK-011 @v2ray313
-  - MANUAL-LINK-012 🖲️61@oneclickvpnkeys
-  - MANUAL-LINK-013 🌾
-  - MANUAL-LINK-014 @v2ray313
-  - MANUAL-LINK-015 🇲🇽
-  - MANUAL-LINK-016 @VPsave
-  - MANUAL-LINK-017 @Ap_Ir6
-  - MANUAL-LINK-018 @
-  - MANUAL-LINK-019 @v2rayconfigamir
-  - MANUAL-LINK-020 @CUSTOMVPNSERVER
-  - MANUAL-LINK-021 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-022 @VPsave
-  - MANUAL-LINK-023 SS Manual
-  - MANUAL-LINK-024 @v2rayconfigamir
-  - MANUAL-LINK-025 @HiByeVPNN
-  - MANUAL-LINK-026 🌾
-  - MANUAL-LINK-027 @outline_ir
-  - MANUAL-LINK-028 @VPsave
-  - MANUAL-LINK-029 TEL;Father_vpn⁶
-  - MANUAL-LINK-030 @Proxy_Vpney
-  - MANUAL-LINK-031 TEL;FATHER_VPN³
-  - MANUAL-LINK-032 @v2rayconfigamir
-  - MANUAL-LINK-033 @VPsave
-  - MANUAL-LINK-034 V2rayng_Fast
-  - MANUAL-LINK-035 TEL;FATHER_VPN¹⁰
-  - MANUAL-LINK-036 TEL;FATHER_VPN⁹
-  - MANUAL-LINK-037 @v2rayconfigamir
-  - MANUAL-LINK-038 🌾
-  - MANUAL-LINK-039 🇩🇪DE-🚀@VPNine1
-  - MANUAL-LINK-040 @Hope_Net
-  - MANUAL-LINK-041 @v2rayconfigamir
-  - MANUAL-LINK-042 👉🆔@freenettir📡🇩🇪®️Germany©️Frankfurt
-  - MANUAL-LINK-043 ⚡@V2ray_official
-  - MANUAL-LINK-044 @Filtershekan_channel
-  - MANUAL-LINK-045 @KAFING_2
-  - MANUAL-LINK-046 ♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️377🌐🆕️
-  - MANUAL-LINK-047 @Hope_Net
-  - MANUAL-LINK-048 @HiByeVPNN
-  - MANUAL-LINK-049 @moodfa
-  - MANUAL-LINK-050 @FreeConffning
-  - MANUAL-LINK-051 @v2ray313
-  - MANUAL-LINK-052 @netzone_ir
-  - MANUAL-LINK-053 🇰🇿
-  - MANUAL-LINK-054 🇺🇸50458
-  - MANUAL-LINK-055 @v2rayngzendegimamad🕊️
-  - MANUAL-LINK-056 TEL;FATHER_VPN¹¹
-  - MANUAL-LINK-057 @Hope_Net
-  - MANUAL-LINK-058 IR-@V2rayAlpha-3
-  - MANUAL-LINK-059 🇳🇱50524
-  - MANUAL-LINK-060 𝐂𝐡𝐚𝐧𝐧𝐞𝐥:+@ISVvpn
-  - MANUAL-LINK-061 @v2ray313
-  - MANUAL-LINK-062 IR-@V2rayAlpha-1
-  - MANUAL-LINK-063 @v2rayngzendegimamad🕊️
-  - MANUAL-LINK-064 @KAFING_2
-  - MANUAL-LINK-065 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-066 @CUSTOMVPNSERVER
-  - MANUAL-LINK-067 @FarazV2ray
-  - MANUAL-LINK-068 🇮🇷@tanhant
-  - MANUAL-LINK-069 🇮🇷
-  - MANUAL-LINK-070 @VPsave
-  - MANUAL-LINK-071 @VPsave
-  - MANUAL-LINK-072 🫑18@oneclickvpnkeys
-  - MANUAL-LINK-073 🇩🇪49502
-  - MANUAL-LINK-074 @hi_proxy_iran
-  - MANUAL-LINK-075 @v2rayconfigamir
-  - MANUAL-LINK-076 @v2rayconfigamir
-  - MANUAL-LINK-077 @HiByeVPNN
-  - MANUAL-LINK-078 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-079 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-080 TEL;FATHER_VPN⁸
-  - MANUAL-LINK-081 @vmesskhodam
-  - MANUAL-LINK-082 @nitruStore
-  - MANUAL-LINK-083 @meliproxyy
-  - MANUAL-LINK-084 🇩🇪DE-🚀@VPNine1
-  - MANUAL-LINK-085 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-086 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-087 @mtproto_proserver
-  - MANUAL-LINK-088 🇩🇪@internet_azad_2026
-  - MANUAL-LINK-089 🩵+@Azarakhsh_Proxy+🩷
-  - MANUAL-LINK-090 @v2rayconfigamir
-  - MANUAL-LINK-091 @Hope_Net
-  - MANUAL-LINK-092 @Hope_Net
-  - MANUAL-LINK-093 @Hope_Net
-  - MANUAL-LINK-094 @Hope_Net
-  - MANUAL-LINK-095 @Hope_Net
-  - MANUAL-LINK-096 @Hope_Net
-  - MANUAL-LINK-097 @Hope_Net
-  - MANUAL-LINK-098 Ainita Server azure-sto.edgeservers.org
-  - MANUAL-LINK-099 🇨🇦 SS-加拿大>英国-NF解锁英国地区非自制剧-ChatGPT-144.217.164.29:12000
-  - MANUAL-LINK-100 🇦🇿 SS-阿塞拜疆-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-45.154.204.7:990
-  - MANUAL-LINK-101 🇬🇧 SS-英国-NF解锁自制剧-ChatGPT-TikTok-146.19.49.251:443
-  - MANUAL-LINK-102 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-71.19.148.143:443
-  - MANUAL-LINK-103 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080
-  - MANUAL-LINK-104 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-92.118.112.101:9483
-  - MANUAL-LINK-105 🇨🇦 SS-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990
-  - MANUAL-LINK-106 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.95.75.146:443
-  - MANUAL-LINK-107 🇨🇦 SSR-英国-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:989
-  - MANUAL-LINK-108 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.87.207:10011
-  - MANUAL-LINK-109 🇷🇴 罗马尼亚 V2CROSS.COM
-  - MANUAL-LINK-110 德國節點丨yoyapai.com\r
-  - MANUAL-LINK-111 荷蘭節點丨yoyapai.com\r
-  - MANUAL-LINK-112 🇫🇷 FR法国(mibei77.com 米贝节点分享)
-  - MANUAL-LINK-113 🇭🇰_HK_中国香港
-  - MANUAL-LINK-114 🇷🇺RU俄罗斯
-  - MANUAL-LINK-115 🇩🇪DE-🚀@VPNine1
-  - MANUAL-LINK-116 🇳🇱50137
-  - MANUAL-LINK-117 @FarazV2ray
-  - MANUAL-LINK-118 @v2rayconfigamir
-  - MANUAL-LINK-119 @V2raySup0
-  - MANUAL-LINK-120 🇫🇷50106
-  - MANUAL-LINK-121 🖲️77@oneclickvpnkeys
-  - MANUAL-LINK-122 @Hope_Net
-  - MANUAL-LINK-123 👉🆔@freenettir📡🇩🇪®️Germany©️Nuremberg🅿️ping:30.03ms
-  - MANUAL-LINK-124 @Hope_Net
-  - MANUAL-LINK-125 🇸🇬50068
-  - MANUAL-LINK-126 V2rayng_Fast
-  - MANUAL-LINK-127 V2rayng_Fast
-  - MANUAL-LINK-128 @filembad
-  - MANUAL-LINK-129 🖲️98@oneclickvpnkeys
-  - MANUAL-LINK-130 @Hope_Net
-  - MANUAL-LINK-131 🇩🇪
-  - MANUAL-LINK-132 @Hope_Net
-  - MANUAL-LINK-133 @Hope_Net
-  - MANUAL-LINK-134 @Hope_Net
-  - MANUAL-LINK-135 @Hope_Net
-  - 'MANUAL-LINK-136 🇺🇸 US | SS | @NamiraConfigs #1'
-  - 'MANUAL-LINK-137 🇫🇷 FR | SS | @mt_proxy #1'
-  - 'MANUAL-LINK-138 🇮🇷 IR | SS | @v2rayng3 #1'
-  - MANUAL-LINK-139 🇨🇳_CN_中国->🇷🇺_RU_俄罗斯联邦trojan://kSZddpnUKy@150.136.57.125:41106#🇺🇸_US_美国ss
-  - MANUAL-LINK-140 SSR Manual
-  - MANUAL-LINK-141 SSR Manual
-  - "MANUAL-LINK-142 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��%\b �yk�} �"
-  - MANUAL-LINK-143 🇨🇳_CN_中国->🇹🇼_TW_台湾vmess://eyJhZGQiOiIxNzIuNjcuMTU3LjYwIiwidiI6MiwicHMiOi
-  - MANUAL-LINK-144 SSR Manual
-  - MANUAL-LINK-145 🇺🇸_US_美国ss://YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0QDg1LjIwOC4xMDguNjA6ODg
-  - MANUAL-LINK-146 🇯🇵_JP_日本ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTozMTM0NzA1Ny03YWY1LTQ1NjItYjk
-  - MANUAL-LINK-147 SSR Manual
-  - MANUAL-LINK-148 SSR Manual
-  - "MANUAL-LINK-149 ��<'����ӗ�.+yf�KO�'��|${\x05���i�k��\x06 /��jr����,��(�K]�\x17 �\a TK �\x18,�u�M��^��"
-  - MANUAL-LINK-150 SSR Manual
-  - MANUAL-LINK-151 @ho3ino00🇳🇱
-  - MANUAL-LINK-152 @ho3ino00🤗❤
-  - MANUAL-LINK-153 ALAEDIN+1vmess://eyJhZGQiOiI2NS4xMDkuMjA0LjYzIiwiYWlkIjoiMCIsImFscG4iOiI
-  - MANUAL-LINK-154 🇫🇮🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
-  - MANUAL-LINK-155 🇨🇦🌏+@customv2ray+کانفیگ+های+بیشتر+عضو+شو
-  - MANUAL-LINK-156 کانال+ما+@vpnmasiss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpqN0VqUHJZamljajlqaj
-  - MANUAL-LINK-157 t.me/V2ray_Custom😉
-  - MANUAL-LINK-158 SS Manual
-  - MANUAL-LINK-159 @v2rayng14+++👈کانال+تلگرامss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUVGhDVlB5R
-  - MANUAL-LINK-160 hichkas mciهمراه
-  - MANUAL-LINK-161 🇫🇷🌏+@v2ray_ar+کانفیگ+های+بیشتر+عضو+شوموشک
-  - MANUAL-LINK-162 @RIP_VPN 3╭
-  - MANUAL-LINK-163 >>@v2nodes::DE
-  - MANUAL-LINK-164 >>@oneclickvpnkeys::NL
-  - MANUAL-LINK-165 >>@V2rayNg_madam::GB
-  - MANUAL-LINK-166 >>@oneclickvpnkeys::GB
-  - MANUAL-LINK-167 >>@oneclickvpnkeys::NL
-  - MANUAL-LINK-168 >>@v2ray_configs_pool::US
-  - MANUAL-LINK-169 >>@v2ray_configs_pool::XX
-  - MANUAL-LINK-170 >>@FOX_VPN66::ZA
-  - MANUAL-LINK-171 >>@oneclickvpnkeys::NL
-  - MANUAL-LINK-172 >>@v2ray_configs_pool::TH
-  - MANUAL-LINK-173 >>@oneclickvpnkeys::US
-  - MANUAL-LINK-174 >>@V2rayNG3::NL
-  - MANUAL-LINK-175 🇺🇸US-108.181.0.177-0114
-  - MANUAL-LINK-176 🇨🇦CA-45.154.204.13-0120
-  - MANUAL-LINK-177 🇨🇦CA-137.184.174.93-0095
-  - MANUAL-LINK-178 🇳🇱NL-109.201.152.181-0119
-  - MANUAL-LINK-179 🇳🇱NL-193.29.139.227-4655
-  - MANUAL-LINK-180 🇳🇱NL-193.29.139.233-0100
-  - MANUAL-LINK-181 🇺🇸US-45.55.40.127-4690
-  - MANUAL-LINK-182 🇺🇸US-69.164.240.86-1612
-  - MANUAL-LINK-183 🇺🇸US-69.164.240.83-4781
-  - MANUAL-LINK-184 🇯🇵JP-47.79.144.115-4681
-  - MANUAL-LINK-185 🇭🇰HK-216.250.97.82-0285
-  - MANUAL-LINK-186 🇨🇭CH-86.106.84.195-4777
-  - MANUAL-LINK-187 🇿🇦ZA-102.133.165.160-0150
-  - MANUAL-LINK-188 🇹🇼TW-185.189.160.105-0229
-  - MANUAL-LINK-189 🇳🇱NL-51.15.23.63-0167
-  - MANUAL-LINK-190 🇪🇸ES-5.188.181.201-4607
-  - MANUAL-LINK-191 🇪🇸ES-5.188.181.201-4606
-  - MANUAL-LINK-192 🇪🇸ES-5.188.181.201-4605
-  - MANUAL-LINK-193 🇰🇷KR-218.237.185.230-0183
-  - MANUAL-LINK-194 🇰🇷KR-221.139.79.57-0179
-  - MANUAL-LINK-195 🇹🇼TW-46.249.109.128-0193
-  - MANUAL-LINK-196 🇭🇰HK-103.149.182.105-4640
-  - MANUAL-LINK-197 🇧🇬BG-89.44.197.181-0152
-  - MANUAL-LINK-198 🇰🇷KR-211.178.105.134-0178
-  - MANUAL-LINK-199 🇵🇱PL-217.30.10.70-4774
-  - MANUAL-LINK-200 🇰🇷KR-141.164.45.187-0174
-  - MANUAL-LINK-201 🇵🇱PL-217.30.10.70-4775
-  - MANUAL-LINK-202 🇺🇸US-38.114.114.104-5365
-  - MANUAL-LINK-203 🇸🇬SG-103.172.116.5-0196
-  - MANUAL-LINK-204 🇸🇬SG-194.87.10.139-0160
-  - MANUAL-LINK-205 🇸🇬SG-154.18.239.126-0203
-  - MANUAL-LINK-206 🇺🇸US-38.64.138.145-0213
-  - MANUAL-LINK-207 🇳🇱NL-109.104.153.43-0217
-  - MANUAL-LINK-208 🇺🇸US-38.68.135.239-0220
-  - MANUAL-LINK-209 🇺🇸US-167.88.63.59-0221
-  - MANUAL-LINK-210 🇫🇮FI-195.133.2.2-0230
-  - MANUAL-LINK-211 🇫🇷FR-161.97.68.139-0086
-  - MANUAL-LINK-212 🇺🇸US-142.202.48.52-0239
-  - MANUAL-LINK-213 🇯🇵JP-20.210.216.169-0084
-  - MANUAL-LINK-214 🇹🇷TR-194.87.39.215-0244
-  - MANUAL-LINK-215 🇨🇦CA-134.195.196.231-0250
-  - MANUAL-LINK-216 🇫🇷FR-149.202.82.172-0255
-  - MANUAL-LINK-217 🇫🇮FI-77.83.247.20-0048
-  - MANUAL-LINK-218 🇫🇷FR-155.133.130.93-0047
-  - MANUAL-LINK-219 🇫🇮FI-185.204.1.253-0046
-  - MANUAL-LINK-220 🇫🇷FR-144.91.109.71-0045
-  - MANUAL-LINK-221 🇫🇷FR-144.91.109.75-0044
-  - MANUAL-LINK-222 🇹🇷TR-188.132.209.15-0029
-  url: http://www.gstatic.com/generate_204
-  interval: 180
+  interval: 60
+  tolerance: 20
 rules:
+- DOMAIN-SUFFIX,local,DIRECT
+- DOMAIN-SUFFIX,lan,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- RULE-SET,marketplace-protect,INDONESIA-BEST
+- RULE-SET,malware-adware,REJECT
+- RULE-SET,indonesia-ads,REJECT
+- RULE-SET,android-ads,REJECT
+- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+- IP-CIDR,255.255.255.255/32,DIRECT,no-resolve
+- DOMAIN-SUFFIX,shopee.co.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,youtube.com,STREAMING-BEST
+- DOMAIN-SUFFIX,googlevideo.com,STREAMING-BEST
+- DOMAIN-SUFFIX,ytimg.com,STREAMING-BEST
+- DOMAIN-SUFFIX,netflix.com,STREAMING-BEST
+- DOMAIN-SUFFIX,nflxvideo.net,STREAMING-BEST
+- DOMAIN-SUFFIX,disneyplus.com,STREAMING-BEST
+- DOMAIN-SUFFIX,hotstar.com,STREAMING-BEST
+- DOMAIN-SUFFIX,spotify.com,STREAMING-BEST
+- DOMAIN-SUFFIX,scdn.co,STREAMING-BEST
+- DOMAIN-SUFFIX,steamcontent.com,GAMING-BEST
+- DOMAIN-SUFFIX,steampowered.com,GAMING-BEST
+- DOMAIN-SUFFIX,steamstatic.com,GAMING-BEST
+- DOMAIN-SUFFIX,epicgames.com,GAMING-BEST
+- DOMAIN-SUFFIX,riotgames.com,GAMING-BEST
+- DOMAIN-SUFFIX,garena.com,GAMING-BEST
+- DOMAIN-SUFFIX,pubgmobile.com,GAMING-BEST
+- DOMAIN-SUFFIX,mihoyo.com,GAMING-BEST
+- DOMAIN-SUFFIX,hoyoverse.com,GAMING-BEST
+- DOMAIN-SUFFIX,playstation.net,GAMING-BEST
+- DOMAIN-SUFFIX,xboxlive.com,GAMING-BEST
+- DOMAIN-SUFFIX,facebook.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,fbcdn.net,SOCIAL-BEST
+- DOMAIN-SUFFIX,instagram.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,whatsapp.net,SOCIAL-BEST
+- DOMAIN-SUFFIX,tiktok.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,tiktokcdn.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,twitter.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,x.com,SOCIAL-BEST
+- DOMAIN-SUFFIX,telegram.org,SOCIAL-BEST
+- DOMAIN-SUFFIX,t.me,SOCIAL-BEST
+- DOMAIN-SUFFIX,github.com,WORKING-BEST
+- DOMAIN-SUFFIX,githubusercontent.com,WORKING-BEST
+- DOMAIN-SUFFIX,gitlab.com,WORKING-BEST
+- DOMAIN-SUFFIX,google.com,WORKING-BEST
+- DOMAIN-SUFFIX,gstatic.com,WORKING-BEST
+- DOMAIN-SUFFIX,microsoft.com,WORKING-BEST
+- DOMAIN-SUFFIX,office.com,WORKING-BEST
+- DOMAIN-SUFFIX,office365.com,WORKING-BEST
+- DOMAIN-SUFFIX,zoom.us,WORKING-BEST
+- DOMAIN-SUFFIX,slack.com,WORKING-BEST
+- DOMAIN-SUFFIX,cloudflare.com,WORKING-BEST
+- DOMAIN-SUFFIX,id,INDONESIA-BEST
+- DOMAIN-SUFFIX,go.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,ac.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,co.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,or.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,my.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,web.id,INDONESIA-BEST
+- DOMAIN-SUFFIX,detik.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,kompas.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,tribunnews.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,tokopedia.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,bukalapak.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,gojek.com,INDONESIA-BEST
+- DOMAIN-SUFFIX,grab.com,INDONESIA-BEST
+- GEOIP,ID,INDONESIA-BEST,no-resolve
+- RULE-SET,youtube-ads,REJECT
+- RULE-SET,general-ads,REJECT
 - MATCH,PROXY
+rule-providers:
+  youtube-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/youtube-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/youtube-ads.yaml
+    interval: 86400
+  goodbyeads-youtube:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/goodbyeads-youtube.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/goodbyeads-youtube.yaml
+    interval: 86400
+  general-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/general-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/general-ads.yaml
+    interval: 86400
+  malware-adware:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/malware-adware.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/malware-adware.yaml
+    interval: 86400
+  android-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/android-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/android-ads.yaml
+    interval: 86400
+  indonesia-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/indonesia-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/indonesia-ads.yaml
+    interval: 86400
+  marketplace-protect:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/marketplace-protect.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/marketplace-protect.yaml
+    interval: 86400
