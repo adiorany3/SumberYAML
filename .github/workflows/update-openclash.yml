@@ -130,21 +130,22 @@ env:
   BEST_PING_SOURCE_LABEL: "Indonesia"
   BEST_PING_URL_TEST_NAME: "URL-TEST TOP 10 INDONESIA"
 
-  # Nilai ini sengaja lebih responsif daripada 300/lazy=true untuk profil fast/lite/ready.
-  URL_TEST_INTERVAL: "120"
-  URL_TEST_TOLERANCE: "50"
+  # Mode sat-set: lebih agresif untuk meminimalkan jeda failover.
+  # Jika router terasa berat, naikkan RESPONSIVE_INTERVAL_FAST ke 60/90 dan timeout ke 2500.
+  URL_TEST_INTERVAL: "30"
+  URL_TEST_TOLERANCE: "10"
   URL_TEST_LAZY: "false"
   RESPONSIVE_TOP_N: "20"
   RESPONSIVE_COMBINED_MAX: "40"
-  RESPONSIVE_INTERVAL_FAST: "120"
-  RESPONSIVE_INTERVAL_STABLE: "300"
-  RESPONSIVE_FALLBACK_INTERVAL: "120"
-  RESPONSIVE_STABLE_FALLBACK_INTERVAL: "240"
-  RESPONSIVE_TOLERANCE_FAST: "50"
-  RESPONSIVE_TOLERANCE_STABLE: "80"
-  RESPONSIVE_TIMEOUT_MS: "3000"
+  RESPONSIVE_INTERVAL_FAST: "30"
+  RESPONSIVE_INTERVAL_STABLE: "180"
+  RESPONSIVE_FALLBACK_INTERVAL: "30"
+  RESPONSIVE_STABLE_FALLBACK_INTERVAL: "120"
+  RESPONSIVE_TOLERANCE_FAST: "10"
+  RESPONSIVE_TOLERANCE_STABLE: "50"
+  RESPONSIVE_TIMEOUT_MS: "1500"
   RESPONSIVE_FAST_LAZY: "false"
-  RESPONSIVE_STABLE_LAZY: "true"
+  RESPONSIVE_STABLE_LAZY: "false"
 
   # Strict alive dibuat longgar agar tidak membuang node yang masih usable.
   TEST_ROUNDS: "2"
@@ -306,6 +307,7 @@ jobs:
           set -e
           python scripts/apply_openclash_responsive_stability.py \
             --max-stable "${RESPONSIVE_TOP_N}" \
+            --max-combined "${RESPONSIVE_COMBINED_MAX}" \
             --fast-interval "${RESPONSIVE_INTERVAL_FAST}" \
             --stable-interval "${RESPONSIVE_INTERVAL_STABLE}" \
             --fallback-interval "${RESPONSIVE_FALLBACK_INTERVAL}" \
@@ -313,7 +315,8 @@ jobs:
             --fast-tolerance "${RESPONSIVE_TOLERANCE_FAST}" \
             --stable-tolerance "${RESPONSIVE_TOLERANCE_STABLE}" \
             --timeout "${RESPONSIVE_TIMEOUT_MS}" \
-            --no-fast-lazy || true
+            --no-fast-lazy \
+            --no-stable-lazy || true
           echo "Responsive OpenClash summary:"
           cat output/Validation/summary_openclash_responsive_stability.json || true
 
