@@ -191,11 +191,20 @@
         "LINK VMess-WS-TLS-443-akuku8 22",
         "LINK bel432 telk 21",
         "LINK 10.lowh.net 22",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 22"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 22",
+        "LINK (ID)+PUSATMEDIA 8",
+        "LINK bel432 xl 23",
+        "LINK bel432 xl 2 23",
+        "LINK VMess-WS-TLS-443-akuku8 23",
+        "LINK bel432 telk 22",
+        "LINK 10.lowh.net 23",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 23"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
     },
     {
       "type": "urltest",
@@ -353,18 +362,25 @@
         "LINK VMess-WS-TLS-443-akuku8 22",
         "LINK bel432 telk 21",
         "LINK 10.lowh.net 22",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 22"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 22",
+        "LINK (ID)+PUSATMEDIA 8",
+        "LINK bel432 xl 23",
+        "LINK bel432 xl 2 23",
+        "LINK VMess-WS-TLS-443-akuku8 23",
+        "LINK bel432 telk 22",
+        "LINK 10.lowh.net 23",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 23"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
     },
     {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "LINK (ID)+PUSATMEDIA",
-        "AUTO-BEST-STABLE",
         "AUTO-BEST-PING",
         "DIRECT",
         "oneclickvpnkeys US - 2026-06-02",
@@ -477,6 +493,7 @@
         "LINK bel432 telk 15",
         "LINK 10.lowh.net 16",
         "LINK VLESS-WS-TLS-443-apt50atpprem 16",
+        "LINK (ID)+PUSATMEDIA",
         "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 17",
         "LINK bel432 xl 2 17",
@@ -518,8 +535,17 @@
         "LINK VMess-WS-TLS-443-akuku8 22",
         "LINK bel432 telk 21",
         "LINK 10.lowh.net 22",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 22"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 22",
+        "AUTO-BEST-STABLE",
+        "LINK (ID)+PUSATMEDIA 8",
+        "LINK bel432 xl 23",
+        "LINK bel432 xl 2 23",
+        "LINK VMess-WS-TLS-443-akuku8 23",
+        "LINK bel432 telk 22",
+        "LINK 10.lowh.net 23",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 23"
       ],
+      "interrupt_exist_connections": false,
       "default": "AUTO-BEST-STABLE"
     },
     {
@@ -545,7 +571,9 @@
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
     },
     {
       "type": "urltest",
@@ -686,11 +714,20 @@
         "LINK VMess-WS-TLS-443-akuku8 21",
         "LINK bel432 telk 20",
         "LINK 10.lowh.net 21",
-        "LINK VLESS-WS-TLS-443-apt50atpprem 21"
+        "LINK VLESS-WS-TLS-443-apt50atpprem 21",
+        "LINK (ID)+PUSATMEDIA 7",
+        "LINK bel432 xl 22",
+        "LINK bel432 xl 2 22",
+        "LINK VMess-WS-TLS-443-akuku8 22",
+        "LINK bel432 telk 21",
+        "LINK 10.lowh.net 22",
+        "LINK VLESS-WS-TLS-443-apt50atpprem 22"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 80
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
     },
     {
       "type": "vless",
@@ -709,7 +746,8 @@
         "headers": {
           "Host": "graph.instagram.com.cyylr.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -728,7 +766,8 @@
         "headers": {
           "Host": "ava.game.naver.com.cyylr.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -747,7 +786,8 @@
         "headers": {
           "Host": "web.whatsapp.com.cyylr.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -766,7 +806,8 @@
         "headers": {
           "Host": "support.zoom.us.cyylr.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -785,7 +826,8 @@
         "headers": {
           "Host": "graph.instagram.com.cyylr.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -804,7 +846,8 @@
         "headers": {
           "Host": "zaintest.vuclip.com.cyylr.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -823,7 +866,8 @@
         "headers": {
           "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -842,7 +886,8 @@
         "headers": {
           "Host": "juzi.qea.ccwu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -861,7 +906,8 @@
         "headers": {
           "Host": "hhlfy.twiladaphne.ndjp.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "trojan",
@@ -880,7 +926,8 @@
         "headers": {
           "Host": "s.blibli.com.cyylr.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -901,7 +948,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -922,7 +970,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -943,7 +992,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -962,7 +1012,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -982,7 +1033,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1002,7 +1054,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1022,7 +1075,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1042,7 +1096,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1062,7 +1117,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -1081,7 +1137,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1101,7 +1158,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1121,7 +1179,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1141,7 +1200,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1161,7 +1221,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1181,7 +1242,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -1199,7 +1261,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1219,7 +1282,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1239,7 +1303,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1259,7 +1324,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1279,7 +1345,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1299,7 +1366,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -1318,7 +1386,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1338,7 +1407,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1358,7 +1428,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1378,7 +1449,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1398,7 +1470,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1418,7 +1491,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -1437,7 +1511,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1457,7 +1532,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1477,7 +1553,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1497,7 +1574,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1517,7 +1595,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1537,7 +1616,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -1556,7 +1636,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1576,7 +1657,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1596,7 +1678,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1616,7 +1699,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1636,7 +1720,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1656,7 +1741,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -1675,7 +1761,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1695,7 +1782,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1715,7 +1803,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1735,7 +1824,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1755,7 +1845,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1775,7 +1866,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -1794,7 +1886,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1814,7 +1907,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1834,7 +1928,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1854,7 +1949,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1874,7 +1970,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1894,7 +1991,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -1913,7 +2011,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1933,7 +2032,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1953,7 +2053,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1973,7 +2074,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -1993,7 +2095,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2013,7 +2116,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -2032,7 +2136,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2052,7 +2157,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2072,7 +2178,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2092,7 +2199,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2112,7 +2220,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2132,7 +2241,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -2151,7 +2261,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2171,7 +2282,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2191,7 +2303,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2211,7 +2324,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2231,7 +2345,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2251,7 +2366,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -2270,7 +2386,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2290,7 +2407,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2310,7 +2428,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2330,7 +2449,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2350,7 +2470,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2370,7 +2491,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -2389,7 +2511,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2409,7 +2532,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2429,7 +2553,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2449,7 +2574,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2469,7 +2595,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2489,7 +2616,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -2508,7 +2636,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2528,7 +2657,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2548,7 +2678,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2568,7 +2699,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2588,7 +2720,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2608,7 +2741,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -2627,7 +2761,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2647,7 +2782,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2667,7 +2803,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2687,7 +2824,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2707,7 +2845,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2727,7 +2866,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -2746,7 +2886,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2766,7 +2907,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2786,7 +2928,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2806,7 +2949,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2826,7 +2970,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2846,7 +2991,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -2865,7 +3011,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -2883,7 +3030,8 @@
         "headers": {
           "Host": "unnes.ac.id.ex33r.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -2901,7 +3049,8 @@
         "headers": {
           "Host": "unnes.ac.id.ex33r.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2921,7 +3070,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2941,7 +3091,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2961,7 +3112,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -2981,7 +3133,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3001,7 +3154,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -3020,7 +3174,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -3038,7 +3193,8 @@
         "headers": {
           "Host": "unnes.ac.id.ex33r.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3058,7 +3214,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3078,7 +3235,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3098,7 +3256,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3118,7 +3277,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3138,7 +3298,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -3157,7 +3318,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -3175,7 +3337,8 @@
         "headers": {
           "Host": "unnes.ac.id.ex33r.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3195,7 +3358,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3215,7 +3379,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3235,7 +3400,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3255,7 +3421,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3275,7 +3442,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -3294,7 +3462,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -3312,7 +3481,8 @@
         "headers": {
           "Host": "unnes.ac.id.ex33r.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3332,7 +3502,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3352,7 +3523,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3372,7 +3544,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3392,7 +3565,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3412,7 +3586,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -3431,7 +3606,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -3449,7 +3625,8 @@
         "headers": {
           "Host": "unnes.ac.id.ex33r.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3469,7 +3646,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3489,7 +3667,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3509,7 +3688,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3529,7 +3709,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3549,7 +3730,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -3568,11 +3750,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "DIRECT"
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -3590,7 +3769,8 @@
         "headers": {
           "Host": "unnes.ac.id.ex33r.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3610,7 +3790,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3630,7 +3811,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3650,7 +3832,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3670,7 +3853,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -3690,11 +3874,154 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
       "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 22",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",
+      "tls": {
+        "enabled": true,
+        "server_name": "akamaized.my",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "akamaized.my"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
+    },
+    {
+      "type": "vless",
+      "tag": "LINK (ID)+PUSATMEDIA 8",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "cb97db68-1ad9-441b-8e90-bf9d8a7f3fec",
+      "tls": {
+        "enabled": true,
+        "server_name": "unnes.ac.id.ex33r.eu.cc"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-pusat",
+        "headers": {
+          "Host": "unnes.ac.id.ex33r.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 xl 23",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 xl 2 23",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK VMess-WS-TLS-443-akuku8 23",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "4ee97185-f0ea-4842-b116-aaa1832665cc",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "fbcdn.sbs"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha",
+        "headers": {
+          "Host": "fbcdn.sbs"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK bel432 telk 22",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3100c3ab-4cf9-49b6-b0a1-30539325d375",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "belnet.jsvpn.site"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "belnet.jsvpn.site"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "LINK 10.lowh.net 23",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "3e326c80-5bdd-11f1-ada3-1577c1651679",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "10.lowh.net"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hello",
+        "headers": {
+          "Host": "10.lowh.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "LINK VLESS-WS-TLS-443-apt50atpprem 23",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "c13ff27e-268a-4c69-a464-d8a625fd01b3",

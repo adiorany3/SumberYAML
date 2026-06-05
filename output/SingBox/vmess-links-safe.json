@@ -60,13 +60,13 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "bel432 xl",
         "AUTO-BEST-PING",
+        "DIRECT",
+        "bel432 xl",
         "bel432 xl 2",
         "VMess-WS-TLS-443-akuku8",
         "bel432 telk",
         "10.lowh.net",
-        "DIRECT",
         "AUTO-BEST-STABLE",
         "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
@@ -76,6 +76,7 @@
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem"
       ],
+      "interrupt_exist_connections": false,
       "default": "AUTO-BEST-STABLE"
     },
     {
@@ -95,9 +96,11 @@
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 50
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
     },
     {
       "type": "vmess",
@@ -117,7 +120,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -137,7 +141,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -157,7 +162,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -177,7 +183,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -197,7 +204,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "direct",

@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "ProxyVPN11 8345"
+  - name: "ProxyVPN11 4156"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,7 +49,7 @@ proxies:
       headers:
         Host: "juzi.qea.ccwu.cc"
     udp: true
-  - name: "v2reya88 8859"
+  - name: "v2reya88 4919"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -63,65 +63,6 @@ proxies:
       path: "/"
       headers:
         Host: "fgnix832fx.fx6hsv0.ccwu.cc"
-    udp: true
-  - name: "v2reya88 5684"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 15a8fadd-3a43-422f-8e63-a87ea7c13221
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "blog.webex.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/id-tksi"
-      headers:
-        Host: "blog.webex.com.cyylr.eu.cc"
-    udp: true
-  - name: "v2reya88 2710"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: aa0e6991-6eaa-4bbb-9497-abc04d54de2f
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "cdn.opensignal.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/sg-melbi"
-      headers:
-        Host: "cdn.opensignal.com.cyylr.eu.cc"
-    udp: true
-  - name: "chillguy_vpn 8760"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: bbcfe26b-32a3-49b1-a357-d4b9d28ac919
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "ads.ruangguru.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/id-tksi"
-      headers:
-        Host: "ads.ruangguru.com.cyylr.eu.cc"
-    udp: true
-  - name: "80 oneclickvpnkeys"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "aa710f78-eddb-45b4-bd32-1f8692a754e5"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "s.blibli.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/ae-bo"
-      headers:
-        Host: "s.blibli.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

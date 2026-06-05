@@ -1,254 +1,439 @@
 {
   "ok": true,
   "generated_by": "apply_openclash_responsive_stability.py",
-  "files_processed": 10,
-  "max_stable": 10,
-  "trusted_manual_policy": "input/links.txt and input.txt accounts are not filtered; script only groups existing manual proxy entries.",
+  "files_processed": 12,
+  "max_stable": 20,
+  "trusted_manual_policy": "input/links.txt and input.txt accounts are trusted/manual. This script does not test, filter, quarantine, delete, or remove them; it only groups existing proxies.",
+  "responsive_policy": {
+    "fast_profiles": {
+      "interval": 120,
+      "fallback_interval": 120,
+      "tolerance": 50,
+      "timeout": 3000,
+      "lazy": "false"
+    },
+    "stable_profiles": {
+      "interval": 300,
+      "fallback_interval": 240,
+      "tolerance": 80,
+      "timeout": 3000,
+      "lazy": "true"
+    }
+  },
   "groups": {
-    "BEST-STABLE": "url-test for stable non-manual nodes",
-    "best-link": "url-test containing trusted manual links",
-    "fallback-link": "fallback containing trusted manual links"
+    "BEST-STABLE": "url-test for best stable non-manual nodes",
+    "ANTI-BENGONG": "fallback group combining stable nodes and manual nodes for quicker failover",
+    "best-link": "url-test containing trusted manual links when their generated names are identifiable",
+    "fallback-link": "fallback containing trusted manual links when their generated names are identifiable"
   },
   "results": [
     {
-      "file": "/home/runner/work/SumberYAML/SumberYAML/output/lengkap.yaml",
+      "file": "output/lengkap.yaml",
       "ok": true,
-      "proxy_count": 72,
+      "proxy_count": 37,
       "manual_count": 5,
-      "stable_count": 10,
+      "stable_count": 20,
       "actions": [
         "created:BEST-STABLE",
+        "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
-        "best_stable": 10,
+        "best_stable": 20,
+        "anti_bengong": 31,
         "best_link": 5,
         "fallback_link": 5
+      },
+      "tuning": {
+        "interval": 300,
+        "fallback_interval": 240,
+        "tolerance": 80,
+        "timeout": 3000,
+        "lazy": true
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
         "secondary_groups_changed": 2
       },
-      "dns_changed": false,
-      "rules_changed": false
+      "tuned_existing_groups": 11,
+      "dns_changed": true,
+      "rules_changed": true
     },
     {
-      "file": "/home/runner/work/SumberYAML/SumberYAML/output/lengkap_alive.yaml",
+      "file": "output/lengkap_alive.yaml",
       "ok": true,
-      "proxy_count": 72,
+      "proxy_count": 37,
       "manual_count": 5,
-      "stable_count": 10,
+      "stable_count": 20,
       "actions": [
         "created:BEST-STABLE",
+        "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
-        "best_stable": 10,
+        "best_stable": 20,
+        "anti_bengong": 31,
         "best_link": 5,
         "fallback_link": 5
+      },
+      "tuning": {
+        "interval": 300,
+        "fallback_interval": 240,
+        "tolerance": 80,
+        "timeout": 3000,
+        "lazy": true
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
         "secondary_groups_changed": 2
       },
-      "dns_changed": false,
-      "rules_changed": false
+      "tuned_existing_groups": 11,
+      "dns_changed": true,
+      "rules_changed": true
     },
     {
-      "file": "/home/runner/work/SumberYAML/SumberYAML/output/strict_alive.yaml",
+      "file": "output/strict_alive.yaml",
       "ok": true,
-      "proxy_count": 72,
+      "proxy_count": 37,
       "manual_count": 5,
-      "stable_count": 10,
+      "stable_count": 20,
       "actions": [
         "created:BEST-STABLE",
+        "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
-        "best_stable": 10,
+        "best_stable": 20,
+        "anti_bengong": 31,
         "best_link": 5,
         "fallback_link": 5
+      },
+      "tuning": {
+        "interval": 300,
+        "fallback_interval": 240,
+        "tolerance": 80,
+        "timeout": 3000,
+        "lazy": true
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
         "secondary_groups_changed": 2
       },
-      "dns_changed": false,
-      "rules_changed": false
+      "tuned_existing_groups": 11,
+      "dns_changed": true,
+      "rules_changed": true
     },
     {
-      "file": "/home/runner/work/SumberYAML/SumberYAML/output/lite.yaml",
+      "file": "output/lite.yaml",
       "ok": true,
-      "proxy_count": 16,
+      "proxy_count": 25,
       "manual_count": 5,
-      "stable_count": 10,
+      "stable_count": 20,
       "actions": [
         "created:BEST-STABLE",
+        "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
-        "best_stable": 10,
+        "best_stable": 20,
+        "anti_bengong": 25,
         "best_link": 5,
         "fallback_link": 5
+      },
+      "tuning": {
+        "interval": 120,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 3000,
+        "lazy": false
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
         "secondary_groups_changed": 2
       },
-      "dns_changed": false,
-      "rules_changed": false
+      "tuned_existing_groups": 10,
+      "dns_changed": true,
+      "rules_changed": true
     },
     {
-      "file": "/home/runner/work/SumberYAML/SumberYAML/output/fast.yaml",
+      "file": "output/fast.yaml",
       "ok": true,
-      "proxy_count": 6,
+      "proxy_count": 25,
       "manual_count": 5,
-      "stable_count": 1,
+      "stable_count": 20,
       "actions": [
         "created:BEST-STABLE",
+        "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
-        "best_stable": 1,
+        "best_stable": 20,
+        "anti_bengong": 25,
         "best_link": 5,
         "fallback_link": 5
+      },
+      "tuning": {
+        "interval": 120,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 3000,
+        "lazy": false
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
         "secondary_groups_changed": 2
       },
-      "dns_changed": false,
-      "rules_changed": false
+      "tuned_existing_groups": 9,
+      "dns_changed": true,
+      "rules_changed": true
     },
     {
-      "file": "/home/runner/work/SumberYAML/SumberYAML/output/gaming.yaml",
+      "file": "output/gaming.yaml",
       "ok": true,
       "proxy_count": 15,
       "manual_count": 5,
       "stable_count": 10,
       "actions": [
         "created:BEST-STABLE",
+        "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
         "best_stable": 10,
+        "anti_bengong": 15,
         "best_link": 5,
         "fallback_link": 5
+      },
+      "tuning": {
+        "interval": 120,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 3000,
+        "lazy": false
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
         "secondary_groups_changed": 0
       },
-      "dns_changed": false,
-      "rules_changed": false
+      "tuned_existing_groups": 1,
+      "dns_changed": true,
+      "rules_changed": true
     },
     {
-      "file": "/home/runner/work/SumberYAML/SumberYAML/output/social_media.yaml",
+      "file": "output/social_media.yaml",
       "ok": true,
       "proxy_count": 15,
       "manual_count": 5,
       "stable_count": 10,
       "actions": [
         "created:BEST-STABLE",
+        "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
         "best_stable": 10,
+        "anti_bengong": 15,
         "best_link": 5,
         "fallback_link": 5
+      },
+      "tuning": {
+        "interval": 300,
+        "fallback_interval": 240,
+        "tolerance": 80,
+        "timeout": 3000,
+        "lazy": true
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
         "secondary_groups_changed": 0
       },
-      "dns_changed": false,
-      "rules_changed": false
+      "tuned_existing_groups": 1,
+      "dns_changed": true,
+      "rules_changed": true
     },
     {
-      "file": "/home/runner/work/SumberYAML/SumberYAML/output/streaming.yaml",
+      "file": "output/streaming.yaml",
       "ok": true,
       "proxy_count": 15,
       "manual_count": 5,
       "stable_count": 10,
       "actions": [
         "created:BEST-STABLE",
+        "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
         "best_stable": 10,
+        "anti_bengong": 15,
         "best_link": 5,
         "fallback_link": 5
+      },
+      "tuning": {
+        "interval": 300,
+        "fallback_interval": 240,
+        "tolerance": 80,
+        "timeout": 3000,
+        "lazy": true
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
         "secondary_groups_changed": 0
       },
-      "dns_changed": false,
-      "rules_changed": false
+      "tuned_existing_groups": 1,
+      "dns_changed": true,
+      "rules_changed": true
     },
     {
-      "file": "/home/runner/work/SumberYAML/SumberYAML/output/working.yaml",
+      "file": "output/working.yaml",
       "ok": true,
       "proxy_count": 15,
       "manual_count": 5,
       "stable_count": 10,
       "actions": [
         "created:BEST-STABLE",
+        "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
         "best_stable": 10,
+        "anti_bengong": 15,
         "best_link": 5,
         "fallback_link": 5
+      },
+      "tuning": {
+        "interval": 300,
+        "fallback_interval": 240,
+        "tolerance": 80,
+        "timeout": 3000,
+        "lazy": true
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
         "secondary_groups_changed": 0
       },
-      "dns_changed": false,
-      "rules_changed": false
+      "tuned_existing_groups": 1,
+      "dns_changed": true,
+      "rules_changed": true
     },
     {
-      "file": "/home/runner/work/SumberYAML/SumberYAML/output/general.yaml",
+      "file": "output/general.yaml",
       "ok": true,
       "proxy_count": 15,
       "manual_count": 5,
       "stable_count": 10,
       "actions": [
         "created:BEST-STABLE",
+        "created:ANTI-BENGONG",
         "created:best-link",
         "created:fallback-link"
       ],
       "counts": {
         "best_stable": 10,
+        "anti_bengong": 15,
         "best_link": 5,
         "fallback_link": 5
+      },
+      "tuning": {
+        "interval": 300,
+        "fallback_interval": 240,
+        "tolerance": 80,
+        "timeout": 3000,
+        "lazy": true
       },
       "main": {
         "main_group": "PROXY",
         "main_group_changed": true,
         "secondary_groups_changed": 0
       },
-      "dns_changed": false,
-      "rules_changed": false
+      "tuned_existing_groups": 1,
+      "dns_changed": true,
+      "rules_changed": true
+    },
+    {
+      "file": "output/openclash-ready.yaml",
+      "ok": true,
+      "proxy_count": 153,
+      "manual_count": 25,
+      "stable_count": 20,
+      "actions": [
+        "updated:BEST-STABLE",
+        "updated:ANTI-BENGONG",
+        "updated:best-link",
+        "updated:fallback-link"
+      ],
+      "counts": {
+        "best_stable": 20,
+        "anti_bengong": 57,
+        "best_link": 25,
+        "fallback_link": 25
+      },
+      "tuning": {
+        "interval": 120,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 3000,
+        "lazy": false
+      },
+      "main": {
+        "main_group": "PROXY",
+        "main_group_changed": true,
+        "secondary_groups_changed": 3
+      },
+      "tuned_existing_groups": 17,
+      "dns_changed": true,
+      "rules_changed": true
+    },
+    {
+      "file": "output/openclash-lite-ready.yaml",
+      "ok": true,
+      "proxy_count": 23,
+      "manual_count": 11,
+      "stable_count": 4,
+      "actions": [
+        "updated:BEST-STABLE",
+        "updated:ANTI-BENGONG",
+        "updated:best-link",
+        "updated:fallback-link"
+      ],
+      "counts": {
+        "best_stable": 4,
+        "anti_bengong": 23,
+        "best_link": 11,
+        "fallback_link": 11
+      },
+      "tuning": {
+        "interval": 120,
+        "fallback_interval": 120,
+        "tolerance": 50,
+        "timeout": 3000,
+        "lazy": false
+      },
+      "main": {
+        "main_group": "PROXY",
+        "main_group_changed": true,
+        "secondary_groups_changed": 1
+      },
+      "tuned_existing_groups": 1,
+      "dns_changed": true,
+      "rules_changed": true
     }
   ]
 }

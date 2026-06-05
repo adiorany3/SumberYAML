@@ -39,7 +39,11 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "Config0plus",
+        "ProxyVPN11 4156",
+        "v2reya88 4919",
+        "HiByeVPNN 48",
+        "VPsave 8081",
+        "57 oneclickvpnkeys",
         "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -61,7 +65,11 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "Config0plus",
+        "ProxyVPN11 4156",
+        "v2reya88 4919",
+        "HiByeVPNN 48",
+        "VPsave 8081",
+        "57 oneclickvpnkeys",
         "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -75,22 +83,28 @@
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 50
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
     },
     {
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "LINK (ID)+PUSATMEDIA",
         "AUTO-BEST-PING",
+        "DIRECT",
+        "ProxyVPN11 4156",
+        "v2reya88 4919",
+        "HiByeVPNN 48",
+        "VPsave 8081",
+        "57 oneclickvpnkeys",
+        "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
-        "DIRECT",
-        "Config0plus",
         "AUTO-BEST-STABLE",
         "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
@@ -100,26 +114,108 @@
         "LINK 10.lowh.net 2",
         "LINK VLESS-WS-TLS-443-apt50atpprem 2"
       ],
+      "interrupt_exist_connections": false,
       "default": "AUTO-BEST-STABLE"
     },
     {
-      "type": "trojan",
-      "tag": "Config0plus",
+      "type": "vless",
+      "tag": "ProxyVPN11 4156",
       "server": "104.17.3.81",
       "server_port": 443,
-      "password": "Config0plus",
+      "uuid": "a6f1755f-0140-4bea-8727-0db1bed7c4df",
       "tls": {
         "enabled": true,
-        "server_name": "unnes.ac.id.cyylr.eu.cc",
+        "server_name": "JoinProxyVPN11.qea.ccwu.cc",
         "insecure": true
       },
       "transport": {
         "type": "ws",
-        "path": "/sg-melbi",
+        "path": "/?ed @ProxyVPN11",
         "headers": {
-          "Host": "unnes.ac.id.cyylr.eu.cc"
+          "Host": "juzi.qea.ccwu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "v2reya88 4919",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "77777777-8a3e-6666-b6d1-a9c5f0e8b3a2",
+      "tls": {
+        "enabled": true,
+        "server_name": "fgnix832fx.fx6hsv0.ccwu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "fgnix832fx.fx6hsv0.ccwu.cc"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "HiByeVPNN 48",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "7270612b-49f6-4b04-999c-34d8263da767",
+      "tls": {
+        "enabled": true,
+        "server_name": "picassooo.info",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/aymdlws",
+        "headers": {
+          "Host": "picassooo.info"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "vless",
+      "tag": "VPsave 8081",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "e5cc16a6-ea42-46b2-82ae-ad2157e1641b",
+      "tls": {
+        "enabled": true,
+        "server_name": "hhlfy.twiladaphne.ndjp.net",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/fp",
+        "headers": {
+          "Host": "hhlfy.twiladaphne.ndjp.net"
+        }
+      },
+      "connect_timeout": "15s"
+    },
+    {
+      "type": "trojan",
+      "tag": "57 oneclickvpnkeys",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "A4u^p(_UR*F6",
+      "tls": {
+        "enabled": true,
+        "server_name": "027.ELeCTroCelLco-CF-027.wORkERS.dEv",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/eyJqdW5rIjoidlhnMXN5OXFUSiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=",
+        "headers": {
+          "Host": "027.electrocellco-cf-027.workers.dev"
+        }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -137,7 +233,8 @@
         "headers": {
           "Host": "unnes.ac.id.ex33r.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -157,7 +254,8 @@
         "headers": {
           "Host": "belnet.jsvpn.site"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -177,7 +275,8 @@
         "headers": {
           "Host": "fbcdn.sbs"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vmess",
@@ -197,7 +296,8 @@
         "headers": {
           "Host": "10.lowh.net"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -216,7 +316,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "direct",

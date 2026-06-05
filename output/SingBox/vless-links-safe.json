@@ -57,10 +57,10 @@
       "type": "selector",
       "tag": "PROXY",
       "outbounds": [
-        "(ID)+PUSATMEDIA",
         "AUTO-BEST-PING",
-        "VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT",
+        "(ID)+PUSATMEDIA",
+        "VLESS-WS-TLS-443-apt50atpprem",
         "AUTO-BEST-STABLE",
         "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
@@ -70,6 +70,7 @@
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem"
       ],
+      "interrupt_exist_connections": false,
       "default": "AUTO-BEST-STABLE"
     },
     {
@@ -86,9 +87,11 @@
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "3m",
-      "tolerance": 50
+      "tolerance": 80,
+      "idle_timeout": "2h",
+      "interrupt_exist_connections": false
     },
     {
       "type": "vless",
@@ -106,7 +109,8 @@
         "headers": {
           "Host": "unnes.ac.id.ex33r.eu.cc"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "vless",
@@ -125,7 +129,8 @@
         "headers": {
           "Host": "akamaized.my"
         }
-      }
+      },
+      "connect_timeout": "15s"
     },
     {
       "type": "direct",

@@ -34,35 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA 49654 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "nuclear.us.kg"
-    ws-opts:
-      path: "/free/103.101.153.32:443"
-      headers:
-        Host: "nuclear.us.kg"
-    udp: true
-  - name: "CA 49648 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "Telegram-Config0plus"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "media-sin6-3.cdn.whatsapp.net.cyylr.eu.cc"
-    ws-opts:
-      path: "/in-pdr"
-      headers:
-        Host: "media-sin6-3.cdn.whatsapp.net.cyylr.eu.cc"
-    udp: true
   - name: "CA 49710 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
