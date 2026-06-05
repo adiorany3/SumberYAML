@@ -34,19 +34,50 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA 49710 Telegram t.me SOSkeyNET"
+  - name: "CA 50449 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "aff9928f-7ba3-45fb-b56d-4dec45653ca9"
+    type: vless
+    uuid: 17540a16-a0dd-5694-7e1e-14e281ccc032
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "q6clkp794liy3y90.hktimecsgo.xyz"
+    servername: "crm.lotussec.com"
     ws-opts:
-      path: "/images"
+      path: "/@JavidnamanIran/Javid-SHAH-KingRezaPahlavi/"
       headers:
-        Host: "q6clkp794liy3y90.hktimecsgo.xyz"
+        Host: "crm.lotussec.com"
+    udp: true
+  - name: "CA 50508 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 8671df15-35a0-41ad-a10d-e5692ffb6876
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sarina.powernad.ir"
+    ws-opts:
+      path: "/swerfwerfmklm"
+      headers:
+        Host: "sarina.powernad.ir"
+    udp: true
+  - name: "CA 50354 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c7addea9-6d8a-48d6-8a00-aa99b8ece143
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ws35.adsvxpro.com"
+    ws-opts:
+      path: "/path"
+      headers:
+        Host: "ws35.adsvxpro.com"
     udp: true
 
 proxy-groups:

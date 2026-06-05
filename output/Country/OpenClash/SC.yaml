@@ -34,48 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "SC 48300 Telegram t.me SOSkeyNET"
+  - name: "SC SC- V2Ray_Hub1200"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 2d1e9abf-9656-4367-9585-44fe82f54f7a
+    uuid: 358ca5cf-5406-493d-b872-a344988b2e11
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
     servername: "ssj.new-persian-song.ir"
     ws-opts:
-      path: "/?ed=80"
+      path: "/?ed"
       headers:
         Host: "ssj.new-persian-song.ir"
     udp: true
-  - name: "SC 48318 Telegram t.me SOSkeyNET"
+  - name: "SC SC- V2Ray_Hub1200 4459"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "@tootffarangi🍓"
+    type: vless
+    uuid: f887c999-a829-44a6-ab71-c862d5889892
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "api24-normal.tiktokv.com.cyylr.eu.cc"
+    servername: "ssj.new-persian-song.ir"
     ws-opts:
-      path: "/id-tksi"
+      path: "/?ed"
       headers:
-        Host: "api24-normal.tiktokv.com.cyylr.eu.cc"
-    udp: true
-  - name: "SC SC- VPNine1"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "c44c923a-03c5-403c-a614-5266a0db14e4"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "ads.ruangguru.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/ae-bo"
-      headers:
-        Host: "ads.ruangguru.com.cyylr.eu.cc"
+        Host: "ssj.new-persian-song.ir"
     udp: true
 
 proxy-groups:
