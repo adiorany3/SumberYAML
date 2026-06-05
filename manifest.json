@@ -1,12 +1,20 @@
 {
-  "package": "SumberYAML-responsive-patch",
-  "created_for": "adiorany3/SumberYAML",
-  "purpose": "Make generated OpenClash YAML outputs more responsive while preserving trusted manual input accounts.",
+  "name": "SumberYAML OpenClash Safe Sat-Set Fix",
+  "version": "2026-06-05-safe-satset-fix",
+  "purpose": "Repair OpenClash errors caused by overly aggressive no-delay settings while keeping a fast failover layout.",
   "files": [
-    ".github/workflows/update-openclash.yml",
     "scripts/apply_openclash_responsive_stability.py",
-    "README_RESPONSIVE_PATCH.md",
+    ".github/workflows/update-openclash.yml",
+    "README_OPENCLASH_SAFE_SATSET_FIX.md",
     "install_patch.sh"
   ],
-  "important_policy": "Manual accounts from input/links.txt or input.txt are trusted and must not be filtered, quarantined, tested as removable, or deleted by this patch."
+  "compatibility": {
+    "removed_risky_root_keys_by_default": ["unified-delay", "tcp-concurrent"],
+    "removed_risky_proxy_group_keys_by_default": ["lazy", "timeout"],
+    "dns_forced": false,
+    "fast_interval_seconds": 60,
+    "fast_fallback_interval_seconds": 60,
+    "fast_tolerance": 20
+  },
+  "manual_accounts_policy": "Accounts from input/links.txt or input.txt remain trusted. This patch never filters, tests for removal, quarantines, deletes, or removes existing proxies."
 }

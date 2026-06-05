@@ -1,16 +1,39 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_ROOT="${1:-.}"
+TARGET="${1:-}"
+if [ -z "$TARGET" ]; then
+  echo "Usage: bash install_patch.sh /path/to/SumberYAML"
+  exit 1
+fi
 
-mkdir -p "${REPO_ROOT}/scripts"
-mkdir -p "${REPO_ROOT}/.github/workflows"
+if [ ! -d "$TARGET" ]; then
+  echo "Target directory not found: $TARGET"
+  exit 1
+fi
 
-cp -f "scripts/apply_openclash_responsive_stability.py" "${REPO_ROOT}/scripts/apply_openclash_responsive_stability.py"
-cp -f ".github/workflows/update-openclash.yml" "${REPO_ROOT}/.github/workflows/update-openclash.yml"
-cp -f "README_RESPONSIVE_PATCH.md" "${REPO_ROOT}/README_RESPONSIVE_PATCH.md"
+if [ ! -f "$TARGET/telegram_openclash_alive.py" ]; then
+  echo "WARNING: telegram_openclash_alive.py tidak ditemukan di target. Pastikan path adalah root repo SumberYAML."
+fi
 
-chmod +x "${REPO_ROOT}/scripts/apply_openclash_responsive_stability.py" || true
+STAMP="$(date -u +%Y%m%d-%H%M%S)"
+BACKUP="$TARGET/.patch_backup_openclash_safe_satset_$STAMP"
+mkdir -p "$BACKUP"
 
-echo "Patch responsive SumberYAML berhasil dipasang ke: ${REPO_ROOT}"
-echo "Langkah berikutnya: git add, git commit, git push, lalu jalankan workflow Update OpenClash mode update/optimize_openclash."
+for file in \
+  "scripts/apply_openclash_responsive_stability.py" \
+  ".github/workflows/update-openclash.yml" \
+  "README_OPENCLASH_SAFE_SATSET_FIX.md"; do
+  if [ -f "$TARGET/$file" ]; then
+    mkdir -p "$BACKUP/$(dirname "$file")"
+    cp -a "$TARGET/$file" "$BACKUP/$file"
+  fi
+  mkdir -p "$TARGET/$(dirname "$file")"
+  cp -a "$file" "$TARGET/$file"
+done
+
+chmod +x "$TARGET/scripts/apply_openclash_responsive_stability.py" || true
+
+echo "Patch installed to: $TARGET"
+echo "Backup previous files: $BACKUP"
+echo "Next: git add scripts/apply_openclash_responsive_stability.py .github/workflows/update-openclash.yml README_OPENCLASH_SAFE_SATSET_FIX.md && git commit -m 'Fix OpenClash safe sat-set compatibility' && git push"
