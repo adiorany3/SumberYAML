@@ -99,9 +99,10 @@ env:
   OPENCLASH_KEEP_META_OPTIONS: "false"
   OPENCLASH_ADD_LAN_DIRECT: "false"
   MANUAL_INPUT_FILES: "input/links.txt,input.txt,links.txt"
-  # Paksa server akun manual kompatibel dari input/links.txt/input.txt/links.txt ke IP ini.
+  # Paksa server hanya untuk akun manual CDN-compatible: vmess/vless/trojan + ws/grpc/h2/http.
   MANUAL_SERVER_OVERRIDE: "104.17.3.81"
-  MANUAL_SERVER_OVERRIDE_TYPES: "all"
+  MANUAL_SERVER_OVERRIDE_TYPES: "cdn-compatible"
+  SMART_SAFE_MANUAL_ONLY: "true"
   # SS/SSR dimatikan karena bisa membuat OpenClash gagal run pada beberapa core.
   DROP_PROXY_TYPES: "ss,ssr"
   SS_SSR_SERVER_OVERRIDE: ""
@@ -214,13 +215,15 @@ jobs:
           echo "Output directory:"
           find output -maxdepth 3 -type f | sort || true
 
-      - name: Apply safe sat-set, input-link server 104, and drop SS/SSR
+      - name: Apply smart-safe generator, manual-only output, and drop SS/SSR
         run: |
           set -e
           if [ -f scripts/apply_openclash_responsive_stability.py ]; then
             python scripts/apply_openclash_responsive_stability.py --root .
-            echo "Safe sat-set/input-link-server-104/no-SS-SSR summary:"
-            cat output/Validation/summary_openclash_safe_satset.json || true
+            echo "Smart-safe generator summary:"
+            cat output/Validation/smart_safe_report.json || true
+            echo "Text report:"
+            cat output/report.txt || true
           else
             echo "ERROR: scripts/apply_openclash_responsive_stability.py tidak ditemukan."
             exit 1
@@ -261,6 +264,7 @@ jobs:
               Path('output/strict_alive.yaml'),
               Path('output/lite.yaml'),
               Path('output/fast.yaml'),
+              Path('output/manual_only.yaml'),
           ]
           failed = False
           for path in files:
@@ -299,13 +303,9 @@ jobs:
                   if ptype in {'ss', 'ssr'}:
                       print(f'SS/SSR proxy type must not exist in OpenClash-safe output: {path}: {proxy.get("name")}')
                       failed = True
-                  if pname.upper().startswith(('MANUAL-LINK-', 'INPUT ', 'INPUT-', 'LINK ', 'LINK-', 'MANUAL ', 'MANUAL-', 'TRUSTED ', 'TRUSTED-')):
-                      if proxy.get('server') and str(proxy.get('server') or '') != target_server:
-                          print(f'Manual input server override missing: {path}: {proxy.get("name")} -> {proxy.get("server")}')
-                          failed = True
           # Manual-link groups are expected only when direct proxy URIs were successfully parsed.
           manual_templates_loaded = 0
-          summary_path = Path('output/Validation/summary_openclash_safe_satset.json')
+          summary_path = Path('output/Validation/smart_safe_report.json')
           if summary_path.exists():
               try:
                   manual_templates_loaded = int((json.loads(summary_path.read_text(encoding='utf-8')).get('total_injected_templates_loaded') or 0))
@@ -348,12 +348,12 @@ jobs:
             rm -rf output
             mkdir -p output
             tar -C output -xf "$BACKUP_DIR/output.tar"
-            git add output || true
+            git add output cache || true
             if git diff --cached --quiet; then
               echo "Tidak ada perubahan output untuk di-commit."
               exit 0
             fi
-            git commit -m "Update OpenClash output with input server 104 fallback"
+            git commit -m "Update OpenClash output with smart-safe generator"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
