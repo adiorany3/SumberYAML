@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       source:
-        description: Sumber pemicu workflow
+        description: "Sumber pemicu workflow: manual, streamlit, telegram, schedule"
         required: false
-        default: manual
+        default: "manual"
         type: string
       mode:
-        description: Mode proses
-        required: true
-        default: update
+        description: "Mode proses"
+        required: false
+        default: "update"
         type: choice
         options:
           - update
@@ -25,63 +25,154 @@ on:
           - optimize_openclash
           - purpose_groups
           - adblock
-          - security_block
+          - youtube_ads_advanced
           - game_block
+          - security_block
+          - marketplace_protect
           - build_ready
           - diagnostics
           - rollback_latest_good
           - build_v2raybox
           - build_nekobox
+          - rename_proxy_date
+          - performance_optimize
+          - fix_singbox_inbound
       enable_proxy_test:
-        description: Jalankan test proxy
+        description: "Jalankan test proxy/ping"
         required: false
-        default: 'true'
+        default: "true"
         type: choice
-        options: ['true', 'false']
+        options:
+          - "true"
+          - "false"
       filter_alive_only:
-        description: Filter output utama hanya proxy alive
+        description: "Filter output utama hanya proxy alive"
         required: false
-        default: 'true'
+        default: "true"
         type: choice
-        options: ['true', 'false']
+        options:
+          - "true"
+          - "false"
       strict_alive_only:
-        description: Buat strict alive output
+        description: "Buat strict alive output"
         required: false
-        default: 'true'
+        default: "true"
         type: choice
-        options: ['true', 'false']
+        options:
+          - "true"
+          - "false"
+      block_mode:
+        description: "Mode security/adblock OpenClash"
+        required: false
+        default: "standard"
+        type: choice
+        options:
+          - light
+          - standard
+          - aggressive
+      youtube_ads_mode:
+        description: "Mode YouTube ads provider"
+        required: false
+        default: "enhanced"
+        type: choice
+        options:
+          - safe
+          - enhanced
+          - aggressive
+          - ultimate
+      apply_proxy_date_suffix:
+        description: "Tambahkan tanggal update ke nama proxy non-manual"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      proxy_update_date:
+        description: "Tanggal suffix proxy YYYY-MM-DD; kosong = hari ini Asia/Jakarta"
+        required: false
+        default: ""
+        type: string
+      performance_keep_security_providers:
+        description: "Lite output tetap membawa rule-provider security/adblock"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: write
   actions: read
 
 concurrency:
-  group: sumberyaml-update-${{ github.ref }}
+  group: sumberyaml-update-openclash-${{ github.ref }}
   cancel-in-progress: false
 
+env:
+  TZ: Asia/Jakarta
+  MODE: ${{ github.event.inputs.mode || 'update' }}
+  SOURCE: ${{ github.event.inputs.source || 'schedule' }}
+  ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
+  FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
+  STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
+  BLOCK_MODE: ${{ github.event.inputs.block_mode || 'standard' }}
+  YOUTUBE_ADS_MODE: ${{ github.event.inputs.youtube_ads_mode || 'enhanced' }}
+  APPLY_PROXY_DATE_SUFFIX: ${{ github.event.inputs.apply_proxy_date_suffix || 'false' }}
+  PROXY_UPDATE_DATE: ${{ github.event.inputs.proxy_update_date || '' }}
+
+  # Stabilitas OpenClash/router/HP.
+  BEST_PING_TOP_N: "10"
+  BEST_PING_COUNTRY_FILTER: "ID"
+  BEST_PING_SOURCE_LABEL: "Indonesia"
+  BEST_PING_URL_TEST_NAME: "URL-TEST TOP 10 INDONESIA"
+
+  # Nilai ini sengaja lebih responsif daripada 300/lazy=true untuk profil fast/lite/ready.
+  URL_TEST_INTERVAL: "120"
+  URL_TEST_TOLERANCE: "50"
+  URL_TEST_LAZY: "false"
+  RESPONSIVE_TOP_N: "20"
+  RESPONSIVE_COMBINED_MAX: "40"
+  RESPONSIVE_INTERVAL_FAST: "120"
+  RESPONSIVE_INTERVAL_STABLE: "300"
+  RESPONSIVE_FALLBACK_INTERVAL: "120"
+  RESPONSIVE_STABLE_FALLBACK_INTERVAL: "240"
+  RESPONSIVE_TOLERANCE_FAST: "50"
+  RESPONSIVE_TOLERANCE_STABLE: "80"
+  RESPONSIVE_TIMEOUT_MS: "3000"
+  RESPONSIVE_FAST_LAZY: "false"
+  RESPONSIVE_STABLE_LAZY: "true"
+
+  # Strict alive dibuat longgar agar tidak membuang node yang masih usable.
+  TEST_ROUNDS: "2"
+  REQUIRE_SUCCESS_ROUNDS: "1"
+  STRICT_MAX_DELAY_MS: "8000"
+
+  # Cache/reuse sumber agar workflow tidak terlalu berat.
+  SOURCE_CACHE_ENABLE: "true"
+  FAST_REUSE_WHEN_NO_SOURCE_CHANGE: "true"
+
+  # Manual account harus trusted, tidak difilter, tidak di-quarantine.
+  TRUSTED_MANUAL_INPUTS: "input/links.txt,input.txt"
+
+  # Performance Lite.
+  PERFORMANCE_LITE_MAX_NODES: "10"
+  PERFORMANCE_LITE_MAX_MANUAL: "0"
+  PERFORMANCE_SUBSCRIPTION_MAX_LINES: "30"
+  PERFORMANCE_KEEP_SECURITY_PROVIDERS: ${{ github.event.inputs.performance_keep_security_providers || 'false' }}
+  MAX_OPENCLASH_READY_KB: "4096"
+  MAX_OPENCLASH_LITE_KB: "2048"
+  MAX_SINGBOX_PROFILE_KB: "1024"
+  MAX_RULEPROVIDERS_TOTAL_KB: "8192"
+
 jobs:
-  update:
+  build:
+    name: Build SumberYAML outputs
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    env:
-      MODE: ${{ github.event.inputs.mode || 'update' }}
-      SOURCE: ${{ github.event.inputs.source || 'schedule' }}
-      ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
-      FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
-      STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
-      BEST_PING_TOP_N: '10'
-      BEST_PING_COUNTRY_FILTER: 'ID'
-      BEST_PING_URL_TEST_NAME: 'URL-TEST TOP 10 INDONESIA'
-      URL_TEST_INTERVAL: '300'
-      URL_TEST_TOLERANCE: '80'
-      URL_TEST_LAZY: 'true'
-      RESPONSIVE_TOP_N: '20'
-      RESPONSIVE_COMBINED_MAX: '40'
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
     steps:
       - name: Checkout repository
@@ -90,69 +181,141 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
 
-      - name: Configure git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Sync remote branch before build
+      - name: Sync remote before build
         run: |
           set -e
-          git fetch origin "${GITHUB_REF_NAME}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin "${GITHUB_REF_NAME}" || true
           git merge --ff-only "origin/${GITHUB_REF_NAME}" || true
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
           set -e
           python -m pip install --upgrade pip
-          pip install requests pyyaml qrcode[pil] pillow
+          pip install pyyaml requests qrcode[pil] pillow
 
       - name: Prepare output directories
         run: |
-          mkdir -p output output/RuleProviders output/Validation output/SingBox output/V2RayBox output/NekoBox output/Final output/Health output/Backup
+          set -e
+          mkdir -p \
+            output \
+            output/Alive \
+            output/BestPing \
+            output/Categories \
+            output/Final \
+            output/Health \
+            output/Backup \
+            output/RuleProviders \
+            output/SingBox \
+            output/V2RayBox \
+            output/NekoBox \
+            output/Performance \
+            output/Validation \
+            output/Source \
+            output/Reuse
+
+      - name: Show requested mode
+        run: |
+          echo "MODE=${MODE}"
+          echo "SOURCE=${SOURCE}"
+          echo "ENABLE_PROXY_TEST=${ENABLE_PROXY_TEST}"
+          echo "FILTER_ALIVE_ONLY=${FILTER_ALIVE_ONLY}"
+          echo "STRICT_ALIVE_ONLY=${STRICT_ALIVE_ONLY}"
+          echo "BLOCK_MODE=${BLOCK_MODE}"
+          echo "YOUTUBE_ADS_MODE=${YOUTUBE_ADS_MODE}"
+          echo "URL_TEST_INTERVAL=${URL_TEST_INTERVAL}"
+          echo "URL_TEST_TOLERANCE=${URL_TEST_TOLERANCE}"
+          echo "URL_TEST_LAZY=${URL_TEST_LAZY}"
+
+      - name: Restore latest-good backup when requested
+        run: |
+          set -e
+          if [ "${MODE}" = "rollback_latest_good" ]; then
+            if [ -f scripts/manage_latest_good_backup.py ]; then
+              python scripts/manage_latest_good_backup.py --restore
+            else
+              echo "scripts/manage_latest_good_backup.py tidak ada, rollback dilewati."
+            fi
+          fi
+
+      - name: Clear health quarantine when requested
+        run: |
+          set -e
+          if [ "${MODE}" = "clear_quarantine" ]; then
+            if [ -f scripts/clear_health_quarantine.py ]; then
+              python scripts/clear_health_quarantine.py
+            else
+              echo "scripts/clear_health_quarantine.py tidak ada, clear quarantine dilewati."
+            fi
+          fi
 
       - name: Generate OpenClash base outputs
         if: ${{ contains(fromJson('["update","update_ping","test","test_ping"]'), env.MODE) }}
         run: |
           set -e
-          if [ -f telegram_openclash_alive.py ]; then
+          echo "Generating base OpenClash output..."
+          if [ -f scripts/telegram_openclash_alive.py ]; then
+            python scripts/telegram_openclash_alive.py
+          elif [ -f telegram_openclash_alive.py ]; then
             python telegram_openclash_alive.py
           elif [ -f scripts/generate_configs.py ]; then
             python scripts/generate_configs.py
           elif [ -f scripts/generate_configs_basic.py ]; then
             python scripts/generate_configs_basic.py
           else
-            echo "No base OpenClash generator found; continuing with existing output files."
+            echo "::warning::Tidak menemukan generator utama. Lanjut memakai output yang sudah ada."
           fi
 
       - name: Merge trusted manual links into OpenClash YAML
-        if: ${{ hashFiles('scripts/merge_links_into_openclash_yaml.py') != '' }}
+        if: ${{ hashFiles('scripts/merge_links_into_openclash_yaml.py') != '' && env.MODE != 'rollback_latest_good' }}
         run: |
           set -e
           python scripts/merge_links_into_openclash_yaml.py || true
 
+      - name: Rename non-manual proxies with update date when requested
+        if: ${{ hashFiles('scripts/rename_proxies_with_update_date.py') != '' && (env.APPLY_PROXY_DATE_SUFFIX == 'true' || env.MODE == 'rename_proxy_date') }}
+        run: |
+          set -e
+          if [ -n "${PROXY_UPDATE_DATE}" ]; then
+            python scripts/rename_proxies_with_update_date.py --date "${PROXY_UPDATE_DATE}" || true
+          else
+            python scripts/rename_proxies_with_update_date.py || true
+          fi
+
       - name: Fix OpenClash YAML group references
-        if: ${{ hashFiles('scripts/fix_yaml_group_refs.py') != '' }}
+        if: ${{ hashFiles('scripts/fix_yaml_group_refs.py') != '' && env.MODE != 'rollback_latest_good' }}
         run: |
           set -e
           python scripts/fix_yaml_group_refs.py || true
 
       - name: Apply OpenClash no-bengong optimization
-        if: ${{ hashFiles('scripts/apply_openclash_no_bengong.py') != '' && (env.MODE == 'update' || env.MODE == 'optimize_openclash') }}
+        if: ${{ hashFiles('scripts/apply_openclash_no_bengong.py') != '' && (env.MODE == 'update' || env.MODE == 'optimize_openclash' || env.MODE == 'performance_optimize') }}
         run: |
           set -e
           python scripts/apply_openclash_no_bengong.py --max-stable 10 || true
 
       - name: Apply responsive OpenClash stability
-        if: ${{ hashFiles('scripts/apply_openclash_responsive_stability.py') != '' && (env.MODE == 'update' || env.MODE == 'optimize_openclash') }}
+        if: ${{ hashFiles('scripts/apply_openclash_responsive_stability.py') != '' && (env.MODE == 'update' || env.MODE == 'optimize_openclash' || env.MODE == 'performance_optimize' || env.MODE == 'build_ready') }}
         run: |
           set -e
-          python scripts/apply_openclash_responsive_stability.py --max-stable 10 || true
+          python scripts/apply_openclash_responsive_stability.py \
+            --max-stable "${RESPONSIVE_TOP_N}" \
+            --fast-interval "${RESPONSIVE_INTERVAL_FAST}" \
+            --stable-interval "${RESPONSIVE_INTERVAL_STABLE}" \
+            --fallback-interval "${RESPONSIVE_FALLBACK_INTERVAL}" \
+            --stable-fallback-interval "${RESPONSIVE_STABLE_FALLBACK_INTERVAL}" \
+            --fast-tolerance "${RESPONSIVE_TOLERANCE_FAST}" \
+            --stable-tolerance "${RESPONSIVE_TOLERANCE_STABLE}" \
+            --timeout "${RESPONSIVE_TIMEOUT_MS}" \
+            --no-fast-lazy || true
+          echo "Responsive OpenClash summary:"
+          cat output/Validation/summary_openclash_responsive_stability.json || true
 
       - name: Apply purpose-specific groups
         if: ${{ hashFiles('scripts/apply_openclash_purpose_groups.py') != '' && (env.MODE == 'update' || env.MODE == 'purpose_groups' || env.MODE == 'optimize_openclash') }}
@@ -167,13 +330,13 @@ jobs:
           python scripts/apply_openclash_indonesia_best_proxy.py --max-indonesia 10 || true
 
       - name: Apply best-link group
-        if: ${{ hashFiles('scripts/add_best_link_group.py') != '' }}
+        if: ${{ hashFiles('scripts/add_best_link_group.py') != '' && env.MODE != 'rollback_latest_good' }}
         run: |
           set -e
           python scripts/add_best_link_group.py || true
 
       - name: Apply fallback-link group
-        if: ${{ hashFiles('scripts/add_input_fallback_group.py') != '' }}
+        if: ${{ hashFiles('scripts/add_input_fallback_group.py') != '' && env.MODE != 'rollback_latest_good' }}
         run: |
           set -e
           python scripts/add_input_fallback_group.py || true
@@ -197,34 +360,58 @@ jobs:
           python scripts/sanitize_singbox_import.py || true
 
       - name: Fix sing-box dependencies
-        if: ${{ hashFiles('scripts/fix_singbox_dependencies.py') != '' }}
+        if: ${{ hashFiles('scripts/fix_singbox_dependencies.py') != '' && env.MODE != 'rollback_latest_good' }}
         run: |
           set -e
           python scripts/fix_singbox_dependencies.py || true
 
+      - name: Stabilize sing-box JSON
+        if: ${{ hashFiles('scripts/stabilize_singbox_json.py') != '' && env.MODE != 'rollback_latest_good' }}
+        run: |
+          set -e
+          python scripts/stabilize_singbox_json.py || true
+
+      - name: Stabilize sing-box mobile idle
+        if: ${{ hashFiles('scripts/stabilize_singbox_mobile_idle.py') != '' && env.MODE != 'rollback_latest_good' }}
+        run: |
+          set -e
+          python scripts/stabilize_singbox_mobile_idle.py || true
+
       - name: Remove selector.default for legacy clients
-        if: ${{ hashFiles('scripts/remove_selector_default_legacy.py') != '' }}
+        if: ${{ hashFiles('scripts/remove_selector_default_legacy.py') != '' && env.MODE != 'rollback_latest_good' }}
         run: |
           set -e
           python scripts/remove_selector_default_legacy.py || true
 
       - name: Fix modern TUN address fields
-        if: ${{ hashFiles('scripts/fix_tun_address_modern.py') != '' }}
+        if: ${{ hashFiles('scripts/fix_tun_address_modern.py') != '' && (env.MODE == 'update' || env.MODE == 'fix_singbox_inbound') }}
         run: |
           set -e
           python scripts/fix_tun_address_modern.py || true
 
       - name: Enforce trusted manual accounts
-        if: ${{ hashFiles('scripts/enforce_trusted_manual_accounts.py') != '' }}
+        if: ${{ hashFiles('scripts/enforce_trusted_manual_accounts.py') != '' && env.MODE != 'rollback_latest_good' }}
         run: |
           set -e
           python scripts/enforce_trusted_manual_accounts.py || true
 
       - name: Apply DNS fallback stable
-        if: ${{ hashFiles('scripts/apply_dns_fallback_stable.py') != '' }}
+        if: ${{ hashFiles('scripts/apply_dns_fallback_stable.py') != '' && env.MODE != 'rollback_latest_good' }}
         run: |
           set -e
           python scripts/apply_dns_fallback_stable.py || true
+
+      - name: Ensure Performance Lite exists
+        if: ${{ hashFiles('scripts/ensure_performance_lite_exists.py') != '' && (env.MODE == 'update' || env.MODE == 'performance_optimize') }}
+        run: |
+          set -e
+          python scripts/ensure_performance_lite_exists.py || true
+
+      - name: Build Performance Lite
+        if: ${{ hashFiles('scripts/build_performance_lite.py') != '' && (env.MODE == 'update' || env.MODE == 'performance_optimize') }}
+        run: |
+          set -e
+          python scripts/build_performance_lite.py || true
 
       - name: Build final ready profiles
         if: ${{ hashFiles('scripts/build_final_ready_profiles.py') != '' && (env.MODE == 'update' || env.MODE == 'build_ready') }}
@@ -250,6 +437,18 @@ jobs:
           set -e
           python scripts/apply_goodbyeads_youtube_provider.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
 
+      - name: Apply YouTube advanced provider
+        if: ${{ hashFiles('scripts/apply_youtube_ads_advanced_provider.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'youtube_ads_advanced') }}
+        run: |
+          set -e
+          python scripts/apply_youtube_ads_advanced_provider.py --mode "${YOUTUBE_ADS_MODE}" --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
+
+      - name: Apply OpenClash YouTube adblock provider
+        if: ${{ hashFiles('scripts/apply_openclash_youtube_adblock_provider.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'youtube_ads_advanced') }}
+        run: |
+          set -e
+          python scripts/apply_openclash_youtube_adblock_provider.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
+
       - name: Apply general adblock provider
         if: ${{ hashFiles('scripts/apply_openclash_general_adblock_provider.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock') }}
         run: |
@@ -263,7 +462,7 @@ jobs:
           python scripts/apply_openclash_game_block_provider.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
 
       - name: Apply Indonesia, Android, malware, and adware block providers
-        if: ${{ env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block' }}
+        if: ${{ hashFiles('scripts/apply_openclash_indonesia_android_security_block.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block') }}
         run: |
           set -e
           python scripts/apply_openclash_indonesia_android_security_block.py \
@@ -273,10 +472,21 @@ jobs:
             --max-indonesia 5000 \
             --max-android 12000 \
             --max-malware 50000 \
-            --max-general 25000
-
+            --max-general 25000 || true
           echo "Indonesia/Android/security block summary:"
           cat output/Validation/summary_indonesia_android_security_block.json || true
+
+      - name: Apply security block modes
+        if: ${{ hashFiles('scripts/apply_openclash_security_block_modes.py') != '' && (env.MODE == 'update' || env.MODE == 'security_block') }}
+        run: |
+          set -e
+          python scripts/apply_openclash_security_block_modes.py --mode "${BLOCK_MODE}" || true
+
+      - name: Apply marketplace protect provider
+        if: ${{ hashFiles('scripts/apply_marketplace_protect_provider.py') != '' && (env.MODE == 'update' || env.MODE == 'marketplace_protect') }}
+        run: |
+          set -e
+          python scripts/apply_marketplace_protect_provider.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" --url-source raw || true
 
       - name: Force create base rule-provider files
         if: ${{ hashFiles('scripts/create_rule_provider_files.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block') }}
@@ -285,16 +495,28 @@ jobs:
           python scripts/create_rule_provider_files.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" || true
 
       - name: Ensure all rule-providers are attached to final OpenClash YAML
-        if: ${{ hashFiles('scripts/ensure_openclash_rule_providers_final.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block' || env.MODE == 'game_block') }}
+        if: ${{ hashFiles('scripts/ensure_openclash_rule_providers_final.py') != '' && (env.MODE == 'update' || env.MODE == 'adblock' || env.MODE == 'security_block' || env.MODE == 'game_block' || env.MODE == 'marketplace_protect') }}
         run: |
           set -e
           python scripts/ensure_openclash_rule_providers_final.py --repo "${{ github.repository }}" --branch "${{ github.ref_name }}" || true
+
+      - name: Validate rule providers
+        if: ${{ hashFiles('scripts/validate_rule_providers.py') != '' && env.MODE != 'rollback_latest_good' }}
+        run: |
+          set -e
+          python scripts/validate_rule_providers.py || true
 
       - name: Validate OpenClash outputs
         if: ${{ hashFiles('scripts/validate_openclash_outputs.py') != '' && env.MODE != 'rollback_latest_good' }}
         run: |
           set -e
           python scripts/validate_openclash_outputs.py || true
+
+      - name: Validate performance outputs
+        if: ${{ hashFiles('scripts/validate_performance_outputs.py') != '' && (env.MODE == 'update' || env.MODE == 'performance_optimize') }}
+        run: |
+          set -e
+          python scripts/validate_performance_outputs.py || true
 
       - name: Build diagnostics
         if: ${{ hashFiles('scripts/build_admin_diagnostic_summary.py') != '' && (env.MODE == 'update' || env.MODE == 'diagnostics') }}
@@ -314,35 +536,36 @@ jobs:
           set -e
           python scripts/update_node_score_history.py || true
 
-      - name: Manage latest-good backup or rollback
+      - name: Manage latest-good backup
         if: ${{ hashFiles('scripts/manage_latest_good_backup.py') != '' }}
         run: |
           set -e
-          if [ "$MODE" = "rollback_latest_good" ]; then
+          if [ "${MODE}" = "rollback_latest_good" ]; then
             python scripts/manage_latest_good_backup.py --restore || true
           else
             python scripts/manage_latest_good_backup.py --backup || true
           fi
 
-      - name: List rule provider output
+      - name: List important outputs
         run: |
+          echo "Output root:"
+          find output -maxdepth 1 -type f -print | sort || true
           echo "RuleProviders:"
           find output/RuleProviders -maxdepth 1 -type f -print | sort || true
           echo "Validation summaries:"
-          find output/Validation -maxdepth 1 -type f -name '*provider*.json' -print | sort || true
+          find output/Validation -maxdepth 1 -type f -print | sort || true
 
       - name: Commit output files
         run: |
           set -e
           git add output || true
-          git add .github/workflows/update-openclash.yml || true
           git add scripts || true
+          git add .github/workflows/update-openclash.yml || true
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Update SumberYAML outputs, providers, and diagnostics"
-
+          git commit -m "Improve responsive OpenClash outputs"
           for attempt in 1 2 3 4 5; do
             echo "Push attempt $attempt"
             if git push origin HEAD:${GITHUB_REF_NAME}; then
@@ -350,7 +573,7 @@ jobs:
               exit 0
             fi
             echo "Push failed; syncing remote and retrying..."
-            git fetch origin "${GITHUB_REF_NAME}"
+            git fetch origin "${GITHUB_REF_NAME}" || true
             git merge -X ours --no-edit "origin/${GITHUB_REF_NAME}" || true
             sleep $((attempt * 3))
           done
@@ -362,9 +585,15 @@ jobs:
         run: |
           set +e
           for file in \
+            output/fast.yaml \
+            output/lite.yaml \
+            output/lengkap.yaml \
+            output/lengkap_alive.yaml \
+            output/strict_alive.yaml \
+            output/openclash-ready.yaml \
+            output/openclash-lite-ready.yaml \
             output/SingBox/mobile-stable-safe.json \
             output/SingBox/import-ready.json \
-            output/openclash-ready.yaml \
             output/RuleProviders/youtube-ads.yaml \
             output/RuleProviders/goodbyeads-youtube.yaml \
             output/RuleProviders/general-ads.yaml \
@@ -377,9 +606,12 @@ jobs:
 
       - name: Notify Telegram
         if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           set +e
-          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+          if [ -z "${TELEGRAM_BOT_TOKEN}" ] || [ -z "${TELEGRAM_CHAT_ID}" ]; then
             echo "Telegram secrets not configured; skipping notification."
             exit 0
           fi
