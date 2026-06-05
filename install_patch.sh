@@ -8,22 +8,32 @@ if [ -z "$TARGET" ]; then
 fi
 
 if [ ! -d "$TARGET" ]; then
-  echo "Target folder not found: $TARGET"
+  echo "Target directory not found: $TARGET"
   exit 1
 fi
 
-ROOT="$(cd "$(dirname "$0")" && pwd)"
-mkdir -p "$TARGET/scripts" "$TARGET/.github/workflows"
+if [ ! -f "$TARGET/telegram_openclash_alive.py" ]; then
+  echo "WARNING: telegram_openclash_alive.py tidak ditemukan di target. Pastikan path adalah root repo SumberYAML."
+fi
 
-cp "$ROOT/scripts/apply_openclash_responsive_stability.py" "$TARGET/scripts/apply_openclash_responsive_stability.py"
-cp "$ROOT/.github/workflows/update-openclash.yml" "$TARGET/.github/workflows/update-openclash.yml"
-cp "$ROOT/README_SS_SSR_104_FALLBACK_PATCH.md" "$TARGET/README_SS_SSR_104_FALLBACK_PATCH.md"
+STAMP="$(date -u +%Y%m%d-%H%M%S)"
+BACKUP="$TARGET/.patch_backup_manual_fallback_safe_$STAMP"
+mkdir -p "$BACKUP"
+
+for file in \
+  "scripts/apply_openclash_responsive_stability.py" \
+  ".github/workflows/update-openclash.yml" \
+  "README_MANUAL_FALLBACK_SAFE_PATCH.md"; do
+  if [ -f "$TARGET/$file" ]; then
+    mkdir -p "$BACKUP/$(dirname "$file")"
+    cp -a "$TARGET/$file" "$BACKUP/$file"
+  fi
+  mkdir -p "$TARGET/$(dirname "$file")"
+  cp -a "$file" "$TARGET/$file"
+done
 
 chmod +x "$TARGET/scripts/apply_openclash_responsive_stability.py" || true
 
 echo "Patch installed to: $TARGET"
-echo "Next steps:"
-echo "  cd $TARGET"
-echo "  python scripts/apply_openclash_responsive_stability.py --root ."
-echo "  git add scripts/apply_openclash_responsive_stability.py .github/workflows/update-openclash.yml README_SS_SSR_104_FALLBACK_PATCH.md"
-echo "  git commit -m 'Add SS SSR 104 fallback source injection'"
+echo "Backup previous files: $BACKUP"
+echo "Next: git add scripts/apply_openclash_responsive_stability.py .github/workflows/update-openclash.yml README_MANUAL_FALLBACK_SAFE_PATCH.md && git commit -m 'Add safe manual input fallback to OpenClash output' && git push"
