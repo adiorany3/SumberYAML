@@ -1,5 +1,20 @@
 proxies:
-  - name: "oneclickvpnkeys FR 6470"
+  - name: "oneclickvpnkeys FR 9264"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e277ac9b-3225-4381-a9fb-3585419f7142
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "35cdnws.frnstatic.info"
+    ws-opts:
+      path: "/35cdnws"
+      headers:
+        Host: "35cdnws.frnstatic.info"
+    udp: true
+  - name: "oneclickvpnkeys FR 3889"
     server: "104.17.3.81"
     port: 443
     type: trojan
