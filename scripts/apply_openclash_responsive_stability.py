@@ -7,9 +7,12 @@ root options and it removes group-level fields that often make OpenClash reject
 YAML on older Clash/OpenClash cores.
 
 What it does:
-- keeps every existing proxy account intact, including manual/trusted links;
-- injects direct proxy nodes from input/links.txt/input.txt into every output YAML;
-- never tests, filters, quarantines, deletes, or removes manual input accounts;
+- keeps compatible manual/trusted accounts intact;
+- injects direct vmess/vless/trojan nodes from input/links.txt/input.txt into every output YAML;
+- intentionally skips ss:// and ssr:// links because they can break some OpenClash cores;
+- can force every trusted manual input node server to a CDN/IP host such as 104.17.3.81;
+- removes existing ss/ssr proxy objects and cleans group references by default;
+- never tests, quarantines, or removes compatible manual/trusted input accounts;
 - builds safe MANUAL-FALLBACK / SAT-SET / ANTI-BENGONG / BEST-STABLE groups;
 - uses only broadly compatible proxy-group keys;
 - repairs risky keys from the previous turbo/no-delay patch.
@@ -56,6 +59,41 @@ MANUAL_INPUT_FILES = [
     "input.txt",
     "links.txt",
 ]
+
+# Extra SS/SSR source scanning is kept only for backward-compatible CLI arguments,
+# but it is disabled by default in this OpenClash-safe patch.
+EXTRA_SS_SSR_SOURCE_PATHS = [
+    "input",
+    "sources",
+    "source",
+    "subs",
+    "sub",
+    "subscription",
+    "subscriptions",
+    "raw",
+    "data",
+    "output/Cache/sources",
+    "output/Raw",
+    "output/Sources",
+    "output/Subs",
+]
+
+TEXT_SCAN_EXTENSIONS = {
+    ".txt", ".list", ".csv", ".json", ".yaml", ".yml", ".log", ".conf", ".md"
+}
+
+SKIP_SCAN_PARTS = {
+    ".git", ".github", "node_modules", ".venv", "venv", "__pycache__",
+    "Backup", "Validation", "backup", "validation",
+}
+
+SS_SSR_SERVER_OVERRIDE = ""
+DROP_PROXY_TYPES = "ss,ssr"
+# Trusted manual nodes from input/links.txt/input.txt/links.txt can also have
+# their server field rewritten. This patch rewrites only compatible OpenClash
+# node types by default and skips ss/ssr links entirely.
+MANUAL_SERVER_OVERRIDE = "104.17.3.81"
+MANUAL_SERVER_OVERRIDE_TYPES = "all"
 
 MANUAL_GROUP_SELECT = "MANUAL-LINK"
 MANUAL_GROUP_FALLBACK = "MANUAL-FALLBACK"
@@ -168,6 +206,18 @@ def unique_keep_order(items: Iterable[str]) -> List[str]:
 
 def split_env_list(value: str) -> List[str]:
     return [item.strip() for item in str(value or "").split(",") if item.strip()]
+
+
+def normalize_server_override(value: str) -> str:
+    # Accept plain IP/host or accidental URL-style input. Clash expects only host/IP
+    # in the server field, not a scheme.
+    raw = str(value or "").strip()
+    if not raw:
+        return ""
+    if "://" in raw:
+        parsed = urlparse(raw)
+        return parsed.hostname or raw
+    return raw.strip("/ ")
 
 
 def b64_decode_text(value: str) -> Optional[str]:
@@ -479,6 +529,9 @@ def parse_clash_proxy_line(line: str) -> Tuple[Optional[Dict[str, Any]], str]:
         return None, "inline clash yaml is not a mapping"
     if not data.get("type") or not data.get("server"):
         return None, "inline clash proxy missing type/server"
+    ptype = str(data.get("type") or "").strip().lower()
+    if ptype in {"ss", "ssr"}:
+        return None, "ss/ssr disabled for OpenClash compatibility"
     data = dict(data)
     data.setdefault("name", "Manual Clash Proxy")
     return data, ""
@@ -496,14 +549,242 @@ def parse_manual_link_line(line: str) -> Tuple[Optional[Dict[str, Any]], str]:
     if lowered.startswith("trojan://"):
         return parse_trojan_link(value)
     if lowered.startswith("ss://"):
-        return parse_ss_link(value)
+        return None, "ss disabled for OpenClash compatibility"
     if lowered.startswith("ssr://"):
-        return parse_ssr_link(value)
+        return None, "ssr disabled for OpenClash compatibility"
     if value.startswith("{") or value.startswith("-"):
         return parse_clash_proxy_line(value)
     if lowered.startswith("http://") or lowered.startswith("https://"):
         return None, "subscription/http source, not a direct proxy node"
     return None, "unsupported or unparsable direct proxy format"
+
+
+def proxy_signature(proxy: Dict[str, Any]) -> str:
+    ptype = str(proxy.get("type") or "").lower()
+    # For SS/SSR, ignore the server in the de-dup key because this patch may
+    # intentionally rewrite server to the CDN/IP override.
+    if ptype == "ss":
+        return "|".join([
+            ptype,
+            str(proxy.get("port") or ""),
+            str(proxy.get("cipher") or ""),
+            str(proxy.get("password") or ""),
+            str(proxy.get("plugin") or ""),
+            json.dumps(proxy.get("plugin-opts") or {}, sort_keys=True, ensure_ascii=False),
+        ])
+    if ptype == "ssr":
+        return "|".join([
+            ptype,
+            str(proxy.get("port") or ""),
+            str(proxy.get("protocol") or ""),
+            str(proxy.get("cipher") or ""),
+            str(proxy.get("obfs") or ""),
+            str(proxy.get("password") or ""),
+            str(proxy.get("obfs-param") or ""),
+            str(proxy.get("protocol-param") or ""),
+        ])
+    return json.dumps(proxy, sort_keys=True, ensure_ascii=False, default=str)
+
+
+def apply_ss_ssr_server_override_to_proxy(proxy: Dict[str, Any], server_override: str) -> bool:
+    target = normalize_server_override(server_override)
+    if not target:
+        return False
+    ptype = str(proxy.get("type") or "").strip().lower()
+    if ptype not in {"ss", "ssr"}:
+        return False
+    if str(proxy.get("server") or "") == target:
+        return False
+    proxy["server"] = target
+    proxy["_ss_ssr_server_forced"] = True
+    return True
+
+
+def type_allowed_for_manual_server_override(proxy: Dict[str, Any], allowed_types: Set[str]) -> bool:
+    if not allowed_types:
+        return False
+    ptype = str(proxy.get("type") or "").strip().lower()
+    if not ptype or "server" not in proxy:
+        return False
+    if "all" in allowed_types or "*" in allowed_types:
+        return True
+    return ptype in allowed_types
+
+
+def apply_manual_server_override_to_proxy(
+    proxy: Dict[str, Any],
+    server_override: str,
+    allowed_types: Set[str],
+) -> bool:
+    target = normalize_server_override(server_override)
+    if not target:
+        return False
+    if not type_allowed_for_manual_server_override(proxy, allowed_types):
+        return False
+    if str(proxy.get("server") or "") == target:
+        proxy["_manual_server_forced"] = True
+        return False
+    proxy["server"] = target
+    proxy["_manual_server_forced"] = True
+    return True
+
+
+def override_manual_servers_in_existing_data(
+    data: Dict[str, Any],
+    server_override: str,
+    allowed_types: Set[str],
+) -> Dict[str, Any]:
+    target = normalize_server_override(server_override)
+    stats: Dict[str, Any] = {"target": target, "changed": 0, "seen": 0}
+    if not target:
+        return stats
+    proxies = data.get("proxies") or []
+    if not isinstance(proxies, list):
+        return stats
+    for item in proxies:
+        if not isinstance(item, dict):
+            continue
+        name = str(item.get("name") or "")
+        if not is_manual_name(name):
+            continue
+        if not type_allowed_for_manual_server_override(item, allowed_types):
+            continue
+        stats["seen"] += 1
+        if str(item.get("server") or "") != target:
+            item["server"] = target
+            stats["changed"] += 1
+    return stats
+
+
+def override_ss_ssr_servers_in_data(data: Dict[str, Any], server_override: str) -> Dict[str, Any]:
+    # Backward-compatible no-op in this patch. SS/SSR is not rewritten; it is
+    # removed by drop_proxy_types_from_data instead.
+    return {"target": normalize_server_override(server_override), "changed": 0, "seen": 0, "disabled": True}
+
+
+def drop_proxy_types_from_data(data: Dict[str, Any], drop_types: Set[str]) -> Dict[str, Any]:
+    stats: Dict[str, Any] = {"drop_types": sorted(drop_types), "removed": 0, "removed_names": [], "group_refs_removed": 0}
+    if not drop_types:
+        return stats
+    proxies = data.get("proxies") or []
+    if not isinstance(proxies, list):
+        return stats
+
+    kept: List[Any] = []
+    removed_names: Set[str] = set()
+    for item in proxies:
+        if isinstance(item, dict) and str(item.get("type") or "").strip().lower() in drop_types:
+            name = str(item.get("name") or "").strip()
+            if name:
+                removed_names.add(name)
+            stats["removed"] += 1
+            continue
+        kept.append(item)
+    data["proxies"] = kept
+    stats["removed_names"] = sorted(removed_names)
+
+    if removed_names:
+        for group in get_groups(data):
+            refs = group.get("proxies")
+            if not isinstance(refs, list):
+                continue
+            fixed = [ref for ref in refs if str(ref) not in removed_names]
+            stats["group_refs_removed"] += len(refs) - len(fixed)
+            group["proxies"] = fixed
+    return stats
+
+
+def clean_extracted_link_token(token: str) -> str:
+    value = str(token or "").strip()
+    # Remove common delimiters accidentally captured from JSON/YAML/Markdown.
+    value = value.strip("'\"<>`")
+    while value and value[-1] in ",;)]}":
+        value = value[:-1]
+    return value.strip()
+
+
+def extract_ss_ssr_links_from_text(text: str) -> List[str]:
+    # Match raw links from txt/csv/json/yaml cache files. Link fragments are allowed
+    # but whitespace terminates the token.
+    found = re.findall(r"(?i)\b(?:ssr|ss)://[^\s'\"<>]+", text or "")
+    return unique_keep_order(clean_extracted_link_token(item) for item in found)
+
+
+def should_scan_file(path: Path) -> bool:
+    if any(part in SKIP_SCAN_PARTS for part in path.parts):
+        return False
+    if not path.is_file():
+        return False
+    if path.suffix.lower() in TEXT_SCAN_EXTENSIONS:
+        return True
+    # Some source cache files have no extension. Read extensionless files too.
+    return path.suffix == ""
+
+
+def iter_scan_files(root: Path, paths: Sequence[str]) -> Iterable[Path]:
+    yielded: Set[Path] = set()
+    for rel in paths:
+        if not str(rel or "").strip():
+            continue
+        base = (root / rel).resolve()
+        try:
+            base.relative_to(root)
+        except Exception:
+            # Keep scanning inside the repo only.
+            continue
+        if not base.exists():
+            continue
+        candidates = [base] if base.is_file() else base.rglob("*")
+        for path in candidates:
+            try:
+                resolved = path.resolve()
+                resolved.relative_to(root)
+            except Exception:
+                continue
+            if resolved in yielded or not should_scan_file(resolved):
+                continue
+            yielded.add(resolved)
+            yield resolved
+
+
+def load_extra_ss_ssr_proxy_templates(
+    root: Path,
+    source_paths: Sequence[str],
+    server_override: str,
+    starting_sequence: int,
+    known_signatures: Set[str],
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    templates: List[Dict[str, Any]] = []
+    skipped: List[Dict[str, Any]] = []
+    sequence = starting_sequence
+    target = normalize_server_override(server_override)
+    for path in iter_scan_files(root, source_paths):
+        rel = str(path.relative_to(root))
+        try:
+            text = path.read_text(encoding="utf-8", errors="replace")
+        except Exception as exc:
+            skipped.append({"source": rel, "reason": f"read failed: {exc}"})
+            continue
+        for link in extract_ss_ssr_links_from_text(text):
+            proxy, reason = parse_manual_link_line(link)
+            if proxy is None:
+                skipped.append({"source": rel, "reason": reason, "preview": link[:120]})
+                continue
+            if str(proxy.get("type") or "").lower() not in {"ss", "ssr"}:
+                continue
+            apply_ss_ssr_server_override_to_proxy(proxy, target)
+            sig = proxy_signature(proxy)
+            if sig in known_signatures:
+                continue
+            known_signatures.add(sig)
+            sequence += 1
+            proxy = dict(proxy)
+            proxy["_manual_index"] = sequence
+            proxy["_manual_original_name"] = str(proxy.get("name") or f"SS SSR Source {sequence:03d}")
+            proxy["_manual_source"] = rel
+            proxy["_ss_ssr_extra_source"] = True
+            templates.append(proxy)
+    return templates, skipped
 
 
 def load_manual_proxy_templates(root: Path, input_files: Sequence[str]) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
@@ -539,7 +820,7 @@ def prepare_manual_proxies(templates: Sequence[Dict[str, Any]], existing_names: 
     used_names = set(existing_names)
     out: List[Dict[str, Any]] = []
     for local_index, template in enumerate(templates, start=1):
-        proxy = {k: v for k, v in template.items() if not str(k).startswith("_manual_")}
+        proxy = {k: v for k, v in template.items() if not str(k).startswith("_")}
         original_index = parse_int(template.get("_manual_index"), local_index)
         preferred = str(template.get("_manual_original_name") or proxy.get("name") or f"Input {original_index:03d}")
         proxy["name"] = make_manual_name(original_index, preferred, used_names)
@@ -998,6 +1279,13 @@ def apply_to_file(path: Path, root: Path, args: argparse.Namespace, backup_dir: 
     tuning = profile_tuning(path, args)
 
     manual_injection = inject_manual_input_proxies(data, manual_templates, tuning)
+    drop_type_stats = drop_proxy_types_from_data(data, args.drop_proxy_types)
+    manual_override_stats = override_manual_servers_in_existing_data(
+        data,
+        args.manual_server_override,
+        args.manual_server_override_types,
+    )
+    ss_ssr_override_stats = override_ss_ssr_servers_in_data(data, args.ss_ssr_server_override)
 
     proxy_names = get_proxy_names(data)
     if not proxy_names:
@@ -1043,6 +1331,9 @@ def apply_to_file(path: Path, root: Path, args: argparse.Namespace, backup_dir: 
         "reference_repair": ref_stats,
         "rules": rule_stats,
         "manual_injection": manual_injection,
+        "manual_server_override": manual_override_stats,
+        "dropped_proxy_types": drop_type_stats,
+        "ss_ssr_server_override": ss_ssr_override_stats,
         **info,
     }
 
@@ -1056,6 +1347,37 @@ def parse_args() -> argparse.Namespace:
         "--manual-input-files",
         default=os.getenv("MANUAL_INPUT_FILES", ",".join(MANUAL_INPUT_FILES)),
         help="Comma-separated trusted direct proxy link files to inject into every output YAML",
+    )
+    parser.add_argument(
+        "--extra-ss-ssr-source-paths",
+        default=os.getenv("EXTRA_SS_SSR_SOURCE_PATHS", ",".join(EXTRA_SS_SSR_SOURCE_PATHS)),
+        help="Comma-separated repo paths to scan for raw ss:// and ssr:// links from other sources/cache files",
+    )
+    parser.add_argument(
+        "--ss-ssr-server-override",
+        default=os.getenv("SS_SSR_SERVER_OVERRIDE", SS_SSR_SERVER_OVERRIDE),
+        help="Deprecated/no-op in this patch. SS/SSR nodes are removed instead of rewritten.",
+    )
+    parser.add_argument(
+        "--drop-proxy-types",
+        default=os.getenv("DROP_PROXY_TYPES", DROP_PROXY_TYPES),
+        help="Comma-separated proxy types to remove from output YAML. Default: ss,ssr.",
+    )
+    parser.add_argument(
+        "--manual-server-override",
+        default=os.getenv("MANUAL_SERVER_OVERRIDE", MANUAL_SERVER_OVERRIDE),
+        help="Force server field for trusted direct proxy nodes loaded from input/links.txt/input.txt/links.txt. Empty value disables override.",
+    )
+    parser.add_argument(
+        "--manual-server-override-types",
+        default=os.getenv("MANUAL_SERVER_OVERRIDE_TYPES", MANUAL_SERVER_OVERRIDE_TYPES),
+        help="Comma-separated proxy types to rewrite for manual input nodes, for example all or vmess,vless,trojan,ss,ssr.",
+    )
+    parser.add_argument(
+        "--no-extra-ss-ssr-scan",
+        action="store_true",
+        default=env_bool("DISABLE_EXTRA_SS_SSR_SCAN", True),
+        help="Disable scanning extra source/cache files for ss:// and ssr:// links. Default enabled for safety.",
     )
     parser.add_argument("--max-stable", type=int, default=env_int("RESPONSIVE_TOP_N", 15))
     parser.add_argument("--max-combined", type=int, default=env_int("RESPONSIVE_COMBINED_MAX", 30))
@@ -1076,7 +1398,60 @@ def main() -> int:
     args.max_stable = max(1, int(args.max_stable))
     args.max_combined = max(args.max_stable, int(args.max_combined))
     args.manual_input_files = split_env_list(args.manual_input_files) or MANUAL_INPUT_FILES
+    args.extra_ss_ssr_source_paths = split_env_list(args.extra_ss_ssr_source_paths) or EXTRA_SS_SSR_SOURCE_PATHS
+    args.ss_ssr_server_override = normalize_server_override(args.ss_ssr_server_override)
+    args.manual_server_override = normalize_server_override(args.manual_server_override)
+    args.drop_proxy_types = {
+        item.strip().lower()
+        for item in split_env_list(args.drop_proxy_types)
+        if item.strip()
+    }
+    args.manual_server_override_types = {
+        item.strip().lower()
+        for item in split_env_list(args.manual_server_override_types)
+        if item.strip()
+    } or {"all"}
+
     manual_templates, manual_skipped = load_manual_proxy_templates(root, args.manual_input_files)
+
+    # Apply the requested server override to every trusted manual input node.
+    # Required behavior for input/links.txt: if the node still has a normal/original
+    # server/IP, rewrite only the server field to 104.17.3.81.
+    manual_server_overridden = 0
+    manual_server_seen = 0
+    manual_ss_ssr_overridden = 0
+    known_signatures: Set[str] = set()
+    for proxy in manual_templates:
+        if type_allowed_for_manual_server_override(proxy, args.manual_server_override_types):
+            manual_server_seen += 1
+        if apply_manual_server_override_to_proxy(
+            proxy,
+            args.manual_server_override,
+            args.manual_server_override_types,
+        ):
+            manual_server_overridden += 1
+        # SS/SSR links are skipped before this point; this no-op counter is kept
+        # only for backward-compatible reports.
+        if apply_ss_ssr_server_override_to_proxy(proxy, args.ss_ssr_server_override):
+            manual_ss_ssr_overridden += 1
+        known_signatures.add(proxy_signature(proxy))
+
+    # SS/SSR import from other sources is disabled in this patch because those
+    # node types caused OpenClash startup errors for the target environment.
+    extra_templates: List[Dict[str, Any]] = []
+    extra_skipped: List[Dict[str, Any]] = []
+    if not args.no_extra_ss_ssr_scan:
+        # Keep the CLI flag backward-compatible, but do not import the results.
+        # Users can see skipped info in the report without breaking output YAML.
+        _, extra_skipped = load_extra_ss_ssr_proxy_templates(
+            root=root,
+            source_paths=args.extra_ss_ssr_source_paths,
+            server_override=args.ss_ssr_server_override,
+            starting_sequence=len(manual_templates),
+            known_signatures=known_signatures,
+        )
+
+    combined_templates = list(manual_templates)
 
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
     backup_dir = root / "output" / "Backup" / f"openclash-safe-satset-{stamp}"
@@ -1085,26 +1460,40 @@ def main() -> int:
 
     results: List[Dict[str, Any]] = []
     for rel in args.files:
-        result = apply_to_file(root / rel, root, args, backup_dir, manual_templates)
+        result = apply_to_file(root / rel, root, args, backup_dir, combined_templates)
         if result is not None:
             results.append(result)
 
     summary = {
         "ok": all(item.get("ok") for item in results) if results else False,
         "generated_by": "apply_openclash_responsive_stability.py",
-        "mode": "safe-satset-openclash-compatible",
+        "mode": "safe-satset-no-ss-ssr-input-links-server-104",
         "files_processed": len(results),
         "backup_dir": str(backup_dir.relative_to(root)) if backup_dir.exists() else None,
-        "trusted_manual_policy": "Existing proxies and direct proxy links from input/links.txt/input.txt are never tested, filtered, quarantined, deleted, or removed by this post-processor. Direct links are injected into every processed output YAML when they can be converted into valid Clash proxy objects.",
+        "trusted_manual_policy": "Compatible direct proxy links from input/links.txt/input.txt/links.txt are injected into every processed output YAML when they can be converted into valid Clash proxy objects. ss:// and ssr:// links are intentionally skipped/removed for OpenClash compatibility.",
         "manual_input_files": args.manual_input_files,
         "manual_input_templates_loaded": len(manual_templates),
+        "manual_server_override": args.manual_server_override,
+        "manual_server_override_types": sorted(args.manual_server_override_types),
+        "manual_input_server_seen": manual_server_seen,
+        "manual_input_server_overridden": manual_server_overridden,
+        "manual_input_ss_ssr_server_overridden": manual_ss_ssr_overridden,
         "manual_input_skipped_unparsable": manual_skipped,
+        "drop_proxy_types": sorted(args.drop_proxy_types),
+        "extra_ss_ssr_scan_enabled": False,
+        "extra_ss_ssr_source_paths": [],
+        "extra_ss_ssr_templates_loaded": 0,
+        "extra_ss_ssr_skipped_unparsable": extra_skipped,
+        "ss_ssr_server_override": "disabled; ss/ssr removed",
+        "total_injected_templates_loaded": len(combined_templates),
         "manual_input_groups": [MANUAL_GROUP_SELECT, MANUAL_GROUP_FALLBACK, MANUAL_GROUP_URLTEST, "fallback-link", "best-link"],
         "compatibility_policy": {
             "root_meta_options_removed_by_default": RISKY_ROOT_KEYS,
             "group_fields_removed_by_default": RISKY_GROUP_KEYS,
             "dns_not_forced": True,
             "zero_delay_not_possible": "OpenClash still needs health-check and fallback intervals; this patch uses safer fast intervals instead of invalid zero-delay settings.",
+            "manual_server_override": "For compatible trusted direct proxy nodes from input/links.txt/input.txt/links.txt, only the server field is rewritten. Port, UUID, password, TLS/SNI, WS Host, and transport settings are preserved.",
+            "ss_ssr_policy": "ss and ssr proxy types are skipped from manual input, not imported from extra sources, removed from existing output, and removed from proxy-group references.",
         },
         "results": results,
     }
@@ -1119,6 +1508,8 @@ def main() -> int:
             f"proxy={item.get('proxy_count', 0)} "
             f"manual={item.get('manual_count', 0)} "
             f"manual_input={(item.get('manual_injection') or {}).get('manual_inserted', 0)} "
+            f"manual104={(item.get('manual_server_override') or {}).get('changed', 0)} "
+            f"drop_ssr={(item.get('dropped_proxy_types') or {}).get('removed', 0)} "
             f"stable={item.get('stable_count', 0)} "
             f"interval={tuning.get('interval', '-')} "
             f"fallback={tuning.get('fallback_interval', '-')}"
