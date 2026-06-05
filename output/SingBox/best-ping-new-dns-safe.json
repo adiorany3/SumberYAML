@@ -41,8 +41,9 @@
       "type": "urltest",
       "tag": "AUTO-BEST-STABLE",
       "outbounds": [
-        "hi_proxy_iran 5295",
-        "Config0plus",
+        "Arvand_soul Arvand_soul 4703",
+        "V2ray_official 5716",
+        "hi_proxy_iran 1720",
         "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -64,8 +65,9 @@
       "type": "urltest",
       "tag": "AUTO-BEST-PING",
       "outbounds": [
-        "hi_proxy_iran 5295",
-        "Config0plus",
+        "Arvand_soul Arvand_soul 4703",
+        "V2ray_official 5716",
+        "hi_proxy_iran 1720",
         "LINK (ID)+PUSATMEDIA",
         "LINK bel432 xl",
         "LINK VMess-WS-TLS-443-akuku8",
@@ -94,8 +96,9 @@
         "LINK 10.lowh.net",
         "LINK VLESS-WS-TLS-443-apt50atpprem",
         "DIRECT",
-        "hi_proxy_iran 5295",
-        "Config0plus",
+        "Arvand_soul Arvand_soul 4703",
+        "V2ray_official 5716",
+        "hi_proxy_iran 1720",
         "AUTO-BEST-STABLE",
         "LINK (ID)+PUSATMEDIA 2",
         "LINK bel432 xl 2",
@@ -109,7 +112,45 @@
     },
     {
       "type": "vless",
-      "tag": "hi_proxy_iran 5295",
+      "tag": "Arvand_soul Arvand_soul 4703",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "uuid": "6e593426-1a8e-4226-984f-0ea174e218c7",
+      "tls": {
+        "enabled": true,
+        "server_name": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-pusat",
+        "headers": {
+          "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "V2ray_official 5716",
+      "server": "104.17.3.81",
+      "server_port": 443,
+      "password": "386bd471-4e29-4e79-9a3c-6bc6076ce4b6",
+      "tls": {
+        "enabled": true,
+        "server_name": "edu.ruangguru.com.cyylr.eu.cc",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "edu.ruangguru.com.cyylr.eu.cc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "hi_proxy_iran 1720",
       "server": "104.17.3.81",
       "server_port": 443,
       "uuid": "b3ddc03c-0be7-4b46-8a4e-9f79de03d4f5",
@@ -121,25 +162,6 @@
       "transport": {
         "type": "ws",
         "path": "/id-tksi",
-        "headers": {
-          "Host": "unnes.ac.id.cyylr.eu.cc"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "Config0plus",
-      "server": "104.17.3.81",
-      "server_port": 443,
-      "password": "Config0plus",
-      "tls": {
-        "enabled": true,
-        "server_name": "unnes.ac.id.cyylr.eu.cc",
-        "insecure": true
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi",
         "headers": {
           "Host": "unnes.ac.id.cyylr.eu.cc"
         }

@@ -1,16 +1,30 @@
 proxies:
-  - name: "v2reya88 confinghub2 5521"
+  - name: "Arvand_soul Arvand_soul 5217"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 9a74144f-6218-4257-9e70-a4c50fe1e5a4
+    uuid: 5dbfed06-dd62-48c0-8e39-b4835defcdb0
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "zaintest.vuclip.com.cyylr.eu.cc"
+    servername: "investors.spotify.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "investors.spotify.com.cyylr.eu.cc"
+    udp: true
+  - name: "V2ray_official 2468"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.cyylr.eu.cc"
     ws-opts:
       path: "/sg-melbi"
       headers:
-        Host: "zaintest.vuclip.com.cyylr.eu.cc"
+        Host: "unnes.ac.id.cyylr.eu.cc"
     udp: true

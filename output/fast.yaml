@@ -43,7 +43,36 @@ dns:
   - +.pool.ntp.org
   - +.ntp.org
 proxies:
-- name: hi_proxy_iran 5295
+- name: Arvand_soul Arvand_soul 4703
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: V2ray_official 5716
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: 386bd471-4e29-4e79-9a3c-6bc6076ce4b6
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: edu.ruangguru.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: edu.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: hi_proxy_iran 1720
   server: 104.17.3.81
   port: 443
   type: vless
@@ -55,20 +84,6 @@ proxies:
   servername: unnes.ac.id.cyylr.eu.cc
   ws-opts:
     path: /id-tksi
-    headers:
-      Host: unnes.ac.id.cyylr.eu.cc
-  udp: true
-- name: Config0plus
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
     headers:
       Host: unnes.ac.id.cyylr.eu.cc
   udp: true
@@ -148,7 +163,36 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: ID-01 hi_proxy_iran 5295
+- name: ID-01 Arvand_soul Arvand_soul 4703
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: ID-02 V2ray_official 5716
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: 386bd471-4e29-4e79-9a3c-6bc6076ce4b6
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: edu.ruangguru.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: edu.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: ID-03 hi_proxy_iran 1720
   server: 104.17.3.81
   port: 443
   type: vless
@@ -163,21 +207,7 @@ proxies:
     headers:
       Host: unnes.ac.id.cyylr.eu.cc
   udp: true
-- name: ID-02 Config0plus
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: unnes.ac.id.cyylr.eu.cc
-  udp: true
-- name: ID-03 LINK (ID)+PUSATMEDIA
+- name: ID-04 LINK (ID)+PUSATMEDIA
   type: vless
   server: 104.17.3.81
   port: 443
@@ -191,7 +221,7 @@ proxies:
     path: /id-pusat
     headers:
       Host: unnes.ac.id.ex33r.eu.cc
-- name: ID-04 LINK 10.lowh.net
+- name: ID-05 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -207,7 +237,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: ID-05 LINK bel432 xl
+- name: ID-06 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -223,7 +253,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: ID-06 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: ID-07 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -237,7 +267,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: ID-07 LINK VMess-WS-TLS-443-akuku8
+- name: ID-08 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -253,7 +283,22 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: STREAM-01 LINK (ID)+PUSATMEDIA
+- name: STREAM-01 Arvand_soul Arvand_soul 4703
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: STREAM-02 LINK (ID)+PUSATMEDIA
   type: vless
   server: 104.17.3.81
   port: 443
@@ -267,7 +312,7 @@ proxies:
     path: /id-pusat
     headers:
       Host: unnes.ac.id.ex33r.eu.cc
-- name: STREAM-02 LINK 10.lowh.net
+- name: STREAM-03 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -283,7 +328,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: STREAM-03 LINK bel432 xl
+- name: STREAM-04 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -299,7 +344,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: STREAM-04 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: STREAM-05 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -313,7 +358,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: STREAM-05 LINK VMess-WS-TLS-443-akuku8
+- name: STREAM-06 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -329,7 +374,22 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GAME-01 LINK (ID)+PUSATMEDIA
+- name: GAME-01 Arvand_soul Arvand_soul 4703
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: GAME-02 LINK (ID)+PUSATMEDIA
   type: vless
   server: 104.17.3.81
   port: 443
@@ -343,7 +403,7 @@ proxies:
     path: /id-pusat
     headers:
       Host: unnes.ac.id.ex33r.eu.cc
-- name: GAME-02 LINK 10.lowh.net
+- name: GAME-03 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -359,7 +419,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: GAME-03 LINK bel432 xl
+- name: GAME-04 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -375,7 +435,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: GAME-04 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: GAME-05 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -389,7 +449,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: GAME-05 LINK VMess-WS-TLS-443-akuku8
+- name: GAME-06 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -405,19 +465,20 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: SOCIAL-01 Config0plus
+- name: SOCIAL-01 Arvand_soul Arvand_soul 4703
   server: 104.17.3.81
   port: 443
-  type: trojan
-  password: Config0plus
+  type: vless
+  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
   ws-opts:
-    path: /sg-melbi
+    path: /id-pusat
     headers:
-      Host: unnes.ac.id.cyylr.eu.cc
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
   udp: true
 - name: SOCIAL-02 LINK (ID)+PUSATMEDIA
   type: vless
@@ -495,7 +556,22 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: WORK-01 LINK (ID)+PUSATMEDIA
+- name: WORK-01 Arvand_soul Arvand_soul 4703
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: WORK-02 LINK (ID)+PUSATMEDIA
   type: vless
   server: 104.17.3.81
   port: 443
@@ -509,7 +585,7 @@ proxies:
     path: /id-pusat
     headers:
       Host: unnes.ac.id.ex33r.eu.cc
-- name: WORK-02 LINK 10.lowh.net
+- name: WORK-03 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -525,7 +601,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: WORK-03 LINK bel432 xl
+- name: WORK-04 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -541,7 +617,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: WORK-04 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: WORK-05 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -555,7 +631,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: WORK-05 LINK VMess-WS-TLS-443-akuku8
+- name: WORK-06 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -571,7 +647,36 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: GEN-01 hi_proxy_iran 5295
+- name: GEN-01 Arvand_soul Arvand_soul 4703
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 6e593426-1a8e-4226-984f-0ea174e218c7
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: dl.cvs.freefiremobile.com.cyylr.eu.cc
+  udp: true
+- name: GEN-02 V2ray_official 5716
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: 386bd471-4e29-4e79-9a3c-6bc6076ce4b6
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: edu.ruangguru.com.cyylr.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: edu.ruangguru.com.cyylr.eu.cc
+  udp: true
+- name: GEN-03 hi_proxy_iran 1720
   server: 104.17.3.81
   port: 443
   type: vless
@@ -586,21 +691,7 @@ proxies:
     headers:
       Host: unnes.ac.id.cyylr.eu.cc
   udp: true
-- name: GEN-02 Config0plus
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: Config0plus
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: unnes.ac.id.cyylr.eu.cc
-  ws-opts:
-    path: /sg-melbi
-    headers:
-      Host: unnes.ac.id.cyylr.eu.cc
-  udp: true
-- name: GEN-03 LINK (ID)+PUSATMEDIA
+- name: GEN-04 LINK (ID)+PUSATMEDIA
   type: vless
   server: 104.17.3.81
   port: 443
@@ -614,7 +705,7 @@ proxies:
     path: /id-pusat
     headers:
       Host: unnes.ac.id.ex33r.eu.cc
-- name: GEN-04 LINK 10.lowh.net
+- name: GEN-05 LINK 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -630,7 +721,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: GEN-05 LINK bel432 xl
+- name: GEN-06 LINK bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -646,7 +737,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: GEN-06 LINK VLESS-WS-TLS-443-apt50atpprem
+- name: GEN-07 LINK VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -660,7 +751,7 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: GEN-07 LINK VMess-WS-TLS-443-akuku8
+- name: GEN-08 LINK VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -680,16 +771,16 @@ proxy-groups:
 - name: INDONESIA-BEST
   type: url-test
   proxies:
-  - hi_proxy_iran 5295
-  - Config0plus
-  - GAME-03 LINK bel432 xl
-  - GEN-05 LINK bel432 xl
-  - ID-01 hi_proxy_iran 5295
-  - ID-02 Config0plus
-  - ID-03 LINK (ID)+PUSATMEDIA
-  - ID-04 LINK 10.lowh.net
-  - ID-05 LINK bel432 xl
-  - ID-06 LINK VLESS-WS-TLS-443-apt50atpprem
+  - Arvand_soul Arvand_soul 4703
+  - V2ray_official 5716
+  - hi_proxy_iran 1720
+  - GAME-04 LINK bel432 xl
+  - GEN-06 LINK bel432 xl
+  - ID-01 Arvand_soul Arvand_soul 4703
+  - ID-02 V2ray_official 5716
+  - ID-03 hi_proxy_iran 1720
+  - ID-04 LINK (ID)+PUSATMEDIA
+  - ID-05 LINK 10.lowh.net
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -702,8 +793,9 @@ proxy-groups:
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
-  - hi_proxy_iran 5295
-  - Config0plus
+  - Arvand_soul Arvand_soul 4703
+  - V2ray_official 5716
+  - hi_proxy_iran 1720
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -718,8 +810,9 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - hi_proxy_iran 5295
-  - Config0plus
+  - Arvand_soul Arvand_soul 4703
+  - V2ray_official 5716
+  - hi_proxy_iran 1720
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -733,6 +826,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - Arvand_soul Arvand_soul 4703
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -746,6 +840,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - Arvand_soul Arvand_soul 4703
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -759,6 +854,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - Arvand_soul Arvand_soul 4703
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -772,6 +868,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - Arvand_soul Arvand_soul 4703
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -785,6 +882,7 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
+  - Arvand_soul Arvand_soul 4703
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -796,8 +894,9 @@ proxy-groups:
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - hi_proxy_iran 5295
-  - Config0plus
+  - Arvand_soul Arvand_soul 4703
+  - V2ray_official 5716
+  - hi_proxy_iran 1720
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -812,8 +911,9 @@ proxy-groups:
   proxies:
   - fallback-link
   - best-link
-  - hi_proxy_iran 5295
-  - Config0plus
+  - Arvand_soul Arvand_soul 4703
+  - V2ray_official 5716
+  - hi_proxy_iran 1720
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -854,8 +954,9 @@ proxy-groups:
 - name: BEST-STABLE
   type: url-test
   proxies:
-  - Config0plus
-  - hi_proxy_iran 5295
+  - Arvand_soul Arvand_soul 4703
+  - V2ray_official 5716
+  - hi_proxy_iran 1720
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -890,11 +991,12 @@ proxy-groups:
 - name: STREAMING-BEST
   type: url-test
   proxies:
-  - STREAM-01 LINK (ID)+PUSATMEDIA
-  - STREAM-02 LINK 10.lowh.net
-  - STREAM-03 LINK bel432 xl
-  - STREAM-04 LINK VLESS-WS-TLS-443-apt50atpprem
-  - STREAM-05 LINK VMess-WS-TLS-443-akuku8
+  - STREAM-01 Arvand_soul Arvand_soul 4703
+  - STREAM-02 LINK (ID)+PUSATMEDIA
+  - STREAM-03 LINK 10.lowh.net
+  - STREAM-04 LINK bel432 xl
+  - STREAM-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - STREAM-06 LINK VMess-WS-TLS-443-akuku8
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -907,11 +1009,12 @@ proxy-groups:
 - name: GAMING-BEST
   type: url-test
   proxies:
-  - GAME-01 LINK (ID)+PUSATMEDIA
-  - GAME-02 LINK 10.lowh.net
-  - GAME-03 LINK bel432 xl
-  - GAME-04 LINK VLESS-WS-TLS-443-apt50atpprem
-  - GAME-05 LINK VMess-WS-TLS-443-akuku8
+  - GAME-01 Arvand_soul Arvand_soul 4703
+  - GAME-02 LINK (ID)+PUSATMEDIA
+  - GAME-03 LINK 10.lowh.net
+  - GAME-04 LINK bel432 xl
+  - GAME-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GAME-06 LINK VMess-WS-TLS-443-akuku8
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -924,7 +1027,7 @@ proxy-groups:
 - name: SOCIAL-BEST
   type: url-test
   proxies:
-  - SOCIAL-01 Config0plus
+  - SOCIAL-01 Arvand_soul Arvand_soul 4703
   - SOCIAL-02 LINK (ID)+PUSATMEDIA
   - SOCIAL-03 LINK 10.lowh.net
   - SOCIAL-04 LINK bel432 xl
@@ -942,11 +1045,12 @@ proxy-groups:
 - name: WORKING-BEST
   type: url-test
   proxies:
-  - WORK-01 LINK (ID)+PUSATMEDIA
-  - WORK-02 LINK 10.lowh.net
-  - WORK-03 LINK bel432 xl
-  - WORK-04 LINK VLESS-WS-TLS-443-apt50atpprem
-  - WORK-05 LINK VMess-WS-TLS-443-akuku8
+  - WORK-01 Arvand_soul Arvand_soul 4703
+  - WORK-02 LINK (ID)+PUSATMEDIA
+  - WORK-03 LINK 10.lowh.net
+  - WORK-04 LINK bel432 xl
+  - WORK-05 LINK VLESS-WS-TLS-443-apt50atpprem
+  - WORK-06 LINK VMess-WS-TLS-443-akuku8
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8
@@ -959,13 +1063,14 @@ proxy-groups:
 - name: GENERAL-BEST
   type: url-test
   proxies:
-  - GEN-01 hi_proxy_iran 5295
-  - GEN-02 Config0plus
-  - GEN-03 LINK (ID)+PUSATMEDIA
-  - GEN-04 LINK 10.lowh.net
-  - GEN-05 LINK bel432 xl
-  - GEN-06 LINK VLESS-WS-TLS-443-apt50atpprem
-  - GEN-07 LINK VMess-WS-TLS-443-akuku8
+  - GEN-01 Arvand_soul Arvand_soul 4703
+  - GEN-02 V2ray_official 5716
+  - GEN-03 hi_proxy_iran 1720
+  - GEN-04 LINK (ID)+PUSATMEDIA
+  - GEN-05 LINK 10.lowh.net
+  - GEN-06 LINK bel432 xl
+  - GEN-07 LINK VLESS-WS-TLS-443-apt50atpprem
+  - GEN-08 LINK VMess-WS-TLS-443-akuku8
   - LINK (ID)+PUSATMEDIA
   - LINK bel432 xl
   - LINK VMess-WS-TLS-443-akuku8

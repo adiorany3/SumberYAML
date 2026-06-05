@@ -34,6 +34,51 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "hi_proxy_iran 2687"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 559ab675-567f-4d61-a742-877bfd51d87c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "zaintest.vuclip.com.cyylr.eu.cc"
+    udp: true
+  - name: "Arvand_soul 2"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cff04824-47a3-4a85-a9df-83af9181f84c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-pdr"
+      headers:
+        Host: "zaintest.vuclip.com.cyylr.eu.cc"
+    udp: true
+  - name: "V2ray_official 7802"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d2992c0d-53cb-489c-85af-5eb80e6d9e79
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "blog.webex.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "blog.webex.com.cyylr.eu.cc"
+    udp: true
   - name: "Arvand_soul 8"
     server: "104.17.3.81"
     port: 443
@@ -48,7 +93,7 @@ proxies:
       headers:
         Host: "cyylr.eu.cc"
     udp: true
-  - name: "V2ray_official 8758"
+  - name: "V2ray_official 2408"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -61,6 +106,20 @@ proxies:
       path: "/in-pdr"
       headers:
         Host: "investors.spotify.com.cyylr.eu.cc"
+    udp: true
+  - name: "VPsave 6355"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "cf3d48cf-750c-4f18-89a7-f81d2e153fbe"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "blog.webex.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "blog.webex.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

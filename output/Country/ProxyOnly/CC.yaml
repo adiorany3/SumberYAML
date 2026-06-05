@@ -1,4 +1,19 @@
 proxies:
+  - name: "ProxyVPN11 8454"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
   - name: "72 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
@@ -29,7 +44,22 @@ proxies:
       headers:
         Host: "zaintest.vuclip.com.cyylr.eu.cc"
     udp: true
-  - name: "v2reya88 5288"
+  - name: "v2reya88 4232"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "v2reya88 2806"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -44,7 +74,7 @@ proxies:
       headers:
         Host: "blog.webex.com.cyylr.eu.cc"
     udp: true
-  - name: "v2reya88 8008"
+  - name: "v2reya88 3253"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -59,7 +89,7 @@ proxies:
       headers:
         Host: "cdn.opensignal.com.cyylr.eu.cc"
     udp: true
-  - name: "chillguy_vpn 1410"
+  - name: "chillguy_vpn 6046"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -89,7 +119,7 @@ proxies:
       headers:
         Host: "zaintest.vuclip.com.cyylr.eu.cc"
     udp: true
-  - name: "VPNine1 7746"
+  - name: "VPNine1 9088"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -104,7 +134,7 @@ proxies:
       headers:
         Host: "ads.ruangguru.com.cyylr.eu.cc"
     udp: true
-  - name: "chillguy_vpn 2291"
+  - name: "chillguy_vpn 6361"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -118,6 +148,20 @@ proxies:
       path: "/ae-bo"
       headers:
         Host: "ads.ruangguru.com.cyylr.eu.cc"
+    udp: true
+  - name: "80 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "aa710f78-eddb-45b4-bd32-1f8692a754e5"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "s.blibli.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "s.blibli.com.cyylr.eu.cc"
     udp: true
   - name: "40 oneclickvpnkeys"
     server: "104.17.3.81"

@@ -1,17 +1,16 @@
 proxies:
-  - name: "GOLD_VPN_IR"
-    type: vmess
+  - name: "filembad 3662"
     server: "104.17.3.81"
     port: 443
-    uuid: 78bb6c0b-a773-40d1-8bc6-55331bd49138
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: 52eeaa5b-4a21-48de-a723-1fb68588f7d9
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: "MciNnnnew.dr-ping.ir"
     network: ws
+    servername: "amtal4.soltankabos.ir"
     ws-opts:
-      path: "/DrPing_channel"
+      path: "/ws?ed=2560"
       headers:
-        Host: "MciNnnnew.dr-ping.ir"
+        Host: "amtal4.soltankabos.ir"
     udp: true
