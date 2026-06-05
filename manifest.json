@@ -1,29 +1,30 @@
 {
-  "name": "SumberYAML Manual Input Fallback Safe Patch",
-  "version": "2026-06-05-manual-fallback-safe",
-  "purpose": "Inject direct proxy nodes from input/links.txt/input.txt into every processed OpenClash YAML output without alive filtering, then build a dedicated manual fallback group.",
+  "name": "SumberYAML SS/SSR 104.17.3.81 fallback patch",
+  "version": "2026-06-06.1",
+  "mode": "openclash-safe-satset-manual-extra-ss-ssr-104",
   "files": [
     "scripts/apply_openclash_responsive_stability.py",
     ".github/workflows/update-openclash.yml",
-    "README_MANUAL_FALLBACK_SAFE_PATCH.md",
+    "README_SS_SSR_104_FALLBACK_PATCH.md",
     "install_patch.sh"
   ],
-  "manual_accounts_policy": {
-    "input_files": ["input/links.txt", "input.txt", "links.txt"],
-    "filtering": false,
-    "alive_testing_for_removal": false,
-    "quarantine": false,
-    "removal_by_sanitizer": false,
-    "insertion_order": "same order as input file, placed at top of proxies section",
-    "fallback_groups": ["MANUAL-FALLBACK", "MANUAL-LINK", "MANUAL-BEST", "fallback-link", "best-link"],
-    "unparsable_policy": "reported but not forced into YAML, because invalid proxy objects make OpenClash fail to run"
+  "features": [
+    "Inject trusted direct proxy accounts from input/links.txt, input.txt, and links.txt into every output YAML",
+    "Scan extra source/cache paths for raw ss:// and ssr:// links",
+    "Force server field for SS/SSR proxies to 104.17.3.81 by default",
+    "Create manual fallback groups MANUAL-LINK, MANUAL-FALLBACK, and MANUAL-BEST",
+    "Prioritize manual/extra-source fallback groups in main selector groups",
+    "Avoid OpenClash risky fields: proxy-group timeout/lazy, root tcp-concurrent/unified-delay by default"
+  ],
+  "defaults": {
+    "SS_SSR_SERVER_OVERRIDE": "104.17.3.81",
+    "DISABLE_EXTRA_SS_SSR_SCAN": "false",
+    "EXTRA_SS_SSR_SOURCE_PATHS": "input,sources,source,subs,sub,subscription,subscriptions,raw,data,output/Cache/sources,output/Raw,output/Sources,output/Subs"
   },
-  "compatibility": {
-    "removed_risky_root_keys_by_default": ["unified-delay", "tcp-concurrent"],
-    "removed_risky_proxy_group_keys_by_default": ["lazy", "timeout"],
-    "dns_forced": false,
-    "fast_interval_seconds": 60,
-    "fast_fallback_interval_seconds": 60,
-    "fast_tolerance": 20
-  }
+  "manual_account_policy": "Manual/trusted input links are not tested, filtered, quarantined, removed, or deleted by this patch. SS/SSR server override only rewrites the server field when requested/defaulted.",
+  "compatibility_notes": [
+    "Only valid direct proxy URIs can be inserted into proxies.",
+    "HTTP/HTTPS subscription URLs are not inserted directly into proxies.",
+    "If an SS/SSR node cannot actually work through 104.17.3.81, YAML remains valid but the node may fail at runtime."
+  ]
 }
