@@ -34,7 +34,37 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "V2ray_official 2918"
+  - name: "ProxyVPN11"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 144847c2-6a94-4e0d-ad80-8779d7e083f1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "edu.ruangguru.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "edu.ruangguru.com.cyylr.eu.cc"
+    udp: true
+  - name: "NETMelliAnti"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1b730662-586f-486f-8b7b-60a93d804175
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "graph.instagram.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
+  - name: "V2ray_official"
     server: "104.17.3.81"
     port: 443
     type: vless

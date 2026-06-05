@@ -34,7 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "Arvand_soul Arvand_soul 5217"
+  - name: "Arvand_soul 4"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0e9dd08d-e341-4c5d-b116-923842f5a9f9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "web.whatsapp.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "web.whatsapp.com.cyylr.eu.cc"
+    udp: true
+  - name: "Arvand_soul Arvand_soul"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,20 +63,6 @@ proxies:
       path: "/sg-amz"
       headers:
         Host: "investors.spotify.com.cyylr.eu.cc"
-    udp: true
-  - name: "V2ray_official 2468"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "Config0plus"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "unnes.ac.id.cyylr.eu.cc"
-    ws-opts:
-      path: "/sg-melbi"
-      headers:
-        Host: "unnes.ac.id.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

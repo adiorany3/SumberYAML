@@ -34,50 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA 49657 Telegram t.me SOSkeyNET"
+  - name: "CA 49654 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 5dc15e15-f285-4a9d-959b-0e4fbdd77b63
+    uuid: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "powered-by-surena.user68f797c2f3e1b.workers.dev"
+    servername: "nuclear.us.kg"
     ws-opts:
-      path: "/"
+      path: "/free/103.101.153.32:443"
       headers:
-        Host: "powered-by-surena.user68f797c2f3e1b.workers.dev"
-    udp: true
-  - name: "CA 49446 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 3c0c1705-f83f-4f4e-8f4a-d7cf9d015254
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "space.byu.id.cyylr.eu.cc"
-    ws-opts:
-      path: "/sg-amz"
-      headers:
-        Host: "space.byu.id.cyylr.eu.cc"
-    udp: true
-  - name: "CA 49424 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: f6860c67-5613-43f7-b549-221d9d27cb3c
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "gemini.naypaing.shop"
-    ws-opts:
-      path: "/vip"
-      headers:
-        Host: "gemini.naypaing.shop"
+        Host: "nuclear.us.kg"
     udp: true
   - name: "CA 49648 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
@@ -106,34 +76,6 @@ proxies:
       path: "/images"
       headers:
         Host: "q6clkp794liy3y90.hktimecsgo.xyz"
-    udp: true
-  - name: "CA 49661 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.gossipglove.com"
-    udp: true
-  - name: "CA 49617 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "mcchtrzh2xxcvg1e"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "na.mobailerayan.ir"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "na.mobailerayan.ir"
     udp: true
 
 proxy-groups:
