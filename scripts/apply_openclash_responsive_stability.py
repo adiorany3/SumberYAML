@@ -10,10 +10,10 @@ What it does:
 - keeps compatible manual/trusted accounts intact;
 - injects direct vmess/vless/trojan nodes from input/links.txt/input.txt into every output YAML;
 - intentionally skips ss:// and ssr:// links because they can break some OpenClash cores;
-- can force every trusted manual input node server to a CDN/IP host such as 104.17.3.81;
+- can force compatible trusted manual input node servers to a CDN/IP host such as 104.17.3.81 only when the transport is CDN-safe;
 - removes existing ss/ssr proxy objects and cleans group references by default;
 - never tests, quarantines, or removes compatible manual/trusted input accounts;
-- builds safe MANUAL-FALLBACK / SAT-SET / ANTI-BENGONG / BEST-STABLE groups;
+- builds safe MANUAL-FALLBACK / SMART-BEST / SAT-SET / ANTI-BENGONG / BEST-STABLE groups and output/manual_only.yaml;
 - uses only broadly compatible proxy-group keys;
 - repairs risky keys from the previous turbo/no-delay patch.
 """
@@ -51,6 +51,7 @@ DEFAULT_OUTPUT_FILES = [
     "output/general.yaml",
     "output/openclash-ready.yaml",
     "output/openclash-lite-ready.yaml",
+    "output/manual_only.yaml",
     "output/Performance/performance-lite.yaml",
 ]
 
@@ -93,11 +94,15 @@ DROP_PROXY_TYPES = "ss,ssr"
 # their server field rewritten. This patch rewrites only compatible OpenClash
 # node types by default and skips ss/ssr links entirely.
 MANUAL_SERVER_OVERRIDE = "104.17.3.81"
-MANUAL_SERVER_OVERRIDE_TYPES = "all"
+MANUAL_SERVER_OVERRIDE_TYPES = "cdn-compatible"
 
 MANUAL_GROUP_SELECT = "MANUAL-LINK"
 MANUAL_GROUP_FALLBACK = "MANUAL-FALLBACK"
 MANUAL_GROUP_URLTEST = "MANUAL-BEST"
+SMART_GROUP_BEST = "SMART-BEST"
+MANUAL_ONLY_OUTPUT = "output/manual_only.yaml"
+NODE_SCORE_CACHE = "cache/node_score.json"
+TEXT_REPORT = "output/report.txt"
 MANUAL_PROXY_PREFIX = "MANUAL-LINK"
 
 CANDIDATE_SCORE_FILES = [
@@ -600,12 +605,45 @@ def apply_ss_ssr_server_override_to_proxy(proxy: Dict[str, Any], server_override
     return True
 
 
+def proxy_transport(proxy: Dict[str, Any]) -> str:
+    network = str(proxy.get("network") or "").strip().lower()
+    if network:
+        return network
+    if proxy.get("ws-opts"):
+        return "ws"
+    if proxy.get("grpc-opts"):
+        return "grpc"
+    if proxy.get("h2-opts"):
+        return "h2"
+    if proxy.get("http-opts"):
+        return "http"
+    return "tcp"
+
+
+def is_cdn_compatible_proxy(proxy: Dict[str, Any]) -> bool:
+    """Return True only for node shapes that are usually safe behind a CDN IP.
+
+    The goal is to avoid breaking OpenClash by forcing 104.17.3.81 on nodes
+    that need their original upstream server, especially VLESS Reality and raw
+    TCP/TLS nodes.
+    """
+    ptype = str(proxy.get("type") or "").strip().lower()
+    if ptype not in {"vmess", "vless", "trojan"}:
+        return False
+    if proxy.get("reality-opts"):
+        return False
+    transport = proxy_transport(proxy)
+    return transport in {"ws", "grpc", "h2", "http"}
+
+
 def type_allowed_for_manual_server_override(proxy: Dict[str, Any], allowed_types: Set[str]) -> bool:
     if not allowed_types:
         return False
     ptype = str(proxy.get("type") or "").strip().lower()
     if not ptype or "server" not in proxy:
         return False
+    if "cdn-compatible" in allowed_types or "cdn" in allowed_types or "cdn-only" in allowed_types:
+        return is_cdn_compatible_proxy(proxy)
     if "all" in allowed_types or "*" in allowed_types:
         return True
     return ptype in allowed_types
@@ -967,6 +1005,115 @@ def read_csv_ranked_names(path: Path) -> List[str]:
         return []
 
 
+def read_delay_map(root: Path) -> Dict[str, float]:
+    delays: Dict[str, float] = {}
+    for rel in CANDIDATE_SCORE_FILES:
+        path = root / rel
+        if not path.exists():
+            continue
+        try:
+            with path.open("r", encoding="utf-8", errors="replace", newline="") as fh:
+                reader = csv.DictReader(fh)
+                for row in reader:
+                    name = str(row.get("name") or row.get("proxy") or row.get("tag") or "").strip()
+                    if not name:
+                        continue
+                    delay = parse_delay_ms(row)
+                    if delay is None:
+                        continue
+                    old = delays.get(name)
+                    if old is None or delay < old:
+                        delays[name] = float(delay)
+        except Exception:
+            continue
+    return delays
+
+
+def smart_ranked_candidates(
+    root: Path,
+    proxy_names: Sequence[str],
+    manual_names: Sequence[str],
+    limit: int,
+) -> List[str]:
+    proxy_set = set(proxy_names)
+    manual_set = set(manual_names)
+    delays = read_delay_map(root)
+    previous: Dict[str, Any] = {}
+    cache_path = root / NODE_SCORE_CACHE
+    if cache_path.exists():
+        try:
+            loaded = json.loads(cache_path.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                previous = loaded.get("nodes") if isinstance(loaded.get("nodes"), dict) else loaded
+        except Exception:
+            previous = {}
+
+    ranked: List[Tuple[float, int, str]] = []
+    for order, name in enumerate(proxy_names):
+        if name not in proxy_set:
+            continue
+        score = 0.0
+        if name in manual_set:
+            score -= 100000.0
+        delay = delays.get(name)
+        score += delay if delay is not None else 5000.0
+        item = previous.get(name) if isinstance(previous, dict) else None
+        if isinstance(item, dict):
+            try:
+                score -= float(item.get("success", 0)) * 10.0
+                score += float(item.get("fail", 0)) * 100.0
+            except Exception:
+                pass
+        ranked.append((score, order, name))
+    ranked.sort(key=lambda item: (item[0], item[1]))
+    return unique_keep_order(name for _, _, name in ranked)[: max(1, int(limit))]
+
+
+def write_node_score_cache(root: Path, summary: Dict[str, Any]) -> Optional[str]:
+    cache_path = root / NODE_SCORE_CACHE
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    delays = read_delay_map(root)
+    seen_names: Set[str] = set()
+    for result in summary.get("results") or []:
+        if not isinstance(result, dict) or not result.get("ok"):
+            continue
+        path = root / str(result.get("file") or "")
+        if not path.exists():
+            continue
+        try:
+            data = read_yaml(path)
+        except Exception:
+            continue
+        for name in get_proxy_names(data):
+            seen_names.add(name)
+    now = datetime.now(timezone.utc).isoformat()
+    nodes: Dict[str, Any] = {}
+    old_path = cache_path
+    if old_path.exists():
+        try:
+            old = json.loads(old_path.read_text(encoding="utf-8"))
+            old_nodes = old.get("nodes", {}) if isinstance(old, dict) else {}
+            if isinstance(old_nodes, dict):
+                nodes.update(old_nodes)
+        except Exception:
+            pass
+    for name in sorted(seen_names):
+        current = nodes.get(name) if isinstance(nodes.get(name), dict) else {}
+        current["last_seen"] = now
+        current["avg_delay"] = delays.get(name, current.get("avg_delay"))
+        current["manual"] = is_manual_name(name)
+        current.setdefault("success", 0)
+        current.setdefault("fail", 0)
+        nodes[name] = current
+    payload = {
+        "generated_at": now,
+        "policy": "manual first, historical failure penalty, delay-based smart ranking when CSV telemetry exists",
+        "nodes": nodes,
+    }
+    cache_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    return str(cache_path.relative_to(root))
+
+
 def stable_candidates(root: Path, proxy_set: Set[str], manual_set: Set[str], limit: int) -> List[str]:
     names: List[str] = []
     for rel in CANDIDATE_SCORE_FILES:
@@ -1146,9 +1293,15 @@ def add_responsive_groups(data: Dict[str, Any], root: Path, path: Path, args: ar
     if not stable:
         stable = proxy_names[: args.max_stable]
 
-    combined = unique_keep_order(stable + manual_names + non_manual[: args.max_combined] + proxy_names[: args.max_combined])
+    smart = smart_ranked_candidates(root, proxy_names, manual_names, args.max_combined)
+    combined = unique_keep_order(manual_names + smart + stable + non_manual[: args.max_combined] + proxy_names[: args.max_combined])
     actions: List[str] = []
     counts: Dict[str, int] = {}
+
+    if smart:
+        action, count = upsert_group(data, build_urltest_group(SMART_GROUP_BEST, smart, tuning))
+        actions.append(f"{action}:{SMART_GROUP_BEST}")
+        counts[SMART_GROUP_BEST] = count
 
     if combined:
         action, count = upsert_group(data, build_fallback_group("SAT-SET", combined, tuning))
@@ -1181,6 +1334,7 @@ def add_responsive_groups(data: Dict[str, Any], root: Path, path: Path, args: ar
         MANUAL_GROUP_FALLBACK,
         MANUAL_GROUP_SELECT,
         MANUAL_GROUP_URLTEST,
+        SMART_GROUP_BEST,
         "SAT-SET",
         "ANTI-BENGONG",
         "BEST-STABLE",
@@ -1207,7 +1361,7 @@ def add_responsive_groups(data: Dict[str, Any], root: Path, path: Path, args: ar
         if str(group.get("type") or "").lower() in {"select", "selector"}:
             if put_refs_front(
                 group,
-                [MANUAL_GROUP_FALLBACK, MANUAL_GROUP_SELECT, "SAT-SET", "ANTI-BENGONG", "BEST-STABLE", "DIRECT"],
+                [MANUAL_GROUP_FALLBACK, MANUAL_GROUP_SELECT, SMART_GROUP_BEST, "SAT-SET", "ANTI-BENGONG", "BEST-STABLE", "DIRECT"],
                 data,
                 proxy_names,
             ):
@@ -1222,6 +1376,7 @@ def add_responsive_groups(data: Dict[str, Any], root: Path, path: Path, args: ar
         "proxy_count": len(proxy_names),
         "manual_count": len(manual_names),
         "stable_count": len(stable),
+        "smart_count": len(smart),
     }
 
 
@@ -1254,6 +1409,106 @@ def ensure_safe_rules(data: Dict[str, Any], main_group: str, add_lan_direct: boo
             repaired.append(rule)
     data["rules"] = unique_keep_order(repaired)
     return stats
+
+
+def validate_openclash_data(data: Dict[str, Any], drop_types: Set[str]) -> Dict[str, Any]:
+    errors: List[str] = []
+    warnings: List[str] = []
+    proxies = data.get("proxies") or []
+    groups = data.get("proxy-groups") or []
+    if not isinstance(proxies, list) or not proxies:
+        errors.append("proxies is empty or missing")
+        proxies = []
+    if not isinstance(groups, list) or not groups:
+        errors.append("proxy-groups is empty or missing")
+        groups = []
+
+    names: List[str] = []
+    for idx, proxy in enumerate(proxies):
+        if not isinstance(proxy, dict):
+            errors.append(f"proxy index {idx} is not a mapping")
+            continue
+        name = str(proxy.get("name") or "").strip()
+        ptype = str(proxy.get("type") or "").strip().lower()
+        if not name:
+            errors.append(f"proxy index {idx} has no name")
+        else:
+            names.append(name)
+        if ptype in drop_types:
+            errors.append(f"blocked proxy type still exists: {name or idx} type={ptype}")
+        if not proxy.get("server") and ptype not in {"direct", "reject"}:
+            warnings.append(f"proxy has no server: {name or idx}")
+    duplicates = sorted({name for name in names if names.count(name) > 1})
+    for name in duplicates:
+        errors.append(f"duplicate proxy name: {name}")
+
+    proxy_set = set(names)
+    group_names = {str(g.get("name") or "").strip() for g in groups if isinstance(g, dict) and str(g.get("name") or "").strip()}
+    allowed = proxy_set | group_names | SPECIAL_REFS
+    for idx, group in enumerate(groups):
+        if not isinstance(group, dict):
+            errors.append(f"proxy-group index {idx} is not a mapping")
+            continue
+        gname = str(group.get("name") or "").strip()
+        gtype = str(group.get("type") or "").strip().lower()
+        if not gname:
+            errors.append(f"proxy-group index {idx} has no name")
+        if gtype not in {"select", "url-test", "fallback", "load-balance", "relay"}:
+            warnings.append(f"uncommon proxy-group type: {gname} type={gtype}")
+        refs = group.get("proxies") or []
+        if not isinstance(refs, list) or not refs:
+            errors.append(f"proxy-group has no proxies: {gname or idx}")
+            continue
+        for ref in refs:
+            value = str(ref).strip()
+            if value == gname:
+                errors.append(f"proxy-group self reference: {gname}")
+            if value not in allowed:
+                errors.append(f"unknown proxy-group reference: {gname} -> {value}")
+        for key in RISKY_GROUP_KEYS:
+            if key in group:
+                errors.append(f"risky group key still exists: {gname}.{key}")
+    for key in RISKY_ROOT_KEYS:
+        if key in data:
+            errors.append(f"risky root key still exists: {key}")
+    return {"ok": not errors, "errors": errors, "warnings": warnings}
+
+
+def write_text_report(root: Path, summary: Dict[str, Any]) -> str:
+    path = root / TEXT_REPORT
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lines: List[str] = []
+    lines.append("SumberYAML Smart Safe Generator Report")
+    lines.append(f"Generated at UTC: {summary.get('generated_at', '')}")
+    lines.append(f"Mode: {summary.get('mode', '')}")
+    lines.append(f"Files processed: {summary.get('files_processed', 0)}")
+    lines.append(f"Manual templates loaded: {summary.get('manual_input_templates_loaded', 0)}")
+    lines.append(f"Manual skipped/unparsable: {len(summary.get('manual_input_skipped_unparsable') or [])}")
+    lines.append(f"Manual server override: {summary.get('manual_server_override', '')}")
+    lines.append(f"Manual server override policy/types: {', '.join(summary.get('manual_server_override_types') or [])}")
+    lines.append(f"Blocked proxy types: {', '.join(summary.get('drop_proxy_types') or [])}")
+    lines.append("")
+    lines.append("Generated/processed outputs:")
+    for result in summary.get("results") or []:
+        if not isinstance(result, dict):
+            continue
+        status = "OK" if result.get("ok") else "FAILED"
+        validation = result.get("validation") or {}
+        lines.append(
+            f"- {status} {result.get('file')} | proxies={result.get('proxy_count', 0)} | "
+            f"manual={result.get('manual_count', 0)} | smart={result.get('smart_count', 0)} | "
+            f"errors={len(validation.get('errors') or [])} | warnings={len(validation.get('warnings') or [])}"
+        )
+        if result.get("reason"):
+            lines.append(f"  reason: {result.get('reason')}")
+    lines.append("")
+    lines.append("Policy notes:")
+    lines.append("- ss/ssr links and proxy objects are removed for OpenClash compatibility.")
+    lines.append("- server=104.17.3.81 is applied only to compatible manual vmess/vless/trojan nodes with CDN transport ws/grpc/h2/http.")
+    lines.append("- manual_only.yaml contains only compatible trusted manual nodes from input/links.txt/input.txt/links.txt.")
+    lines.append("- SMART-BEST uses telemetry CSVs and cache/node_score.json when available; it does not perform destructive filtering.")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return str(path.relative_to(root))
 
 
 def backup_file(path: Path, root: Path, backup_dir: Path) -> Optional[str]:
@@ -1307,6 +1562,17 @@ def apply_to_file(path: Path, root: Path, args: argparse.Namespace, backup_dir: 
 
     ref_stats = sanitize_group_proxies(data, proxy_names)
     rule_stats = ensure_safe_rules(data, str(info.get("main_group") or "PROXY"), args.add_lan_direct)
+    validation = validate_openclash_data(data, args.drop_proxy_types)
+    if not validation.get("ok"):
+        if backup_rel:
+            shutil.copy2(root / backup_rel, path)
+        return {
+            "file": str(path.relative_to(root)),
+            "ok": False,
+            "reason": "smart-safe validation failed before write",
+            "validation": validation,
+            "backup": backup_rel,
+        }
 
     try:
         write_yaml(path, data)
@@ -1334,6 +1600,79 @@ def apply_to_file(path: Path, root: Path, args: argparse.Namespace, backup_dir: 
         "manual_server_override": manual_override_stats,
         "dropped_proxy_types": drop_type_stats,
         "ss_ssr_server_override": ss_ssr_override_stats,
+        "validation": validation,
+        **info,
+    }
+
+
+def create_manual_only_output(
+    root: Path,
+    args: argparse.Namespace,
+    backup_dir: Path,
+    manual_templates: Sequence[Dict[str, Any]],
+) -> Optional[Dict[str, Any]]:
+    if not manual_templates:
+        return {"file": MANUAL_ONLY_OUTPUT, "ok": False, "reason": "no compatible manual proxy templates loaded"}
+    path = root / MANUAL_ONLY_OUTPUT
+    backup_rel = backup_file(path, root, backup_dir) if path.exists() else None
+    tuning = Tuning(
+        interval=max(60, int(args.fast_interval)),
+        fallback_interval=max(60, int(args.fast_fallback_interval)),
+        tolerance=max(0, int(args.fast_tolerance)),
+    )
+    data: Dict[str, Any] = {
+        "mixed-port": 7890,
+        "allow-lan": True,
+        "mode": "rule",
+        "log-level": "info",
+        "proxies": [],
+        "proxy-groups": [],
+        "rules": [
+            "DOMAIN-SUFFIX,local,DIRECT",
+            "IP-CIDR,127.0.0.0/8,DIRECT,no-resolve",
+            "IP-CIDR,10.0.0.0/8,DIRECT,no-resolve",
+            "IP-CIDR,172.16.0.0/12,DIRECT,no-resolve",
+            "IP-CIDR,192.168.0.0/16,DIRECT,no-resolve",
+            f"MATCH,{MANUAL_GROUP_FALLBACK}",
+        ],
+    }
+    manual_injection = inject_manual_input_proxies(data, manual_templates, tuning)
+    drop_type_stats = drop_proxy_types_from_data(data, args.drop_proxy_types)
+    proxy_names = get_proxy_names(data)
+    if not proxy_names:
+        return {"file": MANUAL_ONLY_OUTPUT, "ok": False, "reason": "manual_only has no proxies after filtering"}
+    info = add_responsive_groups(data, root, path, args, tuning)
+    for group in get_groups(data):
+        sanitize_group_keys(group, tuning)
+    ref_stats = sanitize_group_proxies(data, get_proxy_names(data))
+    validation = validate_openclash_data(data, args.drop_proxy_types)
+    if not validation.get("ok"):
+        return {
+            "file": MANUAL_ONLY_OUTPUT,
+            "ok": False,
+            "reason": "manual_only validation failed before write",
+            "validation": validation,
+            "backup": backup_rel,
+        }
+    try:
+        write_yaml(path, data)
+        read_yaml(path)
+    except Exception as exc:
+        if backup_rel:
+            shutil.copy2(root / backup_rel, path)
+        return {"file": MANUAL_ONLY_OUTPUT, "ok": False, "reason": f"manual_only write failed: {exc}", "backup": backup_rel}
+    return {
+        "file": MANUAL_ONLY_OUTPUT,
+        "ok": True,
+        "backup": backup_rel,
+        "manual_only": True,
+        "proxy_count": len(get_proxy_names(data)),
+        "manual_count": len([name for name in get_proxy_names(data) if is_manual_name(name)]),
+        "manual_injection": manual_injection,
+        "dropped_proxy_types": drop_type_stats,
+        "reference_repair": ref_stats,
+        "validation": validation,
+        "tuning": {"interval": tuning.interval, "fallback_interval": tuning.fallback_interval, "tolerance": tuning.tolerance},
         **info,
     }
 
@@ -1342,7 +1681,8 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Apply safe responsive OpenClash groups without breaking older OpenClash cores.")
     parser.add_argument("--root", default=".", help="Repository root")
     parser.add_argument("--files", nargs="*", default=DEFAULT_OUTPUT_FILES, help="YAML files to update")
-    parser.add_argument("--report", default="output/Validation/summary_openclash_safe_satset.json")
+    parser.add_argument("--report", default="output/Validation/smart_safe_report.json")
+    parser.add_argument("--manual-only-output", action=argparse.BooleanOptionalAction, default=env_bool("SMART_SAFE_MANUAL_ONLY", True), help="Create output/manual_only.yaml from compatible trusted manual nodes only")
     parser.add_argument(
         "--manual-input-files",
         default=os.getenv("MANUAL_INPUT_FILES", ",".join(MANUAL_INPUT_FILES)),
@@ -1371,7 +1711,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--manual-server-override-types",
         default=os.getenv("MANUAL_SERVER_OVERRIDE_TYPES", MANUAL_SERVER_OVERRIDE_TYPES),
-        help="Comma-separated proxy types to rewrite for manual input nodes, for example all or vmess,vless,trojan,ss,ssr.",
+        help="Comma-separated proxy types/policies to rewrite for manual input nodes. Default cdn-compatible rewrites only vmess/vless/trojan using ws/grpc/h2/http and skips Reality/raw TCP.",
     )
     parser.add_argument(
         "--no-extra-ss-ssr-scan",
@@ -1460,17 +1800,25 @@ def main() -> int:
 
     results: List[Dict[str, Any]] = []
     for rel in args.files:
+        # manual_only.yaml is generated from scratch after normal files.
+        if str(rel).replace("\\", "/") == MANUAL_ONLY_OUTPUT:
+            continue
         result = apply_to_file(root / rel, root, args, backup_dir, combined_templates)
         if result is not None:
             results.append(result)
+    if args.manual_only_output:
+        manual_only_result = create_manual_only_output(root, args, backup_dir, combined_templates)
+        if manual_only_result is not None:
+            results.append(manual_only_result)
 
     summary = {
         "ok": all(item.get("ok") for item in results) if results else False,
+        "generated_at": datetime.now(timezone.utc).isoformat(),
         "generated_by": "apply_openclash_responsive_stability.py",
-        "mode": "safe-satset-no-ss-ssr-input-links-server-104",
+        "mode": "smart-safe-generator-manual-only-cdn-104",
         "files_processed": len(results),
         "backup_dir": str(backup_dir.relative_to(root)) if backup_dir.exists() else None,
-        "trusted_manual_policy": "Compatible direct proxy links from input/links.txt/input.txt/links.txt are injected into every processed output YAML when they can be converted into valid Clash proxy objects. ss:// and ssr:// links are intentionally skipped/removed for OpenClash compatibility.",
+        "trusted_manual_policy": "Compatible vmess/vless/trojan direct proxy links from input/links.txt/input.txt/links.txt are injected into every processed output YAML and manual_only.yaml when they can be converted into valid Clash proxy objects. ss:// and ssr:// links are intentionally skipped/removed for OpenClash compatibility.",
         "manual_input_files": args.manual_input_files,
         "manual_input_templates_loaded": len(manual_templates),
         "manual_server_override": args.manual_server_override,
@@ -1486,20 +1834,27 @@ def main() -> int:
         "extra_ss_ssr_skipped_unparsable": extra_skipped,
         "ss_ssr_server_override": "disabled; ss/ssr removed",
         "total_injected_templates_loaded": len(combined_templates),
-        "manual_input_groups": [MANUAL_GROUP_SELECT, MANUAL_GROUP_FALLBACK, MANUAL_GROUP_URLTEST, "fallback-link", "best-link"],
+        "manual_input_groups": [MANUAL_GROUP_SELECT, MANUAL_GROUP_FALLBACK, MANUAL_GROUP_URLTEST, SMART_GROUP_BEST, "fallback-link", "best-link"],
         "compatibility_policy": {
             "root_meta_options_removed_by_default": RISKY_ROOT_KEYS,
             "group_fields_removed_by_default": RISKY_GROUP_KEYS,
             "dns_not_forced": True,
             "zero_delay_not_possible": "OpenClash still needs health-check and fallback intervals; this patch uses safer fast intervals instead of invalid zero-delay settings.",
-            "manual_server_override": "For compatible trusted direct proxy nodes from input/links.txt/input.txt/links.txt, only the server field is rewritten. Port, UUID, password, TLS/SNI, WS Host, and transport settings are preserved.",
+            "manual_server_override": "For compatible trusted direct proxy nodes from input/links.txt/input.txt/links.txt, only the server field is rewritten when policy/type allows it. Default policy cdn-compatible only rewrites vmess/vless/trojan using ws/grpc/h2/http and skips Reality/raw TCP. Port, UUID, password, TLS/SNI, WS Host, and transport settings are preserved.",
             "ss_ssr_policy": "ss and ssr proxy types are skipped from manual input, not imported from extra sources, removed from existing output, and removed from proxy-group references.",
         },
         "results": results,
     }
+    node_score_cache = write_node_score_cache(root, summary)
+    summary["node_score_cache"] = node_score_cache
+    text_report = write_text_report(root, summary)
+    summary["text_report"] = text_report
     report_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print(f"OpenClash safe sat-set report: {report_path}")
+    print(f"OpenClash smart-safe report: {report_path}")
+    print(f"Text report: {root / text_report}")
+    if node_score_cache:
+        print(f"Node score cache: {root / node_score_cache}")
     for item in results:
         status = "OK" if item.get("ok") else "SKIP"
         tuning = item.get("tuning") or {}
@@ -1511,6 +1866,7 @@ def main() -> int:
             f"manual104={(item.get('manual_server_override') or {}).get('changed', 0)} "
             f"drop_ssr={(item.get('dropped_proxy_types') or {}).get('removed', 0)} "
             f"stable={item.get('stable_count', 0)} "
+            f"smart={item.get('smart_count', 0)} "
             f"interval={tuning.get('interval', '-')} "
             f"fallback={tuning.get('fallback_interval', '-')}"
         )

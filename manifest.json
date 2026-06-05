@@ -1,21 +1,25 @@
 {
-  "name": "SumberYAML No SS/SSR OpenClash Safe Patch",
-  "version": "2026-06-06-no-ss-ssr-openclash-safe",
+  "name": "SumberYAML Smart Safe Generator Patch",
+  "version": "2026-06-06-smart-safe-generator",
   "files": [
     "scripts/apply_openclash_responsive_stability.py",
+    "scripts/validate_openclash_outputs.py",
     ".github/workflows/update-openclash.yml",
-    "README_NO_SS_SSR_OPENCLASH_SAFE_PATCH.md",
+    "README_SMART_SAFE_GENERATOR_PATCH.md",
     "install_patch.sh",
     "manifest.json"
   ],
   "behavior": {
     "manual_input_files": ["input/links.txt", "input.txt", "links.txt"],
+    "manual_only_output": "output/manual_only.yaml",
+    "node_score_cache": "cache/node_score.json",
+    "text_report": "output/report.txt",
+    "json_report": "output/Validation/smart_safe_report.json",
     "manual_server_override": "104.17.3.81",
-    "manual_server_override_types": "all_except_dropped_ss_ssr",
+    "manual_server_override_policy": "cdn-compatible only: vmess/vless/trojan with ws/grpc/h2/http; skip reality/raw tcp",
     "drop_proxy_types": ["ss", "ssr"],
-    "disable_extra_ss_ssr_scan": true,
-    "ss_ssr_links_are_not_imported": true,
-    "existing_ss_ssr_proxy_objects_are_removed": true,
-    "openclash_safe_mode": true
+    "openclash_safe_mode": true,
+    "risky_group_keys_removed": ["timeout", "lazy"],
+    "risky_root_keys_removed_by_default": ["unified-delay", "tcp-concurrent"]
   }
 }

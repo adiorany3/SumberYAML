@@ -1,171 +1,115 @@
-import argparse
-import json
+#!/usr/bin/env python3
+"""Strict but OpenClash-safe YAML validator for SumberYAML outputs."""
+from __future__ import annotations
+
 import sys
 from pathlib import Path
+from typing import Any, Dict, List, Set
 
-try:
-    import yaml
-except Exception as exc:
-    print('ERROR: PyYAML belum terpasang. Jalankan: pip install pyyaml', file=sys.stderr)
-    raise
+import yaml
 
-RESERVED = {'DIRECT', 'REJECT'}
-DEFAULT_FILES = [
-    'output/lengkap.yaml',
-    'output/lengkap_alive.yaml',
-    'output/strict_alive.yaml',
-    'output/lite.yaml',
-    'output/fast.yaml',
-]
+SPECIAL_REFS = {"DIRECT", "REJECT", "PASS", "COMPATIBLE"}
+BLOCKED_TYPES = {"ss", "ssr"}
+RISKY_ROOT_KEYS = {"unified-delay", "tcp-concurrent"}
+RISKY_GROUP_KEYS = {"lazy", "timeout"}
 
 
-def load_yaml(path: Path):
-    try:
-        with path.open('r', encoding='utf-8') as f:
-            data = yaml.safe_load(f)
-    except Exception as exc:
-        return None, [f'YAML parse error: {exc}']
-    if data is None:
-        return {}, []
+def read_yaml(path: Path) -> Dict[str, Any]:
+    data = yaml.safe_load(path.read_text(encoding="utf-8", errors="replace")) or {}
     if not isinstance(data, dict):
-        return data, ['Root YAML harus berupa mapping/object.']
-    return data, []
+        raise ValueError("YAML root is not a mapping")
+    return data
 
 
-def as_list(value):
-    return value if isinstance(value, list) else []
-
-
-def validate_file(path: Path):
-    result = {
-        'file': str(path).replace('\\', '/'),
-        'exists': path.exists(),
-        'ok': False,
-        'proxy_count': 0,
-        'group_count': 0,
-        'errors': [],
-        'warnings': [],
-    }
+def validate_file(path: Path) -> List[str]:
+    errors: List[str] = []
     if not path.exists():
-        result['errors'].append('File tidak ditemukan.')
-        return result
+        return [f"missing file: {path}"]
+    try:
+        data = read_yaml(path)
+    except Exception as exc:
+        return [f"YAML parse failed: {path}: {exc}"]
 
-    data, errors = load_yaml(path)
-    result['errors'].extend(errors)
-    if errors:
-        return result
+    for key in RISKY_ROOT_KEYS:
+        if key in data:
+            errors.append(f"{path}: risky root key still exists: {key}")
 
-    proxies = as_list(data.get('proxies'))
-    groups = as_list(data.get('proxy-groups'))
-    result['proxy_count'] = len(proxies)
-    result['group_count'] = len(groups)
+    proxies = data.get("proxies") or []
+    groups = data.get("proxy-groups") or []
+    if not isinstance(proxies, list) or not proxies:
+        errors.append(f"{path}: proxies is empty/missing")
+        proxies = []
+    if not isinstance(groups, list) or not groups:
+        errors.append(f"{path}: proxy-groups is empty/missing")
+        groups = []
 
-    proxy_names = []
-    duplicate_proxy_names = []
-    seen_proxy_names = set()
-
-    for index, proxy in enumerate(proxies, start=1):
+    proxy_names: List[str] = []
+    for idx, proxy in enumerate(proxies):
         if not isinstance(proxy, dict):
-            result['errors'].append(f'Proxy #{index} bukan object.')
+            errors.append(f"{path}: proxy index {idx} is not a mapping")
             continue
-        name = str(proxy.get('name', '')).strip()
+        name = str(proxy.get("name") or "").strip()
+        ptype = str(proxy.get("type") or "").strip().lower()
         if not name:
-            result['errors'].append(f'Proxy #{index} tidak punya name.')
-            continue
-        if name in RESERVED:
-            result['errors'].append(f'Proxy name tidak boleh memakai reserved item: {name}.')
-        if name in seen_proxy_names:
-            duplicate_proxy_names.append(name)
-        seen_proxy_names.add(name)
-        proxy_names.append(name)
+            errors.append(f"{path}: proxy index {idx} has no name")
+        else:
+            proxy_names.append(name)
+        if ptype in BLOCKED_TYPES:
+            errors.append(f"{path}: blocked proxy type exists: {name or idx} type={ptype}")
+    duplicates = sorted({name for name in proxy_names if proxy_names.count(name) > 1})
+    for name in duplicates:
+        errors.append(f"{path}: duplicate proxy name: {name}")
 
-    if duplicate_proxy_names:
-        result['errors'].append('Nama proxy duplikat: ' + ', '.join(sorted(set(duplicate_proxy_names))[:20]))
-
-    valid_targets = set(proxy_names) | RESERVED
-    group_names = set()
-
-    for index, group in enumerate(groups, start=1):
+    proxy_set: Set[str] = set(proxy_names)
+    group_names = {str(g.get("name") or "").strip() for g in groups if isinstance(g, dict) and str(g.get("name") or "").strip()}
+    allowed = proxy_set | group_names | SPECIAL_REFS
+    for idx, group in enumerate(groups):
         if not isinstance(group, dict):
-            result['errors'].append(f'Proxy group #{index} bukan object.')
+            errors.append(f"{path}: proxy-group index {idx} is not a mapping")
             continue
-
-        group_name = str(group.get('name', '')).strip()
-        group_type = str(group.get('type', '')).strip()
-        entries = as_list(group.get('proxies'))
-
-        if not group_name:
-            result['errors'].append(f'Proxy group #{index} tidak punya name.')
+        gname = str(group.get("name") or "").strip()
+        if not gname:
+            errors.append(f"{path}: proxy-group index {idx} has no name")
+        for key in RISKY_GROUP_KEYS:
+            if key in group:
+                errors.append(f"{path}: risky group key still exists: {gname}.{key}")
+        refs = group.get("proxies") or []
+        if not isinstance(refs, list) or not refs:
+            errors.append(f"{path}: proxy-group has no proxies: {gname or idx}")
             continue
-        if group_name in group_names:
-            result['errors'].append(f'Nama proxy group duplikat: {group_name}.')
-        group_names.add(group_name)
+        for ref in refs:
+            value = str(ref).strip()
+            if value == gname:
+                errors.append(f"{path}: proxy-group self reference: {gname}")
+            if value not in allowed:
+                errors.append(f"{path}: unknown group reference: {gname} -> {value}")
+    return errors
 
-        if not group_type:
-            result['errors'].append(f'Proxy group {group_name} tidak punya type.')
 
-        if not entries:
-            result['errors'].append(f'Proxy group {group_name} kosong.')
+def main(argv: List[str]) -> int:
+    paths = [Path(arg) for arg in argv[1:]]
+    if not paths:
+        paths = [
+            Path("output/lengkap.yaml"),
+            Path("output/lengkap_alive.yaml"),
+            Path("output/strict_alive.yaml"),
+            Path("output/lite.yaml"),
+            Path("output/fast.yaml"),
+            Path("output/manual_only.yaml"),
+        ]
+    errors: List[str] = []
+    for path in paths:
+        if not path.exists():
             continue
-
-        normalized_entries = [str(item).strip() for item in entries if str(item).strip()]
-        if len(normalized_entries) != len(entries):
-            result['errors'].append(f'Proxy group {group_name} memiliki entry kosong.')
-
-        if group_type in {'url-test', 'fallback', 'load-balance'}:
-            reserved_hits = [item for item in normalized_entries if item in RESERVED]
-            if reserved_hits:
-                result['errors'].append(
-                    f'Group {group_name} bertipe {group_type} tidak boleh berisi DIRECT/REJECT.'
-                )
-
-        for item in normalized_entries:
-            if item in RESERVED:
-                continue
-            if item in group_names:
-                # Group reference boleh dipakai di select; group mungkin didefinisikan sebelum/selama iterasi.
-                continue
-            if item not in valid_targets:
-                # Bisa jadi referensi ke group yang belum sampai iterasinya; cek ulang setelah semua group terkumpul.
-                pass
-
-    valid_targets_final = set(proxy_names) | group_names | RESERVED
-    for group in groups:
-        if not isinstance(group, dict):
-            continue
-        group_name = str(group.get('name', '')).strip() or '<unknown>'
-        for item in as_list(group.get('proxies')):
-            item = str(item).strip()
-            if item and item not in valid_targets_final:
-                result['errors'].append(f'Group {group_name} mengarah ke proxy/group yang tidak ada: {item}.')
-
-    result['ok'] = not result['errors']
-    return result
+        errors.extend(validate_file(path))
+    if errors:
+        print("OpenClash YAML validation failed:")
+        for error in errors:
+            print(f"- {error}")
+        return 1
+    print("OpenClash YAML validation OK")
+    return 0
 
 
-def main():
-    parser = argparse.ArgumentParser(description='Validasi output OpenClash YAML.')
-    parser.add_argument('files', nargs='*', default=DEFAULT_FILES)
-    parser.add_argument('--report', default='output/Validation/validation_report.json')
-    args = parser.parse_args()
-
-    reports = [validate_file(Path(item)) for item in args.files]
-    ok = all(item['ok'] for item in reports)
-
-    report_path = Path(args.report)
-    report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(json.dumps({'ok': ok, 'files': reports}, ensure_ascii=False, indent=2), encoding='utf-8')
-
-    for item in reports:
-        status = 'OK' if item['ok'] else 'ERROR'
-        print(f"[{status}] {item['file']} proxies={item['proxy_count']} groups={item['group_count']}")
-        for error in item['errors']:
-            print(f"  - {error}")
-
-    if not ok:
-        print(f'Validation report: {report_path}', file=sys.stderr)
-        raise SystemExit(1)
-
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv))
