@@ -11,9 +11,6 @@ ipv6: false
 keep-alive-idle: 600
 keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
-profile:
-  store-selected: true
-  store-fake-ip: true
 dns:
   enable: true
   ipv6: false
@@ -44,6 +41,178 @@ dns:
   - localhost
   - localhost.*
 proxies:
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #5'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #5'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #5'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #5'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-006 reddit #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #5'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-008 bel432 xl #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-010 bel432 telk #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-011 10.lowh.net #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #3'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
 - name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #5'
   type: vmess
   server: 104.17.3.81
@@ -3183,34 +3352,193 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
+- name: (ID) PT. Telekomunikasi Indonesia 🇮🇩-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  network: ws
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+Amazon.com-2
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: (US)+Google+LLC+🇺🇸-2
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  servername: investors.spotify.com.r3xxe.eu.cc
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: (BR)+Oracle+Corporation+🇧🇷-2
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+PUSATMEDIA-2
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  security: tls
+  servername: unnes.ac.id.ex33r.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: reddit-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-3
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: VMess-WS-TLS-443-akuku8-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: bel432 telk-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 10.lowh.net-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: VLESS-WS-TLS-443-apt50atpprem-2
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  security: tls
+  servername: akamaized.my
+  tls: true
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
 proxy-groups:
-- name: PILIHAN-UTAMA
-  type: select
-  proxies:
-  - AUTO-RESPONSIF
-  - FALLBACK-RESPONSIF
-  - INPUT-VMESS-LB
-  - REDDIT-INPUT
-  - TRAFIK-BANK-MARKET
-  - TRAFIK-SOSMED
-  - TRAFIK-STREAMING
-  - TRAFIK-GAME
-  - TRAFIK-AI
-  - TRAFIK-KERJA
-  - TRAFIK-DOWNLOAD
-  - TRAFIK-UMUM
-  - BYPASS
-  - BLOKIR
 - name: PROXY
   type: select
   proxies:
-  - PILIHAN-UTAMA
-  - AUTO-RESPONSIF
-  - FALLBACK-RESPONSIF
-  - INPUT-VMESS-LB
-  - TRAFIK-UMUM
+  - AUTO
+  - FALLBACK
+  - INPUT-VMESS
+  - REDDIT
+  - SOCIAL-BANK-MARKET
+  - DEFAULT
   - BYPASS
-- name: AUTO-RESPONSIF
+- name: AUTO
   type: url-test
   proxies:
   - (ID) PT. Telekomunikasi Indonesia 🇮🇩
@@ -3219,28 +3547,24 @@ proxy-groups:
   - VMess-WS-TLS-443-akuku8
   - bel432 telk
   - 10.lowh.net
-  - 'MANUAL-LINK-006 reddit #2'
-  - MANUAL-LINK-006 reddit
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #6'
+  - 'MANUAL-LINK-006 reddit #3'
+  - 'MANUAL-LINK-007 bel432 xl #5'
+  - 'MANUAL-LINK-008 bel432 xl #3'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #3'
+  - 'MANUAL-LINK-010 bel432 telk #3'
+  - 'MANUAL-LINK-011 10.lowh.net #3'
   - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #5'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #4'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-006 reddit #2'
+  - 'MANUAL-LINK-007 bel432 xl #4'
+  - 'MANUAL-LINK-008 bel432 xl #2'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #2'
+  - 'MANUAL-LINK-010 bel432 telk #2'
   - 'MANUAL-LINK-011 10.lowh.net #2'
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #4'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #3'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #3'
-  - MANUAL-LINK-011 10.lowh.net
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #3'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #2'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #2'
-  - 'MANUAL-LINK-010 10.lowh.net #2'
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
-  - MANUAL-LINK-002 (ID)+Amazon.com
-  - MANUAL-LINK-005 (ID)+PUSATMEDIA
-  - MANUAL-LINK-010 10.lowh.net
   url: http://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 25
-- name: FALLBACK-RESPONSIF
+  interval: 90
+  tolerance: 40
+- name: FALLBACK
   type: fallback
   proxies:
   - (ID) PT. Telekomunikasi Indonesia 🇮🇩
@@ -3249,28 +3573,24 @@ proxy-groups:
   - VMess-WS-TLS-443-akuku8
   - bel432 telk
   - 10.lowh.net
-  - 'MANUAL-LINK-006 reddit #2'
-  - MANUAL-LINK-006 reddit
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #6'
+  - 'MANUAL-LINK-006 reddit #3'
+  - 'MANUAL-LINK-007 bel432 xl #5'
+  - 'MANUAL-LINK-008 bel432 xl #3'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #3'
+  - 'MANUAL-LINK-010 bel432 telk #3'
+  - 'MANUAL-LINK-011 10.lowh.net #3'
   - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #5'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #4'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-006 reddit #2'
+  - 'MANUAL-LINK-007 bel432 xl #4'
+  - 'MANUAL-LINK-008 bel432 xl #2'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #2'
+  - 'MANUAL-LINK-010 bel432 telk #2'
   - 'MANUAL-LINK-011 10.lowh.net #2'
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #4'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #3'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #3'
-  - MANUAL-LINK-011 10.lowh.net
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #3'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #2'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #2'
-  - 'MANUAL-LINK-010 10.lowh.net #2'
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
-  - MANUAL-LINK-002 (ID)+Amazon.com
-  - MANUAL-LINK-005 (ID)+PUSATMEDIA
-  - MANUAL-LINK-010 10.lowh.net
   url: http://www.gstatic.com/generate_204
-  interval: 60
-- name: INPUT-VMESS-LB
-  type: load-balance
+  interval: 90
+- name: INPUT-VMESS
+  type: fallback
   proxies:
   - (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - reddit
@@ -3278,85 +3598,160 @@ proxy-groups:
   - VMess-WS-TLS-443-akuku8
   - bel432 telk
   - 10.lowh.net
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #6'
+  - 'MANUAL-LINK-006 reddit #3'
+  - 'MANUAL-LINK-007 bel432 xl #5'
+  - 'MANUAL-LINK-008 bel432 xl #3'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #3'
+  - 'MANUAL-LINK-010 bel432 telk #3'
+  - 'MANUAL-LINK-011 10.lowh.net #3'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #5'
+  - 'MANUAL-LINK-006 reddit #2'
+  - 'MANUAL-LINK-007 bel432 xl #4'
+  - 'MANUAL-LINK-008 bel432 xl #2'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #2'
+  - 'MANUAL-LINK-010 bel432 telk #2'
+  - 'MANUAL-LINK-011 10.lowh.net #2'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #4'
+  - MANUAL-LINK-006 reddit
+  - 'MANUAL-LINK-007 bel432 xl #3'
+  - MANUAL-LINK-008 bel432 xl
+  - MANUAL-LINK-009 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-010 bel432 telk
+  - MANUAL-LINK-011 10.lowh.net
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #3'
+  - 'MANUAL-LINK-006 bel432 xl #2'
+  - 'MANUAL-LINK-007 bel432 xl #2'
+  - 'MANUAL-LINK-008 VMess-WS-TLS-443-akuku8 #2'
+  - 'MANUAL-LINK-009 bel432 telk #2'
+  - 'MANUAL-LINK-010 10.lowh.net #2'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - 'MANUAL-LINK-003 bel432 xl #5'
+  - MANUAL-LINK-004 bel432 xl
+  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-006 bel432 telk
+  - MANUAL-LINK-007 10.lowh.net
+  - 'MANUAL-LINK-002 bel432 xl #4'
+  - 'MANUAL-LINK-003 bel432 xl #4'
+  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #4'
+  - 'MANUAL-LINK-005 bel432 telk #4'
+  - 'MANUAL-LINK-006 10.lowh.net #4'
+  - 'MANUAL-LINK-002 bel432 xl #3'
+  - 'MANUAL-LINK-003 bel432 xl #3'
+  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #3'
+  - 'MANUAL-LINK-005 bel432 telk #3'
+  - 'MANUAL-LINK-006 10.lowh.net #3'
+  - 'MANUAL-LINK-002 bel432 xl #2'
+  - 'MANUAL-LINK-003 bel432 xl #2'
+  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #2'
+  - 'MANUAL-LINK-005 bel432 telk #2'
+  - 'MANUAL-LINK-006 10.lowh.net #2'
+  - MANUAL-LINK-002 bel432 xl
+  - MANUAL-LINK-003 bel432 xl
+  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-005 bel432 telk
+  - MANUAL-LINK-006 10.lowh.net
+  - LINK bel432 xl
+  - LINK VMess-WS-TLS-443-akuku8
+  - LINK 10.lowh.net
+  - ID-12 LINK 10.lowh.net
+  - ID-13 LINK bel432 xl
+  - ID-15 LINK VMess-WS-TLS-443-akuku8
+  - STREAM-12 LINK 10.lowh.net
+  - STREAM-13 LINK bel432 xl
+  - STREAM-15 LINK VMess-WS-TLS-443-akuku8
+  - GAME-12 LINK 10.lowh.net
+  - GAME-13 LINK bel432 xl
+  - GAME-15 LINK VMess-WS-TLS-443-akuku8
+  - SOCIAL-14 LINK 10.lowh.net
+  - SOCIAL-15 LINK bel432 xl
+  - WORK-12 LINK 10.lowh.net
+  - WORK-13 LINK bel432 xl
+  - WORK-15 LINK VMess-WS-TLS-443-akuku8
   url: http://www.gstatic.com/generate_204
-  interval: 60
-- name: REDDIT-INPUT
-  type: select
+  interval: 90
+- name: REDDIT
+  type: fallback
   proxies:
   - reddit
+  - 'MANUAL-LINK-006 reddit #3'
   - 'MANUAL-LINK-006 reddit #2'
   - MANUAL-LINK-006 reddit
-  - INPUT-VMESS-LB
-  - AUTO-RESPONSIF
-  - FALLBACK-RESPONSIF
-  - BYPASS
-- name: TRAFIK-BANK-MARKET
+  - reddit-2
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+- name: SOCIAL-BANK-MARKET
   type: select
   proxies:
-  - INPUT-VMESS-LB
-  - AUTO-RESPONSIF
-  - FALLBACK-RESPONSIF
-  - BYPASS
-- name: TRAFIK-SOSMED
+  - INPUT-VMESS
+  - AUTO
+  - FALLBACK
+  - DEFAULT
+  - DIRECT
+- name: STREAMING
   type: select
   proxies:
-  - INPUT-VMESS-LB
-  - AUTO-RESPONSIF
-  - FALLBACK-RESPONSIF
-  - REDDIT-INPUT
-  - BYPASS
-- name: TRAFIK-STREAMING
+  - AUTO
+  - FALLBACK
+  - INPUT-VMESS
+  - DEFAULT
+  - DIRECT
+- name: GAME
   type: select
   proxies:
-  - AUTO-RESPONSIF
-  - FALLBACK-RESPONSIF
-  - INPUT-VMESS-LB
-  - BYPASS
-- name: TRAFIK-GAME
+  - AUTO
+  - FALLBACK
+  - INPUT-VMESS
+  - DEFAULT
+  - DIRECT
+- name: AI
   type: select
   proxies:
-  - AUTO-RESPONSIF
-  - FALLBACK-RESPONSIF
-  - INPUT-VMESS-LB
-  - BYPASS
-- name: TRAFIK-AI
+  - AUTO
+  - FALLBACK
+  - INPUT-VMESS
+  - DEFAULT
+  - DIRECT
+- name: WORK
   type: select
   proxies:
-  - AUTO-RESPONSIF
-  - FALLBACK-RESPONSIF
-  - INPUT-VMESS-LB
-  - BYPASS
-- name: TRAFIK-KERJA
+  - AUTO
+  - FALLBACK
+  - INPUT-VMESS
+  - DEFAULT
+  - DIRECT
+- name: DOWNLOAD
   type: select
   proxies:
-  - AUTO-RESPONSIF
-  - FALLBACK-RESPONSIF
-  - INPUT-VMESS-LB
-  - BYPASS
-- name: TRAFIK-DOWNLOAD
+  - FALLBACK
+  - AUTO
+  - INPUT-VMESS
+  - DEFAULT
+  - DIRECT
+- name: DEFAULT
   type: select
   proxies:
-  - FALLBACK-RESPONSIF
-  - AUTO-RESPONSIF
-  - INPUT-VMESS-LB
-  - BYPASS
-- name: TRAFIK-UMUM
-  type: select
-  proxies:
-  - AUTO-RESPONSIF
-  - FALLBACK-RESPONSIF
-  - INPUT-VMESS-LB
-  - BYPASS
+  - AUTO
+  - FALLBACK
+  - INPUT-VMESS
+  - DIRECT
 - name: BYPASS
   type: select
   proxies:
-  - TRAFIK-UMUM
-  - AUTO-RESPONSIF
-- name: BLOKIR
+  - DIRECT
+  - DEFAULT
+- name: BLOCK
   type: select
   proxies:
+  - REJECT
   - BYPASS
-  - TRAFIK-UMUM
+  - DEFAULT
 - name: INDONESIA-BEST
   type: url-test
   proxies:
@@ -3376,8 +3771,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 90
+  tolerance: 40
 - name: URL-TEST TOP 10 INDONESIA
   type: url-test
   proxies:
@@ -3397,8 +3792,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 90
+  tolerance: 40
 - name: FALLBACK CEPAT
   type: fallback
   proxies:
@@ -3539,8 +3934,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 90
+  tolerance: 40
 - name: URL-TEST VLESS
   type: url-test
   proxies:
@@ -3567,8 +3962,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 90
+  tolerance: 40
 - name: URL-TEST TROJAN
   type: url-test
   proxies:
@@ -3585,8 +3980,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 90
+  tolerance: 40
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
@@ -3621,38 +4016,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
-- name: FALLBACK
-  type: fallback
-  proxies:
-  - VPsave 8921
-  - ProxyVPN11 6456
-  - oneclickvpnkeys US 6805
-  - v2raydia
-  - By EbraSha
-  - HiByeVPNN 48
-  - oneclickvpnkeys NL 7340
-  - v2ray_configs_pools 4582
-  - HiByeVPNN 72
-  - oneclickvpnkeys US 4120
-  - oneclickvpnkeys US 7518
-  - oneclickvpnkeys US 8779
-  - v2reya88
-  - oneclickvpnkeys US 6214
-  - configV2rayNG FR
-  - MCi DE JKVPN
-  - bird_angry (mci
-  - oneclickvpnkeys FR 9264
-  - mci DE RK_VPS
-  - v2nodes DE
-  - LINK (ID)+PUSATMEDIA
-  - LINK bel432 xl
-  - LINK VMess-WS-TLS-443-akuku8
-  - LINK 10.lowh.net
-  - LINK VLESS-WS-TLS-443-apt50atpprem
-  url: http://www.gstatic.com/generate_204
-  interval: 60
+  interval: 90
+  tolerance: 40
 - name: STREAMING-BEST
   type: url-test
   proxies:
@@ -3677,8 +4042,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 90
+  tolerance: 40
 - name: GAMING-BEST
   type: url-test
   proxies:
@@ -3703,8 +4068,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 90
+  tolerance: 40
 - name: SOCIAL-BEST
   type: url-test
   proxies:
@@ -3729,8 +4094,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 90
+  tolerance: 40
 - name: WORKING-BEST
   type: url-test
   proxies:
@@ -3755,8 +4120,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 90
+  tolerance: 40
 - name: GENERAL-BEST
   type: url-test
   proxies:
@@ -3781,8 +4146,8 @@ proxy-groups:
   - LINK 10.lowh.net
   - LINK VLESS-WS-TLS-443-apt50atpprem
   url: https://www.gstatic.com/generate_204
-  interval: 60
-  tolerance: 20
+  interval: 90
+  tolerance: 40
 rules:
 - DOMAIN-SUFFIX,local,BYPASS
 - DOMAIN-SUFFIX,lan,BYPASS
@@ -3791,157 +4156,158 @@ rules:
 - IP-CIDR,172.16.0.0/12,BYPASS,no-resolve
 - IP-CIDR,192.168.0.0/16,BYPASS,no-resolve
 - IP-CIDR,169.254.0.0/16,BYPASS,no-resolve
-- DOMAIN-SUFFIX,reddit.com,REDDIT-INPUT
-- DOMAIN-SUFFIX,redd.it,REDDIT-INPUT
-- DOMAIN-SUFFIX,redditmedia.com,REDDIT-INPUT
-- DOMAIN-SUFFIX,redditstatic.com,REDDIT-INPUT
-- DOMAIN-SUFFIX,redditinc.com,REDDIT-INPUT
-- DOMAIN-SUFFIX,bca.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,klikbca.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,mybca.bca.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,bankmandiri.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,livin.mandiri.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,bri.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,brimo.bri.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,bni.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,btn.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,cimbniaga.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,danamon.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,permatabank.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,ocbc.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,jenius.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,blu.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,seabank.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,bankjago.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,ovo.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,gopay.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,dana.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,linkaja.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,shopeepay.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,paypal.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,tokopedia.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,shopee.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,shopee.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,lazada.co.id,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,bukalapak.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,blibli.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,tiket.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,traveloka.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,gojek.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,grab.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,maxim.com,TRAFIK-BANK-MARKET
-- DOMAIN-SUFFIX,linkedin.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,licdn.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,lnkd.in,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,linkedin.cn,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,whatsapp.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,whatsapp.net,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,telegram.org,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,t.me,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,facebook.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,fbcdn.net,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,messenger.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,instagram.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,cdninstagram.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,threads.net,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,twitter.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,x.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,twimg.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,discord.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,discord.gg,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,discordapp.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,tiktok.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,tiktokv.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,tiktokcdn.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,byteoversea.com,TRAFIK-SOSMED
-- DOMAIN-SUFFIX,openai.com,TRAFIK-AI
-- DOMAIN-SUFFIX,chatgpt.com,TRAFIK-AI
-- DOMAIN-SUFFIX,oaistatic.com,TRAFIK-AI
-- DOMAIN-SUFFIX,oaiusercontent.com,TRAFIK-AI
-- DOMAIN-SUFFIX,anthropic.com,TRAFIK-AI
-- DOMAIN-SUFFIX,claude.ai,TRAFIK-AI
-- DOMAIN-SUFFIX,perplexity.ai,TRAFIK-AI
-- DOMAIN-SUFFIX,gemini.google.com,TRAFIK-AI
-- DOMAIN-SUFFIX,ai.google.dev,TRAFIK-AI
-- DOMAIN-SUFFIX,makersuite.google.com,TRAFIK-AI
-- DOMAIN-SUFFIX,copilot.microsoft.com,TRAFIK-AI
-- DOMAIN-SUFFIX,huggingface.co,TRAFIK-AI
-- DOMAIN-SUFFIX,youtube.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,youtu.be,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,googlevideo.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,ytimg.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,netflix.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,nflxvideo.net,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,nflximg.net,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,nflxext.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,disneyplus.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,hotstar.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,max.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,hbomax.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,spotify.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,scdn.co,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,twitch.tv,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,ttvnw.net,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,vidio.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,viu.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,iq.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,primevideo.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,amazonvideo.com,TRAFIK-STREAMING
-- DOMAIN-SUFFIX,steampowered.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,steamcommunity.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,steamstatic.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,epicgames.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,unrealengine.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,riotgames.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,valorant.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,roblox.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,garena.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,mobilelegends.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,m.mobilelegends.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,moonton.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,pubgmobile.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,krafton.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,hoyoverse.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,genshinimpact.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,zenlesszonezero.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,battle.net,TRAFIK-GAME
-- DOMAIN-SUFFIX,blizzard.com,TRAFIK-GAME
-- DOMAIN-SUFFIX,github.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,githubusercontent.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,githubassets.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,github.io,TRAFIK-KERJA
-- DOMAIN-SUFFIX,gitlab.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,npmjs.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,nodejs.org,TRAFIK-KERJA
-- DOMAIN-SUFFIX,pypi.org,TRAFIK-KERJA
-- DOMAIN-SUFFIX,pythonhosted.org,TRAFIK-KERJA
-- DOMAIN-SUFFIX,docker.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,docker.io,TRAFIK-KERJA
-- DOMAIN-SUFFIX,ghcr.io,TRAFIK-KERJA
-- DOMAIN-SUFFIX,cloudflare.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,vercel.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,netlify.app,TRAFIK-KERJA
-- DOMAIN-SUFFIX,stackoverflow.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,stackexchange.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,google.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,google.co.id,TRAFIK-KERJA
-- DOMAIN-SUFFIX,gstatic.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,googleapis.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,googleusercontent.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,ggpht.com,TRAFIK-KERJA
-- DOMAIN-SUFFIX,ubuntu.com,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,debian.org,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,archive.ubuntu.com,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,security.ubuntu.com,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,microsoft.com,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,windowsupdate.com,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,windows.com,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,apple.com,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,icloud.com,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,dropbox.com,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,mega.nz,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,mediafire.com,TRAFIK-DOWNLOAD
-- DOMAIN-SUFFIX,drive.google.com,TRAFIK-DOWNLOAD
+- DOMAIN-SUFFIX,doubleclick.net,BLOCK
+- DOMAIN-SUFFIX,googlesyndication.com,BLOCK
+- DOMAIN-SUFFIX,googleadservices.com,BLOCK
+- DOMAIN-SUFFIX,adservice.google.com,BLOCK
+- DOMAIN-SUFFIX,reddit.com,REDDIT
+- DOMAIN-SUFFIX,redd.it,REDDIT
+- DOMAIN-SUFFIX,redditmedia.com,REDDIT
+- DOMAIN-SUFFIX,redditstatic.com,REDDIT
+- DOMAIN-SUFFIX,redditinc.com,REDDIT
+- DOMAIN-SUFFIX,linkedin.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,licdn.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,lnkd.in,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,linkedin.cn,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,whatsapp.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,whatsapp.net,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,telegram.org,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,t.me,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,facebook.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,fbcdn.net,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,messenger.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,instagram.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,cdninstagram.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,threads.net,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,twitter.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,x.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,twimg.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,discord.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,discord.gg,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,discordapp.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,tiktok.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,tiktokv.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,tiktokcdn.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,byteoversea.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,bca.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,klikbca.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,mybca.bca.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,bankmandiri.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,livin.mandiri.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,bri.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,brimo.bri.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,bni.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,btn.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,cimbniaga.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,danamon.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,permatabank.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,ocbc.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,jenius.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,blu.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,seabank.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,bankjago.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,ovo.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,gopay.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,dana.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,linkaja.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,shopeepay.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,paypal.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,tokopedia.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,shopee.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,shopee.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,lazada.co.id,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,bukalapak.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,blibli.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,tiket.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,traveloka.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,gojek.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,grab.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,maxim.com,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,youtube.com,STREAMING
+- DOMAIN-SUFFIX,youtu.be,STREAMING
+- DOMAIN-SUFFIX,googlevideo.com,STREAMING
+- DOMAIN-SUFFIX,ytimg.com,STREAMING
+- DOMAIN-SUFFIX,netflix.com,STREAMING
+- DOMAIN-SUFFIX,nflxvideo.net,STREAMING
+- DOMAIN-SUFFIX,nflximg.net,STREAMING
+- DOMAIN-SUFFIX,nflxext.com,STREAMING
+- DOMAIN-SUFFIX,disneyplus.com,STREAMING
+- DOMAIN-SUFFIX,hotstar.com,STREAMING
+- DOMAIN-SUFFIX,max.com,STREAMING
+- DOMAIN-SUFFIX,hbomax.com,STREAMING
+- DOMAIN-SUFFIX,spotify.com,STREAMING
+- DOMAIN-SUFFIX,scdn.co,STREAMING
+- DOMAIN-SUFFIX,twitch.tv,STREAMING
+- DOMAIN-SUFFIX,ttvnw.net,STREAMING
+- DOMAIN-SUFFIX,vidio.com,STREAMING
+- DOMAIN-SUFFIX,viu.com,STREAMING
+- DOMAIN-SUFFIX,iq.com,STREAMING
+- DOMAIN-SUFFIX,primevideo.com,STREAMING
+- DOMAIN-SUFFIX,amazonvideo.com,STREAMING
+- DOMAIN-SUFFIX,steampowered.com,GAME
+- DOMAIN-SUFFIX,steamcommunity.com,GAME
+- DOMAIN-SUFFIX,steamstatic.com,GAME
+- DOMAIN-SUFFIX,epicgames.com,GAME
+- DOMAIN-SUFFIX,unrealengine.com,GAME
+- DOMAIN-SUFFIX,riotgames.com,GAME
+- DOMAIN-SUFFIX,valorant.com,GAME
+- DOMAIN-SUFFIX,roblox.com,GAME
+- DOMAIN-SUFFIX,garena.com,GAME
+- DOMAIN-SUFFIX,mobilelegends.com,GAME
+- DOMAIN-SUFFIX,moonton.com,GAME
+- DOMAIN-SUFFIX,pubgmobile.com,GAME
+- DOMAIN-SUFFIX,krafton.com,GAME
+- DOMAIN-SUFFIX,hoyoverse.com,GAME
+- DOMAIN-SUFFIX,genshinimpact.com,GAME
+- DOMAIN-SUFFIX,battle.net,GAME
+- DOMAIN-SUFFIX,blizzard.com,GAME
+- DOMAIN-SUFFIX,openai.com,AI
+- DOMAIN-SUFFIX,chatgpt.com,AI
+- DOMAIN-SUFFIX,oaistatic.com,AI
+- DOMAIN-SUFFIX,oaiusercontent.com,AI
+- DOMAIN-SUFFIX,anthropic.com,AI
+- DOMAIN-SUFFIX,claude.ai,AI
+- DOMAIN-SUFFIX,perplexity.ai,AI
+- DOMAIN-SUFFIX,gemini.google.com,AI
+- DOMAIN-SUFFIX,ai.google.dev,AI
+- DOMAIN-SUFFIX,copilot.microsoft.com,AI
+- DOMAIN-SUFFIX,huggingface.co,AI
+- DOMAIN-SUFFIX,github.com,WORK
+- DOMAIN-SUFFIX,githubusercontent.com,WORK
+- DOMAIN-SUFFIX,githubassets.com,WORK
+- DOMAIN-SUFFIX,github.io,WORK
+- DOMAIN-SUFFIX,gitlab.com,WORK
+- DOMAIN-SUFFIX,npmjs.com,WORK
+- DOMAIN-SUFFIX,nodejs.org,WORK
+- DOMAIN-SUFFIX,pypi.org,WORK
+- DOMAIN-SUFFIX,pythonhosted.org,WORK
+- DOMAIN-SUFFIX,docker.com,WORK
+- DOMAIN-SUFFIX,docker.io,WORK
+- DOMAIN-SUFFIX,ghcr.io,WORK
+- DOMAIN-SUFFIX,cloudflare.com,WORK
+- DOMAIN-SUFFIX,vercel.com,WORK
+- DOMAIN-SUFFIX,netlify.app,WORK
+- DOMAIN-SUFFIX,stackoverflow.com,WORK
+- DOMAIN-SUFFIX,stackexchange.com,WORK
+- DOMAIN-SUFFIX,google.com,WORK
+- DOMAIN-SUFFIX,google.co.id,WORK
+- DOMAIN-SUFFIX,gstatic.com,WORK
+- DOMAIN-SUFFIX,googleapis.com,WORK
+- DOMAIN-SUFFIX,googleusercontent.com,WORK
+- DOMAIN-SUFFIX,ggpht.com,WORK
+- DOMAIN-SUFFIX,ubuntu.com,DOWNLOAD
+- DOMAIN-SUFFIX,debian.org,DOWNLOAD
+- DOMAIN-SUFFIX,archive.ubuntu.com,DOWNLOAD
+- DOMAIN-SUFFIX,security.ubuntu.com,DOWNLOAD
+- DOMAIN-SUFFIX,microsoft.com,DOWNLOAD
+- DOMAIN-SUFFIX,windowsupdate.com,DOWNLOAD
+- DOMAIN-SUFFIX,windows.com,DOWNLOAD
+- DOMAIN-SUFFIX,apple.com,DOWNLOAD
+- DOMAIN-SUFFIX,icloud.com,DOWNLOAD
+- DOMAIN-SUFFIX,dropbox.com,DOWNLOAD
+- DOMAIN-SUFFIX,mega.nz,DOWNLOAD
+- DOMAIN-SUFFIX,mediafire.com,DOWNLOAD
+- DOMAIN-SUFFIX,drive.google.com,DOWNLOAD
 - RULE-SET,marketplace-protect,INDONESIA-BEST
 - DOMAIN-SUFFIX,youtube.com,STREAMING-BEST
 - DOMAIN-SUFFIX,googlevideo.com,STREAMING-BEST
@@ -3985,7 +4351,7 @@ rules:
 - DOMAIN-SUFFIX,kompas.com,INDONESIA-BEST
 - DOMAIN-SUFFIX,tribunnews.com,INDONESIA-BEST
 - GEOIP,ID,INDONESIA-BEST,no-resolve
-- MATCH,TRAFIK-UMUM
+- MATCH,DEFAULT
 rule-providers:
   youtube-ads:
     type: http
