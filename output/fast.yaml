@@ -41,7 +41,46 @@ proxies:
     path: /id-tksi
     headers:
       Host: r3xxe.eu.cc
-- name: MANUAL-LINK-002 (ID)+PUSATMEDIA
+- name: MANUAL-LINK-002 (ID)+Amazon.com
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-005 (ID)+PUSATMEDIA
   type: vless
   server: 104.17.3.81
   port: 443
@@ -55,7 +94,7 @@ proxies:
     path: /id-pusat
     headers:
       Host: unnes.ac.id.ex33r.eu.cc
-- name: 'MANUAL-LINK-003 bel432 xl #2'
+- name: MANUAL-LINK-006 bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -70,7 +109,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: MANUAL-LINK-004 bel432 xl
+- name: MANUAL-LINK-007 bel432 xl
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -85,7 +124,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
+- name: MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -100,7 +139,7 @@ proxies:
     path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
     headers:
       Host: fbcdn.sbs
-- name: MANUAL-LINK-006 bel432 telk
+- name: MANUAL-LINK-009 bel432 telk
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -115,7 +154,7 @@ proxies:
     path: /vmess
     headers:
       Host: belnet.jsvpn.site
-- name: MANUAL-LINK-007 10.lowh.net
+- name: MANUAL-LINK-010 10.lowh.net
   type: vmess
   server: 104.17.3.81
   port: 443
@@ -130,7 +169,7 @@ proxies:
     path: /hello
     headers:
       Host: 10.lowh.net
-- name: MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+- name: MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   type: vless
   server: 104.17.3.81
   port: 443
@@ -144,125 +183,51 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
-- name: MANUAL-LINK-001 (ID)+PUSATMEDIA
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
-  udp: true
-  encryption: none
-  tls: true
-  servername: unnes.ac.id.ex33r.eu.cc
-  network: ws
-  ws-opts:
-    path: /id-pusat
-    headers:
-      Host: unnes.ac.id.ex33r.eu.cc
-- name: MANUAL-LINK-002 bel432 xl
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-003 bel432 xl
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: fbcdn.sbs
-  network: ws
-  ws-opts:
-    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
-    headers:
-      Host: fbcdn.sbs
-- name: MANUAL-LINK-005 bel432 telk
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: belnet.jsvpn.site
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: belnet.jsvpn.site
-- name: MANUAL-LINK-006 10.lowh.net
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: 10.lowh.net
-  network: ws
-  ws-opts:
-    path: /hello
-    headers:
-      Host: 10.lowh.net
-- name: MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
-  udp: true
-  encryption: none
-  tls: true
-  servername: akamaized.my
-  network: ws
-  ws-opts:
-    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
-    headers:
-      Host: akamaized.my
-- name: ProxyVPN11 6227
+- name: HajmVPN_Config
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  uuid: 053cebab-de6a-47a1-af86-ed49948dc289
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: JoinProxyVPN11.qea.ccwu.cc
+  servername: www.genflix.co.id.r3xxe.eu.cc
   ws-opts:
-    path: /?ed @ProxyVPN11
+    path: /ca-cl
     headers:
-      Host: juzi.qea.ccwu.cc
+      Host: www.genflix.co.id.r3xxe.eu.cc
   udp: true
-- name: VPsave 4583
+- name: US US- V2Ray_Hub1200
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: Telegram-Config0plus-983ced63-fcf0-4d15-b81b-432e32e9b932
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: api24-normal.tiktokv.com.r3xxe.eu.cc
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: api24-normal.tiktokv.com.r3xxe.eu.cc
+  udp: true
+- name: oneclickvpnkeys US 7129
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: VPsave 3549
   server: 104.17.3.81
   port: 443
   type: vless
@@ -277,7 +242,35 @@ proxies:
     headers:
       Host: hhlfy.twiladaphne.ndjp.net
   udp: true
-- name: v2raydia
+- name: CH CH- V2Ray_Hub1200
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: cde2502a-5138-4511-9fe9-9e9df5619aba
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: go.appsflyer.com.r3xxe.eu.cc
+  ws-opts:
+    path: /ca-cl
+    headers:
+      Host: go.appsflyer.com.r3xxe.eu.cc
+  udp: true
+- name: V2Ray_Hub1200 2095
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: dxy1h.twiladaphne.ndjp.net
+  ws-opts:
+    path: /proxyip
+    headers:
+      Host: dxy1h.twiladaphne.ndjp.net
+  udp: true
+- name: VPNine1 5393
   server: 104.17.3.81
   port: 443
   type: trojan
@@ -285,338 +278,273 @@ proxies:
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store
+  sni: sadszdx.global.ssl.fastly.net.mITIvPn.store
   ws-opts:
     path: /https://chatgpt.com
     headers:
-      Host: mItIvPN.glOBaL.ssl.mItIvPN.store
+      Host: mITIvPn.glObAl.ssl.mITIvPn.STORE
   udp: true
-- name: oneclickvpnkeys US 7059
+- name: oneclickvpnkeys US 6116
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  uuid: 6bc1bd81-b763-4213-80ad-4586224e3079
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: By EbraSha
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: vienna-bread-threats-amendment.trycloudflare.com
-  network: ws
-  ws-opts:
-    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
-    headers:
-      Host: vienna-bread-threats-amendment.trycloudflare.com
-  udp: true
-- name: HiByeVPNN 48
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7270612b-49f6-4b04-999c-34d8263da767
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: picassooo.info
-  ws-opts:
-    path: /aymdlws
-    headers:
-      Host: picassooo.info
-  udp: true
-- name: oneclickvpnkeys FR 9606
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e277ac9b-3225-4381-a9fb-3585419f7142
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: 35cdnws.frnstatic.info
-  ws-opts:
-    path: /35cdnws
-    headers:
-      Host: 35cdnws.frnstatic.info
-  udp: true
-- name: CA 50354 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: c7addea9-6d8a-48d6-8a00-aa99b8ece143
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: ws35.adsvxpro.com
-  ws-opts:
-    path: /path
-    headers:
-      Host: ws35.adsvxpro.com
-  udp: true
-- name: US 50392 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 0fe6ae0f-3202-41c2-8af4-e237956c9b3f
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: faster.rainzone.ir
-  ws-opts:
-    path: /25425/sha
-    headers:
-      Host: faster.rainzone.ir
-  udp: true
-- name: bird_angry (mci
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hamrah.dgclix.ir
+  servername: tohidza.et6m22266a.workers.dev
   ws-opts:
     path: /
     headers:
-      Host: hamrah.dgclix.ir
+      Host: tohidza.et6m22266a.workers.dev
   udp: true
-- name: MCi DE JKVPN
+- name: V2Ray_Hub1200 7053
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+  uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: hamrah.dgclix.ir
+  servername: vl.zacharybilly.ndjp.net
   ws-opts:
-    path: /?TELEGRAM--BYA--CHANEL---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN---@JKVPN--@JKVPN---@JKVPN---@JKVPN---@JKVPN
+    path: /proxyip
     headers:
-      Host: hamrah.dgclix.ir
+      Host: vl.zacharybilly.ndjp.net
   udp: true
-- name: mci DE RK_VPS
+- name: SG 51648 Telegram t.me SOSkeyNET
   server: 104.17.3.81
   port: 443
   type: vless
-  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+  uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
   cipher: none
   tls: true
   skip-cert-verify: true
   network: ws
-  servername: hamrah.dgclix.ir
+  servername: vl.zacharybilly.ndjp.net
   ws-opts:
-    path: /?RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS--@RK_VPS
+    path: /proxyip=104.168.132.123,172.104.53.198,85.121.50.16,151.242.125.226
     headers:
-      Host: hamrah.dgclix.ir
+      Host: vl.zacharybilly.ndjp.net
   udp: true
-- name: HiByeVPNN 72
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: octopusss5.info
-  ws-opts:
-    path: /udfyfws
-    headers:
-      Host: octopusss5.info
-  udp: true
-- name: CA 50508 Telegram t.me SOSkeyNET
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 8671df15-35a0-41ad-a10d-e5692ffb6876
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: sarina.powernad.ir
-  ws-opts:
-    path: /swerfwerfmklm
-    headers:
-      Host: sarina.powernad.ir
-  udp: true
-- name: NETMelliAnti 6498
+- name: SG 51738 Telegram t.me SOSkeyNET
   server: 104.17.3.81
   port: 443
   type: trojan
-  password: aNQNxDIiNd
+  password: eeb6823c-b926-4ea2-866a-5542edd26e59
   tls: true
   skip-cert-verify: true
   network: ws
-  sni: dd.aananas.ir.
+  sni: dxy1h.twiladaphne.ndjp.net
   ws-opts:
-    path: /?ed=2048
+    path: /proxyip=104.168.132.123,172.104.53.198,85.121.50.16,151.242.125.226
     headers:
-      Host: dd.aananas.ir.
+      Host: dxy1h.twiladaphne.ndjp.net
+  udp: true
+- name: configV2rayNG FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.ignitelimit.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: prrofile_purple FR 8991
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.calmloud.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.calmloud.com
+  udp: true
+- name: V2rayNG3 FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.gossipglove.com
+  ws-opts:
+    path: /assignment?L=tls
+    headers:
+      Host: www.gossipglove.com
+  udp: true
+- name: appsooner 1656
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.gossipglove.com
+  ws-opts:
+    path: /assignment?TELEGRAM--KANAL--UnNurmal--UnNurmal--UnNurmal--UnNurmal--UnNurmal--UnNurmal
+    headers:
+      Host: www.gossipglove.com
   udp: true
 proxy-groups:
 - name: URL-TEST TOP 5 INDONESIA
   type: url-test
   proxies:
-  - ProxyVPN11 6227
-  - VPsave 4583
-  - v2raydia
-  - oneclickvpnkeys US 7059
-  - By EbraSha
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
   url: http://www.gstatic.com/generate_204
   interval: 60
   tolerance: 20
 - name: FALLBACK CEPAT
   type: fallback
   proxies:
-  - ProxyVPN11 6227
-  - VPsave 4583
-  - v2raydia
-  - oneclickvpnkeys US 7059
-  - By EbraSha
-  - HiByeVPNN 48
-  - oneclickvpnkeys FR 9606
-  - CA 50354 Telegram t.me SOSkeyNET
-  - US 50392 Telegram t.me SOSkeyNET
-  - bird_angry (mci
-  - MCi DE JKVPN
-  - mci DE RK_VPS
-  - HiByeVPNN 72
-  - CA 50508 Telegram t.me SOSkeyNET
-  - NETMelliAnti 6498
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 7053
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  - V2rayNG3 FR
+  - appsooner 1656
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: GAMING STABIL
   type: fallback
   proxies:
-  - VPsave 4583
-  - ProxyVPN11 6227
-  - v2raydia
-  - By EbraSha
-  - oneclickvpnkeys US 7059
-  - HiByeVPNN 48
-  - oneclickvpnkeys FR 9606
-  - CA 50354 Telegram t.me SOSkeyNET
-  - US 50392 Telegram t.me SOSkeyNET
-  - bird_angry (mci
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - V2Ray_Hub1200 2095
+  - V2Ray_Hub1200 7053
+  - VPNine1 5393
+  - SG 51648 Telegram t.me SOSkeyNET
+  - oneclickvpnkeys US 6116
+  - SG 51738 Telegram t.me SOSkeyNET
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: SOCIAL MEDIA STABIL
   type: fallback
   proxies:
-  - ProxyVPN11 6227
-  - VPsave 4583
-  - v2raydia
-  - oneclickvpnkeys US 7059
-  - By EbraSha
-  - HiByeVPNN 48
-  - oneclickvpnkeys FR 9606
-  - CA 50354 Telegram t.me SOSkeyNET
-  - US 50392 Telegram t.me SOSkeyNET
-  - bird_angry (mci
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - CH CH- V2Ray_Hub1200
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 7053
+  - SG 51648 Telegram t.me SOSkeyNET
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: STREAMING STABIL
   type: fallback
   proxies:
-  - VPsave 4583
-  - ProxyVPN11 6227
-  - v2raydia
-  - oneclickvpnkeys US 7059
-  - By EbraSha
-  - HiByeVPNN 48
-  - oneclickvpnkeys FR 9606
-  - CA 50354 Telegram t.me SOSkeyNET
-  - US 50392 Telegram t.me SOSkeyNET
-  - bird_angry (mci
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - CH CH- V2Ray_Hub1200
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: WORKING STABIL
   type: fallback
   proxies:
-  - VPsave 4583
-  - ProxyVPN11 6227
-  - v2raydia
-  - oneclickvpnkeys US 7059
-  - By EbraSha
-  - HiByeVPNN 48
-  - oneclickvpnkeys FR 9606
-  - CA 50354 Telegram t.me SOSkeyNET
-  - US 50392 Telegram t.me SOSkeyNET
-  - bird_angry (mci
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - V2Ray_Hub1200 2095
+  - VPsave 3549
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: GENERAL STABIL
   type: fallback
   proxies:
-  - VPsave 4583
-  - ProxyVPN11 6227
-  - v2raydia
-  - oneclickvpnkeys US 7059
-  - By EbraSha
-  - HiByeVPNN 48
-  - oneclickvpnkeys FR 9606
-  - CA 50354 Telegram t.me SOSkeyNET
-  - US 50392 Telegram t.me SOSkeyNET
-  - bird_angry (mci
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - CH CH- V2Ray_Hub1200
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: URL-TEST GABUNGAN
   type: url-test
   proxies:
-  - ProxyVPN11 6227
-  - VPsave 4583
-  - v2raydia
-  - oneclickvpnkeys US 7059
-  - By EbraSha
-  - HiByeVPNN 48
-  - oneclickvpnkeys FR 9606
-  - CA 50354 Telegram t.me SOSkeyNET
-  - US 50392 Telegram t.me SOSkeyNET
-  - bird_angry (mci
-  - MCi DE JKVPN
-  - mci DE RK_VPS
-  - HiByeVPNN 72
-  - CA 50508 Telegram t.me SOSkeyNET
-  - NETMelliAnti 6498
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 7053
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  - V2rayNG3 FR
+  - appsooner 1656
   url: http://www.gstatic.com/generate_204
   interval: 60
   tolerance: 20
 - name: FALLBACK
   type: fallback
   proxies:
-  - ProxyVPN11 6227
-  - VPsave 4583
-  - v2raydia
-  - oneclickvpnkeys US 7059
-  - By EbraSha
-  - HiByeVPNN 48
-  - oneclickvpnkeys FR 9606
-  - CA 50354 Telegram t.me SOSkeyNET
-  - US 50392 Telegram t.me SOSkeyNET
-  - bird_angry (mci
-  - MCi DE JKVPN
-  - mci DE RK_VPS
-  - HiByeVPNN 72
-  - CA 50508 Telegram t.me SOSkeyNET
-  - NETMelliAnti 6498
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 7053
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  - V2rayNG3 FR
+  - appsooner 1656
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: PROXY
@@ -625,6 +553,7 @@ proxy-groups:
   - MANUAL-FALLBACK
   - MANUAL-LINK
   - MANUAL-BEST
+  - SMART-BEST
   - SAT-SET
   - ANTI-BENGONG
   - BEST-STABLE
@@ -645,129 +574,162 @@ proxy-groups:
   type: select
   proxies:
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   - DIRECT
 - name: MANUAL-FALLBACK
   type: fallback
   proxies:
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: MANUAL-BEST
   type: url-test
   proxies:
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
+- name: SMART-BEST
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - CH CH- V2Ray_Hub1200
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  - V2rayNG3 FR
+  - appsooner 1656
   url: http://www.gstatic.com/generate_204
   interval: 60
   tolerance: 20
 - name: SAT-SET
   type: fallback
   proxies:
-  - v2raydia
-  - By EbraSha
-  - HiByeVPNN 48
-  - MCi DE JKVPN
-  - bird_angry (mci
-  - HiByeVPNN 72
-  - mci DE RK_VPS
-  - ProxyVPN11 6227
-  - VPsave 4583
-  - oneclickvpnkeys US 7059
-  - CA 50354 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys FR 9606
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50508 Telegram t.me SOSkeyNET
-  - NETMelliAnti 6498
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
-  - MANUAL-LINK-001 (ID)+PUSATMEDIA
-  - MANUAL-LINK-002 bel432 xl
-  - MANUAL-LINK-003 bel432 xl
-  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-005 bel432 telk
-  - MANUAL-LINK-006 10.lowh.net
-  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - CH CH- V2Ray_Hub1200
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  - V2rayNG3 FR
+  - appsooner 1656
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: ANTI-BENGONG
   type: fallback
   proxies:
-  - v2raydia
-  - By EbraSha
-  - HiByeVPNN 48
-  - MCi DE JKVPN
-  - bird_angry (mci
-  - HiByeVPNN 72
-  - mci DE RK_VPS
-  - ProxyVPN11 6227
-  - VPsave 4583
-  - oneclickvpnkeys US 7059
-  - CA 50354 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys FR 9606
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50508 Telegram t.me SOSkeyNET
-  - NETMelliAnti 6498
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
-  - MANUAL-LINK-001 (ID)+PUSATMEDIA
-  - MANUAL-LINK-002 bel432 xl
-  - MANUAL-LINK-003 bel432 xl
-  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-005 bel432 telk
-  - MANUAL-LINK-006 10.lowh.net
-  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - CH CH- V2Ray_Hub1200
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  - V2rayNG3 FR
+  - appsooner 1656
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: BEST-STABLE
   type: url-test
   proxies:
-  - v2raydia
-  - By EbraSha
-  - HiByeVPNN 48
-  - MCi DE JKVPN
-  - bird_angry (mci
-  - HiByeVPNN 72
-  - mci DE RK_VPS
-  - ProxyVPN11 6227
-  - VPsave 4583
-  - oneclickvpnkeys US 7059
-  - CA 50354 Telegram t.me SOSkeyNET
-  - oneclickvpnkeys FR 9606
-  - US 50392 Telegram t.me SOSkeyNET
-  - CA 50508 Telegram t.me SOSkeyNET
-  - NETMelliAnti 6498
+  - configV2rayNG FR
+  - V2rayNG3 FR
+  - CH CH- V2Ray_Hub1200
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - SG 51648 Telegram t.me SOSkeyNET
+  - V2Ray_Hub1200 7053
+  - SG 51738 Telegram t.me SOSkeyNET
+  - prrofile_purple FR 8991
+  - appsooner 1656
   url: http://www.gstatic.com/generate_204
   interval: 60
   tolerance: 20
@@ -775,20 +737,16 @@ proxy-groups:
   type: url-test
   proxies:
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
-  - MANUAL-LINK-001 (ID)+PUSATMEDIA
-  - MANUAL-LINK-002 bel432 xl
-  - MANUAL-LINK-003 bel432 xl
-  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-005 bel432 telk
-  - MANUAL-LINK-006 10.lowh.net
-  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 60
   tolerance: 20
@@ -796,21 +754,1016 @@ proxy-groups:
   type: fallback
   proxies:
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #2'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
-  - MANUAL-LINK-001 (ID)+PUSATMEDIA
-  - MANUAL-LINK-002 bel432 xl
-  - MANUAL-LINK-003 bel432 xl
-  - MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-005 bel432 telk
-  - MANUAL-LINK-006 10.lowh.net
-  - MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 60
+- name: WEB-DEFAULT
+  type: select
+  proxies:
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - DIRECT
+- name: WEB-BYPASS
+  type: select
+  proxies:
+  - DIRECT
+  - WEB-DEFAULT
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 5 INDONESIA
+- name: WEB-BLOCK
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+  - WEB-DEFAULT
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 5 INDONESIA
+- name: WEB-AI-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-AI
+  type: select
+  proxies:
+  - WEB-AI-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 5 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: WEB-STREAMING-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - configV2rayNG FR
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-STREAMING
+  type: select
+  proxies:
+  - WEB-STREAMING-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 5 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: WEB-SOCIAL-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-SOCIAL
+  type: select
+  proxies:
+  - WEB-SOCIAL-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 5 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: WEB-GAMING-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-010 10.lowh.net
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-GAMING
+  type: select
+  proxies:
+  - WEB-GAMING-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 5 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: WEB-BANKING
+  type: select
+  proxies:
+  - DIRECT
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 5 INDONESIA
+  - WEB-DEFAULT
+- name: WEB-MARKETPLACE-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-MARKETPLACE
+  type: select
+  proxies:
+  - DIRECT
+  - WEB-MARKETPLACE-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 5 INDONESIA
+  - WEB-DEFAULT
+- name: WEB-DEV-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-DEV
+  type: select
+  proxies:
+  - WEB-DEV-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 5 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: WEB-GOOGLE-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-GOOGLE
+  type: select
+  proxies:
+  - WEB-GOOGLE-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 5 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: QOS-REALTIME-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-GAMING-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-010 10.lowh.net
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - oneclickvpnkeys US 6116
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-STREAMING-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-AI-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-WORK-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-DOWNLOAD-AUTO
+  type: url-test
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - US US- V2Ray_Hub1200
+  - oneclickvpnkeys US 7129
+  - oneclickvpnkeys US 6116
+  - SG 51648 Telegram t.me SOSkeyNET
+  - SG 51738 Telegram t.me SOSkeyNET
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - HajmVPN_Config
+  - VPsave 3549
+  - CH CH- V2Ray_Hub1200
+  - V2Ray_Hub1200 2095
+  - VPNine1 5393
+  - V2Ray_Hub1200 7053
+  - configV2rayNG FR
+  - prrofile_purple FR 8991
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-DEFAULT
+  type: select
+  proxies:
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - WEB-DEFAULT
+  - PROXY
+  - FALLBACK CEPAT
+  - FALLBACK
+  - DIRECT
+- name: QOS-BYPASS
+  type: select
+  proxies:
+  - WEB-BYPASS
+  - DIRECT
+  - QOS-DEFAULT
+  - WEB-DEFAULT
+  - PROXY
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+- name: QOS-BLOCK
+  type: select
+  proxies:
+  - WEB-BLOCK
+  - REJECT
+  - QOS-BYPASS
+  - QOS-DEFAULT
+  - WEB-DEFAULT
+- name: QOS-REALTIME
+  type: select
+  proxies:
+  - QOS-REALTIME-AUTO
+  - QOS-GAMING-AUTO
+  - WEB-GAMING
+  - WEB-SOCIAL
+  - MANUAL-BEST
+  - MANUAL-FALLBACK
+  - SAT-SET
+  - ANTI-BENGONG
+  - QOS-DEFAULT
+- name: QOS-GAMING
+  type: select
+  proxies:
+  - QOS-GAMING-AUTO
+  - QOS-REALTIME-AUTO
+  - WEB-GAMING
+  - MANUAL-BEST
+  - MANUAL-FALLBACK
+  - SAT-SET
+  - QOS-DEFAULT
+- name: QOS-STREAMING
+  type: select
+  proxies:
+  - QOS-STREAMING-AUTO
+  - WEB-STREAMING
+  - MANUAL-FALLBACK
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - QOS-DEFAULT
+- name: QOS-AI
+  type: select
+  proxies:
+  - QOS-AI-AUTO
+  - WEB-AI
+  - QOS-REALTIME-AUTO
+  - MANUAL-FALLBACK
+  - QOS-DEFAULT
+- name: QOS-SOCIAL
+  type: select
+  proxies:
+  - WEB-SOCIAL
+  - QOS-REALTIME-AUTO
+  - MANUAL-FALLBACK
+  - QOS-DEFAULT
+- name: QOS-WORK
+  type: select
+  proxies:
+  - QOS-WORK-AUTO
+  - WEB-DEV
+  - WEB-GOOGLE
+  - MANUAL-FALLBACK
+  - QOS-DEFAULT
+- name: QOS-BANKING
+  type: select
+  proxies:
+  - QOS-BYPASS
+  - WEB-BANKING
+  - QOS-DEFAULT
+- name: QOS-MARKETPLACE
+  type: select
+  proxies:
+  - WEB-MARKETPLACE
+  - QOS-BYPASS
+  - QOS-DEFAULT
+- name: QOS-DOWNLOAD
+  type: select
+  proxies:
+  - QOS-DOWNLOAD-AUTO
+  - WEB-DEFAULT
+  - fallback-link
+  - best-link
+  - MANUAL-FALLBACK
+  - QOS-DEFAULT
 rules:
-- MATCH,PROXY
+- DOMAIN-SUFFIX,local,QOS-BYPASS
+- DOMAIN-SUFFIX,lan,QOS-BYPASS
+- IP-CIDR,127.0.0.0/8,QOS-BYPASS,no-resolve
+- IP-CIDR,10.0.0.0/8,QOS-BYPASS,no-resolve
+- IP-CIDR,172.16.0.0/12,QOS-BYPASS,no-resolve
+- IP-CIDR,192.168.0.0/16,QOS-BYPASS,no-resolve
+- IP-CIDR,169.254.0.0/16,QOS-BYPASS,no-resolve
+- DOMAIN-SUFFIX,zoom.us,QOS-REALTIME
+- DOMAIN-SUFFIX,zoom.com,QOS-REALTIME
+- DOMAIN-SUFFIX,meet.google.com,QOS-REALTIME
+- DOMAIN-SUFFIX,teams.microsoft.com,QOS-REALTIME
+- DOMAIN-SUFFIX,skype.com,QOS-REALTIME
+- DOMAIN-SUFFIX,lync.com,QOS-REALTIME
+- DOMAIN-SUFFIX,discord.com,QOS-REALTIME
+- DOMAIN-SUFFIX,discord.gg,QOS-REALTIME
+- DOMAIN-SUFFIX,discordapp.com,QOS-REALTIME
+- DOMAIN-SUFFIX,telegram.org,QOS-REALTIME
+- DOMAIN-SUFFIX,t.me,QOS-REALTIME
+- DOMAIN-SUFFIX,whatsapp.com,QOS-REALTIME
+- DOMAIN-SUFFIX,whatsapp.net,QOS-REALTIME
+- DOMAIN-SUFFIX,steampowered.com,QOS-GAMING
+- DOMAIN-SUFFIX,steamcommunity.com,QOS-GAMING
+- DOMAIN-SUFFIX,steamstatic.com,QOS-GAMING
+- DOMAIN-SUFFIX,steamcontent.com,QOS-GAMING
+- DOMAIN-SUFFIX,epicgames.com,QOS-GAMING
+- DOMAIN-SUFFIX,unrealengine.com,QOS-GAMING
+- DOMAIN-SUFFIX,riotgames.com,QOS-GAMING
+- DOMAIN-SUFFIX,valorant.com,QOS-GAMING
+- DOMAIN-SUFFIX,garena.com,QOS-GAMING
+- DOMAIN-SUFFIX,roblox.com,QOS-GAMING
+- DOMAIN-SUFFIX,mobilelegends.com,QOS-GAMING
+- DOMAIN-SUFFIX,moonton.com,QOS-GAMING
+- DOMAIN-SUFFIX,pubgmobile.com,QOS-GAMING
+- DOMAIN-SUFFIX,krafton.com,QOS-GAMING
+- DOMAIN-SUFFIX,hoyoverse.com,QOS-GAMING
+- DOMAIN-SUFFIX,genshinimpact.com,QOS-GAMING
+- DOMAIN-SUFFIX,zenlesszonezero.com,QOS-GAMING
+- DOMAIN-SUFFIX,battle.net,QOS-GAMING
+- DOMAIN-SUFFIX,blizzard.com,QOS-GAMING
+- DOMAIN-SUFFIX,youtube.com,QOS-STREAMING
+- DOMAIN-SUFFIX,youtu.be,QOS-STREAMING
+- DOMAIN-SUFFIX,googlevideo.com,QOS-STREAMING
+- DOMAIN-SUFFIX,ytimg.com,QOS-STREAMING
+- DOMAIN-SUFFIX,netflix.com,QOS-STREAMING
+- DOMAIN-SUFFIX,nflxvideo.net,QOS-STREAMING
+- DOMAIN-SUFFIX,nflximg.net,QOS-STREAMING
+- DOMAIN-SUFFIX,nflxext.com,QOS-STREAMING
+- DOMAIN-SUFFIX,disneyplus.com,QOS-STREAMING
+- DOMAIN-SUFFIX,hotstar.com,QOS-STREAMING
+- DOMAIN-SUFFIX,max.com,QOS-STREAMING
+- DOMAIN-SUFFIX,hbomax.com,QOS-STREAMING
+- DOMAIN-SUFFIX,spotify.com,QOS-STREAMING
+- DOMAIN-SUFFIX,scdn.co,QOS-STREAMING
+- DOMAIN-SUFFIX,vidio.com,QOS-STREAMING
+- DOMAIN-SUFFIX,viu.com,QOS-STREAMING
+- DOMAIN-SUFFIX,iq.com,QOS-STREAMING
+- DOMAIN-SUFFIX,primevideo.com,QOS-STREAMING
+- DOMAIN-SUFFIX,amazonvideo.com,QOS-STREAMING
+- DOMAIN-SUFFIX,twitch.tv,QOS-STREAMING
+- DOMAIN-SUFFIX,ttvnw.net,QOS-STREAMING
+- DOMAIN-SUFFIX,openai.com,QOS-AI
+- DOMAIN-SUFFIX,chatgpt.com,QOS-AI
+- DOMAIN-SUFFIX,oaistatic.com,QOS-AI
+- DOMAIN-SUFFIX,oaiusercontent.com,QOS-AI
+- DOMAIN-SUFFIX,anthropic.com,QOS-AI
+- DOMAIN-SUFFIX,claude.ai,QOS-AI
+- DOMAIN-SUFFIX,perplexity.ai,QOS-AI
+- DOMAIN-SUFFIX,gemini.google.com,QOS-AI
+- DOMAIN-SUFFIX,ai.google.dev,QOS-AI
+- DOMAIN-SUFFIX,copilot.microsoft.com,QOS-AI
+- DOMAIN-SUFFIX,huggingface.co,QOS-AI
+- DOMAIN-SUFFIX,facebook.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,fbcdn.net,QOS-SOCIAL
+- DOMAIN-SUFFIX,messenger.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,instagram.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,cdninstagram.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,threads.net,QOS-SOCIAL
+- DOMAIN-SUFFIX,x.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,twitter.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,twimg.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,tiktok.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,tiktokv.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,tiktokcdn.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,byteoversea.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,github.com,QOS-WORK
+- DOMAIN-SUFFIX,githubusercontent.com,QOS-WORK
+- DOMAIN-SUFFIX,githubassets.com,QOS-WORK
+- DOMAIN-SUFFIX,github.io,QOS-WORK
+- DOMAIN-SUFFIX,gitlab.com,QOS-WORK
+- DOMAIN-SUFFIX,npmjs.com,QOS-WORK
+- DOMAIN-SUFFIX,nodejs.org,QOS-WORK
+- DOMAIN-SUFFIX,pypi.org,QOS-WORK
+- DOMAIN-SUFFIX,pythonhosted.org,QOS-WORK
+- DOMAIN-SUFFIX,docker.com,QOS-WORK
+- DOMAIN-SUFFIX,docker.io,QOS-WORK
+- DOMAIN-SUFFIX,ghcr.io,QOS-WORK
+- DOMAIN-SUFFIX,cloudflare.com,QOS-WORK
+- DOMAIN-SUFFIX,vercel.com,QOS-WORK
+- DOMAIN-SUFFIX,netlify.app,QOS-WORK
+- DOMAIN-SUFFIX,stackoverflow.com,QOS-WORK
+- DOMAIN-SUFFIX,stackexchange.com,QOS-WORK
+- DOMAIN-SUFFIX,office.com,QOS-WORK
+- DOMAIN-SUFFIX,microsoft.com,QOS-WORK
+- DOMAIN-SUFFIX,windows.net,QOS-WORK
+- DOMAIN-SUFFIX,azure.com,QOS-WORK
+- DOMAIN-SUFFIX,slack.com,QOS-WORK
+- DOMAIN-SUFFIX,notion.so,QOS-WORK
+- DOMAIN-SUFFIX,bca.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,klikbca.com,QOS-BANKING
+- DOMAIN-SUFFIX,mybca.bca.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bankmandiri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,livin.mandiri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,brimo.bri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bni.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,btn.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,cimbniaga.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,danamon.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,permatabank.com,QOS-BANKING
+- DOMAIN-SUFFIX,ocbc.id,QOS-BANKING
+- DOMAIN-SUFFIX,jenius.com,QOS-BANKING
+- DOMAIN-SUFFIX,blu.id,QOS-BANKING
+- DOMAIN-SUFFIX,seabank.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bankjago.com,QOS-BANKING
+- DOMAIN-SUFFIX,ovo.id,QOS-BANKING
+- DOMAIN-SUFFIX,gopay.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,dana.id,QOS-BANKING
+- DOMAIN-SUFFIX,linkaja.id,QOS-BANKING
+- DOMAIN-SUFFIX,shopeepay.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,tokopedia.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,shopee.co.id,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,shopee.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,lazada.co.id,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,bukalapak.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,blibli.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,tiket.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,traveloka.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,gojek.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,grab.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,maxim.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,ubuntu.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,debian.org,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,archlinux.org,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,kernel.org,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,sourceforge.net,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,fosshub.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,apkcombo.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,apkpure.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,mediafire.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,mega.nz,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,dropbox.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,box.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,onedrive.live.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,download.windowsupdate.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,windowsupdate.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,updates.cdn-apple.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,swcdn.apple.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,steamcontent.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,doubleclick.net,QOS-BLOCK
+- DOMAIN-SUFFIX,googlesyndication.com,QOS-BLOCK
+- DOMAIN-SUFFIX,googleadservices.com,QOS-BLOCK
+- DOMAIN-SUFFIX,adservice.google.com,QOS-BLOCK
+- DOMAIN-SUFFIX,adsrvr.org,QOS-BLOCK
+- DOMAIN-SUFFIX,taboola.com,QOS-BLOCK
+- DOMAIN-SUFFIX,outbrain.com,QOS-BLOCK
+- DOMAIN-SUFFIX,scorecardresearch.com,QOS-BLOCK
+- DOMAIN-SUFFIX,zedo.com,QOS-BLOCK
+- DOMAIN-SUFFIX,adnxs.com,QOS-BLOCK
+- DOMAIN-SUFFIX,openai.com,WEB-AI
+- DOMAIN-SUFFIX,chatgpt.com,WEB-AI
+- DOMAIN-SUFFIX,oaistatic.com,WEB-AI
+- DOMAIN-SUFFIX,oaiusercontent.com,WEB-AI
+- DOMAIN-SUFFIX,auth0.openai.com,WEB-AI
+- DOMAIN-SUFFIX,anthropic.com,WEB-AI
+- DOMAIN-SUFFIX,claude.ai,WEB-AI
+- DOMAIN-SUFFIX,perplexity.ai,WEB-AI
+- DOMAIN-SUFFIX,gemini.google.com,WEB-AI
+- DOMAIN-SUFFIX,ai.google.dev,WEB-AI
+- DOMAIN-SUFFIX,makersuite.google.com,WEB-AI
+- DOMAIN-SUFFIX,copilot.microsoft.com,WEB-AI
+- DOMAIN-SUFFIX,huggingface.co,WEB-AI
+- DOMAIN-SUFFIX,youtube.com,WEB-STREAMING
+- DOMAIN-SUFFIX,youtu.be,WEB-STREAMING
+- DOMAIN-SUFFIX,googlevideo.com,WEB-STREAMING
+- DOMAIN-SUFFIX,ytimg.com,WEB-STREAMING
+- DOMAIN-SUFFIX,netflix.com,WEB-STREAMING
+- DOMAIN-SUFFIX,nflxvideo.net,WEB-STREAMING
+- DOMAIN-SUFFIX,nflximg.net,WEB-STREAMING
+- DOMAIN-SUFFIX,nflxext.com,WEB-STREAMING
+- DOMAIN-SUFFIX,disneyplus.com,WEB-STREAMING
+- DOMAIN-SUFFIX,hotstar.com,WEB-STREAMING
+- DOMAIN-SUFFIX,max.com,WEB-STREAMING
+- DOMAIN-SUFFIX,hbomax.com,WEB-STREAMING
+- DOMAIN-SUFFIX,spotify.com,WEB-STREAMING
+- DOMAIN-SUFFIX,scdn.co,WEB-STREAMING
+- DOMAIN-SUFFIX,vidio.com,WEB-STREAMING
+- DOMAIN-SUFFIX,viu.com,WEB-STREAMING
+- DOMAIN-SUFFIX,iq.com,WEB-STREAMING
+- DOMAIN-SUFFIX,primevideo.com,WEB-STREAMING
+- DOMAIN-SUFFIX,amazonvideo.com,WEB-STREAMING
+- DOMAIN-SUFFIX,whatsapp.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,whatsapp.net,WEB-SOCIAL
+- DOMAIN-SUFFIX,telegram.org,WEB-SOCIAL
+- DOMAIN-SUFFIX,t.me,WEB-SOCIAL
+- DOMAIN-SUFFIX,facebook.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,fbcdn.net,WEB-SOCIAL
+- DOMAIN-SUFFIX,messenger.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,instagram.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,cdninstagram.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,threads.net,WEB-SOCIAL
+- DOMAIN-SUFFIX,twitter.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,x.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,twimg.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,discord.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,discord.gg,WEB-SOCIAL
+- DOMAIN-SUFFIX,discordapp.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,tiktok.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,tiktokv.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,tiktokcdn.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,byteoversea.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,steampowered.com,WEB-GAMING
+- DOMAIN-SUFFIX,steamcommunity.com,WEB-GAMING
+- DOMAIN-SUFFIX,steamstatic.com,WEB-GAMING
+- DOMAIN-SUFFIX,epicgames.com,WEB-GAMING
+- DOMAIN-SUFFIX,unrealengine.com,WEB-GAMING
+- DOMAIN-SUFFIX,riotgames.com,WEB-GAMING
+- DOMAIN-SUFFIX,valorant.com,WEB-GAMING
+- DOMAIN-SUFFIX,roblox.com,WEB-GAMING
+- DOMAIN-SUFFIX,garena.com,WEB-GAMING
+- DOMAIN-SUFFIX,mobilelegends.com,WEB-GAMING
+- DOMAIN-SUFFIX,m.mobilelegends.com,WEB-GAMING
+- DOMAIN-SUFFIX,moonton.com,WEB-GAMING
+- DOMAIN-SUFFIX,pubgmobile.com,WEB-GAMING
+- DOMAIN-SUFFIX,krafton.com,WEB-GAMING
+- DOMAIN-SUFFIX,hoyoverse.com,WEB-GAMING
+- DOMAIN-SUFFIX,genshinimpact.com,WEB-GAMING
+- DOMAIN-SUFFIX,zenlesszonezero.com,WEB-GAMING
+- DOMAIN-SUFFIX,battle.net,WEB-GAMING
+- DOMAIN-SUFFIX,blizzard.com,WEB-GAMING
+- DOMAIN-SUFFIX,bca.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,klikbca.com,WEB-BANKING
+- DOMAIN-SUFFIX,mybca.bca.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,bankmandiri.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,livin.mandiri.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,bri.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,brimo.bri.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,bni.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,btn.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,cimbniaga.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,danamon.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,permatabank.com,WEB-BANKING
+- DOMAIN-SUFFIX,ocbc.id,WEB-BANKING
+- DOMAIN-SUFFIX,jenius.com,WEB-BANKING
+- DOMAIN-SUFFIX,blu.id,WEB-BANKING
+- DOMAIN-SUFFIX,seabank.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,bankjago.com,WEB-BANKING
+- DOMAIN-SUFFIX,ovo.id,WEB-BANKING
+- DOMAIN-SUFFIX,gopay.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,dana.id,WEB-BANKING
+- DOMAIN-SUFFIX,linkaja.id,WEB-BANKING
+- DOMAIN-SUFFIX,shopeepay.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,tokopedia.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,shopee.co.id,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,shopee.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,lazada.co.id,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,bukalapak.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,blibli.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,tiket.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,traveloka.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,gojek.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,grab.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,maxim.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,github.com,WEB-DEV
+- DOMAIN-SUFFIX,githubusercontent.com,WEB-DEV
+- DOMAIN-SUFFIX,githubassets.com,WEB-DEV
+- DOMAIN-SUFFIX,github.io,WEB-DEV
+- DOMAIN-SUFFIX,gitlab.com,WEB-DEV
+- DOMAIN-SUFFIX,npmjs.com,WEB-DEV
+- DOMAIN-SUFFIX,nodejs.org,WEB-DEV
+- DOMAIN-SUFFIX,pypi.org,WEB-DEV
+- DOMAIN-SUFFIX,pythonhosted.org,WEB-DEV
+- DOMAIN-SUFFIX,docker.com,WEB-DEV
+- DOMAIN-SUFFIX,docker.io,WEB-DEV
+- DOMAIN-SUFFIX,ghcr.io,WEB-DEV
+- DOMAIN-SUFFIX,cloudflare.com,WEB-DEV
+- DOMAIN-SUFFIX,vercel.com,WEB-DEV
+- DOMAIN-SUFFIX,netlify.app,WEB-DEV
+- DOMAIN-SUFFIX,stackoverflow.com,WEB-DEV
+- DOMAIN-SUFFIX,stackexchange.com,WEB-DEV
+- DOMAIN-SUFFIX,google.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,google.co.id,WEB-GOOGLE
+- DOMAIN-SUFFIX,gstatic.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,googleapis.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,googleusercontent.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,ggpht.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,google-analytics.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,googlevideo.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,ytimg.com,WEB-GOOGLE
+- MATCH,QOS-DEFAULT

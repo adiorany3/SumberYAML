@@ -1,0 +1,843 @@
+{
+  "ok": true,
+  "generated_at": "2026-06-06T04:49:57.633875+00:00",
+  "generated_by": "apply_openclash_rule_focus.py",
+  "mode": "website-category-rule-focus",
+  "policy": {
+    "rule_type": "DOMAIN-SUFFIX based category routing inserted before MATCH",
+    "groups_added": [
+      "WEB-AI",
+      "WEB-STREAMING",
+      "WEB-SOCIAL",
+      "WEB-GAMING",
+      "WEB-BANKING",
+      "WEB-MARKETPLACE",
+      "WEB-DEV",
+      "WEB-GOOGLE",
+      "WEB-DEFAULT",
+      "WEB-BYPASS",
+      "WEB-BLOCK"
+    ],
+    "auto_groups": [
+      "WEB-AI-AUTO",
+      "WEB-STREAMING-AUTO",
+      "WEB-SOCIAL-AUTO",
+      "WEB-GAMING-AUTO",
+      "WEB-MARKETPLACE-AUTO",
+      "WEB-DEV-AUTO",
+      "WEB-GOOGLE-AUTO"
+    ],
+    "banking_direct_first": true,
+    "marketplace_direct_first": true,
+    "direct_reject_policy": "DIRECT and REJECT are allowed only inside select-group proxies; rules target WEB-BYPASS/WEB-BLOCK instead.",
+    "openclash_safe": "No rule-providers, no script rules, no Meta-only root options; only select/url-test groups and DOMAIN-SUFFIX/GEOIP rules."
+  },
+  "settings": {
+    "interval": 120,
+    "tolerance": 50,
+    "max_candidates": 24,
+    "add_lan_direct": false,
+    "add_geoip_id_direct": false
+  },
+  "results": [
+    {
+      "file": "output/lengkap.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 14,
+        "WEB-BLOCK": 15,
+        "WEB-AI-AUTO": 24,
+        "WEB-AI": 15,
+        "WEB-STREAMING-AUTO": 24,
+        "WEB-STREAMING": 15,
+        "WEB-SOCIAL-AUTO": 24,
+        "WEB-SOCIAL": 15,
+        "WEB-GAMING-AUTO": 24,
+        "WEB-GAMING": 15,
+        "WEB-BANKING": 14,
+        "WEB-MARKETPLACE-AUTO": 24,
+        "WEB-MARKETPLACE": 15,
+        "WEB-DEV-AUTO": 24,
+        "WEB-DEV": 15,
+        "WEB-GOOGLE-AUTO": 24,
+        "WEB-GOOGLE": 15
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/lengkap_alive.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 14,
+        "WEB-BLOCK": 15,
+        "WEB-AI-AUTO": 24,
+        "WEB-AI": 15,
+        "WEB-STREAMING-AUTO": 24,
+        "WEB-STREAMING": 15,
+        "WEB-SOCIAL-AUTO": 24,
+        "WEB-SOCIAL": 15,
+        "WEB-GAMING-AUTO": 24,
+        "WEB-GAMING": 15,
+        "WEB-BANKING": 14,
+        "WEB-MARKETPLACE-AUTO": 24,
+        "WEB-MARKETPLACE": 15,
+        "WEB-DEV-AUTO": 24,
+        "WEB-DEV": 15,
+        "WEB-GOOGLE-AUTO": 24,
+        "WEB-GOOGLE": 15
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/strict_alive.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 14,
+        "WEB-BLOCK": 15,
+        "WEB-AI-AUTO": 24,
+        "WEB-AI": 15,
+        "WEB-STREAMING-AUTO": 24,
+        "WEB-STREAMING": 15,
+        "WEB-SOCIAL-AUTO": 24,
+        "WEB-SOCIAL": 15,
+        "WEB-GAMING-AUTO": 24,
+        "WEB-GAMING": 15,
+        "WEB-BANKING": 14,
+        "WEB-MARKETPLACE-AUTO": 24,
+        "WEB-MARKETPLACE": 15,
+        "WEB-DEV-AUTO": 24,
+        "WEB-DEV": 15,
+        "WEB-GOOGLE-AUTO": 24,
+        "WEB-GOOGLE": 15
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/lite.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 14,
+        "WEB-BLOCK": 15,
+        "WEB-AI-AUTO": 24,
+        "WEB-AI": 15,
+        "WEB-STREAMING-AUTO": 24,
+        "WEB-STREAMING": 15,
+        "WEB-SOCIAL-AUTO": 24,
+        "WEB-SOCIAL": 15,
+        "WEB-GAMING-AUTO": 24,
+        "WEB-GAMING": 15,
+        "WEB-BANKING": 14,
+        "WEB-MARKETPLACE-AUTO": 24,
+        "WEB-MARKETPLACE": 15,
+        "WEB-DEV-AUTO": 24,
+        "WEB-DEV": 15,
+        "WEB-GOOGLE-AUTO": 24,
+        "WEB-GOOGLE": 15
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/fast.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 14,
+        "WEB-BLOCK": 15,
+        "WEB-AI-AUTO": 24,
+        "WEB-AI": 15,
+        "WEB-STREAMING-AUTO": 24,
+        "WEB-STREAMING": 15,
+        "WEB-SOCIAL-AUTO": 24,
+        "WEB-SOCIAL": 15,
+        "WEB-GAMING-AUTO": 24,
+        "WEB-GAMING": 15,
+        "WEB-BANKING": 14,
+        "WEB-MARKETPLACE-AUTO": 24,
+        "WEB-MARKETPLACE": 15,
+        "WEB-DEV-AUTO": 24,
+        "WEB-DEV": 15,
+        "WEB-GOOGLE-AUTO": 24,
+        "WEB-GOOGLE": 15
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/gaming.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 11,
+        "WEB-BLOCK": 12,
+        "WEB-AI-AUTO": 21,
+        "WEB-AI": 12,
+        "WEB-STREAMING-AUTO": 21,
+        "WEB-STREAMING": 12,
+        "WEB-SOCIAL-AUTO": 21,
+        "WEB-SOCIAL": 12,
+        "WEB-GAMING-AUTO": 21,
+        "WEB-GAMING": 12,
+        "WEB-BANKING": 11,
+        "WEB-MARKETPLACE-AUTO": 21,
+        "WEB-MARKETPLACE": 12,
+        "WEB-DEV-AUTO": 21,
+        "WEB-DEV": 12,
+        "WEB-GOOGLE-AUTO": 21,
+        "WEB-GOOGLE": 12
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/social_media.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 11,
+        "WEB-BLOCK": 12,
+        "WEB-AI-AUTO": 21,
+        "WEB-AI": 12,
+        "WEB-STREAMING-AUTO": 21,
+        "WEB-STREAMING": 12,
+        "WEB-SOCIAL-AUTO": 21,
+        "WEB-SOCIAL": 12,
+        "WEB-GAMING-AUTO": 21,
+        "WEB-GAMING": 12,
+        "WEB-BANKING": 11,
+        "WEB-MARKETPLACE-AUTO": 21,
+        "WEB-MARKETPLACE": 12,
+        "WEB-DEV-AUTO": 21,
+        "WEB-DEV": 12,
+        "WEB-GOOGLE-AUTO": 21,
+        "WEB-GOOGLE": 12
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/streaming.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 11,
+        "WEB-BLOCK": 12,
+        "WEB-AI-AUTO": 21,
+        "WEB-AI": 12,
+        "WEB-STREAMING-AUTO": 21,
+        "WEB-STREAMING": 12,
+        "WEB-SOCIAL-AUTO": 21,
+        "WEB-SOCIAL": 12,
+        "WEB-GAMING-AUTO": 21,
+        "WEB-GAMING": 12,
+        "WEB-BANKING": 11,
+        "WEB-MARKETPLACE-AUTO": 21,
+        "WEB-MARKETPLACE": 12,
+        "WEB-DEV-AUTO": 21,
+        "WEB-DEV": 12,
+        "WEB-GOOGLE-AUTO": 21,
+        "WEB-GOOGLE": 12
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/working.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 11,
+        "WEB-BLOCK": 12,
+        "WEB-AI-AUTO": 21,
+        "WEB-AI": 12,
+        "WEB-STREAMING-AUTO": 21,
+        "WEB-STREAMING": 12,
+        "WEB-SOCIAL-AUTO": 21,
+        "WEB-SOCIAL": 12,
+        "WEB-GAMING-AUTO": 21,
+        "WEB-GAMING": 12,
+        "WEB-BANKING": 11,
+        "WEB-MARKETPLACE-AUTO": 21,
+        "WEB-MARKETPLACE": 12,
+        "WEB-DEV-AUTO": 21,
+        "WEB-DEV": 12,
+        "WEB-GOOGLE-AUTO": 21,
+        "WEB-GOOGLE": 12
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/general.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 11,
+        "WEB-BLOCK": 12,
+        "WEB-AI-AUTO": 21,
+        "WEB-AI": 12,
+        "WEB-STREAMING-AUTO": 21,
+        "WEB-STREAMING": 12,
+        "WEB-SOCIAL-AUTO": 21,
+        "WEB-SOCIAL": 12,
+        "WEB-GAMING-AUTO": 21,
+        "WEB-GAMING": 12,
+        "WEB-BANKING": 11,
+        "WEB-MARKETPLACE-AUTO": 21,
+        "WEB-MARKETPLACE": 12,
+        "WEB-DEV-AUTO": 21,
+        "WEB-DEV": 12,
+        "WEB-GOOGLE-AUTO": 21,
+        "WEB-GOOGLE": 12
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/openclash-ready.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 14,
+        "WEB-BLOCK": 15,
+        "WEB-AI-AUTO": 24,
+        "WEB-AI": 15,
+        "WEB-STREAMING-AUTO": 24,
+        "WEB-STREAMING": 15,
+        "WEB-SOCIAL-AUTO": 24,
+        "WEB-SOCIAL": 15,
+        "WEB-GAMING-AUTO": 24,
+        "WEB-GAMING": 15,
+        "WEB-BANKING": 14,
+        "WEB-MARKETPLACE-AUTO": 24,
+        "WEB-MARKETPLACE": 15,
+        "WEB-DEV-AUTO": 24,
+        "WEB-DEV": 15,
+        "WEB-GOOGLE-AUTO": 24,
+        "WEB-GOOGLE": 15
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 196,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 2,
+        "reject_rule_targets_retargeted": 5
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/openclash-lite-ready.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 11,
+        "WEB-BLOCK": 12,
+        "WEB-AI-AUTO": 24,
+        "WEB-AI": 12,
+        "WEB-STREAMING-AUTO": 24,
+        "WEB-STREAMING": 12,
+        "WEB-SOCIAL-AUTO": 24,
+        "WEB-SOCIAL": 12,
+        "WEB-GAMING-AUTO": 24,
+        "WEB-GAMING": 12,
+        "WEB-BANKING": 11,
+        "WEB-MARKETPLACE-AUTO": 24,
+        "WEB-MARKETPLACE": 12,
+        "WEB-DEV-AUTO": 24,
+        "WEB-DEV": 12,
+        "WEB-GOOGLE-AUTO": 24,
+        "WEB-GOOGLE": 12
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 154,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 2,
+        "reject_rule_targets_retargeted": 4
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/manual_only.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "WEB-DEFAULT": "created",
+        "WEB-BYPASS": "created",
+        "WEB-BLOCK": "created",
+        "WEB-AI-AUTO": "created",
+        "WEB-AI": "created",
+        "WEB-STREAMING-AUTO": "created",
+        "WEB-STREAMING": "created",
+        "WEB-SOCIAL-AUTO": "created",
+        "WEB-SOCIAL": "created",
+        "WEB-GAMING-AUTO": "created",
+        "WEB-GAMING": "created",
+        "WEB-BANKING": "created",
+        "WEB-MARKETPLACE-AUTO": "created",
+        "WEB-MARKETPLACE": "created",
+        "WEB-DEV-AUTO": "created",
+        "WEB-DEV": "created",
+        "WEB-GOOGLE-AUTO": "created",
+        "WEB-GOOGLE": "created"
+      },
+      "category_counts": {
+        "WEB-DEFAULT": 10,
+        "WEB-BYPASS": 11,
+        "WEB-BLOCK": 12,
+        "WEB-AI-AUTO": 11,
+        "WEB-AI": 12,
+        "WEB-STREAMING-AUTO": 11,
+        "WEB-STREAMING": 12,
+        "WEB-SOCIAL-AUTO": 11,
+        "WEB-SOCIAL": 12,
+        "WEB-GAMING-AUTO": 11,
+        "WEB-GAMING": 12,
+        "WEB-BANKING": 11,
+        "WEB-MARKETPLACE-AUTO": 11,
+        "WEB-MARKETPLACE": 12,
+        "WEB-DEV-AUTO": 11,
+        "WEB-DEV": 12,
+        "WEB-GOOGLE-AUTO": 11,
+        "WEB-GOOGLE": 12
+      },
+      "rule_stats": {
+        "category_rules_inserted": 130,
+        "total_rules": 131,
+        "lan_bypass_added": 0,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "empty_repaired": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/Performance/performance-lite.yaml",
+      "ok": false,
+      "skipped": true,
+      "reason": "file not found"
+    }
+  ]
+}

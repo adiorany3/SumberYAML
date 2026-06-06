@@ -44,6 +44,163 @@ dns:
   - localhost
   - localhost.*
 proxies:
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-002 (ID)+Amazon.com
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-005 (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: MANUAL-LINK-006 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-007 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: MANUAL-LINK-009 bel432 telk
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-010 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
 - name: MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
   type: vmess
   server: 104.17.3.81
@@ -2686,6 +2843,7 @@ proxy-groups:
   - MANUAL-FALLBACK
   - MANUAL-LINK
   - MANUAL-BEST
+  - SMART-BEST
   - SAT-SET
   - ANTI-BENGONG
   - BEST-STABLE
@@ -2719,21 +2877,17 @@ proxy-groups:
 - name: SAT-SET
   type: fallback
   proxies:
-  - ProxyVPN11 6456
-  - oneclickvpnkeys US 4120
-  - oneclickvpnkeys US 6805
-  - VPsave 8921
-  - oneclickvpnkeys US 7518
-  - oneclickvpnkeys US 8779
-  - v2reya88
-  - oneclickvpnkeys US 6214
-  - v2raydia
-  - By EbraSha
-  - HiByeVPNN 48
-  - configV2rayNG FR
-  - MCi DE JKVPN
-  - oneclickvpnkeys NL 7340
-  - bird_angry (mci
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - MANUAL-LINK-002 (ID)+PUSATMEDIA
   - 'MANUAL-LINK-003 bel432 xl #5'
@@ -2798,6 +2952,21 @@ proxy-groups:
   - WORK-13 LINK bel432 xl
   - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
   - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - VPsave 8921
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 8779
+  - v2reya88
+  - oneclickvpnkeys US 6214
+  - v2raydia
+  - By EbraSha
+  - HiByeVPNN 48
+  - configV2rayNG FR
+  - MCi DE JKVPN
+  - oneclickvpnkeys NL 7340
+  - bird_angry (mci
   - v2nodes DE
   - oneclickvpnkeys FR 9264
   - oneclickvpnkeys FI
@@ -2839,21 +3008,17 @@ proxy-groups:
 - name: ANTI-BENGONG
   type: fallback
   proxies:
-  - ProxyVPN11 6456
-  - oneclickvpnkeys US 4120
-  - oneclickvpnkeys US 6805
-  - VPsave 8921
-  - oneclickvpnkeys US 7518
-  - oneclickvpnkeys US 8779
-  - v2reya88
-  - oneclickvpnkeys US 6214
-  - v2raydia
-  - By EbraSha
-  - HiByeVPNN 48
-  - configV2rayNG FR
-  - MCi DE JKVPN
-  - oneclickvpnkeys NL 7340
-  - bird_angry (mci
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - MANUAL-LINK-002 (ID)+PUSATMEDIA
   - 'MANUAL-LINK-003 bel432 xl #5'
@@ -2918,6 +3083,21 @@ proxy-groups:
   - WORK-13 LINK bel432 xl
   - WORK-14 LINK VLESS-WS-TLS-443-apt50atpprem
   - WORK-15 LINK VMess-WS-TLS-443-akuku8
+  - ProxyVPN11 6456
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - VPsave 8921
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 8779
+  - v2reya88
+  - oneclickvpnkeys US 6214
+  - v2raydia
+  - By EbraSha
+  - HiByeVPNN 48
+  - configV2rayNG FR
+  - MCi DE JKVPN
+  - oneclickvpnkeys NL 7340
+  - bird_angry (mci
   - v2nodes DE
   - oneclickvpnkeys FR 9264
   - oneclickvpnkeys FI
@@ -2938,6 +3118,17 @@ proxy-groups:
 - name: best-link
   type: url-test
   proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - MANUAL-LINK-002 (ID)+PUSATMEDIA
   - 'MANUAL-LINK-003 bel432 xl #5'
@@ -3008,6 +3199,17 @@ proxy-groups:
 - name: fallback-link
   type: fallback
   proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - MANUAL-LINK-002 (ID)+PUSATMEDIA
   - 'MANUAL-LINK-003 bel432 xl #5'
@@ -3207,31 +3409,65 @@ proxy-groups:
 - name: MANUAL-LINK
   type: select
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #5'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   - DIRECT
 - name: MANUAL-FALLBACK
   type: fallback
   proxies:
-  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-002 (ID)+PUSATMEDIA
-  - 'MANUAL-LINK-003 bel432 xl #5'
-  - MANUAL-LINK-004 bel432 xl
-  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
-  - MANUAL-LINK-006 bel432 telk
-  - MANUAL-LINK-007 10.lowh.net
-  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 60
 - name: MANUAL-BEST
   type: url-test
   proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  url: http://www.gstatic.com/generate_204
+  interval: 60
+  tolerance: 20
+- name: SMART-BEST
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - MANUAL-LINK-002 (ID)+PUSATMEDIA
   - 'MANUAL-LINK-003 bel432 xl #5'
@@ -3240,23 +3476,896 @@ proxy-groups:
   - MANUAL-LINK-006 bel432 telk
   - MANUAL-LINK-007 10.lowh.net
   - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-002 bel432 xl #4'
+  - 'MANUAL-LINK-003 bel432 xl #4'
+  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #4'
+  - 'MANUAL-LINK-005 bel432 telk #4'
+  - 'MANUAL-LINK-006 10.lowh.net #4'
+  - 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-002 bel432 xl #3'
+  - 'MANUAL-LINK-003 bel432 xl #3'
+  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #3'
   url: http://www.gstatic.com/generate_204
   interval: 60
   tolerance: 20
+- name: WEB-DEFAULT
+  type: select
+  proxies:
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - DIRECT
+- name: WEB-BYPASS
+  type: select
+  proxies:
+  - DIRECT
+  - WEB-DEFAULT
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
+- name: WEB-BLOCK
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+  - WEB-DEFAULT
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
+- name: WEB-AI-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - oneclickvpnkeys US 8779
+  - oneclickvpnkeys US 6214
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - LINK (ID)+PUSATMEDIA
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - STREAM-03 oneclickvpnkeys US 6805
+  - STREAM-04 oneclickvpnkeys US 4120
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-AI
+  type: select
+  proxies:
+  - WEB-AI-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: WEB-STREAMING-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - oneclickvpnkeys US 8779
+  - oneclickvpnkeys US 6214
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - v2ray_configs_pools 4582
+  - FreakConfig FR
+  - configV2rayNG FR
+  - LINK (ID)+PUSATMEDIA
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-STREAMING
+  type: select
+  proxies:
+  - WEB-STREAMING-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: WEB-SOCIAL-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - LINK (ID)+PUSATMEDIA
+  - ID-01 ProxyVPN11 6456
+  - ID-02 VPsave 8921
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-05 v2raydia
+  - ID-06 By EbraSha
+  - ID-07 HiByeVPNN 48
+  - ID-08 oneclickvpnkeys NL 7340
+  - ID-09 v2ray_configs_pools 4582
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-SOCIAL
+  type: select
+  proxies:
+  - WEB-SOCIAL-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: WEB-GAMING-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - MANUAL-LINK-007 10.lowh.net
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-006 10.lowh.net #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-006 10.lowh.net #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - 'MANUAL-LINK-006 10.lowh.net #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 10.lowh.net
+  - LINK (ID)+PUSATMEDIA
+  - LINK 10.lowh.net
+  - ID-01 ProxyVPN11 6456
+  - ID-02 VPsave 8921
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-GAMING
+  type: select
+  proxies:
+  - WEB-GAMING-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: WEB-BANKING
+  type: select
+  proxies:
+  - DIRECT
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
+  - WEB-DEFAULT
+- name: WEB-MARKETPLACE-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - LINK (ID)+PUSATMEDIA
+  - ID-01 ProxyVPN11 6456
+  - ID-02 VPsave 8921
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-05 v2raydia
+  - ID-06 By EbraSha
+  - ID-07 HiByeVPNN 48
+  - ID-08 oneclickvpnkeys NL 7340
+  - ID-09 v2ray_configs_pools 4582
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-MARKETPLACE
+  type: select
+  proxies:
+  - DIRECT
+  - WEB-MARKETPLACE-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
+  - WEB-DEFAULT
+- name: WEB-DEV-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - oneclickvpnkeys US 8779
+  - oneclickvpnkeys US 6214
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - LINK (ID)+PUSATMEDIA
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - STREAM-03 oneclickvpnkeys US 6805
+  - STREAM-04 oneclickvpnkeys US 4120
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-DEV
+  type: select
+  proxies:
+  - WEB-DEV-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: WEB-GOOGLE-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - oneclickvpnkeys US 8779
+  - oneclickvpnkeys US 6214
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - LINK (ID)+PUSATMEDIA
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - STREAM-03 oneclickvpnkeys US 6805
+  - STREAM-04 oneclickvpnkeys US 4120
+  url: http://www.gstatic.com/generate_204
+  interval: 120
+  tolerance: 50
+- name: WEB-GOOGLE
+  type: select
+  proxies:
+  - WEB-GOOGLE-AUTO
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+  - URL-TEST TOP 10 INDONESIA
+  - DIRECT
+  - WEB-DEFAULT
+- name: QOS-REALTIME-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-003 bel432 xl #5'
+  - MANUAL-LINK-004 bel432 xl
+  - MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-006 bel432 telk
+  - MANUAL-LINK-007 10.lowh.net
+  - MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-002 bel432 xl #4'
+  - 'MANUAL-LINK-003 bel432 xl #4'
+  - 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #4'
+  - 'MANUAL-LINK-005 bel432 telk #4'
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-GAMING-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-010 10.lowh.net
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - MANUAL-LINK-007 10.lowh.net
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-006 10.lowh.net #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-006 10.lowh.net #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - 'MANUAL-LINK-006 10.lowh.net #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 10.lowh.net
+  - LINK (ID)+PUSATMEDIA
+  - LINK 10.lowh.net
+  - ID-01 ProxyVPN11 6456
+  - ID-02 VPsave 8921
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-STREAMING-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - oneclickvpnkeys US 8779
+  - oneclickvpnkeys US 6214
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - LINK (ID)+PUSATMEDIA
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - STREAM-01 ProxyVPN11 6456
+  - STREAM-02 VPsave 8921
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-AI-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - oneclickvpnkeys US 8779
+  - oneclickvpnkeys US 6214
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - LINK (ID)+PUSATMEDIA
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - STREAM-03 oneclickvpnkeys US 6805
+  - STREAM-04 oneclickvpnkeys US 4120
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-WORK-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - oneclickvpnkeys US 8779
+  - oneclickvpnkeys US 6214
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - LINK (ID)+PUSATMEDIA
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  - ID-11 LINK (ID)+PUSATMEDIA
+  - STREAM-03 oneclickvpnkeys US 6805
+  - STREAM-04 oneclickvpnkeys US 4120
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-DOWNLOAD-AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  - MANUAL-LINK-002 (ID)+Amazon.com
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  - MANUAL-LINK-005 (ID)+PUSATMEDIA
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-002 (ID)+PUSATMEDIA
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  - 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  - MANUAL-LINK-001 (ID)+PUSATMEDIA
+  - oneclickvpnkeys US 8779
+  - oneclickvpnkeys US 6214
+  - oneclickvpnkeys US 7518
+  - oneclickvpnkeys US 4120
+  - oneclickvpnkeys US 6805
+  - LINK (ID)+PUSATMEDIA
+  - ID-01 ProxyVPN11 6456
+  - ID-02 VPsave 8921
+  - ID-03 oneclickvpnkeys US 6805
+  - ID-04 oneclickvpnkeys US 4120
+  url: http://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 30
+- name: QOS-DEFAULT
+  type: select
+  proxies:
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - WEB-DEFAULT
+  - PROXY
+  - FALLBACK CEPAT
+  - FALLBACK
+  - DIRECT
+- name: QOS-BYPASS
+  type: select
+  proxies:
+  - WEB-BYPASS
+  - DIRECT
+  - QOS-DEFAULT
+  - WEB-DEFAULT
+  - PROXY
+  - MANUAL-FALLBACK
+  - MANUAL-LINK
+  - MANUAL-BEST
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - FALLBACK CEPAT
+  - FALLBACK
+- name: QOS-BLOCK
+  type: select
+  proxies:
+  - WEB-BLOCK
+  - REJECT
+  - QOS-BYPASS
+  - QOS-DEFAULT
+  - WEB-DEFAULT
+- name: QOS-REALTIME
+  type: select
+  proxies:
+  - QOS-REALTIME-AUTO
+  - QOS-GAMING-AUTO
+  - WEB-GAMING
+  - WEB-SOCIAL
+  - MANUAL-BEST
+  - MANUAL-FALLBACK
+  - SAT-SET
+  - ANTI-BENGONG
+  - QOS-DEFAULT
+- name: QOS-GAMING
+  type: select
+  proxies:
+  - QOS-GAMING-AUTO
+  - QOS-REALTIME-AUTO
+  - WEB-GAMING
+  - MANUAL-BEST
+  - MANUAL-FALLBACK
+  - SAT-SET
+  - QOS-DEFAULT
+- name: QOS-STREAMING
+  type: select
+  proxies:
+  - QOS-STREAMING-AUTO
+  - WEB-STREAMING
+  - MANUAL-FALLBACK
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - QOS-DEFAULT
+- name: QOS-AI
+  type: select
+  proxies:
+  - QOS-AI-AUTO
+  - WEB-AI
+  - QOS-REALTIME-AUTO
+  - MANUAL-FALLBACK
+  - QOS-DEFAULT
+- name: QOS-SOCIAL
+  type: select
+  proxies:
+  - WEB-SOCIAL
+  - QOS-REALTIME-AUTO
+  - MANUAL-FALLBACK
+  - QOS-DEFAULT
+- name: QOS-WORK
+  type: select
+  proxies:
+  - QOS-WORK-AUTO
+  - WEB-DEV
+  - WEB-GOOGLE
+  - MANUAL-FALLBACK
+  - QOS-DEFAULT
+- name: QOS-BANKING
+  type: select
+  proxies:
+  - QOS-BYPASS
+  - WEB-BANKING
+  - QOS-DEFAULT
+- name: QOS-MARKETPLACE
+  type: select
+  proxies:
+  - WEB-MARKETPLACE
+  - QOS-BYPASS
+  - QOS-DEFAULT
+- name: QOS-DOWNLOAD
+  type: select
+  proxies:
+  - QOS-DOWNLOAD-AUTO
+  - WEB-DEFAULT
+  - fallback-link
+  - best-link
+  - MANUAL-FALLBACK
+  - QOS-DEFAULT
 rules:
-- DOMAIN-SUFFIX,local,DIRECT
-- DOMAIN-SUFFIX,lan,DIRECT
-- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
 - RULE-SET,marketplace-protect,INDONESIA-BEST
-- RULE-SET,malware-adware,REJECT
-- RULE-SET,indonesia-ads,REJECT
-- RULE-SET,android-ads,REJECT
-- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
-- IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
-- IP-CIDR,255.255.255.255/32,DIRECT,no-resolve
+- DOMAIN-SUFFIX,local,QOS-BYPASS
+- DOMAIN-SUFFIX,lan,QOS-BYPASS
+- IP-CIDR,127.0.0.0/8,QOS-BYPASS,no-resolve
+- IP-CIDR,10.0.0.0/8,QOS-BYPASS,no-resolve
+- IP-CIDR,172.16.0.0/12,QOS-BYPASS,no-resolve
+- IP-CIDR,192.168.0.0/16,QOS-BYPASS,no-resolve
+- IP-CIDR,169.254.0.0/16,QOS-BYPASS,no-resolve
+- DOMAIN-SUFFIX,zoom.us,QOS-REALTIME
+- DOMAIN-SUFFIX,zoom.com,QOS-REALTIME
+- DOMAIN-SUFFIX,meet.google.com,QOS-REALTIME
+- DOMAIN-SUFFIX,teams.microsoft.com,QOS-REALTIME
+- DOMAIN-SUFFIX,skype.com,QOS-REALTIME
+- DOMAIN-SUFFIX,lync.com,QOS-REALTIME
+- DOMAIN-SUFFIX,discord.com,QOS-REALTIME
+- DOMAIN-SUFFIX,discord.gg,QOS-REALTIME
+- DOMAIN-SUFFIX,discordapp.com,QOS-REALTIME
+- DOMAIN-SUFFIX,telegram.org,QOS-REALTIME
+- DOMAIN-SUFFIX,t.me,QOS-REALTIME
+- DOMAIN-SUFFIX,whatsapp.com,QOS-REALTIME
+- DOMAIN-SUFFIX,whatsapp.net,QOS-REALTIME
+- DOMAIN-SUFFIX,steampowered.com,QOS-GAMING
+- DOMAIN-SUFFIX,steamcommunity.com,QOS-GAMING
+- DOMAIN-SUFFIX,steamstatic.com,QOS-GAMING
+- DOMAIN-SUFFIX,steamcontent.com,QOS-GAMING
+- DOMAIN-SUFFIX,epicgames.com,QOS-GAMING
+- DOMAIN-SUFFIX,unrealengine.com,QOS-GAMING
+- DOMAIN-SUFFIX,riotgames.com,QOS-GAMING
+- DOMAIN-SUFFIX,valorant.com,QOS-GAMING
+- DOMAIN-SUFFIX,garena.com,QOS-GAMING
+- DOMAIN-SUFFIX,roblox.com,QOS-GAMING
+- DOMAIN-SUFFIX,mobilelegends.com,QOS-GAMING
+- DOMAIN-SUFFIX,moonton.com,QOS-GAMING
+- DOMAIN-SUFFIX,pubgmobile.com,QOS-GAMING
+- DOMAIN-SUFFIX,krafton.com,QOS-GAMING
+- DOMAIN-SUFFIX,hoyoverse.com,QOS-GAMING
+- DOMAIN-SUFFIX,genshinimpact.com,QOS-GAMING
+- DOMAIN-SUFFIX,zenlesszonezero.com,QOS-GAMING
+- DOMAIN-SUFFIX,battle.net,QOS-GAMING
+- DOMAIN-SUFFIX,blizzard.com,QOS-GAMING
+- DOMAIN-SUFFIX,youtube.com,QOS-STREAMING
+- DOMAIN-SUFFIX,youtu.be,QOS-STREAMING
+- DOMAIN-SUFFIX,googlevideo.com,QOS-STREAMING
+- DOMAIN-SUFFIX,ytimg.com,QOS-STREAMING
+- DOMAIN-SUFFIX,netflix.com,QOS-STREAMING
+- DOMAIN-SUFFIX,nflxvideo.net,QOS-STREAMING
+- DOMAIN-SUFFIX,nflximg.net,QOS-STREAMING
+- DOMAIN-SUFFIX,nflxext.com,QOS-STREAMING
+- DOMAIN-SUFFIX,disneyplus.com,QOS-STREAMING
+- DOMAIN-SUFFIX,hotstar.com,QOS-STREAMING
+- DOMAIN-SUFFIX,max.com,QOS-STREAMING
+- DOMAIN-SUFFIX,hbomax.com,QOS-STREAMING
+- DOMAIN-SUFFIX,spotify.com,QOS-STREAMING
+- DOMAIN-SUFFIX,scdn.co,QOS-STREAMING
+- DOMAIN-SUFFIX,vidio.com,QOS-STREAMING
+- DOMAIN-SUFFIX,viu.com,QOS-STREAMING
+- DOMAIN-SUFFIX,iq.com,QOS-STREAMING
+- DOMAIN-SUFFIX,primevideo.com,QOS-STREAMING
+- DOMAIN-SUFFIX,amazonvideo.com,QOS-STREAMING
+- DOMAIN-SUFFIX,twitch.tv,QOS-STREAMING
+- DOMAIN-SUFFIX,ttvnw.net,QOS-STREAMING
+- DOMAIN-SUFFIX,openai.com,QOS-AI
+- DOMAIN-SUFFIX,chatgpt.com,QOS-AI
+- DOMAIN-SUFFIX,oaistatic.com,QOS-AI
+- DOMAIN-SUFFIX,oaiusercontent.com,QOS-AI
+- DOMAIN-SUFFIX,anthropic.com,QOS-AI
+- DOMAIN-SUFFIX,claude.ai,QOS-AI
+- DOMAIN-SUFFIX,perplexity.ai,QOS-AI
+- DOMAIN-SUFFIX,gemini.google.com,QOS-AI
+- DOMAIN-SUFFIX,ai.google.dev,QOS-AI
+- DOMAIN-SUFFIX,copilot.microsoft.com,QOS-AI
+- DOMAIN-SUFFIX,huggingface.co,QOS-AI
+- DOMAIN-SUFFIX,facebook.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,fbcdn.net,QOS-SOCIAL
+- DOMAIN-SUFFIX,messenger.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,instagram.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,cdninstagram.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,threads.net,QOS-SOCIAL
+- DOMAIN-SUFFIX,x.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,twitter.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,twimg.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,tiktok.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,tiktokv.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,tiktokcdn.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,byteoversea.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,github.com,QOS-WORK
+- DOMAIN-SUFFIX,githubusercontent.com,QOS-WORK
+- DOMAIN-SUFFIX,githubassets.com,QOS-WORK
+- DOMAIN-SUFFIX,github.io,QOS-WORK
+- DOMAIN-SUFFIX,gitlab.com,QOS-WORK
+- DOMAIN-SUFFIX,npmjs.com,QOS-WORK
+- DOMAIN-SUFFIX,nodejs.org,QOS-WORK
+- DOMAIN-SUFFIX,pypi.org,QOS-WORK
+- DOMAIN-SUFFIX,pythonhosted.org,QOS-WORK
+- DOMAIN-SUFFIX,docker.com,QOS-WORK
+- DOMAIN-SUFFIX,docker.io,QOS-WORK
+- DOMAIN-SUFFIX,ghcr.io,QOS-WORK
+- DOMAIN-SUFFIX,cloudflare.com,QOS-WORK
+- DOMAIN-SUFFIX,vercel.com,QOS-WORK
+- DOMAIN-SUFFIX,netlify.app,QOS-WORK
+- DOMAIN-SUFFIX,stackoverflow.com,QOS-WORK
+- DOMAIN-SUFFIX,stackexchange.com,QOS-WORK
+- DOMAIN-SUFFIX,office.com,QOS-WORK
+- DOMAIN-SUFFIX,microsoft.com,QOS-WORK
+- DOMAIN-SUFFIX,windows.net,QOS-WORK
+- DOMAIN-SUFFIX,azure.com,QOS-WORK
+- DOMAIN-SUFFIX,slack.com,QOS-WORK
+- DOMAIN-SUFFIX,notion.so,QOS-WORK
+- DOMAIN-SUFFIX,bca.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,klikbca.com,QOS-BANKING
+- DOMAIN-SUFFIX,mybca.bca.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bankmandiri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,livin.mandiri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,brimo.bri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bni.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,btn.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,cimbniaga.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,danamon.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,permatabank.com,QOS-BANKING
+- DOMAIN-SUFFIX,ocbc.id,QOS-BANKING
+- DOMAIN-SUFFIX,jenius.com,QOS-BANKING
+- DOMAIN-SUFFIX,blu.id,QOS-BANKING
+- DOMAIN-SUFFIX,seabank.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bankjago.com,QOS-BANKING
+- DOMAIN-SUFFIX,ovo.id,QOS-BANKING
+- DOMAIN-SUFFIX,gopay.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,dana.id,QOS-BANKING
+- DOMAIN-SUFFIX,linkaja.id,QOS-BANKING
+- DOMAIN-SUFFIX,shopeepay.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,tokopedia.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,shopee.co.id,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,shopee.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,lazada.co.id,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,bukalapak.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,blibli.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,tiket.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,traveloka.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,gojek.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,grab.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,maxim.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,ubuntu.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,debian.org,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,archlinux.org,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,kernel.org,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,sourceforge.net,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,fosshub.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,apkcombo.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,apkpure.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,mediafire.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,mega.nz,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,dropbox.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,box.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,onedrive.live.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,download.windowsupdate.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,windowsupdate.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,updates.cdn-apple.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,swcdn.apple.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,steamcontent.com,QOS-DOWNLOAD
+- DOMAIN-SUFFIX,doubleclick.net,QOS-BLOCK
+- DOMAIN-SUFFIX,googlesyndication.com,QOS-BLOCK
+- DOMAIN-SUFFIX,googleadservices.com,QOS-BLOCK
+- DOMAIN-SUFFIX,adservice.google.com,QOS-BLOCK
+- DOMAIN-SUFFIX,adsrvr.org,QOS-BLOCK
+- DOMAIN-SUFFIX,taboola.com,QOS-BLOCK
+- DOMAIN-SUFFIX,outbrain.com,QOS-BLOCK
+- DOMAIN-SUFFIX,scorecardresearch.com,QOS-BLOCK
+- DOMAIN-SUFFIX,zedo.com,QOS-BLOCK
+- DOMAIN-SUFFIX,adnxs.com,QOS-BLOCK
+- RULE-SET,malware-adware,WEB-BLOCK
+- RULE-SET,indonesia-ads,WEB-BLOCK
+- RULE-SET,android-ads,WEB-BLOCK
+- IP-CIDR,224.0.0.0/4,WEB-BYPASS,no-resolve
+- IP-CIDR,255.255.255.255/32,WEB-BYPASS,no-resolve
 - DOMAIN-SUFFIX,shopee.co.id,INDONESIA-BEST
 - DOMAIN-SUFFIX,youtube.com,STREAMING-BEST
 - DOMAIN-SUFFIX,googlevideo.com,STREAMING-BEST
@@ -3314,9 +4423,139 @@ rules:
 - DOMAIN-SUFFIX,gojek.com,INDONESIA-BEST
 - DOMAIN-SUFFIX,grab.com,INDONESIA-BEST
 - GEOIP,ID,INDONESIA-BEST,no-resolve
-- RULE-SET,youtube-ads,REJECT
-- RULE-SET,general-ads,REJECT
-- MATCH,PROXY
+- RULE-SET,youtube-ads,WEB-BLOCK
+- RULE-SET,general-ads,WEB-BLOCK
+- DOMAIN-SUFFIX,openai.com,WEB-AI
+- DOMAIN-SUFFIX,chatgpt.com,WEB-AI
+- DOMAIN-SUFFIX,oaistatic.com,WEB-AI
+- DOMAIN-SUFFIX,oaiusercontent.com,WEB-AI
+- DOMAIN-SUFFIX,auth0.openai.com,WEB-AI
+- DOMAIN-SUFFIX,anthropic.com,WEB-AI
+- DOMAIN-SUFFIX,claude.ai,WEB-AI
+- DOMAIN-SUFFIX,perplexity.ai,WEB-AI
+- DOMAIN-SUFFIX,gemini.google.com,WEB-AI
+- DOMAIN-SUFFIX,ai.google.dev,WEB-AI
+- DOMAIN-SUFFIX,makersuite.google.com,WEB-AI
+- DOMAIN-SUFFIX,copilot.microsoft.com,WEB-AI
+- DOMAIN-SUFFIX,huggingface.co,WEB-AI
+- DOMAIN-SUFFIX,youtube.com,WEB-STREAMING
+- DOMAIN-SUFFIX,youtu.be,WEB-STREAMING
+- DOMAIN-SUFFIX,googlevideo.com,WEB-STREAMING
+- DOMAIN-SUFFIX,ytimg.com,WEB-STREAMING
+- DOMAIN-SUFFIX,netflix.com,WEB-STREAMING
+- DOMAIN-SUFFIX,nflxvideo.net,WEB-STREAMING
+- DOMAIN-SUFFIX,nflximg.net,WEB-STREAMING
+- DOMAIN-SUFFIX,nflxext.com,WEB-STREAMING
+- DOMAIN-SUFFIX,disneyplus.com,WEB-STREAMING
+- DOMAIN-SUFFIX,hotstar.com,WEB-STREAMING
+- DOMAIN-SUFFIX,max.com,WEB-STREAMING
+- DOMAIN-SUFFIX,hbomax.com,WEB-STREAMING
+- DOMAIN-SUFFIX,spotify.com,WEB-STREAMING
+- DOMAIN-SUFFIX,scdn.co,WEB-STREAMING
+- DOMAIN-SUFFIX,vidio.com,WEB-STREAMING
+- DOMAIN-SUFFIX,viu.com,WEB-STREAMING
+- DOMAIN-SUFFIX,iq.com,WEB-STREAMING
+- DOMAIN-SUFFIX,primevideo.com,WEB-STREAMING
+- DOMAIN-SUFFIX,amazonvideo.com,WEB-STREAMING
+- DOMAIN-SUFFIX,whatsapp.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,whatsapp.net,WEB-SOCIAL
+- DOMAIN-SUFFIX,telegram.org,WEB-SOCIAL
+- DOMAIN-SUFFIX,t.me,WEB-SOCIAL
+- DOMAIN-SUFFIX,facebook.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,fbcdn.net,WEB-SOCIAL
+- DOMAIN-SUFFIX,messenger.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,instagram.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,cdninstagram.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,threads.net,WEB-SOCIAL
+- DOMAIN-SUFFIX,twitter.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,x.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,twimg.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,discord.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,discord.gg,WEB-SOCIAL
+- DOMAIN-SUFFIX,discordapp.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,tiktok.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,tiktokv.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,tiktokcdn.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,byteoversea.com,WEB-SOCIAL
+- DOMAIN-SUFFIX,steampowered.com,WEB-GAMING
+- DOMAIN-SUFFIX,steamcommunity.com,WEB-GAMING
+- DOMAIN-SUFFIX,steamstatic.com,WEB-GAMING
+- DOMAIN-SUFFIX,epicgames.com,WEB-GAMING
+- DOMAIN-SUFFIX,unrealengine.com,WEB-GAMING
+- DOMAIN-SUFFIX,riotgames.com,WEB-GAMING
+- DOMAIN-SUFFIX,valorant.com,WEB-GAMING
+- DOMAIN-SUFFIX,roblox.com,WEB-GAMING
+- DOMAIN-SUFFIX,garena.com,WEB-GAMING
+- DOMAIN-SUFFIX,mobilelegends.com,WEB-GAMING
+- DOMAIN-SUFFIX,m.mobilelegends.com,WEB-GAMING
+- DOMAIN-SUFFIX,moonton.com,WEB-GAMING
+- DOMAIN-SUFFIX,pubgmobile.com,WEB-GAMING
+- DOMAIN-SUFFIX,krafton.com,WEB-GAMING
+- DOMAIN-SUFFIX,hoyoverse.com,WEB-GAMING
+- DOMAIN-SUFFIX,genshinimpact.com,WEB-GAMING
+- DOMAIN-SUFFIX,zenlesszonezero.com,WEB-GAMING
+- DOMAIN-SUFFIX,battle.net,WEB-GAMING
+- DOMAIN-SUFFIX,blizzard.com,WEB-GAMING
+- DOMAIN-SUFFIX,bca.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,klikbca.com,WEB-BANKING
+- DOMAIN-SUFFIX,mybca.bca.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,bankmandiri.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,livin.mandiri.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,bri.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,brimo.bri.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,bni.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,btn.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,cimbniaga.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,danamon.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,permatabank.com,WEB-BANKING
+- DOMAIN-SUFFIX,ocbc.id,WEB-BANKING
+- DOMAIN-SUFFIX,jenius.com,WEB-BANKING
+- DOMAIN-SUFFIX,blu.id,WEB-BANKING
+- DOMAIN-SUFFIX,seabank.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,bankjago.com,WEB-BANKING
+- DOMAIN-SUFFIX,ovo.id,WEB-BANKING
+- DOMAIN-SUFFIX,gopay.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,dana.id,WEB-BANKING
+- DOMAIN-SUFFIX,linkaja.id,WEB-BANKING
+- DOMAIN-SUFFIX,shopeepay.co.id,WEB-BANKING
+- DOMAIN-SUFFIX,tokopedia.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,shopee.co.id,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,shopee.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,lazada.co.id,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,bukalapak.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,blibli.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,tiket.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,traveloka.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,gojek.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,grab.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,maxim.com,WEB-MARKETPLACE
+- DOMAIN-SUFFIX,github.com,WEB-DEV
+- DOMAIN-SUFFIX,githubusercontent.com,WEB-DEV
+- DOMAIN-SUFFIX,githubassets.com,WEB-DEV
+- DOMAIN-SUFFIX,github.io,WEB-DEV
+- DOMAIN-SUFFIX,gitlab.com,WEB-DEV
+- DOMAIN-SUFFIX,npmjs.com,WEB-DEV
+- DOMAIN-SUFFIX,nodejs.org,WEB-DEV
+- DOMAIN-SUFFIX,pypi.org,WEB-DEV
+- DOMAIN-SUFFIX,pythonhosted.org,WEB-DEV
+- DOMAIN-SUFFIX,docker.com,WEB-DEV
+- DOMAIN-SUFFIX,docker.io,WEB-DEV
+- DOMAIN-SUFFIX,ghcr.io,WEB-DEV
+- DOMAIN-SUFFIX,cloudflare.com,WEB-DEV
+- DOMAIN-SUFFIX,vercel.com,WEB-DEV
+- DOMAIN-SUFFIX,netlify.app,WEB-DEV
+- DOMAIN-SUFFIX,stackoverflow.com,WEB-DEV
+- DOMAIN-SUFFIX,stackexchange.com,WEB-DEV
+- DOMAIN-SUFFIX,google.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,google.co.id,WEB-GOOGLE
+- DOMAIN-SUFFIX,gstatic.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,googleapis.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,googleusercontent.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,ggpht.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,google-analytics.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,googlevideo.com,WEB-GOOGLE
+- DOMAIN-SUFFIX,ytimg.com,WEB-GOOGLE
+- MATCH,QOS-DEFAULT
 rule-providers:
   youtube-ads:
     type: http

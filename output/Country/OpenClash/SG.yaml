@@ -34,35 +34,34 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "Arvand_soul 4"
+  - name: "SG 51648 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 0e9dd08d-e341-4c5d-b116-923842f5a9f9
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "web.whatsapp.com.cyylr.eu.cc"
+    servername: "vl.zacharybilly.ndjp.net"
     ws-opts:
-      path: "/sg-melbi"
+      path: "/proxyip=104.168.132.123,172.104.53.198,85.121.50.16,151.242.125.226"
       headers:
-        Host: "web.whatsapp.com.cyylr.eu.cc"
+        Host: "vl.zacharybilly.ndjp.net"
     udp: true
-  - name: "Arvand_soul Arvand_soul"
+  - name: "SG 51738 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 5dbfed06-dd62-48c0-8e39-b4835defcdb0
-    cipher: none
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "investors.spotify.com.cyylr.eu.cc"
+    sni: "dxy1h.twiladaphne.ndjp.net"
     ws-opts:
-      path: "/sg-amz"
+      path: "/proxyip=104.168.132.123,172.104.53.198,85.121.50.16,151.242.125.226"
       headers:
-        Host: "investors.spotify.com.cyylr.eu.cc"
+        Host: "dxy1h.twiladaphne.ndjp.net"
     udp: true
 
 proxy-groups:

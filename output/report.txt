@@ -1,0 +1,30 @@
+SumberYAML Smart Safe Generator Report
+Generated at UTC: 2026-06-06T04:49:54.799106+00:00
+Mode: smart-safe-generator-manual-only-cdn-104
+Files processed: 13
+Manual templates loaded: 11
+Manual skipped/unparsable: 0
+Manual server override: 104.17.3.81
+Manual server override policy/types: cdn-compatible
+Blocked proxy types: ss, ssr
+
+Generated/processed outputs:
+- OK output/lengkap.yaml | proxies=71 | manual=11 | smart=30 | errors=0 | warnings=0
+- OK output/lengkap_alive.yaml | proxies=71 | manual=11 | smart=30 | errors=0 | warnings=0
+- OK output/strict_alive.yaml | proxies=71 | manual=11 | smart=30 | errors=0 | warnings=0
+- OK output/lite.yaml | proxies=26 | manual=11 | smart=26 | errors=0 | warnings=0
+- OK output/fast.yaml | proxies=26 | manual=11 | smart=26 | errors=0 | warnings=0
+- OK output/gaming.yaml | proxies=21 | manual=11 | smart=21 | errors=0 | warnings=0
+- OK output/social_media.yaml | proxies=21 | manual=11 | smart=21 | errors=0 | warnings=0
+- OK output/streaming.yaml | proxies=21 | manual=11 | smart=21 | errors=0 | warnings=0
+- OK output/working.yaml | proxies=21 | manual=11 | smart=21 | errors=0 | warnings=0
+- OK output/general.yaml | proxies=21 | manual=11 | smart=21 | errors=0 | warnings=0
+- OK output/openclash-ready.yaml | proxies=167 | manual=75 | smart=30 | errors=0 | warnings=0
+- OK output/openclash-lite-ready.yaml | proxies=77 | manual=62 | smart=30 | errors=0 | warnings=0
+- OK output/manual_only.yaml | proxies=11 | manual=11 | smart=11 | errors=0 | warnings=0
+
+Policy notes:
+- ss/ssr links and proxy objects are removed for OpenClash compatibility.
+- server=104.17.3.81 is applied only to compatible manual vmess/vless/trojan nodes with CDN transport ws/grpc/h2/http.
+- manual_only.yaml contains only compatible trusted manual nodes from input/links.txt/input.txt/links.txt.
+- SMART-BEST uses telemetry CSVs and cache/node_score.json when available; it does not perform destructive filtering.

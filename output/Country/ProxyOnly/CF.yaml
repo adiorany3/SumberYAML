@@ -1,17 +1,16 @@
 proxies:
-  - name: "FreeConffning"
-    type: vmess
+  - name: "V2Ray_Hub1200 7053"
     server: "104.17.3.81"
     port: 443
-    uuid: 7fd8d1db-96ec-4e46-80a8-74ad9472384e
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: "graph-keep-beds-catalog.trycloudflare.com"
     network: ws
+    servername: "vl.zacharybilly.ndjp.net"
     ws-opts:
-      path: "/7fd8d1db-96ec-4e46-80a8-74ad9472384e-vm"
+      path: "/proxyip"
       headers:
-        Host: "graph-keep-beds-catalog.trycloudflare.com"
+        Host: "vl.zacharybilly.ndjp.net"
     udp: true

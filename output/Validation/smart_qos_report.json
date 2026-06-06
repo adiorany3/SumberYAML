@@ -1,0 +1,845 @@
+{
+  "ok": true,
+  "generated_at": "2026-06-06T04:50:00.359294+00:00",
+  "generated_by": "apply_openclash_smart_qos.py",
+  "mode": "smart-qos-policy-routing",
+  "scope_note": "OpenClash YAML cannot perform true Linux SQM/CAKE shaping; this patch implements smart policy routing by traffic priority/category.",
+  "policy": {
+    "direct_reject_policy": "DIRECT/REJECT only inside select proxy-groups; rules target QOS-BYPASS/QOS-BLOCK instead.",
+    "qos_groups": [
+      "QOS-AI",
+      "QOS-AI-AUTO",
+      "QOS-BANKING",
+      "QOS-BLOCK",
+      "QOS-BYPASS",
+      "QOS-DEFAULT",
+      "QOS-DOWNLOAD",
+      "QOS-DOWNLOAD-AUTO",
+      "QOS-GAMING",
+      "QOS-GAMING-AUTO",
+      "QOS-MARKETPLACE",
+      "QOS-REALTIME",
+      "QOS-REALTIME-AUTO",
+      "QOS-SOCIAL",
+      "QOS-STREAMING",
+      "QOS-STREAMING-AUTO",
+      "QOS-WORK",
+      "QOS-WORK-AUTO"
+    ],
+    "rule_types": [
+      "DOMAIN-SUFFIX",
+      "IP-CIDR",
+      "MATCH"
+    ],
+    "openclash_safe": "No rule-providers, no script rules, no Meta-only root options; only select/url-test groups and domain/ip rules.",
+    "force_match_to_qos_default": true
+  },
+  "settings": {
+    "interval": 90,
+    "tolerance": 30,
+    "max_candidates": 24,
+    "add_lan_bypass": true,
+    "force_match_qos_default": true
+  },
+  "results": [
+    {
+      "file": "output/lengkap.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 24,
+        "QOS-GAMING-AUTO": 24,
+        "QOS-STREAMING-AUTO": 24,
+        "QOS-AI-AUTO": 24,
+        "QOS-WORK-AUTO": 24,
+        "QOS-DOWNLOAD-AUTO": 24,
+        "QOS-DEFAULT": 14,
+        "QOS-BYPASS": 16,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/lengkap_alive.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 24,
+        "QOS-GAMING-AUTO": 24,
+        "QOS-STREAMING-AUTO": 24,
+        "QOS-AI-AUTO": 24,
+        "QOS-WORK-AUTO": 24,
+        "QOS-DOWNLOAD-AUTO": 24,
+        "QOS-DEFAULT": 14,
+        "QOS-BYPASS": 16,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/strict_alive.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 24,
+        "QOS-GAMING-AUTO": 24,
+        "QOS-STREAMING-AUTO": 24,
+        "QOS-AI-AUTO": 24,
+        "QOS-WORK-AUTO": 24,
+        "QOS-DOWNLOAD-AUTO": 24,
+        "QOS-DEFAULT": 14,
+        "QOS-BYPASS": 16,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/lite.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 24,
+        "QOS-GAMING-AUTO": 24,
+        "QOS-STREAMING-AUTO": 24,
+        "QOS-AI-AUTO": 24,
+        "QOS-WORK-AUTO": 24,
+        "QOS-DOWNLOAD-AUTO": 24,
+        "QOS-DEFAULT": 14,
+        "QOS-BYPASS": 16,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/fast.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 24,
+        "QOS-GAMING-AUTO": 24,
+        "QOS-STREAMING-AUTO": 24,
+        "QOS-AI-AUTO": 24,
+        "QOS-WORK-AUTO": 24,
+        "QOS-DOWNLOAD-AUTO": 24,
+        "QOS-DEFAULT": 14,
+        "QOS-BYPASS": 16,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/gaming.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 21,
+        "QOS-GAMING-AUTO": 21,
+        "QOS-STREAMING-AUTO": 21,
+        "QOS-AI-AUTO": 21,
+        "QOS-WORK-AUTO": 21,
+        "QOS-DOWNLOAD-AUTO": 21,
+        "QOS-DEFAULT": 12,
+        "QOS-BYPASS": 14,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/social_media.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 21,
+        "QOS-GAMING-AUTO": 21,
+        "QOS-STREAMING-AUTO": 21,
+        "QOS-AI-AUTO": 21,
+        "QOS-WORK-AUTO": 21,
+        "QOS-DOWNLOAD-AUTO": 21,
+        "QOS-DEFAULT": 12,
+        "QOS-BYPASS": 14,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/streaming.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 21,
+        "QOS-GAMING-AUTO": 21,
+        "QOS-STREAMING-AUTO": 21,
+        "QOS-AI-AUTO": 21,
+        "QOS-WORK-AUTO": 21,
+        "QOS-DOWNLOAD-AUTO": 21,
+        "QOS-DEFAULT": 12,
+        "QOS-BYPASS": 14,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/working.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 21,
+        "QOS-GAMING-AUTO": 21,
+        "QOS-STREAMING-AUTO": 21,
+        "QOS-AI-AUTO": 21,
+        "QOS-WORK-AUTO": 21,
+        "QOS-DOWNLOAD-AUTO": 21,
+        "QOS-DEFAULT": 12,
+        "QOS-BYPASS": 14,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/general.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 21,
+        "QOS-GAMING-AUTO": 21,
+        "QOS-STREAMING-AUTO": 21,
+        "QOS-AI-AUTO": 21,
+        "QOS-WORK-AUTO": 21,
+        "QOS-DOWNLOAD-AUTO": 21,
+        "QOS-DEFAULT": 12,
+        "QOS-BYPASS": 14,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/openclash-ready.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 24,
+        "QOS-GAMING-AUTO": 24,
+        "QOS-STREAMING-AUTO": 24,
+        "QOS-AI-AUTO": 24,
+        "QOS-WORK-AUTO": 24,
+        "QOS-DOWNLOAD-AUTO": 24,
+        "QOS-DEFAULT": 14,
+        "QOS-BYPASS": 16,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 364,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/openclash-lite-ready.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 24,
+        "QOS-GAMING-AUTO": 24,
+        "QOS-STREAMING-AUTO": 24,
+        "QOS-AI-AUTO": 24,
+        "QOS-WORK-AUTO": 24,
+        "QOS-DOWNLOAD-AUTO": 24,
+        "QOS-DEFAULT": 12,
+        "QOS-BYPASS": 14,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 322,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "output/manual_only.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "actions": {
+        "QOS-REALTIME-AUTO": "created",
+        "QOS-GAMING-AUTO": "created",
+        "QOS-STREAMING-AUTO": "created",
+        "QOS-AI-AUTO": "created",
+        "QOS-WORK-AUTO": "created",
+        "QOS-DOWNLOAD-AUTO": "created",
+        "QOS-DEFAULT": "created",
+        "QOS-BYPASS": "created",
+        "QOS-BLOCK": "created",
+        "QOS-REALTIME": "created",
+        "QOS-GAMING": "created",
+        "QOS-STREAMING": "created",
+        "QOS-AI": "created",
+        "QOS-SOCIAL": "created",
+        "QOS-WORK": "created",
+        "QOS-BANKING": "created",
+        "QOS-MARKETPLACE": "created",
+        "QOS-DOWNLOAD": "created"
+      },
+      "group_counts": {
+        "QOS-REALTIME-AUTO": 11,
+        "QOS-GAMING-AUTO": 11,
+        "QOS-STREAMING-AUTO": 11,
+        "QOS-AI-AUTO": 11,
+        "QOS-WORK-AUTO": 11,
+        "QOS-DOWNLOAD-AUTO": 11,
+        "QOS-DEFAULT": 11,
+        "QOS-BYPASS": 13,
+        "QOS-BLOCK": 5,
+        "QOS-REALTIME": 9,
+        "QOS-GAMING": 7,
+        "QOS-STREAMING": 7,
+        "QOS-AI": 5,
+        "QOS-SOCIAL": 4,
+        "QOS-WORK": 5,
+        "QOS-BANKING": 3,
+        "QOS-MARKETPLACE": 3,
+        "QOS-DOWNLOAD": 6
+      },
+      "rule_stats": {
+        "smart_qos_rules_inserted": 168,
+        "total_rules": 299,
+        "direct_rule_targets_retargeted": 0,
+        "reject_rule_targets_retargeted": 0,
+        "match_rules_retargeted_to_qos_default": 1
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "empty_repaired": 0,
+        "direct_reject_removed_from_non_select": 0
+      }
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/Performance/performance-lite.yaml",
+      "ok": false,
+      "skipped": true,
+      "reason": "file not found"
+    }
+  ]
+}
