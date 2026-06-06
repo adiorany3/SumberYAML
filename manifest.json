@@ -1,63 +1,37 @@
 {
-  "name": "SumberYAML Smart QoS OpenClash Safe Patch",
-  "version": "2026-06-06-smart-qos-openclash-safe",
+  "name": "SumberYAML Force Output Update Patch",
+  "version": "2026-06-06-force-output-update-smart-qos",
   "files": [
     "scripts/apply_openclash_responsive_stability.py",
     "scripts/apply_openclash_rule_focus.py",
     "scripts/apply_openclash_smart_qos.py",
     "scripts/validate_openclash_outputs.py",
+    "scripts/force_output_update_marker.py",
     ".github/workflows/update-openclash.yml",
     "README_SMART_SAFE_GENERATOR_PATCH.md",
     "README_RULE_FOCUS_SMART_SAFE_PATCH.md",
     "README_SELECTOR_ONLY_POLICY.md",
     "README_SMART_QOS_OPENCLASH_SAFE_PATCH.md",
+    "README_FORCE_OUTPUT_UPDATE_PATCH.md",
     "install_patch.sh",
     "manifest.json"
   ],
   "behavior": {
-    "manual_input_files": [
-      "input/links.txt",
-      "input.txt",
-      "links.txt"
+    "force_output_commit": true,
+    "marker_files": [
+      "output/Validation/last_run.json",
+      "output/Validation/last_run.txt"
     ],
-    "manual_only_output": "output/manual_only.yaml",
-    "node_score_cache": "cache/node_score.json",
-    "smart_safe_report": "output/Validation/smart_safe_report.json",
-    "rule_focus_report": "output/Validation/rule_focus_report.json",
-    "smart_qos_report": "output/Validation/smart_qos_report.json",
-    "manual_server_override": "104.17.3.81",
-    "manual_server_override_policy": "cdn-compatible only: vmess/vless/trojan with ws/grpc/h2/http; skip reality/raw tcp",
+    "commit_message": "Force update OpenClash output",
+    "keeps_smart_safe_generator": true,
+    "keeps_rule_focus": true,
+    "keeps_smart_qos": true,
     "drop_proxy_types": [
       "ss",
       "ssr"
     ],
-    "openclash_safe_mode": true,
-    "rule_focus_enabled": true,
-    "smart_qos_enabled": true,
-    "smart_qos_scope": "policy routing inside Clash/OpenClash YAML, not Linux SQM/CAKE traffic shaping",
-    "smart_qos_groups": [
-      "QOS-REALTIME",
-      "QOS-GAMING",
-      "QOS-STREAMING",
-      "QOS-AI",
-      "QOS-SOCIAL",
-      "QOS-WORK",
-      "QOS-BANKING",
-      "QOS-MARKETPLACE",
-      "QOS-DOWNLOAD",
-      "QOS-BYPASS",
-      "QOS-BLOCK",
-      "QOS-DEFAULT"
-    ],
-    "smart_qos_rule_type": "DOMAIN-SUFFIX/IP-CIDR inserted before MATCH; MATCH can be retargeted to QOS-DEFAULT",
-    "direct_reject_policy": "DIRECT/REJECT only inside select proxy-groups; rules target WEB-BYPASS/WEB-BLOCK/QOS-BYPASS/QOS-BLOCK instead",
-    "risky_group_keys_removed": [
-      "timeout",
-      "lazy"
-    ],
-    "risky_root_keys_removed_by_default": [
-      "unified-delay",
-      "tcp-concurrent"
-    ]
+    "direct_reject_policy": "DIRECT/REJECT only inside select proxy-groups",
+    "manual_server_override": "104.17.3.81",
+    "manual_server_override_policy": "cdn-compatible only: vmess/vless/trojan with ws/grpc/h2/http; skip reality/raw tcp"
   }
 }
