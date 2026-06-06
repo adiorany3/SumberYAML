@@ -96,9 +96,7 @@ env:
   ENABLE_CLEAN_RESPONSIVE_RULES: "false"
   ENABLE_STRICT_SAFE_FIX: "false"
   ENABLE_APP_AWARE_GROUPS: "true"
-  ENABLE_GAME_BLOCK_RULE_PROVIDER: "true"
-  GAME_RULE_PROVIDER_REPO: ${{ github.repository }}
-  GAME_RULE_PROVIDER_BRANCH: ${{ github.ref_name }}
+  ENABLE_GAME_BLOCK_INLINE_SAFE: "true"
   APP_AWARE_INTERVAL: "90"
   APP_AWARE_TOLERANCE: "40"
   APP_AWARE_MAX_CANDIDATES: "20"
@@ -197,33 +195,16 @@ jobs:
             --max-candidates "$APP_AWARE_MAX_CANDIDATES"
           cat output/Validation/app_aware_groups_report.json || true
 
-      - name: Apply game block rule-providers
-        if: env.ENABLE_GAME_BLOCK_RULE_PROVIDER == 'true'
+      - name: Apply inline-safe game block rules
+        if: env.ENABLE_GAME_BLOCK_INLINE_SAFE == 'true'
         run: |
           set -e
-          if [ ! -f scripts/apply_openclash_game_block_rule_provider.py ]; then
-            echo "ERROR: scripts/apply_openclash_game_block_rule_provider.py tidak ditemukan."
+          if [ ! -f scripts/apply_openclash_game_block_inline_safe.py ]; then
+            echo "ERROR: scripts/apply_openclash_game_block_inline_safe.py tidak ditemukan."
             exit 1
           fi
-          python scripts/apply_openclash_game_block_rule_provider.py \
-            --root . \
-            --repo "${GAME_RULE_PROVIDER_REPO:-adiorany3/SumberYAML}" \
-            --branch "${GAME_RULE_PROVIDER_BRANCH:-main}"
-          cat output/Validation/game_block_rule_provider_report.json || true
-
-      - name: Validate game block rule-providers
-        if: env.ENABLE_GAME_BLOCK_RULE_PROVIDER == 'true'
-        run: |
-          set -e
-          python scripts/validate_game_block_rule_provider.py \
-            --root . \
-            output/lengkap.yaml \
-            output/lengkap_alive.yaml \
-            output/strict_alive.yaml \
-            output/lite.yaml \
-            output/fast.yaml \
-            output/manual_only.yaml
-          cat output/Validation/game_block_rule_provider_validation.json || true
+          python scripts/apply_openclash_game_block_inline_safe.py --root .
+          cat output/Validation/game_block_inline_safe_report.json || true
 
       - name: Validate output exists
         run: |
@@ -234,6 +215,7 @@ jobs:
             exit 1
           fi
           test -f output/Validation/app_aware_groups_report.json
+          test -f output/Validation/game_block_inline_safe_report.json
           wc -l output/lengkap.yaml || true
 
       - name: Validate OpenClash YAML
@@ -246,6 +228,20 @@ jobs:
             output/lite.yaml \
             output/fast.yaml \
             output/manual_only.yaml
+
+      - name: Validate inline-safe game block
+        if: env.ENABLE_GAME_BLOCK_INLINE_SAFE == 'true'
+        run: |
+          set -e
+          python scripts/validate_game_block_inline_safe.py \
+            --root . \
+            output/lengkap.yaml \
+            output/lengkap_alive.yaml \
+            output/strict_alive.yaml \
+            output/lite.yaml \
+            output/fast.yaml \
+            output/manual_only.yaml
+          cat output/Validation/game_block_inline_safe_validation.json || true
 
       - name: Force output update marker
         if: env.FORCE_OUTPUT_COMMIT == 'true'
@@ -268,9 +264,12 @@ jobs:
           ls -la output/Validation || true
           echo "App-aware and game-block groups in fast.yaml:"
           grep -E "name: PROXY|name: UTAMA|name: AUTO|name: FALLBACK|name: GOOGLE|name: YOUTUBE|name: REDDIT|name: LINKEDIN|name: BLIBLI|name: BANK|name: MARKETPLACE|name: SOCIAL|name: DEFAULT|name: BLOCK" output/fast.yaml | head -180 || true
-          echo "Game rule providers in fast.yaml:"
-          grep -E "GAME-BLOCK|RULE-SET,GAME-BLOCK" output/fast.yaml | head -80 || true
-          echo "Ensure no unsupported group types:"
+          echo "Inline game block rules in fast.yaml:"
+          grep -E "DOMAIN-SUFFIX,(steampowered|epicgames|riotgames|roblox|pubgmobile|mobilelegends|freefiremobile|poki)" output/fast.yaml | head -80 || true
+          echo "Ensure no unsupported provider/group types:"
+          grep -R "RULE-SET,GAME-BLOCK" output/*.yaml && exit 1 || true
+          grep -R "GAME-BLOCK-DOMAIN" output/*.yaml && exit 1 || true
+          grep -R "GAME-BLOCK-CLASSICAL" output/*.yaml && exit 1 || true
           grep -R "type: load-balance" output/*.yaml && exit 1 || true
           grep -R "type: relay" output/*.yaml && exit 1 || true
 
@@ -287,20 +286,12 @@ jobs:
           fi
           echo "Backup output hasil generate ke folder sementara."
           tar -C output -cf "$BACKUP_DIR/output.tar" .
-          if [ -d rules ]; then
-            tar -C rules -cf "$BACKUP_DIR/rules.tar" .
-          fi
           if [ -d cache ]; then
             tar -C cache -cf "$BACKUP_DIR/cache.tar" .
           fi
 
           stage_generated_paths() {
             git add -A -f output
-            if [ -d rules ]; then
-              git add -A -f rules
-            else
-              echo "Folder rules tidak ada, skip git add rules."
-            fi
             if [ -d cache ]; then
               git add -A -f cache
             else
@@ -320,7 +311,7 @@ jobs:
             "workflow": "${GITHUB_WORKFLOW:-Update OpenClash}",
             "mode": "${MODE:-update}",
             "source": "${SOURCE:-workflow}",
-            "policy": "app-aware-strict-safe-game-block-rule-provider"
+            "policy": "app-aware-strict-safe-inline-game-block"
           }
           EOF
             cat > output/Validation/last_run.txt <<EOF
@@ -330,7 +321,7 @@ jobs:
           workflow: ${GITHUB_WORKFLOW:-Update OpenClash}
           mode: ${MODE:-update}
           source: ${SOURCE:-workflow}
-          policy: app-aware-strict-safe-game-block-rule-provider
+          policy: app-aware-strict-safe-inline-game-block
           EOF
           }
 
@@ -345,11 +336,6 @@ jobs:
             rm -rf output
             mkdir -p output
             tar -C output -xf "$BACKUP_DIR/output.tar"
-            if [ -f "$BACKUP_DIR/rules.tar" ]; then
-              rm -rf rules
-              mkdir -p rules
-              tar -C rules -xf "$BACKUP_DIR/rules.tar"
-            fi
             if [ -f "$BACKUP_DIR/cache.tar" ]; then
               rm -rf cache
               mkdir -p cache
@@ -363,13 +349,13 @@ jobs:
               stage_generated_paths
             fi
 
-            git status --short output rules cache || true
+            git status --short output cache || true
             if git diff --cached --quiet; then
               echo "ERROR: marker tidak menghasilkan perubahan staging."
               exit 1
             fi
 
-            git commit -m "Update app-aware output and game block rule providers"
+            git commit -m "Update app-aware output with inline game block"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
