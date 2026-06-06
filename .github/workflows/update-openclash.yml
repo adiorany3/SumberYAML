@@ -108,6 +108,14 @@ env:
   SS_SSR_SERVER_OVERRIDE: ""
   DISABLE_EXTRA_SS_SSR_SCAN: "true"
 
+  # Rule focus: pisahkan trafik website ke grup kategori agar node fokus sesuai situs yang diakses.
+  ENABLE_RULE_FOCUS: "true"
+  RULE_FOCUS_INTERVAL: "120"
+  RULE_FOCUS_TOLERANCE: "50"
+  RULE_FOCUS_MAX_CANDIDATES: "24"
+  RULE_FOCUS_ADD_LAN_DIRECT: "false"
+  RULE_FOCUS_ADD_GEOIP_ID: "false"
+
   BLACKLIST_FILE: "blacklist.txt"
   SOURCE_CACHE_ENABLE: "true"
   SOURCE_CACHE_DIR: "output/Cache/sources"
@@ -226,6 +234,19 @@ jobs:
             cat output/report.txt || true
           else
             echo "ERROR: scripts/apply_openclash_responsive_stability.py tidak ditemukan."
+            exit 1
+          fi
+
+      - name: Apply website category rule focus
+        if: env.ENABLE_RULE_FOCUS == 'true'
+        run: |
+          set -e
+          if [ -f scripts/apply_openclash_rule_focus.py ]; then
+            python scripts/apply_openclash_rule_focus.py --root .
+            echo "Rule-focus report:"
+            cat output/Validation/rule_focus_report.json || true
+          else
+            echo "ERROR: scripts/apply_openclash_rule_focus.py tidak ditemukan."
             exit 1
           fi
 
