@@ -75,6 +75,16 @@ SMART_QOS_GROUPS = {
     "QOS-DEFAULT",
 }
 
+INPUT_VMESS_LB_GROUP = "INPUT-VMESS-LB"
+INPUT_VMESS_TARGET_GROUPS = {
+    "QOS-MARKETPLACE",
+    "QOS-SOCIAL",
+    "QOS-BANKING",
+    "WEB-MARKETPLACE",
+    "WEB-SOCIAL",
+    "WEB-BANKING",
+}
+
 BLOCKED_TYPES = {"ss", "ssr"}
 RULE_BLOCKED_TARGETS = {"DIRECT", "REJECT"}
 
@@ -178,6 +188,30 @@ def assert_groups(path: Path, data: dict[str, Any], required: Iterable[str], lab
         errors.append(f"Missing {label} groups in {path}: {', '.join(missing)}")
 
 
+def assert_input_vmess_lb(path: Path, data: dict[str, Any], errors: list[str]) -> None:
+    groups = {str(g.get("name")): g for g in (data.get("proxy-groups") or []) if isinstance(g, dict) and g.get("name")}
+    proxies = {str(p.get("name")): p for p in (data.get("proxies") or []) if isinstance(p, dict) and p.get("name")}
+    lb = groups.get(INPUT_VMESS_LB_GROUP)
+    if not lb:
+        return
+    if str(lb.get("type") or "").lower() != "load-balance":
+        errors.append(f"{INPUT_VMESS_LB_GROUP} must be load-balance: {path}")
+    refs = lb.get("proxies") or []
+    if not isinstance(refs, list) or not refs:
+        errors.append(f"{INPUT_VMESS_LB_GROUP} empty proxies: {path}")
+        return
+    for ref in refs:
+        item = proxies.get(str(ref))
+        if not item:
+            errors.append(f"{INPUT_VMESS_LB_GROUP} ref missing: {path}: {ref}")
+        elif str(item.get("type") or "").lower() != "vmess":
+            errors.append(f"{INPUT_VMESS_LB_GROUP} contains non-vmess: {path}: {ref} type={item.get('type')}")
+    for name in INPUT_VMESS_TARGET_GROUPS:
+        group = groups.get(name)
+        if group and isinstance(group.get("proxies"), list) and INPUT_VMESS_LB_GROUP not in [str(x) for x in group.get("proxies")]:
+            errors.append(f"{name} must include {INPUT_VMESS_LB_GROUP}: {path}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", default=".")
@@ -187,6 +221,7 @@ def main() -> int:
     root = Path(args.root).resolve()
     enable_rule_focus = truthy(os.environ.get("ENABLE_RULE_FOCUS"), True)
     enable_smart_qos = truthy(os.environ.get("ENABLE_SMART_QOS"), True)
+    enable_input_vmess_lb = truthy(os.environ.get("ENABLE_INPUT_VMESS_LB"), True)
     smart_safe_manual_only = truthy(os.environ.get("SMART_SAFE_MANUAL_ONLY"), True)
 
     errors: list[str] = []
@@ -224,6 +259,9 @@ def main() -> int:
         if enable_smart_qos:
             assert_groups(path.relative_to(root), data, SMART_QOS_GROUPS, "smart-qos", errors)
 
+        if enable_input_vmess_lb:
+            assert_input_vmess_lb(path.relative_to(root), data, errors)
+
     # Required feature reports prove the feature scripts actually ran, not just the marker.
     if smart_safe_manual_only:
         # The smart-safe script historically writes either smart_safe_report.json or report.txt.
@@ -233,6 +271,8 @@ def main() -> int:
         require_report(root / "output/Validation/rule_focus_report.json", "rule-focus", errors)
     if enable_smart_qos:
         require_report(root / "output/Validation/smart_qos_report.json", "smart-qos", errors)
+    if enable_input_vmess_lb:
+        require_report(root / "output/Validation/input_vmess_loadbalance_report.json", "input-vmess-loadbalance", errors)
 
     if errors:
         print("Latest OpenClash output assertion FAILED:")
@@ -248,6 +288,7 @@ def main() -> int:
     print(f"Checked YAML files: {len(files)}")
     print(f"Rule focus enabled: {enable_rule_focus}")
     print(f"Smart QoS enabled: {enable_smart_qos}")
+    print(f"Input VMess LB enabled: {enable_input_vmess_lb}")
     print(f"Manual-only enabled: {smart_safe_manual_only}")
     return 0
 
