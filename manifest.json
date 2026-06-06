@@ -1,5 +1,5 @@
 {
-  "name": "SumberYAML-force-regenerate-latest-output-patch",
+  "name": "SumberYAML Fix Output Commit Staging Patch",
   "created_at_utc": "2026-06-06T04:21:37Z",
   "purpose": "Ensure GitHub Actions commits the real latest YAML outputs, not only last_run markers.",
   "files": [
@@ -78,5 +78,8 @@
       "bytes": 5387,
       "sha256": "e72cf4046df968aa981931f3700ec704f71ae063845e325c148842be0d5b889f"
     }
-  ]
+  ],
+  "version": "2026.06.06-fix-output-commit-staging",
+  "description": "Fix GitHub Actions commit step so output is staged even when cache directory is missing.",
+  "important_fix": "Do not run git add output cache in one command; add output and cache conditionally."
 }
