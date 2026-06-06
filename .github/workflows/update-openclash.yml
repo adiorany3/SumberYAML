@@ -67,7 +67,6 @@ env:
   FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
   STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
 
-  # Generate/test defaults.
   TEST_ROUNDS: "2"
   REQUIRE_SUCCESS_ROUNDS: "1"
   STRICT_MAX_DELAY_MS: "8000"
@@ -76,7 +75,6 @@ env:
   STRICT_FALLBACK_TO_ALIVE: "true"
   STRICT_FALLBACK_TO_VALID: "true"
 
-  # Keep generator conservative. Final strict-safe stage will clean all risky keys.
   URL_TEST_INTERVAL: "90"
   URL_TEST_TOLERANCE: "40"
   URL_TEST_LAZY: "false"
@@ -85,7 +83,6 @@ env:
   OPENCLASH_ADD_LAN_DIRECT: "false"
   ENABLE_PERFORMANCE_OPTIONS: "false"
 
-  # Manual/trusted links.
   MANUAL_INPUT_FILES: "input/links.txt,input.txt,links.txt"
   MANUAL_SERVER_OVERRIDE: "104.17.3.81"
   MANUAL_SERVER_OVERRIDE_TYPES: "cdn-compatible"
@@ -93,17 +90,15 @@ env:
   DROP_PROXY_TYPES: "ss,ssr"
   DISABLE_EXTRA_SS_SSR_SCAN: "true"
 
-  # Disable older rule/group stages that caused OpenClash config errors.
   ENABLE_RULE_FOCUS: "false"
   ENABLE_SMART_QOS: "false"
   ENABLE_INPUT_VMESS_LB: "false"
   ENABLE_CLEAN_RESPONSIVE_RULES: "false"
-
-  # Final strict-safe OpenClash profile.
-  ENABLE_STRICT_SAFE_FIX: "true"
-  STRICT_SAFE_INTERVAL: "90"
-  STRICT_SAFE_TOLERANCE: "40"
-  STRICT_SAFE_MAX_CANDIDATES: "20"
+  ENABLE_STRICT_SAFE_FIX: "false"
+  ENABLE_APP_AWARE_GROUPS: "true"
+  APP_AWARE_INTERVAL: "90"
+  APP_AWARE_TOLERANCE: "40"
+  APP_AWARE_MAX_CANDIDATES: "20"
 
   SOURCE_CACHE_ENABLE: "true"
   SOURCE_CACHE_DIR: "output/Cache/sources"
@@ -117,7 +112,7 @@ env:
 
 jobs:
   update:
-    name: Generate strict-safe OpenClash output
+    name: Generate app-aware strict-safe OpenClash output
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -181,30 +176,23 @@ jobs:
             python scripts/apply_openclash_responsive_stability.py --root .
             cat output/Validation/smart_safe_report.json || true
           else
-            echo "WARNING: smart-safe responsive script tidak ditemukan; strict-safe finalizer tetap berjalan."
+            echo "WARNING: smart-safe responsive script tidak ditemukan; lanjut ke app-aware finalizer."
           fi
 
-      - name: Apply final OpenClash strict-safe fix
-        if: env.ENABLE_STRICT_SAFE_FIX == 'true'
+      - name: Apply app-aware strict-safe groups
+        if: env.ENABLE_APP_AWARE_GROUPS == 'true'
         run: |
           set -e
-          if [ ! -f scripts/apply_openclash_strict_safe_fix.py ]; then
-            echo "ERROR: scripts/apply_openclash_strict_safe_fix.py tidak ditemukan."
+          if [ ! -f scripts/apply_openclash_app_aware_groups.py ]; then
+            echo "ERROR: scripts/apply_openclash_app_aware_groups.py tidak ditemukan."
             exit 1
           fi
-          python scripts/apply_openclash_strict_safe_fix.py --root . --strict
-          cat output/Validation/openclash_strict_safe_fix_report.json || true
-
-
-      - name: Apply Google and YouTube special nodes
-        run: |
-          set -e
-          if [ ! -f scripts/apply_openclash_google_special_nodes.py ]; then
-            echo "ERROR: scripts/apply_openclash_google_special_nodes.py tidak ditemukan."
-            exit 1
-          fi
-          python scripts/apply_openclash_google_special_nodes.py --root .
-          cat output/Validation/google_special_nodes_report.json || true
+          python scripts/apply_openclash_app_aware_groups.py \
+            --root . \
+            --interval "$APP_AWARE_INTERVAL" \
+            --tolerance "$APP_AWARE_TOLERANCE" \
+            --max-candidates "$APP_AWARE_MAX_CANDIDATES"
+          cat output/Validation/app_aware_groups_report.json || true
 
       - name: Validate output exists
         run: |
@@ -214,8 +202,7 @@ jobs:
             find output -maxdepth 4 -type f | sort || true
             exit 1
           fi
-          test -f output/Validation/openclash_strict_safe_fix_report.json
-          test -f output/Validation/google_special_nodes_report.json
+          test -f output/Validation/app_aware_groups_report.json
           wc -l output/lengkap.yaml || true
 
       - name: Validate OpenClash YAML
@@ -236,7 +223,7 @@ jobs:
           python scripts/force_output_update_marker.py --root .
           cat output/Validation/last_run.json || true
 
-      - name: Assert latest strict-safe output features
+      - name: Assert latest app-aware output features
         run: |
           set -e
           python scripts/assert_latest_openclash_outputs.py --root . --strict
@@ -248,25 +235,23 @@ jobs:
           find output -maxdepth 1 -type f -name "*.yaml" -printf "%f\n" | sort || true
           echo "Validation reports:"
           ls -la output/Validation || true
-          echo "Strict-safe special-node groups in fast.yaml:"
-          grep -E "name: PROXY|name: UTAMA|name: GOOGLE|name: AUTO|name: FALLBACK|name: INPUT-VMESS|name: REDDIT|name: LINKEDIN|name: BLIBLI|name: SOCIAL-BANK-MARKET|name: DEFAULT" output/fast.yaml | head -120 || true
-          echo "Ensure no load-balance:"
+          echo "App-aware groups in fast.yaml:"
+          grep -E "name: PROXY|name: UTAMA|name: AUTO|name: FALLBACK|name: GOOGLE|name: YOUTUBE|name: REDDIT|name: LINKEDIN|name: BLIBLI|name: BANK|name: MARKETPLACE|name: SOCIAL|name: DEFAULT" output/fast.yaml | head -160 || true
+          echo "Ensure no unsupported group types:"
           grep -R "type: load-balance" output/*.yaml && exit 1 || true
+          grep -R "type: relay" output/*.yaml && exit 1 || true
 
       - name: Commit output files
         run: |
           set -euo pipefail
           BRANCH="${GITHUB_REF_NAME:-main}"
           BACKUP_DIR="$(mktemp -d)"
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           if [ ! -d output ]; then
             echo "ERROR: Folder output tidak ditemukan."
             exit 1
           fi
-
           echo "Backup output hasil generate ke folder sementara."
           tar -C output -cf "$BACKUP_DIR/output.tar" .
           if [ -d cache ]; then
@@ -286,21 +271,26 @@ jobs:
             mkdir -p output/Validation
             FORCE_TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
             FORCE_NONCE="$(date -u +%s%N)-${GITHUB_RUN_ID:-run}-${GITHUB_RUN_ATTEMPT:-attempt}-${GITHUB_RUN_NUMBER:-number}-$RANDOM"
-            cat > output/Validation/last_run.json <<JSON
+            cat > output/Validation/last_run.json <<EOF
           {
-            "schema": "sumberyaml.force-output-update.commit-fallback.v3",
-            "generated_at_utc": "$FORCE_TS",
+            "status": "generated",
+            "timestamp_utc": "$FORCE_TS",
             "nonce": "$FORCE_NONCE",
-            "github_run_id": "${GITHUB_RUN_ID:-}",
-            "github_run_attempt": "${GITHUB_RUN_ATTEMPT:-}",
-            "github_run_number": "${GITHUB_RUN_NUMBER:-}",
-            "github_sha": "${GITHUB_SHA:-}",
+            "workflow": "${GITHUB_WORKFLOW:-Update OpenClash}",
             "mode": "${MODE:-update}",
-            "source": "${SOURCE:-}"
+            "source": "${SOURCE:-workflow}",
+            "policy": "app-aware-strict-safe"
           }
-          JSON
-            printf 'forced_commit_fallback=%s\nnonce=%s\nrun_id=%s\nsha=%s\n' \
-              "$FORCE_TS" "$FORCE_NONCE" "${GITHUB_RUN_ID:-}" "${GITHUB_SHA:-}" > output/Validation/last_run.txt
+          EOF
+            cat > output/Validation/last_run.txt <<EOF
+          status: generated
+          timestamp_utc: $FORCE_TS
+          nonce: $FORCE_NONCE
+          workflow: ${GITHUB_WORKFLOW:-Update OpenClash}
+          mode: ${MODE:-update}
+          source: ${SOURCE:-workflow}
+          policy: app-aware-strict-safe
+          EOF
           }
 
           for attempt in 1 2 3; do
@@ -328,13 +318,12 @@ jobs:
             fi
 
             git status --short output cache || true
-
             if git diff --cached --quiet; then
               echo "ERROR: marker tidak menghasilkan perubahan staging."
               exit 1
             fi
 
-            git commit -m "Add strict-safe special node routing with Google nodes"
+            git commit -m "Update app-aware strict-safe OpenClash output"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
@@ -342,7 +331,6 @@ jobs:
             echo "Push gagal karena remote berubah. Ulangi."
             sleep 5
           done
-
           echo "Push tetap gagal setelah 3 percobaan."
           exit 1
 
