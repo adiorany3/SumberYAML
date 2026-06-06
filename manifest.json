@@ -1,24 +1,18 @@
 {
-  "name": "SumberYAML-game-block-inline-safe-fix-patch",
+  "name": "SumberYAML Game Web Block Expanded Patch",
   "version": "2026-06-07.1",
-  "purpose": "Fix OpenClash game blocking by replacing mandatory rule-providers with inline safe rules targeting BLOCK selector.",
+  "description": "Adds callofwar.com and similar web/browser game domains to inline OpenClash BLOCK rules, without rule-providers.",
   "files": [
     ".github/workflows/update-openclash.yml",
-    "scripts/apply_openclash_app_aware_groups.py",
     "scripts/apply_openclash_game_block_inline_safe.py",
     "scripts/validate_game_block_inline_safe.py",
-    "scripts/validate_openclash_outputs.py",
-    "scripts/assert_latest_openclash_outputs.py",
-    "scripts/force_output_update_marker.py",
-    "README_GAME_BLOCK_INLINE_SAFE_FIX_PATCH.md",
-    "README_SMART_APP_PROBE_STRICT_SAFE_PATCH.md",
+    "README_GAME_WEB_BLOCK_EXPANDED_PATCH.md",
     "install_patch.sh"
   ],
   "policy": {
-    "rule_providers": "not required for game block",
-    "game_block_target": "BLOCK selector group",
-    "direct_reject_rule_target": "forbidden",
-    "unsupported_group_types": ["load-balance", "relay"],
-    "unsupported_proxy_types": ["ss", "ssr"]
+    "rule_provider": false,
+    "direct_reject_rule_target": false,
+    "block_target_group": "BLOCK",
+    "openclash_safe": true
   }
 }

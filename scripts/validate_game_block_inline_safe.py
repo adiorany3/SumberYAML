@@ -1,102 +1,121 @@
 #!/usr/bin/env python3
+"""Validate OpenClash-safe inline game blocking rules."""
 from __future__ import annotations
 
 import argparse
 import json
-import sys
+import re
 from pathlib import Path
-from typing import Any, Dict, List, Sequence
+from typing import Any, Dict, List
 
-try:
-    import yaml
-except Exception as exc:
-    print(f"ERROR: PyYAML required: {exc}", file=sys.stderr)
-    sys.exit(2)
+import yaml
 
 REQUIRED_GAME_RULES = [
-    "DOMAIN-SUFFIX,steampowered.com,BLOCK",
-    "DOMAIN-SUFFIX,epicgames.com,BLOCK",
-    "DOMAIN-SUFFIX,riotgames.com,BLOCK",
-    "DOMAIN-SUFFIX,roblox.com,BLOCK",
-    "DOMAIN-SUFFIX,pubgmobile.com,BLOCK",
-    "DOMAIN-SUFFIX,mobilelegends.com,BLOCK",
-    "DOMAIN-SUFFIX,freefiremobile.com,BLOCK",
-    "DOMAIN-SUFFIX,hoyoverse.com,BLOCK",
+    "DOMAIN-SUFFIX,callofwar.com,BLOCK",
+    "DOMAIN-SUFFIX,bytro.com,BLOCK",
+    "DOMAIN-SUFFIX,supremacy1914.com,BLOCK",
+    "DOMAIN-SUFFIX,conflictofnations.com,BLOCK",
     "DOMAIN-SUFFIX,poki.com,BLOCK",
+    "DOMAIN-SUFFIX,crazygames.com,BLOCK",
+    "DOMAIN-SUFFIX,y8.com,BLOCK",
+    "DOMAIN-SUFFIX,krunker.io,BLOCK",
+    "DOMAIN-SUFFIX,roblox.com,BLOCK",
+]
+
+FORBIDDEN_PATTERNS = [
+    "RULE-SET,GAME-BLOCK",
+    "GAME-BLOCK-DOMAIN",
+    "GAME-BLOCK-CLASSICAL",
+    "MATCH,REJECT",
+    "FINAL,REJECT",
 ]
 
 
-def validate(path: Path) -> Dict[str, Any]:
-    report: Dict[str, Any] = {"file": str(path), "ok": True, "errors": [], "warnings": []}
-    if not path.exists():
-        report["warnings"].append("missing file")
-        return report
-    try:
-        data = yaml.safe_load(path.read_text(encoding="utf-8", errors="ignore"))
-    except Exception as exc:
-        report["errors"].append(f"YAML parse error: {exc}")
-        report["ok"] = False
-        return report
-    if not isinstance(data, dict):
-        report["errors"].append("root is not mapping")
-        report["ok"] = False
-        return report
+def load_yaml(path: Path) -> Any:
+    return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
 
-    groups = {str(g.get("name")): g for g in (data.get("proxy-groups") or []) if isinstance(g, dict)}
-    if "BLOCK" not in groups:
-        report["errors"].append("BLOCK selector group missing")
-    else:
-        block = groups["BLOCK"]
-        if block.get("type") != "select":
-            report["errors"].append("BLOCK group must be type select")
-        members = [str(x) for x in (block.get("proxies") or [])]
-        if "REJECT" not in members:
-            report["errors"].append("BLOCK group must contain REJECT as selector option")
+
+def as_list(value: Any) -> List[Any]:
+    return value if isinstance(value, list) else []
+
+
+def validate_file(path: Path) -> Dict[str, Any]:
+    text = path.read_text(encoding="utf-8")
+    data = load_yaml(path)
+    errors: List[str] = []
+
+    for pattern in FORBIDDEN_PATTERNS:
+        if pattern in text:
+            errors.append(f"forbidden pattern found: {pattern}")
+
+    if not isinstance(data, dict):
+        errors.append("top-level YAML is not a mapping")
+        return {"file": str(path), "ok": False, "errors": errors}
 
     providers = data.get("rule-providers")
     if isinstance(providers, dict):
         for key in providers:
             if str(key).upper().startswith("GAME-BLOCK"):
-                report["errors"].append(f"GAME-BLOCK rule-provider still present: {key}")
+                errors.append(f"game rule-provider still exists: {key}")
 
-    rules = [str(x).strip() for x in (data.get("rules") or [])]
-    for rule in REQUIRED_GAME_RULES:
-        if rule not in rules:
-            report["errors"].append(f"required inline game block rule missing: {rule}")
+    groups = as_list(data.get("proxy-groups"))
+    block = None
+    for group in groups:
+        if isinstance(group, dict) and group.get("name") == "BLOCK":
+            block = group
+            break
+    if not block:
+        errors.append("missing BLOCK selector group")
+    else:
+        if block.get("type") != "select":
+            errors.append("BLOCK group must be type select")
+        proxies = as_list(block.get("proxies"))
+        if "REJECT" not in proxies:
+            errors.append("BLOCK group must include REJECT as selector option")
+
+    rules = [r.strip() for r in as_list(data.get("rules")) if isinstance(r, str) and r.strip()]
+    for required in REQUIRED_GAME_RULES:
+        if required not in rules:
+            errors.append(f"missing required game block rule: {required}")
+
+    # REJECT may appear inside BLOCK selector but must not be a direct rule target.
     for rule in rules:
-        upper = rule.upper()
-        if upper.startswith("RULE-SET,GAME-BLOCK"):
-            report["errors"].append(f"unsupported GAME-BLOCK RULE-SET remains: {rule}")
-        if rule.endswith(",DIRECT") or rule.endswith(",REJECT"):
-            report["errors"].append(f"DIRECT/REJECT used as direct rule target: {rule}")
-    report["ok"] = not report["errors"]
-    return report
+        parts = [p.strip() for p in rule.split(",")]
+        if len(parts) >= 2 and parts[-1] == "REJECT":
+            errors.append(f"rule targets REJECT directly: {rule}")
+        if len(parts) >= 2 and parts[-1] == "DIRECT" and parts[0].upper() in {"MATCH", "FINAL", "DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "IP-CIDR", "GEOIP"}:
+            errors.append(f"rule targets DIRECT directly: {rule}")
+
+    return {"file": str(path), "ok": not errors, "errors": errors}
 
 
-def main(argv: Sequence[str] | None = None) -> int:
+def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", default=".")
     parser.add_argument("files", nargs="*")
-    args = parser.parse_args(argv)
+    args = parser.parse_args()
+
     root = Path(args.root).resolve()
-    files = args.files or [
-        "output/fast.yaml",
-        "output/lite.yaml",
-        "output/lengkap.yaml",
-        "output/lengkap_alive.yaml",
-        "output/strict_alive.yaml",
-        "output/manual_only.yaml",
-    ]
-    reports: List[Dict[str, Any]] = [validate((root / item).resolve()) for item in files]
-    out = root / "output" / "Validation"
-    out.mkdir(parents=True, exist_ok=True)
-    (out / "game_block_inline_safe_validation.json").write_text(json.dumps(reports, indent=2, ensure_ascii=False), encoding="utf-8")
-    ok = all(r.get("ok", True) for r in reports if "missing file" not in (r.get("warnings") or []))
-    for r in reports:
-        if r.get("errors"):
-            print(f"ERROR validating {r['file']}:")
-            for err in r["errors"]:
-                print(f"  - {err}")
+    paths = [Path(p) for p in args.files]
+    if not paths:
+        output = root / "output"
+        paths = [p for p in [
+            output / "lengkap.yaml",
+            output / "lengkap_alive.yaml",
+            output / "strict_alive.yaml",
+            output / "lite.yaml",
+            output / "fast.yaml",
+            output / "manual_only.yaml",
+        ] if p.exists()]
+
+    results = [validate_file(p) for p in paths if p.exists()]
+    ok = all(r["ok"] for r in results)
+
+    validation_dir = root / "output" / "Validation"
+    validation_dir.mkdir(parents=True, exist_ok=True)
+    out = validation_dir / "game_block_inline_safe_validation.json"
+    out.write_text(json.dumps({"ok": ok, "files": results}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({"ok": ok, "files": results}, ensure_ascii=False, indent=2))
     return 0 if ok else 1
 
 

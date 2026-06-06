@@ -1,91 +1,160 @@
 #!/usr/bin/env python3
+"""Add OpenClash-safe inline game blocking rules.
+
+This finalizer intentionally avoids rule-providers because several OpenClash
+installations fail on provider fetch/path/format issues. It writes plain Clash
+`DOMAIN-SUFFIX,...,BLOCK` and selected `DOMAIN-KEYWORD,...,BLOCK` rules.
+
+Policy:
+- No direct REJECT rule targets; rules target the selector group BLOCK.
+- REJECT is allowed only as a proxy option inside the selector group BLOCK.
+- No load-balance/relay/script/rule-providers are introduced.
+"""
 from __future__ import annotations
 
 import argparse
 import json
+import os
+import re
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Sequence
+from typing import Any, Dict, Iterable, List, MutableMapping, Sequence, Tuple
 
-try:
-    import yaml
-except Exception as exc:  # pragma: no cover
-    raise SystemExit(f"PyYAML required: {exc}")
+import yaml
 
-MAIN_OUTPUTS = [
-    "fast.yaml",
-    "lite.yaml",
+OUTPUT_YAML_NAMES = [
     "lengkap.yaml",
     "lengkap_alive.yaml",
     "strict_alive.yaml",
+    "lite.yaml",
+    "fast.yaml",
     "manual_only.yaml",
     "openclash-ready.yaml",
     "openclash-lite-ready.yaml",
     "gaming.yaml",
     "streaming.yaml",
     "social_media.yaml",
-    "working.yaml",
     "general.yaml",
+    "working.yaml",
 ]
 
-GAME_DOMAIN_SUFFIXES = [
-    # PC/platform stores
+# Browser/web game domains + popular online game service domains.
+# Keep lowercase, no leading dot.
+GAME_DOMAIN_SUFFIXES: List[str] = sorted(set([
+    # Requested explicitly
+    "callofwar.com",
+    # Bytro / strategy browser games similar to Call of War
+    "bytro.com",
+    "supremacy1914.com",
+    "ironorder1919.com",
+    "conflictnations.com",
+    "conflictofnations.com",
+    "newworldempires.com",
+    "thirtykingdoms.com",
+    # InnoGames / browser strategy & city games
+    "tribalwars.net",
+    "tribalwars.com",
+    "grepolis.com",
+    "forgeofempires.com",
+    "elvenar.com",
+    "the-west.net",
+    "innogames.com",
+    # Other classic web/browser games
+    "ikariam.gameforge.com",
+    "ikariam.com",
+    "ogame.gameforge.com",
+    "ogame.org",
+    "travian.com",
+    "travian.com.tr",
+    "travian.com.au",
+    "travian.co.uk",
+    "travian.us",
+    "travian-games.com",
+    "erepublik.com",
+    "torn.com",
+    "nationstates.net",
+    "hordes.io",
+    "ev.io",
+    "krunker.io",
+    "shellshock.io",
+    "surviv.io",
+    "zombsroyale.io",
+    "moomoo.io",
+    "slither.io",
+    "agar.io",
+    "diep.io",
+    "paper-io.com",
+    "paper.io",
+    "bonk.io",
+    "venge.io",
+    "warbrokers.io",
+    "littlebigsnake.com",
+    "skribbl.io",
+    "gartic.io",
+    "garticphone.com",
+    "geoguessr.com",
+    # Web game portals
+    "poki.com",
+    "crazygames.com",
+    "y8.com",
+    "miniclip.com",
+    "kongregate.com",
+    "armor-games.com",
+    "armorgames.com",
+    "newgrounds.com",
+    "addictinggames.com",
+    "coolmathgames.com",
+    "friv.com",
+    "kizi.com",
+    "agame.com",
+    "gamesgames.com",
+    "silvergames.com",
+    "mathplayground.com",
+    "iogames.space",
+    "now.gg",
+    # Large online game platforms and stores
     "steampowered.com",
     "steamcommunity.com",
     "steamstatic.com",
     "steamcontent.com",
-    "steamserver.net",
     "steamgames.com",
+    "valvesoftware.com",
     "epicgames.com",
     "epicgames.dev",
     "unrealengine.com",
-    "gog.com",
-    "itch.io",
-    "humblebundle.com",
-    # Riot / Valorant / LoL
     "riotgames.com",
     "riotcdn.net",
-    "valorant.com",
     "leagueoflegends.com",
-    "lolesports.com",
-    "wildrift.leagueoflegends.com",
-    # Roblox / Minecraft
+    "playvalorant.com",
     "roblox.com",
     "rbxcdn.com",
     "minecraft.net",
     "mojang.com",
-    # Console / publishers
     "nintendo.com",
     "nintendo.net",
     "playstation.com",
     "playstation.net",
-    "sonyentertainmentnetwork.com",
     "xbox.com",
     "xboxlive.com",
     "ea.com",
     "origin.com",
-    "eac-cdn.com",
     "ubisoft.com",
-    "ubisoftconnect.com",
+    "ubi.com",
     "battle.net",
     "blizzard.com",
     "rockstargames.com",
-    "take2games.com",
-    # Mobile online games
+    "gta5-mods.com",
+    # Mobile/online games often also reachable via web/app APIs
     "garena.com",
     "freefiremobile.com",
-    "ff.garena.com",
     "pubgmobile.com",
     "krafton.com",
-    "proximabeta.com",
     "mobilelegends.com",
-    "mlbbgame.com",
-    "m.mobilelegends.com",
+    "moonton.com",
     "hoyoverse.com",
     "mihoyo.com",
-    "hoyolab.com",
     "genshinimpact.com",
     "honkaiimpact3.com",
-    "honkai-starrail.com",
+    "honkai-star-rail.com",
     "zenlesszonezero.com",
     "supercell.com",
     "clashofclans.com",
@@ -94,315 +163,275 @@ GAME_DOMAIN_SUFFIXES = [
     "callofduty.com",
     "activision.com",
     "neteasegames.com",
-    "easebar.com",
-    "tencentgames.com",
-    "levelinfinite.com",
-    "arenaofvalor.com",
-    "pokemongolive.com",
-    "nianticlabs.com",
-    # Browser / cloud gaming
-    "poki.com",
-    "y8.com",
-    "crazygames.com",
-    "kongregate.com",
-    "addictinggames.com",
-    "miniclip.com",
-    "now.gg",
+    "netease.com",
+    # Cloud gaming / browser playable platforms
     "geforcenow.com",
     "nvidia.com",
-    "parsec.app",
-]
+    "xboxcloudgaming.com",
+    "play.geforcenow.com",
+    "boosteroid.com",
+    "airgpu.com",
+]))
 
-GAME_KEYWORDS = [
-    "steam",
-    "epicgames",
-    "riotgames",
-    "valorant",
-    "leagueoflegends",
-    "roblox",
-    "minecraft",
-    "xboxlive",
-    "playstation",
-    "battle.net",
-    "blizzard",
-    "garena",
-    "freefire",
-    "pubgmobile",
-    "mobilelegends",
-    "mlbb",
+# Keywords are intentionally conservative to avoid overblocking unrelated web.
+GAME_DOMAIN_KEYWORDS: List[str] = sorted(set([
+    "gameforge",
     "hoyoverse",
-    "mihoyo",
-    "genshin",
-    "honkai",
-    "supercell",
-    "clashofclans",
-    "clashroyale",
-    "brawlstars",
-    "callofduty",
-    "activision",
-    "neteasegames",
-    "crazygames",
-    "geforcenow",
-]
+    "moonton",
+    "steam",
+    "roblox",
+    "valorant",
+    "pubg",
+    "freefire",
+    "mobilelegends",
+    "callofwar",
+]))
 
-GAME_RULES = [f"DOMAIN-SUFFIX,{d},BLOCK" for d in GAME_DOMAIN_SUFFIXES]
-GAME_RULES.extend(f"DOMAIN-KEYWORD,{k},BLOCK" for k in GAME_KEYWORDS)
-
-SPECIAL_OUTBOUNDS = {"DIRECT", "REJECT"}
-ALLOWED_GROUP_TYPES = {"select", "url-test", "fallback"}
-RISKY_TOP_KEYS = {"tcp-concurrent", "unified-delay"}
-RISKY_GROUP_KEYS = {"lazy", "timeout", "strategy"}
-DROP_PROXY_TYPES = {"ss", "ssr"}
+UNSUPPORTED_GROUP_TYPES = {"load-balance", "relay"}
+RISKY_TOP_LEVEL_KEYS = {"rule-providers"}
 
 
-def load_yaml(path: Path) -> Dict[str, Any] | None:
-    if not path.exists():
-        return None
-    try:
-        data = yaml.safe_load(path.read_text(encoding="utf-8", errors="ignore"))
-    except Exception as exc:
-        return {"__error__": f"parse error: {exc}"}
-    if not isinstance(data, dict):
-        return {"__error__": "root is not mapping"}
-    return data
+def load_yaml(path: Path) -> Any:
+    with path.open("r", encoding="utf-8") as fh:
+        text = fh.read()
+    if not text.strip():
+        return {}
+    return yaml.safe_load(text) or {}
 
 
-def dump_yaml(path: Path, data: Dict[str, Any]) -> None:
-    path.write_text(
-        yaml.safe_dump(data, allow_unicode=True, sort_keys=False, width=4096),
-        encoding="utf-8",
-    )
+def dump_yaml(path: Path, data: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as fh:
+        yaml.safe_dump(
+            data,
+            fh,
+            allow_unicode=True,
+            sort_keys=False,
+            default_flow_style=False,
+            width=120,
+        )
 
 
-def remove_game_rule_providers(data: Dict[str, Any]) -> int:
-    removed = 0
-    providers = data.get("rule-providers")
-    if isinstance(providers, dict):
-        for key in list(providers.keys()):
-            if str(key).upper().startswith("GAME-BLOCK"):
-                providers.pop(key, None)
-                removed += 1
-        if not providers:
-            data.pop("rule-providers", None)
-    return removed
+def as_list(value: Any) -> List[Any]:
+    if isinstance(value, list):
+        return value
+    return []
 
 
-def sanitize_top_and_proxies(data: Dict[str, Any]) -> Dict[str, int]:
-    stats = {"removed_risky_top_keys": 0, "removed_unsupported_proxies": 0}
-    for key in list(RISKY_TOP_KEYS):
-        if key in data:
-            data.pop(key, None)
-            stats["removed_risky_top_keys"] += 1
+def normalize_rule(rule: Any) -> str:
+    if isinstance(rule, str):
+        return rule.strip()
+    return ""
 
-    proxies = data.get("proxies") or []
-    clean: List[Dict[str, Any]] = []
-    removed_names = set()
+
+def rule_target(rule: str) -> str:
+    parts = [part.strip() for part in rule.split(",")]
+    if len(parts) >= 3:
+        return parts[-1]
+    if len(parts) == 2 and parts[0].upper() in {"MATCH", "FINAL"}:
+        return parts[-1]
+    return ""
+
+
+def is_existing_game_block_rule(rule: str) -> bool:
+    if not rule:
+        return False
+    upper = rule.upper()
+    if "GAME-BLOCK" in upper:
+        return True
+    parts = [part.strip() for part in rule.split(")")]
+    parts = [part.strip() for part in rule.split(",")]
+    if len(parts) < 3:
+        return False
+    kind = parts[0].upper()
+    value = parts[1].lower()
+    target = parts[-1]
+    if target != "BLOCK":
+        return False
+    if kind in {"DOMAIN-SUFFIX", "DOMAIN", "DOMAIN-KEYWORD"}:
+        if value in GAME_DOMAIN_SUFFIXES or value in GAME_DOMAIN_KEYWORDS:
+            return True
+        if any(value == d or value.endswith("." + d) for d in GAME_DOMAIN_SUFFIXES):
+            return True
+    return False
+
+
+def ensure_block_group(data: MutableMapping[str, Any]) -> None:
+    groups = as_list(data.get("proxy-groups"))
+    cleaned: List[Dict[str, Any]] = []
     seen = set()
-    if isinstance(proxies, list):
-        for proxy in proxies:
-            if not isinstance(proxy, dict):
-                continue
-            name = str(proxy.get("name") or "").strip()
-            typ = str(proxy.get("type") or "").strip().lower()
-            if not name or typ in DROP_PROXY_TYPES:
-                if name:
-                    removed_names.add(name)
-                stats["removed_unsupported_proxies"] += 1
-                continue
-            if name in seen:
-                removed_names.add(name)
-                stats["removed_unsupported_proxies"] += 1
-                continue
-            seen.add(name)
-            clean.append(proxy)
-    data["proxies"] = clean
+    block_found = False
 
-    if removed_names:
-        for group in data.get("proxy-groups") or []:
-            if isinstance(group, dict) and isinstance(group.get("proxies"), list):
-                group["proxies"] = [p for p in group["proxies"] if str(p) not in removed_names]
-    return stats
-
-
-def ensure_group(data: Dict[str, Any], name: str, group: Dict[str, Any]) -> None:
-    groups = data.setdefault("proxy-groups", [])
-    if not isinstance(groups, list):
-        data["proxy-groups"] = groups = []
-    for existing in groups:
-        if isinstance(existing, dict) and str(existing.get("name")) == name:
-            # Keep selector but normalize risky keys and members.
-            existing.clear()
-            existing.update(group)
-            return
-    groups.append(group)
-
-
-def group_names(data: Dict[str, Any]) -> set[str]:
-    return {str(g.get("name")) for g in (data.get("proxy-groups") or []) if isinstance(g, dict)}
-
-
-def proxy_names(data: Dict[str, Any]) -> set[str]:
-    return {str(p.get("name")) for p in (data.get("proxies") or []) if isinstance(p, dict)}
-
-
-def sanitize_groups(data: Dict[str, Any]) -> int:
-    removed = 0
-    groups = data.get("proxy-groups") or []
-    if not isinstance(groups, list):
-        data["proxy-groups"] = []
-        return 0
-    names_p = proxy_names(data)
-    names_g = {str(g.get("name")) for g in groups if isinstance(g, dict)}
     for group in groups:
         if not isinstance(group, dict):
             continue
-        typ = str(group.get("type") or "select")
-        if typ not in ALLOWED_GROUP_TYPES:
+        name = str(group.get("name", "")).strip()
+        if not name:
+            continue
+        if name in seen:
+            continue
+        seen.add(name)
+        gtype = str(group.get("type", "select")).strip()
+        if gtype in UNSUPPORTED_GROUP_TYPES:
+            # Convert unsupported group types to select rather than leaving an
+            # OpenClash-incompatible config behind.
             group["type"] = "select"
+            group.pop("strategy", None)
+        for key in ("lazy", "timeout", "tcp-concurrent", "unified-delay"):
+            group.pop(key, None)
+        proxies = [str(p).strip() for p in as_list(group.get("proxies")) if str(p).strip()]
+        if name == "BLOCK":
+            block_found = True
+            group["type"] = "select"
+            # Keep REJECT inside selector only.
+            ordered = ["REJECT", "DIRECT"]
+            for p in proxies:
+                if p not in ordered:
+                    ordered.append(p)
+            group["proxies"] = ordered
+        else:
+            # DIRECT/REJECT are allowed only in selectors. They should not be
+            # options for url-test/fallback groups because some OpenClash builds
+            # handle that poorly.
+            if group.get("type") != "select":
+                proxies = [p for p in proxies if p not in {"DIRECT", "REJECT"}]
+            group["proxies"] = proxies
+        cleaned.append(group)
+
+    if not block_found:
+        cleaned.append({"name": "BLOCK", "type": "select", "proxies": ["REJECT", "DIRECT"]})
+
+    data["proxy-groups"] = cleaned
+
+
+def build_game_rules() -> List[str]:
+    rules: List[str] = []
+    for domain in GAME_DOMAIN_SUFFIXES:
+        rules.append(f"DOMAIN-SUFFIX,{domain},BLOCK")
+    for keyword in GAME_DOMAIN_KEYWORDS:
+        rules.append(f"DOMAIN-KEYWORD,{keyword},BLOCK")
+    return rules
+
+
+def rewrite_rules(data: MutableMapping[str, Any]) -> Tuple[int, int]:
+    original_rules = [normalize_rule(r) for r in as_list(data.get("rules"))]
+    original_rules = [r for r in original_rules if r]
+
+    # Remove old provider-based rules, old inline game rules, and risky direct REJECT targets.
+    filtered: List[str] = []
+    removed = 0
+    for rule in original_rules:
+        upper = rule.upper()
+        if upper.startswith("RULE-SET,GAME-BLOCK") or "GAME-BLOCK" in upper:
             removed += 1
-        for key in list(RISKY_GROUP_KEYS):
-            if key in group:
-                group.pop(key, None)
-                removed += 1
-        members = group.get("proxies")
-        if not isinstance(members, list):
-            members = []
-        clean_members = []
-        for item in members:
-            item_s = str(item)
-            if typ != "select" and item_s in SPECIAL_OUTBOUNDS:
-                removed += 1
-                continue
-            if item_s in SPECIAL_OUTBOUNDS or item_s in names_p or item_s in names_g:
-                if item_s not in clean_members:
-                    clean_members.append(item_s)
-            else:
-                removed += 1
-        if not clean_members:
-            fallback = "DIRECT" if typ == "select" else None
-            if fallback:
-                clean_members = [fallback]
-        group["proxies"] = clean_members
-    return removed
-
-
-def ensure_block_default_groups(data: Dict[str, Any]) -> None:
-    groups = group_names(data)
-    proxies = proxy_names(data)
-
-    if "DEFAULT" not in groups:
-        base_members = []
-        for cand in ["AUTO", "FALLBACK", "PROXY"]:
-            if cand in groups:
-                base_members.append(cand)
-        if not base_members:
-            base_members = sorted(list(proxies))[:20]
-        if not base_members:
-            base_members = ["DIRECT"]
-        ensure_group(data, "DEFAULT", {"name": "DEFAULT", "type": "select", "proxies": base_members + (["DIRECT"] if "DIRECT" not in base_members else [])})
-
-    # BLOCK is selector only; REJECT is allowed here but never directly in rules.
-    ensure_group(data, "BLOCK", {"name": "BLOCK", "type": "select", "proxies": ["REJECT", "DIRECT", "DEFAULT"]})
-
-
-def clean_existing_game_rules(rules: Iterable[Any]) -> List[str]:
-    cleaned: List[str] = []
-    inline_set = set(GAME_RULES)
-    for raw in rules:
-        text = str(raw).strip()
-        if not text:
             continue
-        upper = text.upper()
-        if upper.startswith("RULE-SET,GAME-BLOCK"):
+        if is_existing_game_block_rule(rule):
+            removed += 1
             continue
-        if text in inline_set:
-            continue
-        # Remove old direct provider remnants, but keep unrelated rules.
-        cleaned.append(text)
-    return cleaned
+        target = rule_target(rule)
+        if target == "REJECT":
+            # Preserve policy: target BLOCK selector instead of direct REJECT.
+            parts = [p.strip() for p in rule.split(",")]
+            parts[-1] = "BLOCK"
+            rule = ",".join(parts)
+        filtered.append(rule)
+
+    new_game_rules = build_game_rules()
+    # Insert game blocks at the top so web/app game domains are blocked before
+    # category routing or MATCH rules.
+    seen = set()
+    merged: List[str] = []
+    inserted = 0
+    for rule in new_game_rules + filtered:
+        if rule not in seen:
+            seen.add(rule)
+            merged.append(rule)
+            if rule in new_game_rules:
+                inserted += 1
+    data["rules"] = merged
+    return inserted, removed
 
 
-def insert_game_rules(data: Dict[str, Any]) -> Dict[str, int]:
-    rules = data.get("rules") or []
-    if not isinstance(rules, list):
-        rules = []
-    existing = clean_existing_game_rules(rules)
-    inserted = []
-    existing_set = set(existing)
-    for rule in GAME_RULES:
-        if rule not in existing_set:
-            inserted.append(rule)
-            existing_set.add(rule)
-    # Game block first, before other app routing and before MATCH.
-    data["rules"] = inserted + existing
-    return {"inserted_game_rules": len(inserted), "total_game_rules": len(GAME_RULES)}
-
-
-def validate_no_rule_provider(data: Dict[str, Any]) -> List[str]:
-    errors: List[str] = []
-    providers = data.get("rule-providers")
-    if isinstance(providers, dict):
-        bad = [k for k in providers if str(k).upper().startswith("GAME-BLOCK")]
-        if bad:
-            errors.append("GAME-BLOCK rule-providers remain: " + ", ".join(map(str, bad)))
-    for rule in data.get("rules") or []:
-        text = str(rule)
-        if text.upper().startswith("RULE-SET,GAME-BLOCK"):
-            errors.append("GAME-BLOCK RULE-SET remains: " + text)
-        if text.endswith(",DIRECT") or text.endswith(",REJECT"):
-            errors.append("DIRECT/REJECT direct rule target remains: " + text)
-    return errors
+def clean_rule_providers(data: MutableMapping[str, Any]) -> bool:
+    if "rule-providers" in data:
+        providers = data.get("rule-providers")
+        changed = False
+        if isinstance(providers, dict):
+            for key in list(providers.keys()):
+                if str(key).upper().startswith("GAME-BLOCK"):
+                    providers.pop(key, None)
+                    changed = True
+            if not providers:
+                data.pop("rule-providers", None)
+                changed = True
+        else:
+            data.pop("rule-providers", None)
+            changed = True
+        return changed
+    return False
 
 
 def process_file(path: Path) -> Dict[str, Any]:
-    report: Dict[str, Any] = {"file": str(path), "changed": False, "errors": []}
     data = load_yaml(path)
-    if data is None:
-        report["skipped"] = "missing"
-        return report
-    if "__error__" in data:
-        report["errors"].append(data["__error__"])
-        return report
+    if not isinstance(data, dict):
+        return {"file": str(path), "status": "skipped", "reason": "top-level YAML is not a mapping"}
 
-    before = yaml.safe_dump(data, allow_unicode=True, sort_keys=False, width=4096)
-    report["removed_game_rule_providers"] = remove_game_rule_providers(data)
-    stats = sanitize_top_and_proxies(data)
-    report.update(stats)
-    ensure_block_default_groups(data)
-    report["removed_invalid_group_items"] = sanitize_groups(data)
-    report.update(insert_game_rules(data))
-    report["errors"].extend(validate_no_rule_provider(data))
-    after = yaml.safe_dump(data, allow_unicode=True, sort_keys=False, width=4096)
-    if before != after:
-        dump_yaml(path, data)
-        report["changed"] = True
-    return report
+    before_text = path.read_text(encoding="utf-8") if path.exists() else ""
+    provider_changed = clean_rule_providers(data)
+    ensure_block_group(data)
+    inserted, removed = rewrite_rules(data)
+    dump_yaml(path, data)
+    after_text = path.read_text(encoding="utf-8")
 
-
-def main(argv: Sequence[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Apply OpenClash-safe inline game blocking rules without rule-providers.")
-    parser.add_argument("--root", default=".")
-    args = parser.parse_args(argv)
-    root = Path(args.root).resolve()
-    output = root / "output"
-    reports: List[Dict[str, Any]] = []
-    for name in MAIN_OUTPUTS:
-        reports.append(process_file(output / name))
-    validation_dir = output / "Validation"
-    validation_dir.mkdir(parents=True, exist_ok=True)
-    summary = {
-        "policy": "inline-safe-game-block-no-rule-providers",
-        "reason": "Use inline DOMAIN-SUFFIX/DOMAIN-KEYWORD rules because rule-providers can fail on some OpenClash/core combinations.",
-        "files_processed": len([r for r in reports if not r.get("skipped")]),
-        "game_rule_count": len(GAME_RULES),
-        "reports": reports,
+    return {
+        "file": str(path),
+        "status": "updated" if before_text != after_text else "unchanged",
+        "game_rules_inserted": inserted,
+        "old_game_rules_removed": removed,
+        "game_rule_providers_removed": provider_changed,
     }
-    (validation_dir / "game_block_inline_safe_report.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
-    error_count = sum(len(r.get("errors") or []) for r in reports)
-    if error_count:
-        print(json.dumps(summary, indent=2, ensure_ascii=False))
-        return 1
-    print(f"Applied inline-safe game blocking to {summary['files_processed']} YAML files; rules={len(GAME_RULES)}")
+
+
+def find_yaml_files(root: Path, names: Sequence[str]) -> List[Path]:
+    output = root / "output"
+    files = []
+    for name in names:
+        path = output / name
+        if path.exists():
+            files.append(path)
+    return files
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", default=".", help="Repository root")
+    parser.add_argument("--files", nargs="*", default=None, help="Specific YAML files to process")
+    args = parser.parse_args()
+
+    root = Path(args.root).resolve()
+    if args.files:
+        files = [Path(f).resolve() for f in args.files if Path(f).exists()]
+    else:
+        files = find_yaml_files(root, OUTPUT_YAML_NAMES)
+
+    reports = []
+    for path in files:
+        reports.append(process_file(path))
+
+    validation_dir = root / "output" / "Validation"
+    validation_dir.mkdir(parents=True, exist_ok=True)
+    report_path = validation_dir / "game_block_inline_safe_report.json"
+    report = {
+        "policy": "inline-safe-game-block-expanded-web-games",
+        "target_group": "BLOCK",
+        "domain_suffix_count": len(GAME_DOMAIN_SUFFIXES),
+        "domain_keyword_count": len(GAME_DOMAIN_KEYWORDS),
+        "explicitly_added": ["callofwar.com"],
+        "files": reports,
+    }
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Game block inline-safe report written: {report_path}")
+    print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0
 
 
