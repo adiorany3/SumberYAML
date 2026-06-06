@@ -286,6 +286,21 @@ jobs:
           fi
           echo "OK: output/lengkap.yaml ditemukan"
           wc -l output/lengkap.yaml || true
+          if [ "${SMART_SAFE_MANUAL_ONLY:-true}" = "true" ] && [ ! -f output/manual_only.yaml ]; then
+            echo "ERROR: output/manual_only.yaml belum dibuat. Ini berarti output belum memakai generator terbaru."
+            find output -maxdepth 2 -type f | sort || true
+            exit 1
+          fi
+          if [ "${ENABLE_RULE_FOCUS:-true}" = "true" ] && [ ! -f output/Validation/rule_focus_report.json ]; then
+            echo "ERROR: rule_focus_report.json belum ada. Rule focus belum berjalan."
+            find output/Validation -maxdepth 1 -type f | sort || true
+            exit 1
+          fi
+          if [ "${ENABLE_SMART_QOS:-true}" = "true" ] && [ ! -f output/Validation/smart_qos_report.json ]; then
+            echo "ERROR: smart_qos_report.json belum ada. Smart QoS belum berjalan."
+            find output/Validation -maxdepth 1 -type f | sort || true
+            exit 1
+          fi
 
       - name: Validate OpenClash YAML
         run: |
@@ -296,7 +311,7 @@ jobs:
               output/lengkap_alive.yaml \
               output/strict_alive.yaml \
               output/lite.yaml \
-              output/fast.yaml || true
+              output/fast.yaml
           fi
           python - <<'PY'
           from pathlib import Path
@@ -371,6 +386,29 @@ jobs:
           print('Fallback YAML validation OK')
           PY
 
+
+      - name: Assert latest output features
+        run: |
+          set -e
+          if [ -f scripts/assert_latest_openclash_outputs.py ]; then
+            python scripts/assert_latest_openclash_outputs.py --root . --strict
+          else
+            echo "ERROR: scripts/assert_latest_openclash_outputs.py tidak ditemukan."
+            exit 1
+          fi
+
+      - name: Show generated output snapshot
+        run: |
+          set -e
+          echo "Output YAML files generated:"
+          find output -maxdepth 1 -type f -name "*.yaml" -printf "%f\n" | sort
+          echo "Latest feature reports:"
+          ls -la output/Validation || true
+          echo "Check manual_only.yaml:"
+          test -f output/manual_only.yaml && wc -l output/manual_only.yaml || true
+          echo "Check Smart QoS groups in fast.yaml:"
+          grep -E "name: QOS-|name: WEB-|name: MANUAL-|name: SAT-SET" output/fast.yaml | head -60 || true
+
       - name: Force output update marker
         if: env.FORCE_OUTPUT_COMMIT == 'true'
         run: |
@@ -410,7 +448,7 @@ jobs:
             rm -rf output
             mkdir -p output
             tar -C output -xf "$BACKUP_DIR/output.tar"
-            git add output cache || true
+            git add -A -f output cache || true
             if git diff --cached --quiet; then
               echo "Tidak ada perubahan output dari generator. Membuat force marker agar update tetap ter-commit."
               mkdir -p output/Validation
@@ -421,13 +459,13 @@ jobs:
                 printf '{"schema":"sumberyaml.force-output-update.commit-fallback.v1","generated_at_utc":"%s","github_run_id":"%s","github_run_attempt":"%s","github_run_number":"%s","github_sha":"%s","mode":"%s","source":"%s"}\n' "$FORCE_TS" "${GITHUB_RUN_ID:-}" "${GITHUB_RUN_ATTEMPT:-}" "${GITHUB_RUN_NUMBER:-}" "${GITHUB_SHA:-}" "${MODE:-update}" "${SOURCE:-}" > output/Validation/last_run.json
                 printf 'forced_commit_fallback=%s\nrun_id=%s\nsha=%s\n' "$FORCE_TS" "${GITHUB_RUN_ID:-}" "${GITHUB_SHA:-}" > output/Validation/last_run.txt
               fi
-              git add output/Validation/last_run.json output/Validation/last_run.txt
+              git add -A -f output cache || true
             fi
             if git diff --cached --quiet; then
               echo "ERROR: Force output commit marker tetap tidak menghasilkan perubahan."
               exit 1
             fi
-            git commit -m "Force update OpenClash output"
+            git commit -m "Force regenerate latest OpenClash YAML output"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
