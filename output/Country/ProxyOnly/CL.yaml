@@ -1,0 +1,30 @@
+proxies:
+  - name: "V2Ray_Hub1200"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 053cebab-de6a-47a1-af86-ed49948dc289
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.genflix.co.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "www.genflix.co.id.r3xxe.eu.cc"
+    udp: true
+  - name: "Config0plus"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Telegram-Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "go.appsflyer.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "go.appsflyer.com.r3xxe.eu.cc"
+    udp: true

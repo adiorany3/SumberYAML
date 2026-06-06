@@ -31,7 +31,7 @@ proxies:
     path: /id-amz
     headers:
       Host: r3xxe.eu.cc
-- name: MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+- name: MANUAL-LINK-003 Google
   type: trojan
   server: 104.17.3.81
   port: 443
@@ -204,7 +204,7 @@ proxies:
     path: /id-amz
     headers:
       Host: r3xxe.eu.cc
-- name: (US)+Google+LLC+🇺🇸
+- name: Google
   type: trojan
   server: 104.17.3.81
   port: 443
@@ -355,6 +355,7 @@ proxy-groups:
   type: select
   proxies:
   - UTAMA
+  - GOOGLE
   - AUTO
   - FALLBACK
   - INPUT-VMESS
@@ -364,6 +365,13 @@ proxy-groups:
   - SOCIAL-BANK-MARKET
   - DEFAULT
   - BYPASS
+- name: GOOGLE
+  type: fallback
+  proxies:
+  - MANUAL-LINK-003 Google
+  - Google
+  url: http://www.gstatic.com/generate_204
+  interval: 60
 - name: UTAMA
   type: select
   proxies:
@@ -392,7 +400,7 @@ proxy-groups:
   - MANUAL-LINK-005 (ID)+PUSATMEDIA
   - (ID)+Amazon.com
   - (ID)+PUSATMEDIA
-  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-003 Google
   - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
   url: http://www.gstatic.com/generate_204
   interval: 90
@@ -418,7 +426,7 @@ proxy-groups:
   - MANUAL-LINK-005 (ID)+PUSATMEDIA
   - (ID)+Amazon.com
   - (ID)+PUSATMEDIA
-  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - MANUAL-LINK-003 Google
   - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
   url: http://www.gstatic.com/generate_204
   interval: 90
@@ -539,9 +547,6 @@ rules:
 - IP-CIDR,172.16.0.0/12,BYPASS,no-resolve
 - IP-CIDR,192.168.0.0/16,BYPASS,no-resolve
 - IP-CIDR,169.254.0.0/16,BYPASS,no-resolve
-- DOMAIN-SUFFIX,doubleclick.net,BLOCK
-- DOMAIN-SUFFIX,googlesyndication.com,BLOCK
-- DOMAIN-SUFFIX,googleadservices.com,BLOCK
 - DOMAIN-SUFFIX,adservice.google.com,BLOCK
 - DOMAIN-SUFFIX,reddit.com,REDDIT
 - DOMAIN-SUFFIX,redd.it,REDDIT
@@ -609,10 +614,6 @@ rules:
 - DOMAIN-SUFFIX,gojek.com,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,grab.com,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,maxim.com,SOCIAL-BANK-MARKET
-- DOMAIN-SUFFIX,youtube.com,STREAMING
-- DOMAIN-SUFFIX,youtu.be,STREAMING
-- DOMAIN-SUFFIX,googlevideo.com,STREAMING
-- DOMAIN-SUFFIX,ytimg.com,STREAMING
 - DOMAIN-SUFFIX,netflix.com,STREAMING
 - DOMAIN-SUFFIX,nflxvideo.net,STREAMING
 - DOMAIN-SUFFIX,nflximg.net,STREAMING
@@ -675,12 +676,6 @@ rules:
 - DOMAIN-SUFFIX,netlify.app,WORK
 - DOMAIN-SUFFIX,stackoverflow.com,WORK
 - DOMAIN-SUFFIX,stackexchange.com,WORK
-- DOMAIN-SUFFIX,google.com,WORK
-- DOMAIN-SUFFIX,google.co.id,WORK
-- DOMAIN-SUFFIX,gstatic.com,WORK
-- DOMAIN-SUFFIX,googleapis.com,WORK
-- DOMAIN-SUFFIX,googleusercontent.com,WORK
-- DOMAIN-SUFFIX,ggpht.com,WORK
 - DOMAIN-SUFFIX,ubuntu.com,DOWNLOAD
 - DOMAIN-SUFFIX,debian.org,DOWNLOAD
 - DOMAIN-SUFFIX,archive.ubuntu.com,DOWNLOAD
@@ -693,5 +688,40 @@ rules:
 - DOMAIN-SUFFIX,dropbox.com,DOWNLOAD
 - DOMAIN-SUFFIX,mega.nz,DOWNLOAD
 - DOMAIN-SUFFIX,mediafire.com,DOWNLOAD
-- DOMAIN-SUFFIX,drive.google.com,DOWNLOAD
+- DOMAIN-SUFFIX,google.com,GOOGLE
+- DOMAIN-SUFFIX,google.co.id,GOOGLE
+- DOMAIN-SUFFIX,googleusercontent.com,GOOGLE
+- DOMAIN-SUFFIX,googleapis.com,GOOGLE
+- DOMAIN-SUFFIX,gstatic.com,GOOGLE
+- DOMAIN-SUFFIX,ggpht.com,GOOGLE
+- DOMAIN-SUFFIX,gvt1.com,GOOGLE
+- DOMAIN-SUFFIX,gvt2.com,GOOGLE
+- DOMAIN-SUFFIX,gvt3.com,GOOGLE
+- DOMAIN-SUFFIX,googlevideo.com,GOOGLE
+- DOMAIN-SUFFIX,youtube.com,GOOGLE
+- DOMAIN-SUFFIX,youtu.be,GOOGLE
+- DOMAIN-SUFFIX,ytimg.com,GOOGLE
+- DOMAIN-SUFFIX,youtubei.googleapis.com,GOOGLE
+- DOMAIN-SUFFIX,youtube-nocookie.com,GOOGLE
+- DOMAIN-SUFFIX,gmail.com,GOOGLE
+- DOMAIN-SUFFIX,googlemail.com,GOOGLE
+- DOMAIN-SUFFIX,googledrive.com,GOOGLE
+- DOMAIN-SUFFIX,drive.google.com,GOOGLE
+- DOMAIN-SUFFIX,docs.google.com,GOOGLE
+- DOMAIN-SUFFIX,meet.google.com,GOOGLE
+- DOMAIN-SUFFIX,googlemeet.com,GOOGLE
+- DOMAIN-SUFFIX,blogger.com,GOOGLE
+- DOMAIN-SUFFIX,blogspot.com,GOOGLE
+- DOMAIN-SUFFIX,appspot.com,GOOGLE
+- DOMAIN-SUFFIX,firebaseio.com,GOOGLE
+- DOMAIN-SUFFIX,firebase.google.com,GOOGLE
+- DOMAIN-SUFFIX,googleadservices.com,GOOGLE
+- DOMAIN-SUFFIX,googlesyndication.com,GOOGLE
+- DOMAIN-SUFFIX,googletagmanager.com,GOOGLE
+- DOMAIN-SUFFIX,google-analytics.com,GOOGLE
+- DOMAIN-SUFFIX,doubleclick.net,GOOGLE
+- DOMAIN-SUFFIX,android.com,GOOGLE
+- DOMAIN-SUFFIX,chrome.com,GOOGLE
+- DOMAIN-SUFFIX,chromium.org,GOOGLE
+- DOMAIN-SUFFIX,g.co,GOOGLE
 - MATCH,DEFAULT

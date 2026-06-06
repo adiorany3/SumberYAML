@@ -11,6 +11,178 @@ dns:
   fallback:
   - 8.8.8.8
 proxies:
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #9'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #8'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-003 Google
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #8'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #8'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-006 reddit #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #8'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-008 bel432 xl #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-010 bel432 telk #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-011 10.lowh.net #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #6'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
 - name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #8'
   type: vmess
   server: 104.17.3.81
@@ -2837,11 +3009,187 @@ proxies:
     path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
     headers:
       Host: akamaized.my
+- name: (ID) PT. Telekomunikasi Indonesia 🇮🇩-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  network: ws
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+Amazon.com-5
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: Google
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  servername: investors.spotify.com.r3xxe.eu.cc
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: (BR)+Oracle+Corporation+🇧🇷-5
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+PUSATMEDIA-5
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  security: tls
+  servername: unnes.ac.id.ex33r.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: reddit-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-9
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: VMess-WS-TLS-443-akuku8-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: bel432 telk-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 10.lowh.net-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: VLESS-WS-TLS-443-apt50atpprem-5
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  security: tls
+  servername: akamaized.my
+  tls: true
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - UTAMA
+  - GOOGLE
   - AUTO
   - FALLBACK
   - INPUT-VMESS
@@ -2851,6 +3199,24 @@ proxy-groups:
   - SOCIAL-BANK-MARKET
   - DEFAULT
   - BYPASS
+- name: GOOGLE
+  type: fallback
+  proxies:
+  - MANUAL-LINK-003 Google
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #7'
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #6'
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #5'
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #4'
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #3'
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #2'
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - (US)+Google+LLC+🇺🇸
+  - (US)+Google+LLC+🇺🇸-2
+  - (US)+Google+LLC+🇺🇸-3
+  - (US)+Google+LLC+🇺🇸-4
+  - Google
+  url: http://www.gstatic.com/generate_204
+  interval: 60
 - name: UTAMA
   type: select
   proxies:
@@ -2861,7 +3227,8 @@ proxy-groups:
 - name: AUTO
   type: url-test
   proxies:
-  - reddit-4
+  - reddit-5
+  - 'MANUAL-LINK-006 reddit #6'
   - 'MANUAL-LINK-006 reddit #5'
   - 'MANUAL-LINK-006 reddit #4'
   - 'MANUAL-LINK-006 reddit #3'
@@ -2870,24 +3237,24 @@ proxy-groups:
   - reddit
   - reddit-2
   - reddit-3
-  - (ID) PT. Telekomunikasi Indonesia 🇮🇩-4
-  - bel432 xl-6
-  - bel432 xl-7
-  - VMess-WS-TLS-443-akuku8-4
-  - bel432 telk-4
-  - 10.lowh.net-4
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #8'
-  - 'MANUAL-LINK-007 bel432 xl #7'
-  - 'MANUAL-LINK-008 bel432 xl #5'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #5'
-  - 'MANUAL-LINK-010 bel432 telk #5'
+  - reddit-4
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩-5
+  - bel432 xl-8
+  - bel432 xl-9
+  - VMess-WS-TLS-443-akuku8-5
+  - bel432 telk-5
+  - 10.lowh.net-5
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #9'
+  - 'MANUAL-LINK-007 bel432 xl #8'
+  - 'MANUAL-LINK-008 bel432 xl #6'
   url: http://www.gstatic.com/generate_204
   interval: 90
   tolerance: 40
 - name: FALLBACK
   type: fallback
   proxies:
-  - reddit-4
+  - reddit-5
+  - 'MANUAL-LINK-006 reddit #6'
   - 'MANUAL-LINK-006 reddit #5'
   - 'MANUAL-LINK-006 reddit #4'
   - 'MANUAL-LINK-006 reddit #3'
@@ -2896,29 +3263,35 @@ proxy-groups:
   - reddit
   - reddit-2
   - reddit-3
-  - (ID) PT. Telekomunikasi Indonesia 🇮🇩-4
-  - bel432 xl-6
-  - bel432 xl-7
-  - VMess-WS-TLS-443-akuku8-4
-  - bel432 telk-4
-  - 10.lowh.net-4
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #8'
-  - 'MANUAL-LINK-007 bel432 xl #7'
-  - 'MANUAL-LINK-008 bel432 xl #5'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #5'
-  - 'MANUAL-LINK-010 bel432 telk #5'
+  - reddit-4
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩-5
+  - bel432 xl-8
+  - bel432 xl-9
+  - VMess-WS-TLS-443-akuku8-5
+  - bel432 telk-5
+  - 10.lowh.net-5
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #9'
+  - 'MANUAL-LINK-007 bel432 xl #8'
+  - 'MANUAL-LINK-008 bel432 xl #6'
   url: http://www.gstatic.com/generate_204
   interval: 90
 - name: INPUT-VMESS
   type: fallback
   proxies:
-  - (ID) PT. Telekomunikasi Indonesia 🇮🇩-4
-  - reddit-4
-  - bel432 xl-6
-  - bel432 xl-7
-  - VMess-WS-TLS-443-akuku8-4
-  - bel432 telk-4
-  - 10.lowh.net-4
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩-5
+  - reddit-5
+  - bel432 xl-8
+  - bel432 xl-9
+  - VMess-WS-TLS-443-akuku8-5
+  - bel432 telk-5
+  - 10.lowh.net-5
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #9'
+  - 'MANUAL-LINK-006 reddit #6'
+  - 'MANUAL-LINK-007 bel432 xl #8'
+  - 'MANUAL-LINK-008 bel432 xl #6'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #6'
+  - 'MANUAL-LINK-010 bel432 telk #6'
+  - 'MANUAL-LINK-011 10.lowh.net #6'
   - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #8'
   - 'MANUAL-LINK-006 reddit #5'
   - 'MANUAL-LINK-007 bel432 xl #7'
@@ -3008,7 +3381,8 @@ proxy-groups:
 - name: REDDIT
   type: fallback
   proxies:
-  - reddit-4
+  - reddit-5
+  - 'MANUAL-LINK-006 reddit #6'
   - 'MANUAL-LINK-006 reddit #5'
   - 'MANUAL-LINK-006 reddit #4'
   - 'MANUAL-LINK-006 reddit #3'
@@ -3017,6 +3391,7 @@ proxy-groups:
   - reddit
   - reddit-2
   - reddit-3
+  - reddit-4
   url: http://www.gstatic.com/generate_204
   interval: 90
 - name: LINKEDIN
@@ -3126,9 +3501,6 @@ rules:
 - IP-CIDR,172.16.0.0/12,BYPASS,no-resolve
 - IP-CIDR,192.168.0.0/16,BYPASS,no-resolve
 - IP-CIDR,169.254.0.0/16,BYPASS,no-resolve
-- DOMAIN-SUFFIX,doubleclick.net,BLOCK
-- DOMAIN-SUFFIX,googlesyndication.com,BLOCK
-- DOMAIN-SUFFIX,googleadservices.com,BLOCK
 - DOMAIN-SUFFIX,adservice.google.com,BLOCK
 - DOMAIN-SUFFIX,reddit.com,REDDIT
 - DOMAIN-SUFFIX,redd.it,REDDIT
@@ -3196,10 +3568,6 @@ rules:
 - DOMAIN-SUFFIX,gojek.com,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,grab.com,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,maxim.com,SOCIAL-BANK-MARKET
-- DOMAIN-SUFFIX,youtube.com,STREAMING
-- DOMAIN-SUFFIX,youtu.be,STREAMING
-- DOMAIN-SUFFIX,googlevideo.com,STREAMING
-- DOMAIN-SUFFIX,ytimg.com,STREAMING
 - DOMAIN-SUFFIX,netflix.com,STREAMING
 - DOMAIN-SUFFIX,nflxvideo.net,STREAMING
 - DOMAIN-SUFFIX,nflximg.net,STREAMING
@@ -3262,12 +3630,6 @@ rules:
 - DOMAIN-SUFFIX,netlify.app,WORK
 - DOMAIN-SUFFIX,stackoverflow.com,WORK
 - DOMAIN-SUFFIX,stackexchange.com,WORK
-- DOMAIN-SUFFIX,google.com,WORK
-- DOMAIN-SUFFIX,google.co.id,WORK
-- DOMAIN-SUFFIX,gstatic.com,WORK
-- DOMAIN-SUFFIX,googleapis.com,WORK
-- DOMAIN-SUFFIX,googleusercontent.com,WORK
-- DOMAIN-SUFFIX,ggpht.com,WORK
 - DOMAIN-SUFFIX,ubuntu.com,DOWNLOAD
 - DOMAIN-SUFFIX,debian.org,DOWNLOAD
 - DOMAIN-SUFFIX,archive.ubuntu.com,DOWNLOAD
@@ -3280,7 +3642,6 @@ rules:
 - DOMAIN-SUFFIX,dropbox.com,DOWNLOAD
 - DOMAIN-SUFFIX,mega.nz,DOWNLOAD
 - DOMAIN-SUFFIX,mediafire.com,DOWNLOAD
-- DOMAIN-SUFFIX,drive.google.com,DOWNLOAD
 - RULE-SET,marketplace-protect,INDONESIA-BEST
 - DOMAIN-SUFFIX,id,INDONESIA-BEST
 - DOMAIN-SUFFIX,go.id,INDONESIA-BEST
@@ -3293,6 +3654,42 @@ rules:
 - DOMAIN-SUFFIX,kompas.com,INDONESIA-BEST
 - DOMAIN-SUFFIX,tribunnews.com,INDONESIA-BEST
 - GEOIP,ID,INDONESIA-BEST,no-resolve
+- DOMAIN-SUFFIX,google.com,GOOGLE
+- DOMAIN-SUFFIX,google.co.id,GOOGLE
+- DOMAIN-SUFFIX,googleusercontent.com,GOOGLE
+- DOMAIN-SUFFIX,googleapis.com,GOOGLE
+- DOMAIN-SUFFIX,gstatic.com,GOOGLE
+- DOMAIN-SUFFIX,ggpht.com,GOOGLE
+- DOMAIN-SUFFIX,gvt1.com,GOOGLE
+- DOMAIN-SUFFIX,gvt2.com,GOOGLE
+- DOMAIN-SUFFIX,gvt3.com,GOOGLE
+- DOMAIN-SUFFIX,googlevideo.com,GOOGLE
+- DOMAIN-SUFFIX,youtube.com,GOOGLE
+- DOMAIN-SUFFIX,youtu.be,GOOGLE
+- DOMAIN-SUFFIX,ytimg.com,GOOGLE
+- DOMAIN-SUFFIX,youtubei.googleapis.com,GOOGLE
+- DOMAIN-SUFFIX,youtube-nocookie.com,GOOGLE
+- DOMAIN-SUFFIX,gmail.com,GOOGLE
+- DOMAIN-SUFFIX,googlemail.com,GOOGLE
+- DOMAIN-SUFFIX,googledrive.com,GOOGLE
+- DOMAIN-SUFFIX,drive.google.com,GOOGLE
+- DOMAIN-SUFFIX,docs.google.com,GOOGLE
+- DOMAIN-SUFFIX,meet.google.com,GOOGLE
+- DOMAIN-SUFFIX,googlemeet.com,GOOGLE
+- DOMAIN-SUFFIX,blogger.com,GOOGLE
+- DOMAIN-SUFFIX,blogspot.com,GOOGLE
+- DOMAIN-SUFFIX,appspot.com,GOOGLE
+- DOMAIN-SUFFIX,firebaseio.com,GOOGLE
+- DOMAIN-SUFFIX,firebase.google.com,GOOGLE
+- DOMAIN-SUFFIX,googleadservices.com,GOOGLE
+- DOMAIN-SUFFIX,googlesyndication.com,GOOGLE
+- DOMAIN-SUFFIX,googletagmanager.com,GOOGLE
+- DOMAIN-SUFFIX,google-analytics.com,GOOGLE
+- DOMAIN-SUFFIX,doubleclick.net,GOOGLE
+- DOMAIN-SUFFIX,android.com,GOOGLE
+- DOMAIN-SUFFIX,chrome.com,GOOGLE
+- DOMAIN-SUFFIX,chromium.org,GOOGLE
+- DOMAIN-SUFFIX,g.co,GOOGLE
 - MATCH,DEFAULT
 rule-providers:
   malware-adware:

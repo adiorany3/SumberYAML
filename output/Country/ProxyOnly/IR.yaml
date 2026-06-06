@@ -1,5 +1,20 @@
 proxies:
-  - name: "v2ray_configs_pools 2806"
+  - name: "chillguy_vpn 6346"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4b76e80a-bde6-411f-a150-7d78f5de4c4f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nuren1.appleseraj.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "nuren1.appleseraj.ir"
+    udp: true
+  - name: "v2ray_configs_pools 8482"
     server: "104.17.3.81"
     port: 443
     type: vless

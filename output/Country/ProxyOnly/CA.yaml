@@ -1,16 +1,30 @@
 proxies:
-  - name: "HajmVPN_Config"
+  - name: "CA 52326 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 053cebab-de6a-47a1-af86-ed49948dc289
+    uuid: 1c80a663-3a9a-4b5a-8d37-a095844e4453
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "www.genflix.co.id.r3xxe.eu.cc"
+    servername: "s1.myvbest.shop"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "s1.myvbest.shop"
+    udp: true
+  - name: "Azaranv2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Telegram-Azaranv2ray"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "go.appsflyer.com.r3xxe.eu.cc"
     ws-opts:
       path: "/ca-cl"
       headers:
-        Host: "www.genflix.co.id.r3xxe.eu.cc"
+        Host: "go.appsflyer.com.r3xxe.eu.cc"
     udp: true
