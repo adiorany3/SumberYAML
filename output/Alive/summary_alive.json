@@ -14,64 +14,47 @@
   "timeout_ms": 5000,
   "workers": 20,
   "tester": "strict-mihomo-delay",
-  "tester_ok": false,
-  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms. | Strict result kosong, fallback longgar diaktifkan agar output tidak kosong.",
+  "tester_ok": true,
+  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
   "rounds": [
     {
       "round": 1,
       "tester": "mihomo-delay",
-      "tester_ok": false,
-      "alive": 0,
-      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
+      "tester_ok": true,
+      "alive": 39,
+      "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
-      "tester_ok": false,
-      "alive": 0,
-      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
+      "tester_ok": true,
+      "alive": 15,
+      "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1383,
-  "alive": 1383,
-  "strict_alive": 0,
-  "dead": 0,
+  "total": 1415,
+  "alive": 41,
+  "strict_alive": 41,
+  "dead": 1374,
   "untested": 0,
-  "final_output_filter": "fallback alive because strict empty",
-  "fallback_tester": "tcp-fallback",
-  "fallback_message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis.",
+  "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
   "best_ping_country_filter": "ID",
   "best_ping_fallback_global_if_empty": true,
   "best_ping_url_test_group": "URL-TEST TOP 5 INDONESIA",
   "best_ping_group_type": "url-test",
-  "best_ping_count": 5,
+  "best_ping_count": 2,
   "best_ping_names": [
-    "Ap_Ir6",
-    "Channel id ShadowProxy66 DE",
-    "ConfigV2RayNG",
-    "HiByeVPNN 75",
-    "TEL Father_vpn 6409"
+    "Ap_Ir6 7685",
+    "chillguy_vpn 6407"
   ],
   "responsive_top_n": 15,
-  "responsive_count": 14,
+  "responsive_count": 2,
   "responsive_names": [
-    "Ap_Ir6",
-    "Channel id ShadowProxy66 DE",
-    "ConfigV2RayNG",
-    "HiByeVPNN 75",
-    "TEL Father_vpn 6409",
-    "Arvand_soul Arvand_soul 2132",
-    "DALTON PING",
-    "V2ray_official 5096",
-    "appsooner",
-    "hi_proxy_iran 4327",
-    "hi_proxy_iran 7233",
-    "nitruStore 628",
-    "fastkanfig 5",
-    "ProxyVPN11 5363"
+    "Ap_Ir6 7685",
+    "chillguy_vpn 6407"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -83,5 +66,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 1383
+  "strict_output_count": 41
 }

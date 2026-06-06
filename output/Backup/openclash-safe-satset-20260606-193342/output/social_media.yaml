@@ -1,0 +1,214 @@
+# Auto generated usage profile OpenClash config
+# Output: output/social_media.yaml
+# Profile group: SOCIAL MEDIA STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "VPNine1 1080"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4bde8d55-d91c-45e9-9b36-e6448a194527
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "more Qara_atayi Warp 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1043634e-8d9d-4736-83fa-f14ddc9d464c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "v2reya88"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "72871 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "DE t.me Natrixo BB"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 935bdfb3-7bf9-48c1-adcb-2f6fbfeca896
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "help.viu.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "help.viu.com.ex33r.eu.cc"
+    udp: true
+  - name: "more Qara_atayi Warp 7"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a253ff3f-fb8d-4160-85e8-61b080f0f561
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "DE V2ngFast 7174"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9ce7ac33-5004-40ea-8236-15bc2d25a37c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v2ngfast.jackiuo77.workers.dev"
+    ws-opts:
+      path: "/v2ngfast---v2ngfast---v2ngfast---v2ngfast---v2ngfast"
+      headers:
+        Host: "v2ngfast.jackiuo77.workers.dev"
+    udp: true
+  - name: "62 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a321980f-54ce-432a-862a-76035b9d78ad
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "m.udemy.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/nl-tw"
+      headers:
+        Host: "m.udemy.com.r3xxe.eu.cc"
+    udp: true
+  - name: "NETMelliAnti 2586"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "wyV9GtIpor"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dd.aananas.ir."
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dd.aananas.ir."
+    udp: true
+  - name: "CA 53338 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 950518cc-fcd4-4547-be3d-32acf65257ca
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "faster.rainzone.ir"
+    ws-opts:
+      path: "/25425/sha"
+      headers:
+        Host: "faster.rainzone.ir"
+    udp: true
+
+proxy-groups:
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 1080"
+      - "more Qara_atayi Warp 1"
+      - "v2reya88"
+      - "72871 - Telegram V2All"
+      - "DE t.me Natrixo BB"
+      - "more Qara_atayi Warp 7"
+      - "DE V2ngFast 7174"
+      - "62 oneclickvpnkeys"
+      - "NETMelliAnti 2586"
+      - "CA 53338 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "SOCIAL MEDIA STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

@@ -1,36 +1,4 @@
 proxies:
-  - name: "FR France Fast"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "fapeng.org"
-    network: ws
-    ws-opts:
-      path: "/linkvws"
-      headers:
-        Host: "fapeng.org"
-    udp: true
-  - name: "FR hichkas mci"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: b3db746a-c63a-4b57-9d61-9bdec6d08141
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "51.77.200.137"
-    network: ws
-    ws-opts:
-      path: "/vmess"
-      headers:
-        Host: "51.77.200.137"
-    udp: true
   - name: "oneclickvpnkeys FR"
     server: "104.17.3.81"
     port: 443
@@ -46,81 +14,7 @@ proxies:
       headers:
         Host: "35cdnws.frnstatic.info"
     udp: true
-  - name: "Rayan_Config 3.3"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e65a5cbc-5663-4f7d-ad7d-800e86ba487d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "rAyAn-cOnFiG-fr-1.pAriSa.dPdNs.oRg"
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "rAyAn-cOnFiG-fr-1.pAriSa.dPdNs.oRg"
-    udp: true
-  - name: "Rayan_Config 3.33"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e65a5cbc-5663-4f7d-ad7d-800e86ba487d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "rAyAn-cOnFiG-fr-1.pArSa.dPdNs.oRg"
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "rAyAn-cOnFiG-fr-1.pArSa.dPdNs.oRg"
-    udp: true
-  - name: "FR https t.me FREECONFIGSPLUS"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "bab-6.site"
-    ws-opts:
-      path: "/vws/"
-      headers:
-        Host: "bab-6.site"
-    udp: true
-  - name: "FR FR VLESS v2ray_collector 1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 401374e6-df77-41fb-f638-dad8184f175b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "141.11.203.139"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "141.11.203.139"
-    udp: true
-  - name: "prrofile_purple FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "ertpzfsl7w4kqvk4"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "default.ssl.fastly.net"
-    ws-opts:
-      path: "/TELEGRAM_NUFiLTER"
-      headers:
-        Host: "nleiyajji.global.ssl.fastly.net"
-    udp: true
-  - name: "prrofile_purple FR 6930"
+  - name: "FR - FR - FreeOnlineVPN"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -128,79 +22,9 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.calmloud.com"
+    sni: "www.calmlunch.com"
     ws-opts:
       path: "/assignment"
       headers:
-        Host: "www.calmloud.com"
-    udp: true
-  - name: "FreakConfig FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.gossipglove.com"
-    udp: true
-  - name: "V2rayNG3 FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment?L=tls"
-      headers:
-        Host: "www.gossipglove.com"
-    udp: true
-  - name: "configV2rayNG FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.ignitelimit.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.ignitelimit.com"
-    udp: true
-  - name: "FR FR-217.69.2.107-0121"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "YGWIMlg.W1wRWQkRDcKfjZY7sng09aC=Yh"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.weavenet.click"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "www.weavenet.click"
-    udp: true
-  - name: "FR _FR_trojan Sp3eDVp content-provider5.cdn-delivery.akamaicd.com 443 FR _FR_tro"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "origin"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "content-provider26.cdn-delivery.akamaicd.com"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "content-provider26.cdn-delivery.akamaicd.com"
+        Host: "www.calmlunch.com"
     udp: true

@@ -1,0 +1,886 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "v2rayngvpn NL NL"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "renderer-stream-1-411.mirra.now"
+    network: ws
+    ws-opts:
+      path: "/api/v1/gpu-stream/socket"
+      headers:
+        Host: "renderer-stream-1-411.mirra.now"
+    udp: true
+  - name: "By EbraSha 2926"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "vienna-bread-threats-amendment.trycloudflare.com"
+    network: ws
+    ws-opts:
+      path: "/7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm"
+      headers:
+        Host: "vienna-bread-threats-amendment.trycloudflare.com"
+    udp: true
+  - name: "63 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 08b006dc-17e4-411d-9528-4369d72ad646
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "support.zoom.us.ex33r.eu.cc"
+    udp: true
+  - name: "v2reya88 confinghub2"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0a2f8145-290f-4848-a011-3d1e5fe62a14
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ssj.new-persian-song.ir"
+    ws-opts:
+      path: "/?ed=80"
+      headers:
+        Host: "ssj.new-persian-song.ir"
+    udp: true
+  - name: "VPsave 2090"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1ed6f429-9d32-4769-a318-ca74135558d2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cloud3.royalv.shop"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cloud3.royalv.shop"
+    udp: true
+  - name: "chillguy_vpn 6407"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 28607fa7-db30-47d6-942a-f5744e4be9ad
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "meliproxyy 1085"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 358ca5cf-5406-493d-b872-a344988b2e11
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ssj.new-persian-song.ir"
+    ws-opts:
+      path: "/?ed=80"
+      headers:
+        Host: "ssj.new-persian-song.ir"
+    udp: true
+  - name: "45 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 42026ed0-7d74-4585-8e46-0fe6aa4d665a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.genflix.co.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "www.genflix.co.id.r3xxe.eu.cc"
+    udp: true
+  - name: "vmesskhodam"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4311bd3f-4f66-4538-a624-221b87690b2c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "mjtbknetmkhremge.ordak.qzz.io"
+    ws-opts:
+      path: "/fl?ed=2560"
+      headers:
+        Host: "mjtbknetmkhremge.ordak.qzz.io"
+    udp: true
+  - name: "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 70298879-632b-459d-a664-bda9f5e769e2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "mi-ads.ariyuz.org"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "mi-ads.ariyuz.org"
+    udp: true
+  - name: "V2Ray_Hub1200"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7072d37b-5225-4779-8eb9-534dd8bdafcd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rugs-cornell-loads-commissioners.trycloudflare.com"
+    ws-opts:
+      path: "/killpv2"
+      headers:
+        Host: "rugs-cornell-loads-commissioners.trycloudflare.com"
+    udp: true
+  - name: "HiByeVPNN 48"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7270612b-49f6-4b04-999c-34d8263da767
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "picassooo.info"
+    ws-opts:
+      path: "/aymdlws"
+      headers:
+        Host: "picassooo.info"
+    udp: true
+  - name: "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 8449887d-7cd0-55d0-6646-951bc8bc2d08
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "crm.lotussec.com"
+    ws-opts:
+      path: "/@JavidnamanIran/Javid-SHAH-KingRezaPahlavi/"
+      headers:
+        Host: "crm.lotussec.com"
+    udp: true
+  - name: "38 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 933e8995-3b6d-4d42-8b23-e649f0e7205f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "resources.office.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "resources.office.com.r3xxe.eu.cc"
+    udp: true
+  - name: "CA 53338 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 950518cc-fcd4-4547-be3d-32acf65257ca
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "faster.rainzone.ir"
+    ws-opts:
+      path: "/25425/sha"
+      headers:
+        Host: "faster.rainzone.ir"
+    udp: true
+  - name: "Ap_Ir6 7685"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 974c2588-c1cd-43ac-8823-ce3d879b09fd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "somersby.pt.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "somersby.pt.ex33r.eu.cc"
+    udp: true
+  - name: "DE V2ngFast 7174"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9ce7ac33-5004-40ea-8236-15bc2d25a37c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v2ngfast.jackiuo77.workers.dev"
+    ws-opts:
+      path: "/v2ngfast---v2ngfast---v2ngfast---v2ngfast---v2ngfast"
+      headers:
+        Host: "v2ngfast.jackiuo77.workers.dev"
+    udp: true
+  - name: "62 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a321980f-54ce-432a-862a-76035b9d78ad
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "m.udemy.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/nl-tw"
+      headers:
+        Host: "m.udemy.com.r3xxe.eu.cc"
+    udp: true
+  - name: "72872 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2560"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "Ap_Ir6 3718"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "72871 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "ProxyVPN11 6963"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "v2ray_configs_pools 7654"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sheynezterary.iran-tube-movie.ir"
+    ws-opts:
+      path: "/?edfp"
+      headers:
+        Host: "sheynezterary.iran-tube-movie.ir"
+    udp: true
+  - name: "US) Google LLC"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c148c68d-aba0-44b8-8f93-ded816246e2c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "zaintest.vuclip.com.r3xxe.eu.cc"
+    udp: true
+  - name: "Channel NitruStore 173"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c7addea9-6d8a-48d6-8a00-aa99b8ece143
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ws35.adsvxpro.com"
+    ws-opts:
+      path: "/path"
+      headers:
+        Host: "ws35.adsvxpro.com"
+    udp: true
+  - name: "72868 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "VPsave 3811"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys FR"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e277ac9b-3225-4381-a9fb-3585419f7142
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "35cdnws.frnstatic.info"
+    ws-opts:
+      path: "/35cdnws"
+      headers:
+        Host: "35cdnws.frnstatic.info"
+    udp: true
+  - name: "oneclickvpnkeys US 6084"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 8164"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 4698"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "v2reya88"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "more Qara_atayi Warp 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1043634e-8d9d-4736-83fa-f14ddc9d464c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "more Qara_atayi Warp 7"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a253ff3f-fb8d-4160-85e8-61b080f0f561
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "VPNine1 1080"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4bde8d55-d91c-45e9-9b36-e6448a194527
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "DE t.me Natrixo BB"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 935bdfb3-7bf9-48c1-adcb-2f6fbfeca896
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "help.viu.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "help.viu.com.ex33r.eu.cc"
+    udp: true
+  - name: "VPNine1 7753"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "V2dogs_n"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "VPNine1 3089"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "FR - FR - FreeOnlineVPN"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "NETMelliAnti 2586"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "wyV9GtIpor"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dd.aananas.ir."
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dd.aananas.ir."
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "Ap_Ir6 7685"
+      - "chillguy_vpn 6407"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "Ap_Ir6 7685"
+      - "chillguy_vpn 6407"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 1080"
+      - "more Qara_atayi Warp 1"
+      - "v2reya88"
+      - "72871 - Telegram V2All"
+      - "DE t.me Natrixo BB"
+      - "DE V2ngFast 7174"
+      - "more Qara_atayi Warp 7"
+      - "62 oneclickvpnkeys"
+      - "CA 53338 Telegram t.me SOSkeyNET"
+      - "NETMelliAnti 2586"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 1080"
+      - "more Qara_atayi Warp 1"
+      - "v2reya88"
+      - "72871 - Telegram V2All"
+      - "DE t.me Natrixo BB"
+      - "more Qara_atayi Warp 7"
+      - "DE V2ngFast 7174"
+      - "62 oneclickvpnkeys"
+      - "NETMelliAnti 2586"
+      - "CA 53338 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 1080"
+      - "more Qara_atayi Warp 1"
+      - "v2reya88"
+      - "72871 - Telegram V2All"
+      - "DE t.me Natrixo BB"
+      - "more Qara_atayi Warp 7"
+      - "DE V2ngFast 7174"
+      - "62 oneclickvpnkeys"
+      - "NETMelliAnti 2586"
+      - "CA 53338 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 1080"
+      - "more Qara_atayi Warp 1"
+      - "v2reya88"
+      - "72871 - Telegram V2All"
+      - "DE t.me Natrixo BB"
+      - "more Qara_atayi Warp 7"
+      - "DE V2ngFast 7174"
+      - "62 oneclickvpnkeys"
+      - "NETMelliAnti 2586"
+      - "CA 53338 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 1080"
+      - "more Qara_atayi Warp 1"
+      - "v2reya88"
+      - "72871 - Telegram V2All"
+      - "DE t.me Natrixo BB"
+      - "more Qara_atayi Warp 7"
+      - "DE V2ngFast 7174"
+      - "62 oneclickvpnkeys"
+      - "NETMelliAnti 2586"
+      - "CA 53338 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST VMESS"
+    type: url-test
+    proxies:
+      - "v2rayngvpn NL NL"
+      - "By EbraSha 2926"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST VLESS"
+    type: url-test
+    proxies:
+      - "63 oneclickvpnkeys"
+      - "v2reya88 confinghub2"
+      - "VPsave 2090"
+      - "chillguy_vpn 6407"
+      - "meliproxyy 1085"
+      - "45 oneclickvpnkeys"
+      - "vmesskhodam"
+      - "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp"
+      - "V2Ray_Hub1200"
+      - "HiByeVPNN 48"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "38 oneclickvpnkeys"
+      - "CA 53338 Telegram t.me SOSkeyNET"
+      - "Ap_Ir6 7685"
+      - "DE V2ngFast 7174"
+      - "62 oneclickvpnkeys"
+      - "72872 - Telegram V2All"
+      - "Ap_Ir6 3718"
+      - "72871 - Telegram V2All"
+      - "ProxyVPN11 6963"
+      - "v2ray_configs_pools 7654"
+      - "US) Google LLC"
+      - "Channel NitruStore 173"
+      - "72868 - Telegram V2All"
+      - "VPsave 3811"
+      - "oneclickvpnkeys FR"
+      - "oneclickvpnkeys US 6084"
+      - "oneclickvpnkeys US 8164"
+      - "oneclickvpnkeys US 4698"
+      - "v2reya88"
+      - "more Qara_atayi Warp 1"
+      - "more Qara_atayi Warp 7"
+      - "VPNine1 1080"
+      - "DE t.me Natrixo BB"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST TROJAN"
+    type: url-test
+    proxies:
+      - "VPNine1 7753"
+      - "V2dogs_n"
+      - "VPNine1 3089"
+      - "FR - FR - FreeOnlineVPN"
+      - "NETMelliAnti 2586"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "v2rayngvpn NL NL"
+      - "By EbraSha 2926"
+      - "63 oneclickvpnkeys"
+      - "v2reya88 confinghub2"
+      - "VPsave 2090"
+      - "chillguy_vpn 6407"
+      - "meliproxyy 1085"
+      - "45 oneclickvpnkeys"
+      - "vmesskhodam"
+      - "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp"
+      - "V2Ray_Hub1200"
+      - "HiByeVPNN 48"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "38 oneclickvpnkeys"
+      - "CA 53338 Telegram t.me SOSkeyNET"
+      - "Ap_Ir6 7685"
+      - "DE V2ngFast 7174"
+      - "62 oneclickvpnkeys"
+      - "72872 - Telegram V2All"
+      - "Ap_Ir6 3718"
+      - "72871 - Telegram V2All"
+      - "ProxyVPN11 6963"
+      - "v2ray_configs_pools 7654"
+      - "US) Google LLC"
+      - "Channel NitruStore 173"
+      - "72868 - Telegram V2All"
+      - "VPsave 3811"
+      - "oneclickvpnkeys FR"
+      - "oneclickvpnkeys US 6084"
+      - "oneclickvpnkeys US 8164"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "Ap_Ir6 7685"
+      - "chillguy_vpn 6407"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "URL-TEST VMESS"
+      - "URL-TEST VLESS"
+      - "URL-TEST TROJAN"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
