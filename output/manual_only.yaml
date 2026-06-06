@@ -442,6 +442,7 @@ proxy-groups:
 - name: WEB-SOCIAL
   type: select
   proxies:
+  - INPUT-VMESS-LB
   - WEB-SOCIAL-AUTO
   - MANUAL-FALLBACK
   - MANUAL-LINK
@@ -454,6 +455,7 @@ proxy-groups:
   - best-link
   - DIRECT
   - WEB-DEFAULT
+  - QOS-DEFAULT
 - name: WEB-GAMING-AUTO
   type: url-test
   proxies:
@@ -489,6 +491,7 @@ proxy-groups:
 - name: WEB-BANKING
   type: select
   proxies:
+  - INPUT-VMESS-LB
   - DIRECT
   - MANUAL-FALLBACK
   - MANUAL-LINK
@@ -500,6 +503,7 @@ proxy-groups:
   - fallback-link
   - best-link
   - WEB-DEFAULT
+  - QOS-DEFAULT
 - name: WEB-MARKETPLACE-AUTO
   type: url-test
   proxies:
@@ -520,6 +524,7 @@ proxy-groups:
 - name: WEB-MARKETPLACE
   type: select
   proxies:
+  - INPUT-VMESS-LB
   - DIRECT
   - WEB-MARKETPLACE-AUTO
   - MANUAL-FALLBACK
@@ -532,6 +537,7 @@ proxy-groups:
   - fallback-link
   - best-link
   - WEB-DEFAULT
+  - QOS-DEFAULT
 - name: WEB-DEV-AUTO
   type: url-test
   proxies:
@@ -779,10 +785,21 @@ proxy-groups:
 - name: QOS-SOCIAL
   type: select
   proxies:
+  - INPUT-VMESS-LB
   - WEB-SOCIAL
   - QOS-REALTIME-AUTO
   - MANUAL-FALLBACK
   - QOS-DEFAULT
+  - MANUAL-BEST
+  - MANUAL-LINK
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - WEB-DEFAULT
+  - DIRECT
 - name: QOS-WORK
   type: select
   proxies:
@@ -794,15 +811,39 @@ proxy-groups:
 - name: QOS-BANKING
   type: select
   proxies:
+  - INPUT-VMESS-LB
   - QOS-BYPASS
   - WEB-BANKING
   - QOS-DEFAULT
+  - MANUAL-FALLBACK
+  - MANUAL-BEST
+  - MANUAL-LINK
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - WEB-DEFAULT
+  - DIRECT
 - name: QOS-MARKETPLACE
   type: select
   proxies:
+  - INPUT-VMESS-LB
   - WEB-MARKETPLACE
   - QOS-BYPASS
   - QOS-DEFAULT
+  - MANUAL-FALLBACK
+  - MANUAL-BEST
+  - MANUAL-LINK
+  - SMART-BEST
+  - SAT-SET
+  - ANTI-BENGONG
+  - BEST-STABLE
+  - fallback-link
+  - best-link
+  - WEB-DEFAULT
+  - DIRECT
 - name: QOS-DOWNLOAD
   type: select
   proxies:
@@ -812,7 +853,70 @@ proxy-groups:
   - best-link
   - MANUAL-FALLBACK
   - QOS-DEFAULT
+- name: INPUT-VMESS-LB
+  type: load-balance
+  proxies:
+  - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - MANUAL-LINK-006 bel432 xl
+  - MANUAL-LINK-007 bel432 xl
+  - MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  - MANUAL-LINK-009 bel432 telk
+  - MANUAL-LINK-010 10.lowh.net
+  url: http://www.gstatic.com/generate_204
+  interval: 60
 rules:
+- DOMAIN-SUFFIX,tokopedia.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,shopee.co.id,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,shopee.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,lazada.co.id,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,bukalapak.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,blibli.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,tiket.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,traveloka.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,gojek.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,grab.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,maxim.com,QOS-MARKETPLACE
+- DOMAIN-SUFFIX,linkedin.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,licdn.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,lnkd.in,QOS-SOCIAL
+- DOMAIN-SUFFIX,linkedin.cn,QOS-SOCIAL
+- DOMAIN-SUFFIX,facebook.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,fbcdn.net,QOS-SOCIAL
+- DOMAIN-SUFFIX,messenger.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,instagram.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,cdninstagram.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,threads.net,QOS-SOCIAL
+- DOMAIN-SUFFIX,x.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,twitter.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,twimg.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,tiktok.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,tiktokcdn.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,whatsapp.com,QOS-SOCIAL
+- DOMAIN-SUFFIX,whatsapp.net,QOS-SOCIAL
+- DOMAIN-SUFFIX,telegram.org,QOS-SOCIAL
+- DOMAIN-SUFFIX,t.me,QOS-SOCIAL
+- DOMAIN-SUFFIX,bca.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,klikbca.com,QOS-BANKING
+- DOMAIN-SUFFIX,mybca.bca.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bankmandiri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,livin.mandiri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,brimo.bri.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bni.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,btn.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,cimbniaga.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,danamon.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,permatabank.com,QOS-BANKING
+- DOMAIN-SUFFIX,ocbc.id,QOS-BANKING
+- DOMAIN-SUFFIX,jenius.com,QOS-BANKING
+- DOMAIN-SUFFIX,blu.id,QOS-BANKING
+- DOMAIN-SUFFIX,seabank.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,bankjago.com,QOS-BANKING
+- DOMAIN-SUFFIX,ovo.id,QOS-BANKING
+- DOMAIN-SUFFIX,gopay.co.id,QOS-BANKING
+- DOMAIN-SUFFIX,dana.id,QOS-BANKING
+- DOMAIN-SUFFIX,linkaja.id,QOS-BANKING
+- DOMAIN-SUFFIX,shopeepay.co.id,QOS-BANKING
 - DOMAIN-SUFFIX,local,QOS-BYPASS
 - DOMAIN-SUFFIX,lan,QOS-BYPASS
 - IP-CIDR,127.0.0.0/8,QOS-BYPASS,no-resolve
@@ -829,10 +933,6 @@ rules:
 - DOMAIN-SUFFIX,discord.com,QOS-REALTIME
 - DOMAIN-SUFFIX,discord.gg,QOS-REALTIME
 - DOMAIN-SUFFIX,discordapp.com,QOS-REALTIME
-- DOMAIN-SUFFIX,telegram.org,QOS-REALTIME
-- DOMAIN-SUFFIX,t.me,QOS-REALTIME
-- DOMAIN-SUFFIX,whatsapp.com,QOS-REALTIME
-- DOMAIN-SUFFIX,whatsapp.net,QOS-REALTIME
 - DOMAIN-SUFFIX,steampowered.com,QOS-GAMING
 - DOMAIN-SUFFIX,steamcommunity.com,QOS-GAMING
 - DOMAIN-SUFFIX,steamstatic.com,QOS-GAMING
@@ -884,18 +984,7 @@ rules:
 - DOMAIN-SUFFIX,ai.google.dev,QOS-AI
 - DOMAIN-SUFFIX,copilot.microsoft.com,QOS-AI
 - DOMAIN-SUFFIX,huggingface.co,QOS-AI
-- DOMAIN-SUFFIX,facebook.com,QOS-SOCIAL
-- DOMAIN-SUFFIX,fbcdn.net,QOS-SOCIAL
-- DOMAIN-SUFFIX,messenger.com,QOS-SOCIAL
-- DOMAIN-SUFFIX,instagram.com,QOS-SOCIAL
-- DOMAIN-SUFFIX,cdninstagram.com,QOS-SOCIAL
-- DOMAIN-SUFFIX,threads.net,QOS-SOCIAL
-- DOMAIN-SUFFIX,x.com,QOS-SOCIAL
-- DOMAIN-SUFFIX,twitter.com,QOS-SOCIAL
-- DOMAIN-SUFFIX,twimg.com,QOS-SOCIAL
-- DOMAIN-SUFFIX,tiktok.com,QOS-SOCIAL
 - DOMAIN-SUFFIX,tiktokv.com,QOS-SOCIAL
-- DOMAIN-SUFFIX,tiktokcdn.com,QOS-SOCIAL
 - DOMAIN-SUFFIX,byteoversea.com,QOS-SOCIAL
 - DOMAIN-SUFFIX,github.com,QOS-WORK
 - DOMAIN-SUFFIX,githubusercontent.com,QOS-WORK
@@ -920,39 +1009,6 @@ rules:
 - DOMAIN-SUFFIX,azure.com,QOS-WORK
 - DOMAIN-SUFFIX,slack.com,QOS-WORK
 - DOMAIN-SUFFIX,notion.so,QOS-WORK
-- DOMAIN-SUFFIX,bca.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,klikbca.com,QOS-BANKING
-- DOMAIN-SUFFIX,mybca.bca.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,bankmandiri.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,livin.mandiri.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,bri.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,brimo.bri.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,bni.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,btn.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,cimbniaga.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,danamon.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,permatabank.com,QOS-BANKING
-- DOMAIN-SUFFIX,ocbc.id,QOS-BANKING
-- DOMAIN-SUFFIX,jenius.com,QOS-BANKING
-- DOMAIN-SUFFIX,blu.id,QOS-BANKING
-- DOMAIN-SUFFIX,seabank.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,bankjago.com,QOS-BANKING
-- DOMAIN-SUFFIX,ovo.id,QOS-BANKING
-- DOMAIN-SUFFIX,gopay.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,dana.id,QOS-BANKING
-- DOMAIN-SUFFIX,linkaja.id,QOS-BANKING
-- DOMAIN-SUFFIX,shopeepay.co.id,QOS-BANKING
-- DOMAIN-SUFFIX,tokopedia.com,QOS-MARKETPLACE
-- DOMAIN-SUFFIX,shopee.co.id,QOS-MARKETPLACE
-- DOMAIN-SUFFIX,shopee.com,QOS-MARKETPLACE
-- DOMAIN-SUFFIX,lazada.co.id,QOS-MARKETPLACE
-- DOMAIN-SUFFIX,bukalapak.com,QOS-MARKETPLACE
-- DOMAIN-SUFFIX,blibli.com,QOS-MARKETPLACE
-- DOMAIN-SUFFIX,tiket.com,QOS-MARKETPLACE
-- DOMAIN-SUFFIX,traveloka.com,QOS-MARKETPLACE
-- DOMAIN-SUFFIX,gojek.com,QOS-MARKETPLACE
-- DOMAIN-SUFFIX,grab.com,QOS-MARKETPLACE
-- DOMAIN-SUFFIX,maxim.com,QOS-MARKETPLACE
 - DOMAIN-SUFFIX,ubuntu.com,QOS-DOWNLOAD
 - DOMAIN-SUFFIX,debian.org,QOS-DOWNLOAD
 - DOMAIN-SUFFIX,archlinux.org,QOS-DOWNLOAD
@@ -1013,25 +1069,10 @@ rules:
 - DOMAIN-SUFFIX,iq.com,WEB-STREAMING
 - DOMAIN-SUFFIX,primevideo.com,WEB-STREAMING
 - DOMAIN-SUFFIX,amazonvideo.com,WEB-STREAMING
-- DOMAIN-SUFFIX,whatsapp.com,WEB-SOCIAL
-- DOMAIN-SUFFIX,whatsapp.net,WEB-SOCIAL
-- DOMAIN-SUFFIX,telegram.org,WEB-SOCIAL
-- DOMAIN-SUFFIX,t.me,WEB-SOCIAL
-- DOMAIN-SUFFIX,facebook.com,WEB-SOCIAL
-- DOMAIN-SUFFIX,fbcdn.net,WEB-SOCIAL
-- DOMAIN-SUFFIX,messenger.com,WEB-SOCIAL
-- DOMAIN-SUFFIX,instagram.com,WEB-SOCIAL
-- DOMAIN-SUFFIX,cdninstagram.com,WEB-SOCIAL
-- DOMAIN-SUFFIX,threads.net,WEB-SOCIAL
-- DOMAIN-SUFFIX,twitter.com,WEB-SOCIAL
-- DOMAIN-SUFFIX,x.com,WEB-SOCIAL
-- DOMAIN-SUFFIX,twimg.com,WEB-SOCIAL
 - DOMAIN-SUFFIX,discord.com,WEB-SOCIAL
 - DOMAIN-SUFFIX,discord.gg,WEB-SOCIAL
 - DOMAIN-SUFFIX,discordapp.com,WEB-SOCIAL
-- DOMAIN-SUFFIX,tiktok.com,WEB-SOCIAL
 - DOMAIN-SUFFIX,tiktokv.com,WEB-SOCIAL
-- DOMAIN-SUFFIX,tiktokcdn.com,WEB-SOCIAL
 - DOMAIN-SUFFIX,byteoversea.com,WEB-SOCIAL
 - DOMAIN-SUFFIX,steampowered.com,WEB-GAMING
 - DOMAIN-SUFFIX,steamcommunity.com,WEB-GAMING
@@ -1052,39 +1093,6 @@ rules:
 - DOMAIN-SUFFIX,zenlesszonezero.com,WEB-GAMING
 - DOMAIN-SUFFIX,battle.net,WEB-GAMING
 - DOMAIN-SUFFIX,blizzard.com,WEB-GAMING
-- DOMAIN-SUFFIX,bca.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,klikbca.com,WEB-BANKING
-- DOMAIN-SUFFIX,mybca.bca.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,bankmandiri.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,livin.mandiri.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,bri.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,brimo.bri.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,bni.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,btn.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,cimbniaga.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,danamon.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,permatabank.com,WEB-BANKING
-- DOMAIN-SUFFIX,ocbc.id,WEB-BANKING
-- DOMAIN-SUFFIX,jenius.com,WEB-BANKING
-- DOMAIN-SUFFIX,blu.id,WEB-BANKING
-- DOMAIN-SUFFIX,seabank.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,bankjago.com,WEB-BANKING
-- DOMAIN-SUFFIX,ovo.id,WEB-BANKING
-- DOMAIN-SUFFIX,gopay.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,dana.id,WEB-BANKING
-- DOMAIN-SUFFIX,linkaja.id,WEB-BANKING
-- DOMAIN-SUFFIX,shopeepay.co.id,WEB-BANKING
-- DOMAIN-SUFFIX,tokopedia.com,WEB-MARKETPLACE
-- DOMAIN-SUFFIX,shopee.co.id,WEB-MARKETPLACE
-- DOMAIN-SUFFIX,shopee.com,WEB-MARKETPLACE
-- DOMAIN-SUFFIX,lazada.co.id,WEB-MARKETPLACE
-- DOMAIN-SUFFIX,bukalapak.com,WEB-MARKETPLACE
-- DOMAIN-SUFFIX,blibli.com,WEB-MARKETPLACE
-- DOMAIN-SUFFIX,tiket.com,WEB-MARKETPLACE
-- DOMAIN-SUFFIX,traveloka.com,WEB-MARKETPLACE
-- DOMAIN-SUFFIX,gojek.com,WEB-MARKETPLACE
-- DOMAIN-SUFFIX,grab.com,WEB-MARKETPLACE
-- DOMAIN-SUFFIX,maxim.com,WEB-MARKETPLACE
 - DOMAIN-SUFFIX,github.com,WEB-DEV
 - DOMAIN-SUFFIX,githubusercontent.com,WEB-DEV
 - DOMAIN-SUFFIX,githubassets.com,WEB-DEV

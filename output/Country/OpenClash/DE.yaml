@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "DE on_proxy1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 45c8b2f4-343c-4d37-99d2-59cb13e6c7fb
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "peDarET.BaBJOON.WOrKErs.deV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiQmtnQkhTSzYiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560"
+      headers:
+        Host: "peDarET.BaBJOON.WOrKErs.deV"
+    udp: true
   - name: "mci DE RK_VPS"
     server: "104.17.3.81"
     port: 443
@@ -64,7 +79,7 @@ proxies:
       headers:
         Host: "hamrah.dgclix.ir"
     udp: true
-  - name: "DE V2ngFast 3135"
+  - name: "DE V2ngFast 3553"
     server: "104.17.3.81"
     port: 443
     type: vless

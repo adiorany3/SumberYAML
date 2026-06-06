@@ -1,0 +1,500 @@
+{
+  "ok": true,
+  "generated_at": "2026-06-06T05:08:11.999680+00:00",
+  "generated_by": "apply_openclash_input_vmess_loadbalance.py",
+  "policy": {
+    "loadbalance_group": "INPUT-VMESS-LB",
+    "loadbalance_members": "only vmess proxies from trusted manual input links / MANUAL-LINK group",
+    "forced_categories": [
+      "QOS-MARKETPLACE",
+      "QOS-SOCIAL",
+      "QOS-BANKING",
+      "WEB-MARKETPLACE",
+      "WEB-SOCIAL",
+      "WEB-BANKING"
+    ],
+    "linkedin_included": true,
+    "direct_reject_policy": "DIRECT/REJECT remain only inside select groups; rules target selectors."
+  },
+  "settings": {
+    "interval": 60,
+    "strategy": "",
+    "require_input_vmess": false
+  },
+  "results": [
+    {
+      "file": "output/lengkap.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/lengkap_alive.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/strict_alive.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/lite.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/fast.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/gaming.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/social_media.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/streaming.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/working.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/general.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/openclash-ready.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #3",
+        "MANUAL-LINK-006 bel432 xl #2",
+        "MANUAL-LINK-007 bel432 xl #2",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8 #2",
+        "MANUAL-LINK-009 bel432 telk #2",
+        "MANUAL-LINK-010 10.lowh.net #2"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 305
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/openclash-lite-ready.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #3",
+        "MANUAL-LINK-006 bel432 xl #2",
+        "MANUAL-LINK-007 bel432 xl #2",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8 #2",
+        "MANUAL-LINK-009 bel432 telk #2",
+        "MANUAL-LINK-010 10.lowh.net #2"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 273
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "output/manual_only.yaml",
+      "ok": true,
+      "validation": {
+        "ok": true,
+        "errors": []
+      },
+      "vmess_count": 6,
+      "vmess_names": [
+        "MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩",
+        "MANUAL-LINK-006 bel432 xl",
+        "MANUAL-LINK-007 bel432 xl",
+        "MANUAL-LINK-008 VMess-WS-TLS-443-akuku8",
+        "MANUAL-LINK-009 bel432 telk",
+        "MANUAL-LINK-010 10.lowh.net"
+      ],
+      "lb_action": "created",
+      "target_group_actions": {
+        "QOS-MARKETPLACE": "updated",
+        "QOS-SOCIAL": "updated",
+        "QOS-BANKING": "updated",
+        "WEB-MARKETPLACE": "updated",
+        "WEB-SOCIAL": "updated",
+        "WEB-BANKING": "updated"
+      },
+      "rule_stats": {
+        "priority_rules_inserted": 52,
+        "total_rules": 255
+      },
+      "reference_repair": {
+        "unknown_removed": 0,
+        "self_removed": 0,
+        "direct_reject_removed_from_non_select": 0,
+        "empty_repaired": 0
+      }
+    },
+    {
+      "file": "/home/runner/work/SumberYAML/SumberYAML/output/Performance/performance-lite.yaml",
+      "ok": false,
+      "skipped": true,
+      "reason": "file not found"
+    }
+  ]
+}
