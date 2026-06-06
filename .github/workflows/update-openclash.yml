@@ -67,37 +67,25 @@ env:
   FILTER_ALIVE_ONLY: ${{ github.event.inputs.filter_alive_only || 'true' }}
   STRICT_ALIVE_ONLY: ${{ github.event.inputs.strict_alive_only || 'true' }}
 
-  # Proxy testing: cukup longgar agar akun manual/trusted tidak terbuang.
+  # Generate/test defaults.
   TEST_ROUNDS: "2"
   REQUIRE_SUCCESS_ROUNDS: "1"
   STRICT_MAX_DELAY_MS: "8000"
-  STRICT_OUTPUT_FILE: "strict_alive.yaml"
   TCP_FALLBACK: "true"
   DISABLE_TCP_ONLY_OUTPUT: "false"
   STRICT_FALLBACK_TO_ALIVE: "true"
   STRICT_FALLBACK_TO_VALID: "true"
 
-  # Responsive groups: aman untuk OpenClash lama, tanpa lazy/timeout/tcp-concurrent/unified-delay.
-  BEST_PING_TOP_N: "5"
-  BEST_PING_COUNTRY_FILTER: "ID"
-  BEST_PING_URL_TEST_NAME: "URL-TEST TOP 5 INDONESIA"
-  URL_TEST_INTERVAL: "60"
-  URL_TEST_TOLERANCE: "20"
+  # Keep generator conservative. Final strict-safe stage will clean all risky keys.
+  URL_TEST_INTERVAL: "90"
+  URL_TEST_TOLERANCE: "40"
   URL_TEST_LAZY: "false"
-  MAX_DELAY_MS: "8000"
   FILTER_MAX_DELAY_FOR_OUTPUT: "false"
-  RESPONSIVE_TOP_N: "15"
-  RESPONSIVE_COMBINED_MAX: "30"
-  RESPONSIVE_INTERVAL_FAST: "60"
-  RESPONSIVE_FALLBACK_INTERVAL: "60"
-  RESPONSIVE_TOLERANCE_FAST: "20"
-  RESPONSIVE_INTERVAL_STABLE: "180"
-  RESPONSIVE_STABLE_FALLBACK_INTERVAL: "180"
-  RESPONSIVE_TOLERANCE_STABLE: "50"
   OPENCLASH_KEEP_META_OPTIONS: "false"
   OPENCLASH_ADD_LAN_DIRECT: "false"
+  ENABLE_PERFORMANCE_OPTIONS: "false"
 
-  # Manual input/trusted links.
+  # Manual/trusted links.
   MANUAL_INPUT_FILES: "input/links.txt,input.txt,links.txt"
   MANUAL_SERVER_OVERRIDE: "104.17.3.81"
   MANUAL_SERVER_OVERRIDE_TYPES: "cdn-compatible"
@@ -105,58 +93,31 @@ env:
   DROP_PROXY_TYPES: "ss,ssr"
   DISABLE_EXTRA_SS_SSR_SCAN: "true"
 
-  # Optional older patch stages. These may exist in the repo; the new clean stage runs last.
-  ENABLE_RULE_FOCUS: "true"
-  RULE_FOCUS_INTERVAL: "120"
-  RULE_FOCUS_TOLERANCE: "50"
-  RULE_FOCUS_MAX_CANDIDATES: "24"
-  RULE_FOCUS_ADD_LAN_DIRECT: "false"
-  RULE_FOCUS_ADD_GEOIP_ID: "false"
-  ENABLE_SMART_QOS: "true"
-  SMART_QOS_INTERVAL: "90"
-  SMART_QOS_TOLERANCE: "30"
-  SMART_QOS_MAX_CANDIDATES: "24"
-  SMART_QOS_ADD_LAN_BYPASS: "true"
-  SMART_QOS_FORCE_MATCH_DEFAULT: "true"
-  ENABLE_INPUT_VMESS_LB: "true"
-  INPUT_VMESS_LB_INTERVAL: "60"
-  INPUT_VMESS_LB_STRATEGY: ""
-  INPUT_VMESS_LB_REQUIRE_INPUT: "false"
+  # Disable older rule/group stages that caused OpenClash config errors.
+  ENABLE_RULE_FOCUS: "false"
+  ENABLE_SMART_QOS: "false"
+  ENABLE_INPUT_VMESS_LB: "false"
+  ENABLE_CLEAN_RESPONSIVE_RULES: "false"
 
-  # Final clean-responsive stage.
-  ENABLE_CLEAN_RESPONSIVE_RULES: "true"
-  CLEAN_RULE_INTERVAL: "60"
-  CLEAN_RULE_TOLERANCE: "25"
-  CLEAN_RULE_MAX_CANDIDATES: "24"
+  # Final strict-safe OpenClash profile.
+  ENABLE_STRICT_SAFE_FIX: "true"
+  STRICT_SAFE_INTERVAL: "90"
+  STRICT_SAFE_TOLERANCE: "40"
+  STRICT_SAFE_MAX_CANDIDATES: "20"
 
-  BLACKLIST_FILE: "blacklist.txt"
   SOURCE_CACHE_ENABLE: "true"
   SOURCE_CACHE_DIR: "output/Cache/sources"
   USE_PREVIOUS_OUTPUT_IF_EMPTY: "true"
   FAST_REUSE_WHEN_NO_SOURCE_CHANGE: "true"
   PREVIOUS_OUTPUT_DIR: ".previous_output"
-  LITE_OUTPUT_FILE: "lite.yaml"
-  LITE_GLOBAL_TOP_N: "10"
-  LITE_MAX_TOTAL: "25"
-  FAST_OUTPUT_FILE: "fast.yaml"
-  FAST_MAX_TOTAL: "20"
-  FAST_FALLBACK_NAME: "FALLBACK CEPAT"
-  ENABLE_FAST_FALLBACK_GROUP: "true"
-  ENABLE_PERFORMANCE_OPTIONS: "false"
+  BLACKLIST_FILE: "blacklist.txt"
   CUSTOM_RULES_FILE: "rules/custom_rules.yaml"
-  RANK_TCP_FALLBACK_PENALTY: "300"
-  RANK_GLOBAL_FALLBACK_PENALTY: "1000"
-  RESPONSIVE_MAX_AVG_DELAY_MS: "8000"
-  RESPONSIVE_MAX_JITTER_MS: "5000"
-  RESPONSIVE_MIN_SUCCESS_RATE: "0.50"
-  RESPONSIVE_JITTER_WEIGHT: "0.35"
-  RESPONSIVE_FAILURE_PENALTY: "1500"
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
 jobs:
   update:
-    name: Generate, clean, and commit OpenClash output
+    name: Generate strict-safe OpenClash output
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -172,20 +133,6 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-
-      - name: Show debug info
-        run: |
-          echo "Event: $GITHUB_EVENT_NAME"
-          echo "Ref: $GITHUB_REF"
-          echo "Mode: $MODE"
-          echo "Source: $SOURCE"
-          echo "Enable proxy test: $ENABLE_PROXY_TEST"
-          echo "Filter alive only: $FILTER_ALIVE_ONLY"
-          echo "Strict alive only: $STRICT_ALIVE_ONLY"
-          echo "Files in root:"
-          ls -la
-          echo "Workflow files:"
-          ls -la .github/workflows || true
 
       - name: Install Python dependencies
         run: |
@@ -203,12 +150,9 @@ jobs:
           rm -rf .previous_output
           mkdir -p .previous_output
           if [ -d output ]; then
-            echo "Backup output sebelumnya ke .previous_output"
             cp -a output/. .previous_output/
-            echo "Jumlah file backup output sebelumnya:"
+            echo "Previous output backup file count:"
             find .previous_output -type f | wc -l
-          else
-            echo "Belum ada folder output sebelumnya."
           fi
 
       - name: Generate OpenClash output
@@ -218,7 +162,6 @@ jobs:
             echo "ERROR: telegram_openclash_alive.py tidak ditemukan di root repository."
             exit 1
           fi
-          echo "Menjalankan telegram_openclash_alive.py..."
           python telegram_openclash_alive.py \
             --mode "$MODE" \
             --enable-proxy-test "$ENABLE_PROXY_TEST" \
@@ -226,151 +169,77 @@ jobs:
             --strict-alive-only "$STRICT_ALIVE_ONLY" \
             --test-rounds "$TEST_ROUNDS" \
             --require-success-rounds "$REQUIRE_SUCCESS_ROUNDS" || {
-              echo "Gagal dengan argumen CLI. Coba fallback tanpa argumen..."
+              echo "Gagal dengan argumen CLI. Coba fallback tanpa argumen."
               python telegram_openclash_alive.py
             }
-          echo "Output directory:"
           find output -maxdepth 3 -type f | sort || true
 
-      - name: Apply smart-safe generator, manual-only output, and drop SS/SSR
+      - name: Apply smart-safe manual input and drop SS/SSR
         run: |
           set -e
           if [ -f scripts/apply_openclash_responsive_stability.py ]; then
             python scripts/apply_openclash_responsive_stability.py --root .
-            echo "Smart-safe generator summary:"
             cat output/Validation/smart_safe_report.json || true
           else
-            echo "WARNING: smart-safe script belum ada; lanjut ke clean-responsive stage."
+            echo "WARNING: smart-safe responsive script tidak ditemukan; strict-safe finalizer tetap berjalan."
           fi
 
-      - name: Apply website category rule focus
-        if: env.ENABLE_RULE_FOCUS == 'true'
+      - name: Apply final OpenClash strict-safe fix
+        if: env.ENABLE_STRICT_SAFE_FIX == 'true'
         run: |
           set -e
-          if [ -f scripts/apply_openclash_rule_focus.py ]; then
-            python scripts/apply_openclash_rule_focus.py --root .
-            echo "Rule-focus report:"
-            cat output/Validation/rule_focus_report.json || true
-          else
-            echo "WARNING: scripts/apply_openclash_rule_focus.py tidak ditemukan; skip."
-          fi
-
-      - name: Apply Smart QoS policy routing
-        if: env.ENABLE_SMART_QOS == 'true'
-        run: |
-          set -e
-          if [ -f scripts/apply_openclash_smart_qos.py ]; then
-            python scripts/apply_openclash_smart_qos.py --root .
-            echo "Smart-QoS report:"
-            cat output/Validation/smart_qos_report.json || true
-          else
-            echo "WARNING: scripts/apply_openclash_smart_qos.py tidak ditemukan; skip."
-          fi
-
-      - name: Apply input VMess load-balance category routing
-        if: env.ENABLE_INPUT_VMESS_LB == 'true'
-        run: |
-          set -e
-          if [ -f scripts/apply_openclash_input_vmess_loadbalance.py ]; then
-            python scripts/apply_openclash_input_vmess_loadbalance.py --root .
-            echo "Input VMess load-balance report:"
-            cat output/Validation/input_vmess_loadbalance_report.json || true
-          else
-            echo "WARNING: scripts/apply_openclash_input_vmess_loadbalance.py tidak ditemukan; clean-responsive stage akan membuat INPUT-VMESS-LB."
-          fi
-
-      - name: Clean responsive rules and Reddit routing
-        if: env.ENABLE_CLEAN_RESPONSIVE_RULES == 'true'
-        run: |
-          set -e
-          if [ ! -f scripts/apply_openclash_clean_responsive_rules.py ]; then
-            echo "ERROR: scripts/apply_openclash_clean_responsive_rules.py tidak ditemukan."
+          if [ ! -f scripts/apply_openclash_strict_safe_fix.py ]; then
+            echo "ERROR: scripts/apply_openclash_strict_safe_fix.py tidak ditemukan."
             exit 1
           fi
-          python scripts/apply_openclash_clean_responsive_rules.py --root . --strict
-          echo "Clean responsive rules report:"
-          cat output/Validation/clean_responsive_rules_report.json || true
+          python scripts/apply_openclash_strict_safe_fix.py --root . --strict
+          cat output/Validation/openclash_strict_safe_fix_report.json || true
 
       - name: Validate output exists
         run: |
           set -e
           if [ ! -f output/lengkap.yaml ]; then
             echo "ERROR: output/lengkap.yaml tidak ditemukan setelah generate."
-            echo "Isi folder output:"
             find output -maxdepth 4 -type f | sort || true
             exit 1
           fi
-          echo "OK: output/lengkap.yaml ditemukan"
+          test -f output/Validation/openclash_strict_safe_fix_report.json
           wc -l output/lengkap.yaml || true
-          if [ "${ENABLE_CLEAN_RESPONSIVE_RULES:-true}" = "true" ] && [ ! -f output/Validation/clean_responsive_rules_report.json ]; then
-            echo "ERROR: clean_responsive_rules_report.json belum ada."
-            exit 1
-          fi
 
       - name: Validate OpenClash YAML
         run: |
           set -e
-          if [ -f scripts/validate_openclash_outputs.py ]; then
-            python scripts/validate_openclash_outputs.py \
-              output/lengkap.yaml \
-              output/lengkap_alive.yaml \
-              output/strict_alive.yaml \
-              output/lite.yaml \
-              output/fast.yaml \
-              output/manual_only.yaml
-          else
-            python - <<'PY'
-          import sys, yaml
-          from pathlib import Path
-          failed = False
-          for p in [Path('output/lengkap.yaml'), Path('output/fast.yaml')]:
-              if not p.exists():
-                  continue
-              try:
-                  yaml.safe_load(p.read_text(encoding='utf-8', errors='replace'))
-              except Exception as exc:
-                  print(f'YAML parse failed: {p}: {exc}')
-                  failed = True
-          sys.exit(1 if failed else 0)
-          PY
-          fi
+          python scripts/validate_openclash_outputs.py \
+            output/lengkap.yaml \
+            output/lengkap_alive.yaml \
+            output/strict_alive.yaml \
+            output/lite.yaml \
+            output/fast.yaml \
+            output/manual_only.yaml
 
       - name: Force output update marker
         if: env.FORCE_OUTPUT_COMMIT == 'true'
         run: |
           set -e
-          if [ -f scripts/force_output_update_marker.py ]; then
-            python scripts/force_output_update_marker.py --root .
-          else
-            mkdir -p output/Validation
-            FORCE_TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-            FORCE_NONCE="$(date -u +%s%N)-${GITHUB_RUN_ID:-run}-${GITHUB_RUN_ATTEMPT:-attempt}-${RANDOM}"
-            printf '{"schema":"sumberyaml.force-output-update.fallback.v2","generated_at_utc":"%s","nonce":"%s","github_run_id":"%s","github_sha":"%s","mode":"%s","source":"%s"}\n' \
-              "$FORCE_TS" "$FORCE_NONCE" "${GITHUB_RUN_ID:-}" "${GITHUB_SHA:-}" "${MODE:-update}" "${SOURCE:-}" > output/Validation/last_run.json
-            printf 'forced_update=%s\nnonce=%s\nrun_id=%s\nsha=%s\n' \
-              "$FORCE_TS" "$FORCE_NONCE" "${GITHUB_RUN_ID:-}" "${GITHUB_SHA:-}" > output/Validation/last_run.txt
-          fi
-          echo "Last run marker:"
+          python scripts/force_output_update_marker.py --root .
           cat output/Validation/last_run.json || true
 
-      - name: Assert latest output features
+      - name: Assert latest strict-safe output features
         run: |
           set -e
-          if [ -f scripts/assert_latest_openclash_outputs.py ]; then
-            python scripts/assert_latest_openclash_outputs.py --root . --strict
-          else
-            echo "WARNING: assert_latest_openclash_outputs.py tidak ada; skip."
-          fi
+          python scripts/assert_latest_openclash_outputs.py --root . --strict
 
       - name: Show generated output snapshot
         run: |
           set -e
-          echo "Output YAML files generated:"
-          find output -maxdepth 1 -type f -name "*.yaml" -printf "%f\n" | sort
-          echo "Latest feature reports:"
+          echo "Output YAML files:"
+          find output -maxdepth 1 -type f -name "*.yaml" -printf "%f\n" | sort || true
+          echo "Validation reports:"
           ls -la output/Validation || true
-          echo "Clean group snapshot in fast.yaml:"
-          grep -E "name: PILIHAN-UTAMA|name: AUTO-RESPONSIF|name: INPUT-VMESS-LB|name: REDDIT-INPUT|name: TRAFIK-" output/fast.yaml | head -80 || true
+          echo "Strict-safe groups in fast.yaml:"
+          grep -E "name: PROXY|name: AUTO|name: FALLBACK|name: INPUT-VMESS|name: REDDIT|name: SOCIAL-BANK-MARKET|name: DEFAULT" output/fast.yaml | head -80 || true
+          echo "Ensure no load-balance:"
+          grep -R "type: load-balance" output/*.yaml && exit 1 || true
 
       - name: Commit output files
         run: |
@@ -382,23 +251,18 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           if [ ! -d output ]; then
-            echo "ERROR: Folder output tidak ditemukan, tidak ada yang di-commit."
+            echo "ERROR: Folder output tidak ditemukan."
             exit 1
           fi
 
-          echo "Backup output hasil generate ke folder sementara..."
+          echo "Backup output hasil generate ke folder sementara."
           tar -C output -cf "$BACKUP_DIR/output.tar" .
           if [ -d cache ]; then
-            echo "Backup cache hasil generate ke folder sementara..."
             tar -C cache -cf "$BACKUP_DIR/cache.tar" .
-          else
-            echo "Folder cache tidak ada; lanjut tanpa cache."
           fi
 
           stage_generated_paths() {
-            if [ -d output ]; then
-              git add -A -f output
-            fi
+            git add -A -f output
             if [ -d cache ]; then
               git add -A -f cache
             else
@@ -412,7 +276,7 @@ jobs:
             FORCE_NONCE="$(date -u +%s%N)-${GITHUB_RUN_ID:-run}-${GITHUB_RUN_ATTEMPT:-attempt}-${GITHUB_RUN_NUMBER:-number}-$RANDOM"
             cat > output/Validation/last_run.json <<JSON
           {
-            "schema": "sumberyaml.force-output-update.commit-fallback.v2",
+            "schema": "sumberyaml.force-output-update.commit-fallback.v3",
             "generated_at_utc": "$FORCE_TS",
             "nonce": "$FORCE_NONCE",
             "github_run_id": "${GITHUB_RUN_ID:-}",
@@ -434,7 +298,7 @@ jobs:
             git reset --hard "origin/$BRANCH" || true
             git clean -fd || true
 
-            echo "Restore output hasil generate ke working tree terbaru..."
+            echo "Restore output hasil generate ke working tree terbaru."
             rm -rf output
             mkdir -p output
             tar -C output -xf "$BACKUP_DIR/output.tar"
@@ -446,25 +310,24 @@ jobs:
 
             stage_generated_paths
             if git diff --cached --quiet; then
-              echo "Tidak ada perubahan output dari generator. Membuat force marker agar update tetap ter-commit."
+              echo "Tidak ada perubahan output dari generator. Membuat force marker."
               write_force_marker
               stage_generated_paths
             fi
 
-            echo "Git status setelah staging:"
             git status --short output cache || true
 
             if git diff --cached --quiet; then
-              echo "ERROR: Force output commit marker tetap tidak menghasilkan perubahan."
+              echo "ERROR: marker tidak menghasilkan perubahan staging."
               exit 1
             fi
 
-            git commit -m "Clean responsive OpenClash output"
+            git commit -m "Fix OpenClash strict-safe output"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
             fi
-            echo "Push gagal karena remote berubah. Ulangi dengan remote terbaru..."
+            echo "Push gagal karena remote berubah. Ulangi."
             sleep 5
           done
 
@@ -480,6 +343,4 @@ jobs:
             else
               python tools/telegram_notify.py --stage failure || true
             fi
-          else
-            echo "tools/telegram_notify.py tidak ditemukan, skip notify."
           fi
