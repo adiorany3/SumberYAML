@@ -1,3 +1,6 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -8,318 +11,241 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
 keep-alive-idle: 600
 keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
+
 profile:
   store-selected: true
   store-fake-ip: true
+
 dns:
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
   listen: 0.0.0.0:7874
   nameserver:
-  - 1.1.1.1
-  - 8.8.8.8
+    - 1.1.1.1
+    - 8.8.8.8
   fallback:
-  - 1.0.0.1
-  - 8.8.4.4
+    - 1.0.0.1
+    - 8.8.4.4
+
 proxies:
-- name: chillguy_vpn
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 45c8b2f4-343c-4d37-99d2-59cb13e6c7fb
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: peDarET.BaBJOON.WOrKErs.deV
-  ws-opts:
-    path: /eyJqdW5rIjoiQmtnQkhTSzYiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
-    headers:
-      Host: peDarET.BaBJOON.WOrKErs.deV
-  udp: true
-- name: chillguy_vpn 8682
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 12cb0a24-0438-4980-8617-9c93205895fa
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: kakoolnews.kakooljoinnews.workers.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: kakoolnews.kakooljoinnews.workers.dev
-  udp: true
-- name: V2RFA 4334
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 6d96c713-aca4-40dc-b066-60843059110f
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: cdn-pro6.postshup.ir.
-  ws-opts:
-    path: /news
-    headers:
-      Host: cdn-pro6.postshup.ir.
-  udp: true
-- name: HiByeVPNN 48
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 7270612b-49f6-4b04-999c-34d8263da767
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: picassooo.info
-  ws-opts:
-    path: /aymdlws
-    headers:
-      Host: picassooo.info
-  udp: true
-- name: bird_angry (mci
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hamrah.dgclix.ir
-  ws-opts:
-    path: /
-    headers:
-      Host: hamrah.dgclix.ir
-  udp: true
-- name: HiByeVPNN 72
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: octopusss5.info
-  ws-opts:
-    path: /udfyfws
-    headers:
-      Host: octopusss5.info
-  udp: true
-- name: Channel NitruStore 173
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: c7addea9-6d8a-48d6-8a00-aa99b8ece143
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: ws35.adsvxpro.com
-  ws-opts:
-    path: /path
-    headers:
-      Host: ws35.adsvxpro.com
-  udp: true
-- name: VPsave 7104
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: hhlfy.twiladaphne.ndjp.net
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-  udp: true
-- name: 14 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: ed0e05af-49ab-4ea8-a39c-634855811b03
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: wild-grass-1917.tmpduardoolfsonerluke15.workers.dev
-  ws-opts:
-    path: /
-    headers:
-      Host: wild-grass-1917.tmpduardoolfsonerluke15.workers.dev
-  udp: true
-- name: telegram tajrobe_wiki
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.multiplydose.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.multiplydose.com
-  udp: true
-- name: Trojan
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.ignitelimit.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.ignitelimit.com
-  udp: true
-- name: V2raysCollector
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.calmlunch.com
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.calmlunch.com
-  udp: true
-- name: v2reya88 4058
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: eeb6823c-b926-4ea2-866a-5542edd26e59
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: dxy1h.twiladaphne.ndjp.net
-  ws-opts:
-    path: /proxyip=104.168.132.123,172.104.53.198,85.121.50.16,151.242.125.226
-    headers:
-      Host: dxy1h.twiladaphne.ndjp.net
-  udp: true
-- name: KAFING_2 2196
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: 20ba0c60-0133-11f1-95ef-1239d0255272
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: uk1.test3.net
-  ws-opts:
-    path: /howdy
-    headers:
-      Host: uk1.test3.net
-  udp: true
-- name: appsooner 8057
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: humanity
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: www.gossipglove.com
-  ws-opts:
-    path: /assignment?TELEGRAM--KANAL--UnNurmal--UnNurmal--UnNurmal--UnNurmal--UnNurmal--UnNurmal
-    headers:
-      Host: www.gossipglove.com
-  udp: true
-- name: 30 oneclickvpnkeys
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: mitivpn
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store
-  ws-opts:
-    path: /https://chatgpt.com
-    headers:
-      Host: mItIvPN.glOBaL.ssl.mItIvPN.store
-  udp: true
-- name: Google
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
-  udp: true
-  network: ws
-  security: tls
-  sni: investors.spotify.com.r3xxe.eu.cc
-  ws-opts:
-    path: /us-gllc
-    headers:
-      Host: investors.spotify.com.r3xxe.eu.cc
+  - name: "chillguy_vpn"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 12cb0a24-0438-4980-8617-9c93205895fa
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "kakoolnews.kakooljoinnews.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "kakoolnews.kakooljoinnews.workers.dev"
+    udp: true
+  - name: "V2RFA 8823"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6d96c713-aca4-40dc-b066-60843059110f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdn-pro6.postshup.ir."
+    ws-opts:
+      path: "/news"
+      headers:
+        Host: "cdn-pro6.postshup.ir."
+    udp: true
+  - name: "HiByeVPNN 48"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7270612b-49f6-4b04-999c-34d8263da767
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "picassooo.info"
+    ws-opts:
+      path: "/aymdlws"
+      headers:
+        Host: "picassooo.info"
+    udp: true
+  - name: "bird_angry (mci"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 93a7dcd7-9bba-4594-8de8-cc67726f877c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hamrah.dgclix.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hamrah.dgclix.ir"
+    udp: true
+  - name: "HiByeVPNN 72"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss5.info"
+    ws-opts:
+      path: "/udfyfws"
+      headers:
+        Host: "octopusss5.info"
+    udp: true
+  - name: "Channel NitruStore 173"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c7addea9-6d8a-48d6-8a00-aa99b8ece143
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ws35.adsvxpro.com"
+    ws-opts:
+      path: "/path"
+      headers:
+        Host: "ws35.adsvxpro.com"
+    udp: true
+  - name: "VPsave 1769"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "GozargahAzad"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss4.com"
+    ws-opts:
+      path: "/tsghdws"
+      headers:
+        Host: "octopusss4.com"
+    udp: true
+  - name: "chillguy_vpn 9608"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 45c8b2f4-343c-4d37-99d2-59cb13e6c7fb
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "peDarET.BaBJOON.WOrKErs.deV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiQmtnQkhTSzYiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560"
+      headers:
+        Host: "peDarET.BaBJOON.WOrKErs.deV"
+    udp: true
+  - name: "KAFING_2 9464"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "HiByeVPNN 21"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "Filtershekan_channel 5"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "HiByeVPNN 32"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "30 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store"
+    ws-opts:
+      path: "/https://chatgpt.com"
+      headers:
+        Host: "mItIvPN.glOBaL.ssl.mItIvPN.store"
+    udp: true
+
 proxy-groups:
-- name: PROXY
-  type: select
-  proxies:
-  - GOOGLE
-  - DIRECT
-  - REJECT
-- name: GOOGLE
-  type: fallback
-  proxies:
-  - Google
-  url: http://www.gstatic.com/generate_204
-  interval: 60
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "REJECT"
+
 rules:
-- DOMAIN-SUFFIX,google.com,GOOGLE
-- DOMAIN-SUFFIX,google.co.id,GOOGLE
-- DOMAIN-SUFFIX,googleusercontent.com,GOOGLE
-- DOMAIN-SUFFIX,googleapis.com,GOOGLE
-- DOMAIN-SUFFIX,gstatic.com,GOOGLE
-- DOMAIN-SUFFIX,ggpht.com,GOOGLE
-- DOMAIN-SUFFIX,gvt1.com,GOOGLE
-- DOMAIN-SUFFIX,gvt2.com,GOOGLE
-- DOMAIN-SUFFIX,gvt3.com,GOOGLE
-- DOMAIN-SUFFIX,googlevideo.com,GOOGLE
-- DOMAIN-SUFFIX,youtube.com,GOOGLE
-- DOMAIN-SUFFIX,youtu.be,GOOGLE
-- DOMAIN-SUFFIX,ytimg.com,GOOGLE
-- DOMAIN-SUFFIX,youtubei.googleapis.com,GOOGLE
-- DOMAIN-SUFFIX,youtube-nocookie.com,GOOGLE
-- DOMAIN-SUFFIX,gmail.com,GOOGLE
-- DOMAIN-SUFFIX,googlemail.com,GOOGLE
-- DOMAIN-SUFFIX,googledrive.com,GOOGLE
-- DOMAIN-SUFFIX,drive.google.com,GOOGLE
-- DOMAIN-SUFFIX,docs.google.com,GOOGLE
-- DOMAIN-SUFFIX,meet.google.com,GOOGLE
-- DOMAIN-SUFFIX,googlemeet.com,GOOGLE
-- DOMAIN-SUFFIX,blogger.com,GOOGLE
-- DOMAIN-SUFFIX,blogspot.com,GOOGLE
-- DOMAIN-SUFFIX,appspot.com,GOOGLE
-- DOMAIN-SUFFIX,firebaseio.com,GOOGLE
-- DOMAIN-SUFFIX,firebase.google.com,GOOGLE
-- DOMAIN-SUFFIX,googleadservices.com,GOOGLE
-- DOMAIN-SUFFIX,googlesyndication.com,GOOGLE
-- DOMAIN-SUFFIX,googletagmanager.com,GOOGLE
-- DOMAIN-SUFFIX,google-analytics.com,GOOGLE
-- DOMAIN-SUFFIX,doubleclick.net,GOOGLE
-- DOMAIN-SUFFIX,android.com,GOOGLE
-- DOMAIN-SUFFIX,chrome.com,GOOGLE
-- DOMAIN-SUFFIX,chromium.org,GOOGLE
-- DOMAIN-SUFFIX,g.co,GOOGLE
-- MATCH,PROXY
+  - MATCH,PROXY
