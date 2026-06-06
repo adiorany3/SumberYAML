@@ -1,37 +1,82 @@
 {
-  "name": "SumberYAML Force Output Update Patch",
-  "version": "2026-06-06-force-output-update-smart-qos",
+  "name": "SumberYAML-force-regenerate-latest-output-patch",
+  "created_at_utc": "2026-06-06T04:21:37Z",
+  "purpose": "Ensure GitHub Actions commits the real latest YAML outputs, not only last_run markers.",
   "files": [
-    "scripts/apply_openclash_responsive_stability.py",
-    "scripts/apply_openclash_rule_focus.py",
-    "scripts/apply_openclash_smart_qos.py",
-    "scripts/validate_openclash_outputs.py",
-    "scripts/force_output_update_marker.py",
-    ".github/workflows/update-openclash.yml",
-    "README_SMART_SAFE_GENERATOR_PATCH.md",
-    "README_RULE_FOCUS_SMART_SAFE_PATCH.md",
-    "README_SELECTOR_ONLY_POLICY.md",
-    "README_SMART_QOS_OPENCLASH_SAFE_PATCH.md",
-    "README_FORCE_OUTPUT_UPDATE_PATCH.md",
-    "install_patch.sh",
-    "manifest.json"
-  ],
-  "behavior": {
-    "force_output_commit": true,
-    "marker_files": [
-      "output/Validation/last_run.json",
-      "output/Validation/last_run.txt"
-    ],
-    "commit_message": "Force update OpenClash output",
-    "keeps_smart_safe_generator": true,
-    "keeps_rule_focus": true,
-    "keeps_smart_qos": true,
-    "drop_proxy_types": [
-      "ss",
-      "ssr"
-    ],
-    "direct_reject_policy": "DIRECT/REJECT only inside select proxy-groups",
-    "manual_server_override": "104.17.3.81",
-    "manual_server_override_policy": "cdn-compatible only: vmess/vless/trojan with ws/grpc/h2/http; skip reality/raw tcp"
-  }
+    {
+      "path": ".github/workflows/update-openclash.yml",
+      "bytes": 19603,
+      "sha256": "9b3bab86e958eb4922e78fa66ad2ee0eb307399cd821bf25a76f6dffa0c32d41"
+    },
+    {
+      "path": "README_FORCE_OUTPUT_UPDATE_PATCH.md",
+      "bytes": 2880,
+      "sha256": "b7c45089b43b768beb5dd5f4b1ad98c6f19e3e7db49dc5d5dea8813de377ef76"
+    },
+    {
+      "path": "README_FORCE_REGENERATE_LATEST_OUTPUT_PATCH.md",
+      "bytes": 2527,
+      "sha256": "965d33ef9e33b2541b661165d074970d556d40902465d02a5b675073af016c61"
+    },
+    {
+      "path": "README_RULE_FOCUS_SMART_SAFE_PATCH.md",
+      "bytes": 5271,
+      "sha256": "2d558aba641db3729c79a7f57319079253ad6fff2a42434af99ed98ce924d0ef"
+    },
+    {
+      "path": "README_SELECTOR_ONLY_POLICY.md",
+      "bytes": 676,
+      "sha256": "b46f2851fa54c8a7f78f92f957ea0f1e6aed43716058becf1361d95effdc2f9c"
+    },
+    {
+      "path": "README_SMART_QOS_OPENCLASH_SAFE_PATCH.md",
+      "bytes": 3883,
+      "sha256": "34d3edb5eb825ff980d760201bda62080d88afe64c2f2595b093f78557c2844d"
+    },
+    {
+      "path": "README_SMART_SAFE_GENERATOR_PATCH.md",
+      "bytes": 3154,
+      "sha256": "f9c9f4641fd0a2f10bc830b788a654c31ca6921401ad983d2fafeea67c441a18"
+    },
+    {
+      "path": "install_patch.sh",
+      "bytes": 2433,
+      "sha256": "4d1123ea6563b339d3caa2c53a58b09fd0d417f9b4e634a9c0285bdc7944b6f1"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 1288,
+      "sha256": "c98cfacdd7ff334b6d7220b47b9a14594740dfeee5cfca63fea3d7d451ebade7"
+    },
+    {
+      "path": "scripts/apply_openclash_responsive_stability.py",
+      "bytes": 72982,
+      "sha256": "72e0c8326d2cbd2c4aa9d28047f1de24864936989cda0a5a8b92a5c8f19afb19"
+    },
+    {
+      "path": "scripts/apply_openclash_rule_focus.py",
+      "bytes": 28562,
+      "sha256": "48d49120f5a53627e932e8b2be000e9a6db24913be7d23b7c53522b90d9d895f"
+    },
+    {
+      "path": "scripts/apply_openclash_smart_qos.py",
+      "bytes": 27172,
+      "sha256": "3b71002864b8624841cdd7943c358dc9eb1eba34fff32678cce2c3377f4fa09d"
+    },
+    {
+      "path": "scripts/assert_latest_openclash_outputs.py",
+      "bytes": 8930,
+      "sha256": "5b2f14adc3035393c9bb0ec4303cdf1088f39873abab20bb043391a6bc690583"
+    },
+    {
+      "path": "scripts/force_output_update_marker.py",
+      "bytes": 5527,
+      "sha256": "b8f1cbde75caa4b1419188ef7e421876f2ecbab57d8642b095dee35b51b796fb"
+    },
+    {
+      "path": "scripts/validate_openclash_outputs.py",
+      "bytes": 5387,
+      "sha256": "e72cf4046df968aa981931f3700ec704f71ae063845e325c148842be0d5b889f"
+    }
+  ]
 }
