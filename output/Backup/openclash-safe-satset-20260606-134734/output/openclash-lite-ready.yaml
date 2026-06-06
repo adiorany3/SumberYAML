@@ -1,0 +1,3956 @@
+mixed-port: 7893
+allow-lan: true
+mode: rule
+log-level: warning
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  nameserver:
+  - 1.1.1.1
+  fallback:
+  - 8.8.8.8
+proxies:
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-003 Google #2'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-006 reddit #7'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #9'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-008 bel432 xl #7'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-010 bel432 telk #7'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-011 10.lowh.net #7'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #7'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #9'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #8'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-003 Google
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #8'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #8'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-006 reddit #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #8'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-008 bel432 xl #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-010 bel432 telk #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-011 10.lowh.net #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #6'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #8'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #7'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #7'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #7'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #7'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-006 reddit #5'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #7'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-008 bel432 xl #5'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #5'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-010 bel432 telk #5'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-011 10.lowh.net #5'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #5'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #7'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #6'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #6'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #6'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #6'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-006 reddit #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-008 bel432 xl #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-010 bel432 telk #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-011 10.lowh.net #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #4'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #6'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #5'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #5'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #5'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #5'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-006 reddit #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #5'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-008 bel432 xl #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-010 bel432 telk #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-011 10.lowh.net #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #3'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #5'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #4'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #4'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #4'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #4'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-006 reddit #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-008 bel432 xl #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-010 bel432 telk #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-011 10.lowh.net #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #2'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #3'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #3'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #3'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #3'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: MANUAL-LINK-006 reddit
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-008 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-009 VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: MANUAL-LINK-010 bel432 telk
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-011 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #2'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #2'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #2'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #2'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-006 bel432 xl #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-008 VMess-WS-TLS-443-akuku8 #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-009 bel432 telk #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-010 10.lowh.net #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem #2'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-002 (ID)+Amazon.com
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-005 (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: MANUAL-LINK-006 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-007 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-008 VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: MANUAL-LINK-009 bel432 telk
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-010 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: MANUAL-LINK-011 VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: MANUAL-LINK-002 (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-003 bel432 xl #5'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-004 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-005 VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: MANUAL-LINK-006 bel432 telk
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-007 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: MANUAL-LINK-008 VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID)+PUSATMEDIA #4'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-002 bel432 xl #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-003 bel432 xl #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-005 bel432 telk #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-006 10.lowh.net #4'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #4'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID)+PUSATMEDIA #3'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-002 bel432 xl #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-003 bel432 xl #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-005 bel432 telk #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-006 10.lowh.net #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #3'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'MANUAL-LINK-001 (ID)+PUSATMEDIA #2'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-002 bel432 xl #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-003 bel432 xl #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-004 VMess-WS-TLS-443-akuku8 #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-005 bel432 telk #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-006 10.lowh.net #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem #2'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: MANUAL-LINK-001 (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: MANUAL-LINK-002 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-003 bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-004 VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: MANUAL-LINK-005 bel432 telk
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: MANUAL-LINK-006 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: MANUAL-LINK-007 VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: v2raydia
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: mitivpn
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store
+  ws-opts:
+    path: /https://chatgpt.com
+    headers:
+      Host: mItIvPN.glOBaL.ssl.mItIvPN.store
+  udp: true
+- name: HiByeVPNN 48
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: picassooo.info
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassooo.info
+  udp: true
+- name: configV2rayNG FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.ignitelimit.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: v2nodes DE
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: sheynezterary.iran-tube-movie.ir
+  ws-opts:
+    path: /?edfp=firefox
+    headers:
+      Host: sheynezterary.iran-tube-movie.ir
+  udp: true
+- name: oneclickvpnkeys FI
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: octopusss4.com
+  ws-opts:
+    path: /tsghdws
+    headers:
+      Host: octopusss4.com
+  udp: true
+- name: FreakConfig FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.gossipglove.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.gossipglove.com
+  udp: true
+- name: V2rayNG3 FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.gossipglove.com
+  ws-opts:
+    path: /assignment?L=tls
+    headers:
+      Host: www.gossipglove.com
+  udp: true
+- name: GAME-13 LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: ID-01 ProxyVPN11 9011
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: JoinProxyVPN11.qea.ccwu.cc
+  ws-opts:
+    path: /?ed @ProxyVPN11
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: ID-01 v2raydia
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: mitivpn
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: SaDszDx.glObaL.ssl.fastly.net.mItIvPN.store
+  ws-opts:
+    path: /https://chatgpt.com
+    headers:
+      Host: mItIvPN.glOBaL.ssl.mItIvPN.store
+  udp: true
+- name: LINK (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: LINK bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: LINK VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: LINK VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  tls: true
+  servername: akamaized.my
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: 'LINK (ID)+PUSATMEDIA #2'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'LINK bel432 xl #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'LINK bel432 xl #3'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'LINK VMess-WS-TLS-443-akuku8 #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: LINK bel432 telk
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'LINK 10.lowh.net #2'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'LINK VLESS-WS-TLS-443-apt50atpprem #2'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: ID-04 oneclickvpnkeys US 9096
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: juzi.qea.ccwu.cc
+  ws-opts:
+    path: /
+    headers:
+      Host: juzi.qea.ccwu.cc
+  udp: true
+- name: ID-08 oneclickvpnkeys US 6589
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp=random
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: ID-18 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: ID-12 LINK 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: ID-03 configV2rayNG FR
+  server: 104.17.3.81
+  port: 443
+  type: trojan
+  password: humanity
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  sni: www.ignitelimit.com
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.ignitelimit.com
+  udp: true
+- name: ID-09 HiByeVPNN 48
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: picassooo.info
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassooo.info
+  udp: true
+- name: ID-03 VPsave 3886
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: hhlfy.twiladaphne.ndjp.net
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+  udp: true
+- name: ID-15 HiByeVPNN 48
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 7270612b-49f6-4b04-999c-34d8263da767
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: picassooo.info
+  ws-opts:
+    path: /aymdlws
+    headers:
+      Host: picassooo.info
+  udp: true
+- name: (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  network: ws
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+Amazon.com
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: (US)+Google+LLC+🇺🇸
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  servername: investors.spotify.com.r3xxe.eu.cc
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: (BR)+Oracle+Corporation+🇧🇷
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+PUSATMEDIA
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  security: tls
+  servername: unnes.ac.id.ex33r.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: reddit
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: VMess-WS-TLS-443-akuku8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: bel432 telk
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 10.lowh.net
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: VLESS-WS-TLS-443-apt50atpprem
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  security: tls
+  servername: akamaized.my
+  tls: true
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: (ID) PT. Telekomunikasi Indonesia 🇮🇩-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  network: ws
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+Amazon.com-2
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: (US)+Google+LLC+🇺🇸-2
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  servername: investors.spotify.com.r3xxe.eu.cc
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: (BR)+Oracle+Corporation+🇧🇷-2
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+PUSATMEDIA-2
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  security: tls
+  servername: unnes.ac.id.ex33r.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: reddit-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-3
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: VMess-WS-TLS-443-akuku8-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: bel432 telk-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 10.lowh.net-2
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: VLESS-WS-TLS-443-apt50atpprem-2
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  security: tls
+  servername: akamaized.my
+  tls: true
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: (ID) PT. Telekomunikasi Indonesia 🇮🇩-3
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  network: ws
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+Amazon.com-3
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: (US)+Google+LLC+🇺🇸-3
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  servername: investors.spotify.com.r3xxe.eu.cc
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: (BR)+Oracle+Corporation+🇧🇷-3
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+PUSATMEDIA-3
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  security: tls
+  servername: unnes.ac.id.ex33r.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: reddit-3
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-4
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: VMess-WS-TLS-443-akuku8-3
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: bel432 telk-3
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 10.lowh.net-3
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: VLESS-WS-TLS-443-apt50atpprem-3
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  security: tls
+  servername: akamaized.my
+  tls: true
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: (ID) PT. Telekomunikasi Indonesia 🇮🇩-4
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  network: ws
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+Amazon.com-4
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: (US)+Google+LLC+🇺🇸-4
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  servername: investors.spotify.com.r3xxe.eu.cc
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: (BR)+Oracle+Corporation+🇧🇷-4
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+PUSATMEDIA-4
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  security: tls
+  servername: unnes.ac.id.ex33r.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: reddit-4
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-6
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-7
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: VMess-WS-TLS-443-akuku8-4
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: bel432 telk-4
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 10.lowh.net-4
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: VLESS-WS-TLS-443-apt50atpprem-4
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  security: tls
+  servername: akamaized.my
+  tls: true
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+- name: (ID) PT. Telekomunikasi Indonesia 🇮🇩-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  network: ws
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+Amazon.com-5
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: Google
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  servername: investors.spotify.com.r3xxe.eu.cc
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: (BR)+Oracle+Corporation+🇧🇷-5
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  servername: r3xxe.eu.cc
+  sni: r3xxe.eu.cc
+  tls: true
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: (ID)+PUSATMEDIA-5
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  security: tls
+  servername: unnes.ac.id.ex33r.eu.cc
+  tls: true
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: reddit-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-8
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: bel432 xl-9
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: VMess-WS-TLS-443-akuku8-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: bel432 telk-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 10.lowh.net-5
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  network: ws
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: VLESS-WS-TLS-443-apt50atpprem-5
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  network: ws
+  udp: true
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  security: tls
+  servername: akamaized.my
+  tls: true
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
+proxy-groups:
+- name: PROXY
+  type: select
+  proxies:
+  - UTAMA
+  - GOOGLE
+  - YOUTUBE
+  - REDDIT
+  - LINKEDIN
+  - BLIBLI
+  - BANK
+  - MARKETPLACE
+  - SOCIAL
+  - STREAMING
+  - GAME
+  - AI
+  - WORK
+  - DOWNLOAD
+  - AUTO
+  - FALLBACK
+  - DEFAULT
+  - BYPASS
+  - BLOCK
+- name: UTAMA
+  type: select
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  - AUTO
+  - FALLBACK
+  - DIRECT
+- name: AUTO
+  type: url-test
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  - 'MANUAL-LINK-010 bel432 telk #7'
+  - 'MANUAL-LINK-011 10.lowh.net #7'
+  - 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #7'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #9'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #8'
+  - MANUAL-LINK-003 Google
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #8'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #8'
+  - 'MANUAL-LINK-006 reddit #6'
+  - 'MANUAL-LINK-007 bel432 xl #8'
+  - 'MANUAL-LINK-008 bel432 xl #6'
+  url: https://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 40
+- name: FALLBACK
+  type: fallback
+  proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  - 'MANUAL-LINK-010 bel432 telk #7'
+  - 'MANUAL-LINK-011 10.lowh.net #7'
+  - 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #7'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #9'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #8'
+  - MANUAL-LINK-003 Google
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #8'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #8'
+  - 'MANUAL-LINK-006 reddit #6'
+  - 'MANUAL-LINK-007 bel432 xl #8'
+  - 'MANUAL-LINK-008 bel432 xl #6'
+  url: https://www.gstatic.com/generate_204
+  interval: 90
+- name: INPUT-VMESS
+  type: fallback
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  url: https://www.gstatic.com/generate_204
+  interval: 90
+- name: GOOGLE
+  type: url-test
+  proxies:
+  - Google
+  - 'MANUAL-LINK-003 Google #2'
+  - MANUAL-LINK-003 Google
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #7'
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #6'
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #5'
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #4'
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #3'
+  - 'MANUAL-LINK-003 (US)+Google+LLC+🇺🇸 #2'
+  - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
+  - (US)+Google+LLC+🇺🇸
+  - (US)+Google+LLC+🇺🇸-2
+  - (US)+Google+LLC+🇺🇸-3
+  - (US)+Google+LLC+🇺🇸-4
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - reddit
+  - bel432 xl
+  url: https://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 40
+- name: YOUTUBE
+  type: url-test
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  url: https://www.youtube.com/generate_204
+  interval: 90
+  tolerance: 40
+- name: REDDIT
+  type: url-test
+  proxies:
+  - reddit
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-006 reddit #6'
+  - 'MANUAL-LINK-006 reddit #5'
+  - 'MANUAL-LINK-006 reddit #4'
+  - 'MANUAL-LINK-006 reddit #3'
+  - 'MANUAL-LINK-006 reddit #2'
+  - MANUAL-LINK-006 reddit
+  - reddit-2
+  - reddit-3
+  - reddit-4
+  - reddit-5
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  url: https://www.reddit.com/
+  interval: 90
+  tolerance: 40
+- name: LINKEDIN
+  type: url-test
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  url: https://www.linkedin.com/
+  interval: 90
+  tolerance: 40
+- name: BLIBLI
+  type: url-test
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  url: https://www.blibli.com/
+  interval: 90
+  tolerance: 40
+- name: BANK
+  type: select
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  - UTAMA
+  - AUTO
+  - FALLBACK
+  - BYPASS
+- name: MARKETPLACE
+  type: select
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  - UTAMA
+  - AUTO
+  - FALLBACK
+  - BYPASS
+- name: SOCIAL
+  type: select
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  - LINKEDIN
+  - UTAMA
+  - AUTO
+  - FALLBACK
+- name: STREAMING
+  type: url-test
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  url: https://www.youtube.com/generate_204
+  interval: 90
+  tolerance: 40
+- name: GAME
+  type: url-test
+  proxies:
+  - GAME-13 LINK bel432 xl
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  url: https://store.steampowered.com/
+  interval: 90
+  tolerance: 40
+- name: AI
+  type: url-test
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  url: https://chatgpt.com/
+  interval: 90
+  tolerance: 40
+- name: WORK
+  type: url-test
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  url: https://github.com/
+  interval: 90
+  tolerance: 40
+- name: DOWNLOAD
+  type: fallback
+  proxies:
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
+  - (ID)+Amazon.com
+  - (BR)+Oracle+Corporation+🇧🇷
+  - (ID)+PUSATMEDIA
+  - reddit
+  - bel432 xl
+  - VMess-WS-TLS-443-akuku8
+  - bel432 telk
+  - 10.lowh.net
+  - VLESS-WS-TLS-443-apt50atpprem
+  - Google
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
+  - 'MANUAL-LINK-003 Google #2'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
+  - 'MANUAL-LINK-006 reddit #7'
+  - 'MANUAL-LINK-007 bel432 xl #9'
+  - 'MANUAL-LINK-008 bel432 xl #7'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #7'
+  url: https://github.com/
+  interval: 120
+- name: DEFAULT
+  type: select
+  proxies:
+  - UTAMA
+  - AUTO
+  - FALLBACK
+  - DIRECT
+- name: BYPASS
+  type: select
+  proxies:
+  - DIRECT
+  - UTAMA
+  - AUTO
+  - FALLBACK
+- name: BLOCK
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+  - UTAMA
+  - AUTO
+rules:
+- IP-CIDR,10.0.0.0/8,BYPASS,no-resolve
+- IP-CIDR,172.16.0.0/12,BYPASS,no-resolve
+- IP-CIDR,192.168.0.0/16,BYPASS,no-resolve
+- IP-CIDR,127.0.0.0/8,BYPASS,no-resolve
+- IP-CIDR,224.0.0.0/4,BYPASS,no-resolve
+- DOMAIN-SUFFIX,google.com,GOOGLE
+- DOMAIN-SUFFIX,google.co.id,GOOGLE
+- DOMAIN-SUFFIX,googleapis.com,GOOGLE
+- DOMAIN-SUFFIX,gstatic.com,GOOGLE
+- DOMAIN-SUFFIX,googleusercontent.com,GOOGLE
+- DOMAIN-SUFFIX,ggpht.com,GOOGLE
+- DOMAIN-SUFFIX,gmail.com,GOOGLE
+- DOMAIN-SUFFIX,googlemail.com,GOOGLE
+- DOMAIN-SUFFIX,google-analytics.com,GOOGLE
+- DOMAIN-SUFFIX,googletagmanager.com,GOOGLE
+- DOMAIN-SUFFIX,googlesyndication.com,GOOGLE
+- DOMAIN-SUFFIX,doubleclick.net,GOOGLE
+- DOMAIN-SUFFIX,googleadservices.com,GOOGLE
+- DOMAIN-SUFFIX,meet.google.com,GOOGLE
+- DOMAIN-SUFFIX,youtube.com,YOUTUBE
+- DOMAIN-SUFFIX,youtu.be,YOUTUBE
+- DOMAIN-SUFFIX,ytimg.com,YOUTUBE
+- DOMAIN-SUFFIX,googlevideo.com,YOUTUBE
+- DOMAIN-SUFFIX,youtubei.googleapis.com,YOUTUBE
+- DOMAIN-SUFFIX,youtubekids.com,YOUTUBE
+- DOMAIN-SUFFIX,reddit.com,REDDIT
+- DOMAIN-SUFFIX,redd.it,REDDIT
+- DOMAIN-SUFFIX,redditmedia.com,REDDIT
+- DOMAIN-SUFFIX,redditstatic.com,REDDIT
+- DOMAIN-SUFFIX,redditinc.com,REDDIT
+- DOMAIN-SUFFIX,linkedin.com,LINKEDIN
+- DOMAIN-SUFFIX,linkedin.cn,LINKEDIN
+- DOMAIN-SUFFIX,licdn.com,LINKEDIN
+- DOMAIN-SUFFIX,lnkd.in,LINKEDIN
+- DOMAIN-SUFFIX,blibli.com,BLIBLI
+- DOMAIN-SUFFIX,blibli.co.id,BLIBLI
+- DOMAIN-SUFFIX,bca.co.id,BANK
+- DOMAIN-SUFFIX,klikbca.com,BANK
+- DOMAIN-SUFFIX,bankmandiri.co.id,BANK
+- DOMAIN-SUFFIX,livin.mandiri.co.id,BANK
+- DOMAIN-SUFFIX,bri.co.id,BANK
+- DOMAIN-SUFFIX,bni.co.id,BANK
+- DOMAIN-SUFFIX,jenius.com,BANK
+- DOMAIN-SUFFIX,jago.com,BANK
+- DOMAIN-SUFFIX,seabank.co.id,BANK
+- DOMAIN-SUFFIX,blu.id,BANK
+- DOMAIN-SUFFIX,dana.id,BANK
+- DOMAIN-SUFFIX,ovo.id,BANK
+- DOMAIN-SUFFIX,gopay.co.id,BANK
+- DOMAIN-SUFFIX,linkaja.id,BANK
+- DOMAIN-SUFFIX,tokopedia.com,MARKETPLACE
+- DOMAIN-SUFFIX,shopee.co.id,MARKETPLACE
+- DOMAIN-SUFFIX,shopee.com,MARKETPLACE
+- DOMAIN-SUFFIX,lazada.co.id,MARKETPLACE
+- DOMAIN-SUFFIX,bukalapak.com,MARKETPLACE
+- DOMAIN-SUFFIX,olx.co.id,MARKETPLACE
+- DOMAIN-SUFFIX,whatsapp.com,SOCIAL
+- DOMAIN-SUFFIX,whatsapp.net,SOCIAL
+- DOMAIN-SUFFIX,telegram.org,SOCIAL
+- DOMAIN-SUFFIX,t.me,SOCIAL
+- DOMAIN-SUFFIX,facebook.com,SOCIAL
+- DOMAIN-SUFFIX,fbcdn.net,SOCIAL
+- DOMAIN-SUFFIX,instagram.com,SOCIAL
+- DOMAIN-SUFFIX,cdninstagram.com,SOCIAL
+- DOMAIN-SUFFIX,twitter.com,SOCIAL
+- DOMAIN-SUFFIX,x.com,SOCIAL
+- DOMAIN-SUFFIX,t.co,SOCIAL
+- DOMAIN-SUFFIX,netflix.com,STREAMING
+- DOMAIN-SUFFIX,nflxvideo.net,STREAMING
+- DOMAIN-SUFFIX,spotify.com,STREAMING
+- DOMAIN-SUFFIX,twitch.tv,STREAMING
+- DOMAIN-SUFFIX,disneyplus.com,STREAMING
+- DOMAIN-SUFFIX,steampowered.com,GAME
+- DOMAIN-SUFFIX,steamcommunity.com,GAME
+- DOMAIN-SUFFIX,steamstatic.com,GAME
+- DOMAIN-SUFFIX,riotgames.com,GAME
+- DOMAIN-SUFFIX,roblox.com,GAME
+- DOMAIN-SUFFIX,pubgmobile.com,GAME
+- DOMAIN-SUFFIX,openai.com,AI
+- DOMAIN-SUFFIX,chatgpt.com,AI
+- DOMAIN-SUFFIX,anthropic.com,AI
+- DOMAIN-SUFFIX,claude.ai,AI
+- DOMAIN-SUFFIX,gemini.google.com,AI
+- DOMAIN-SUFFIX,github.com,WORK
+- DOMAIN-SUFFIX,githubusercontent.com,WORK
+- DOMAIN-SUFFIX,gitlab.com,WORK
+- DOMAIN-SUFFIX,docker.com,WORK
+- DOMAIN-SUFFIX,npmjs.com,WORK
+- DOMAIN-SUFFIX,pypi.org,WORK
+- DOMAIN-SUFFIX,pythonhosted.org,WORK
+- DOMAIN-SUFFIX,ubuntu.com,DOWNLOAD
+- DOMAIN-SUFFIX,debian.org,DOWNLOAD
+- DOMAIN-SUFFIX,microsoft.com,DOWNLOAD
+- DOMAIN-SUFFIX,windowsupdate.com,DOWNLOAD
+- DOMAIN-SUFFIX,apple.com,DOWNLOAD
+- MATCH,PROXY
+rule-providers:
+  malware-adware:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/malware-adware.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/malware-adware.yaml
+    interval: 86400
+  android-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/android-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/android-ads.yaml
+    interval: 86400
+  indonesia-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/indonesia-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/indonesia-ads.yaml
+    interval: 86400
+  general-ads:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rule_provider/general-ads.yaml
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/general-ads.yaml
+    interval: 86400
