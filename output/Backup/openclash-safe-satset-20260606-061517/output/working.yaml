@@ -1,0 +1,213 @@
+# Auto generated usage profile OpenClash config
+# Output: output/working.yaml
+# Profile group: WORKING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "ProxyVPN11 9182"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 5922"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "filter.elitesilver002.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "filter.elitesilver002.workers.dev"
+    udp: true
+  - name: "US US- V2Ray_Hub1200"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Telegram-Config0plus-983ced63-fcf0-4d15-b81b-432e32e9b932"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "api24-normal.tiktokv.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "api24-normal.tiktokv.com.r3xxe.eu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 5934"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "v2reya88"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0440e93c-a9d3-4998-aeaa-d0e2363131e4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rahammahar.photoazadeh9100.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "rahammahar.photoazadeh9100.workers.dev"
+    udp: true
+  - name: "RU on_proxy1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d8c05f47-6ca7-4c6a-badf-b7e5e818699c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "noiZvPn.aSAd13321.wORkers.dEv"
+    ws-opts:
+      path: "/eyJqdW5rIjoiM25HVThlWGhhcThVT3g2ZSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560"
+      headers:
+        Host: "noiZvPn.aSAd13321.wORkers.dEv"
+    udp: true
+  - name: "VPNine1 5450"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "sadszdx.global.ssl.fastly.net.mITIvPn.store"
+    ws-opts:
+      path: "/https://chatgpt.com"
+      headers:
+        Host: "mITIvPn.glObAl.ssl.mITIvPn.STORE"
+    udp: true
+  - name: "DE V2ngFast 3915"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9ce7ac33-5004-40ea-8236-15bc2d25a37c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v2ngfast.poiuytreeeee.workers.dev"
+    ws-opts:
+      path: "/v2ngfast---v2ngfast---v2ngfast---v2ngfast---v2ngfast"
+      headers:
+        Host: "v2ngfast.poiuytreeeee.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 4425"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6bc1bd81-b763-4213-80ad-4586224e3079
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tohidza.et6m22266a.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tohidza.et6m22266a.workers.dev"
+    udp: true
+
+proxy-groups:
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "ProxyVPN11 9182"
+      - "oneclickvpnkeys US 5922"
+      - "US US- V2Ray_Hub1200"
+      - "oneclickvpnkeys US 5934"
+      - "v2reya88"
+      - "oneclickvpnkeys US"
+      - "RU on_proxy1"
+      - "VPNine1 5450"
+      - "DE V2ngFast 3915"
+      - "oneclickvpnkeys US 4425"
+    url: http://www.gstatic.com/generate_204
+    interval: 60
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "WORKING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
