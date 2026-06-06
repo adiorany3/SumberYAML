@@ -34,20 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA 52842 Telegram t.me SOSkeyNET"
+  - name: "CA 53078 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 9ce7ac33-5004-40ea-8236-15bc2d25a37c
-    cipher: none
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "masterserver1.mnbhjkoi456.workers.dev"
+    sni: "uk1.test3.net"
     ws-opts:
-      path: "/"
+      path: "/howdy"
       headers:
-        Host: "masterserver1.mnbhjkoi456.workers.dev"
+        Host: "uk1.test3.net"
     udp: true
 
 proxy-groups:

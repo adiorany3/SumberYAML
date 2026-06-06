@@ -11,6 +11,178 @@ dns:
   fallback:
   - 8.8.8.8
 proxies:
+- name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: bbbbbbb2-bbbb-4bbb-8bbb-bbbbbbbbbbb2
+  alterId: 0
+  cipher: zero
+  udp: true
+  tls: true
+  servername: r3xxe.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-tksi
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: d15737cf-d623-4191-b99c-c768f94365d4
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /id-amz
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-003 Google #4'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
+  udp: true
+  sni: investors.spotify.com.r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /us-gllc
+    headers:
+      Host: investors.spotify.com.r3xxe.eu.cc
+- name: 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  type: trojan
+  server: 104.17.3.81
+  port: 443
+  password: 5e33d59a-0e57-48b1-b7a0-a03632c46c9e
+  udp: true
+  sni: r3xxe.eu.cc
+  tls: true
+  network: ws
+  ws-opts:
+    path: /br-orcl
+    headers:
+      Host: r3xxe.eu.cc
+- name: 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: cb97db68-1ad9-441b-8e90-bf9d8a7f3fec
+  udp: true
+  encryption: none
+  tls: true
+  servername: unnes.ac.id.ex33r.eu.cc
+  network: ws
+  ws-opts:
+    path: /id-pusat
+    headers:
+      Host: unnes.ac.id.ex33r.eu.cc
+- name: 'MANUAL-LINK-006 reddit #9'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-007 bel432 xl #11'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-008 bel432 xl #9'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 4ee97185-f0ea-4842-b116-aaa1832665cc
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: fbcdn.sbs
+  network: ws
+  ws-opts:
+    path: /streamlined-hacks-to-devops/buy-vmess-ws-pm-telegram-at-synricha
+    headers:
+      Host: fbcdn.sbs
+- name: 'MANUAL-LINK-010 bel432 telk #9'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3100c3ab-4cf9-49b6-b0a1-30539325d375
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: belnet.jsvpn.site
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: belnet.jsvpn.site
+- name: 'MANUAL-LINK-011 10.lowh.net #9'
+  type: vmess
+  server: 104.17.3.81
+  port: 443
+  uuid: 3e326c80-5bdd-11f1-ada3-1577c1651679
+  alterId: 0
+  cipher: auto
+  udp: true
+  tls: true
+  servername: 10.lowh.net
+  network: ws
+  ws-opts:
+    path: /hello
+    headers:
+      Host: 10.lowh.net
+- name: 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #9'
+  type: vless
+  server: 104.17.3.81
+  port: 443
+  uuid: c13ff27e-268a-4c69-a464-d8a625fd01b3
+  udp: true
+  encryption: none
+  tls: true
+  servername: akamaized.my
+  network: ws
+  ws-opts:
+    path: /future-proof-launch-to-startup-ecosystems/buy-vless-ws-pm-telegram-at-synricha
+    headers:
+      Host: akamaized.my
 - name: 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
   type: vmess
   server: 104.17.3.81
@@ -3565,21 +3737,33 @@ proxy-groups:
   - 10.lowh.net
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   - AUTO
   - FALLBACK
   - DIRECT
 - name: AUTO
   type: url-test
   proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
+  - 'MANUAL-LINK-010 bel432 telk #9'
+  - 'MANUAL-LINK-011 10.lowh.net #9'
+  - 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #9'
   - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
   - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
   - 'MANUAL-LINK-003 Google #3'
@@ -3588,24 +3772,24 @@ proxy-groups:
   - 'MANUAL-LINK-006 reddit #8'
   - 'MANUAL-LINK-007 bel432 xl #10'
   - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
-  - 'MANUAL-LINK-010 bel432 telk #8'
-  - 'MANUAL-LINK-011 10.lowh.net #8'
-  - 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #8'
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
-  - 'MANUAL-LINK-003 Google #2'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
-  - 'MANUAL-LINK-006 reddit #7'
-  - 'MANUAL-LINK-007 bel432 xl #9'
-  - 'MANUAL-LINK-008 bel432 xl #7'
   url: https://www.gstatic.com/generate_204
   interval: 90
   tolerance: 40
 - name: FALLBACK
   type: fallback
   proxies:
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
+  - 'MANUAL-LINK-010 bel432 telk #9'
+  - 'MANUAL-LINK-011 10.lowh.net #9'
+  - 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #9'
   - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
   - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
   - 'MANUAL-LINK-003 Google #3'
@@ -3614,18 +3798,6 @@ proxy-groups:
   - 'MANUAL-LINK-006 reddit #8'
   - 'MANUAL-LINK-007 bel432 xl #10'
   - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
-  - 'MANUAL-LINK-010 bel432 telk #8'
-  - 'MANUAL-LINK-011 10.lowh.net #8'
-  - 'MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem #8'
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #10'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #9'
-  - 'MANUAL-LINK-003 Google #2'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #9'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #9'
-  - 'MANUAL-LINK-006 reddit #7'
-  - 'MANUAL-LINK-007 bel432 xl #9'
-  - 'MANUAL-LINK-008 bel432 xl #7'
   url: https://www.gstatic.com/generate_204
   interval: 90
 - name: INPUT-VMESS
@@ -3643,6 +3815,7 @@ proxy-groups:
   type: url-test
   proxies:
   - Google
+  - 'MANUAL-LINK-003 Google #4'
   - 'MANUAL-LINK-003 Google #3'
   - 'MANUAL-LINK-003 Google #2'
   - MANUAL-LINK-003 Google
@@ -3661,7 +3834,6 @@ proxy-groups:
   - (ID)+Amazon.com
   - (BR)+Oracle+Corporation+🇧🇷
   - (ID)+PUSATMEDIA
-  - reddit
   url: https://www.gstatic.com/generate_204
   interval: 90
   tolerance: 40
@@ -3679,15 +3851,15 @@ proxy-groups:
   - 10.lowh.net
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   url: https://www.youtube.com/generate_204
   interval: 90
   tolerance: 40
@@ -3695,6 +3867,7 @@ proxy-groups:
   type: url-test
   proxies:
   - reddit
+  - 'MANUAL-LINK-006 reddit #9'
   - 'MANUAL-LINK-006 reddit #8'
   - 'MANUAL-LINK-006 reddit #7'
   - 'MANUAL-LINK-006 reddit #6'
@@ -3713,7 +3886,6 @@ proxy-groups:
   - (ID)+PUSATMEDIA
   - bel432 xl
   - VMess-WS-TLS-443-akuku8
-  - bel432 telk
   url: https://www.reddit.com/
   interval: 90
   tolerance: 40
@@ -3731,15 +3903,15 @@ proxy-groups:
   - 10.lowh.net
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   url: https://www.linkedin.com/
   interval: 90
   tolerance: 40
@@ -3757,15 +3929,15 @@ proxy-groups:
   - 10.lowh.net
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   url: https://www.blibli.com/
   interval: 90
   tolerance: 40
@@ -3783,15 +3955,15 @@ proxy-groups:
   - (ID)+PUSATMEDIA
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   - UTAMA
   - AUTO
   - FALLBACK
@@ -3810,15 +3982,15 @@ proxy-groups:
   - (ID)+PUSATMEDIA
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   - UTAMA
   - AUTO
   - FALLBACK
@@ -3837,15 +4009,15 @@ proxy-groups:
   - (ID)+PUSATMEDIA
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   - LINKEDIN
   - UTAMA
   - AUTO
@@ -3864,15 +4036,15 @@ proxy-groups:
   - 10.lowh.net
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   url: https://www.youtube.com/generate_204
   interval: 90
   tolerance: 40
@@ -3891,14 +4063,14 @@ proxy-groups:
   - 10.lowh.net
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
   url: https://store.steampowered.com/
   interval: 90
   tolerance: 40
@@ -3916,15 +4088,15 @@ proxy-groups:
   - 10.lowh.net
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   url: https://chatgpt.com/
   interval: 90
   tolerance: 40
@@ -3942,15 +4114,15 @@ proxy-groups:
   - 10.lowh.net
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   url: https://github.com/
   interval: 90
   tolerance: 40
@@ -3968,15 +4140,15 @@ proxy-groups:
   - 10.lowh.net
   - VLESS-WS-TLS-443-apt50atpprem
   - Google
-  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #11'
-  - 'MANUAL-LINK-002 (ID)+Amazon.com #10'
-  - 'MANUAL-LINK-003 Google #3'
-  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #10'
-  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #10'
-  - 'MANUAL-LINK-006 reddit #8'
-  - 'MANUAL-LINK-007 bel432 xl #10'
-  - 'MANUAL-LINK-008 bel432 xl #8'
-  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #8'
+  - 'MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩 #12'
+  - 'MANUAL-LINK-002 (ID)+Amazon.com #11'
+  - 'MANUAL-LINK-003 Google #4'
+  - 'MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷 #11'
+  - 'MANUAL-LINK-005 (ID)+PUSATMEDIA #11'
+  - 'MANUAL-LINK-006 reddit #9'
+  - 'MANUAL-LINK-007 bel432 xl #11'
+  - 'MANUAL-LINK-008 bel432 xl #9'
+  - 'MANUAL-LINK-009 VMess-WS-TLS-443-akuku8 #9'
   url: https://github.com/
   interval: 120
 - name: DEFAULT
@@ -3998,13 +4170,18 @@ proxy-groups:
   proxies:
   - REJECT
   - DIRECT
-  - UTAMA
+  - DEFAULT
+  - PROXY
   - AUTO
+  - FALLBACK
+  - UTAMA
 rules:
 - IP-CIDR,10.0.0.0/8,BYPASS,no-resolve
 - IP-CIDR,172.16.0.0/12,BYPASS,no-resolve
 - IP-CIDR,192.168.0.0/16,BYPASS,no-resolve
 - IP-CIDR,127.0.0.0/8,BYPASS,no-resolve
+- RULE-SET,GAME-BLOCK-CLASSICAL,BLOCK
+- RULE-SET,GAME-BLOCK-DOMAIN,BLOCK
 - IP-CIDR,224.0.0.0/4,BYPASS,no-resolve
 - DOMAIN-SUFFIX,google.com,GOOGLE
 - DOMAIN-SUFFIX,google.co.id,GOOGLE
@@ -4125,4 +4302,16 @@ rule-providers:
     format: yaml
     path: ./rule_provider/general-ads.yaml
     url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/output/RuleProviders/general-ads.yaml
+    interval: 86400
+  GAME-BLOCK-DOMAIN:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/rules/providers/game_block_domain.yaml
+    path: ./rule_provider/game_block_domain.yaml
+    interval: 86400
+  GAME-BLOCK-CLASSICAL:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/adiorany3/SumberYAML/main/rules/providers/game_block_classical.yaml
+    path: ./rule_provider/game_block_classical.yaml
     interval: 86400
