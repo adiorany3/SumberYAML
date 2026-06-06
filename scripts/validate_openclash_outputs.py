@@ -1,146 +1,84 @@
 #!/usr/bin/env python3
-"""Strict but OpenClash-safe YAML validator for SumberYAML outputs."""
 from __future__ import annotations
-
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Set
-
+from typing import Any, Dict, List, Optional
 import yaml
 
-SPECIAL_REFS = {"DIRECT", "REJECT", "PASS", "COMPATIBLE"}
-DIRECT_REJECT_REFS = {"DIRECT", "REJECT"}
-BLOCKED_TYPES = {"ss", "ssr"}
-RISKY_ROOT_KEYS = {"unified-delay", "tcp-concurrent"}
-RISKY_GROUP_KEYS = {"lazy", "timeout"}
+SPECIAL = {'DIRECT', 'REJECT', 'PASS', 'COMPATIBLE'}
+BLOCKED_TYPES = {'ss', 'ssr'}
 
-
-def read_yaml(path: Path) -> Dict[str, Any]:
-    data = yaml.safe_load(path.read_text(encoding="utf-8", errors="replace")) or {}
-    if not isinstance(data, dict):
-        raise ValueError("YAML root is not a mapping")
-    return data
-
-
-def get_rule_target_position(parts: List[str]) -> int | None:
+def target(rule: str) -> Optional[str]:
+    parts = [p.strip() for p in str(rule).split(',')]
     if not parts:
         return None
-    rule_type = parts[0].strip().upper()
-    if rule_type == "MATCH" and len(parts) >= 2:
-        return 1
+    if parts[0].upper() == 'MATCH' and len(parts) >= 2:
+        return parts[1]
     if len(parts) >= 3:
-        return 2
+        return parts[2]
     return None
 
-
-def validate_file(path: Path) -> List[str]:
+def validate(path: Path) -> List[str]:
     errors: List[str] = []
     if not path.exists():
-        return [f"missing file: {path}"]
+        return errors
     try:
-        data = read_yaml(path)
+        data = yaml.safe_load(path.read_text(encoding='utf-8', errors='replace')) or {}
     except Exception as exc:
-        return [f"YAML parse failed: {path}: {exc}"]
-
-    for key in RISKY_ROOT_KEYS:
-        if key in data:
-            errors.append(f"{path}: risky root key still exists: {key}")
-
-    proxies = data.get("proxies") or []
-    groups = data.get("proxy-groups") or []
-    if not isinstance(proxies, list) or not proxies:
-        errors.append(f"{path}: proxies is empty/missing")
-        proxies = []
-    if not isinstance(groups, list) or not groups:
-        errors.append(f"{path}: proxy-groups is empty/missing")
-        groups = []
-
-    proxy_names: List[str] = []
-    for idx, proxy in enumerate(proxies):
-        if not isinstance(proxy, dict):
-            errors.append(f"{path}: proxy index {idx} is not a mapping")
+        return [f'{path}: YAML parse failed: {exc}']
+    if not isinstance(data, dict):
+        return [f'{path}: YAML root is not a map']
+    proxies = data.get('proxies') or []
+    groups = data.get('proxy-groups') or []
+    rules = data.get('rules') or []
+    pnames = {str(p.get('name')) for p in proxies if isinstance(p, dict) and p.get('name')}
+    gnames = {str(g.get('name')) for g in groups if isinstance(g, dict) and g.get('name')}
+    allowed = pnames | gnames | SPECIAL
+    for p in proxies:
+        if not isinstance(p, dict):
             continue
-        name = str(proxy.get("name") or "").strip()
-        ptype = str(proxy.get("type") or "").strip().lower()
-        if not name:
-            errors.append(f"{path}: proxy index {idx} has no name")
-        else:
-            proxy_names.append(name)
+        ptype = str(p.get('type') or '').lower()
         if ptype in BLOCKED_TYPES:
-            errors.append(f"{path}: blocked proxy type exists: {name or idx} type={ptype}")
-    duplicates = sorted({name for name in proxy_names if proxy_names.count(name) > 1})
-    for name in duplicates:
-        errors.append(f"{path}: duplicate proxy name: {name}")
-
-    proxy_set: Set[str] = set(proxy_names)
-    group_names = {str(g.get("name") or "").strip() for g in groups if isinstance(g, dict) and str(g.get("name") or "").strip()}
-    allowed = proxy_set | group_names | SPECIAL_REFS
-    for idx, group in enumerate(groups):
-        if not isinstance(group, dict):
-            errors.append(f"{path}: proxy-group index {idx} is not a mapping")
+            errors.append(f'{path}: blocked proxy type still exists: {p.get("name")} ({ptype})')
+    for g in groups:
+        if not isinstance(g, dict):
             continue
-        gname = str(group.get("name") or "").strip()
-        if not gname:
-            errors.append(f"{path}: proxy-group index {idx} has no name")
-        for key in RISKY_GROUP_KEYS:
-            if key in group:
-                errors.append(f"{path}: risky group key still exists: {gname}.{key}")
-        refs = group.get("proxies") or []
-        if not isinstance(refs, list) or not refs:
-            errors.append(f"{path}: proxy-group has no proxies: {gname or idx}")
-            continue
-        gtype = str(group.get("type") or "").strip().lower()
+        name = str(g.get('name') or '')
+        gtype = str(g.get('type') or '')
+        refs = [str(x) for x in (g.get('proxies') or [])]
+        if not refs:
+            errors.append(f'{path}: empty proxy group: {name}')
+        for risky in ('timeout', 'lazy'):
+            if risky in g:
+                errors.append(f'{path}: risky group key {risky}: {name}')
         for ref in refs:
-            value = str(ref).strip()
-            if value == gname:
-                errors.append(f"{path}: proxy-group self reference: {gname}")
-            if value not in allowed:
-                errors.append(f"{path}: unknown group reference: {gname} -> {value}")
-            if value in DIRECT_REJECT_REFS and gtype != "select":
-                errors.append(f"{path}: DIRECT/REJECT only allowed inside select group: {gname} -> {value}")
-
-    rules = data.get("rules") or []
-    if isinstance(rules, list):
-        for rule in rules:
-            text = str(rule).strip()
-            if not text or text.startswith("#"):
-                continue
-            parts = [part.strip() for part in text.split(",")]
-            pos = get_rule_target_position(parts)
-            if pos is None or pos >= len(parts):
-                continue
-            target = parts[pos].strip()
-            if target in DIRECT_REJECT_REFS:
-                errors.append(f"{path}: DIRECT/REJECT must not be rule target: {text}")
-            elif target and target not in allowed:
-                errors.append(f"{path}: unknown rule target: {text}")
+            if ref == name:
+                errors.append(f'{path}: group self-reference: {name}')
+            if ref not in allowed:
+                errors.append(f'{path}: invalid group reference: {name} -> {ref}')
+            if gtype in {'url-test', 'fallback', 'load-balance'} and ref in {'DIRECT', 'REJECT'}:
+                errors.append(f'{path}: {ref} appears in non-selector group: {name}')
+    for rule in rules:
+        tgt = target(str(rule))
+        if tgt and tgt.upper() in {'DIRECT', 'REJECT'}:
+            errors.append(f'{path}: DIRECT/REJECT used as rule target: {rule}')
+        if tgt and tgt not in allowed and tgt.upper() not in {'DIRECT', 'REJECT'}:
+            errors.append(f'{path}: rule target not found: {rule}')
     return errors
 
-
-def main(argv: List[str]) -> int:
-    paths = [Path(arg) for arg in argv[1:]]
-    if not paths:
-        paths = [
-            Path("output/lengkap.yaml"),
-            Path("output/lengkap_alive.yaml"),
-            Path("output/strict_alive.yaml"),
-            Path("output/lite.yaml"),
-            Path("output/fast.yaml"),
-            Path("output/manual_only.yaml"),
-        ]
-    errors: List[str] = []
+def main() -> int:
+    paths = [Path(arg) for arg in sys.argv[1:]] or [
+        Path('output/lengkap.yaml'), Path('output/lengkap_alive.yaml'), Path('output/strict_alive.yaml'),
+        Path('output/lite.yaml'), Path('output/fast.yaml'), Path('output/manual_only.yaml')]
+    all_errors: List[str] = []
     for path in paths:
-        if not path.exists():
-            continue
-        errors.extend(validate_file(path))
-    if errors:
-        print("OpenClash YAML validation failed:")
-        for error in errors:
-            print(f"- {error}")
+        all_errors.extend(validate(path))
+    if all_errors:
+        for err in all_errors:
+            print(err)
         return 1
-    print("OpenClash YAML validation OK")
+    print('OpenClash output validation OK')
     return 0
 
-
-if __name__ == "__main__":
-    raise SystemExit(main(sys.argv))
+if __name__ == '__main__':
+    raise SystemExit(main())

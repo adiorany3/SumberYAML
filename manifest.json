@@ -1,143 +1,21 @@
 {
-  "name": "SumberYAML Input VMess LoadBalance Patch",
-  "version": "2026.06.06-input-vmess-loadbalance",
-  "created_at_utc": "2026-06-06T05:00:24Z",
-  "purpose": "Route marketplace, social media including LinkedIn, and banking app traffic to a load-balance group built only from vmess nodes in input/links.txt.",
-  "description": "Adds apply_openclash_input_vmess_loadbalance.py, workflow step/report validation, and latest-output assertion updates. Keeps DIRECT/REJECT selector-only and does not re-enable SS/SSR.",
-  "important_policy": {
-    "loadbalance_group": "INPUT-VMESS-LB",
-    "members": "Only type=vmess nodes from MANUAL-LINK/input links.",
-    "target_groups": [
-      "QOS-MARKETPLACE",
-      "QOS-SOCIAL",
-      "QOS-BANKING",
-      "WEB-MARKETPLACE",
-      "WEB-SOCIAL",
-      "WEB-BANKING"
-    ],
-    "linkedin": "linkedin.com, licdn.com, lnkd.in, linkedin.cn are routed to QOS-SOCIAL.",
-    "direct_reject": "DIRECT/REJECT only inside select groups."
-  },
+  "name": "SumberYAML Clean Responsive Reddit Routing Patch",
+  "version": "2026.06.06-1",
+  "description": "Simplifies OpenClash groups/rules, routes marketplace/social/banking via input VMess load-balance, and creates Reddit-specific routing from input node names containing reddit.",
   "files": [
-    {
-      "path": ".github/workflows/update-openclash.yml",
-      "bytes": 22762,
-      "sha256": "04443ad9321b2f2937c5d5f728989f37454645dea2fa819692089eb5de68991d"
-    },
-    {
-      "path": "README_FIX_OUTPUT_COMMIT_STAGING_PATCH.md",
-      "bytes": 2212,
-      "sha256": "c0d0899371f8d88c88a43860fe507d80788a84105e082ff8c02e238a0b6c8144"
-    },
-    {
-      "path": "README_FORCE_OUTPUT_UPDATE_PATCH.md",
-      "bytes": 2880,
-      "sha256": "b7c45089b43b768beb5dd5f4b1ad98c6f19e3e7db49dc5d5dea8813de377ef76"
-    },
-    {
-      "path": "README_FORCE_REGENERATE_LATEST_OUTPUT_PATCH.md",
-      "bytes": 2527,
-      "sha256": "965d33ef9e33b2541b661165d074970d556d40902465d02a5b675073af016c61"
-    },
-    {
-      "path": "README_INPUT_VMESS_LOADBALANCE_PATCH.md",
-      "bytes": 2171,
-      "sha256": "e237e1c904928d754140adabfde2ee3c5e296cb603b5e94ff716c1da853d36b1"
-    },
-    {
-      "path": "README_RULE_FOCUS_SMART_SAFE_PATCH.md",
-      "bytes": 5271,
-      "sha256": "2d558aba641db3729c79a7f57319079253ad6fff2a42434af99ed98ce924d0ef"
-    },
-    {
-      "path": "README_SELECTOR_ONLY_POLICY.md",
-      "bytes": 676,
-      "sha256": "b46f2851fa54c8a7f78f92f957ea0f1e6aed43716058becf1361d95effdc2f9c"
-    },
-    {
-      "path": "README_SMART_QOS_OPENCLASH_SAFE_PATCH.md",
-      "bytes": 3883,
-      "sha256": "34d3edb5eb825ff980d760201bda62080d88afe64c2f2595b093f78557c2844d"
-    },
-    {
-      "path": "README_SMART_SAFE_GENERATOR_PATCH.md",
-      "bytes": 3154,
-      "sha256": "f9c9f4641fd0a2f10bc830b788a654c31ca6921401ad983d2fafeea67c441a18"
-    },
-    {
-      "path": "install_patch.sh",
-      "bytes": 3213,
-      "sha256": "0093448a41c988cf6e3853c74551a8a15bbd1bc16c75eda44f0218cf0be2c308"
-    },
-    {
-      "path": "scripts/__pycache__/apply_openclash_input_vmess_loadbalance.cpython-313.pyc",
-      "bytes": 28679,
-      "sha256": "b3477c6d758487bb100759d1d14a80a904a6623d19b55fd54d9023e1a8c86f27"
-    },
-    {
-      "path": "scripts/__pycache__/apply_openclash_responsive_stability.cpython-313.pyc",
-      "bytes": 95508,
-      "sha256": "0be811a2be74e09f144b1b45868f9503ec83e2bd5b42a6e5d82949d3e64d3cc3"
-    },
-    {
-      "path": "scripts/__pycache__/apply_openclash_rule_focus.cpython-313.pyc",
-      "bytes": 34135,
-      "sha256": "3b171b595dd9f4fc38d786302531c444320bd0f4716ca0533c9dd5b63ecfa022"
-    },
-    {
-      "path": "scripts/__pycache__/apply_openclash_smart_qos.cpython-313.pyc",
-      "bytes": 33905,
-      "sha256": "e40e22fa01788684c1610d54c364abdbf3bdbf9663ff4fc5b3275a74993d9f17"
-    },
-    {
-      "path": "scripts/__pycache__/assert_latest_openclash_outputs.cpython-313.pyc",
-      "bytes": 16796,
-      "sha256": "924fa9cfa618c700267f57580369094e6e3ae84db9a2c53c45b2cd23b65ed777"
-    },
-    {
-      "path": "scripts/__pycache__/force_output_update_marker.cpython-313.pyc",
-      "bytes": 7567,
-      "sha256": "3ff21aa76ca3f69f03bda0df3f6a0ecb5b0219b311ed2683888524fc14281b71"
-    },
-    {
-      "path": "scripts/__pycache__/validate_openclash_outputs.cpython-313.pyc",
-      "bytes": 8522,
-      "sha256": "88f41a10eccaccc5bb970e33b77745fde8a6e801bf10b7af0e8ff1f418d3cfd4"
-    },
-    {
-      "path": "scripts/apply_openclash_input_vmess_loadbalance.py",
-      "bytes": 20865,
-      "sha256": "e3188ed144832237a4af109dd2bd6d3073739f37c99d7dd37d3054b223fed053"
-    },
-    {
-      "path": "scripts/apply_openclash_responsive_stability.py",
-      "bytes": 72982,
-      "sha256": "72e0c8326d2cbd2c4aa9d28047f1de24864936989cda0a5a8b92a5c8f19afb19"
-    },
-    {
-      "path": "scripts/apply_openclash_rule_focus.py",
-      "bytes": 28562,
-      "sha256": "48d49120f5a53627e932e8b2be000e9a6db24913be7d23b7c53522b90d9d895f"
-    },
-    {
-      "path": "scripts/apply_openclash_smart_qos.py",
-      "bytes": 27172,
-      "sha256": "3b71002864b8624841cdd7943c358dc9eb1eba34fff32678cce2c3377f4fa09d"
-    },
-    {
-      "path": "scripts/assert_latest_openclash_outputs.py",
-      "bytes": 10850,
-      "sha256": "0ac792c51e07bbd7308a44a8b283ebf75d61b528c8f7976c148b18ed992dcfe3"
-    },
-    {
-      "path": "scripts/force_output_update_marker.py",
-      "bytes": 5527,
-      "sha256": "b8f1cbde75caa4b1419188ef7e421876f2ecbab57d8642b095dee35b51b796fb"
-    },
-    {
-      "path": "scripts/validate_openclash_outputs.py",
-      "bytes": 5387,
-      "sha256": "e72cf4046df968aa981931f3700ec704f71ae063845e325c148842be0d5b889f"
-    }
-  ]
+    ".github/workflows/update-openclash.yml",
+    "scripts/apply_openclash_clean_responsive_rules.py",
+    "scripts/validate_openclash_outputs.py",
+    "scripts/assert_latest_openclash_outputs.py",
+    "scripts/force_output_update_marker.py",
+    "README_CLEAN_RESPONSIVE_REDDIT_PATCH.md",
+    "install_patch.sh"
+  ],
+  "openclash_policy": {
+    "direct_reject_selector_only": true,
+    "drop_proxy_types": ["ss", "ssr"],
+    "no_risky_group_keys": ["lazy", "timeout"],
+    "reddit_input_node_name_keyword": "reddit",
+    "input_vmess_loadbalance_group": "INPUT-VMESS-LB"
+  }
 }
