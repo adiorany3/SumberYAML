@@ -1,35 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
-TARGET="${1:-.}"
-if [ ! -d "$TARGET" ]; then
-  echo "ERROR: target directory not found: $TARGET" >&2
+TARGET="${1:-}"
+if [ -z "$TARGET" ]; then
+  echo "Usage: bash install_patch.sh /path/to/SumberYAML"
   exit 1
 fi
-
-PATCH_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$PATCH_DIR"
-
-mkdir -p "$TARGET/scripts" "$TARGET/.github/workflows" "$TARGET/rules/providers"
-
-cp -f scripts/apply_openclash_app_aware_groups.py "$TARGET/scripts/apply_openclash_app_aware_groups.py"
-cp -f scripts/apply_openclash_game_block_rule_provider.py "$TARGET/scripts/apply_openclash_game_block_rule_provider.py"
-cp -f scripts/validate_game_block_rule_provider.py "$TARGET/scripts/validate_game_block_rule_provider.py"
-cp -f scripts/validate_openclash_outputs.py "$TARGET/scripts/validate_openclash_outputs.py"
-cp -f scripts/assert_latest_openclash_outputs.py "$TARGET/scripts/assert_latest_openclash_outputs.py"
-cp -f scripts/force_output_update_marker.py "$TARGET/scripts/force_output_update_marker.py"
-cp -f rules/providers/game_block_domain.yaml "$TARGET/rules/providers/game_block_domain.yaml"
-cp -f rules/providers/game_block_classical.yaml "$TARGET/rules/providers/game_block_classical.yaml"
-cp -f .github/workflows/update-openclash.yml "$TARGET/.github/workflows/update-openclash.yml"
-cp -f README_GAME_BLOCK_RULE_PROVIDER_PATCH.md "$TARGET/README_GAME_BLOCK_RULE_PROVIDER_PATCH.md"
-cp -f README_SMART_APP_PROBE_STRICT_SAFE_PATCH.md "$TARGET/README_SMART_APP_PROBE_STRICT_SAFE_PATCH.md"
-
-chmod +x "$TARGET/scripts/apply_openclash_app_aware_groups.py" \
-         "$TARGET/scripts/apply_openclash_game_block_rule_provider.py" \
-         "$TARGET/scripts/validate_game_block_rule_provider.py" \
-         "$TARGET/scripts/validate_openclash_outputs.py" \
-         "$TARGET/scripts/assert_latest_openclash_outputs.py" \
-         "$TARGET/scripts/force_output_update_marker.py"
-
+if [ ! -d "$TARGET" ]; then
+  echo "ERROR: target directory not found: $TARGET"
+  exit 1
+fi
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+mkdir -p "$TARGET/scripts" "$TARGET/.github/workflows"
+cp -a "$ROOT/scripts/." "$TARGET/scripts/"
+cp -a "$ROOT/.github/workflows/update-openclash.yml" "$TARGET/.github/workflows/update-openclash.yml"
+cp -a "$ROOT"/README_* "$TARGET"/ 2>/dev/null || true
+find "$TARGET" -type d -name __pycache__ -prune -exec rm -rf {} +
 echo "Patch installed to: $TARGET"
-echo "Next: git add scripts rules .github/workflows/update-openclash.yml README_GAME_BLOCK_RULE_PROVIDER_PATCH.md README_SMART_APP_PROBE_STRICT_SAFE_PATCH.md && git commit && git push"
+echo "Next: git add scripts .github/workflows/update-openclash.yml README_* && git commit && git push"
