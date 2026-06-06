@@ -62,6 +62,10 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   PYTHONUNBUFFERED: "1"
 
+  # Paksa commit output setiap workflow update sukses, walaupun YAML utama identik.
+  FORCE_OUTPUT_COMMIT: "true"
+  FORCE_OUTPUT_MARKER_FILE: "output/Validation/last_run.json"
+
   MODE: ${{ github.event.inputs.mode || 'update' }}
   SOURCE: ${{ github.event.inputs.source || 'schedule' }}
   ENABLE_PROXY_TEST: ${{ github.event.inputs.enable_proxy_test || 'true' }}
@@ -367,6 +371,22 @@ jobs:
           print('Fallback YAML validation OK')
           PY
 
+      - name: Force output update marker
+        if: env.FORCE_OUTPUT_COMMIT == 'true'
+        run: |
+          set -e
+          if [ -f scripts/force_output_update_marker.py ]; then
+            python scripts/force_output_update_marker.py --root .
+          else
+            echo "WARNING: scripts/force_output_update_marker.py tidak ditemukan. Membuat marker fallback."
+            mkdir -p output/Validation
+            FORCE_TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            printf '{"schema":"sumberyaml.force-output-update.fallback.v1","generated_at_utc":"%s","github_run_id":"%s","github_run_attempt":"%s","github_run_number":"%s","github_sha":"%s","mode":"%s","source":"%s"}\n' "$FORCE_TS" "${GITHUB_RUN_ID:-}" "${GITHUB_RUN_ATTEMPT:-}" "${GITHUB_RUN_NUMBER:-}" "${GITHUB_SHA:-}" "${MODE:-update}" "${SOURCE:-}" > output/Validation/last_run.json
+            printf 'forced_update=%s\nrun_id=%s\nsha=%s\n' "$FORCE_TS" "${GITHUB_RUN_ID:-}" "${GITHUB_SHA:-}" > output/Validation/last_run.txt
+          fi
+          echo "Last run marker:"
+          cat output/Validation/last_run.json || true
+
       - name: Commit output files
         run: |
           set -euo pipefail
@@ -392,10 +412,22 @@ jobs:
             tar -C output -xf "$BACKUP_DIR/output.tar"
             git add output cache || true
             if git diff --cached --quiet; then
-              echo "Tidak ada perubahan output untuk di-commit."
-              exit 0
+              echo "Tidak ada perubahan output dari generator. Membuat force marker agar update tetap ter-commit."
+              mkdir -p output/Validation
+              if [ -f scripts/force_output_update_marker.py ]; then
+                python scripts/force_output_update_marker.py --root .
+              else
+                FORCE_TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+                printf '{"schema":"sumberyaml.force-output-update.commit-fallback.v1","generated_at_utc":"%s","github_run_id":"%s","github_run_attempt":"%s","github_run_number":"%s","github_sha":"%s","mode":"%s","source":"%s"}\n' "$FORCE_TS" "${GITHUB_RUN_ID:-}" "${GITHUB_RUN_ATTEMPT:-}" "${GITHUB_RUN_NUMBER:-}" "${GITHUB_SHA:-}" "${MODE:-update}" "${SOURCE:-}" > output/Validation/last_run.json
+                printf 'forced_commit_fallback=%s\nrun_id=%s\nsha=%s\n' "$FORCE_TS" "${GITHUB_RUN_ID:-}" "${GITHUB_SHA:-}" > output/Validation/last_run.txt
+              fi
+              git add output/Validation/last_run.json output/Validation/last_run.txt
             fi
-            git commit -m "Update OpenClash output with smart-safe rule focus and Smart QoS"
+            if git diff --cached --quiet; then
+              echo "ERROR: Force output commit marker tetap tidak menghasilkan perubahan."
+              exit 1
+            fi
+            git commit -m "Force update OpenClash output"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
