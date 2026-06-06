@@ -1,0 +1,438 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "HiByeVPNN 48"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7270612b-49f6-4b04-999c-34d8263da767
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "picassooo.info"
+    ws-opts:
+      path: "/aymdlws"
+      headers:
+        Host: "picassooo.info"
+    udp: true
+  - name: "CH CH- V2Ray_Hub1200"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "cde2502a-5138-4511-9fe9-9e9df5619aba"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "go.appsflyer.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "go.appsflyer.com.r3xxe.eu.cc"
+    udp: true
+  - name: "https telegraph.rayan-config.workers.dev persian"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rAyAn-007.nAsTaRaN.DpDnS.OrG"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "rayan-007.nastaran.dpdns.org"
+    udp: true
+  - name: "HajmVPN_Config 1497"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 42026ed0-7d74-4585-8e46-0fe6aa4d665a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.genflix.co.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "www.genflix.co.id.r3xxe.eu.cc"
+    udp: true
+  - name: "US US- V2Ray_Hub1200"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Telegram-Config0plus-983ced63-fcf0-4d15-b81b-432e32e9b932"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "api24-normal.tiktokv.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "api24-normal.tiktokv.com.r3xxe.eu.cc"
+    udp: true
+  - name: "ProxyVPN11 8233"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "v2reya88"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "57 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "A4u^p(_UR*F6"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "027.ELeCTroCelLco-CF-027.wORkERS.dEv"
+    ws-opts:
+      path: "/eyJqdW5rIjoidlhnMXN5OXFUSiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0="
+      headers:
+        Host: "027.electrocellco-cf-027.workers.dev"
+    udp: true
+  - name: "VPsave 1043"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "SG 51648 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "vl.zacharybilly.ndjp.net"
+    ws-opts:
+      path: "/proxyip=104.168.132.123,172.104.53.198,85.121.50.16,151.242.125.226"
+      headers:
+        Host: "vl.zacharybilly.ndjp.net"
+    udp: true
+  - name: "V2Ray_Hub1200 5270"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dxy1h.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/proxyip"
+      headers:
+        Host: "dxy1h.twiladaphne.ndjp.net"
+    udp: true
+  - name: "DE on_proxy1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 45c8b2f4-343c-4d37-99d2-59cb13e6c7fb
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "peDarET.BaBJOON.WOrKErs.deV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiQmtnQkhTSzYiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560"
+      headers:
+        Host: "peDarET.BaBJOON.WOrKErs.deV"
+    udp: true
+  - name: "SG 51738 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dxy1h.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/proxyip=104.168.132.123,172.104.53.198,85.121.50.16,151.242.125.226"
+      headers:
+        Host: "dxy1h.twiladaphne.ndjp.net"
+    udp: true
+  - name: "V2rayNG3 FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?L=tls"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "appsooner 1850"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?TELEGRAM--KANAL--UnNurmal--UnNurmal--UnNurmal--UnNurmal--UnNurmal--UnNurmal"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "HiByeVPNN 48"
+      - "CH CH- V2Ray_Hub1200"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "HajmVPN_Config 1497"
+      - "US US- V2Ray_Hub1200"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "HiByeVPNN 48"
+      - "CH CH- V2Ray_Hub1200"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "HajmVPN_Config 1497"
+      - "US US- V2Ray_Hub1200"
+      - "ProxyVPN11 8233"
+      - "v2reya88"
+      - "57 oneclickvpnkeys"
+      - "VPsave 1043"
+      - "SG 51648 Telegram t.me SOSkeyNET"
+      - "V2Ray_Hub1200 5270"
+      - "DE on_proxy1"
+      - "SG 51738 Telegram t.me SOSkeyNET"
+      - "V2rayNG3 FR"
+      - "appsooner 1850"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "HiByeVPNN 48"
+      - "CH CH- V2Ray_Hub1200"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "US US- V2Ray_Hub1200"
+      - "v2reya88"
+      - "HajmVPN_Config 1497"
+      - "ProxyVPN11 8233"
+      - "VPsave 1043"
+      - "V2Ray_Hub1200 5270"
+      - "57 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "HiByeVPNN 48"
+      - "CH CH- V2Ray_Hub1200"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "HajmVPN_Config 1497"
+      - "US US- V2Ray_Hub1200"
+      - "ProxyVPN11 8233"
+      - "v2reya88"
+      - "57 oneclickvpnkeys"
+      - "VPsave 1043"
+      - "SG 51648 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "HiByeVPNN 48"
+      - "CH CH- V2Ray_Hub1200"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "US US- V2Ray_Hub1200"
+      - "HajmVPN_Config 1497"
+      - "ProxyVPN11 8233"
+      - "v2reya88"
+      - "57 oneclickvpnkeys"
+      - "VPsave 1043"
+      - "V2Ray_Hub1200 5270"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "HiByeVPNN 48"
+      - "CH CH- V2Ray_Hub1200"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "US US- V2Ray_Hub1200"
+      - "HajmVPN_Config 1497"
+      - "ProxyVPN11 8233"
+      - "v2reya88"
+      - "VPsave 1043"
+      - "V2Ray_Hub1200 5270"
+      - "57 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "HiByeVPNN 48"
+      - "CH CH- V2Ray_Hub1200"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "HajmVPN_Config 1497"
+      - "US US- V2Ray_Hub1200"
+      - "ProxyVPN11 8233"
+      - "v2reya88"
+      - "57 oneclickvpnkeys"
+      - "VPsave 1043"
+      - "SG 51648 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "HiByeVPNN 48"
+      - "CH CH- V2Ray_Hub1200"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "HajmVPN_Config 1497"
+      - "US US- V2Ray_Hub1200"
+      - "ProxyVPN11 8233"
+      - "v2reya88"
+      - "57 oneclickvpnkeys"
+      - "VPsave 1043"
+      - "SG 51648 Telegram t.me SOSkeyNET"
+      - "V2Ray_Hub1200 5270"
+      - "DE on_proxy1"
+      - "SG 51738 Telegram t.me SOSkeyNET"
+      - "V2rayNG3 FR"
+      - "appsooner 1850"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "HiByeVPNN 48"
+      - "CH CH- V2Ray_Hub1200"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "HajmVPN_Config 1497"
+      - "US US- V2Ray_Hub1200"
+      - "ProxyVPN11 8233"
+      - "v2reya88"
+      - "57 oneclickvpnkeys"
+      - "VPsave 1043"
+      - "SG 51648 Telegram t.me SOSkeyNET"
+      - "V2Ray_Hub1200 5270"
+      - "DE on_proxy1"
+      - "SG 51738 Telegram t.me SOSkeyNET"
+      - "V2rayNG3 FR"
+      - "appsooner 1850"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

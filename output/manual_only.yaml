@@ -354,24 +354,35 @@ proxy-groups:
 - name: PROXY
   type: select
   proxies:
+  - UTAMA
   - AUTO
   - FALLBACK
   - INPUT-VMESS
   - REDDIT
+  - LINKEDIN
+  - BLIBLI
   - SOCIAL-BANK-MARKET
   - DEFAULT
   - BYPASS
+- name: UTAMA
+  type: select
+  proxies:
+  - INPUT-VMESS
+  - AUTO
+  - FALLBACK
+  - DIRECT
 - name: AUTO
   type: url-test
   proxies:
-  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - reddit
+  - MANUAL-LINK-006 reddit
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - bel432 xl
+  - bel432 xl-2
   - VMess-WS-TLS-443-akuku8
   - bel432 telk
   - 10.lowh.net
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-006 reddit
   - MANUAL-LINK-007 bel432 xl
   - MANUAL-LINK-008 bel432 xl
   - MANUAL-LINK-009 VMess-WS-TLS-443-akuku8
@@ -383,21 +394,21 @@ proxy-groups:
   - (ID)+PUSATMEDIA
   - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
   - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
-  - MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 90
   tolerance: 40
 - name: FALLBACK
   type: fallback
   proxies:
-  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - reddit
+  - MANUAL-LINK-006 reddit
+  - (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - bel432 xl
+  - bel432 xl-2
   - VMess-WS-TLS-443-akuku8
   - bel432 telk
   - 10.lowh.net
   - MANUAL-LINK-001 (ID) PT. Telekomunikasi Indonesia 🇮🇩
-  - MANUAL-LINK-006 reddit
   - MANUAL-LINK-007 bel432 xl
   - MANUAL-LINK-008 bel432 xl
   - MANUAL-LINK-009 VMess-WS-TLS-443-akuku8
@@ -409,7 +420,6 @@ proxy-groups:
   - (ID)+PUSATMEDIA
   - MANUAL-LINK-003 (US)+Google+LLC+🇺🇸
   - MANUAL-LINK-004 (BR)+Oracle+Corporation+🇧🇷
-  - MANUAL-LINK-012 VLESS-WS-TLS-443-apt50atpprem
   url: http://www.gstatic.com/generate_204
   interval: 90
 - name: INPUT-VMESS
@@ -418,6 +428,7 @@ proxy-groups:
   - (ID) PT. Telekomunikasi Indonesia 🇮🇩
   - reddit
   - bel432 xl
+  - bel432 xl-2
   - VMess-WS-TLS-443-akuku8
   - bel432 telk
   - 10.lowh.net
@@ -437,57 +448,74 @@ proxy-groups:
   - MANUAL-LINK-006 reddit
   url: http://www.gstatic.com/generate_204
   interval: 90
-- name: SOCIAL-BANK-MARKET
+- name: LINKEDIN
   type: select
   proxies:
+  - UTAMA
   - INPUT-VMESS
   - AUTO
   - FALLBACK
-  - DEFAULT
+  - DIRECT
+- name: BLIBLI
+  type: select
+  proxies:
+  - UTAMA
+  - INPUT-VMESS
+  - AUTO
+  - FALLBACK
+  - DIRECT
+- name: SOCIAL-BANK-MARKET
+  type: select
+  proxies:
+  - UTAMA
+  - INPUT-VMESS
+  - AUTO
+  - FALLBACK
   - DIRECT
 - name: STREAMING
   type: select
   proxies:
+  - UTAMA
   - AUTO
   - FALLBACK
   - INPUT-VMESS
-  - DEFAULT
   - DIRECT
 - name: GAME
   type: select
   proxies:
+  - UTAMA
   - AUTO
   - FALLBACK
   - INPUT-VMESS
-  - DEFAULT
   - DIRECT
 - name: AI
   type: select
   proxies:
+  - UTAMA
   - AUTO
   - FALLBACK
   - INPUT-VMESS
-  - DEFAULT
   - DIRECT
 - name: WORK
   type: select
   proxies:
+  - UTAMA
   - AUTO
   - FALLBACK
   - INPUT-VMESS
-  - DEFAULT
   - DIRECT
 - name: DOWNLOAD
   type: select
   proxies:
   - FALLBACK
   - AUTO
+  - UTAMA
   - INPUT-VMESS
-  - DEFAULT
   - DIRECT
 - name: DEFAULT
   type: select
   proxies:
+  - UTAMA
   - AUTO
   - FALLBACK
   - INPUT-VMESS
@@ -520,10 +548,14 @@ rules:
 - DOMAIN-SUFFIX,redditmedia.com,REDDIT
 - DOMAIN-SUFFIX,redditstatic.com,REDDIT
 - DOMAIN-SUFFIX,redditinc.com,REDDIT
-- DOMAIN-SUFFIX,linkedin.com,SOCIAL-BANK-MARKET
-- DOMAIN-SUFFIX,licdn.com,SOCIAL-BANK-MARKET
-- DOMAIN-SUFFIX,lnkd.in,SOCIAL-BANK-MARKET
-- DOMAIN-SUFFIX,linkedin.cn,SOCIAL-BANK-MARKET
+- DOMAIN-SUFFIX,linkedin.com,LINKEDIN
+- DOMAIN-SUFFIX,licdn.com,LINKEDIN
+- DOMAIN-SUFFIX,lnkd.in,LINKEDIN
+- DOMAIN-SUFFIX,linkedin.cn,LINKEDIN
+- DOMAIN-SUFFIX,blibli.com,BLIBLI
+- DOMAIN-SUFFIX,blibli.co.id,BLIBLI
+- DOMAIN-SUFFIX,static-src.com,BLIBLI
+- DOMAIN-SUFFIX,blibli.app,BLIBLI
 - DOMAIN-SUFFIX,whatsapp.com,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,whatsapp.net,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,telegram.org,SOCIAL-BANK-MARKET
@@ -572,7 +604,6 @@ rules:
 - DOMAIN-SUFFIX,shopee.com,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,lazada.co.id,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,bukalapak.com,SOCIAL-BANK-MARKET
-- DOMAIN-SUFFIX,blibli.com,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,tiket.com,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,traveloka.com,SOCIAL-BANK-MARKET
 - DOMAIN-SUFFIX,gojek.com,SOCIAL-BANK-MARKET
