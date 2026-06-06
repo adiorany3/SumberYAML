@@ -128,6 +128,13 @@ env:
   SMART_QOS_ADD_LAN_BYPASS: "true"
   SMART_QOS_FORCE_MATCH_DEFAULT: "true"
 
+  # Input VMess Load Balance: marketplace, social media/LinkedIn, dan banking memakai vmess dari input/links.txt.
+  ENABLE_INPUT_VMESS_LB: "true"
+  INPUT_VMESS_LB_INTERVAL: "60"
+  # Kosongkan strategy agar kompatibel dengan OpenClash lama. Isi round-robin/consistent-hashing jika core mendukung.
+  INPUT_VMESS_LB_STRATEGY: ""
+  INPUT_VMESS_LB_REQUIRE_INPUT: "false"
+
   BLACKLIST_FILE: "blacklist.txt"
   SOURCE_CACHE_ENABLE: "true"
   SOURCE_CACHE_DIR: "output/Cache/sources"
@@ -275,6 +282,19 @@ jobs:
             exit 1
           fi
 
+      - name: Apply input VMess load-balance category routing
+        if: env.ENABLE_INPUT_VMESS_LB == 'true'
+        run: |
+          set -e
+          if [ -f scripts/apply_openclash_input_vmess_loadbalance.py ]; then
+            python scripts/apply_openclash_input_vmess_loadbalance.py --root .
+            echo "Input VMess load-balance report:"
+            cat output/Validation/input_vmess_loadbalance_report.json || true
+          else
+            echo "ERROR: scripts/apply_openclash_input_vmess_loadbalance.py tidak ditemukan."
+            exit 1
+          fi
+
       - name: Validate output exists
         run: |
           set -e
@@ -298,6 +318,11 @@ jobs:
           fi
           if [ "${ENABLE_SMART_QOS:-true}" = "true" ] && [ ! -f output/Validation/smart_qos_report.json ]; then
             echo "ERROR: smart_qos_report.json belum ada. Smart QoS belum berjalan."
+            find output/Validation -maxdepth 1 -type f | sort || true
+            exit 1
+          fi
+          if [ "${ENABLE_INPUT_VMESS_LB:-true}" = "true" ] && [ ! -f output/Validation/input_vmess_loadbalance_report.json ]; then
+            echo "ERROR: input_vmess_loadbalance_report.json belum ada. Input VMess LB belum berjalan."
             find output/Validation -maxdepth 1 -type f | sort || true
             exit 1
           fi
@@ -407,7 +432,7 @@ jobs:
           echo "Check manual_only.yaml:"
           test -f output/manual_only.yaml && wc -l output/manual_only.yaml || true
           echo "Check Smart QoS groups in fast.yaml:"
-          grep -E "name: QOS-|name: WEB-|name: MANUAL-|name: SAT-SET" output/fast.yaml | head -60 || true
+          grep -E "name: QOS-|name: WEB-|name: MANUAL-|name: SAT-SET|name: INPUT-VMESS-LB" output/fast.yaml | head -80 || true
 
       - name: Force output update marker
         if: env.FORCE_OUTPUT_COMMIT == 'true'
