@@ -23,6 +23,7 @@ REQUIRED_GAME_RULES = [
     "DOMAIN-SUFFIX,freefiremobile.com,BLOCK",
     "DOMAIN-SUFFIX,hoyoverse.com,BLOCK",
     "DOMAIN-SUFFIX,poki.com,BLOCK",
+    "DOMAIN-SUFFIX,callofwar.com,BLOCK",
 ]
 
 
