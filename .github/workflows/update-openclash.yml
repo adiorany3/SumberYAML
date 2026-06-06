@@ -195,6 +195,17 @@ jobs:
           python scripts/apply_openclash_strict_safe_fix.py --root . --strict
           cat output/Validation/openclash_strict_safe_fix_report.json || true
 
+
+      - name: Apply Google and YouTube special nodes
+        run: |
+          set -e
+          if [ ! -f scripts/apply_openclash_google_special_nodes.py ]; then
+            echo "ERROR: scripts/apply_openclash_google_special_nodes.py tidak ditemukan."
+            exit 1
+          fi
+          python scripts/apply_openclash_google_special_nodes.py --root .
+          cat output/Validation/google_special_nodes_report.json || true
+
       - name: Validate output exists
         run: |
           set -e
@@ -204,6 +215,7 @@ jobs:
             exit 1
           fi
           test -f output/Validation/openclash_strict_safe_fix_report.json
+          test -f output/Validation/google_special_nodes_report.json
           wc -l output/lengkap.yaml || true
 
       - name: Validate OpenClash YAML
@@ -237,7 +249,7 @@ jobs:
           echo "Validation reports:"
           ls -la output/Validation || true
           echo "Strict-safe special-node groups in fast.yaml:"
-          grep -E "name: PROXY|name: UTAMA|name: AUTO|name: FALLBACK|name: INPUT-VMESS|name: REDDIT|name: LINKEDIN|name: BLIBLI|name: SOCIAL-BANK-MARKET|name: DEFAULT" output/fast.yaml | head -120 || true
+          grep -E "name: PROXY|name: UTAMA|name: GOOGLE|name: AUTO|name: FALLBACK|name: INPUT-VMESS|name: REDDIT|name: LINKEDIN|name: BLIBLI|name: SOCIAL-BANK-MARKET|name: DEFAULT" output/fast.yaml | head -120 || true
           echo "Ensure no load-balance:"
           grep -R "type: load-balance" output/*.yaml && exit 1 || true
 
@@ -322,7 +334,7 @@ jobs:
               exit 1
             fi
 
-            git commit -m "Add strict-safe special node routing"
+            git commit -m "Add strict-safe special node routing with Google nodes"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
