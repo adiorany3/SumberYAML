@@ -432,39 +432,109 @@ jobs:
           BACKUP_DIR="$(mktemp -d)"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           if [ ! -d output ]; then
-            echo "Folder output tidak ditemukan, tidak ada yang di-commit."
-            exit 0
+            echo "ERROR: Folder output tidak ditemukan, tidak ada yang di-commit."
+            exit 1
           fi
+
           echo "Backup output hasil generate ke folder sementara..."
           tar -C output -cf "$BACKUP_DIR/output.tar" .
+          if [ -d cache ]; then
+            echo "Backup cache hasil generate ke folder sementara..."
+            tar -C cache -cf "$BACKUP_DIR/cache.tar" .
+          else
+            echo "Folder cache tidak ada; lanjut tanpa cache."
+          fi
+
+          stage_generated_paths() {
+            if [ -d output ]; then
+              git add -A -f output
+            fi
+            if [ -d cache ]; then
+              git add -A -f cache
+            else
+              echo "Folder cache tidak ada, skip git add cache."
+            fi
+          }
+
+          write_force_marker() {
+            mkdir -p output/Validation
+            FORCE_TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            FORCE_NONCE="$(date -u +%s%N)-${GITHUB_RUN_ID:-run}-${GITHUB_RUN_ATTEMPT:-attempt}-${GITHUB_RUN_NUMBER:-number}-$RANDOM"
+            cat > output/Validation/last_run.json <<JSON
+          {
+            "schema": "sumberyaml.force-output-update.commit-staging-fix.v1",
+            "generated_at_utc": "$FORCE_TS",
+            "nonce": "$FORCE_NONCE",
+            "github_run_id": "${GITHUB_RUN_ID:-}",
+            "github_run_attempt": "${GITHUB_RUN_ATTEMPT:-}",
+            "github_run_number": "${GITHUB_RUN_NUMBER:-}",
+            "github_sha": "${GITHUB_SHA:-}",
+            "mode": "${MODE:-update}",
+            "source": "${SOURCE:-}",
+            "branch": "$BRANCH"
+          }
+          JSON
+            cat > output/Validation/last_run.txt <<TXT
+          forced_update=$FORCE_TS
+          nonce=$FORCE_NONCE
+          run_id=${GITHUB_RUN_ID:-}
+          run_attempt=${GITHUB_RUN_ATTEMPT:-}
+          run_number=${GITHUB_RUN_NUMBER:-}
+          sha=${GITHUB_SHA:-}
+          mode=${MODE:-update}
+          source=${SOURCE:-}
+          branch=$BRANCH
+          TXT
+            echo "Force output marker updated with nonce: $FORCE_NONCE"
+          }
+
           for attempt in 1 2 3; do
             echo "Commit/push attempt $attempt untuk branch: $BRANCH"
             git fetch origin "$BRANCH" || true
             git checkout "$BRANCH" || git checkout -B "$BRANCH" "origin/$BRANCH" || true
             git reset --hard "origin/$BRANCH" || true
             git clean -fd || true
+
             echo "Restore output hasil generate ke working tree terbaru..."
             rm -rf output
             mkdir -p output
             tar -C output -xf "$BACKUP_DIR/output.tar"
-            git add -A -f output cache || true
+
+            if [ -f "$BACKUP_DIR/cache.tar" ]; then
+              rm -rf cache
+              mkdir -p cache
+              tar -C cache -xf "$BACKUP_DIR/cache.tar"
+            else
+              rm -rf cache
+            fi
+
+            echo "Snapshot output setelah restore:"
+            find output -maxdepth 2 -type f | sort | sed -n '1,120p' || true
+
+            # Penting: jangan gabungkan path yang mungkin tidak ada dalam satu git add.
+            # `git add output cache` akan fatal kalau cache hilang, lalu output tidak ikut staging.
+            stage_generated_paths
+
             if git diff --cached --quiet; then
               echo "Tidak ada perubahan output dari generator. Membuat force marker agar update tetap ter-commit."
-              mkdir -p output/Validation
-              if [ -f scripts/force_output_update_marker.py ]; then
-                python scripts/force_output_update_marker.py --root .
-              else
-                FORCE_TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-                printf '{"schema":"sumberyaml.force-output-update.commit-fallback.v1","generated_at_utc":"%s","github_run_id":"%s","github_run_attempt":"%s","github_run_number":"%s","github_sha":"%s","mode":"%s","source":"%s"}\n' "$FORCE_TS" "${GITHUB_RUN_ID:-}" "${GITHUB_RUN_ATTEMPT:-}" "${GITHUB_RUN_NUMBER:-}" "${GITHUB_SHA:-}" "${MODE:-update}" "${SOURCE:-}" > output/Validation/last_run.json
-                printf 'forced_commit_fallback=%s\nrun_id=%s\nsha=%s\n' "$FORCE_TS" "${GITHUB_RUN_ID:-}" "${GITHUB_SHA:-}" > output/Validation/last_run.txt
-              fi
-              git add -A -f output cache || true
+              write_force_marker
+              stage_generated_paths
             fi
+
+            echo "Status staging setelah git add:"
+            git status --short output cache || true
+
             if git diff --cached --quiet; then
               echo "ERROR: Force output commit marker tetap tidak menghasilkan perubahan."
+              echo "Debug last_run.json:"
+              cat output/Validation/last_run.json || true
+              echo "Debug git status:"
+              git status --short || true
               exit 1
             fi
+
             git commit -m "Force regenerate latest OpenClash YAML output"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
