@@ -1,20 +1,27 @@
 {
-  "name": "SumberYAML Smart App Probe Strict-Safe Patch",
-  "version": "2026-06-06",
+  "name": "SumberYAML Game Block Rule Provider Strict-Safe Patch",
+  "version": "2026-06-07",
   "files": [
     ".github/workflows/update-openclash.yml",
     "scripts/apply_openclash_app_aware_groups.py",
+    "scripts/apply_openclash_game_block_rule_provider.py",
+    "scripts/validate_game_block_rule_provider.py",
     "scripts/validate_openclash_outputs.py",
     "scripts/assert_latest_openclash_outputs.py",
     "scripts/force_output_update_marker.py",
+    "rules/providers/game_block_domain.yaml",
+    "rules/providers/game_block_classical.yaml",
+    "README_GAME_BLOCK_RULE_PROVIDER_PATCH.md",
     "README_SMART_APP_PROBE_STRICT_SAFE_PATCH.md",
     "install_patch.sh"
   ],
   "policy": {
     "openclash_safe": true,
+    "rule_providers_enabled": true,
+    "game_block_target_group": "BLOCK",
+    "direct_reject_only_inside_selector": true,
     "unsupported_protocols_dropped": ["ss", "ssr"],
     "group_types_allowed": ["select", "url-test", "fallback"],
-    "direct_reject_only_inside_selector": true,
     "load_balance_disabled": true,
     "app_aware_health_check": true
   }

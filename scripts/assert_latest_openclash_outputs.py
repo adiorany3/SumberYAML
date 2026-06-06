@@ -17,6 +17,8 @@ REQUIRED_REPORTS = [
     "output/Validation/app_aware_groups_report.json",
     "output/Validation/openclash_validation_report.json",
     "output/Validation/last_run.json",
+    "output/Validation/game_block_rule_provider_report.json",
+    "output/Validation/game_block_rule_provider_validation.json",
 ]
 
 
@@ -40,13 +42,20 @@ def main() -> int:
         if missing:
             errors.append("missing required groups in fast.yaml: " + ", ".join(missing))
         rules = [str(r) for r in (data.get("rules") or [])] if isinstance(data, dict) else []
-        needed_rules = ["DOMAIN-SUFFIX,youtube.com,YOUTUBE", "DOMAIN-SUFFIX,google.com,GOOGLE", "DOMAIN-SUFFIX,linkedin.com,LINKEDIN", "DOMAIN-SUFFIX,blibli.com,BLIBLI", "DOMAIN-SUFFIX,reddit.com,REDDIT"]
+        needed_rules = ["DOMAIN-SUFFIX,youtube.com,YOUTUBE", "DOMAIN-SUFFIX,google.com,GOOGLE", "DOMAIN-SUFFIX,linkedin.com,LINKEDIN", "DOMAIN-SUFFIX,blibli.com,BLIBLI", "DOMAIN-SUFFIX,reddit.com,REDDIT", "RULE-SET,GAME-BLOCK-DOMAIN,BLOCK", "RULE-SET,GAME-BLOCK-CLASSICAL,BLOCK"]
         for rule in needed_rules:
             if rule not in rules:
                 errors.append(f"missing app-aware rule: {rule}")
         for rule in rules:
             if rule.endswith(",DIRECT") or rule.endswith(",REJECT"):
                 errors.append(f"DIRECT/REJECT direct rule target found: {rule}")
+        providers = data.get("rule-providers") if isinstance(data, dict) else {}
+        if not isinstance(providers, dict):
+            errors.append("rule-providers missing in fast.yaml")
+        else:
+            for provider_name in ["GAME-BLOCK-DOMAIN", "GAME-BLOCK-CLASSICAL"]:
+                if provider_name not in providers:
+                    errors.append(f"missing game block provider: {provider_name}")
     report = {"ok": not errors, "errors": errors}
     out = root / "output/Validation"
     out.mkdir(parents=True, exist_ok=True)
@@ -55,7 +64,7 @@ def main() -> int:
         for err in errors:
             print("ERROR:", err)
         return 1
-    print("Latest app-aware OpenClash output assertion OK")
+    print("Latest app-aware OpenClash output assertion OK, including game block rule-providers")
     return 0
 
 
