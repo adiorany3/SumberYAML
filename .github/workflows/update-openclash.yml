@@ -116,6 +116,14 @@ env:
   RULE_FOCUS_ADD_LAN_DIRECT: "false"
   RULE_FOCUS_ADD_GEOIP_ID: "false"
 
+  # Smart QoS: routing berdasarkan prioritas trafik. Ini bukan SQM/CAKE bandwidth shaping.
+  ENABLE_SMART_QOS: "true"
+  SMART_QOS_INTERVAL: "90"
+  SMART_QOS_TOLERANCE: "30"
+  SMART_QOS_MAX_CANDIDATES: "24"
+  SMART_QOS_ADD_LAN_BYPASS: "true"
+  SMART_QOS_FORCE_MATCH_DEFAULT: "true"
+
   BLACKLIST_FILE: "blacklist.txt"
   SOURCE_CACHE_ENABLE: "true"
   SOURCE_CACHE_DIR: "output/Cache/sources"
@@ -250,6 +258,19 @@ jobs:
             exit 1
           fi
 
+      - name: Apply Smart QoS policy routing
+        if: env.ENABLE_SMART_QOS == 'true'
+        run: |
+          set -e
+          if [ -f scripts/apply_openclash_smart_qos.py ]; then
+            python scripts/apply_openclash_smart_qos.py --root .
+            echo "Smart-QoS report:"
+            cat output/Validation/smart_qos_report.json || true
+          else
+            echo "ERROR: scripts/apply_openclash_smart_qos.py tidak ditemukan."
+            exit 1
+          fi
+
       - name: Validate output exists
         run: |
           set -e
@@ -374,7 +395,7 @@ jobs:
               echo "Tidak ada perubahan output untuk di-commit."
               exit 0
             fi
-            git commit -m "Update OpenClash output with smart-safe generator"
+            git commit -m "Update OpenClash output with smart-safe rule focus and Smart QoS"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
