@@ -1,22 +1,28 @@
 {
-  "name": "SumberYAML OpenClash Strict-Safe Fix Patch",
-  "version": "2026-06-06.1",
-  "purpose": "Repair OpenClash config errors by removing load-balance and risky group/rule settings, while keeping input VMess and Reddit routing.",
+  "name": "SumberYAML Strict-Safe Special Nodes Patch",
+  "version": "2026-06-06-special-nodes-v1",
+  "description": "OpenClash strict-safe routing with UTAMA, REDDIT, LINKEDIN, and BLIBLI groups based on input/links.txt node names.",
   "files": [
     ".github/workflows/update-openclash.yml",
+    "README_STRICT_SAFE_SPECIAL_NODES_PATCH.md",
+    "install_patch.sh",
+    "manifest.json",
     "scripts/apply_openclash_strict_safe_fix.py",
-    "scripts/validate_openclash_outputs.py",
     "scripts/assert_latest_openclash_outputs.py",
     "scripts/force_output_update_marker.py",
-    "README_OPENCLASH_STRICT_SAFE_FIX_PATCH.md",
-    "install_patch.sh"
+    "scripts/validate_openclash_outputs.py"
   ],
-  "policy": {
-    "no_load_balance": true,
-    "allowed_group_types": ["select", "url-test", "fallback"],
-    "drop_proxy_types": ["ss", "ssr"],
-    "direct_reject_selector_only": true,
-    "server_override": "104.17.3.81",
-    "server_override_scope": "cdn-compatible manual input nodes only"
-  }
+  "openclash_safe": true,
+  "no_load_balance": true,
+  "direct_reject_selector_only": true,
+  "blocked_proxy_types": [
+    "ss",
+    "ssr"
+  ],
+  "special_groups": [
+    "UTAMA",
+    "REDDIT",
+    "LINKEDIN",
+    "BLIBLI"
+  ]
 }

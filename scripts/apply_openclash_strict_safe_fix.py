@@ -7,8 +7,13 @@ Goals:
 - remove confusing legacy WEB/QOS/load-balance group trees;
 - avoid load-balance entirely; use only select, url-test, fallback;
 - keep DIRECT and REJECT only inside select groups;
-- route marketplace, social media including LinkedIn, and banking through VMess nodes from input/links.txt;
-- use nodes whose name contains "reddit" from input/links.txt as a special Reddit route;
+- keep the final profile simple for old OpenClash builds;
+- use input/links.txt node names as special routes:
+  * name contains "utama" / "main" -> UTAMA
+  * name contains "reddit" -> REDDIT
+  * name contains "linkedin" -> LINKEDIN
+  * name contains "blibli" -> BLIBLI
+- route LinkedIn and Blibli domains to their special input-node groups;
 - keep ss/ssr out because they caused OpenClash errors for this project.
 """
 from __future__ import annotations
@@ -70,7 +75,10 @@ G_PROXY = "PROXY"
 G_AUTO = "AUTO"
 G_FALLBACK = "FALLBACK"
 G_INPUT = "INPUT-VMESS"
+G_UTAMA = "UTAMA"
 G_REDDIT = "REDDIT"
+G_LINKEDIN = "LINKEDIN"
+G_BLIBLI = "BLIBLI"
 G_SOCIAL_BANK_MARKET = "SOCIAL-BANK-MARKET"
 G_STREAMING = "STREAMING"
 G_GAME = "GAME"
@@ -86,7 +94,10 @@ STRICT_GROUPS = {
     G_AUTO,
     G_FALLBACK,
     G_INPUT,
+    G_UTAMA,
     G_REDDIT,
+    G_LINKEDIN,
+    G_BLIBLI,
     G_SOCIAL_BANK_MARKET,
     G_STREAMING,
     G_GAME,
@@ -106,6 +117,10 @@ LEGACY_NAMES = {
     "FALLBACK-RESPONSIF",
     "INPUT-VMESS-LB",
     "REDDIT-INPUT",
+    "NODE-UTAMA",
+    "MAIN-NODE",
+    "LINKEDIN-INPUT",
+    "BLIBLI-INPUT",
     "TRAFIK-SOSMED",
     "TRAFIK-BANK-MARKET",
     "TRAFIK-STREAMING",
@@ -154,12 +169,20 @@ DOMAIN_RULES: Dict[str, List[str]] = {
         "redditstatic.com",
         "redditinc.com",
     ],
-    G_SOCIAL_BANK_MARKET: [
-        # social media and communication, including LinkedIn
+    G_LINKEDIN: [
         "linkedin.com",
         "licdn.com",
         "lnkd.in",
         "linkedin.cn",
+    ],
+    G_BLIBLI: [
+        "blibli.com",
+        "blibli.co.id",
+        "static-src.com",
+        "blibli.app",
+    ],
+    G_SOCIAL_BANK_MARKET: [
+        # social media and communication, except LinkedIn which has a dedicated group
         "whatsapp.com",
         "whatsapp.net",
         "telegram.org",
@@ -210,7 +233,6 @@ DOMAIN_RULES: Dict[str, List[str]] = {
         "shopee.com",
         "lazada.co.id",
         "bukalapak.com",
-        "blibli.com",
         "tiket.com",
         "traveloka.com",
         "gojek.com",
@@ -613,6 +635,11 @@ def add_input_proxies(data: Dict[str, Any], input_proxies: Sequence[Dict[str, An
             final_name = f"{name}-{suffix}"
             suffix += 1
         clean["name"] = final_name
+        # Keep final injected name for special groups such as UTAMA/REDDIT/LINKEDIN/BLIBLI.
+        try:
+            p["_final_name"] = final_name
+        except Exception:
+            pass
         proxies.append(clean)
         existing.add(final_name)
         added += 1
@@ -643,6 +670,44 @@ def manual_input_names_from_data(data: Dict[str, Any]) -> List[str]:
     names = proxy_names(data)
     tmap = type_by_name(data)
     return [n for n in names if tmap.get(n) == "vmess" and name_has_keyword(n, ["input", "manual", "trusted", "link"])]
+
+
+def final_input_name(proxy: Dict[str, Any]) -> str:
+    return str(proxy.get("_final_name") or proxy.get("name") or "").strip()
+
+
+def input_names_by_keyword(
+    data: Dict[str, Any],
+    input_proxies: Sequence[Dict[str, Any]],
+    keywords: Sequence[str],
+    allowed_types: Optional[Set[str]] = None,
+    fallback_scan_output: bool = True,
+) -> List[str]:
+    tmap = type_by_name(data)
+    names: List[str] = []
+
+    # Prefer exact final names injected from input/links.txt.
+    for proxy in input_proxies:
+        name = final_input_name(proxy)
+        ptype = str(proxy.get("type") or "").lower()
+        if not name or not name_has_keyword(name, keywords):
+            continue
+        if allowed_types and ptype not in allowed_types:
+            continue
+        names.append(name)
+
+    # Fallback for repositories where the node already existed before this script ran
+    # or was renamed by an earlier generator stage. This keeps the group usable,
+    # but input names are still prioritized above source/output names.
+    if fallback_scan_output:
+        for name in proxy_names(data):
+            if not name_has_keyword(name, keywords):
+                continue
+            if allowed_types and tmap.get(name) not in allowed_types:
+                continue
+            names.append(name)
+
+    return refs_are_proxies(data, unique_keep_order(names))
 
 
 def pick_candidates(data: Dict[str, Any], prefer: Sequence[str], limit: int) -> List[str]:
@@ -683,31 +748,68 @@ def build_groups(data: Dict[str, Any], input_proxies: Sequence[Dict[str, Any]]) 
     names = proxy_names(data)
     tmap = type_by_name(data)
 
-    # Match input proxies by original names, plus existing generated manual/input names.
-    input_names = {str(p.get("name")) for p in input_proxies if p.get("name")}
-    input_vmess = [n for n in names if n in input_names and tmap.get(n) == "vmess"]
-    input_vmess.extend(manual_input_names_from_data(data))
-    input_vmess = refs_are_proxies(data, input_vmess)
+    allowed_input_types = {"vmess", "vless", "trojan"}
 
-    reddit_input_names = [str(p.get("name")) for p in input_proxies if p.get("name") and "reddit" in str(p.get("name")).lower()]
-    reddit_output_names = [n for n in names if "reddit" in n.lower()]
-    reddit_nodes = refs_are_proxies(data, unique_keep_order(reddit_input_names + reddit_output_names))
+    # VMess manual pool kept for compatibility with earlier user request.
+    # Use every VMess parsed from input/links.txt, not a broad name keyword like "link"
+    # because that would accidentally match names such as "linkedin".
+    input_vmess = refs_are_proxies(
+        data,
+        unique_keep_order(
+            [final_input_name(p) for p in input_proxies if str(p.get("type") or "").lower() == "vmess"]
+            + manual_input_names_from_data(data)
+        ),
+    )
 
-    responsive = refs_are_proxies(data, pick_candidates(data, unique_keep_order(input_vmess + reddit_nodes), max_candidates))
+    # Special node groups are selected by node name in input/links.txt.
+    utama_nodes = input_names_by_keyword(
+        data,
+        input_proxies,
+        ["utama", "main", "primary", "prioritas", "default"],
+        allowed_types=allowed_input_types,
+        fallback_scan_output=True,
+    )
+    reddit_nodes = input_names_by_keyword(
+        data,
+        input_proxies,
+        ["reddit"],
+        allowed_types=allowed_input_types,
+        fallback_scan_output=True,
+    )
+    linkedin_nodes = input_names_by_keyword(
+        data,
+        input_proxies,
+        ["linkedin", "linkdin", "linked-in"],
+        allowed_types=allowed_input_types,
+        fallback_scan_output=True,
+    )
+    blibli_nodes = input_names_by_keyword(
+        data,
+        input_proxies,
+        ["blibli"],
+        allowed_types=allowed_input_types,
+        fallback_scan_output=True,
+    )
+
+    special_first = unique_keep_order(utama_nodes + reddit_nodes + linkedin_nodes + blibli_nodes + input_vmess)
+    responsive = refs_are_proxies(data, pick_candidates(data, special_first, max_candidates))
 
     groups: List[Dict[str, Any]] = [
-        make_select(G_PROXY, [G_AUTO, G_FALLBACK, G_INPUT, G_REDDIT, G_SOCIAL_BANK_MARKET, G_DEFAULT, G_BYPASS]),
+        make_select(G_PROXY, [G_UTAMA, G_AUTO, G_FALLBACK, G_INPUT, G_REDDIT, G_LINKEDIN, G_BLIBLI, G_SOCIAL_BANK_MARKET, G_DEFAULT, G_BYPASS]),
+        make_fallback(G_UTAMA, utama_nodes, interval) if utama_nodes else make_select(G_UTAMA, [G_INPUT, G_AUTO, G_FALLBACK, "DIRECT"]),
         make_url_test(G_AUTO, responsive, interval, tolerance),
         make_fallback(G_FALLBACK, responsive, interval),
-        make_fallback(G_INPUT, input_vmess, interval) if input_vmess else make_select(G_INPUT, [G_AUTO, G_FALLBACK, G_DEFAULT, "DIRECT"]),
-        make_fallback(G_REDDIT, reddit_nodes, interval) if reddit_nodes else make_select(G_REDDIT, [G_INPUT, G_AUTO, G_FALLBACK, G_DEFAULT, "DIRECT"]),
-        make_select(G_SOCIAL_BANK_MARKET, [G_INPUT, G_AUTO, G_FALLBACK, G_DEFAULT, "DIRECT"]),
-        make_select(G_STREAMING, [G_AUTO, G_FALLBACK, G_INPUT, G_DEFAULT, "DIRECT"]),
-        make_select(G_GAME, [G_AUTO, G_FALLBACK, G_INPUT, G_DEFAULT, "DIRECT"]),
-        make_select(G_AI, [G_AUTO, G_FALLBACK, G_INPUT, G_DEFAULT, "DIRECT"]),
-        make_select(G_WORK, [G_AUTO, G_FALLBACK, G_INPUT, G_DEFAULT, "DIRECT"]),
-        make_select(G_DOWNLOAD, [G_FALLBACK, G_AUTO, G_INPUT, G_DEFAULT, "DIRECT"]),
-        make_select(G_DEFAULT, [G_AUTO, G_FALLBACK, G_INPUT, "DIRECT"]),
+        make_fallback(G_INPUT, input_vmess, interval) if input_vmess else make_select(G_INPUT, [G_UTAMA, G_AUTO, G_FALLBACK, "DIRECT"]),
+        make_fallback(G_REDDIT, reddit_nodes, interval) if reddit_nodes else make_select(G_REDDIT, [G_UTAMA, G_INPUT, G_AUTO, G_FALLBACK, "DIRECT"]),
+        make_fallback(G_LINKEDIN, linkedin_nodes, interval) if linkedin_nodes else make_select(G_LINKEDIN, [G_UTAMA, G_INPUT, G_AUTO, G_FALLBACK, "DIRECT"]),
+        make_fallback(G_BLIBLI, blibli_nodes, interval) if blibli_nodes else make_select(G_BLIBLI, [G_UTAMA, G_INPUT, G_AUTO, G_FALLBACK, "DIRECT"]),
+        make_select(G_SOCIAL_BANK_MARKET, [G_UTAMA, G_INPUT, G_AUTO, G_FALLBACK, "DIRECT"]),
+        make_select(G_STREAMING, [G_UTAMA, G_AUTO, G_FALLBACK, G_INPUT, "DIRECT"]),
+        make_select(G_GAME, [G_UTAMA, G_AUTO, G_FALLBACK, G_INPUT, "DIRECT"]),
+        make_select(G_AI, [G_UTAMA, G_AUTO, G_FALLBACK, G_INPUT, "DIRECT"]),
+        make_select(G_WORK, [G_UTAMA, G_AUTO, G_FALLBACK, G_INPUT, "DIRECT"]),
+        make_select(G_DOWNLOAD, [G_FALLBACK, G_AUTO, G_UTAMA, G_INPUT, "DIRECT"]),
+        make_select(G_DEFAULT, [G_UTAMA, G_AUTO, G_FALLBACK, G_INPUT, "DIRECT"]),
         make_select(G_BYPASS, ["DIRECT", G_DEFAULT]),
         make_select(G_BLOCK, ["REJECT", G_BYPASS, G_DEFAULT]),
     ]
@@ -770,7 +872,10 @@ def build_groups(data: Dict[str, Any], input_proxies: Sequence[Dict[str, Any]]) 
     stats = {
         "removed_groups": unique_keep_order(removed),
         "input_vmess_nodes": input_vmess,
+        "utama_nodes": utama_nodes,
         "reddit_nodes": reddit_nodes,
+        "linkedin_nodes": linkedin_nodes,
+        "blibli_nodes": blibli_nodes,
         "responsive_candidates": responsive,
         "load_balance_emitted": False,
     }
@@ -926,7 +1031,7 @@ def main() -> int:
                 break
 
     report = {
-        "schema": "sumberyaml.openclash-strict-safe-fix.v1",
+        "schema": "sumberyaml.openclash-strict-safe-special-nodes.v1",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "root": str(root),
         "input": input_stats,
@@ -952,7 +1057,7 @@ def main() -> int:
     if failed:
         print(json.dumps({"failed": failed}, indent=2, ensure_ascii=False))
         return 1
-    print(f"Strict-safe OpenClash fix applied to {len(processed)} file(s). Report: {REPORT_PATH}")
+    print(f"Strict-safe OpenClash special-node routing applied to {len(processed)} file(s). Report: {REPORT_PATH}")
     return 0
 
 

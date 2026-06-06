@@ -16,7 +16,7 @@ cp "$ROOT/scripts/validate_openclash_outputs.py" "$TARGET/scripts/validate_openc
 cp "$ROOT/scripts/assert_latest_openclash_outputs.py" "$TARGET/scripts/assert_latest_openclash_outputs.py"
 cp "$ROOT/scripts/force_output_update_marker.py" "$TARGET/scripts/force_output_update_marker.py"
 cp "$ROOT/.github/workflows/update-openclash.yml" "$TARGET/.github/workflows/update-openclash.yml"
-cp "$ROOT/README_OPENCLASH_STRICT_SAFE_FIX_PATCH.md" "$TARGET/README_OPENCLASH_STRICT_SAFE_FIX_PATCH.md"
+cp "$ROOT/README_STRICT_SAFE_SPECIAL_NODES_PATCH.md" "$TARGET/README_STRICT_SAFE_SPECIAL_NODES_PATCH.md"
 chmod +x "$TARGET/scripts/apply_openclash_strict_safe_fix.py" \
          "$TARGET/scripts/validate_openclash_outputs.py" \
          "$TARGET/scripts/assert_latest_openclash_outputs.py" \

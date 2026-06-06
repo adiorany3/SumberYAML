@@ -12,10 +12,14 @@ REQUIRED_REPORTS = [
     "output/Validation/last_run.json",
 ]
 REQUIRED_GROUPS = {
-    "PROXY", "AUTO", "FALLBACK", "INPUT-VMESS", "REDDIT", "SOCIAL-BANK-MARKET", "DEFAULT", "BYPASS", "BLOCK"
+    "PROXY", "AUTO", "FALLBACK", "INPUT-VMESS", "UTAMA", "REDDIT",
+    "LINKEDIN", "BLIBLI", "SOCIAL-BANK-MARKET", "DEFAULT", "BYPASS", "BLOCK"
 }
-REQUIRED_TARGETS = {"REDDIT", "SOCIAL-BANK-MARKET", "DEFAULT"}
-BLOCKED_GROUPS = {"INPUT-VMESS-LB", "REDDIT-INPUT", "PILIHAN-UTAMA", "TRAFIK-SOSMED", "TRAFIK-BANK-MARKET"}
+REQUIRED_TARGETS = {"REDDIT", "LINKEDIN", "BLIBLI", "SOCIAL-BANK-MARKET", "DEFAULT"}
+BLOCKED_GROUPS = {
+    "INPUT-VMESS-LB", "REDDIT-INPUT", "LINKEDIN-INPUT", "BLIBLI-INPUT",
+    "PILIHAN-UTAMA", "TRAFIK-SOSMED", "TRAFIK-BANK-MARKET"
+}
 
 
 def target(rule: str) -> Optional[str]:
@@ -70,7 +74,7 @@ def main() -> int:
         for e in errors:
             print(e)
         return 1 if args.strict else 0
-    print("Latest strict-safe OpenClash output features OK")
+    print("Latest strict-safe special-node OpenClash output features OK")
     return 0
 
 
