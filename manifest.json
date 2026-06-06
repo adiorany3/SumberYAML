@@ -1,14 +1,16 @@
 {
-  "name": "SumberYAML Rule Focus Selector Only Patch",
-  "version": "2026-06-06-rule-focus-direct-reject-selector-only",
+  "name": "SumberYAML Smart QoS OpenClash Safe Patch",
+  "version": "2026-06-06-smart-qos-openclash-safe",
   "files": [
     "scripts/apply_openclash_responsive_stability.py",
     "scripts/apply_openclash_rule_focus.py",
+    "scripts/apply_openclash_smart_qos.py",
     "scripts/validate_openclash_outputs.py",
     ".github/workflows/update-openclash.yml",
     "README_SMART_SAFE_GENERATOR_PATCH.md",
     "README_RULE_FOCUS_SMART_SAFE_PATCH.md",
     "README_SELECTOR_ONLY_POLICY.md",
+    "README_SMART_QOS_OPENCLASH_SAFE_PATCH.md",
     "install_patch.sh",
     "manifest.json"
   ],
@@ -22,6 +24,7 @@
     "node_score_cache": "cache/node_score.json",
     "smart_safe_report": "output/Validation/smart_safe_report.json",
     "rule_focus_report": "output/Validation/rule_focus_report.json",
+    "smart_qos_report": "output/Validation/smart_qos_report.json",
     "manual_server_override": "104.17.3.81",
     "manual_server_override_policy": "cdn-compatible only: vmess/vless/trojan with ws/grpc/h2/http; skip reality/raw tcp",
     "drop_proxy_types": [
@@ -30,23 +33,24 @@
     ],
     "openclash_safe_mode": true,
     "rule_focus_enabled": true,
-    "rule_focus_groups": [
-      "WEB-AI",
-      "WEB-STREAMING",
-      "WEB-SOCIAL",
-      "WEB-GAMING",
-      "WEB-BANKING",
-      "WEB-MARKETPLACE",
-      "WEB-DEV",
-      "WEB-GOOGLE",
-      "WEB-DEFAULT"
+    "smart_qos_enabled": true,
+    "smart_qos_scope": "policy routing inside Clash/OpenClash YAML, not Linux SQM/CAKE traffic shaping",
+    "smart_qos_groups": [
+      "QOS-REALTIME",
+      "QOS-GAMING",
+      "QOS-STREAMING",
+      "QOS-AI",
+      "QOS-SOCIAL",
+      "QOS-WORK",
+      "QOS-BANKING",
+      "QOS-MARKETPLACE",
+      "QOS-DOWNLOAD",
+      "QOS-BYPASS",
+      "QOS-BLOCK",
+      "QOS-DEFAULT"
     ],
-    "rule_focus_rule_type": "DOMAIN-SUFFIX inserted before MATCH",
-    "direct_reject_policy": "DIRECT/REJECT only inside select proxy-groups; rules target WEB-BYPASS/WEB-BLOCK instead",
-    "bypass_group": "WEB-BYPASS",
-    "block_group": "WEB-BLOCK",
-    "banking_direct_first": true,
-    "marketplace_direct_first": true,
+    "smart_qos_rule_type": "DOMAIN-SUFFIX/IP-CIDR inserted before MATCH; MATCH can be retargeted to QOS-DEFAULT",
+    "direct_reject_policy": "DIRECT/REJECT only inside select proxy-groups; rules target WEB-BYPASS/WEB-BLOCK/QOS-BYPASS/QOS-BLOCK instead",
     "risky_group_keys_removed": [
       "timeout",
       "lazy"
