@@ -1,0 +1,15 @@
+proxies:
+  - name: "CZ CZ-46.8.113.142-0135"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "ch-2.bexum.fun"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ch-2.bexum.fun"
+    udp: true

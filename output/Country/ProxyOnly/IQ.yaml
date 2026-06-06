@@ -1,0 +1,15 @@
+proxies:
+  - name: "IQ IQ-130.94.97.11-0132"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Z3_=ewk_+l1U4OT4usQ5=o2vFfk95yfy1V"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.selectnet.click"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.selectnet.click"
+    udp: true

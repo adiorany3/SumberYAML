@@ -1,0 +1,216 @@
+# Auto generated usage profile OpenClash config
+# Output: output/gaming.yaml
+# Profile group: GAMING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "0 --30"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "tilebani.com"
+    udp: true
+  - name: "0 --32"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "f.khilei.com"
+    udp: true
+  - name: "0 --86"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "aveiror.com"
+    udp: true
+  - name: "0 -https t.me MrXbin-97"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "o.metuji.com"
+    udp: true
+  - name: "11https t.me ConfigX2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 228639b0-48de-4162-a818-d5651ee297b3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "investors.spotify.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "investors.spotify.com.cyylr.eu.cc"
+    udp: true
+  - name: "1https t.me ConfigX2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 27302727-9dfa-4975-990e-88c7a63747cd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "oiov.pages.dev"
+    ws-opts:
+      path: "/index.html"
+      headers:
+        Host: "oiov.pages.dev"
+    udp: true
+  - name: "2 DE V2ngFast"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "1111"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.sobehab951.workers.dev"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.sobehab951.workers.dev"
+    udp: true
+  - name: "38 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 933e8995-3b6d-4d42-8b23-e649f0e7205f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "resources.office.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "resources.office.com.r3xxe.eu.cc"
+    udp: true
+  - name: "4 DE V2ngFast"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "1111"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jayag42786.workers.dev"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.jayag42786.workers.dev"
+    udp: true
+  - name: "6 DE V2ngFast"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "7964"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.novaye6130.workers.dev"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "v2ngfast-v2ngfast-v2ngfast-v2ngfast.novaye6130.workers.dev"
+    udp: true
+
+proxy-groups:
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "0 --30"
+      - "0 --32"
+      - "0 --86"
+      - "0 -https t.me MrXbin-97"
+      - "11https t.me ConfigX2ray"
+      - "1https t.me ConfigX2ray"
+      - "2 DE V2ngFast"
+      - "38 oneclickvpnkeys"
+      - "4 DE V2ngFast"
+      - "6 DE V2ngFast"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GAMING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

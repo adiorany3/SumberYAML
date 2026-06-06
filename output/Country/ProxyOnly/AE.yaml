@@ -14,22 +14,37 @@ proxies:
       headers:
         Host: "edu.ruangguru.com.cyylr.eu.cc"
     udp: true
-  - name: "NETMelliAnti"
+  - name: "V2ray_official"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 1b730662-586f-486f-8b7b-60a93d804175
+    uuid: 334e484f-7f7c-4895-a6e4-8951de2626f8
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "graph.instagram.com.cyylr.eu.cc"
+    servername: "unnes.ac.id.cyylr.eu.cc"
     ws-opts:
       path: "/ae-bo"
       headers:
-        Host: "graph.instagram.com.cyylr.eu.cc"
+        Host: "unnes.ac.id.cyylr.eu.cc"
     udp: true
-  - name: "V2ray_official"
+  - name: "nitruStore 624"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 8ad2869d-1571-45cc-8d02-10aea6d600ac
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "partner.catchplay.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "partner.catchplay.com.cyylr.eu.cc"
+    udp: true
+  - name: "V2ray_official 8384"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -43,4 +58,33 @@ proxies:
       path: "/ae-bo"
       headers:
         Host: "collection.linefriends.com.cyylr.eu.cc"
+    udp: true
+  - name: "AE AE VLESS vpnfree85 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ea470142-10c6-4b1f-a8e6-0ddcc78a4058
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "protectnet.cloudinohost.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "protectnet.cloudinohost.com"
+    udp: true
+  - name: "hi_proxy_iran 8584"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "aa710f78-eddb-45b4-bd32-1f8692a754e5"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "s.blibli.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/ae-bo"
+      headers:
+        Host: "s.blibli.com.cyylr.eu.cc"
     udp: true

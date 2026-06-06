@@ -1,0 +1,16 @@
+proxies:
+  - name: "v2ray_configs_pools 6561"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a13df940-020c-465f-bc89-ee5279b5cd6a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ht.ylks.xyz"
+    ws-opts:
+      path: "/blue"
+      headers:
+        Host: "ht.ylks.xyz"
+    udp: true

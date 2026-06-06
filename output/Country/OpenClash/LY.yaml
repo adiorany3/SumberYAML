@@ -1,3 +1,6 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -8,100 +11,51 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
 keep-alive-idle: 600
 keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
+
 profile:
   store-selected: true
   store-fake-ip: true
+
 dns:
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
   listen: 0.0.0.0:7874
   nameserver:
-  - 1.1.1.1
-  - 8.8.8.8
+    - 1.1.1.1
+    - 8.8.8.8
   fallback:
-  - 1.0.0.1
-  - 8.8.4.4
+    - 1.0.0.1
+    - 8.8.4.4
+
 proxies:
-- name: https telegraph.rayan.dpdns.org persian
-  server: 104.17.3.81
-  port: 443
-  type: vless
-  uuid: 1679af35-6dd6-4c09-ae3b-18f239217f3e
-  cipher: none
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  servername: rAyAn-007.pArViN.DpDnS.OrG
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: rayan-007.parvin.dpdns.org
-  udp: true
-- name: Google
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
-  udp: true
-  network: ws
-  security: tls
-  sni: investors.spotify.com.r3xxe.eu.cc
-  ws-opts:
-    path: /us-gllc
-    headers:
-      Host: investors.spotify.com.r3xxe.eu.cc
+  - name: "https telegraph.rayan.dpdns.org persian"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1679af35-6dd6-4c09-ae3b-18f239217f3e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rAyAn-007.pArViN.DpDnS.OrG"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "rayan-007.parvin.dpdns.org"
+    udp: true
+
 proxy-groups:
-- name: PROXY
-  type: select
-  proxies:
-  - GOOGLE
-  - DIRECT
-  - REJECT
-- name: GOOGLE
-  type: fallback
-  proxies:
-  - Google
-  url: http://www.gstatic.com/generate_204
-  interval: 60
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "REJECT"
+
 rules:
-- DOMAIN-SUFFIX,google.com,GOOGLE
-- DOMAIN-SUFFIX,google.co.id,GOOGLE
-- DOMAIN-SUFFIX,googleusercontent.com,GOOGLE
-- DOMAIN-SUFFIX,googleapis.com,GOOGLE
-- DOMAIN-SUFFIX,gstatic.com,GOOGLE
-- DOMAIN-SUFFIX,ggpht.com,GOOGLE
-- DOMAIN-SUFFIX,gvt1.com,GOOGLE
-- DOMAIN-SUFFIX,gvt2.com,GOOGLE
-- DOMAIN-SUFFIX,gvt3.com,GOOGLE
-- DOMAIN-SUFFIX,googlevideo.com,GOOGLE
-- DOMAIN-SUFFIX,youtube.com,GOOGLE
-- DOMAIN-SUFFIX,youtu.be,GOOGLE
-- DOMAIN-SUFFIX,ytimg.com,GOOGLE
-- DOMAIN-SUFFIX,youtubei.googleapis.com,GOOGLE
-- DOMAIN-SUFFIX,youtube-nocookie.com,GOOGLE
-- DOMAIN-SUFFIX,gmail.com,GOOGLE
-- DOMAIN-SUFFIX,googlemail.com,GOOGLE
-- DOMAIN-SUFFIX,googledrive.com,GOOGLE
-- DOMAIN-SUFFIX,drive.google.com,GOOGLE
-- DOMAIN-SUFFIX,docs.google.com,GOOGLE
-- DOMAIN-SUFFIX,meet.google.com,GOOGLE
-- DOMAIN-SUFFIX,googlemeet.com,GOOGLE
-- DOMAIN-SUFFIX,blogger.com,GOOGLE
-- DOMAIN-SUFFIX,blogspot.com,GOOGLE
-- DOMAIN-SUFFIX,appspot.com,GOOGLE
-- DOMAIN-SUFFIX,firebaseio.com,GOOGLE
-- DOMAIN-SUFFIX,firebase.google.com,GOOGLE
-- DOMAIN-SUFFIX,googleadservices.com,GOOGLE
-- DOMAIN-SUFFIX,googlesyndication.com,GOOGLE
-- DOMAIN-SUFFIX,googletagmanager.com,GOOGLE
-- DOMAIN-SUFFIX,google-analytics.com,GOOGLE
-- DOMAIN-SUFFIX,doubleclick.net,GOOGLE
-- DOMAIN-SUFFIX,android.com,GOOGLE
-- DOMAIN-SUFFIX,chrome.com,GOOGLE
-- DOMAIN-SUFFIX,chromium.org,GOOGLE
-- DOMAIN-SUFFIX,g.co,GOOGLE
-- MATCH,PROXY
+  - MATCH,PROXY

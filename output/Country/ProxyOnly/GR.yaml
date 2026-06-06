@@ -1,0 +1,16 @@
+proxies:
+  - name: "Morrfinchnl"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 56837126-f0fa-4548-87e9-920066bc6a7d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdn-gr.hardwarenew.ir."
+    ws-opts:
+      path: "/news"
+      headers:
+        Host: "cdn-gr.hardwarenew.ir."
+    udp: true

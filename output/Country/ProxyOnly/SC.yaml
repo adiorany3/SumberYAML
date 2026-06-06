@@ -14,3 +14,47 @@ proxies:
       headers:
         Host: "dfsuporte.garena.com.ex33r.eu.cc"
     udp: true
+  - name: "SC SC VLESS ai_duet 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 406d8436-0eb9-4eb2-84fb-960e076ffba6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.130.125.160"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "45.130.125.160"
+    udp: true
+  - name: "SC SC VLESS mpproxy 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "srv1.khatibirepair.ir"
+    ws-opts:
+      path: "/?ed"
+      headers:
+        Host: "srv1.khatibirepair.ir"
+    udp: true
+  - name: "SC SC TROJAN bored_vpn 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "45.130.125.76"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "45.130.125.76"
+    udp: true

@@ -1,0 +1,15 @@
+proxies:
+  - name: "HajmVPN_Config UM"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cdn.linkman1.ir"
+    ws-opts:
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      headers:
+        Host: "cdn.linkman1.ir"
+    udp: true

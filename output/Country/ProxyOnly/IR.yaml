@@ -1,5 +1,360 @@
 proxies:
-  - name: "v2ray_configs_pools 9811"
+  - name: "XX XX VMESS ir_netproxy 1"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 1
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "ophelia.mom"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "ophelia.mom"
+    udp: true
+  - name: "IR IR VMESS khoneproxy 1"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: d12bc882-43c7-415e-87c5-2a7fdc8371c0
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "37.32.23.122"
+    network: ws
+    ws-opts:
+      path: "/websocket/"
+      headers:
+        Host: "37.32.23.122"
+    udp: true
+  - name: "GOLD_VPN_IR"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 78bb6c0b-a773-40d1-8bc6-55331bd49138
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "MciNnnnew.dr-ping.ir"
+    network: ws
+    ws-opts:
+      path: "/DrPing_channel"
+      headers:
+        Host: "MciNnnnew.dr-ping.ir"
+    udp: true
+  - name: "v2ray_configs_pool IR IranTehranping 1142ms"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: e02a21d0-878b-aec2-01b2-7217da287276
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "myket.ir"
+    network: tcp
+    udp: true
+  - name: "soscw 6584"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 7d422fe5-eca7-4e37-89d5-1b71f656759a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "bsi.ir"
+    network: tcp
+    udp: true
+  - name: "ConfigV2RayNG 2990"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "159.69.248.191"
+    network: tcp
+    udp: true
+  - name: "USA01-ipv6"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 2ddcf12d-52fa-4e09-b4f1-c52d5cbee69b
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "vc-usa.181227.xyz"
+    network: ws
+    ws-opts:
+      path: "/vcus"
+      headers:
+        Host: "vc-usa.181227.xyz"
+    udp: true
+  - name: "tootffarangi 5"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0a2f8145-290f-4848-a011-3d1e5fe62a14
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ssj.new-persian-song.ir"
+    ws-opts:
+      path: "/?ed=80"
+      headers:
+        Host: "ssj.new-persian-song.ir"
+    udp: true
+  - name: "Telegram V2ynpv 4939"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 160909d1-9d69-4bc2-b15a-33ff13c9b150
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "craftedrpg.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "craftedrpg.ir"
+    udp: true
+  - name: "V2rayng_Fast"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1da09875-d12a-443e-a5c2-766f6a422585
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cyrus2.frtshop.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cyrus2.frtshop.ir"
+    udp: true
+  - name: "IR- V2rayAlpha-8"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1e681d1b-3f6e-4bd4-9fed-b8976bd1b3be
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "afrcloud22.mmv.kr"
+    ws-opts:
+      path: "/45.76.192.129=24434"
+      headers:
+        Host: "afrcloud22.mmv.kr"
+    udp: true
+  - name: "meliproxyy 2896"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2995bd22-905d-e152-89f5-5e1b668c0944
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdn-pro1.topshopingg.com."
+    ws-opts:
+      path: "/ws?ed=2560"
+      headers:
+        Host: "cdn-pro1.topshopingg.com."
+    udp: true
+  - name: "telegram mtmvpn"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2d1e9abf-9656-4367-9585-44fe82f54f7a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ssj.new-persian-song.ir"
+    ws-opts:
+      path: "/?ed"
+      headers:
+        Host: "ssj.new-persian-song.ir"
+    udp: true
+  - name: "FreeConfigForYou 6453"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2d580b20-6228-4a88-b11d-78da48631efb
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdn-pro2.postshup.ir."
+    ws-opts:
+      path: "/news"
+      headers:
+        Host: "cdn-pro2.postshup.ir."
+    udp: true
+  - name: "Telegram V2ynpv 7571"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 30689d42-d2f2-4495-a49b-dd0fdba10fb8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "harro-likeh2.sdcards1.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "harro-likeh2.sdcards1.ir"
+    udp: true
+  - name: "IR 53087 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 3e40c799-dc8f-4155-a1bc-6a515f7cd0c2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "backend.parhamm2.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "backend.parhamm2.ir"
+    udp: true
+  - name: "Hunnter_VPN"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 421e0bf7-fecd-4983-911e-9b41159389fc
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "vaslbashi.tooorkshop.ir"
+    ws-opts:
+      path: "/bspath"
+      headers:
+        Host: "vaslbashi.tooorkshop.ir"
+    udp: true
+  - name: "on_proxy1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4a34a5f2-f155-415c-b09c-973ce7bdab35
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "portal.iranisystem.com"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "portal.iranisystem.com"
+    udp: true
+  - name: "VPsave 4243"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 63195e63-a545-42af-a544-a79f2ff3f4d1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.speedtest24.ir"
+    ws-opts:
+      path: "/apps/android"
+      headers:
+        Host: "www.speedtest24.ir"
+    udp: true
+  - name: "chillguy_vpn 8663"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 75d38336-9562-4cdd-93dc-59f96c6ff208
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "s3.zynavor.ir"
+    ws-opts:
+      path: "/BetForward?ed=2048"
+      headers:
+        Host: "s3.zynavor.ir"
+    udp: true
+  - name: "Telegram V2ynpv 1617"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 8ae40bd9-f769-4b1b-bf89-fde9d5afc4c5
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pmeli.express-servers.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "pmeli.express-servers.ir"
+    udp: true
+  - name: "Azarakhsh_Proxy 3055"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9866995e-7225-4919-8de8-19a3f941c4d4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "Zmaoz.Faculty.Ucdavis.Edu"
+    ws-opts:
+      path: "/@custom_config?ed=2560"
+      headers:
+        Host: "downloadlynet.ir."
+    udp: true
+  - name: "v2rayngzendegimamad 5865"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 98d677be-b14b-4c14-a96b-4a39a3be645a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t86y6leiyaph7tsvb170x7vfx0-3dvh3.vrezht08.workers.dev"
+    ws-opts:
+      path: "/eyJqdW5rIjoiZHJmTGlJSmciLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560"
+      headers:
+        Host: "t86y6leiyaph7tsvb170x7vfx0-3dvh3.vrezht08.workers.dev"
+    udp: true
+  - name: "IR- V2rayAlpha-10"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ProxyVPN11.afrcloud22.mmv.kr"
+    ws-opts:
+      path: "/43.218.77.16=1443"
+      headers:
+        Host: "afrcloud22.mmv.kr"
+    udp: true
+  - name: "v2ray_configs_pools 7942"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -13,4 +368,357 @@ proxies:
       path: "/?edfp"
       headers:
         Host: "sheynezterary.iran-tube-movie.ir"
+    udp: true
+  - name: "V2rayng_Fast 6776"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c387b0f2-5d9e-4c95-882d-1d5eeb443ce2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nginx-3b1e7ed824-abol.apps.ir-central1.arvancaas.ir"
+    ws-opts:
+      path: "/movie"
+      headers:
+        Host: "nginx-3b1e7ed824-abol.apps.ir-central1.arvancaas.ir"
+    udp: true
+  - name: "IR 53096 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c9c826a7-37eb-4414-9c37-a75347659a95
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cyrus2.frtshop.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cyrus2.frtshop.ir"
+    udp: true
+  - name: "IR- V2rayAlpha-11"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d85ea913-7dfa-44b0-bd66-33414e897991
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "afrcloud22.mmv.kr"
+    ws-opts:
+      path: "/35.230.79.26=443"
+      headers:
+        Host: "afrcloud22.mmv.kr"
+    udp: true
+  - name: "KAFING_2 4189"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: dd0cfef0-fda9-47ec-8a65-49d7bc004f82
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.getasa.ir"
+    ws-opts:
+      path: "/--Telegram---@MiTiVPN/---@MiTiVPN/---MiTiVPN/---@MiTiVPN"
+      headers:
+        Host: "www.getasa.ir"
+    udp: true
+  - name: "Telegram V2ynpv 5136"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: dd0cfef0-fda9-47ec-8a65-49d7bc004f82
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dash.getasa.ir"
+    ws-opts:
+      path: "/Telegram@V2ynpv-Telegram@V2ynpv-Telegram@V2ynpv-Telegram@V2ynpv-Telegram@V2ynpv-Telegram@V2ynpv-Telegram@V2ynpv"
+      headers:
+        Host: "dash.getasa.ir"
+    udp: true
+  - name: "v2rayconfigamir 5987"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: dd0cfef0-fda9-47ec-8a65-49d7bc004f82
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "mitivpn-s1.global.ssl.fastly.net"
+    ws-opts:
+      path: "/--Telegram---MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN"
+      headers:
+        Host: "mitivpn-s1.global.ssl.fastly.net"
+    udp: true
+  - name: "V2RFA 1783"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e2bb298a-3c77-4c42-a5b0-614ed0470491
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cyrus2.frtshop.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cyrus2.frtshop.ir"
+    udp: true
+  - name: "IR IR- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e8244af1-231b-4cce-8daa-e8a097053cc0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "snapp.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "snapp.ir"
+    udp: true
+  - name: "V2RFA 9555"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f80e8b3d-422a-49ee-b202-daaf596883ca
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cyrus2.frtshop.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cyrus2.frtshop.ir"
+    udp: true
+  - name: "IR- V2rayAlpha-13"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fef4a93d-eb4f-4657-b56b-32a0dc060045
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dev.nestandneighbours.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "dev.nestandneighbours.com"
+    udp: true
+  - name: "XX XX VLESS freeconfigsplus 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d149575b-5436-4856-b56f-ad744def3696
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dnn.avaaaal.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "dnn.avaaaal.ir"
+    udp: true
+  - name: "XX XX VLESS freev2flyng 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 08c41e17-9d1c-4d4a-9edc-242d3d71c1ac
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "188.114.97.3"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "188.114.97.3"
+    udp: true
+  - name: "XX XX VLESS kesslervpn 2"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0f705100-9799-4e7e-be81-cfcfc6835630
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "104.18.12.149"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "104.18.12.149"
+    udp: true
+  - name: "IR IR VLESS lax_vpn 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 97dce074-7db1-4d59-99ca-0ef8311e2425
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "s19.speedyconnect.pro"
+    ws-opts:
+      path: "/downloader/10005?ed=2048"
+      headers:
+        Host: "s19.speedyconnect.pro"
+    udp: true
+  - name: "XX XX VLESS v2rayng3 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9e13716d-c43d-48b3-8cab-65e02d938ab5
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "chatgpt.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "chatgpt.com"
+    udp: true
+  - name: "IR IR VLESS vip_vpn_2022 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1a83df32-42f2-4395-97bb-1fb91822c630
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "185.143.233.5"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "185.143.233.5"
+    udp: true
+  - name: "IR IR VLESS vmesskhodam 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a95b4308-3f3e-4932-8d2b-b9b310950a4c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "185.143.233.120"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "185.143.233.120"
+    udp: true
+  - name: "TEL Father_vpn2"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cdn.hitgram.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "cdn.hitgram.ir"
+    udp: true
+  - name: "TEL Father_vpn3"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.hitgram.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "www.hitgram.ir"
+    udp: true
+  - name: "TEL Father_vpn4"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.app-cloud.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "www.app-cloud.ir"
+    udp: true
+  - name: "HajmVPN_Config 5175"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "s1.linko1.ir"
+    ws-opts:
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      headers:
+        Host: "s1.linko1.ir"
+    udp: true
+  - name: "HajmVPN_Config 8812"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "s2.linko1.ir"
+    ws-opts:
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production/settings"
+      headers:
+        Host: "s2.linko1.ir"
+    udp: true
+  - name: "vistav2ray 5230"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "ssadszdx.global.ssl.fastly.net.b5r.ir"
+    ws-opts:
+      path: "/https://chatgpt.com"
+      headers:
+        Host: "ssadszdx.global.ssl.fastly.net.b5r.ir"
+    udp: true
+  - name: "XX XX TROJAN outline_ir 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "188.114.97.6"
+    ws-opts:
+      path: "/720f09dba195249b423f771661162528/workers/services/view/mitivpn/production"
+      headers:
+        Host: "188.114.97.6"
     udp: true

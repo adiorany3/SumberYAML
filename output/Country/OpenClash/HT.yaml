@@ -1,0 +1,61 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "v2ray_configs_pools 6561"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a13df940-020c-465f-bc89-ee5279b5cd6a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ht.ylks.xyz"
+    ws-opts:
+      path: "/blue"
+      headers:
+        Host: "ht.ylks.xyz"
+    udp: true
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

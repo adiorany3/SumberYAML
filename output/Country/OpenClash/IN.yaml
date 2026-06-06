@@ -1,3 +1,6 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -8,99 +11,182 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
 keep-alive-idle: 600
 keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
+
 profile:
   store-selected: true
   store-fake-ip: true
+
 dns:
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
   listen: 0.0.0.0:7874
   nameserver:
-  - 1.1.1.1
-  - 8.8.8.8
+    - 1.1.1.1
+    - 8.8.8.8
   fallback:
-  - 1.0.0.1
-  - 8.8.4.4
+    - 1.0.0.1
+    - 8.8.4.4
+
 proxies:
-- name: Arvand_soul 8
-  server: 104.17.3.81
-  port: 443
-  type: trojan
-  password: A_amr79
-  tls: true
-  skip-cert-verify: true
-  network: ws
-  sni: cyylr.eu.cc
-  ws-opts:
-    path: /in-pdr
-    headers:
-      Host: cyylr.eu.cc
-  udp: true
-- name: Google
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
-  udp: true
-  network: ws
-  security: tls
-  sni: investors.spotify.com.r3xxe.eu.cc
-  ws-opts:
-    path: /us-gllc
-    headers:
-      Host: investors.spotify.com.r3xxe.eu.cc
+  - name: "fastkanfig 4"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 266c0d10-d0f4-41f2-9d82-37cedf863fe7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cyylr.eu.cc"
+    ws-opts:
+      path: "/in-pdr"
+      headers:
+        Host: "cyylr.eu.cc"
+    udp: true
+  - name: "V2ray_official 9447"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 559ab675-567f-4d61-a742-877bfd51d87c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "zaintest.vuclip.com.cyylr.eu.cc"
+    udp: true
+  - name: "V2ray_official 9748"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 58341346-98dd-4094-a26c-c378e86261e1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-pdr"
+      headers:
+        Host: "support.zoom.us.cyylr.eu.cc"
+    udp: true
+  - name: "FreeConffning 4178"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cff04824-47a3-4a85-a9df-83af9181f84c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-pdr"
+      headers:
+        Host: "zaintest.vuclip.com.cyylr.eu.cc"
+    udp: true
+  - name: "V2ray_official 4686"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d2992c0d-53cb-489c-85af-5eb80e6d9e79
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "blog.webex.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "blog.webex.com.cyylr.eu.cc"
+    udp: true
+  - name: "XX XX VLESS v2rayngvpn_1 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 559ab675-567f-4d61-a742-877bfd51d87c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "188.114.97.6"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "188.114.97.6"
+    udp: true
+  - name: "IN IN-65.20.90.225-0131"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Tu1fZjElnkRg0ECRj0sI0u54PY8ptUmATg"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.sandbox-cloud.click"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.sandbox-cloud.click"
+    udp: true
+  - name: "fastkanfig 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "6b7f37af-a853-4f01-a031-5fa4eca4f5bf"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "ads.ruangguru.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "ads.ruangguru.com.cyylr.eu.cc"
+    udp: true
+  - name: "V2ray_official 6374"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "investors.spotify.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-pdr"
+      headers:
+        Host: "investors.spotify.com.cyylr.eu.cc"
+    udp: true
+  - name: "VPsave 7988"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "cf3d48cf-750c-4f18-89a7-f81d2e153fbe"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "blog.webex.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "blog.webex.com.cyylr.eu.cc"
+    udp: true
+
 proxy-groups:
-- name: PROXY
-  type: select
-  proxies:
-  - GOOGLE
-  - DIRECT
-  - REJECT
-- name: GOOGLE
-  type: fallback
-  proxies:
-  - Google
-  url: http://www.gstatic.com/generate_204
-  interval: 60
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "REJECT"
+
 rules:
-- DOMAIN-SUFFIX,google.com,GOOGLE
-- DOMAIN-SUFFIX,google.co.id,GOOGLE
-- DOMAIN-SUFFIX,googleusercontent.com,GOOGLE
-- DOMAIN-SUFFIX,googleapis.com,GOOGLE
-- DOMAIN-SUFFIX,gstatic.com,GOOGLE
-- DOMAIN-SUFFIX,ggpht.com,GOOGLE
-- DOMAIN-SUFFIX,gvt1.com,GOOGLE
-- DOMAIN-SUFFIX,gvt2.com,GOOGLE
-- DOMAIN-SUFFIX,gvt3.com,GOOGLE
-- DOMAIN-SUFFIX,googlevideo.com,GOOGLE
-- DOMAIN-SUFFIX,youtube.com,GOOGLE
-- DOMAIN-SUFFIX,youtu.be,GOOGLE
-- DOMAIN-SUFFIX,ytimg.com,GOOGLE
-- DOMAIN-SUFFIX,youtubei.googleapis.com,GOOGLE
-- DOMAIN-SUFFIX,youtube-nocookie.com,GOOGLE
-- DOMAIN-SUFFIX,gmail.com,GOOGLE
-- DOMAIN-SUFFIX,googlemail.com,GOOGLE
-- DOMAIN-SUFFIX,googledrive.com,GOOGLE
-- DOMAIN-SUFFIX,drive.google.com,GOOGLE
-- DOMAIN-SUFFIX,docs.google.com,GOOGLE
-- DOMAIN-SUFFIX,meet.google.com,GOOGLE
-- DOMAIN-SUFFIX,googlemeet.com,GOOGLE
-- DOMAIN-SUFFIX,blogger.com,GOOGLE
-- DOMAIN-SUFFIX,blogspot.com,GOOGLE
-- DOMAIN-SUFFIX,appspot.com,GOOGLE
-- DOMAIN-SUFFIX,firebaseio.com,GOOGLE
-- DOMAIN-SUFFIX,firebase.google.com,GOOGLE
-- DOMAIN-SUFFIX,googleadservices.com,GOOGLE
-- DOMAIN-SUFFIX,googlesyndication.com,GOOGLE
-- DOMAIN-SUFFIX,googletagmanager.com,GOOGLE
-- DOMAIN-SUFFIX,google-analytics.com,GOOGLE
-- DOMAIN-SUFFIX,doubleclick.net,GOOGLE
-- DOMAIN-SUFFIX,android.com,GOOGLE
-- DOMAIN-SUFFIX,chrome.com,GOOGLE
-- DOMAIN-SUFFIX,chromium.org,GOOGLE
-- DOMAIN-SUFFIX,g.co,GOOGLE
-- MATCH,PROXY
+  - MATCH,PROXY

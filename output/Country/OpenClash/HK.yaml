@@ -1,3 +1,6 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -8,101 +11,98 @@ bind-address: '*'
 mode: rule
 log-level: info
 ipv6: false
+unified-delay: true
+tcp-concurrent: true
 keep-alive-idle: 600
 keep-alive-interval: 30
 external-controller: 0.0.0.0:9090
+
 profile:
   store-selected: true
   store-fake-ip: true
+
 dns:
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
   listen: 0.0.0.0:7874
   nameserver:
-  - 1.1.1.1
-  - 8.8.8.8
+    - 1.1.1.1
+    - 8.8.8.8
   fallback:
-  - 1.0.0.1
-  - 8.8.4.4
+    - 1.0.0.1
+    - 8.8.4.4
+
 proxies:
-- name: HK Join Telegram Farah_VPN HK
-  type: vmess
-  server: 104.17.3.81
-  port: 443
-  uuid: 7fd8d1db-96ec-4e46-80a8-74ad9472384e
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: graph-keep-beds-catalog.trycloudflare.com
-  network: ws
-  ws-opts:
-    path: /7fd8d1db-96ec-4e46-80a8-74ad9472384e-vm
-    headers:
-      Host: graph-keep-beds-catalog.trycloudflare.com
-  udp: true
-- name: Google
-  type: trojan
-  server: 104.17.3.81
-  port: 443
-  password: 0a0463fd-546c-44cc-bc1e-da6dd44dcedf
-  udp: true
-  network: ws
-  security: tls
-  sni: investors.spotify.com.r3xxe.eu.cc
-  ws-opts:
-    path: /us-gllc
-    headers:
-      Host: investors.spotify.com.r3xxe.eu.cc
+  - name: "HK HK VMESS freev2rays 1"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: db69d5bc-d36c-4903-f471-74b98c5cefe5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "hk2.lrzdx.uk"
+    network: ws
+    ws-opts:
+      path: "/register"
+      headers:
+        Host: "hk2.lrzdx.uk"
+    udp: true
+  - name: "HK Join Telegram Farah_VPN HK"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 7fd8d1db-96ec-4e46-80a8-74ad9472384e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "graph-keep-beds-catalog.trycloudflare.com"
+    network: ws
+    ws-opts:
+      path: "/7fd8d1db-96ec-4e46-80a8-74ad9472384e-vm"
+      headers:
+        Host: "graph-keep-beds-catalog.trycloudflare.com"
+    udp: true
+  - name: "HK _HK"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 5fdc6ab1-8347-411c-9bbf-fbc3ea853d2f
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "8.210.239.58"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "8.210.239.58"
+    udp: true
+  - name: "HK _HK_ssr MTE2LjE2Mi4xMjAuNDk6NTYwOmF1dGhfYWVzMTI4X21kNTpjaGFjaGEyMC1pZXRmOnBsY"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "fab16fff-d149-417c-bdef-4bfcf2333bbe"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "hkt.iamnotagoodman.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hkt.iamnotagoodman.com"
+    udp: true
+
 proxy-groups:
-- name: PROXY
-  type: select
-  proxies:
-  - GOOGLE
-  - DIRECT
-  - REJECT
-- name: GOOGLE
-  type: fallback
-  proxies:
-  - Google
-  url: http://www.gstatic.com/generate_204
-  interval: 60
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "REJECT"
+
 rules:
-- DOMAIN-SUFFIX,google.com,GOOGLE
-- DOMAIN-SUFFIX,google.co.id,GOOGLE
-- DOMAIN-SUFFIX,googleusercontent.com,GOOGLE
-- DOMAIN-SUFFIX,googleapis.com,GOOGLE
-- DOMAIN-SUFFIX,gstatic.com,GOOGLE
-- DOMAIN-SUFFIX,ggpht.com,GOOGLE
-- DOMAIN-SUFFIX,gvt1.com,GOOGLE
-- DOMAIN-SUFFIX,gvt2.com,GOOGLE
-- DOMAIN-SUFFIX,gvt3.com,GOOGLE
-- DOMAIN-SUFFIX,googlevideo.com,GOOGLE
-- DOMAIN-SUFFIX,youtube.com,GOOGLE
-- DOMAIN-SUFFIX,youtu.be,GOOGLE
-- DOMAIN-SUFFIX,ytimg.com,GOOGLE
-- DOMAIN-SUFFIX,youtubei.googleapis.com,GOOGLE
-- DOMAIN-SUFFIX,youtube-nocookie.com,GOOGLE
-- DOMAIN-SUFFIX,gmail.com,GOOGLE
-- DOMAIN-SUFFIX,googlemail.com,GOOGLE
-- DOMAIN-SUFFIX,googledrive.com,GOOGLE
-- DOMAIN-SUFFIX,drive.google.com,GOOGLE
-- DOMAIN-SUFFIX,docs.google.com,GOOGLE
-- DOMAIN-SUFFIX,meet.google.com,GOOGLE
-- DOMAIN-SUFFIX,googlemeet.com,GOOGLE
-- DOMAIN-SUFFIX,blogger.com,GOOGLE
-- DOMAIN-SUFFIX,blogspot.com,GOOGLE
-- DOMAIN-SUFFIX,appspot.com,GOOGLE
-- DOMAIN-SUFFIX,firebaseio.com,GOOGLE
-- DOMAIN-SUFFIX,firebase.google.com,GOOGLE
-- DOMAIN-SUFFIX,googleadservices.com,GOOGLE
-- DOMAIN-SUFFIX,googlesyndication.com,GOOGLE
-- DOMAIN-SUFFIX,googletagmanager.com,GOOGLE
-- DOMAIN-SUFFIX,google-analytics.com,GOOGLE
-- DOMAIN-SUFFIX,doubleclick.net,GOOGLE
-- DOMAIN-SUFFIX,android.com,GOOGLE
-- DOMAIN-SUFFIX,chrome.com,GOOGLE
-- DOMAIN-SUFFIX,chromium.org,GOOGLE
-- DOMAIN-SUFFIX,g.co,GOOGLE
-- MATCH,PROXY
+  - MATCH,PROXY
