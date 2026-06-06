@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "DE V2ngFast 7174"
+  - name: "DE V2ngFast 6763"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,6 +48,21 @@ proxies:
       path: "/v2ngfast---v2ngfast---v2ngfast---v2ngfast---v2ngfast"
       headers:
         Host: "v2ngfast.jackiuo77.workers.dev"
+    udp: true
+  - name: "DE DE- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0b165a31-75d8-4f7f-a5a9-24d687b5706b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdn-pro1.postshup.ir."
+    ws-opts:
+      path: "/news"
+      headers:
+        Host: "cdn-pro1.postshup.ir."
     udp: true
   - name: "DE t.me Natrixo BB"
     server: "104.17.3.81"

@@ -49,7 +49,7 @@ proxies:
       headers:
         Host: "35cdnws.frnstatic.info"
     udp: true
-  - name: "FR - FR - FreeOnlineVPN"
+  - name: "prrofile_purple FR 7491"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -57,11 +57,25 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.calmlunch.com"
+    sni: "www.calmloud.com"
     ws-opts:
       path: "/assignment"
       headers:
-        Host: "www.calmlunch.com"
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "configV2rayNG FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
     udp: true
 
 proxy-groups:
