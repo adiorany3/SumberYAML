@@ -1,21 +1,22 @@
 {
-  "name": "SumberYAML Clean Responsive Reddit Routing Patch",
-  "version": "2026.06.06-1",
-  "description": "Simplifies OpenClash groups/rules, routes marketplace/social/banking via input VMess load-balance, and creates Reddit-specific routing from input node names containing reddit.",
+  "name": "SumberYAML OpenClash Strict-Safe Fix Patch",
+  "version": "2026-06-06.1",
+  "purpose": "Repair OpenClash config errors by removing load-balance and risky group/rule settings, while keeping input VMess and Reddit routing.",
   "files": [
     ".github/workflows/update-openclash.yml",
-    "scripts/apply_openclash_clean_responsive_rules.py",
+    "scripts/apply_openclash_strict_safe_fix.py",
     "scripts/validate_openclash_outputs.py",
     "scripts/assert_latest_openclash_outputs.py",
     "scripts/force_output_update_marker.py",
-    "README_CLEAN_RESPONSIVE_REDDIT_PATCH.md",
+    "README_OPENCLASH_STRICT_SAFE_FIX_PATCH.md",
     "install_patch.sh"
   ],
-  "openclash_policy": {
-    "direct_reject_selector_only": true,
+  "policy": {
+    "no_load_balance": true,
+    "allowed_group_types": ["select", "url-test", "fallback"],
     "drop_proxy_types": ["ss", "ssr"],
-    "no_risky_group_keys": ["lazy", "timeout"],
-    "reddit_input_node_name_keyword": "reddit",
-    "input_vmess_loadbalance_group": "INPUT-VMESS-LB"
+    "direct_reject_selector_only": true,
+    "server_override": "104.17.3.81",
+    "server_override_scope": "cdn-compatible manual input nodes only"
   }
 }
