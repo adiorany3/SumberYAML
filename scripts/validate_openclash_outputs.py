@@ -9,6 +9,7 @@ from typing import Any, Dict, List, Set
 import yaml
 
 SPECIAL_REFS = {"DIRECT", "REJECT", "PASS", "COMPATIBLE"}
+DIRECT_REJECT_REFS = {"DIRECT", "REJECT"}
 BLOCKED_TYPES = {"ss", "ssr"}
 RISKY_ROOT_KEYS = {"unified-delay", "tcp-concurrent"}
 RISKY_GROUP_KEYS = {"lazy", "timeout"}
@@ -19,6 +20,17 @@ def read_yaml(path: Path) -> Dict[str, Any]:
     if not isinstance(data, dict):
         raise ValueError("YAML root is not a mapping")
     return data
+
+
+def get_rule_target_position(parts: List[str]) -> int | None:
+    if not parts:
+        return None
+    rule_type = parts[0].strip().upper()
+    if rule_type == "MATCH" and len(parts) >= 2:
+        return 1
+    if len(parts) >= 3:
+        return 2
+    return None
 
 
 def validate_file(path: Path) -> List[str]:
@@ -77,12 +89,31 @@ def validate_file(path: Path) -> List[str]:
         if not isinstance(refs, list) or not refs:
             errors.append(f"{path}: proxy-group has no proxies: {gname or idx}")
             continue
+        gtype = str(group.get("type") or "").strip().lower()
         for ref in refs:
             value = str(ref).strip()
             if value == gname:
                 errors.append(f"{path}: proxy-group self reference: {gname}")
             if value not in allowed:
                 errors.append(f"{path}: unknown group reference: {gname} -> {value}")
+            if value in DIRECT_REJECT_REFS and gtype != "select":
+                errors.append(f"{path}: DIRECT/REJECT only allowed inside select group: {gname} -> {value}")
+
+    rules = data.get("rules") or []
+    if isinstance(rules, list):
+        for rule in rules:
+            text = str(rule).strip()
+            if not text or text.startswith("#"):
+                continue
+            parts = [part.strip() for part in text.split(",")]
+            pos = get_rule_target_position(parts)
+            if pos is None or pos >= len(parts):
+                continue
+            target = parts[pos].strip()
+            if target in DIRECT_REJECT_REFS:
+                errors.append(f"{path}: DIRECT/REJECT must not be rule target: {text}")
+            elif target and target not in allowed:
+                errors.append(f"{path}: unknown rule target: {text}")
     return errors
 
 

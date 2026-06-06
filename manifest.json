@@ -1,25 +1,59 @@
 {
-  "name": "SumberYAML Smart Safe Generator Patch",
-  "version": "2026-06-06-smart-safe-generator",
+  "name": "SumberYAML Rule Focus Selector Only Patch",
+  "version": "2026-06-06-rule-focus-direct-reject-selector-only",
   "files": [
     "scripts/apply_openclash_responsive_stability.py",
+    "scripts/apply_openclash_rule_focus.py",
     "scripts/validate_openclash_outputs.py",
     ".github/workflows/update-openclash.yml",
     "README_SMART_SAFE_GENERATOR_PATCH.md",
+    "README_RULE_FOCUS_SMART_SAFE_PATCH.md",
+    "README_SELECTOR_ONLY_POLICY.md",
     "install_patch.sh",
     "manifest.json"
   ],
   "behavior": {
-    "manual_input_files": ["input/links.txt", "input.txt", "links.txt"],
+    "manual_input_files": [
+      "input/links.txt",
+      "input.txt",
+      "links.txt"
+    ],
     "manual_only_output": "output/manual_only.yaml",
     "node_score_cache": "cache/node_score.json",
-    "text_report": "output/report.txt",
-    "json_report": "output/Validation/smart_safe_report.json",
+    "smart_safe_report": "output/Validation/smart_safe_report.json",
+    "rule_focus_report": "output/Validation/rule_focus_report.json",
     "manual_server_override": "104.17.3.81",
     "manual_server_override_policy": "cdn-compatible only: vmess/vless/trojan with ws/grpc/h2/http; skip reality/raw tcp",
-    "drop_proxy_types": ["ss", "ssr"],
+    "drop_proxy_types": [
+      "ss",
+      "ssr"
+    ],
     "openclash_safe_mode": true,
-    "risky_group_keys_removed": ["timeout", "lazy"],
-    "risky_root_keys_removed_by_default": ["unified-delay", "tcp-concurrent"]
+    "rule_focus_enabled": true,
+    "rule_focus_groups": [
+      "WEB-AI",
+      "WEB-STREAMING",
+      "WEB-SOCIAL",
+      "WEB-GAMING",
+      "WEB-BANKING",
+      "WEB-MARKETPLACE",
+      "WEB-DEV",
+      "WEB-GOOGLE",
+      "WEB-DEFAULT"
+    ],
+    "rule_focus_rule_type": "DOMAIN-SUFFIX inserted before MATCH",
+    "direct_reject_policy": "DIRECT/REJECT only inside select proxy-groups; rules target WEB-BYPASS/WEB-BLOCK instead",
+    "bypass_group": "WEB-BYPASS",
+    "block_group": "WEB-BLOCK",
+    "banking_direct_first": true,
+    "marketplace_direct_first": true,
+    "risky_group_keys_removed": [
+      "timeout",
+      "lazy"
+    ],
+    "risky_root_keys_removed_by_default": [
+      "unified-delay",
+      "tcp-concurrent"
+    ]
   }
 }
