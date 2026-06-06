@@ -1,28 +1,17 @@
 {
-  "name": "SumberYAML Strict-Safe Special Nodes Patch",
-  "version": "2026-06-06-special-nodes-v1",
-  "description": "OpenClash strict-safe routing with UTAMA, REDDIT, LINKEDIN, and BLIBLI groups based on input/links.txt node names.",
+  "name": "SumberYAML Google Special Nodes Patch",
+  "version": "2026-06-06.1",
   "files": [
-    ".github/workflows/update-openclash.yml",
-    "README_STRICT_SAFE_SPECIAL_NODES_PATCH.md",
+    "scripts/apply_openclash_google_special_nodes.py",
     "install_patch.sh",
-    "manifest.json",
-    "scripts/apply_openclash_strict_safe_fix.py",
-    "scripts/assert_latest_openclash_outputs.py",
-    "scripts/force_output_update_marker.py",
-    "scripts/validate_openclash_outputs.py"
+    "README_GOOGLE_SPECIAL_NODES_PATCH.md"
   ],
-  "openclash_safe": true,
-  "no_load_balance": true,
-  "direct_reject_selector_only": true,
-  "blocked_proxy_types": [
-    "ss",
-    "ssr"
-  ],
-  "special_groups": [
-    "UTAMA",
-    "REDDIT",
-    "LINKEDIN",
-    "BLIBLI"
-  ]
+  "policy": {
+    "google_and_youtube_target_group": "GOOGLE",
+    "input_node_keywords": ["google", "youtube", "youtu", "gmail", "gstatic", "googlevideo", "ytimg"],
+    "openclash_strict_safe": true,
+    "load_balance": false,
+    "ss_ssr": false,
+    "direct_reject_rule_target": false
+  }
 }
