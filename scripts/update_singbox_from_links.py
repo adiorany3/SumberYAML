@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate sing-box config and merged link.txt from SumberYAML inputs.
+Generate sing-box 1.13+/1.14-ready config and merged link.txt from SumberYAML inputs.
 
 Strict-safe policy:
 - Accept vmess://, vless://, trojan:// only.
@@ -9,6 +9,7 @@ Strict-safe policy:
 - Write root link.txt, input/link.txt, output/SingBox/links.txt,
   output/SingBox/sing-box.json, output/SingBox/outbounds.json,
   output/Validation/singbox_report.json.
+- Use non-legacy DNS server formats and avoid legacy inbound sniff fields.
 - Preserve Blibli links-only policy: BLIBLI sing-box group only uses nodes
   that came from original input/links.txt, input.txt, or links.txt.
 """
@@ -470,30 +471,38 @@ def build_config(outbounds: List[Dict[str, Any]], fallback_limit: int) -> Dict[s
     ]
 
     route_rules = [
-        {"domain_suffix": GAME_BLOCK_DOMAINS, "outbound": "block"},
-        {"domain_suffix": YOUTUBE_DOMAINS, "outbound": "sb-youtube"},
-        {"domain_suffix": GOOGLE_DOMAINS, "outbound": "sb-google"},
-        {"domain_suffix": REDDIT_DOMAINS, "outbound": "sb-reddit"},
-        {"domain_suffix": LINKEDIN_DOMAINS, "outbound": "sb-linkedin"},
-        {"domain_suffix": BLIBLI_DOMAINS, "outbound": "sb-blibli"},
-        {"domain_suffix": WORK_DOMAINS, "outbound": "sb-work"},
-        {"ip_is_private": True, "outbound": "direct"},
+        {"ip_is_private": True, "action": "route", "outbound": "direct"},
+        {"domain_suffix": GAME_BLOCK_DOMAINS, "action": "route", "outbound": "block"},
+        {"domain_suffix": YOUTUBE_DOMAINS, "action": "route", "outbound": "sb-youtube"},
+        {"domain_suffix": GOOGLE_DOMAINS, "action": "route", "outbound": "sb-google"},
+        {"domain_suffix": REDDIT_DOMAINS, "action": "route", "outbound": "sb-reddit"},
+        {"domain_suffix": LINKEDIN_DOMAINS, "action": "route", "outbound": "sb-linkedin"},
+        {"domain_suffix": BLIBLI_DOMAINS, "action": "route", "outbound": "sb-blibli"},
+        {"domain_suffix": WORK_DOMAINS, "action": "route", "outbound": "sb-work"},
     ]
 
+    # sing-box 1.12+ introduced the new DNS server format; legacy
+    # {"address": "tls://..."} DNS servers are removed in 1.14.
+    # Keep the generated config 1.13-compatible and 1.14-ready by using
+    # typed DNS servers. Do not add legacy inbound sniff fields; sniffing is
+    # handled through route actions when needed, and domain routing still
+    # works for mixed inbound domain requests.
     config: Dict[str, Any] = {
         "log": {"level": "info", "timestamp": True},
         "dns": {
             "servers": [
-                {"tag": "google", "address": "tls://8.8.8.8"},
-                {"tag": "cloudflare", "address": "tls://1.1.1.1"},
+                {"type": "tls", "tag": "dns-google", "server": "8.8.8.8", "server_port": 853},
+                {"type": "tls", "tag": "dns-cloudflare", "server": "1.1.1.1", "server_port": 853},
             ],
-            "final": "google",
+            "final": "dns-google",
+            "strategy": "prefer_ipv4",
+            "timeout": "10s",
         },
         "inbounds": [
-            {"type": "mixed", "tag": "mixed-in", "listen": "127.0.0.1", "listen_port": 2080, "sniff": True},
+            {"type": "mixed", "tag": "mixed-in", "listen": "127.0.0.1", "listen_port": 2080},
         ],
         "outbounds": final_outbounds,
-        "route": {"rules": route_rules, "final": "select", "auto_detect_interface": True},
+        "route": {"rules": route_rules, "final": "select"},
         "experimental": {"cache_file": {"enabled": True, "path": "cache.db"}},
     }
     return config

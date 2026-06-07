@@ -1,25 +1,14 @@
 {
-  "name": "SumberYAML sing-box link.txt patch",
-  "version": "2026-06-07",
+  "name": "SumberYAML sing-box latest-format patch",
+  "created_for": "SumberYAML",
+  "purpose": "Generate sing-box 1.13+/1.14-ready JSON with modern DNS server format and no legacy inbound fields.",
   "files": [
     ".github/workflows/update-openclash.yml",
-    "scripts/update_singbox_from_links.py",
-    "scripts/validate_singbox_output.py",
+    "README_SINGBOX_LATEST_FORMAT_PATCH.md",
     "README_SINGBOX_LINKTXT_PATCH.md",
     "install_patch.sh",
-    "manifest.json"
-  ],
-  "outputs": [
-    "link.txt",
-    "input/link.txt",
-    "output/SingBox/links.txt",
-    "output/SingBox/sing-box.json",
-    "output/SingBox/outbounds.json",
-    "output/Validation/singbox_report.json"
-  ],
-  "policy": {
-    "supported_schemes": ["vmess", "vless", "trojan"],
-    "dropped_schemes": ["ss", "ssr"],
-    "blibli": "links-only/manual-source-only"
-  }
+    "manifest.json",
+    "scripts/update_singbox_from_links.py",
+    "scripts/validate_singbox_output.py"
+  ]
 }

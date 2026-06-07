@@ -8,6 +8,8 @@ fi
 mkdir -p "$TARGET/scripts" "$TARGET/.github/workflows" "$TARGET/input"
 cp -a scripts/. "$TARGET/scripts/"
 cp -a .github/. "$TARGET/.github/"
-cp -f README_SINGBOX_LINKTXT_PATCH.md "$TARGET/"
+for f in README_*.md; do
+  [ -f "$f" ] && cp -f "$f" "$TARGET/"
+done
 chmod +x "$TARGET/scripts/update_singbox_from_links.py" "$TARGET/scripts/validate_singbox_output.py" || true
-echo "Patch sing-box + link.txt terpasang ke: $TARGET"
+echo "Patch sing-box latest format terpasang ke: $TARGET"

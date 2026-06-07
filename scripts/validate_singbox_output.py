@@ -2,6 +2,11 @@
 from __future__ import annotations
 import argparse, json, pathlib, sys
 
+LEGACY_INBOUND_FIELDS = {"sniff", "sniff_override_destination", "sniff_timeout"}
+LEGACY_DNS_KEYS = {"address", "address_resolver", "address_strategy", "detour"}
+REMOVED_ROUTE_KEYS = {"geoip", "geosite"}
+SUPPORTED_PROXY_TYPES = {"vmess", "vless", "trojan", "selector", "urltest", "direct", "block"}
+
 
 def validate(path: pathlib.Path) -> list[str]:
     errors: list[str] = []
@@ -11,6 +16,30 @@ def validate(path: pathlib.Path) -> list[str]:
         data = json.loads(path.read_text(encoding="utf-8"))
     except Exception as e:
         return [f"invalid JSON {path}: {e}"]
+
+    dns = data.get("dns") or {}
+    servers = dns.get("servers") or []
+    if not isinstance(servers, list) or not servers:
+        errors.append("dns.servers is empty or missing")
+    for srv in servers:
+        if not isinstance(srv, dict):
+            errors.append("dns server item is not object")
+            continue
+        if LEGACY_DNS_KEYS & set(srv):
+            errors.append(f"legacy DNS server keys found in {srv.get('tag', '<untagged>')}: {sorted(LEGACY_DNS_KEYS & set(srv))}")
+        if not srv.get("type"):
+            errors.append(f"DNS server {srv.get('tag', '<untagged>')} missing new-format type")
+        if srv.get("type") in {"tls", "https", "quic", "h3", "tcp", "udp"} and not srv.get("server"):
+            errors.append(f"DNS server {srv.get('tag', '<untagged>')} missing server")
+
+    for ib in data.get("inbounds", []) or []:
+        if not isinstance(ib, dict):
+            errors.append("inbound item is not object")
+            continue
+        legacy = LEGACY_INBOUND_FIELDS & set(ib)
+        if legacy:
+            errors.append(f"legacy inbound fields found in {ib.get('tag', '<untagged>')}: {sorted(legacy)}")
+
     outbounds = data.get("outbounds")
     if not isinstance(outbounds, list) or not outbounds:
         errors.append("outbounds is empty or missing")
@@ -28,6 +57,8 @@ def validate(path: pathlib.Path) -> list[str]:
             errors.append(f"outbound {tag!r} without type")
         if typ in {"ss", "ssr", "shadowsocks"}:
             errors.append(f"unsupported outbound type: {typ}")
+        if typ and typ not in SUPPORTED_PROXY_TYPES:
+            errors.append(f"unexpected outbound type for this generator: {typ}")
         tags.append(tag)
     if len(tags) != len(set(tags)):
         errors.append("duplicate outbound tags")
@@ -41,11 +72,23 @@ def validate(path: pathlib.Path) -> list[str]:
             for m in members:
                 if m not in tagset:
                     errors.append(f"group {ob.get('tag')} references missing {m}")
+
     route = data.get("route") or {}
+    if REMOVED_ROUTE_KEYS & set(route):
+        errors.append(f"removed route keys found: {sorted(REMOVED_ROUTE_KEYS & set(route))}")
     for rule in route.get("rules", []) or []:
-        target = rule.get("outbound")
-        if target and target not in tagset:
-            errors.append(f"route references missing outbound {target}")
+        if not isinstance(rule, dict):
+            errors.append("route rule item is not object")
+            continue
+        if "geosite" in rule or "geoip" in rule:
+            errors.append("route rule uses deprecated/removed geosite/geoip")
+        action = rule.get("action", "route")
+        if action == "route":
+            target = rule.get("outbound")
+            if not target:
+                errors.append("route rule missing outbound")
+            elif target not in tagset:
+                errors.append(f"route references missing outbound {target}")
     for required in ["select", "sb-auto", "direct", "block"]:
         if required not in tagset:
             errors.append(f"required outbound missing: {required}")
