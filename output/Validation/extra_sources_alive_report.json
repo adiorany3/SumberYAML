@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-06-07T05:36:02Z",
+  "generated_at_utc": "2026-06-07T05:56:36Z",
   "policy": "extra-sources-tcp-alive-vmess-vless-trojan-only",
   "note": "Alive means TCP connection to server:port succeeded before the main generator's own proxy test. SS/SSR are intentionally skipped for OpenClash compatibility.",
   "sources": [
@@ -98,8 +98,43 @@
       "url": "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 2087662,
-      "extracted_links": 6015
+      "bytes": 2071292,
+      "extracted_links": 5965
+    },
+    {
+      "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 94753,
+      "extracted_links": 480
+    },
+    {
+      "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 113846,
+      "extracted_links": 488
+    },
+    {
+      "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 114046,
+      "extracted_links": 493
+    },
+    {
+      "url": "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 37975,
+      "extracted_links": 124
+    },
+    {
+      "url": "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 40110,
+      "extracted_links": 139
     }
   ],
   "input_urls": [
@@ -116,9 +151,14 @@
     "https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt",
-    "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt"
+    "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt",
+    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
+    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt"
   ],
-  "total_extracted_raw": 29614,
+  "total_extracted_raw": 31288,
   "dropped_ss_ssr": 1937,
   "unique_supported_candidates": 3000,
   "checked_candidates": 3000,
@@ -129,7 +169,7 @@
     "vmess": 696
   },
   "alive_by_scheme": {
-    "vless": 1502,
+    "vless": 1491,
     "trojan": 517,
     "vmess": 458
   },
@@ -139,13 +179,14 @@
   "provider_output_dir": "input",
   "provider_report": ".extra_sources_provider_buckets_report.json",
   "provider_bucket_counts": {
-    "google": 16,
+    "google": 17,
     "oracle": 0,
     "microsoft": 0,
     "amazon": 1,
     "digitalocean": 0,
     "melbikom": 5,
-    "vultr": 0
+    "vultr": 0,
+    "r3xxe": 6
   },
   "sample_alive": [
     {
