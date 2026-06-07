@@ -115,6 +115,7 @@ BASE64_LINKS = [
     'https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_3.txt',
     'https://raw.githubusercontent.com/mahsanet/MahsaFreeConfig/refs/heads/main/mtn/sub_4.txt',
     'https://raw.githubusercontent.com/Surfboardv2ray/TGParse/main/splitted/mixed',
+    'https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/All_Configs_base64_Sub.txt',
 ]
 DIRECT_LINKS = [
     'https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix',
