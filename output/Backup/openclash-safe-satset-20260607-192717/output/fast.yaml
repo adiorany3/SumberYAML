@@ -1,0 +1,442 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "filembad 6555"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 75dd6c7d-b5a2-44f3-843c-812facb22c5e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "36 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 977b814d-d9e0-4889-bb71-98d6bfb8f462
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "partner.catchplay.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "partner.catchplay.com.r3xxe.eu.cc"
+    udp: true
+  - name: "configV2rayForFree US 2348"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "3b91d95b-0478-451a-a372-4f417417f650"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "unnes.ac.id.r3xxe.eu.cc"
+    udp: true
+  - name: "configV2rayForFree US 8401"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "74480619-b6a8-4ab8-94e1-1132fc18b2fa"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/au-mt"
+      headers:
+        Host: "unnes.ac.id.r3xxe.eu.cc"
+    udp: true
+  - name: "US) Google LLC"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c148c68d-aba0-44b8-8f93-ded816246e2c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "zaintest.vuclip.com.r3xxe.eu.cc"
+    udp: true
+  - name: "configV2rayForFree US 2273"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "45c47cfa-67da-47e0-b20b-5efa674e6a9b"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "unnes.ac.id.r3xxe.eu.cc"
+    udp: true
+  - name: "6https t.me ConfigX2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 935bdfb3-7bf9-48c1-adcb-2f6fbfeca896
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "help.viu.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "help.viu.com.ex33r.eu.cc"
+    udp: true
+  - name: "ProxyVPN11 4438"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "7https t.me ConfigX2ray 7872"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 974c2588-c1cd-43ac-8823-ce3d879b09fd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "somersby.pt.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "somersby.pt.ex33r.eu.cc"
+    udp: true
+  - name: "CA 55135 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f6ec3ac9-fb0f-4bce-86bb-26cdb9933a60
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/in-do"
+      headers:
+        Host: "zaintest.vuclip.com.r3xxe.eu.cc"
+    udp: true
+  - name: "more Qara_atayi Warp 7"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a253ff3f-fb8d-4160-85e8-61b080f0f561
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "filembad 7298"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 50cbc8f3-08e1-4a82-bfd5-bc2587a392c7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/random"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "17https t.me ConfigX2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 8449887d-7cd0-55d0-6646-951bc8bc2d08
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "crm.lotussec.com"
+    ws-opts:
+      path: "/@JavidnamanIran/Javid-SHAH-KingRezaPahlavi/"
+      headers:
+        Host: "crm.lotussec.com"
+    udp: true
+  - name: "outline_vpn FI"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss5.info"
+    ws-opts:
+      path: "/udfyfws"
+      headers:
+        Host: "octopusss5.info"
+    udp: true
+  - name: "HiByeVPNN 48"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7270612b-49f6-4b04-999c-34d8263da767
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "picassooo.info"
+    ws-opts:
+      path: "/aymdlws"
+      headers:
+        Host: "picassooo.info"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "filembad 6555"
+      - "36 oneclickvpnkeys"
+      - "configV2rayForFree US 2348"
+      - "configV2rayForFree US 8401"
+      - "US) Google LLC"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "filembad 6555"
+      - "36 oneclickvpnkeys"
+      - "configV2rayForFree US 2348"
+      - "configV2rayForFree US 8401"
+      - "US) Google LLC"
+      - "configV2rayForFree US 2273"
+      - "6https t.me ConfigX2ray"
+      - "ProxyVPN11 4438"
+      - "7https t.me ConfigX2ray 7872"
+      - "CA 55135 Telegram t.me SOSkeyNET"
+      - "more Qara_atayi Warp 7"
+      - "filembad 7298"
+      - "17https t.me ConfigX2ray"
+      - "outline_vpn FI"
+      - "HiByeVPNN 48"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "filembad 6555"
+      - "US) Google LLC"
+      - "36 oneclickvpnkeys"
+      - "configV2rayForFree US 2348"
+      - "configV2rayForFree US 8401"
+      - "configV2rayForFree US 2273"
+      - "6https t.me ConfigX2ray"
+      - "ProxyVPN11 4438"
+      - "7https t.me ConfigX2ray 7872"
+      - "filembad 7298"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "filembad 6555"
+      - "36 oneclickvpnkeys"
+      - "configV2rayForFree US 2348"
+      - "configV2rayForFree US 8401"
+      - "US) Google LLC"
+      - "configV2rayForFree US 2273"
+      - "6https t.me ConfigX2ray"
+      - "ProxyVPN11 4438"
+      - "7https t.me ConfigX2ray 7872"
+      - "CA 55135 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "filembad 6555"
+      - "36 oneclickvpnkeys"
+      - "configV2rayForFree US 2348"
+      - "configV2rayForFree US 8401"
+      - "US) Google LLC"
+      - "configV2rayForFree US 2273"
+      - "6https t.me ConfigX2ray"
+      - "ProxyVPN11 4438"
+      - "7https t.me ConfigX2ray 7872"
+      - "CA 55135 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "filembad 6555"
+      - "US) Google LLC"
+      - "36 oneclickvpnkeys"
+      - "configV2rayForFree US 2348"
+      - "configV2rayForFree US 8401"
+      - "configV2rayForFree US 2273"
+      - "6https t.me ConfigX2ray"
+      - "ProxyVPN11 4438"
+      - "7https t.me ConfigX2ray 7872"
+      - "filembad 7298"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "filembad 6555"
+      - "36 oneclickvpnkeys"
+      - "configV2rayForFree US 2348"
+      - "configV2rayForFree US 8401"
+      - "US) Google LLC"
+      - "configV2rayForFree US 2273"
+      - "6https t.me ConfigX2ray"
+      - "ProxyVPN11 4438"
+      - "7https t.me ConfigX2ray 7872"
+      - "CA 55135 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "filembad 6555"
+      - "36 oneclickvpnkeys"
+      - "configV2rayForFree US 2348"
+      - "configV2rayForFree US 8401"
+      - "US) Google LLC"
+      - "configV2rayForFree US 2273"
+      - "6https t.me ConfigX2ray"
+      - "ProxyVPN11 4438"
+      - "7https t.me ConfigX2ray 7872"
+      - "CA 55135 Telegram t.me SOSkeyNET"
+      - "more Qara_atayi Warp 7"
+      - "filembad 7298"
+      - "17https t.me ConfigX2ray"
+      - "outline_vpn FI"
+      - "HiByeVPNN 48"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "filembad 6555"
+      - "36 oneclickvpnkeys"
+      - "configV2rayForFree US 2348"
+      - "configV2rayForFree US 8401"
+      - "US) Google LLC"
+      - "configV2rayForFree US 2273"
+      - "6https t.me ConfigX2ray"
+      - "ProxyVPN11 4438"
+      - "7https t.me ConfigX2ray 7872"
+      - "CA 55135 Telegram t.me SOSkeyNET"
+      - "more Qara_atayi Warp 7"
+      - "filembad 7298"
+      - "17https t.me ConfigX2ray"
+      - "outline_vpn FI"
+      - "HiByeVPNN 48"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
