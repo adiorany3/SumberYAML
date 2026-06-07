@@ -80,8 +80,8 @@ env:
   OPENCLASH_KEEP_META_OPTIONS: "false"
   OPENCLASH_ADD_LAN_DIRECT: "false"
   ENABLE_PERFORMANCE_OPTIONS: "false"
-  MANUAL_INPUT_FILES: "input/links.txt,input.txt,links.txt,input/google.txt,input/oracle.txt,input/microsoft.txt,input/amazon.txt,input/digitalocean.txt,input/melbikom.txt,input/vultr.txt,input/r3xxe.txt"
-  PROVIDER_BUCKET_INPUT_FILES: "input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/r3xxe.txt input/extra_sources_alive.txt input/provider_buckets_summary.json"
+  MANUAL_INPUT_FILES: "input/links.txt,input.txt,links.txt,input/google.txt,input/oracle.txt,input/microsoft.txt,input/amazon.txt,input/digitalocean.txt,input/melbikom.txt,input/vultr.txt"
+  PROVIDER_BUCKET_INPUT_FILES: "input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/extra_sources_alive.txt input/provider_buckets_summary.json"
   MANUAL_SERVER_OVERRIDE: "104.17.3.81"
   MANUAL_SERVER_OVERRIDE_TYPES: "cdn-compatible"
   SMART_SAFE_MANUAL_ONLY: "true"
@@ -92,17 +92,26 @@ env:
   ENABLE_INPUT_VMESS_LB: "false"
   ENABLE_CLEAN_RESPONSIVE_RULES: "false"
   ENABLE_STRICT_SAFE_FIX: "false"
-  ENABLE_APP_AWARE_GROUPS: "true"
+  ENABLE_APP_AWARE_GROUPS: "false"
+  ENABLE_SERVICE_SCORE_GROUPS: "true"
   ENABLE_GAME_BLOCK_INLINE_SAFE: "true"
   ENABLE_EXTRA_SOURCES_ALIVE: "true"
   EXTRA_SOURCE_TCP_TIMEOUT: "4"
   EXTRA_SOURCE_CONCURRENCY: "120"
   EXTRA_SOURCE_MAX_CANDIDATES: "3000"
   EXTRA_SOURCE_MAX_ALIVE: "700"
-  EXTRA_SOURCE_URLS: "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt,https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix,https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html,https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt,https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt,https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/main/subscription/main.txt,https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt,https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt,https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt,https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt,https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt"
+  EXTRA_SOURCE_URLS: "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt,https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix,https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html,https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt,https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt,https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/main/subscription/main.txt,https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt,https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt,https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt"
   APP_AWARE_INTERVAL: "90"
   APP_AWARE_TOLERANCE: "40"
   APP_AWARE_MAX_CANDIDATES: "20"
+  SERVICE_SCORE_INTERVAL: "90"
+  SERVICE_SCORE_TOLERANCE: "40"
+  SERVICE_SCORE_MAX_CANDIDATES: "25"
+  SERVICE_SCORE_TCP_PROBE: "true"
+  SERVICE_SCORE_TCP_TIMEOUT: "2.5"
+  SERVICE_SCORE_TCP_CONCURRENCY: "120"
+  SERVICE_SCORE_CACHE: "cache/service_node_score.json"
+  BLIBLI_INPUT_FILES: ".manual_source/input_links_original.txt,input.txt,links.txt"
   SOURCE_CACHE_ENABLE: "true"
   SOURCE_CACHE_DIR: "output/Cache/sources"
   USE_PREVIOUS_OUTPUT_IF_EMPTY: "true"
@@ -115,7 +124,7 @@ env:
 
 jobs:
   update:
-    name: Generate app-aware OpenClash output with provider-bucketed alive sources
+    name: Generate service-score OpenClash output with BLIBLI links-only
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -153,6 +162,25 @@ jobs:
             find .previous_output -type f | wc -l
           fi
 
+      - name: Backup original manual input for BLIBLI links-only policy
+        run: |
+          set -e
+          rm -rf .manual_source
+          mkdir -p .manual_source
+          if [ -f input/links.txt ]; then
+            cp input/links.txt .manual_source/input_links_original.txt
+          else
+            : > .manual_source/input_links_original.txt
+          fi
+          if [ -f input.txt ]; then
+            cp input.txt .manual_source/input_root_original.txt
+          fi
+          if [ -f links.txt ]; then
+            cp links.txt .manual_source/links_root_original.txt
+          fi
+          echo "Original BLIBLI manual source line count:"
+          wc -l .manual_source/input_links_original.txt || true
+
       - name: Fetch extra sources and keep TCP-alive nodes
         if: env.ENABLE_EXTRA_SOURCES_ALIVE == 'true'
         run: |
@@ -178,7 +206,7 @@ jobs:
           echo "Alive extra source node count:"
           wc -l input/extra_sources_alive.txt || true
           echo "Provider bucket input files:"
-          for f in input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/r3xxe.txt; do
+          for f in input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt; do
             printf '%s: ' "$f"
             if [ -f "$f" ]; then wc -l < "$f"; else echo 0; fi
           done
@@ -220,20 +248,26 @@ jobs:
             echo "WARNING: smart-safe responsive script tidak ditemukan; lanjut."
           fi
 
-      - name: Apply app-aware strict-safe groups
-        if: env.ENABLE_APP_AWARE_GROUPS == 'true'
+      - name: Apply service-score app-aware groups with BLIBLI links-only
+        if: env.ENABLE_SERVICE_SCORE_GROUPS == 'true'
         run: |
           set -e
-          if [ -f scripts/apply_openclash_app_aware_groups.py ]; then
-            python scripts/apply_openclash_app_aware_groups.py \
-              --root . \
-              --interval "$APP_AWARE_INTERVAL" \
-              --tolerance "$APP_AWARE_TOLERANCE" \
-              --max-candidates "$APP_AWARE_MAX_CANDIDATES"
-            cat output/Validation/app_aware_groups_report.json || true
-          else
-            echo "WARNING: scripts/apply_openclash_app_aware_groups.py tidak ditemukan; skip app-aware finalizer."
+          if [ ! -f scripts/apply_openclash_service_score_groups.py ]; then
+            echo "ERROR: scripts/apply_openclash_service_score_groups.py tidak ditemukan."
+            exit 1
           fi
+          python scripts/apply_openclash_service_score_groups.py \
+            --root . \
+            --input-files "$MANUAL_INPUT_FILES" \
+            --blibli-input-files "$BLIBLI_INPUT_FILES" \
+            --interval "$SERVICE_SCORE_INTERVAL" \
+            --tolerance "$SERVICE_SCORE_TOLERANCE" \
+            --max-candidates "$SERVICE_SCORE_MAX_CANDIDATES" \
+            --score-cache "$SERVICE_SCORE_CACHE" \
+            --tcp-probe "$SERVICE_SCORE_TCP_PROBE" \
+            --tcp-timeout "$SERVICE_SCORE_TCP_TIMEOUT" \
+            --tcp-concurrency "$SERVICE_SCORE_TCP_CONCURRENCY"
+          cat output/Validation/service_score_groups_report.json || true
 
       - name: Apply expanded inline-safe web game block rules
         if: env.ENABLE_GAME_BLOCK_INLINE_SAFE == 'true'
@@ -255,6 +289,9 @@ jobs:
             exit 1
           fi
           test -f output/Validation/game_block_inline_safe_report.json
+          if [ "$ENABLE_SERVICE_SCORE_GROUPS" = "true" ]; then
+            test -f output/Validation/service_score_groups_report.json
+          fi
           if [ "$ENABLE_EXTRA_SOURCES_ALIVE" = "true" ]; then
             test -f output/Validation/extra_sources_alive_report.json
             test -f output/Validation/extra_sources_provider_buckets_report.json
@@ -348,9 +385,15 @@ jobs:
               print('provider files:', {k: v.get('count') for k, v in d2.get('files', {}).items()})
           else:
               print('extra_sources_provider_buckets_report.json not found')
+          p3 = pathlib.Path('output/Validation/service_score_groups_report.json')
+          if p3.exists():
+              d3 = json.loads(p3.read_text())
+              print('service score:', {k: d3.get(k) for k in ['tcp_probe_checked','tcp_probe_alive','blibli_links_only_names_count']})
+          else:
+              print('service_score_groups_report.json not found')
           PY
           echo "Provider bucket files:"
-          for f in input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/r3xxe.txt; do
+          for f in input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt; do
             if [ -f "$f" ]; then echo "$f $(wc -l < "$f")"; fi
           done
           echo "Expanded web game block rules in fast.yaml:"
@@ -455,13 +498,13 @@ jobs:
               stage_generated_paths
             fi
 
-            git status --short output cache input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/r3xxe.txt input/extra_sources_alive.txt input/provider_buckets_summary.json || true
+            git status --short output cache input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/extra_sources_alive.txt input/provider_buckets_summary.json || true
             if git diff --cached --quiet; then
               echo "ERROR: Force output commit marker tetap tidak menghasilkan perubahan."
               exit 1
             fi
 
-            git commit -m "Update OpenClash output with extra alive sources"
+            git commit -m "Update OpenClash output with service score and Blibli links only"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
