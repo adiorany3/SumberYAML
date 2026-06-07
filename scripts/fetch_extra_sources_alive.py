@@ -28,10 +28,22 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 DEFAULT_URLS = [
+    # Existing extra sources
     "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt",
     "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt",
+    # Additional all-account sources requested by the user
+    "https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix",
+    "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html",
+    "https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt",
+    "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt",
+    "https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/main/subscription/main.txt",
+    "https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt",
+    "https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt",
+    "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
 ]
 
 SUPPORTED_SCHEMES = {"vmess", "vless", "trojan"}
@@ -280,8 +292,14 @@ def normalize_name(value: str) -> str:
     return re.sub(r"\s+", " ", urllib.parse.unquote(value or "").lower()).strip()
 
 
-def provider_matches(name: str) -> List[str]:
-    norm = normalize_name(name)
+def provider_matches(*values: str) -> List[str]:
+    """Return provider buckets matched by node name/host/link metadata.
+
+    The primary signal remains the node name. Host/link text is used as a
+    fallback because many public subscriptions use provider words in the host
+    or remark variants rather than a clean node name.
+    """
+    norm = " ".join(normalize_name(v) for v in values if v)
     if not norm:
         return []
     matched: List[str] = []
@@ -301,9 +319,9 @@ def write_provider_bucket_files(
 ) -> Dict[str, Any]:
     """Write provider-specific alive node lists under input/*.txt.
 
-    Matching is based on node name only, as requested. Files are always created
-    so workflow commits can show an explicit empty bucket when no alive matching
-    node was found.
+    Matching primarily uses node names, with server/link text as a fallback.
+    Files are always created so workflow commits can show an explicit empty
+    bucket when no alive matching node was found.
     """
     out_dir = root / output_dir
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -313,9 +331,10 @@ def write_provider_bucket_files(
     for item in alive_items:
         link = str(item.get("link") or "").strip()
         name = str(item.get("name") or "").strip()
+        server = str(item.get("server") or "").strip()
         if not link:
             continue
-        for bucket in provider_matches(name):
+        for bucket in provider_matches(name, server, link):
             if link in seen_per_bucket[bucket]:
                 continue
             seen_per_bucket[bucket].add(link)
@@ -345,7 +364,7 @@ def write_provider_bucket_files(
     report = {
         "generated_at_utc": now_iso(),
         "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
-        "note": "Buckets are matched from node names only. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
+        "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
         "output_dir": output_dir,
         "files": files,
     }

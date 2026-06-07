@@ -10,10 +10,13 @@ if [ ! -d "$TARGET" ]; then
   exit 1
 fi
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-mkdir -p "$TARGET/scripts" "$TARGET/.github/workflows"
+mkdir -p "$TARGET/scripts" "$TARGET/.github/workflows" "$TARGET/input"
 cp -a "$ROOT/scripts/." "$TARGET/scripts/"
 cp -a "$ROOT/.github/workflows/update-openclash.yml" "$TARGET/.github/workflows/update-openclash.yml"
+if [ -d "$ROOT/input" ]; then
+  cp -a "$ROOT/input/." "$TARGET/input/"
+fi
 cp -a "$ROOT"/README_*.md "$TARGET"/ 2>/dev/null || true
-cp -a "$ROOT/manifest.json" "$TARGET/manifest_provider_bucket_input.json"
+cp -a "$ROOT/manifest.json" "$TARGET/manifest_all_provider_bucket_filter.json"
 echo "Patch installed to: $TARGET"
-echo "Next: git add scripts .github/workflows/update-openclash.yml README_PROVIDER_BUCKET_INPUT_PATCH.md README_EXTRA_SOURCES_ALIVE_PATCH.md README_GAME_WEB_BLOCK_EXPANDED_PATCH.md && git commit -m 'Bucket extra alive nodes into provider input files' && git push"
+echo "Next: git add scripts .github/workflows/update-openclash.yml input/extra_sources_urls.txt README_*.md && git commit -m 'Filter extra alive nodes into provider input buckets' && git push"

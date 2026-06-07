@@ -1,44 +1,21 @@
 {
-  "name": "SumberYAML Provider Bucket Input Patch",
-  "version": "2026-06-07.2",
-  "description": "Fetches extra V2Ray sources, keeps TCP-alive vmess/vless/trojan nodes, and writes provider-specific input files such as input/google.txt, input/oracle.txt, input/microsoft.txt, input/amazon.txt, input/digitalocean.txt, input/melbikom.txt, and input/vultr.txt.",
+  "name": "SumberYAML all provider bucket filter patch",
+  "created_at": "2026-06-07",
+  "description": "Fetch all extra V2Ray sources, TCP-check alive vmess/vless/trojan nodes, bucket provider nodes into input/google.txt, input/oracle.txt, input/microsoft.txt, input/amazon.txt, input/digitalocean.txt, input/melbikom.txt, and input/vultr.txt; supports additional URLs via input/extra_sources_urls.txt.",
   "files": [
     ".github/workflows/update-openclash.yml",
-    "scripts/fetch_extra_sources_alive.py",
-    "scripts/apply_openclash_app_aware_groups.py",
-    "scripts/apply_openclash_game_block_inline_safe.py",
-    "scripts/validate_game_block_inline_safe.py",
-    "scripts/validate_openclash_outputs.py",
-    "scripts/assert_latest_openclash_outputs.py",
-    "scripts/force_output_update_marker.py",
-    "README_PROVIDER_BUCKET_INPUT_PATCH.md",
+    "README_ALL_PROVIDER_BUCKET_FILTER_PATCH.md",
     "README_EXTRA_SOURCES_ALIVE_PATCH.md",
     "README_GAME_WEB_BLOCK_EXPANDED_PATCH.md",
-    "install_patch.sh"
-  ],
-  "generated_input_files": [
-    "input/google.txt",
-    "input/oracle.txt",
-    "input/microsoft.txt",
-    "input/amazon.txt",
-    "input/digitalocean.txt",
-    "input/melbikom.txt",
-    "input/vultr.txt"
-  ],
-  "source_urls": [
-    "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt",
-    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt",
-    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt",
-    "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt"
-  ],
-  "dropped_protocols": [
-    "ss",
-    "ssr"
-  ],
-  "supported_protocols": [
-    "vmess",
-    "vless",
-    "trojan"
-  ],
-  "openclash_policy": "strict-safe; no load-balance; no rule-provider game block; game block stays inline; extra source nodes are TCP prechecked; input/links.txt is not committed"
+    "README_PROVIDER_BUCKET_INPUT_PATCH.md",
+    "input/extra_sources_urls.txt",
+    "install_patch.sh",
+    "scripts/apply_openclash_app_aware_groups.py",
+    "scripts/apply_openclash_game_block_inline_safe.py",
+    "scripts/assert_latest_openclash_outputs.py",
+    "scripts/fetch_extra_sources_alive.py",
+    "scripts/force_output_update_marker.py",
+    "scripts/validate_game_block_inline_safe.py",
+    "scripts/validate_openclash_outputs.py"
+  ]
 }
