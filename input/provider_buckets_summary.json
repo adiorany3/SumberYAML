@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-06-07T06:32:15Z",
+  "generated_at_utc": "2026-06-07T08:22:35Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
@@ -22,6 +22,12 @@
       "sample": [
         {
           "scheme": "vless",
+          "name": "",
+          "server": "2.26.11.151",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
           "name": "🦉@FreeConfigForYou",
           "server": "171.22.136.84",
           "port": 443
@@ -30,6 +36,12 @@
           "scheme": "vless",
           "name": "@CUSTOMVPNSERVER",
           "server": "157.173.127.225",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "CxrolVPN",
+          "server": "104.21.32.1",
           "port": 443
         },
         {
@@ -66,18 +78,6 @@
           "scheme": "vless",
           "name": "@V2VODKA_A🇳🇱",
           "server": "nid.pink-perfect.ru",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@V2VODKA_A📺",
-          "server": "nid.pink-perfect.ru",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "2https://t.me/ConfigX2ray",
-          "server": "150.241.71.35",
           "port": 443
         }
       ]
@@ -139,7 +139,7 @@
     },
     "melbikom": {
       "file": "input/melbikom.txt",
-      "count": 5,
+      "count": 4,
       "keywords": [
         "melbikom",
         "melbi"
@@ -160,12 +160,6 @@
         {
           "scheme": "vless",
           "name": "📀63@oneclickvpnkeys",
-          "server": "104.18.152.233",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🔵@chillguy_vpn",
           "server": "104.18.152.233",
           "port": 443
         },

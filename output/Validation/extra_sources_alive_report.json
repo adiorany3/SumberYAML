@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-06-07T06:32:15Z",
+  "generated_at_utc": "2026-06-07T08:22:35Z",
   "policy": "extra-sources-tcp-alive-vmess-vless-trojan-only",
   "note": "Alive means TCP connection to server:port succeeded before the main generator's own proxy test. SS/SSR are intentionally skipped for OpenClash compatibility.",
   "sources": [
@@ -7,8 +7,8 @@
       "url": "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 1364026,
-      "extracted_links": 4904
+      "bytes": 1433773,
+      "extracted_links": 5203
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt",
@@ -28,8 +28,8 @@
       "url": "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 625593,
-      "extracted_links": 2433
+      "bytes": 642195,
+      "extracted_links": 2518
     },
     {
       "url": "https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix",
@@ -49,8 +49,8 @@
       "url": "https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 15258,
-      "extracted_links": 59
+      "bytes": 11202,
+      "extracted_links": 47
     },
     {
       "url": "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt",
@@ -98,8 +98,43 @@
       "url": "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 2114823,
-      "extracted_links": 6116
+      "bytes": 2085478,
+      "extracted_links": 6031
+    },
+    {
+      "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 96901,
+      "extracted_links": 481
+    },
+    {
+      "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 112746,
+      "extracted_links": 490
+    },
+    {
+      "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 114659,
+      "extracted_links": 485
+    },
+    {
+      "url": "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 33248,
+      "extracted_links": 108
+    },
+    {
+      "url": "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 40110,
+      "extracted_links": 139
     }
   ],
   "input_urls": [
@@ -116,22 +151,27 @@
     "https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt",
-    "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt"
+    "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt",
+    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
+    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt"
   ],
-  "total_extracted_raw": 29764,
-  "dropped_ss_ssr": 2118,
+  "total_extracted_raw": 31754,
+  "dropped_ss_ssr": 2240,
   "unique_supported_candidates": 3000,
   "checked_candidates": 3000,
   "alive_candidates": 700,
   "by_scheme": {
-    "vless": 1694,
-    "trojan": 610,
-    "vmess": 696
+    "vless": 1656,
+    "trojan": 632,
+    "vmess": 712
   },
   "alive_by_scheme": {
-    "vless": 1465,
-    "trojan": 516,
-    "vmess": 458
+    "vless": 1444,
+    "trojan": 544,
+    "vmess": 473
   },
   "append_to": "input/links.txt",
   "all_output": "input/extra_sources_all.txt",
@@ -144,30 +184,44 @@
     "microsoft": 0,
     "amazon": 1,
     "digitalocean": 0,
-    "melbikom": 5,
+    "melbikom": 4,
     "vultr": 0
   },
   "sample_alive": [
     {
       "scheme": "vless",
+      "name": "برای اتصال دائمی جوین شو🗾 prrofile_purple@",
+      "server": "151.101.108.223",
+      "port": 443,
+      "peer": "151.101.108.223:443"
+    },
+    {
+      "scheme": "vless",
+      "name": "@proxy_kafeeچنل‌تلگراممون",
+      "server": "151.101.108.223",
+      "port": 443,
+      "peer": "151.101.108.223:443"
+    },
+    {
+      "scheme": "vless",
       "name": "",
-      "server": "188.114.97.6",
+      "server": "2.26.11.151",
       "port": 443,
-      "peer": "188.114.97.6:443"
+      "peer": "2.26.11.151:443"
+    },
+    {
+      "scheme": "vless",
+      "name": "🌻71@oneclickvpnkeys",
+      "server": "144.31.131.33",
+      "port": 443,
+      "peer": "144.31.131.33:443"
     },
     {
       "scheme": "trojan",
-      "name": "🐻70@oneclickvpnkeys",
-      "server": "185.18.250.245",
+      "name": "🟢 telegram: @tajrobe_wiki 🟢",
+      "server": "185.18.250.252",
       "port": 443,
-      "peer": "185.18.250.245:443"
-    },
-    {
-      "scheme": "trojan",
-      "name": "@V2raysCollector 💖",
-      "server": "185.18.250.245",
-      "port": 443,
-      "peer": "185.18.250.245:443"
+      "peer": "185.18.250.252:443"
     },
     {
       "scheme": "trojan",
@@ -200,6 +254,13 @@
     {
       "scheme": "trojan",
       "name": "@KAFING_2",
+      "server": "172.64.152.23",
+      "port": 443,
+      "peer": "172.64.152.23:443"
+    },
+    {
+      "scheme": "trojan",
+      "name": "canfingV2rayNG-27",
       "server": "172.64.152.23",
       "port": 443,
       "peer": "172.64.152.23:443"
@@ -248,45 +309,24 @@
     },
     {
       "scheme": "trojan",
-      "name": "🩵+@Azarakhsh_Proxy+🩷",
-      "server": "104.16.159.6",
+      "name": "✔︎𝐜𝐡𝐚𝐧𝐧𝐞𝐥➪@ConfigV2rayForFree",
+      "server": "216.24.57.6",
       "port": 443,
-      "peer": "104.16.159.6:443"
+      "peer": "216.24.57.6:443"
     },
     {
       "scheme": "trojan",
-      "name": "@fastkanfig",
-      "server": "141.193.213.10",
+      "name": "🇺🇸54051",
+      "server": "216.24.57.6",
       "port": 443,
-      "peer": "141.193.213.10:443"
+      "peer": "216.24.57.6:443"
     },
     {
       "scheme": "trojan",
-      "name": "23https://t.me/ConfigX2ray",
-      "server": "141.193.213.10",
+      "name": "🇺🇸US-🚀@VPNine1",
+      "server": "216.24.57.6",
       "port": 443,
-      "peer": "141.193.213.10:443"
-    },
-    {
-      "scheme": "trojan",
-      "name": "6",
-      "server": "162.159.33.81",
-      "port": 443,
-      "peer": "162.159.33.81:443"
-    },
-    {
-      "scheme": "trojan",
-      "name": "@v2ray_configs_pools_10847",
-      "server": "172.237.145.189",
-      "port": 443,
-      "peer": "172.237.145.189:443"
-    },
-    {
-      "scheme": "trojan",
-      "name": "@v2ray_configs_pools_10846",
-      "server": "172.237.145.189",
-      "port": 443,
-      "peer": "172.237.145.189:443"
+      "peer": "216.24.57.6:443"
     }
   ]
 }

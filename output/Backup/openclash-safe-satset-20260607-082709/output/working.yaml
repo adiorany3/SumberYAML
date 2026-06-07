@@ -1,0 +1,213 @@
+# Auto generated usage profile OpenClash config
+# Output: output/working.yaml
+# Profile group: WORKING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "B2vasl"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 935bdfb3-7bf9-48c1-adcb-2f6fbfeca896
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "help.viu.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "help.viu.com.ex33r.eu.cc"
+    udp: true
+  - name: "US) Google LLC"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c148c68d-aba0-44b8-8f93-ded816246e2c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "zaintest.vuclip.com.r3xxe.eu.cc"
+    udp: true
+  - name: "B2vasl 5283"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 974c2588-c1cd-43ac-8823-ce3d879b09fd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "somersby.pt.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "somersby.pt.ex33r.eu.cc"
+    udp: true
+  - name: "configV2rayForFree US 4500"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "3b91d95b-0478-451a-a372-4f417417f650"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "unnes.ac.id.r3xxe.eu.cc"
+    udp: true
+  - name: "configV2rayForFree US 9634"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "45c47cfa-67da-47e0-b20b-5efa674e6a9b"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "unnes.ac.id.r3xxe.eu.cc"
+    udp: true
+  - name: "ProxyVPN11 7215"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 2987"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "fr"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 79863d42-9f1c-4e8e-a65b-1003090871c1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "coNFIghayE.moKhaBeraTebInZON.workErS.deV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiUHVXcXFjYTJGVGI3IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+      headers:
+        Host: "confighaye.mokhaberatebinzon.workers.dev"
+    udp: true
+  - name: "v2reya88"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 4119"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "filter.elitesilver002.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "filter.elitesilver002.workers.dev"
+    udp: true
+
+proxy-groups:
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "B2vasl"
+      - "US) Google LLC"
+      - "B2vasl 5283"
+      - "configV2rayForFree US 4500"
+      - "configV2rayForFree US 9634"
+      - "ProxyVPN11 7215"
+      - "oneclickvpnkeys US 2987"
+      - "fr"
+      - "v2reya88"
+      - "oneclickvpnkeys US 4119"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "WORKING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
