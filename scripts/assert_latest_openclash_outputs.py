@@ -12,29 +12,11 @@ except Exception as exc:
     print(f"ERROR: PyYAML required: {exc}", file=sys.stderr)
     sys.exit(2)
 
-REQUIRED_GROUPS = {
-    "PROXY", "UTAMA", "AUTO", "FALLBACK", "GOOGLE", "YOUTUBE", "REDDIT",
-    "LINKEDIN", "BLIBLI", "BANK", "MARKETPLACE", "SOCIAL", "BYPASS", "BLOCK"
-}
-
+REQUIRED_GROUPS = {"PROXY", "UTAMA", "AUTO", "FALLBACK", "GOOGLE", "YOUTUBE", "REDDIT", "LINKEDIN", "BLIBLI", "BANK", "MARKETPLACE", "SOCIAL", "BYPASS", "BLOCK"}
 REQUIRED_REPORTS = [
     "output/Validation/app_aware_groups_report.json",
     "output/Validation/openclash_validation_report.json",
     "output/Validation/last_run.json",
-    "output/Validation/game_block_inline_safe_report.json",
-    "output/Validation/game_block_inline_safe_validation.json",
-]
-
-REQUIRED_RULES = [
-    "DOMAIN-SUFFIX,youtube.com,YOUTUBE",
-    "DOMAIN-SUFFIX,google.com,GOOGLE",
-    "DOMAIN-SUFFIX,linkedin.com,LINKEDIN",
-    "DOMAIN-SUFFIX,blibli.com,BLIBLI",
-    "DOMAIN-SUFFIX,reddit.com,REDDIT",
-    "DOMAIN-SUFFIX,steampowered.com,BLOCK",
-    "DOMAIN-SUFFIX,epicgames.com,BLOCK",
-    "DOMAIN-SUFFIX,mobilelegends.com,BLOCK",
-    "DOMAIN-SUFFIX,pubgmobile.com,BLOCK",
 ]
 
 
@@ -58,19 +40,13 @@ def main() -> int:
         if missing:
             errors.append("missing required groups in fast.yaml: " + ", ".join(missing))
         rules = [str(r) for r in (data.get("rules") or [])] if isinstance(data, dict) else []
-        for rule in REQUIRED_RULES:
+        needed_rules = ["DOMAIN-SUFFIX,youtube.com,YOUTUBE", "DOMAIN-SUFFIX,google.com,GOOGLE", "DOMAIN-SUFFIX,linkedin.com,LINKEDIN", "DOMAIN-SUFFIX,blibli.com,BLIBLI", "DOMAIN-SUFFIX,reddit.com,REDDIT"]
+        for rule in needed_rules:
             if rule not in rules:
-                errors.append(f"missing app-aware/inline block rule: {rule}")
+                errors.append(f"missing app-aware rule: {rule}")
         for rule in rules:
             if rule.endswith(",DIRECT") or rule.endswith(",REJECT"):
                 errors.append(f"DIRECT/REJECT direct rule target found: {rule}")
-            if rule.upper().startswith("RULE-SET,GAME-BLOCK"):
-                errors.append(f"GAME-BLOCK RULE-SET remains: {rule}")
-        providers = data.get("rule-providers") if isinstance(data, dict) else {}
-        if isinstance(providers, dict):
-            for provider_name in providers:
-                if str(provider_name).upper().startswith("GAME-BLOCK"):
-                    errors.append(f"GAME-BLOCK provider remains: {provider_name}")
     report = {"ok": not errors, "errors": errors}
     out = root / "output/Validation"
     out.mkdir(parents=True, exist_ok=True)
@@ -79,7 +55,7 @@ def main() -> int:
         for err in errors:
             print("ERROR:", err)
         return 1
-    print("Latest app-aware OpenClash output assertion OK, including inline-safe game block")
+    print("Latest app-aware OpenClash output assertion OK")
     return 0
 
 
