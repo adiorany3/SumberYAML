@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-06-07T05:56:36Z",
+  "generated_at_utc": "2026-06-07T06:32:15Z",
   "policy": "extra-sources-tcp-alive-vmess-vless-trojan-only",
   "note": "Alive means TCP connection to server:port succeeded before the main generator's own proxy test. SS/SSR are intentionally skipped for OpenClash compatibility.",
   "sources": [
@@ -14,15 +14,15 @@
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 69584,
-      "extracted_links": 409
+      "bytes": 83168,
+      "extracted_links": 413
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 1150560,
-      "extracted_links": 5005
+      "bytes": 1172308,
+      "extracted_links": 5071
     },
     {
       "url": "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt",
@@ -84,57 +84,22 @@
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 866079,
-      "extracted_links": 3664
+      "bytes": 852116,
+      "extracted_links": 3627
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 103334,
-      "extracted_links": 546
+      "bytes": 111470,
+      "extracted_links": 562
     },
     {
       "url": "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 2071292,
-      "extracted_links": 5965
-    },
-    {
-      "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt",
-      "fetch_ok": true,
-      "error": null,
-      "bytes": 94753,
-      "extracted_links": 480
-    },
-    {
-      "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt",
-      "fetch_ok": true,
-      "error": null,
-      "bytes": 113846,
-      "extracted_links": 488
-    },
-    {
-      "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt",
-      "fetch_ok": true,
-      "error": null,
-      "bytes": 114046,
-      "extracted_links": 493
-    },
-    {
-      "url": "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
-      "fetch_ok": true,
-      "error": null,
-      "bytes": 37975,
-      "extracted_links": 124
-    },
-    {
-      "url": "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt",
-      "fetch_ok": true,
-      "error": null,
-      "bytes": 40110,
-      "extracted_links": 139
+      "bytes": 2114823,
+      "extracted_links": 6116
     }
   ],
   "input_urls": [
@@ -151,15 +116,10 @@
     "https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt",
-    "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
-    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt",
-    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt",
-    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt",
-    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
-    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt"
+    "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt"
   ],
-  "total_extracted_raw": 31288,
-  "dropped_ss_ssr": 1937,
+  "total_extracted_raw": 29764,
+  "dropped_ss_ssr": 2118,
   "unique_supported_candidates": 3000,
   "checked_candidates": 3000,
   "alive_candidates": 700,
@@ -169,8 +129,8 @@
     "vmess": 696
   },
   "alive_by_scheme": {
-    "vless": 1491,
-    "trojan": 517,
+    "vless": 1465,
+    "trojan": 516,
     "vmess": 458
   },
   "append_to": "input/links.txt",
@@ -185,8 +145,7 @@
     "amazon": 1,
     "digitalocean": 0,
     "melbikom": 5,
-    "vultr": 0,
-    "r3xxe": 6
+    "vultr": 0
   },
   "sample_alive": [
     {
