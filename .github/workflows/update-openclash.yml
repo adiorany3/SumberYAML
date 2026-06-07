@@ -80,8 +80,8 @@ env:
   OPENCLASH_KEEP_META_OPTIONS: "false"
   OPENCLASH_ADD_LAN_DIRECT: "false"
   ENABLE_PERFORMANCE_OPTIONS: "false"
-  MANUAL_INPUT_FILES: "input/links.txt,input.txt,links.txt,input/google.txt,input/oracle.txt,input/microsoft.txt,input/amazon.txt,input/digitalocean.txt,input/melbikom.txt,input/vultr.txt"
-  PROVIDER_BUCKET_INPUT_FILES: "input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/extra_sources_alive.txt input/provider_buckets_summary.json"
+  MANUAL_INPUT_FILES: "input/links.txt,input.txt,links.txt,input/link.txt,input/google.txt,input/oracle.txt,input/microsoft.txt,input/amazon.txt,input/digitalocean.txt,input/melbikom.txt,input/vultr.txt,input/r3xxe.txt"
+  PROVIDER_BUCKET_INPUT_FILES: "input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/r3xxe.txt input/extra_sources_alive.txt input/provider_buckets_summary.json input/link.txt link.txt"
   MANUAL_SERVER_OVERRIDE: "104.17.3.81"
   MANUAL_SERVER_OVERRIDE_TYPES: "cdn-compatible"
   SMART_SAFE_MANUAL_ONLY: "true"
@@ -92,26 +92,23 @@ env:
   ENABLE_INPUT_VMESS_LB: "false"
   ENABLE_CLEAN_RESPONSIVE_RULES: "false"
   ENABLE_STRICT_SAFE_FIX: "false"
-  ENABLE_APP_AWARE_GROUPS: "false"
-  ENABLE_SERVICE_SCORE_GROUPS: "true"
+  ENABLE_APP_AWARE_GROUPS: "true"
   ENABLE_GAME_BLOCK_INLINE_SAFE: "true"
   ENABLE_EXTRA_SOURCES_ALIVE: "true"
+  ENABLE_SINGBOX_OUTPUT: "true"
+  SINGBOX_TCP_CHECK: "true"
+  SINGBOX_TCP_TIMEOUT: "3"
+  SINGBOX_CONCURRENCY: "100"
+  SINGBOX_MAX_OUTBOUNDS: "600"
+  SINGBOX_GROUP_LIMIT: "80"
   EXTRA_SOURCE_TCP_TIMEOUT: "4"
   EXTRA_SOURCE_CONCURRENCY: "120"
   EXTRA_SOURCE_MAX_CANDIDATES: "3000"
   EXTRA_SOURCE_MAX_ALIVE: "700"
-  EXTRA_SOURCE_URLS: "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt,https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix,https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html,https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt,https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt,https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/main/subscription/main.txt,https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt,https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt,https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt"
+  EXTRA_SOURCE_URLS: "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt,https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix,https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html,https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt,https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt,https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/main/subscription/main.txt,https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt,https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt,https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt,https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt,https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt"
   APP_AWARE_INTERVAL: "90"
   APP_AWARE_TOLERANCE: "40"
   APP_AWARE_MAX_CANDIDATES: "20"
-  SERVICE_SCORE_INTERVAL: "90"
-  SERVICE_SCORE_TOLERANCE: "40"
-  SERVICE_SCORE_MAX_CANDIDATES: "25"
-  SERVICE_SCORE_TCP_PROBE: "true"
-  SERVICE_SCORE_TCP_TIMEOUT: "2.5"
-  SERVICE_SCORE_TCP_CONCURRENCY: "120"
-  SERVICE_SCORE_CACHE: "cache/service_node_score.json"
-  BLIBLI_INPUT_FILES: ".manual_source/input_links_original.txt,input.txt,links.txt"
   SOURCE_CACHE_ENABLE: "true"
   SOURCE_CACHE_DIR: "output/Cache/sources"
   USE_PREVIOUS_OUTPUT_IF_EMPTY: "true"
@@ -124,10 +121,9 @@ env:
 
 jobs:
   update:
-    name: Generate service-score OpenClash output with BLIBLI links-only
+    name: Generate OpenClash and sing-box output
     runs-on: ubuntu-latest
     timeout-minutes: 60
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -151,6 +147,16 @@ jobs:
             pip install requests streamlit pyyaml
           fi
 
+      - name: Backup original trusted links for Blibli links-only policy
+        run: |
+          set -e
+          mkdir -p .manual_source
+          if [ -f input/links.txt ]; then
+            cp input/links.txt .manual_source/input_links_original.txt
+          else
+            : > .manual_source/input_links_original.txt
+          fi
+
       - name: Backup previous output for fallback
         run: |
           set -e
@@ -161,25 +167,6 @@ jobs:
             echo "Previous output backup file count:"
             find .previous_output -type f | wc -l
           fi
-
-      - name: Backup original manual input for BLIBLI links-only policy
-        run: |
-          set -e
-          rm -rf .manual_source
-          mkdir -p .manual_source
-          if [ -f input/links.txt ]; then
-            cp input/links.txt .manual_source/input_links_original.txt
-          else
-            : > .manual_source/input_links_original.txt
-          fi
-          if [ -f input.txt ]; then
-            cp input.txt .manual_source/input_root_original.txt
-          fi
-          if [ -f links.txt ]; then
-            cp links.txt .manual_source/links_root_original.txt
-          fi
-          echo "Original BLIBLI manual source line count:"
-          wc -l .manual_source/input_links_original.txt || true
 
       - name: Fetch extra sources and keep TCP-alive nodes
         if: env.ENABLE_EXTRA_SOURCES_ALIVE == 'true'
@@ -205,11 +192,25 @@ jobs:
           fi
           echo "Alive extra source node count:"
           wc -l input/extra_sources_alive.txt || true
-          echo "Provider bucket input files:"
-          for f in input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt; do
-            printf '%s: ' "$f"
-            if [ -f "$f" ]; then wc -l < "$f"; else echo 0; fi
-          done
+
+      - name: Generate sing-box from fetched links and write link.txt
+        if: env.ENABLE_SINGBOX_OUTPUT == 'true'
+        run: |
+          set -e
+          if [ ! -f scripts/update_singbox_from_links.py ]; then
+            echo "ERROR: scripts/update_singbox_from_links.py tidak ditemukan."
+            exit 1
+          fi
+          python scripts/update_singbox_from_links.py \
+            --root . \
+            --max-outbounds "$SINGBOX_MAX_OUTBOUNDS" \
+            --fallback-limit "$SINGBOX_GROUP_LIMIT" \
+            --tcp-timeout "$SINGBOX_TCP_TIMEOUT" \
+            --concurrency "$SINGBOX_CONCURRENCY" \
+            --tcp-check
+          cat output/Validation/singbox_report.json || true
+          echo "Generated link.txt count:"
+          wc -l link.txt input/link.txt output/SingBox/links.txt || true
 
       - name: Generate OpenClash output
         run: |
@@ -229,12 +230,11 @@ jobs:
               python telegram_openclash_alive.py
             }
           find output -maxdepth 3 -type f | sort || true
+          mkdir -p output/Validation
           if [ -f .extra_sources_alive_report.json ]; then
-            mkdir -p output/Validation
             cp .extra_sources_alive_report.json output/Validation/extra_sources_alive_report.json
           fi
           if [ -f .extra_sources_provider_buckets_report.json ]; then
-            mkdir -p output/Validation
             cp .extra_sources_provider_buckets_report.json output/Validation/extra_sources_provider_buckets_report.json
           fi
 
@@ -248,26 +248,20 @@ jobs:
             echo "WARNING: smart-safe responsive script tidak ditemukan; lanjut."
           fi
 
-      - name: Apply service-score app-aware groups with BLIBLI links-only
-        if: env.ENABLE_SERVICE_SCORE_GROUPS == 'true'
+      - name: Apply app-aware strict-safe groups
+        if: env.ENABLE_APP_AWARE_GROUPS == 'true'
         run: |
           set -e
-          if [ ! -f scripts/apply_openclash_service_score_groups.py ]; then
-            echo "ERROR: scripts/apply_openclash_service_score_groups.py tidak ditemukan."
-            exit 1
+          if [ -f scripts/apply_openclash_app_aware_groups.py ]; then
+            python scripts/apply_openclash_app_aware_groups.py \
+              --root . \
+              --interval "$APP_AWARE_INTERVAL" \
+              --tolerance "$APP_AWARE_TOLERANCE" \
+              --max-candidates "$APP_AWARE_MAX_CANDIDATES"
+            cat output/Validation/app_aware_groups_report.json || true
+          else
+            echo "WARNING: scripts/apply_openclash_app_aware_groups.py tidak ditemukan; skip app-aware finalizer."
           fi
-          python scripts/apply_openclash_service_score_groups.py \
-            --root . \
-            --input-files "$MANUAL_INPUT_FILES" \
-            --blibli-input-files "$BLIBLI_INPUT_FILES" \
-            --interval "$SERVICE_SCORE_INTERVAL" \
-            --tolerance "$SERVICE_SCORE_TOLERANCE" \
-            --max-candidates "$SERVICE_SCORE_MAX_CANDIDATES" \
-            --score-cache "$SERVICE_SCORE_CACHE" \
-            --tcp-probe "$SERVICE_SCORE_TCP_PROBE" \
-            --tcp-timeout "$SERVICE_SCORE_TCP_TIMEOUT" \
-            --tcp-concurrency "$SERVICE_SCORE_TCP_CONCURRENCY"
-          cat output/Validation/service_score_groups_report.json || true
 
       - name: Apply expanded inline-safe web game block rules
         if: env.ENABLE_GAME_BLOCK_INLINE_SAFE == 'true'
@@ -280,6 +274,20 @@ jobs:
           python scripts/apply_openclash_game_block_inline_safe.py --root .
           cat output/Validation/game_block_inline_safe_report.json || true
 
+      - name: Regenerate sing-box after OpenClash finalizers
+        if: env.ENABLE_SINGBOX_OUTPUT == 'true'
+        run: |
+          set -e
+          python scripts/update_singbox_from_links.py \
+            --root . \
+            --max-outbounds "$SINGBOX_MAX_OUTBOUNDS" \
+            --fallback-limit "$SINGBOX_GROUP_LIMIT" \
+            --tcp-timeout "$SINGBOX_TCP_TIMEOUT" \
+            --concurrency "$SINGBOX_CONCURRENCY" \
+            --tcp-check
+          python scripts/validate_singbox_output.py --root . output/SingBox/sing-box.json
+          cat output/Validation/singbox_report.json || true
+
       - name: Validate output exists
         run: |
           set -e
@@ -288,10 +296,13 @@ jobs:
             find output -maxdepth 4 -type f | sort || true
             exit 1
           fi
-          test -f output/Validation/game_block_inline_safe_report.json
-          if [ "$ENABLE_SERVICE_SCORE_GROUPS" = "true" ]; then
-            test -f output/Validation/service_score_groups_report.json
+          if [ "$ENABLE_SINGBOX_OUTPUT" = "true" ]; then
+            test -f output/SingBox/sing-box.json
+            test -f output/SingBox/links.txt
+            test -f link.txt
+            test -f input/link.txt
           fi
+          test -f output/Validation/game_block_inline_safe_report.json
           if [ "$ENABLE_EXTRA_SOURCES_ALIVE" = "true" ]; then
             test -f output/Validation/extra_sources_alive_report.json
             test -f output/Validation/extra_sources_provider_buckets_report.json
@@ -310,16 +321,13 @@ jobs:
               output/fast.yaml \
               output/manual_only.yaml
           else
-            python - <<'PY'
-          import sys, yaml
-          for p in sys.argv[1:]:
-              try:
-                  with open(p, 'r', encoding='utf-8') as f:
-                      yaml.safe_load(f)
-                  print('YAML OK:', p)
-              except FileNotFoundError:
-                  print('Skip missing:', p)
-          PY
+            python -c "import sys,yaml,pathlib; [print('YAML OK: '+x) if pathlib.Path(x).exists() and yaml.safe_load(open(x, encoding='utf-8')) is not None else print('Skip missing: '+x) for x in sys.argv[1:]]" \
+              output/lengkap.yaml \
+              output/lengkap_alive.yaml \
+              output/strict_alive.yaml \
+              output/lite.yaml \
+              output/fast.yaml \
+              output/manual_only.yaml
           fi
 
       - name: Validate expanded inline-safe game block
@@ -362,43 +370,22 @@ jobs:
           grep -R "DOMAIN-SUFFIX,callofwar.com,BLOCK" output/*.yaml
           grep -R "DOMAIN-SUFFIX,poki.com,BLOCK" output/*.yaml
           grep -R "DOMAIN-SUFFIX,crazygames.com,BLOCK" output/*.yaml
+          if [ "$ENABLE_SINGBOX_OUTPUT" = "true" ]; then
+            python scripts/validate_singbox_output.py --root . output/SingBox/sing-box.json
+          fi
 
       - name: Show generated output snapshot
         run: |
           set -e
           echo "Output YAML files:"
           find output -maxdepth 1 -type f -name "*.yaml" -printf "%f\n" | sort || true
+          echo "Sing-box files:"
+          find output/SingBox -maxdepth 1 -type f -printf "%f %s bytes\n" | sort || true
           echo "Validation reports:"
           ls -la output/Validation || true
-          echo "Extra sources alive summary:"
-          python - <<'PY'
-          import json, pathlib
-          p = pathlib.Path('output/Validation/extra_sources_alive_report.json')
-          if p.exists():
-              d = json.loads(p.read_text())
-              print({k: d.get(k) for k in ['unique_supported_candidates','checked_candidates','alive_candidates','dropped_ss_ssr','alive_by_scheme','provider_bucket_counts']})
-          else:
-              print('extra_sources_alive_report.json not found')
-          p2 = pathlib.Path('output/Validation/extra_sources_provider_buckets_report.json')
-          if p2.exists():
-              d2 = json.loads(p2.read_text())
-              print('provider files:', {k: v.get('count') for k, v in d2.get('files', {}).items()})
-          else:
-              print('extra_sources_provider_buckets_report.json not found')
-          p3 = pathlib.Path('output/Validation/service_score_groups_report.json')
-          if p3.exists():
-              d3 = json.loads(p3.read_text())
-              print('service score:', {k: d3.get(k) for k in ['tcp_probe_checked','tcp_probe_alive','blibli_links_only_names_count']})
-          else:
-              print('service_score_groups_report.json not found')
-          PY
-          echo "Provider bucket files:"
-          for f in input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt; do
-            if [ -f "$f" ]; then echo "$f $(wc -l < "$f")"; fi
-          done
-          echo "Expanded web game block rules in fast.yaml:"
-          grep -E "DOMAIN-SUFFIX,(callofwar|bytro|supremacy1914|conflictofnations|poki|crazygames|y8|krunker|roblox)" output/fast.yaml | head -120 || true
-          echo "Ensure no unsupported provider/group types:"
+          echo "link.txt counts:"
+          wc -l link.txt input/link.txt output/SingBox/links.txt || true
+          echo "Ensure no unsupported provider/group types in OpenClash YAML:"
           grep -R "RULE-SET,GAME-BLOCK" output/*.yaml && exit 1 || true
           grep -R "GAME-BLOCK-DOMAIN" output/*.yaml && exit 1 || true
           grep -R "GAME-BLOCK-CLASSICAL" output/*.yaml && exit 1 || true
@@ -412,18 +399,13 @@ jobs:
           BACKUP_DIR="$(mktemp -d)"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           if [ ! -d output ]; then
             echo "ERROR: Folder output tidak ditemukan."
             exit 1
           fi
 
           tar -C output -cf "$BACKUP_DIR/output.tar" .
-          if [ -d cache ]; then
-            tar -C cache -cf "$BACKUP_DIR/cache.tar" .
-          fi
-          # Backup generated provider bucket input files only. Do not backup or commit input/links.txt,
-          # because that file contains trusted/manual input and temporary appended extra-source nodes.
+          if [ -d cache ]; then tar -C cache -cf "$BACKUP_DIR/cache.tar" .; fi
           mkdir -p "$BACKUP_DIR/provider_input"
           for f in $PROVIDER_BUCKET_INPUT_FILES; do
             if [ -f "$f" ]; then
@@ -434,12 +416,9 @@ jobs:
 
           stage_provider_input_files() {
             for f in $PROVIDER_BUCKET_INPUT_FILES; do
-              if [ -f "$f" ]; then
-                git add -f "$f"
-              fi
+              if [ -f "$f" ]; then git add -f "$f"; fi
             done
           }
-
           stage_generated_paths() {
             git add -A -f output
             if [ -d cache ]; then
@@ -449,29 +428,12 @@ jobs:
             fi
             stage_provider_input_files
           }
-
           write_force_marker() {
             mkdir -p output/Validation
             FORCE_TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
             FORCE_NONCE="$(date -u +%s%N)-${GITHUB_RUN_ID:-run}-${GITHUB_RUN_ATTEMPT:-attempt}-${GITHUB_RUN_NUMBER:-number}-$RANDOM"
-            cat > output/Validation/last_run.json <<EOF
-          {
-            "updated_at": "$FORCE_TS",
-            "nonce": "$FORCE_NONCE",
-            "source": "$SOURCE",
-            "mode": "$MODE",
-            "run_id": "${GITHUB_RUN_ID:-}",
-            "run_attempt": "${GITHUB_RUN_ATTEMPT:-}",
-            "policy": "force-output-commit-extra-sources-alive"
-          }
-          EOF
-            cat > output/Validation/last_run.txt <<EOF
-          updated_at=$FORCE_TS
-          nonce=$FORCE_NONCE
-          source=$SOURCE
-          mode=$MODE
-          policy=force-output-commit-extra-sources-alive
-          EOF
+            printf '{\n  "updated_at": "%s",\n  "nonce": "%s",\n  "source": "%s",\n  "mode": "%s",\n  "singbox": "%s"\n}\n' "$FORCE_TS" "$FORCE_NONCE" "$SOURCE" "$MODE" "$ENABLE_SINGBOX_OUTPUT" > output/Validation/last_run.json
+            printf 'updated_at=%s\nnonce=%s\nsource=%s\nmode=%s\nsingbox=%s\n' "$FORCE_TS" "$FORCE_NONCE" "$SOURCE" "$MODE" "$ENABLE_SINGBOX_OUTPUT" > output/Validation/last_run.txt
           }
 
           for attempt in 1 2 3; do
@@ -486,32 +448,28 @@ jobs:
               mkdir -p cache
               tar -C cache -xf "$BACKUP_DIR/cache.tar"
             fi
-            if [ -d "$BACKUP_DIR/provider_input/input" ]; then
-              mkdir -p input
-              cp -a "$BACKUP_DIR/provider_input/input/." input/
+            if [ -d "$BACKUP_DIR/provider_input" ]; then
+              cp -a "$BACKUP_DIR/provider_input/." .
             fi
-
             stage_generated_paths
             if git diff --cached --quiet; then
               echo "Tidak ada perubahan output dari generator. Membuat force marker agar update tetap ter-commit."
               write_force_marker
               stage_generated_paths
             fi
-
-            git status --short output cache input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/extra_sources_alive.txt input/provider_buckets_summary.json || true
             if git diff --cached --quiet; then
-              echo "ERROR: Force output commit marker tetap tidak menghasilkan perubahan."
+              echo "ERROR: Force marker tetap tidak menghasilkan perubahan."
+              git status --short output input link.txt cache || true
               exit 1
             fi
-
-            git commit -m "Update OpenClash output with service score and Blibli links only"
+            git status --short output input link.txt cache || true
+            git commit -m "Update OpenClash and sing-box output" || true
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
             fi
             echo "Push gagal, retry setelah sinkronisasi ulang."
-            sleep $((attempt * 5))
+            sleep 5
           done
-
           echo "ERROR: Push tetap gagal setelah 3 percobaan."
           exit 1
