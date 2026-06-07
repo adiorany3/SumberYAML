@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-06-07T05:16:33Z",
+  "generated_at_utc": "2026-06-07T05:24:00Z",
   "policy": "extra-sources-tcp-alive-vmess-vless-trojan-only",
   "note": "Alive means TCP connection to server:port succeeded before the main generator's own proxy test. SS/SSR are intentionally skipped for OpenClash compatibility.",
   "sources": [
@@ -54,6 +54,17 @@
   "append_to": "input/links.txt",
   "all_output": "input/extra_sources_all.txt",
   "alive_output": "input/extra_sources_alive.txt",
+  "provider_output_dir": "input",
+  "provider_report": ".extra_sources_provider_buckets_report.json",
+  "provider_bucket_counts": {
+    "google": 0,
+    "oracle": 0,
+    "microsoft": 0,
+    "amazon": 0,
+    "digitalocean": 0,
+    "melbikom": 0,
+    "vultr": 0
+  },
   "sample_alive": [
     {
       "scheme": "vless",
