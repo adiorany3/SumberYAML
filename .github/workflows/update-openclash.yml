@@ -93,6 +93,12 @@ env:
   ENABLE_STRICT_SAFE_FIX: "false"
   ENABLE_APP_AWARE_GROUPS: "true"
   ENABLE_GAME_BLOCK_INLINE_SAFE: "true"
+  ENABLE_EXTRA_SOURCES_ALIVE: "true"
+  EXTRA_SOURCE_TCP_TIMEOUT: "4"
+  EXTRA_SOURCE_CONCURRENCY: "120"
+  EXTRA_SOURCE_MAX_CANDIDATES: "800"
+  EXTRA_SOURCE_MAX_ALIVE: "250"
+  EXTRA_SOURCE_URLS: "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt"
   APP_AWARE_INTERVAL: "90"
   APP_AWARE_TOLERANCE: "40"
   APP_AWARE_MAX_CANDIDATES: "20"
@@ -108,7 +114,7 @@ env:
 
 jobs:
   update:
-    name: Generate app-aware OpenClash output with expanded web game block
+    name: Generate app-aware OpenClash output with extra alive sources
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -146,6 +152,25 @@ jobs:
             find .previous_output -type f | wc -l
           fi
 
+      - name: Fetch extra sources and keep TCP-alive nodes
+        if: env.ENABLE_EXTRA_SOURCES_ALIVE == 'true'
+        run: |
+          set -e
+          if [ ! -f scripts/fetch_extra_sources_alive.py ]; then
+            echo "ERROR: scripts/fetch_extra_sources_alive.py tidak ditemukan."
+            exit 1
+          fi
+          python scripts/fetch_extra_sources_alive.py \
+            --root . \
+            --append-to input/links.txt \
+            --tcp-timeout "$EXTRA_SOURCE_TCP_TIMEOUT" \
+            --concurrency "$EXTRA_SOURCE_CONCURRENCY" \
+            --max-candidates "$EXTRA_SOURCE_MAX_CANDIDATES" \
+            --max-alive "$EXTRA_SOURCE_MAX_ALIVE"
+          cat .extra_sources_alive_report.json || true
+          echo "Alive extra source node count:"
+          wc -l input/extra_sources_alive.txt || true
+
       - name: Generate OpenClash output
         run: |
           set -e
@@ -164,6 +189,10 @@ jobs:
               python telegram_openclash_alive.py
             }
           find output -maxdepth 3 -type f | sort || true
+          if [ -f .extra_sources_alive_report.json ]; then
+            mkdir -p output/Validation
+            cp .extra_sources_alive_report.json output/Validation/extra_sources_alive_report.json
+          fi
 
       - name: Apply smart-safe manual input and drop SS/SSR
         run: |
@@ -210,6 +239,9 @@ jobs:
             exit 1
           fi
           test -f output/Validation/game_block_inline_safe_report.json
+          if [ "$ENABLE_EXTRA_SOURCES_ALIVE" = "true" ]; then
+            test -f output/Validation/extra_sources_alive_report.json
+          fi
           wc -l output/lengkap.yaml || true
 
       - name: Validate OpenClash YAML
@@ -284,6 +316,16 @@ jobs:
           find output -maxdepth 1 -type f -name "*.yaml" -printf "%f\n" | sort || true
           echo "Validation reports:"
           ls -la output/Validation || true
+          echo "Extra sources alive summary:"
+          python - <<'PY'
+          import json, pathlib
+          p = pathlib.Path('output/Validation/extra_sources_alive_report.json')
+          if p.exists():
+              d = json.loads(p.read_text())
+              print({k: d.get(k) for k in ['unique_supported_candidates','checked_candidates','alive_candidates','dropped_ss_ssr','alive_by_scheme']})
+          else:
+              print('extra_sources_alive_report.json not found')
+          PY
           echo "Expanded web game block rules in fast.yaml:"
           grep -E "DOMAIN-SUFFIX,(callofwar|bytro|supremacy1914|conflictofnations|poki|crazygames|y8|krunker|roblox)" output/fast.yaml | head -120 || true
           echo "Ensure no unsupported provider/group types:"
@@ -332,7 +374,7 @@ jobs:
             "mode": "$MODE",
             "run_id": "${GITHUB_RUN_ID:-}",
             "run_attempt": "${GITHUB_RUN_ATTEMPT:-}",
-            "policy": "force-output-commit-expanded-web-game-block"
+            "policy": "force-output-commit-extra-sources-alive"
           }
           EOF
             cat > output/Validation/last_run.txt <<EOF
@@ -340,7 +382,7 @@ jobs:
           nonce=$FORCE_NONCE
           source=$SOURCE
           mode=$MODE
-          policy=force-output-commit-expanded-web-game-block
+          policy=force-output-commit-extra-sources-alive
           EOF
           }
 
@@ -370,7 +412,7 @@ jobs:
               exit 1
             fi
 
-            git commit -m "Update OpenClash output with expanded web game block"
+            git commit -m "Update OpenClash output with extra alive sources"
             if git push origin "HEAD:$BRANCH"; then
               echo "Push berhasil."
               exit 0
