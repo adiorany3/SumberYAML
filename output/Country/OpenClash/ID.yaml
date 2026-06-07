@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "B2vasl 8866"
+  - name: "B2vasl 6914"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,6 +48,21 @@ proxies:
       path: "/id-amz"
       headers:
         Host: "somersby.pt.ex33r.eu.cc"
+    udp: true
+  - name: "GozargahAzad 9595"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b8ab1937-611c-4734-b01c-ff3818edf635
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "m.udemy.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "m.udemy.com.ex33r.eu.cc"
     udp: true
 
 proxy-groups:
