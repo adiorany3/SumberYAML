@@ -1,22 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
-TARGET="${1:-}"
-if [ -z "$TARGET" ]; then
-  echo "Usage: bash install_patch.sh /path/to/SumberYAML"
-  exit 1
-fi
+TARGET="${1:-.}"
 if [ ! -d "$TARGET" ]; then
-  echo "ERROR: target directory not found: $TARGET"
+  echo "ERROR: target repo tidak ditemukan: $TARGET" >&2
   exit 1
 fi
-ROOT="$(cd "$(dirname "$0")" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 mkdir -p "$TARGET/scripts" "$TARGET/.github/workflows" "$TARGET/input"
-cp -a "$ROOT/scripts/." "$TARGET/scripts/"
-cp -a "$ROOT/.github/workflows/update-openclash.yml" "$TARGET/.github/workflows/update-openclash.yml"
-if [ -d "$ROOT/input" ]; then
-  cp -a "$ROOT/input/." "$TARGET/input/"
+cp -a "$SCRIPT_DIR/scripts/." "$TARGET/scripts/"
+cp -a "$SCRIPT_DIR/.github/workflows/." "$TARGET/.github/workflows/"
+if [ -d "$SCRIPT_DIR/input" ]; then
+  cp -a "$SCRIPT_DIR/input/." "$TARGET/input/"
 fi
-cp -a "$ROOT"/README_*.md "$TARGET"/ 2>/dev/null || true
-cp -a "$ROOT/manifest.json" "$TARGET/manifest_all_provider_bucket_filter.json"
+for f in "$SCRIPT_DIR"/README*.md; do
+  [ -f "$f" ] && cp -a "$f" "$TARGET/"
+done
 echo "Patch installed to: $TARGET"
-echo "Next: git add scripts .github/workflows/update-openclash.yml input/extra_sources_urls.txt README_*.md && git commit -m 'Filter extra alive nodes into provider input buckets' && git push"
+echo "Next: git add scripts .github/workflows input/extra_sources_urls.txt README*.md && git commit"

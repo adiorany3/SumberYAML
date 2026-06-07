@@ -1,24 +1,25 @@
 {
-  "name": "SumberYAML-r3xxe-input-bucket-patch",
-  "description": "Add input/r3xxe.txt bucket for alive vmess/vless/trojan nodes containing r3xxe.eu.cc from extra sources.",
+  "name": "SumberYAML-service-score-blibli-links-only-patch",
+  "version": "2026-06-07",
+  "description": "Adds TCP service-score history and app-aware url-test groups, with BLIBLI using only links.txt-style manual accounts.",
   "files": [
     ".github/workflows/update-openclash.yml",
-    "README_ALL_PROVIDER_BUCKET_FILTER_PATCH.md",
-    "README_EXTRA_SOURCES_ALIVE_PATCH.md",
-    "README_GAME_WEB_BLOCK_EXPANDED_PATCH.md",
-    "README_PROVIDER_BUCKET_INPUT_PATCH.md",
-    "README_R3XXE_INPUT_BUCKET_PATCH.md",
-    "input/extra_sources_urls.txt",
-    "input/r3xxe.txt",
-    "install_patch.sh",
-    "manifest.json",
-    "scripts/apply_openclash_app_aware_groups.py",
-    "scripts/apply_openclash_game_block_inline_safe.py",
-    "scripts/assert_latest_openclash_outputs.py",
+    "scripts/apply_openclash_service_score_groups.py",
     "scripts/fetch_extra_sources_alive.py",
-    "scripts/force_output_update_marker.py",
+    "scripts/apply_openclash_game_block_inline_safe.py",
     "scripts/validate_game_block_inline_safe.py",
-    "scripts/validate_openclash_outputs.py"
+    "scripts/validate_openclash_outputs.py",
+    "scripts/assert_latest_openclash_outputs.py",
+    "scripts/force_output_update_marker.py",
+    "input/extra_sources_urls.txt",
+    "README_SERVICE_SCORE_BLIBLI_LINKS_ONLY_PATCH.md"
   ],
-  "generated_at": "2026-06-07T00:00:00Z"
+  "openclash_policy": {
+    "drop_protocols": ["ss", "ssr"],
+    "allowed_group_types": ["select", "url-test", "fallback"],
+    "no_load_balance": true,
+    "no_rule_providers": true,
+    "direct_reject_selector_only": true,
+    "blibli_source_policy": "BLIBLI direct candidates only from links.txt-style manual files"
+  }
 }
