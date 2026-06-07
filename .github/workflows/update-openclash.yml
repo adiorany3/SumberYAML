@@ -80,8 +80,8 @@ env:
   OPENCLASH_KEEP_META_OPTIONS: "false"
   OPENCLASH_ADD_LAN_DIRECT: "false"
   ENABLE_PERFORMANCE_OPTIONS: "false"
-  MANUAL_INPUT_FILES: "input/links.txt,input.txt,links.txt,input/google.txt,input/oracle.txt,input/microsoft.txt,input/amazon.txt,input/digitalocean.txt,input/melbikom.txt,input/vultr.txt"
-  PROVIDER_BUCKET_INPUT_FILES: "input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/extra_sources_alive.txt input/provider_buckets_summary.json"
+  MANUAL_INPUT_FILES: "input/links.txt,input.txt,links.txt,input/google.txt,input/oracle.txt,input/microsoft.txt,input/amazon.txt,input/digitalocean.txt,input/melbikom.txt,input/vultr.txt,input/r3xxe.txt"
+  PROVIDER_BUCKET_INPUT_FILES: "input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/r3xxe.txt input/extra_sources_alive.txt input/provider_buckets_summary.json"
   MANUAL_SERVER_OVERRIDE: "104.17.3.81"
   MANUAL_SERVER_OVERRIDE_TYPES: "cdn-compatible"
   SMART_SAFE_MANUAL_ONLY: "true"
@@ -99,7 +99,7 @@ env:
   EXTRA_SOURCE_CONCURRENCY: "120"
   EXTRA_SOURCE_MAX_CANDIDATES: "3000"
   EXTRA_SOURCE_MAX_ALIVE: "700"
-  EXTRA_SOURCE_URLS: "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt,https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix,https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html,https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt,https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt,https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/main/subscription/main.txt,https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt,https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt,https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt"
+  EXTRA_SOURCE_URLS: "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt,https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix,https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html,https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt,https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt,https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/main/subscription/main.txt,https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt,https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt,https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt,https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt,https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt,https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt,https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt"
   APP_AWARE_INTERVAL: "90"
   APP_AWARE_TOLERANCE: "40"
   APP_AWARE_MAX_CANDIDATES: "20"
@@ -178,7 +178,7 @@ jobs:
           echo "Alive extra source node count:"
           wc -l input/extra_sources_alive.txt || true
           echo "Provider bucket input files:"
-          for f in input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt; do
+          for f in input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/r3xxe.txt; do
             printf '%s: ' "$f"
             if [ -f "$f" ]; then wc -l < "$f"; else echo 0; fi
           done
@@ -350,7 +350,7 @@ jobs:
               print('extra_sources_provider_buckets_report.json not found')
           PY
           echo "Provider bucket files:"
-          for f in input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt; do
+          for f in input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/r3xxe.txt; do
             if [ -f "$f" ]; then echo "$f $(wc -l < "$f")"; fi
           done
           echo "Expanded web game block rules in fast.yaml:"
@@ -455,7 +455,7 @@ jobs:
               stage_generated_paths
             fi
 
-            git status --short output cache input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/extra_sources_alive.txt input/provider_buckets_summary.json || true
+            git status --short output cache input/google.txt input/oracle.txt input/microsoft.txt input/amazon.txt input/digitalocean.txt input/melbikom.txt input/vultr.txt input/r3xxe.txt input/extra_sources_alive.txt input/provider_buckets_summary.json || true
             if git diff --cached --quiet; then
               echo "ERROR: Force output commit marker tetap tidak menghasilkan perubahan."
               exit 1
