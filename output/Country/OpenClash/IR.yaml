@@ -34,20 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2ray_configs_pools 9455"
+  - name: "InvoProxy"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: bf2e4217-a1ad-41fb-88ac-4878956ae2db
+    uuid: 5ed7fb94-bacd-485b-aca1-6a439738ed1f
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "sheynezterary.iran-tube-movie.ir"
+    servername: "falkinichlol.appleseraj.ir"
     ws-opts:
-      path: "/?edfp"
+      path: "/?ed/@InvoProxy,@InvoProxy@InvoProxy"
       headers:
-        Host: "sheynezterary.iran-tube-movie.ir"
+        Host: "falkinichlol.appleseraj.ir"
+    udp: true
+  - name: "VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5ed7fb94-bacd-485b-aca1-6a439738ed1f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "falkinichlol.appleseraj.ir"
+    ws-opts:
+      path: "/?ed/@VPNine1,@VPNine1@VPNine1,@VPNine1=2048"
+      headers:
+        Host: "falkinichlol.appleseraj.ir"
     udp: true
 
 proxy-groups:

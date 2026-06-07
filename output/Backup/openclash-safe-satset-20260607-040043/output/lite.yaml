@@ -1,0 +1,352 @@
+# Auto generated compact OpenClash config
+# Output: output/lite.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "chillguy_vpn"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 28607fa7-db30-47d6-942a-f5744e4be9ad
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "ProxyVPN11 7840"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "fr"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 79863d42-9f1c-4e8e-a65b-1003090871c1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "coNFIghayE.moKhaBeraTebInZON.workErS.deV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiUHVXcXFjYTJGVGI3IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+      headers:
+        Host: "confighaye.mokhaberatebinzon.workers.dev"
+    udp: true
+  - name: "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7e346122-2ee0-406e-b964-a8ee665f1814
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV"
+    udp: true
+  - name: "v2reya88"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "63 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 08b006dc-17e4-411d-9528-4369d72ad646
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "support.zoom.us.ex33r.eu.cc"
+    udp: true
+  - name: "https telegraph.rayan-config.workers.dev persian 9911"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d2d0f796-edb0-427a-af32-ae360679f9e7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rAyAn-007.fOtOn.dPdNs.oRg"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "rayan-007.foton.dpdns.org"
+    udp: true
+  - name: "more Qara_atayi Warp 7"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a253ff3f-fb8d-4160-85e8-61b080f0f561
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "more Qara_atayi Warp 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1043634e-8d9d-4736-83fa-f14ddc9d464c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0440e93c-a9d3-4998-aeaa-d0e2363131e4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rahammahar.photoazadeh9100.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "rahammahar.photoazadeh9100.workers.dev"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "chillguy_vpn"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "chillguy_vpn"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "chillguy_vpn"
+      - "ProxyVPN11 7840"
+      - "v2reya88"
+      - "63 oneclickvpnkeys"
+      - "more Qara_atayi Warp 1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian 9911"
+      - "fr"
+      - "more Qara_atayi Warp 7"
+      - "oneclickvpnkeys US 2411"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "ProxyVPN11 7840"
+      - "chillguy_vpn"
+      - "fr"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "v2reya88"
+      - "63 oneclickvpnkeys"
+      - "https telegraph.rayan-config.workers.dev persian 9911"
+      - "more Qara_atayi Warp 1"
+      - "more Qara_atayi Warp 7"
+      - "oneclickvpnkeys US"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "chillguy_vpn"
+      - "ProxyVPN11 7840"
+      - "v2reya88"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "63 oneclickvpnkeys"
+      - "https telegraph.rayan-config.workers.dev persian 9911"
+      - "more Qara_atayi Warp 1"
+      - "fr"
+      - "more Qara_atayi Warp 7"
+      - "oneclickvpnkeys US"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "chillguy_vpn"
+      - "ProxyVPN11 7840"
+      - "v2reya88"
+      - "63 oneclickvpnkeys"
+      - "more Qara_atayi Warp 1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian 9911"
+      - "fr"
+      - "more Qara_atayi Warp 7"
+      - "oneclickvpnkeys US 2411"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "chillguy_vpn"
+      - "ProxyVPN11 7840"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "v2reya88"
+      - "fr"
+      - "63 oneclickvpnkeys"
+      - "https telegraph.rayan-config.workers.dev persian 9911"
+      - "more Qara_atayi Warp 1"
+      - "more Qara_atayi Warp 7"
+      - "oneclickvpnkeys US"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST TOP GLOBAL"
+    type: url-test
+    proxies:
+      - "ProxyVPN11 7840"
+      - "chillguy_vpn"
+      - "fr"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "v2reya88"
+      - "63 oneclickvpnkeys"
+      - "https telegraph.rayan-config.workers.dev persian 9911"
+      - "more Qara_atayi Warp 7"
+      - "more Qara_atayi Warp 1"
+      - "oneclickvpnkeys US"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "chillguy_vpn"
+      - "ProxyVPN11 7840"
+      - "fr"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "v2reya88"
+      - "63 oneclickvpnkeys"
+      - "https telegraph.rayan-config.workers.dev persian 9911"
+      - "more Qara_atayi Warp 7"
+      - "more Qara_atayi Warp 1"
+      - "oneclickvpnkeys US"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "chillguy_vpn"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST TOP GLOBAL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
