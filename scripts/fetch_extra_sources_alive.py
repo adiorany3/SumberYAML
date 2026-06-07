@@ -6,7 +6,7 @@ this workflow run.
 
 Additionally, bucket alive nodes into provider-specific input files based on node
 names, for example input/google.txt, input/oracle.txt, input/microsoft.txt,
-input/amazon.txt, input/digitalocean.txt, input/melbikom.txt, and input/vultr.txt.
+input/amazon.txt, input/digitalocean.txt, input/melbikom.txt, input/vultr.txt, and input/r3xxe.txt.
 
 This intentionally skips ss:// and ssr:// because they were reported as causing
 OpenClash compatibility problems in this repo.
@@ -44,6 +44,12 @@ DEFAULT_URLS = [
     "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt",
     "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
+    # r3xxe.eu.cc discovery sources found from public GitHub search
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt",
+    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
+    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt",
 ]
 
 SUPPORTED_SCHEMES = {"vmess", "vless", "trojan"}
@@ -78,6 +84,10 @@ PROVIDER_BUCKETS = {
     "vultr": {
         "filename": "vultr.txt",
         "keywords": ["vultr"],
+    },
+    "r3xxe": {
+        "filename": "r3xxe.txt",
+        "keywords": ["r3xxe.eu.cc", "r3xxe"],
     },
 }
 
@@ -227,14 +237,19 @@ def parse_link_endpoint(link: str) -> Dict[str, Any]:
             port = int(str(port_raw).strip())
         except Exception:
             port = None
-        info.update({"server": server, "port": port, "name": name})
+        match_parts = []
+        for key in ("ps", "name", "add", "server", "host", "sni", "path", "net", "type", "tls", "aid", "scy"):
+            value = data.get(key)
+            if value is not None:
+                match_parts.append(str(value))
+        info.update({"server": server, "port": port, "name": name, "match_text": " ".join(match_parts)})
     elif scheme in {"vless", "trojan"}:
         try:
             parsed = urllib.parse.urlsplit(link)
             server = parsed.hostname or ""
             port = parsed.port
             name = urllib.parse.unquote(parsed.fragment or "").strip()
-            info.update({"server": server, "port": port, "name": name})
+            info.update({"server": server, "port": port, "name": name, "match_text": f"{parsed.netloc} {parsed.query} {parsed.fragment}"})
         except Exception as exc:
             info["error"] = f"uri parse failed: {exc}"
             return info
@@ -332,9 +347,10 @@ def write_provider_bucket_files(
         link = str(item.get("link") or "").strip()
         name = str(item.get("name") or "").strip()
         server = str(item.get("server") or "").strip()
+        match_text = str(item.get("match_text") or "").strip()
         if not link:
             continue
-        for bucket in provider_matches(name, server, link):
+        for bucket in provider_matches(name, server, match_text, link):
             if link in seen_per_bucket[bucket]:
                 continue
             seen_per_bucket[bucket].add(link)
