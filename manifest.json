@@ -1,7 +1,7 @@
 {
-  "name": "SumberYAML Extra Sources Alive Patch",
-  "version": "2026-06-07.1",
-  "description": "Fetches four external V2Ray sources, extracts vmess/vless/trojan nodes, TCP-checks alive nodes, and appends alive nodes to the OpenClash generation input.",
+  "name": "SumberYAML Provider Bucket Input Patch",
+  "version": "2026-06-07.2",
+  "description": "Fetches extra V2Ray sources, keeps TCP-alive vmess/vless/trojan nodes, and writes provider-specific input files such as input/google.txt, input/oracle.txt, input/microsoft.txt, input/amazon.txt, input/digitalocean.txt, input/melbikom.txt, and input/vultr.txt.",
   "files": [
     ".github/workflows/update-openclash.yml",
     "scripts/fetch_extra_sources_alive.py",
@@ -11,9 +11,19 @@
     "scripts/validate_openclash_outputs.py",
     "scripts/assert_latest_openclash_outputs.py",
     "scripts/force_output_update_marker.py",
+    "README_PROVIDER_BUCKET_INPUT_PATCH.md",
     "README_EXTRA_SOURCES_ALIVE_PATCH.md",
     "README_GAME_WEB_BLOCK_EXPANDED_PATCH.md",
     "install_patch.sh"
+  ],
+  "generated_input_files": [
+    "input/google.txt",
+    "input/oracle.txt",
+    "input/microsoft.txt",
+    "input/amazon.txt",
+    "input/digitalocean.txt",
+    "input/melbikom.txt",
+    "input/vultr.txt"
   ],
   "source_urls": [
     "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt",
@@ -21,7 +31,14 @@
     "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt",
     "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt"
   ],
-  "dropped_protocols": ["ss", "ssr"],
-  "supported_protocols": ["vmess", "vless", "trojan"],
-  "openclash_policy": "strict-safe; no load-balance; no rule-provider game block; game block stays inline; extra source nodes are TCP prechecked"
+  "dropped_protocols": [
+    "ss",
+    "ssr"
+  ],
+  "supported_protocols": [
+    "vmess",
+    "vless",
+    "trojan"
+  ],
+  "openclash_policy": "strict-safe; no load-balance; no rule-provider game block; game block stays inline; extra source nodes are TCP prechecked; input/links.txt is not committed"
 }

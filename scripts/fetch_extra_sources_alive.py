@@ -4,6 +4,10 @@ Fetch extra V2Ray subscription sources, extract supported nodes, run a TCP alive
 pre-check, and append only alive vmess/vless/trojan nodes to input/links.txt for
 this workflow run.
 
+Additionally, bucket alive nodes into provider-specific input files based on node
+names, for example input/google.txt, input/oracle.txt, input/microsoft.txt,
+input/amazon.txt, input/digitalocean.txt, input/melbikom.txt, and input/vultr.txt.
+
 This intentionally skips ss:// and ssr:// because they were reported as causing
 OpenClash compatibility problems in this repo.
 """
@@ -33,6 +37,39 @@ DEFAULT_URLS = [
 SUPPORTED_SCHEMES = {"vmess", "vless", "trojan"}
 DROPPED_SCHEMES = {"ss", "ssr"}
 LINK_RE = re.compile(r"(?i)\b(vmess|vless|trojan|ssr|ss)://[^\s'\"<>]+")
+
+PROVIDER_BUCKETS = {
+    "google": {
+        "filename": "google.txt",
+        "keywords": ["google", "gcp", "googlecloud", "google-cloud", "gmail", "gstatic", "googlevideo", "ytimg", "youtube", "youtu"],
+    },
+    "oracle": {
+        "filename": "oracle.txt",
+        "keywords": ["oracle", "oci", "oraclecloud", "oracle-cloud"],
+    },
+    "microsoft": {
+        "filename": "microsoft.txt",
+        "keywords": ["microsoft", "azure", "msft", "windowsazure", "azureedge"],
+    },
+    "amazon": {
+        "filename": "amazon.txt",
+        "keywords": ["amazon", "aws", "amazonaws", "ec2", "cloudfront"],
+    },
+    "digitalocean": {
+        "filename": "digitalocean.txt",
+        "keywords": ["digitalocean", "digital ocean", "digital-ocean", "digital_ocean", "do-droplet", "droplet"],
+    },
+    "melbikom": {
+        "filename": "melbikom.txt",
+        "keywords": ["melbikom", "melbi"],
+    },
+    "vultr": {
+        "filename": "vultr.txt",
+        "keywords": ["vultr"],
+    },
+}
+
+PROVIDER_INPUT_FILENAMES = [cfg["filename"] for cfg in PROVIDER_BUCKETS.values()]
 
 
 def now_iso() -> str:
@@ -239,6 +276,85 @@ async def check_all(items: List[Dict[str, Any]], timeout: float, concurrency: in
     return await asyncio.gather(*(one(item) for item in items))
 
 
+def normalize_name(value: str) -> str:
+    return re.sub(r"\s+", " ", urllib.parse.unquote(value or "").lower()).strip()
+
+
+def provider_matches(name: str) -> List[str]:
+    norm = normalize_name(name)
+    if not norm:
+        return []
+    matched: List[str] = []
+    for bucket, cfg in PROVIDER_BUCKETS.items():
+        for keyword in cfg["keywords"]:
+            if keyword.lower() in norm:
+                matched.append(bucket)
+                break
+    return matched
+
+
+def write_provider_bucket_files(
+    root: Path,
+    output_dir: str,
+    alive_items: List[Dict[str, Any]],
+    report_path: Optional[Path],
+) -> Dict[str, Any]:
+    """Write provider-specific alive node lists under input/*.txt.
+
+    Matching is based on node name only, as requested. Files are always created
+    so workflow commits can show an explicit empty bucket when no alive matching
+    node was found.
+    """
+    out_dir = root / output_dir
+    out_dir.mkdir(parents=True, exist_ok=True)
+    buckets: Dict[str, List[Dict[str, Any]]] = {key: [] for key in PROVIDER_BUCKETS}
+    seen_per_bucket: Dict[str, set] = {key: set() for key in PROVIDER_BUCKETS}
+
+    for item in alive_items:
+        link = str(item.get("link") or "").strip()
+        name = str(item.get("name") or "").strip()
+        if not link:
+            continue
+        for bucket in provider_matches(name):
+            if link in seen_per_bucket[bucket]:
+                continue
+            seen_per_bucket[bucket].add(link)
+            buckets[bucket].append(item)
+
+    files: Dict[str, Dict[str, Any]] = {}
+    for bucket, cfg in PROVIDER_BUCKETS.items():
+        filename = cfg["filename"]
+        path = out_dir / filename
+        links = [str(item.get("link") or "").strip() for item in buckets[bucket] if str(item.get("link") or "").strip()]
+        path.write_text("\n".join(links) + ("\n" if links else ""), encoding="utf-8")
+        files[bucket] = {
+            "file": str(path.relative_to(root)),
+            "count": len(links),
+            "keywords": cfg["keywords"],
+            "sample": [
+                {
+                    "scheme": item.get("scheme"),
+                    "name": item.get("name"),
+                    "server": item.get("server"),
+                    "port": item.get("port"),
+                }
+                for item in buckets[bucket][:10]
+            ],
+        }
+
+    report = {
+        "generated_at_utc": now_iso(),
+        "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
+        "note": "Buckets are matched from node names only. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
+        "output_dir": output_dir,
+        "files": files,
+    }
+    if report_path:
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return report
+
+
 def append_block(path: Path, links: List[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     existing = path.read_text(encoding="utf-8", errors="ignore") if path.exists() else ""
@@ -263,6 +379,8 @@ def main() -> int:
     parser.add_argument("--append-to", default="input/links.txt")
     parser.add_argument("--all-output", default="input/extra_sources_all.txt")
     parser.add_argument("--alive-output", default="input/extra_sources_alive.txt")
+    parser.add_argument("--provider-output-dir", default="input")
+    parser.add_argument("--provider-report", default=".extra_sources_provider_buckets_report.json")
     parser.add_argument("--report", default=".extra_sources_alive_report.json")
     parser.add_argument("--fetch-timeout", type=float, default=float(os.environ.get("EXTRA_SOURCE_FETCH_TIMEOUT", "25")))
     parser.add_argument("--tcp-timeout", type=float, default=float(os.environ.get("EXTRA_SOURCE_TCP_TIMEOUT", "4")))
@@ -326,6 +444,9 @@ def main() -> int:
     alive_links = [str(item["link"]) for item in alive_items]
     alive_output.write_text("\n".join(alive_links) + ("\n" if alive_links else ""), encoding="utf-8")
 
+    provider_report_path = root / args.provider_report if args.provider_report else None
+    provider_report = write_provider_bucket_files(root, args.provider_output_dir, alive_items, provider_report_path)
+
     if not args.no_append and alive_links:
         append_block(root / args.append_to, alive_links)
 
@@ -352,6 +473,9 @@ def main() -> int:
         "append_to": args.append_to if not args.no_append else None,
         "all_output": args.all_output,
         "alive_output": args.alive_output,
+        "provider_output_dir": args.provider_output_dir,
+        "provider_report": args.provider_report,
+        "provider_bucket_counts": {key: value.get("count", 0) for key, value in provider_report.get("files", {}).items()},
         "sample_alive": [
             {
                 "scheme": item.get("scheme"),
@@ -372,7 +496,9 @@ def main() -> int:
         "unique_supported_candidates": len(deduped),
         "alive_candidates": len(alive_items),
         "dropped_ss_ssr": dropped_scheme,
+        "provider_bucket_counts": {key: value.get("count", 0) for key, value in provider_report.get("files", {}).items()},
         "report": str(report_path),
+        "provider_report": str(provider_report_path) if provider_report_path else None,
     }, ensure_ascii=False, indent=2))
     # Do not fail if no alive node: generator may still use existing input links.
     return 0
