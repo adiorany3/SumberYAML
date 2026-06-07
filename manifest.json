@@ -1,25 +1,25 @@
 {
-  "name": "SumberYAML-service-score-blibli-links-only-patch",
+  "name": "SumberYAML sing-box link.txt patch",
   "version": "2026-06-07",
-  "description": "Adds TCP service-score history and app-aware url-test groups, with BLIBLI using only links.txt-style manual accounts.",
   "files": [
     ".github/workflows/update-openclash.yml",
-    "scripts/apply_openclash_service_score_groups.py",
-    "scripts/fetch_extra_sources_alive.py",
-    "scripts/apply_openclash_game_block_inline_safe.py",
-    "scripts/validate_game_block_inline_safe.py",
-    "scripts/validate_openclash_outputs.py",
-    "scripts/assert_latest_openclash_outputs.py",
-    "scripts/force_output_update_marker.py",
-    "input/extra_sources_urls.txt",
-    "README_SERVICE_SCORE_BLIBLI_LINKS_ONLY_PATCH.md"
+    "scripts/update_singbox_from_links.py",
+    "scripts/validate_singbox_output.py",
+    "README_SINGBOX_LINKTXT_PATCH.md",
+    "install_patch.sh",
+    "manifest.json"
   ],
-  "openclash_policy": {
-    "drop_protocols": ["ss", "ssr"],
-    "allowed_group_types": ["select", "url-test", "fallback"],
-    "no_load_balance": true,
-    "no_rule_providers": true,
-    "direct_reject_selector_only": true,
-    "blibli_source_policy": "BLIBLI direct candidates only from links.txt-style manual files"
+  "outputs": [
+    "link.txt",
+    "input/link.txt",
+    "output/SingBox/links.txt",
+    "output/SingBox/sing-box.json",
+    "output/SingBox/outbounds.json",
+    "output/Validation/singbox_report.json"
+  ],
+  "policy": {
+    "supported_schemes": ["vmess", "vless", "trojan"],
+    "dropped_schemes": ["ss", "ssr"],
+    "blibli": "links-only/manual-source-only"
   }
 }
