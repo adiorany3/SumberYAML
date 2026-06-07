@@ -34,21 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2rayngvpn NL NL"
-    type: vmess
+  - name: "v2nodes NL"
     server: "104.17.3.81"
     port: 443
-    uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: 2be7b933-c720-4838-a35a-740ae50987ee
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: "renderer-stream-1-411.mirra.now"
     network: ws
+    servername: "hyperlink-free.poweredproyuz.com"
     ws-opts:
-      path: "/api/v1/gpu-stream/socket"
+      path: "/hyperlink-hyperlink-join-to-hyperlink-hyperlink_ch-hyperlink-hlink_robot-hyperlink"
       headers:
-        Host: "renderer-stream-1-411.mirra.now"
+        Host: "hyperlink-free.poweredproyuz.com"
     udp: true
 
 proxy-groups:
