@@ -1,15 +1,31 @@
 proxies:
-  - name: "freenettir CA CanadaTorontoping 37.47ms"
+  - name: "CA 54246 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "wyV9GtIpor"
+    type: vless
+    uuid: 4a18e07a-4600-4475-b88b-7da09e0d9131
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "dd.aananas.ir."
+    servername: "decdnmtn.gozarino.com"
     ws-opts:
       path: "/?ed=2048"
       headers:
-        Host: "dd.aananas.ir."
+        Host: "decdnmtn.gozarino.com"
+    udp: true
+  - name: "CA 54213 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a14b268a-3f15-47ba-b49a-9a86802c2784
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "aereq0q.ali2069.site"
+    ws-opts:
+      path: "/tyt"
+      headers:
+        Host: "aereq0q.ali2069.site"
     udp: true

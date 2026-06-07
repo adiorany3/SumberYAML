@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-07T08:22:35Z",
+  "generated_at_utc": "2026-06-07T08:56:45Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 17,
+      "count": 23,
       "keywords": [
         "google",
         "gcp",
@@ -20,12 +20,6 @@
         "youtu"
       ],
       "sample": [
-        {
-          "scheme": "vless",
-          "name": "",
-          "server": "2.26.11.151",
-          "port": 443
-        },
         {
           "scheme": "vless",
           "name": "🦉@FreeConfigForYou",
@@ -76,8 +70,14 @@
         },
         {
           "scheme": "vless",
-          "name": "@V2VODKA_A🇳🇱",
+          "name": "@V2VODKA_A📺",
           "server": "nid.pink-perfect.ru",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "2https://t.me/ConfigX2ray",
+          "server": "150.241.71.35",
           "port": 443
         }
       ]
@@ -95,7 +95,7 @@
     },
     "microsoft": {
       "file": "input/microsoft.txt",
-      "count": 0,
+      "count": 1,
       "keywords": [
         "microsoft",
         "azure",
@@ -103,7 +103,14 @@
         "windowsazure",
         "azureedge"
       ],
-      "sample": []
+      "sample": [
+        {
+          "scheme": "vless",
+          "name": "🇫🇮54030",
+          "server": "107.181.151.241",
+          "port": 443
+        }
+      ]
     },
     "amazon": {
       "file": "input/amazon.txt",

@@ -1,19 +1,4 @@
 proxies:
-  - name: "ProxyVPN11 7215"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "JoinProxyVPN11.qea.ccwu.cc"
-    ws-opts:
-      path: "/?ed @ProxyVPN11"
-      headers:
-        Host: "juzi.qea.ccwu.cc"
-    udp: true
   - name: "v2reya88"
     server: "104.17.3.81"
     port: 443
@@ -58,4 +43,34 @@ proxies:
       path: "/my-mbv"
       headers:
         Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "chillguy_vpn 4996"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 50cbc8f3-08e1-4a82-bfd5-bc2587a392c7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/random"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "ProxyVPN11 8711"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
     udp: true

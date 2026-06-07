@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-06-07T08:22:35Z",
+  "generated_at_utc": "2026-06-07T08:56:45Z",
   "policy": "extra-sources-tcp-alive-vmess-vless-trojan-only",
   "note": "Alive means TCP connection to server:port succeeded before the main generator's own proxy test. SS/SSR are intentionally skipped for OpenClash compatibility.",
   "sources": [
@@ -35,7 +35,7 @@
       "url": "https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix",
       "fetch_ok": true,
       "error": null,
-      "bytes": 79368,
+      "bytes": 78732,
       "extracted_links": 252
     },
     {
@@ -77,8 +77,8 @@
       "url": "https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 1714758,
-      "extracted_links": 5779
+      "bytes": 1745943,
+      "extracted_links": 5866
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
@@ -98,8 +98,8 @@
       "url": "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 2085478,
-      "extracted_links": 6031
+      "bytes": 2089380,
+      "extracted_links": 6041
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt",
@@ -133,8 +133,8 @@
       "url": "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 40110,
-      "extracted_links": 139
+      "bytes": 43675,
+      "extracted_links": 140
     }
   ],
   "input_urls": [
@@ -158,8 +158,8 @@
     "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
     "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt"
   ],
-  "total_extracted_raw": 31754,
-  "dropped_ss_ssr": 2240,
+  "total_extracted_raw": 31852,
+  "dropped_ss_ssr": 2354,
   "unique_supported_candidates": 3000,
   "checked_candidates": 3000,
   "alive_candidates": 700,
@@ -169,9 +169,9 @@
     "vmess": 712
   },
   "alive_by_scheme": {
-    "vless": 1444,
-    "trojan": 544,
-    "vmess": 473
+    "vless": 1355,
+    "trojan": 515,
+    "vmess": 470
   },
   "append_to": "input/links.txt",
   "all_output": "input/extra_sources_all.txt",
@@ -179,9 +179,9 @@
   "provider_output_dir": "input",
   "provider_report": ".extra_sources_provider_buckets_report.json",
   "provider_bucket_counts": {
-    "google": 17,
+    "google": 23,
     "oracle": 0,
-    "microsoft": 0,
+    "microsoft": 1,
     "amazon": 1,
     "digitalocean": 0,
     "melbikom": 4,
@@ -201,13 +201,6 @@
       "server": "151.101.108.223",
       "port": 443,
       "peer": "151.101.108.223:443"
-    },
-    {
-      "scheme": "vless",
-      "name": "",
-      "server": "2.26.11.151",
-      "port": 443,
-      "peer": "2.26.11.151:443"
     },
     {
       "scheme": "vless",
@@ -327,6 +320,13 @@
       "server": "216.24.57.6",
       "port": 443,
       "peer": "216.24.57.6:443"
+    },
+    {
+      "scheme": "trojan",
+      "name": "✔︎𝐜𝐡𝐚𝐧𝐧𝐞𝐥➪@ConfigV2rayForFree",
+      "server": "104.16.75.127",
+      "port": 443,
+      "peer": "104.16.75.127:443"
     }
   ]
 }
