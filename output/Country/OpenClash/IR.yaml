@@ -34,35 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "InvoProxy"
+  - name: "V2dogs_n"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 5ed7fb94-bacd-485b-aca1-6a439738ed1f
+    uuid: 0a2f8145-290f-4848-a011-3d1e5fe62a14
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "falkinichlol.appleseraj.ir"
+    servername: "ssj.new-persian-song.ir"
     ws-opts:
-      path: "/?ed/@InvoProxy,@InvoProxy@InvoProxy"
+      path: "/?ed=80"
       headers:
-        Host: "falkinichlol.appleseraj.ir"
-    udp: true
-  - name: "VPNine1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 5ed7fb94-bacd-485b-aca1-6a439738ed1f
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "falkinichlol.appleseraj.ir"
-    ws-opts:
-      path: "/?ed/@VPNine1,@VPNine1@VPNine1,@VPNine1=2048"
-      headers:
-        Host: "falkinichlol.appleseraj.ir"
+        Host: "ssj.new-persian-song.ir"
     udp: true
 
 proxy-groups:

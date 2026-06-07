@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-07T05:24:00Z",
+  "generated_at_utc": "2026-06-07T05:36:02Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
-  "note": "Buckets are matched from node names only. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
+  "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 0,
+      "count": 16,
       "keywords": [
         "google",
         "gcp",
@@ -19,7 +19,68 @@
         "youtube",
         "youtu"
       ],
-      "sample": []
+      "sample": [
+        {
+          "scheme": "vless",
+          "name": "🦉@FreeConfigForYou",
+          "server": "171.22.136.84",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@CUSTOMVPNSERVER",
+          "server": "157.173.127.225",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@V2VODKA_A",
+          "server": "38.107.233.66",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@V2VODKA_A",
+          "server": "77.110.109.110",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@V2VODKA_A🇩🇪",
+          "server": "de.pink-perfect.ru",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@V2VODKA_A🇫🇮",
+          "server": "fin.pink-perfect.ru",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@V2VODKA_A🇫🇷",
+          "server": "fr.pink-perfect.ru",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@V2VODKA_A📺",
+          "server": "nid.pink-perfect.ru",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "2https://t.me/ConfigX2ray",
+          "server": "150.241.71.35",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "2https://t.me/fastkanfig",
+          "server": "150.241.71.35",
+          "port": 443
+        }
+      ]
     },
     "oracle": {
       "file": "input/oracle.txt",
@@ -46,7 +107,7 @@
     },
     "amazon": {
       "file": "input/amazon.txt",
-      "count": 0,
+      "count": 1,
       "keywords": [
         "amazon",
         "aws",
@@ -54,7 +115,14 @@
         "ec2",
         "cloudfront"
       ],
-      "sample": []
+      "sample": [
+        {
+          "scheme": "vless",
+          "name": "Estonia",
+          "server": "ee.n1etwork.prostosetup.org",
+          "port": 443
+        }
+      ]
     },
     "digitalocean": {
       "file": "input/digitalocean.txt",
@@ -71,12 +139,43 @@
     },
     "melbikom": {
       "file": "input/melbikom.txt",
-      "count": 0,
+      "count": 5,
       "keywords": [
         "melbikom",
         "melbi"
       ],
-      "sample": []
+      "sample": [
+        {
+          "scheme": "trojan",
+          "name": "🛸@V2ray_official",
+          "server": "185.18.250.252",
+          "port": 443
+        },
+        {
+          "scheme": "trojan",
+          "name": "@NoxTunnel",
+          "server": "185.18.250.252",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "📀63@oneclickvpnkeys",
+          "server": "104.18.152.233",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🔵@chillguy_vpn",
+          "server": "104.18.152.233",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@VPsave",
+          "server": "188.114.97.6",
+          "port": 443
+        }
+      ]
     },
     "vultr": {
       "file": "input/vultr.txt",

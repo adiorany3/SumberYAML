@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-06-07T05:24:00Z",
+  "generated_at_utc": "2026-06-07T05:36:02Z",
   "policy": "extra-sources-tcp-alive-vmess-vless-trojan-only",
   "note": "Alive means TCP connection to server:port succeeded before the main generator's own proxy test. SS/SSR are intentionally skipped for OpenClash compatibility.",
   "sources": [
@@ -30,26 +30,108 @@
       "error": null,
       "bytes": 625593,
       "extracted_links": 2433
+    },
+    {
+      "url": "https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 79368,
+      "extracted_links": 252
+    },
+    {
+      "url": "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 68124,
+      "extracted_links": 337
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 15258,
+      "extracted_links": 59
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 41524,
+      "extracted_links": 200
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/main/subscription/main.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 778,
+      "extracted_links": 2
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 2248,
+      "extracted_links": 9
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 1714758,
+      "extracted_links": 5779
+    },
+    {
+      "url": "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 866079,
+      "extracted_links": 3664
+    },
+    {
+      "url": "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 103334,
+      "extracted_links": 546
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
+      "fetch_ok": true,
+      "error": null,
+      "bytes": 2087662,
+      "extracted_links": 6015
     }
   ],
   "input_urls": [
     "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt",
     "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt",
-    "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt"
+    "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt",
+    "https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix",
+    "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html",
+    "https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt",
+    "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt",
+    "https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/main/subscription/main.txt",
+    "https://raw.githubusercontent.com/MahsaNetConfigTopic/config/refs/heads/main/xray_final.txt",
+    "https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt",
+    "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt"
   ],
-  "total_extracted_raw": 12751,
-  "dropped_ss_ssr": 1150,
-  "unique_supported_candidates": 800,
-  "checked_candidates": 800,
-  "alive_candidates": 250,
+  "total_extracted_raw": 29614,
+  "dropped_ss_ssr": 1937,
+  "unique_supported_candidates": 3000,
+  "checked_candidates": 3000,
+  "alive_candidates": 700,
   "by_scheme": {
-    "vless": 431,
-    "trojan": 369
+    "vless": 1694,
+    "trojan": 610,
+    "vmess": 696
   },
   "alive_by_scheme": {
-    "vless": 372,
-    "trojan": 359
+    "vless": 1502,
+    "trojan": 517,
+    "vmess": 458
   },
   "append_to": "input/links.txt",
   "all_output": "input/extra_sources_all.txt",
@@ -57,12 +139,12 @@
   "provider_output_dir": "input",
   "provider_report": ".extra_sources_provider_buckets_report.json",
   "provider_bucket_counts": {
-    "google": 0,
+    "google": 16,
     "oracle": 0,
     "microsoft": 0,
-    "amazon": 0,
+    "amazon": 1,
     "digitalocean": 0,
-    "melbikom": 0,
+    "melbikom": 5,
     "vultr": 0
   },
   "sample_alive": [
