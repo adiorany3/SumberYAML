@@ -1,5 +1,5 @@
 proxies:
-  - name: "filembad 6555"
+  - name: "V2ray_official 1118"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -11,6 +11,36 @@ proxies:
     servername: "dfsuporte.garena.com.ex33r.eu.cc"
     ws-opts:
       path: "/sg-melbi"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "Ap_Ir6"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9aecf22f-2cb9-41c8-b533-04534a5b150b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "space.byu.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "space.byu.id.r3xxe.eu.cc"
+    udp: true
+  - name: "Ap_Ir6 8518"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ddf41329-42d8-4266-9bc2-6fef34941a0b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-orcl"
       headers:
         Host: "dfsuporte.garena.com.ex33r.eu.cc"
     udp: true

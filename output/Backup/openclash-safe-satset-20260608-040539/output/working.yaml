@@ -1,0 +1,213 @@
+# Auto generated usage profile OpenClash config
+# Output: output/working.yaml
+# Profile group: WORKING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "SC 55735 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "ff5aeddc-8fea-4d17-b504-1a9fdacca802"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "go.appsflyer.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "go.appsflyer.com.r3xxe.eu.cc"
+    udp: true
+  - name: "chillguy_vpn"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 933e8995-3b6d-4d42-8b23-e649f0e7205f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "resources.office.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "resources.office.com.r3xxe.eu.cc"
+    udp: true
+  - name: "Ap_Ir6 8518"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ddf41329-42d8-4266-9bc2-6fef34941a0b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-orcl"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "CA 55808 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 63ec2a82-e47c-4782-a89e-9aca2baf17ef
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "quiz.int.vidio.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "quiz.int.vidio.com.ex33r.eu.cc"
+    udp: true
+  - name: "configV2rayForFree US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0799a47d-d446-4a20-8e75-441fa899fbb1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "unnes.ac.id.r3xxe.eu.cc"
+    udp: true
+  - name: "configV2rayForFree US 8470"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "74480619-b6a8-4ab8-94e1-1132fc18b2fa"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/au-mt"
+      headers:
+        Host: "unnes.ac.id.r3xxe.eu.cc"
+    udp: true
+  - name: "36 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 977b814d-d9e0-4889-bb71-98d6bfb8f462
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "partner.catchplay.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "partner.catchplay.com.r3xxe.eu.cc"
+    udp: true
+  - name: "6https t.me ConfigX2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 935bdfb3-7bf9-48c1-adcb-2f6fbfeca896
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "help.viu.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "help.viu.com.ex33r.eu.cc"
+    udp: true
+  - name: "7https t.me ConfigX2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 974c2588-c1cd-43ac-8823-ce3d879b09fd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "somersby.pt.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "somersby.pt.ex33r.eu.cc"
+    udp: true
+  - name: "VPNine1 9341"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "SC 55735 Telegram t.me SOSkeyNET"
+      - "chillguy_vpn"
+      - "Ap_Ir6 8518"
+      - "CA 55808 Telegram t.me SOSkeyNET"
+      - "configV2rayForFree US"
+      - "configV2rayForFree US 8470"
+      - "36 oneclickvpnkeys"
+      - "6https t.me ConfigX2ray"
+      - "7https t.me ConfigX2ray"
+      - "VPNine1 9341"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "WORKING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

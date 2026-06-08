@@ -1,16 +1,31 @@
 proxies:
-  - name: "37 oneclickvpnkeys"
+  - name: "23 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 0f1b984b-dfa1-443c-8c2c-bd17d679e0e2
+    uuid: 2244d9e4-dc80-4c61-9362-dde0afd034dd
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "whitedns.04nd0kgs.v6.army"
+    servername: "hs.qoogl.workers.dev"
     ws-opts:
-      path: "/eyJqdW5rIjoiV3lBN0RqbTIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119"
+      path: "/"
       headers:
-        Host: "whitedns.04nd0kgs.v6.army"
+        Host: "hs.qoogl.workers.dev"
+    udp: true
+  - name: "27 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 79863d42-9f1c-4e8e-a65b-1003090871c1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "coNFIghayE.moKhaBeraTebInZON.workErS.deV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiUHVXcXFjYTJGVGI3IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19"
+      headers:
+        Host: "confighaye.mokhaberatebinzon.workers.dev"
     udp: true
