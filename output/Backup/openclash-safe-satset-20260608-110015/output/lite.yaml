@@ -1,0 +1,367 @@
+# Auto generated compact OpenClash config
+# Output: output/lite.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "30 v2ray_configs_pools"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "45c47cfa-67da-47e0-b20b-5efa674e6a9b"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "unnes.ac.id.r3xxe.eu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 1400"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 977b814d-d9e0-4889-bb71-98d6bfb8f462
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "partner.catchplay.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "partner.catchplay.com.r3xxe.eu.cc"
+    udp: true
+  - name: "ProxyVPN11 8348"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.qea.ccwu.cc"
+    ws-opts:
+      path: "/?ed @ProxyVPN11"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 1104"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 08b006dc-17e4-411d-9528-4369d72ad646
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "support.zoom.us.ex33r.eu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 5572"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 6810"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "74241 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f77299ea-e13d-417d-8cdc-ce5566dfc94b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "edu.ruangguru.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/nl-tw"
+      headers:
+        Host: "edu.ruangguru.com.r3xxe.eu.cc"
+    udp: true
+  - name: "HajmVPN_Config"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 42026ed0-7d74-4585-8e46-0fe6aa4d665a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.genflix.co.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "www.genflix.co.id.r3xxe.eu.cc"
+    udp: true
+  - name: "VPNine1 1802"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a6f1755f-0140-4bea-8727-0db1bed7c4df
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "juzi.qea.ccwu.cc"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048"
+      headers:
+        Host: "juzi.qea.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 4571"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "v2ray1_ng US 3249"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 933e8995-3b6d-4d42-8b23-e649f0e7205f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "resources.office.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "resources.office.com.r3xxe.eu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "30 v2ray_configs_pools"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "30 v2ray_configs_pools"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 1400"
+      - "oneclickvpnkeys US 1104"
+      - "oneclickvpnkeys US 5572"
+      - "oneclickvpnkeys US 6810"
+      - "ProxyVPN11 8348"
+      - "74241 - Telegram V2All"
+      - "HajmVPN_Config"
+      - "VPNine1 1802"
+      - "oneclickvpnkeys US 4571"
+      - "v2ray1_ng US 3249"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 1400"
+      - "ProxyVPN11 8348"
+      - "oneclickvpnkeys US 1104"
+      - "oneclickvpnkeys US 5572"
+      - "oneclickvpnkeys US 6810"
+      - "74241 - Telegram V2All"
+      - "HajmVPN_Config"
+      - "VPNine1 1802"
+      - "oneclickvpnkeys US 4571"
+      - "v2ray1_ng US 3249"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 1400"
+      - "ProxyVPN11 8348"
+      - "oneclickvpnkeys US 1104"
+      - "oneclickvpnkeys US 5572"
+      - "oneclickvpnkeys US 6810"
+      - "74241 - Telegram V2All"
+      - "HajmVPN_Config"
+      - "VPNine1 1802"
+      - "oneclickvpnkeys US 4571"
+      - "v2ray1_ng US 3249"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 1400"
+      - "oneclickvpnkeys US 1104"
+      - "oneclickvpnkeys US 5572"
+      - "oneclickvpnkeys US 6810"
+      - "ProxyVPN11 8348"
+      - "74241 - Telegram V2All"
+      - "HajmVPN_Config"
+      - "VPNine1 1802"
+      - "oneclickvpnkeys US 4571"
+      - "v2ray1_ng US 3249"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 1400"
+      - "ProxyVPN11 8348"
+      - "oneclickvpnkeys US 1104"
+      - "oneclickvpnkeys US 5572"
+      - "oneclickvpnkeys US 6810"
+      - "74241 - Telegram V2All"
+      - "HajmVPN_Config"
+      - "VPNine1 1802"
+      - "oneclickvpnkeys US 4571"
+      - "v2ray1_ng US 3249"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST TOP GLOBAL"
+    type: url-test
+    proxies:
+      - "oneclickvpnkeys US 1400"
+      - "ProxyVPN11 8348"
+      - "oneclickvpnkeys US 1104"
+      - "oneclickvpnkeys US 5572"
+      - "oneclickvpnkeys US 6810"
+      - "74241 - Telegram V2All"
+      - "HajmVPN_Config"
+      - "VPNine1 1802"
+      - "oneclickvpnkeys US 4571"
+      - "v2ray1_ng US 3249"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "30 v2ray_configs_pools"
+      - "oneclickvpnkeys US 1400"
+      - "ProxyVPN11 8348"
+      - "oneclickvpnkeys US 1104"
+      - "oneclickvpnkeys US 5572"
+      - "oneclickvpnkeys US 6810"
+      - "74241 - Telegram V2All"
+      - "HajmVPN_Config"
+      - "VPNine1 1802"
+      - "oneclickvpnkeys US 4571"
+      - "v2ray1_ng US 3249"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "30 v2ray_configs_pools"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST TOP GLOBAL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

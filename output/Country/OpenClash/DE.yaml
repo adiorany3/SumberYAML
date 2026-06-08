@@ -34,20 +34,34 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "DE t.me Natrixo AA 4371"
+  - name: "v2rayNG_Matsuri DE"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 2d11f9a7-5cb9-4a76-acbe-0064305b570a
+    uuid: 5ec3a039-ea63-4bf9-a848-a65c9bfa66f5
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "ssj.new-persian-song.ir"
+    servername: "splash.ariyuz.org"
     ws-opts:
-      path: "/?ed=80"
+      path: "/api/v1"
       headers:
-        Host: "ssj.new-persian-song.ir"
+        Host: "splash.ariyuz.org"
+    udp: true
+  - name: "configV2rayNG DE"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "YZSfMMqKIC"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dd.aananas.ir."
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dd.aananas.ir."
     udp: true
 
 proxy-groups:

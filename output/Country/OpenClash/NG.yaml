@@ -34,6 +34,51 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "v2ray1_ng US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 75dd6c7d-b5a2-44f3-843c-812facb22c5e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "v2ray1_ng US 3249"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 933e8995-3b6d-4d42-8b23-e649f0e7205f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "resources.office.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "resources.office.com.r3xxe.eu.cc"
+    udp: true
+  - name: "config_NG"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 50b43435-6bb5-45ef-aff7-85f3844ba039
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "click.snapchat.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/au-mt"
+      headers:
+        Host: "click.snapchat.com.r3xxe.eu.cc"
+    udp: true
   - name: "v2ray1_ng FR"
     server: "104.17.3.81"
     port: 443
@@ -42,11 +87,11 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.calmlunch.com"
+    sni: "www.ignitelimit.com"
     ws-opts:
       path: "/assignment"
       headers:
-        Host: "www.calmlunch.com"
+        Host: "www.ignitelimit.com"
     udp: true
 
 proxy-groups:

@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2rayNG_Matsuri GB"
+  - name: "v2rayNG_Matsuri GB 4827"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,6 +48,21 @@ proxies:
       path: "/path"
       headers:
         Host: "ws27.adsvxpro.com"
+    udp: true
+  - name: "GB t.me Natrixo AA"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b0d9918c-320d-4e76-ab89-1a12ff5e1fe2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "s1.academy-reactjs.sbs"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "s1.academy-reactjs.sbs"
     udp: true
 
 proxy-groups:
