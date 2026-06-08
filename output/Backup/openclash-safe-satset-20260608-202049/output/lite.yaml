@@ -1,0 +1,352 @@
+# Auto generated compact OpenClash config
+# Output: output/lite.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "meliproxyy 1743"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b8ab1937-611c-4734-b01c-ff3818edf635
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "m.udemy.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "m.udemy.com.ex33r.eu.cc"
+    udp: true
+  - name: "v2rayngvpn US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 63ec2a82-e47c-4782-a89e-9aca2baf17ef
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "quiz.int.vidio.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "quiz.int.vidio.com.ex33r.eu.cc"
+    udp: true
+  - name: "v2ray1_ng US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 75dd6c7d-b5a2-44f3-843c-812facb22c5e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "PERSIANVIBEJun7-2"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a253ff3f-fb8d-4160-85e8-61b080f0f561
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "DE V2ngFast 5111"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9ce7ac33-5004-40ea-8236-15bc2d25a37c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v2ngfast.gharibnuyt.workers.dev"
+    ws-opts:
+      path: "/v2ngfast---v2ngfast---v2ngfast---v2ngfast---v2ngfast"
+      headers:
+        Host: "v2ngfast.gharibnuyt.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 4730"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 3955"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 28607fa7-db30-47d6-942a-f5744e4be9ad
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "chillguy_vpn 2092"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "filembad"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9ce7ac33-5004-40ea-8236-15bc2d25a37c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v2ngnet.nilayou.workers.dev"
+    ws-opts:
+      path: "/v2ngnet--v2ngnet--v2ngnet--v2ngnet--v2ngnet--v2ngnet--v2ngnet--v2ngnet"
+      headers:
+        Host: "v2ngnet.nilayou.workers.dev"
+    udp: true
+  - name: "vmesskhodam 6739"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ddf41329-42d8-4266-9bc2-6fef34941a0b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-orcl"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "meliproxyy 1743"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "meliproxyy 1743"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "v2rayngvpn US"
+      - "v2ray1_ng US"
+      - "PERSIANVIBEJun7-2"
+      - "DE V2ngFast 5111"
+      - "meliproxyy 1743"
+      - "chillguy_vpn 2092"
+      - "filembad"
+      - "oneclickvpnkeys US 4730"
+      - "oneclickvpnkeys US 3955"
+      - "VPsave 9050"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "v2rayngvpn US"
+      - "v2ray1_ng US"
+      - "meliproxyy 1743"
+      - "PERSIANVIBEJun7-2"
+      - "DE V2ngFast 5111"
+      - "oneclickvpnkeys US 4730"
+      - "oneclickvpnkeys US 3955"
+      - "chillguy_vpn 2092"
+      - "filembad"
+      - "vmesskhodam 6739"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "v2rayngvpn US"
+      - "v2ray1_ng US"
+      - "PERSIANVIBEJun7-2"
+      - "DE V2ngFast 5111"
+      - "meliproxyy 1743"
+      - "chillguy_vpn 2092"
+      - "oneclickvpnkeys US 4730"
+      - "oneclickvpnkeys US 3955"
+      - "filembad"
+      - "VPsave 9050"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "v2rayngvpn US"
+      - "v2ray1_ng US"
+      - "PERSIANVIBEJun7-2"
+      - "DE V2ngFast 5111"
+      - "meliproxyy 1743"
+      - "chillguy_vpn 2092"
+      - "oneclickvpnkeys US 4730"
+      - "oneclickvpnkeys US 3955"
+      - "filembad"
+      - "VPsave 9050"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "v2rayngvpn US"
+      - "v2ray1_ng US"
+      - "PERSIANVIBEJun7-2"
+      - "DE V2ngFast 5111"
+      - "meliproxyy 1743"
+      - "oneclickvpnkeys US 4730"
+      - "oneclickvpnkeys US 3955"
+      - "chillguy_vpn 2092"
+      - "filembad"
+      - "vmesskhodam 6739"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST TOP GLOBAL"
+    type: url-test
+    proxies:
+      - "v2rayngvpn US"
+      - "v2ray1_ng US"
+      - "meliproxyy 1743"
+      - "PERSIANVIBEJun7-2"
+      - "DE V2ngFast 5111"
+      - "oneclickvpnkeys US 4730"
+      - "oneclickvpnkeys US 3955"
+      - "chillguy_vpn 2092"
+      - "filembad"
+      - "vmesskhodam 6739"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "meliproxyy 1743"
+      - "v2rayngvpn US"
+      - "v2ray1_ng US"
+      - "PERSIANVIBEJun7-2"
+      - "DE V2ngFast 5111"
+      - "oneclickvpnkeys US 4730"
+      - "oneclickvpnkeys US 3955"
+      - "chillguy_vpn 2092"
+      - "filembad"
+      - "vmesskhodam 6739"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "meliproxyy 1743"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST TOP GLOBAL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
