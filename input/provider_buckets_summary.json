@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-08T10:55:39Z",
+  "generated_at_utc": "2026-06-08T15:52:51Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 71,
+      "count": 59,
       "keywords": [
         "google",
         "gcp",
@@ -21,15 +21,21 @@
       ],
       "sample": [
         {
-          "scheme": "trojan",
-          "name": "🇮🇷56075",
-          "server": "p1.zerolost.shop",
+          "scheme": "vless",
+          "name": "[74244",
+          "server": "46.175.150.23",
           "port": 443
         },
         {
-          "scheme": "trojan",
-          "name": "🇮🇷IR-🚀@VPNine1",
-          "server": "p1.zerolost.shop",
+          "scheme": "vless",
+          "name": "🇳🇱56533",
+          "server": "46.175.150.23",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🔔16@oneclickvpnkeys",
+          "server": "46.175.150.23",
           "port": 443
         },
         {
@@ -42,6 +48,12 @@
           "scheme": "vless",
           "name": "@V2ray_official",
           "server": "46.175.150.23",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🫒74@oneclickvpnkeys",
+          "server": "138.124.52.85",
           "port": 443
         },
         {
@@ -67,31 +79,44 @@
           "name": "5https://t.me/ConfigX2ray",
           "server": "188.114.97.6",
           "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "kurdconfig",
-          "server": "162.19.181.86",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🇫🇷FR-🚀@V2Ray_Hub1200",
-          "server": "162.19.181.86",
-          "port": 443
         }
       ]
     },
     "oracle": {
       "file": "input/oracle.txt",
-      "count": 0,
+      "count": 4,
       "keywords": [
         "oracle",
         "oci",
         "oraclecloud",
         "oracle-cloud"
       ],
-      "sample": []
+      "sample": [
+        {
+          "scheme": "vless",
+          "name": "[74243",
+          "server": "104.18.32.47",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🇨🇦56528",
+          "server": "104.18.32.47",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🔔17@oneclickvpnkeys",
+          "server": "104.18.32.47",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🚀@VPNine1",
+          "server": "104.18.32.47",
+          "port": 443
+        }
+      ]
     },
     "microsoft": {
       "file": "input/microsoft.txt",
@@ -107,7 +132,7 @@
     },
     "amazon": {
       "file": "input/amazon.txt",
-      "count": 5,
+      "count": 4,
       "keywords": [
         "amazon",
         "aws",
@@ -139,12 +164,6 @@
           "name": "@V2Ray_Hub1200",
           "server": "188.114.97.6",
           "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@config_NG",
-          "server": "188.114.97.6",
-          "port": 443
         }
       ]
     },
@@ -163,7 +182,7 @@
     },
     "melbikom": {
       "file": "input/melbikom.txt",
-      "count": 10,
+      "count": 9,
       "keywords": [
         "melbikom",
         "melbi"
@@ -179,12 +198,6 @@
           "scheme": "trojan",
           "name": "@NoxTunnel",
           "server": "185.18.250.252",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🫒42@oneclickvpnkeys",
-          "server": "104.18.152.233",
           "port": 443
         },
         {

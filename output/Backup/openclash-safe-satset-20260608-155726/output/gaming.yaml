@@ -1,0 +1,213 @@
+# Auto generated usage profile OpenClash config
+# Output: output/gaming.yaml
+# Profile group: GAMING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "meliproxyy 9615"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: db9571d2-42ed-4cdf-b49f-3195b42c045a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "web.whatsapp.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "web.whatsapp.com.r3xxe.eu.cc"
+    udp: true
+  - name: "HajmVPN_Config"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 42026ed0-7d74-4585-8e46-0fe6aa4d665a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.genflix.co.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "www.genflix.co.id.r3xxe.eu.cc"
+    udp: true
+  - name: "V2dogs_n"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c148c68d-aba0-44b8-8f93-ded816246e2c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zaintest.vuclip.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "zaintest.vuclip.com.r3xxe.eu.cc"
+    udp: true
+  - name: "meliproxyy 1558"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6b175857-e726-43e7-a08b-3f1df4b963da
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.r3xxe.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "support.zoom.us.r3xxe.eu.cc"
+    udp: true
+  - name: "vmesskhodam 6664"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ddf41329-42d8-4266-9bc2-6fef34941a0b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/sg-orcl"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "PERSIANVIBEJun7-2"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a253ff3f-fb8d-4160-85e8-61b080f0f561
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/my-mbv"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "74372 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "74480619-b6a8-4ab8-94e1-1132fc18b2fa"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.r3xxe.eu.cc"
+    ws-opts:
+      path: "/au-mt"
+      headers:
+        Host: "unnes.ac.id.r3xxe.eu.cc"
+    udp: true
+  - name: "18 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Telegram-Config0plus-983ced63-fcf0-4d15-b81b-432e32e9b932"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "api24-normal.tiktokv.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "api24-normal.tiktokv.com.r3xxe.eu.cc"
+    udp: true
+  - name: "19 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f77299ea-e13d-417d-8cdc-ce5566dfc94b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "edu.ruangguru.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/nl-tw"
+      headers:
+        Host: "edu.ruangguru.com.r3xxe.eu.cc"
+    udp: true
+  - name: "meliproxyy 6293"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bf9f5e8f-0777-4ee2-b509-efff28f6298a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.r3xxe.eu.cc"
+    ws-opts:
+      path: "/nl-tw"
+      headers:
+        Host: "support.zoom.us.r3xxe.eu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "meliproxyy 9615"
+      - "HajmVPN_Config"
+      - "V2dogs_n"
+      - "meliproxyy 1558"
+      - "vmesskhodam 6664"
+      - "PERSIANVIBEJun7-2"
+      - "74372 - Telegram V2All"
+      - "18 oneclickvpnkeys"
+      - "19 oneclickvpnkeys"
+      - "meliproxyy 6293"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GAMING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
