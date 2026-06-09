@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "chillguy_vpn 9142"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
   - name: "4"
     server: "104.17.3.81"
     port: 443
@@ -49,22 +64,7 @@ proxies:
       headers:
         Host: "mjtbknetmkhremge.ordak.qzz.io"
     udp: true
-  - name: "V2Ray_Hub1200 7094"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: bbd67e54-1b4b-488b-a5df-708ef896ecaa
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "wf1.cerosmakom.com"
-    ws-opts:
-      path: "/api/v2/sync/data-stream"
-      headers:
-        Host: "wf1.cerosmakom.com"
-    udp: true
-  - name: "VPsave 5367"
+  - name: "VPsave 5327"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -76,21 +76,6 @@ proxies:
     servername: "hhlfy.twiladaphne.ndjp.net"
     ws-opts:
       path: "/fp"
-      headers:
-        Host: "hhlfy.twiladaphne.ndjp.net"
-    udp: true
-  - name: "chillguy_vpn 8180"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "hhlfy.twiladaphne.ndjp.net"
-    ws-opts:
-      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
@@ -122,7 +107,7 @@ proxies:
       headers:
         Host: "www.multiplydose.com"
     udp: true
-  - name: "KAFING_2 8935"
+  - name: "KAFING_2 1355"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -136,7 +121,7 @@ proxies:
       headers:
         Host: "uk1.test3.net"
     udp: true
-  - name: "kakajan 4327"
+  - name: "kakajan 8055"
     server: "104.17.3.81"
     port: 443
     type: trojan

@@ -1,0 +1,698 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "chillguy_vpn 9142"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "configV2rayNG US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4311bd3f-4f66-4538-a624-221b87690b2c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "mjtbknetmkhremge.ordak.qzz.io"
+    ws-opts:
+      path: "/fl?ed=2560"
+      headers:
+        Host: "mjtbknetmkhremge.ordak.qzz.io"
+    udp: true
+  - name: "oneclickvpnkeys CA"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7270612b-49f6-4b04-999c-34d8263da767
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "picassooo.info"
+    ws-opts:
+      path: "/aymdlws"
+      headers:
+        Host: "picassooo.info"
+    udp: true
+  - name: "oneclickvpnkeys CA 5015"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 5491"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys FI"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss4.com"
+    ws-opts:
+      path: "/tsghdws"
+      headers:
+        Host: "octopusss4.com"
+    udp: true
+  - name: "4"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4311bd3f-4f66-4538-a624-221b87690b2c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "mjtbknetmkhremge.ordak.qzz.io"
+    ws-opts:
+      path: "/fl?ed"
+      headers:
+        Host: "mjtbknetmkhremge.ordak.qzz.io"
+    udp: true
+  - name: "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7752f6f7-7052-42bf-b571-34a02658cc71
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "Cdn8-pro.postshup.ir."
+    ws-opts:
+      path: "/news"
+      headers:
+        Host: "Cdn8-pro.postshup.ir."
+    udp: true
+  - name: "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a9d3f779-43ae-ee7d-4dc3-fa073c1797d8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "crm.lotussec.com"
+    ws-opts:
+      path: "/@JavidnamanIran/Javid-SHAH-KingRezaPahlavi/"
+      headers:
+        Host: "crm.lotussec.com"
+    udp: true
+  - name: "NETMelliAnti"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tr-cd.sublink-vip2.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tr-cd.sublink-vip2.com"
+    udp: true
+  - name: "VPsave 5327"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "74 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "telegram tajrobe_wiki"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 6882"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 8040"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "configshub2 PL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.creationlong.org"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.creationlong.org"
+    udp: true
+  - name: "KAFING_2 1355"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "SG SG- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "5JKj82yC2BNxy8LAZha8Gsj2BAexJJU7ttTfeFcuHzmLjAiZ"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "node1.bw8848.org"
+    ws-opts:
+      path: "/node1-node1-5sczzi"
+      headers:
+        Host: "node1.bw8848.org"
+    udp: true
+  - name: "JP JP- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "5YYALHHZEiMDssHZwTMQxbuT8CZVP5Y25ppCtpZnvK4asz73"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "jp2.bw8848.org"
+    ws-opts:
+      path: "/jp2-jp2-nnnmhz"
+      headers:
+        Host: "jp2.bw8848.org"
+    udp: true
+  - name: "US US- VPNine1 2552"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "EM7HwoxdP8r5yQoxwDxEJU3VSBAXzAuFGBTUgVMjiuRCkNUN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "usa1.bw8848.org"
+    ws-opts:
+      path: "/usa1-usa1-bktm3x"
+      headers:
+        Host: "usa1.bw8848.org"
+    udp: true
+  - name: "KR KR- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "GedH5PTxP5F4oP4kZ5opF3PWgPPCwYw3kfHMN9ZZTEXFbz9c"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "kr2.bw8848.org"
+    ws-opts:
+      path: "/kr2-kr2-g9xjmv"
+      headers:
+        Host: "kr2.bw8848.org"
+    udp: true
+  - name: "kakajan 8055"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "KaQKzYh6dd"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dd.aananas.ir."
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dd.aananas.ir."
+    udp: true
+  - name: "GB GB- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "N33CBbQDyAjLmcAT7rVaZMeqHcDXLfSTWcxUcebU9ipfoHTP"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk2.bw8848.org"
+    ws-opts:
+      path: "/uk2-uk2-csrde2"
+      headers:
+        Host: "uk2.bw8848.org"
+    udp: true
+  - name: "DE DE- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "RaxTmLsUysCCyFnHeEbw87Z93F4rGEhxmCEzvTLAssP9zuMA"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "gm1.bw8848.org"
+    ws-opts:
+      path: "/gm1-gm1-j6meub"
+      headers:
+        Host: "gm1.bw8848.org"
+    udp: true
+  - name: "US US- VPNine1 3277"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "S8wG5SmFw5wVDeLG4K2N6Mqr2mSPjrpBd7QCHcK4F8fYRfiN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "usa2.bw8848.org"
+    ws-opts:
+      path: "/usa2-usa2-yuyv2d"
+      headers:
+        Host: "usa2.bw8848.org"
+    udp: true
+  - name: "DE DE- VPNine1 1964"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "cczQCxQBdYzynosgqLVSmUnZzwjJcWEnpWnMAjZQUy94hDdN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "gm2.bw8848.org"
+    ws-opts:
+      path: "/gm2-gm2-mo9ag9"
+      headers:
+        Host: "gm2.bw8848.org"
+    udp: true
+  - name: "GB GB- VPNine1 5589"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "hF7uSJfeBPtSNXKtuYvTRNaBdGkkXHpKJfLRfbpaDWovomSL"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.bw8848.org"
+    ws-opts:
+      path: "/uk1-uk1-gcjtze"
+      headers:
+        Host: "uk1.bw8848.org"
+    udp: true
+  - name: "JP JP- VPNine1 4061"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "hV66LcSGyxUdHq2aAeqxmLfpBDQmRYxo8Wte43oZr8L379SS"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "node2.bw8848.org"
+    ws-opts:
+      path: "/node2-node2-gu7bfd"
+      headers:
+        Host: "node2.bw8848.org"
+    udp: true
+  - name: "KR KR- VPNine1 3676"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "pUkVhYVSnjbEy4xbkNJ2QvXTSSLHxRN6sRbdSnnwpbMSXTbC"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "node3.bw8848.org"
+    ws-opts:
+      path: "/node3-node3-jgnkjy"
+      headers:
+        Host: "node3.bw8848.org"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "US US- VPNine1 3277"
+      - "US US- VPNine1 2552"
+      - "GB GB- VPNine1 5589"
+      - "74 oneclickvpnkeys"
+      - "GB GB- VPNine1"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "US US- VPNine1 3277"
+      - "US US- VPNine1 2552"
+      - "GB GB- VPNine1 5589"
+      - "74 oneclickvpnkeys"
+      - "GB GB- VPNine1"
+      - "oneclickvpnkeys FR 8040"
+      - "DE DE- VPNine1"
+      - "DE DE- VPNine1 1964"
+      - "kakajan 8055"
+      - "4"
+      - "JP JP- VPNine1 4061"
+      - "KR KR- VPNine1"
+      - "KR KR- VPNine1 3676"
+      - "oneclickvpnkeys FR 6882"
+      - "telegram tajrobe_wiki"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "US US- VPNine1 3277"
+      - "US US- VPNine1 2552"
+      - "74 oneclickvpnkeys"
+      - "DE DE- VPNine1"
+      - "GB GB- VPNine1 5589"
+      - "oneclickvpnkeys FR 8040"
+      - "GB GB- VPNine1"
+      - "DE DE- VPNine1 1964"
+      - "kakajan 8055"
+      - "4"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "US US- VPNine1 3277"
+      - "US US- VPNine1 2552"
+      - "GB GB- VPNine1 5589"
+      - "74 oneclickvpnkeys"
+      - "GB GB- VPNine1"
+      - "oneclickvpnkeys FR 8040"
+      - "DE DE- VPNine1"
+      - "DE DE- VPNine1 1964"
+      - "kakajan 8055"
+      - "4"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "US US- VPNine1 3277"
+      - "US US- VPNine1 2552"
+      - "74 oneclickvpnkeys"
+      - "DE DE- VPNine1"
+      - "GB GB- VPNine1 5589"
+      - "oneclickvpnkeys FR 8040"
+      - "GB GB- VPNine1"
+      - "DE DE- VPNine1 1964"
+      - "kakajan 8055"
+      - "4"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "US US- VPNine1 3277"
+      - "US US- VPNine1 2552"
+      - "74 oneclickvpnkeys"
+      - "DE DE- VPNine1"
+      - "GB GB- VPNine1 5589"
+      - "oneclickvpnkeys FR 8040"
+      - "GB GB- VPNine1"
+      - "DE DE- VPNine1 1964"
+      - "kakajan 8055"
+      - "4"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "US US- VPNine1 3277"
+      - "US US- VPNine1 2552"
+      - "74 oneclickvpnkeys"
+      - "GB GB- VPNine1 5589"
+      - "DE DE- VPNine1"
+      - "oneclickvpnkeys FR 8040"
+      - "GB GB- VPNine1"
+      - "DE DE- VPNine1 1964"
+      - "kakajan 8055"
+      - "4"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST VLESS"
+    type: url-test
+    proxies:
+      - "chillguy_vpn 9142"
+      - "configV2rayNG US"
+      - "oneclickvpnkeys CA"
+      - "oneclickvpnkeys CA 5015"
+      - "oneclickvpnkeys US 5491"
+      - "oneclickvpnkeys FI"
+      - "4"
+      - "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "NETMelliAnti"
+      - "VPsave 5327"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST TROJAN"
+    type: url-test
+    proxies:
+      - "74 oneclickvpnkeys"
+      - "telegram tajrobe_wiki"
+      - "oneclickvpnkeys FR 6882"
+      - "oneclickvpnkeys FR 8040"
+      - "configshub2 PL"
+      - "KAFING_2 1355"
+      - "SG SG- VPNine1"
+      - "JP JP- VPNine1"
+      - "US US- VPNine1 2552"
+      - "KR KR- VPNine1"
+      - "kakajan 8055"
+      - "GB GB- VPNine1"
+      - "DE DE- VPNine1"
+      - "US US- VPNine1 3277"
+      - "DE DE- VPNine1 1964"
+      - "GB GB- VPNine1 5589"
+      - "JP JP- VPNine1 4061"
+      - "KR KR- VPNine1 3676"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "chillguy_vpn 9142"
+      - "configV2rayNG US"
+      - "oneclickvpnkeys CA"
+      - "oneclickvpnkeys CA 5015"
+      - "oneclickvpnkeys US 5491"
+      - "oneclickvpnkeys FI"
+      - "4"
+      - "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "NETMelliAnti"
+      - "VPsave 5327"
+      - "74 oneclickvpnkeys"
+      - "telegram tajrobe_wiki"
+      - "oneclickvpnkeys FR 6882"
+      - "oneclickvpnkeys FR 8040"
+      - "configshub2 PL"
+      - "KAFING_2 1355"
+      - "SG SG- VPNine1"
+      - "JP JP- VPNine1"
+      - "US US- VPNine1 2552"
+      - "KR KR- VPNine1"
+      - "kakajan 8055"
+      - "GB GB- VPNine1"
+      - "DE DE- VPNine1"
+      - "US US- VPNine1 3277"
+      - "DE DE- VPNine1 1964"
+      - "GB GB- VPNine1 5589"
+      - "JP JP- VPNine1 4061"
+      - "KR KR- VPNine1 3676"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "US US- VPNine1 3277"
+      - "US US- VPNine1 2552"
+      - "GB GB- VPNine1 5589"
+      - "74 oneclickvpnkeys"
+      - "GB GB- VPNine1"
+      - "oneclickvpnkeys FR 8040"
+      - "DE DE- VPNine1"
+      - "DE DE- VPNine1 1964"
+      - "kakajan 8055"
+      - "4"
+      - "JP JP- VPNine1 4061"
+      - "KR KR- VPNine1"
+      - "KR KR- VPNine1 3676"
+      - "oneclickvpnkeys FR 6882"
+      - "telegram tajrobe_wiki"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "URL-TEST VLESS"
+      - "URL-TEST TROJAN"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

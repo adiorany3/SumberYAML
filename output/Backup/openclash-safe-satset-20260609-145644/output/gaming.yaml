@@ -1,0 +1,206 @@
+# Auto generated usage profile OpenClash config
+# Output: output/gaming.yaml
+# Profile group: GAMING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "US US- VPNine1 3277"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "S8wG5SmFw5wVDeLG4K2N6Mqr2mSPjrpBd7QCHcK4F8fYRfiN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "usa2.bw8848.org"
+    ws-opts:
+      path: "/usa2-usa2-yuyv2d"
+      headers:
+        Host: "usa2.bw8848.org"
+    udp: true
+  - name: "US US- VPNine1 2552"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "EM7HwoxdP8r5yQoxwDxEJU3VSBAXzAuFGBTUgVMjiuRCkNUN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "usa1.bw8848.org"
+    ws-opts:
+      path: "/usa1-usa1-bktm3x"
+      headers:
+        Host: "usa1.bw8848.org"
+    udp: true
+  - name: "74 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "DE DE- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "RaxTmLsUysCCyFnHeEbw87Z93F4rGEhxmCEzvTLAssP9zuMA"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "gm1.bw8848.org"
+    ws-opts:
+      path: "/gm1-gm1-j6meub"
+      headers:
+        Host: "gm1.bw8848.org"
+    udp: true
+  - name: "GB GB- VPNine1 5589"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "hF7uSJfeBPtSNXKtuYvTRNaBdGkkXHpKJfLRfbpaDWovomSL"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.bw8848.org"
+    ws-opts:
+      path: "/uk1-uk1-gcjtze"
+      headers:
+        Host: "uk1.bw8848.org"
+    udp: true
+  - name: "oneclickvpnkeys FR 8040"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "GB GB- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "N33CBbQDyAjLmcAT7rVaZMeqHcDXLfSTWcxUcebU9ipfoHTP"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk2.bw8848.org"
+    ws-opts:
+      path: "/uk2-uk2-csrde2"
+      headers:
+        Host: "uk2.bw8848.org"
+    udp: true
+  - name: "DE DE- VPNine1 1964"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "cczQCxQBdYzynosgqLVSmUnZzwjJcWEnpWnMAjZQUy94hDdN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "gm2.bw8848.org"
+    ws-opts:
+      path: "/gm2-gm2-mo9ag9"
+      headers:
+        Host: "gm2.bw8848.org"
+    udp: true
+  - name: "kakajan 8055"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "KaQKzYh6dd"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dd.aananas.ir."
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dd.aananas.ir."
+    udp: true
+  - name: "4"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4311bd3f-4f66-4538-a624-221b87690b2c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "mjtbknetmkhremge.ordak.qzz.io"
+    ws-opts:
+      path: "/fl?ed"
+      headers:
+        Host: "mjtbknetmkhremge.ordak.qzz.io"
+    udp: true
+
+proxy-groups:
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "US US- VPNine1 3277"
+      - "US US- VPNine1 2552"
+      - "74 oneclickvpnkeys"
+      - "DE DE- VPNine1"
+      - "GB GB- VPNine1 5589"
+      - "oneclickvpnkeys FR 8040"
+      - "GB GB- VPNine1"
+      - "DE DE- VPNine1 1964"
+      - "kakajan 8055"
+      - "4"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GAMING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
