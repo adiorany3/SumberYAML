@@ -1,0 +1,456 @@
+# Auto generated compact OpenClash config
+# Output: output/lite.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "VPsave 1360"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys CA 2389"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "kakajan 8167"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "KaQKzYh6dd"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dd.aananas.ir."
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dd.aananas.ir."
+    udp: true
+  - name: "oneclickvpnkeys FR 1557"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a9d3f779-43ae-ee7d-4dc3-fa073c1797d8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "crm.lotussec.com"
+    ws-opts:
+      path: "/@JavidnamanIran/Javid-SHAH-KingRezaPahlavi/"
+      headers:
+        Host: "crm.lotussec.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 5760"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "KAFING_2 3787"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "chillguy_vpn 2339"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 8490"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys CA"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7270612b-49f6-4b04-999c-34d8263da767
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "picassooo.info"
+    ws-opts:
+      path: "/aymdlws"
+      headers:
+        Host: "picassooo.info"
+    udp: true
+  - name: "oneclickvpnkeys FI"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss4.com"
+    ws-opts:
+      path: "/tsghdws"
+      headers:
+        Host: "octopusss4.com"
+    udp: true
+  - name: "V2raysCollector"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "telegram tajrobe_wiki"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "configshub2 PL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.creationlong.org"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.creationlong.org"
+    udp: true
+  - name: "V2rayNG3 FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?L=tls"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "VPsave 1360"
+      - "oneclickvpnkeys CA 2389"
+      - "kakajan 8167"
+      - "oneclickvpnkeys FR 1557"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "VPsave 1360"
+      - "oneclickvpnkeys CA 2389"
+      - "kakajan 8167"
+      - "oneclickvpnkeys FR 1557"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "oneclickvpnkeys FR 5760"
+      - "KAFING_2 3787"
+      - "chillguy_vpn 2339"
+      - "oneclickvpnkeys US 8490"
+      - "oneclickvpnkeys CA"
+      - "oneclickvpnkeys FI"
+      - "V2raysCollector"
+      - "telegram tajrobe_wiki"
+      - "configshub2 PL"
+      - "V2rayNG3 FR"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "VPsave 1360"
+      - "oneclickvpnkeys CA 2389"
+      - "kakajan 8167"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "oneclickvpnkeys FR 1557"
+      - "oneclickvpnkeys FR 5760"
+      - "KAFING_2 3787"
+      - "telegram tajrobe_wiki"
+      - "chillguy_vpn 2339"
+      - "oneclickvpnkeys US 8490"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "VPsave 1360"
+      - "oneclickvpnkeys CA 2389"
+      - "kakajan 8167"
+      - "oneclickvpnkeys FR 1557"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "oneclickvpnkeys FR 5760"
+      - "KAFING_2 3787"
+      - "telegram tajrobe_wiki"
+      - "chillguy_vpn 2339"
+      - "oneclickvpnkeys US 8490"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "VPsave 1360"
+      - "oneclickvpnkeys CA 2389"
+      - "kakajan 8167"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "oneclickvpnkeys FR 1557"
+      - "oneclickvpnkeys FR 5760"
+      - "KAFING_2 3787"
+      - "telegram tajrobe_wiki"
+      - "chillguy_vpn 2339"
+      - "oneclickvpnkeys US 8490"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "VPsave 1360"
+      - "oneclickvpnkeys CA 2389"
+      - "kakajan 8167"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "oneclickvpnkeys FR 1557"
+      - "oneclickvpnkeys FR 5760"
+      - "KAFING_2 3787"
+      - "telegram tajrobe_wiki"
+      - "chillguy_vpn 2339"
+      - "oneclickvpnkeys US 8490"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "VPsave 1360"
+      - "oneclickvpnkeys CA 2389"
+      - "kakajan 8167"
+      - "oneclickvpnkeys FR 1557"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "oneclickvpnkeys FR 5760"
+      - "KAFING_2 3787"
+      - "telegram tajrobe_wiki"
+      - "chillguy_vpn 2339"
+      - "oneclickvpnkeys US 8490"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST TOP GLOBAL"
+    type: url-test
+    proxies:
+      - "VPsave 1360"
+      - "oneclickvpnkeys CA 2389"
+      - "kakajan 8167"
+      - "oneclickvpnkeys FR 1557"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "oneclickvpnkeys FR 5760"
+      - "KAFING_2 3787"
+      - "chillguy_vpn 2339"
+      - "oneclickvpnkeys US 8490"
+      - "oneclickvpnkeys CA"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "VPsave 1360"
+      - "oneclickvpnkeys CA 2389"
+      - "kakajan 8167"
+      - "oneclickvpnkeys FR 1557"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "oneclickvpnkeys FR 5760"
+      - "KAFING_2 3787"
+      - "chillguy_vpn 2339"
+      - "oneclickvpnkeys US 8490"
+      - "oneclickvpnkeys CA"
+      - "oneclickvpnkeys FI"
+      - "V2raysCollector"
+      - "telegram tajrobe_wiki"
+      - "configshub2 PL"
+      - "V2rayNG3 FR"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "VPsave 1360"
+      - "oneclickvpnkeys CA 2389"
+      - "kakajan 8167"
+      - "oneclickvpnkeys FR 1557"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "oneclickvpnkeys FR 5760"
+      - "KAFING_2 3787"
+      - "chillguy_vpn 2339"
+      - "oneclickvpnkeys US 8490"
+      - "oneclickvpnkeys CA"
+      - "oneclickvpnkeys FI"
+      - "V2raysCollector"
+      - "telegram tajrobe_wiki"
+      - "configshub2 PL"
+      - "V2rayNG3 FR"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST TOP GLOBAL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

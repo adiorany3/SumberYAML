@@ -34,22 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "configV2rayNG US"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 4311bd3f-4f66-4538-a624-221b87690b2c
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "mjtbknetmkhremge.ordak.qzz.io"
-    ws-opts:
-      path: "/fl?ed=2560"
-      headers:
-        Host: "mjtbknetmkhremge.ordak.qzz.io"
-    udp: true
-  - name: "oneclickvpnkeys US 5491"
+  - name: "oneclickvpnkeys US 8490"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -63,34 +48,6 @@ proxies:
       path: "/"
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
-    udp: true
-  - name: "US US- VPNine1 2552"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "EM7HwoxdP8r5yQoxwDxEJU3VSBAXzAuFGBTUgVMjiuRCkNUN"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "usa1.bw8848.org"
-    ws-opts:
-      path: "/usa1-usa1-bktm3x"
-      headers:
-        Host: "usa1.bw8848.org"
-    udp: true
-  - name: "US US- VPNine1 3277"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "S8wG5SmFw5wVDeLG4K2N6Mqr2mSPjrpBd7QCHcK4F8fYRfiN"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "usa2.bw8848.org"
-    ws-opts:
-      path: "/usa2-usa2-yuyv2d"
-      headers:
-        Host: "usa2.bw8848.org"
     udp: true
 
 proxy-groups:
