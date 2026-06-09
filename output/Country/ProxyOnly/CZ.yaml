@@ -1,15 +1,16 @@
 proxies:
-  - name: "CZ CZ-46.8.113.142-0135"
+  - name: "CZ 57779 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu"
+    type: vless
+    uuid: bbd67e54-1b4b-488b-a5df-708ef896ecaa
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "ch-2.bexum.fun"
+    servername: "wof2.cerosmakom.com"
     ws-opts:
-      path: "/"
+      path: "/api/v2/sync/data-stream"
       headers:
-        Host: "ch-2.bexum.fun"
+        Host: "wof2.cerosmakom.com"
     udp: true

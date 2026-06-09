@@ -1,5 +1,5 @@
 proxies:
-  - name: "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp 1858"
+  - name: "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp 3504"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -13,4 +13,34 @@ proxies:
       path: "/news"
       headers:
         Host: "Cdn8-pro.postshup.ir."
+    udp: true
+  - name: "IR IR- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bbd67e54-1b4b-488b-a5df-708ef896ecaa
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "bc11.benioromi.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "bc11.benioromi.com"
+    udp: true
+  - name: "IR 57742 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bbd67e54-1b4b-488b-a5df-708ef896ecaa
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "bc17.fares5em.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "bc17.fares5em.com"
     udp: true

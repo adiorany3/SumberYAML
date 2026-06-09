@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-09T03:31:02Z",
+  "generated_at_utc": "2026-06-09T09:37:05Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 53,
+      "count": 50,
       "keywords": [
         "google",
         "gcp",
@@ -36,12 +36,6 @@
           "scheme": "vless",
           "name": "@V2ray_official",
           "server": "46.175.150.23",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@CUSTOMVPNSERVER",
-          "server": "157.173.127.225",
           "port": 443
         },
         {
@@ -78,6 +72,12 @@
           "scheme": "vless",
           "name": "209",
           "server": "31.59.36.107",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@v2ray_configs_pools",
+          "server": "38.107.233.130",
           "port": 443
         }
       ]

@@ -34,156 +34,33 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "KR KR-152.67.218.38-0136"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: b5e9480a-b7aa-40a4-f9a7-5299b5e363b4
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "152.67.218.38"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "152.67.218.38"
-    udp: true
   - name: "KR KR- VPNine1"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 6f995056-7802-4a1d-bff7-61678e626c3f
-    cipher: none
+    type: trojan
+    password: "GedH5PTxP5F4oP4kZ5opF3PWgPPCwYw3kfHMN9ZZTEXFbz9c"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "bbnnm.azurewebsites.net"
+    sni: "kr2.bw8848.org"
     ws-opts:
-      path: "/"
+      path: "/kr2-kr2-g9xjmv"
       headers:
-        Host: "bbnnm.azurewebsites.net"
+        Host: "kr2.bw8848.org"
     udp: true
-  - name: "v2rayngzendegimamad 5082"
+  - name: "KR KR- VPNine1 9181"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 6fab6cc6-e340-4073-93e1-c6c6802002c7
-    cipher: none
+    type: trojan
+    password: "pUkVhYVSnjbEy4xbkNJ2QvXTSSLHxRN6sRbdSnnwpbMSXTbC"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "afrcloud22.mmv.kr"
+    sni: "node3.bw8848.org"
     ws-opts:
-      path: "/167.179.110.68=8443"
+      path: "/node3-node3-jgnkjy"
       headers:
-        Host: "afrcloud22.mmv.kr"
-    udp: true
-  - name: "v2rayngzendegimamad 2225"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: aaaaaabb-4ddd-4eee-9fff-ffffffffffff
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: ".afrcloud22.mmv.kr"
-    ws-opts:
-      path: "/43.218.77.16"
-      headers:
-        Host: "afrcloud22.mmv.kr"
-    udp: true
-  - name: "CUSTOMVPNSERVER 3578"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: bcce095a-9f98-4e23-a68c-8bbecb785dcd
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "afrcloud1.c01.kr"
-    ws-opts:
-      path: "/213.35.100.31=47112"
-      headers:
-        Host: "afrcloud1.c01.kr"
-    udp: true
-  - name: "CUSTOMVPNSERVER 9094"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: d6971cc4-a506-49f6-8ebb-f911317763d8
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "afrcloud1.c01.kr"
-    ws-opts:
-      path: "/36.95.152.58=12137"
-      headers:
-        Host: "afrcloud1.c01.kr"
-    udp: true
-  - name: "Join v2rayngzendegimamad security tls encryption none insecure 0 host afrcloud22"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: d85ea913-7dfa-44b0-bd66-33414e897991
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "172.67.73.14"
-    ws-opts:
-      path: "/35.230.79.26=443"
-      headers:
-        Host: "172.67.73.14"
-    udp: true
-  - name: "CUSTOMVPNSERVER 1605"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ecd01b9c-8172-41a4-be72-6167fd7d932d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "afrcloud1.c01.kr"
-    ws-opts:
-      path: "/139.99.124.165=443"
-      headers:
-        Host: "afrcloud1.c01.kr"
-    udp: true
-  - name: "CUSTOMVPNSERVER 5710"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ecd01b9c-8172-41a4-be72-6167fd7d932d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "afrcloud1.c01.kr"
-    ws-opts:
-      path: "/194.127.193.124=24467"
-      headers:
-        Host: "afrcloud1.c01.kr"
-    udp: true
-  - name: "v2rayngzendegimamad 9376"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: fa335d1c-e6d1-48bb-99a3-f06710a29043
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "afrcloud22.mmv.kr"
-    ws-opts:
-      path: "/130.185.164.213=8443"
-      headers:
-        Host: "afrcloud22.mmv.kr"
+        Host: "node3.bw8848.org"
     udp: true
 
 proxy-groups:

@@ -1,5 +1,19 @@
 proxies:
-  - name: "oneclickvpnkeys FR 5767"
+  - name: "oneclickvpnkeys FR 7280"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 7370"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -12,4 +26,32 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.calmloud.com"
+    udp: true
+  - name: "v2line FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "V2rayNG3 FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?L=tls"
+      headers:
+        Host: "www.gossipglove.com"
     udp: true
