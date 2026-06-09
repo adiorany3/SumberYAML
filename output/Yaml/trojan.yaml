@@ -1,5 +1,19 @@
 proxies:
-  - name: "oneclickvpnkeys NL"
+  - name: "74 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "telegram tajrobe_wiki"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -27,7 +41,7 @@ proxies:
       headers:
         Host: "www.ignitelimit.com"
     udp: true
-  - name: "oneclickvpnkeys FR 7779"
+  - name: "oneclickvpnkeys FR 5767"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -41,7 +55,49 @@ proxies:
       headers:
         Host: "www.calmloud.com"
     udp: true
-  - name: "KAFING_2 6235"
+  - name: "v2line NL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "V2rayNG3 XX"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?L=tls"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "configshub2 PL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.creationlong.org"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.creationlong.org"
+    udp: true
+  - name: "KAFING_2 9606"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -54,4 +110,18 @@ proxies:
       path: "/howdy"
       headers:
         Host: "uk1.test3.net"
+    udp: true
+  - name: "kakajan 2455"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "KaQKzYh6dd"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dd.aananas.ir."
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dd.aananas.ir."
     udp: true
