@@ -34,47 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "XX XX TROJAN spikevpn 1"
+  - name: "NETMelliAnti"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "8r<[9'l6hAO#8ZQi"
+    type: vless
+    uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "104.16.7.70"
+    servername: "tr-cd.sublink-vip2.com"
     ws-opts:
-      path: "/tr"
+      path: "/"
       headers:
-        Host: "104.16.7.70"
-    udp: true
-  - name: "XX XX TROJAN spikevpn 2"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "8r<[9'l6hAO#8ZQi"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "104.18.109.147"
-    ws-opts:
-      path: "/tr"
-      headers:
-        Host: "104.18.109.147"
-    udp: true
-  - name: "Azarakhsh_Proxy 1558"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "bpb-trojan"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "fcspring.ggff.net"
-    ws-opts:
-      path: "/tr?ed"
-      headers:
-        Host: "fcspring.ggff.net"
+        Host: "tr-cd.sublink-vip2.com"
     udp: true
 
 proxy-groups:

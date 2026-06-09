@@ -34,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "chillguy_vpn 3328"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "hhlfy.twiladaphne.ndjp.net"
-    ws-opts:
-      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
-      headers:
-        Host: "hhlfy.twiladaphne.ndjp.net"
-    udp: true
   - name: "4"
     server: "104.17.3.81"
     port: 443
@@ -64,7 +49,7 @@ proxies:
       headers:
         Host: "mjtbknetmkhremge.ordak.qzz.io"
     udp: true
-  - name: "V2Ray_Hub1200 9883"
+  - name: "V2Ray_Hub1200 7094"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -79,7 +64,7 @@ proxies:
       headers:
         Host: "wf1.cerosmakom.com"
     udp: true
-  - name: "VPsave 9520"
+  - name: "VPsave 5367"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -94,7 +79,64 @@ proxies:
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
-  - name: "kakajan 3924"
+  - name: "chillguy_vpn 8180"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "74 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "telegram tajrobe_wiki"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "KAFING_2 8935"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "kakajan 4327"
     server: "104.17.3.81"
     port: 443
     type: trojan

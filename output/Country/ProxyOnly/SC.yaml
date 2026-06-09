@@ -1,15 +1,16 @@
 proxies:
-  - name: "SC 55735 Telegram t.me SOSkeyNET"
+  - name: "SC 57827 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "ff5aeddc-8fea-4d17-b504-1a9fdacca802"
+    type: vless
+    uuid: 5960576d-829e-4d09-8232-0e80121a6fe4
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "go.appsflyer.com.r3xxe.eu.cc"
+    servername: "ssj.new-persian-song.ir"
     ws-opts:
-      path: "/br-orcl"
+      path: "/?ed=80"
       headers:
-        Host: "go.appsflyer.com.r3xxe.eu.cc"
+        Host: "ssj.new-persian-song.ir"
     udp: true
