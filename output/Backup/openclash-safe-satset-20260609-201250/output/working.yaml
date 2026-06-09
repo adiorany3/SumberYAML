@@ -1,0 +1,212 @@
+# Auto generated usage profile OpenClash config
+# Output: output/working.yaml
+# Profile group: WORKING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "VPsave 2828"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "JP JP- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 88e1c62f-82e4-4e54-b536-4b760fa78529
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "d2-jp1.djwstlsweb.top"
+    ws-opts:
+      path: "/djjc/jp1"
+      headers:
+        Host: "d2-jp1.djwstlsweb.top"
+    udp: true
+  - name: "chillguy_vpn 1091"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f1b2d23b-15c0-4967-baa9-d5b1f75d25f8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zagrosbpm.rezakhosravidev.ir"
+    ws-opts:
+      path: "/wx-tun"
+      headers:
+        Host: "zagrosbpm.rezakhosravidev.ir"
+    udp: true
+  - name: "telegram tajrobe_wiki"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "chillguy_vpn 4189"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 3724"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys CA 5607"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "v2ray1_ng FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 4963"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "NETMelliAnti"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tr-cd.sublink-vip2.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tr-cd.sublink-vip2.com"
+    udp: true
+
+proxy-groups:
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "VPsave 2828"
+      - "JP JP- VPNine1"
+      - "chillguy_vpn 1091"
+      - "telegram tajrobe_wiki"
+      - "chillguy_vpn 4189"
+      - "oneclickvpnkeys US 3724"
+      - "oneclickvpnkeys CA 5607"
+      - "v2ray1_ng FR"
+      - "oneclickvpnkeys FR 4963"
+      - "NETMelliAnti"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "WORKING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

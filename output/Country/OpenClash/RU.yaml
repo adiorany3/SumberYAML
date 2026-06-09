@@ -34,20 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "RU 56856 Telegram t.me SOSkeyNET"
+  - name: "RU RU- VPNine1"
+    type: vmess
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 5a23e6b2-3cd3-4475-898e-0885d71da6ec
-    cipher: none
+    uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+    alterId: 0
+    cipher: auto
     tls: true
     skip-cert-verify: true
+    servername: "renderer-stream-1-411.mirra.now"
     network: ws
-    servername: "us2.wxgqlfx.xyz"
     ws-opts:
-      path: "/TG@wxgqlfx"
+      path: "/api/v1/gpu-stream/socket"
       headers:
-        Host: "us2.wxgqlfx.xyz"
+        Host: "renderer-stream-1-411.mirra.now"
     udp: true
 
 proxy-groups:

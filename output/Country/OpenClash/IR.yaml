@@ -34,20 +34,34 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "Vibe_Zoone MojeVazheh Radixvpn ForiMarketGp"
+  - name: "chillguy_vpn 1091"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 7752f6f7-7052-42bf-b571-34a02658cc71
+    uuid: f1b2d23b-15c0-4967-baa9-d5b1f75d25f8
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "Cdn8-pro.postshup.ir."
+    servername: "zagrosbpm.rezakhosravidev.ir"
     ws-opts:
-      path: "/news"
+      path: "/wx-tun"
       headers:
-        Host: "Cdn8-pro.postshup.ir."
+        Host: "zagrosbpm.rezakhosravidev.ir"
+    udp: true
+  - name: "TeleGetHub join telegram"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "09548571-364e-4876-8e92-98f423e73913"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "aaa.r-o-o-t2.ir"
+    ws-opts:
+      path: "/I1P2U8JP51av1yhmNbaBgIw8"
+      headers:
+        Host: "aaa.r-o-o-t2.ir"
     udp: true
 
 proxy-groups:

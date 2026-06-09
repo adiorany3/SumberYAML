@@ -2,28 +2,15 @@ proxies:
   - name: "JP JP- VPNine1"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "5YYALHHZEiMDssHZwTMQxbuT8CZVP5Y25ppCtpZnvK4asz73"
+    type: vless
+    uuid: 88e1c62f-82e4-4e54-b536-4b760fa78529
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "jp2.bw8848.org"
+    servername: "d2-jp1.djwstlsweb.top"
     ws-opts:
-      path: "/jp2-jp2-nnnmhz"
+      path: "/djjc/jp1"
       headers:
-        Host: "jp2.bw8848.org"
-    udp: true
-  - name: "JP JP- VPNine1 4061"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "hV66LcSGyxUdHq2aAeqxmLfpBDQmRYxo8Wte43oZr8L379SS"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "node2.bw8848.org"
-    ws-opts:
-      path: "/node2-node2-gu7bfd"
-      headers:
-        Host: "node2.bw8848.org"
+        Host: "d2-jp1.djwstlsweb.top"
     udp: true
