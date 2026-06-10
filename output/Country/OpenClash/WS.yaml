@@ -34,7 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "VPsave 3643"
+  - name: "HiByeVPNN 72"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss5.info"
+    ws-opts:
+      path: "/udfyfws"
+      headers:
+        Host: "octopusss5.info"
+    udp: true
+  - name: "VPsave 1403"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,21 +64,7 @@ proxies:
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
-  - name: "telegram tajrobe_wiki"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.multiplydose.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.multiplydose.com"
-    udp: true
-  - name: "KAFING_2 2314"
+  - name: "KAFING_2 2585"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -76,20 +77,6 @@ proxies:
       path: "/howdy"
       headers:
         Host: "uk1.test3.net"
-    udp: true
-  - name: "kapsolvpn"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "b1c58d44-e3ab-49d5-8fd9-50b4a119bf6a"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "shy-star-5cdf.citydig90.workers.dev"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "shy-star-5cdf.citydig90.workers.dev"
     udp: true
 
 proxy-groups:

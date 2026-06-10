@@ -1,0 +1,16 @@
+proxies:
+  - name: "UA UA- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c4a6d607-fce6-1865-ce12-2626a5a0c6b0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nahan-core.rezameyhami72.workers.dev"
+    ws-opts:
+      path: "/sync"
+      headers:
+        Host: "nahan-core.rezameyhami72.workers.dev"
+    udp: true
