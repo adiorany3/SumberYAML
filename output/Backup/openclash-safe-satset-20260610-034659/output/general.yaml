@@ -1,0 +1,210 @@
+# Auto generated usage profile OpenClash config
+# Output: output/general.yaml
+# Profile group: GENERAL STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "VPsave 1549"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 9562"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7b110fd1-2c7f-4df3-8a2f-10085c500f4c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "orange-math-8a2e.parsa-esfandpoor89.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "orange-math-8a2e.parsa-esfandpoor89.workers.dev"
+    udp: true
+  - name: "v2line FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 4108"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "v2ray1_ng FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "V2ray_official 2419"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "KaQKzYh6dd"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dd.aananas.ir."
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dd.aananas.ir."
+    udp: true
+  - name: "NETMelliAnti"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tr-cd.sublink-vip2.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tr-cd.sublink-vip2.com"
+    udp: true
+  - name: "oneclickvpnkeys NL 8968"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "SC SC- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0bbcbcbf-a964-4e47-b8c5-c4917708ef93
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ssj.new-persian-song.ir"
+    ws-opts:
+      path: "/?ed=80"
+      headers:
+        Host: "ssj.new-persian-song.ir"
+    udp: true
+  - name: "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a9d3f779-43ae-ee7d-4dc3-fa073c1797d8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "crm.lotussec.com"
+    ws-opts:
+      path: "/@JavidnamanIran/Javid-SHAH-KingRezaPahlavi/"
+      headers:
+        Host: "crm.lotussec.com"
+    udp: true
+
+proxy-groups:
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "VPsave 1549"
+      - "oneclickvpnkeys US 9562"
+      - "v2line FR"
+      - "oneclickvpnkeys FR 4108"
+      - "v2ray1_ng FR"
+      - "V2ray_official 2419"
+      - "NETMelliAnti"
+      - "oneclickvpnkeys NL 8968"
+      - "SC SC- VPNine1"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GENERAL STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

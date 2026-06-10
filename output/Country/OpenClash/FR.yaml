@@ -34,7 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys FR 9925"
+  - name: "FR NetliVPN"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7752f6f7-7052-42bf-b571-34a02658cc71
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "Cdn8-pro.postshup.ir."
+    ws-opts:
+      path: "/news"
+      headers:
+        Host: "Cdn8-pro.postshup.ir."
+    udp: true
+  - name: "oneclickvpnkeys FR 4108"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -48,7 +63,7 @@ proxies:
       headers:
         Host: "www.ignitelimit.com"
     udp: true
-  - name: "oneclickvpnkeys FR 4963"
+  - name: "oneclickvpnkeys FR 5323"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -73,6 +88,20 @@ proxies:
     sni: "www.gossipglove.com"
     ws-opts:
       path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "V2rayNG3 FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?L=tls"
       headers:
         Host: "www.gossipglove.com"
     udp: true
