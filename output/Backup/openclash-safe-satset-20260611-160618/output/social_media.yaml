@@ -1,0 +1,212 @@
+# Auto generated usage profile OpenClash config
+# Output: output/social_media.yaml
+# Profile group: SOCIAL MEDIA STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "12https t.me ConfigX2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "meliproxyy 4625"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c135158e-5869-4397-8116-6695ca18cd48
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cf.hulume.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cf.hulume.ccwu.cc"
+    udp: true
+  - name: "meliproxyy 3873"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "2.1.mitivpn.dee.srfsl.gleobal.fastl3y.n3et.mitivpn.site"
+    ws-opts:
+      path: "/https://chatgpt.com"
+      headers:
+        Host: "mitivpn.de.ssl.global.fastly.net.mitivpn.site"
+    udp: true
+  - name: "oneclickvpnkeys US 4014"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "VPsave 3248"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tr-cd.sublink-vip2.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tr-cd.sublink-vip2.com"
+    udp: true
+  - name: "7 kakajan"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 627c3a7a-29a7-41d1-9d9e-9f809b690988
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sub.rfiksma.top"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "mos.rfiksma.top"
+    udp: true
+  - name: "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a9d3f779-43ae-ee7d-4dc3-fa073c1797d8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "crm.lotussec.com"
+    ws-opts:
+      path: "/@JavidnamanIran/Javid-SHAH-KingRezaPahlavi/"
+      headers:
+        Host: "crm.lotussec.com"
+    udp: true
+  - name: "meliproxyy 4749"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c2f0a8f0-36fe-4a94-824b-bca271ca642b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "alphacdn.alphashops.shop"
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "alphacdn.alphashops.shop"
+    udp: true
+  - name: "v2line NL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "V2rayNG3 NL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?L=tls"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+
+proxy-groups:
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "12https t.me ConfigX2ray"
+      - "meliproxyy 4625"
+      - "meliproxyy 3873"
+      - "oneclickvpnkeys US 4014"
+      - "VPsave 3248"
+      - "7 kakajan"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "meliproxyy 4749"
+      - "v2line NL"
+      - "V2rayNG3 NL"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "SOCIAL MEDIA STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
