@@ -34,36 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "DE V2ngFast"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 73796e63-0000-4000-8000-000000000000
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "shy-recipe-2956.ladanoil.workers.dev"
-    ws-opts:
-      path: "/v2ngfast---v2ngfast---v2ngfast---v2ngfast---v2ngfast"
-      headers:
-        Host: "shy-recipe-2956.ladanoil.workers.dev"
-    udp: true
-  - name: "V2ray_official 7325"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "mitivpn"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "mitivpn.sdde.ssdl.globdal.fastdly.net.mitivpn.site"
-    ws-opts:
-      path: "/https://chatgpt.com"
-      headers:
-        Host: "mitivpn.de.ssl.global.fastly.co.mitivpn.site"
-    udp: true
-  - name: "meliproxyy 5641"
+  - name: "meliproxyy 5257"
     server: "104.17.3.81"
     port: 443
     type: trojan

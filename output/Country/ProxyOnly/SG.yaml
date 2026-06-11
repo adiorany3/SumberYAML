@@ -1,15 +1,16 @@
 proxies:
-  - name: "SG SG- VPNine1"
+  - name: "SG Join Telegram Farah_VPN SG"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "5JKj82yC2BNxy8LAZha8Gsj2BAexJJU7ttTfeFcuHzmLjAiZ"
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "node1.bw8848.org"
+    servername: "hhlfy.twiladaphne.ndjp.net"
     ws-opts:
-      path: "/node1-node1-5sczzi"
+      path: "/"
       headers:
-        Host: "node1.bw8848.org"
+        Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true

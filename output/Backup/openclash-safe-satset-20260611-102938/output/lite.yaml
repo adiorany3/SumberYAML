@@ -1,0 +1,460 @@
+# Auto generated compact OpenClash config
+# Output: output/lite.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "SG Join Telegram Farah_VPN SG"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "12https t.me ConfigX2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "filembad"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 73796e63-0000-4000-8000-000000000000
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "green-lab-3837.sameso7859.workers.dev"
+    ws-opts:
+      path: "/v2ngnet--v2ngnet--v2ngnet--v2ngnet--v2ngnet--v2ngnet--v2ngnet--v2ngnet"
+      headers:
+        Host: "green-lab-3837.sameso7859.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 3765"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "meliproxyy 5257"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "2.1.mitivpn.dee.srfsl.gleobal.fastl3y.n3et.mitivpn.site"
+    ws-opts:
+      path: "/https://chatgpt.com"
+      headers:
+        Host: "mitivpn.de.ssl.global.fastly.net.mitivpn.site"
+    udp: true
+  - name: "meliproxyy 7033"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c135158e-5869-4397-8116-6695ca18cd48
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cf.hulume.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cf.hulume.ccwu.cc"
+    udp: true
+  - name: "V2ray_official 6709"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "appsooner"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4311bd3f-4f66-4538-a624-221b87690b2c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "mjtbknetmkhremge.ordak.qzz.io"
+    ws-opts:
+      path: "/fl?ed=2560"
+      headers:
+        Host: "mjtbknetmkhremge.ordak.qzz.io"
+    udp: true
+  - name: "VPsave 6443"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "server-ir-3.ariyuz.org"
+    ws-opts:
+      path: "/page=2"
+      headers:
+        Host: "server-ir-3.ariyuz.org"
+    udp: true
+  - name: "7 kakajan"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 627c3a7a-29a7-41d1-9d9e-9f809b690988
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sub.rfiksma.top"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "mos.rfiksma.top"
+    udp: true
+  - name: "filembad 9650"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "chillguy_vpn"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 30693e15-1014-443b-88dd-1232b55a06b6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sub.rfiksma.top"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "mos.rfiksma.top"
+    udp: true
+  - name: "KAFING_2 3830"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "US Join Telegram Farah_VPN US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "VPsave 4015"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tr-cd.sublink-vip2.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tr-cd.sublink-vip2.com"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "SG Join Telegram Farah_VPN SG"
+      - "12https t.me ConfigX2ray"
+      - "filembad"
+      - "oneclickvpnkeys US 3765"
+      - "meliproxyy 5257"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "SG Join Telegram Farah_VPN SG"
+      - "12https t.me ConfigX2ray"
+      - "filembad"
+      - "oneclickvpnkeys US 3765"
+      - "meliproxyy 5257"
+      - "meliproxyy 7033"
+      - "V2ray_official 6709"
+      - "appsooner"
+      - "VPsave 6443"
+      - "7 kakajan"
+      - "filembad 9650"
+      - "chillguy_vpn"
+      - "KAFING_2 3830"
+      - "US Join Telegram Farah_VPN US"
+      - "VPsave 4015"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "SG Join Telegram Farah_VPN SG"
+      - "oneclickvpnkeys US 3765"
+      - "12https t.me ConfigX2ray"
+      - "filembad"
+      - "meliproxyy 5257"
+      - "meliproxyy 7033"
+      - "V2ray_official 6709"
+      - "appsooner"
+      - "VPsave 6443"
+      - "7 kakajan"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "SG Join Telegram Farah_VPN SG"
+      - "12https t.me ConfigX2ray"
+      - "filembad"
+      - "oneclickvpnkeys US 3765"
+      - "meliproxyy 5257"
+      - "meliproxyy 7033"
+      - "V2ray_official 6709"
+      - "appsooner"
+      - "VPsave 6443"
+      - "7 kakajan"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "SG Join Telegram Farah_VPN SG"
+      - "oneclickvpnkeys US 3765"
+      - "12https t.me ConfigX2ray"
+      - "filembad"
+      - "meliproxyy 5257"
+      - "meliproxyy 7033"
+      - "V2ray_official 6709"
+      - "appsooner"
+      - "VPsave 6443"
+      - "7 kakajan"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "SG Join Telegram Farah_VPN SG"
+      - "oneclickvpnkeys US 3765"
+      - "12https t.me ConfigX2ray"
+      - "filembad"
+      - "meliproxyy 5257"
+      - "meliproxyy 7033"
+      - "V2ray_official 6709"
+      - "appsooner"
+      - "VPsave 6443"
+      - "7 kakajan"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "SG Join Telegram Farah_VPN SG"
+      - "12https t.me ConfigX2ray"
+      - "filembad"
+      - "oneclickvpnkeys US 3765"
+      - "meliproxyy 5257"
+      - "meliproxyy 7033"
+      - "V2ray_official 6709"
+      - "appsooner"
+      - "VPsave 6443"
+      - "7 kakajan"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST TOP GLOBAL"
+    type: url-test
+    proxies:
+      - "SG Join Telegram Farah_VPN SG"
+      - "12https t.me ConfigX2ray"
+      - "filembad"
+      - "oneclickvpnkeys US 3765"
+      - "meliproxyy 5257"
+      - "meliproxyy 7033"
+      - "V2ray_official 6709"
+      - "appsooner"
+      - "VPsave 6443"
+      - "7 kakajan"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "SG Join Telegram Farah_VPN SG"
+      - "12https t.me ConfigX2ray"
+      - "filembad"
+      - "oneclickvpnkeys US 3765"
+      - "meliproxyy 5257"
+      - "meliproxyy 7033"
+      - "V2ray_official 6709"
+      - "appsooner"
+      - "VPsave 6443"
+      - "7 kakajan"
+      - "filembad 9650"
+      - "chillguy_vpn"
+      - "KAFING_2 3830"
+      - "US Join Telegram Farah_VPN US"
+      - "VPsave 4015"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "SG Join Telegram Farah_VPN SG"
+      - "12https t.me ConfigX2ray"
+      - "filembad"
+      - "oneclickvpnkeys US 3765"
+      - "meliproxyy 5257"
+      - "meliproxyy 7033"
+      - "V2ray_official 6709"
+      - "appsooner"
+      - "VPsave 6443"
+      - "7 kakajan"
+      - "filembad 9650"
+      - "chillguy_vpn"
+      - "KAFING_2 3830"
+      - "US Join Telegram Farah_VPN US"
+      - "VPsave 4015"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST TOP GLOBAL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
