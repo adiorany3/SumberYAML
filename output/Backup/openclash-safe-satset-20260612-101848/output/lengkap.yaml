@@ -1,0 +1,667 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "By EbraSha 2520"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 95d2c461-61f5-4dae-bc74-4d10ce1f6236
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "gongyilm.dpdns.org"
+    network: ws
+    ws-opts:
+      path: "/ws-gongyi"
+      headers:
+        Host: "gongyilm.dpdns.org"
+    udp: true
+  - name: "v2reya88"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "configV2rayNG DE"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 30693e15-1014-443b-88dd-1232b55a06b6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sub.rfiksma.top"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "mos.rfiksma.top"
+    udp: true
+  - name: "configV2rayNG DE 1234"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 627c3a7a-29a7-41d1-9d9e-9f809b690988
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sub.rfiksma.top"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "mos.rfiksma.top"
+    udp: true
+  - name: "oneclickvpnkeys IL"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7270612b-49f6-4b04-999c-34d8263da767
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "picassooo.info"
+    ws-opts:
+      path: "/aymdlws"
+      headers:
+        Host: "picassooo.info"
+    udp: true
+  - name: "configV2rayNG XX"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "server-ir-3.ariyuz.org"
+    ws-opts:
+      path: "/page=2"
+      headers:
+        Host: "server-ir-3.ariyuz.org"
+    udp: true
+  - name: "oneclickvpnkeys US 8652"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 7008"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 9447"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys FI"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss4.com"
+    ws-opts:
+      path: "/tsghdws"
+      headers:
+        Host: "octopusss4.com"
+    udp: true
+  - name: "CA 65690 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2fbe06dc-1dd6-49d8-ada3-040c13273ffb
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ghahve.nikanix.lol"
+    ws-opts:
+      path: "/ray"
+      headers:
+        Host: "ghahve.nikanix.lol"
+    udp: true
+  - name: "CA 65687 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7d67ebcd-9b3a-4c9c-9fe0-77de26e2ffda
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ghahve.nikanix.lol"
+    ws-opts:
+      path: "/ray"
+      headers:
+        Host: "ghahve.nikanix.lol"
+    udp: true
+  - name: "CA 65689 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a5cd0c83-f5c0-4268-a7a5-9411fe0858a4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ghahve.nikanix.lol"
+    ws-opts:
+      path: "/ray"
+      headers:
+        Host: "ghahve.nikanix.lol"
+    udp: true
+  - name: "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a9d3f779-43ae-ee7d-4dc3-fa073c1797d8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "crm.lotussec.com"
+    ws-opts:
+      path: "/@JavidnamanIran/Javid-SHAH-KingRezaPahlavi/"
+      headers:
+        Host: "crm.lotussec.com"
+    udp: true
+  - name: "12https t.me ConfigX2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "CA 65688 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f6430eac-b167-4f37-b73d-27e06465d1ee
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ghahve.nikanix.lol"
+    ws-opts:
+      path: "/ray"
+      headers:
+        Host: "ghahve.nikanix.lol"
+    udp: true
+  - name: "SC 66006 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss5.info"
+    ws-opts:
+      path: "/udfyfws"
+      headers:
+        Host: "octopusss5.info"
+    udp: true
+  - name: "CA 66031 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eba407c9-7c1f-477e-977c-ba5ed81a763a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t1.tzteam.online"
+    udp: true
+  - name: "XX XX TROJAN vmesskhodam 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "v2reya88 5734"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "A4u^p(_UR*F6"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "027.ELeCTroCelLco-CF-027.wORkERS.dEv"
+    ws-opts:
+      path: "/eyJqdW5rIjoidlhnMXN5OXFUSiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560"
+      headers:
+        Host: "027.electrocellco-cf-027.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 7751"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "oneclickvpnkeys NL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 2153"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "configshub2 PL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.creationlong.org"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.creationlong.org"
+    udp: true
+  - name: "meliproxyy 3543"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "2.1.mitivpn.dee.srfsl.gleobal.fastl3y.n3et.mitivpn.site"
+    ws-opts:
+      path: "/https://chatgpt.com"
+      headers:
+        Host: "mitivpn.de.ssl.global.fastly.net.mitivpn.site"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "v2reya88 5734"
+      - "12https t.me ConfigX2ray"
+      - "meliproxyy 3543"
+      - "oneclickvpnkeys NL"
+      - "oneclickvpnkeys FR"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "v2reya88 5734"
+      - "12https t.me ConfigX2ray"
+      - "meliproxyy 3543"
+      - "oneclickvpnkeys NL"
+      - "oneclickvpnkeys FR"
+      - "CA 65688 Telegram t.me SOSkeyNET"
+      - "SC 66006 Telegram t.me SOSkeyNET"
+      - "XX XX TROJAN vmesskhodam 1"
+      - "CA 66031 Telegram t.me SOSkeyNET"
+      - "oneclickvpnkeys US 9447"
+      - "oneclickvpnkeys US 8652"
+      - "v2reya88"
+      - "By EbraSha 2520"
+      - "oneclickvpnkeys US 7008"
+      - "CA 65690 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 5734"
+      - "12https t.me ConfigX2ray"
+      - "meliproxyy 3543"
+      - "oneclickvpnkeys FR"
+      - "oneclickvpnkeys NL"
+      - "CA 65688 Telegram t.me SOSkeyNET"
+      - "SC 66006 Telegram t.me SOSkeyNET"
+      - "CA 66031 Telegram t.me SOSkeyNET"
+      - "XX XX TROJAN vmesskhodam 1"
+      - "oneclickvpnkeys US 9447"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 5734"
+      - "12https t.me ConfigX2ray"
+      - "meliproxyy 3543"
+      - "oneclickvpnkeys NL"
+      - "oneclickvpnkeys FR"
+      - "CA 65688 Telegram t.me SOSkeyNET"
+      - "SC 66006 Telegram t.me SOSkeyNET"
+      - "XX XX TROJAN vmesskhodam 1"
+      - "CA 66031 Telegram t.me SOSkeyNET"
+      - "oneclickvpnkeys US 9447"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 5734"
+      - "12https t.me ConfigX2ray"
+      - "meliproxyy 3543"
+      - "oneclickvpnkeys FR"
+      - "oneclickvpnkeys NL"
+      - "CA 65688 Telegram t.me SOSkeyNET"
+      - "SC 66006 Telegram t.me SOSkeyNET"
+      - "CA 66031 Telegram t.me SOSkeyNET"
+      - "XX XX TROJAN vmesskhodam 1"
+      - "oneclickvpnkeys US 9447"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 5734"
+      - "12https t.me ConfigX2ray"
+      - "meliproxyy 3543"
+      - "oneclickvpnkeys FR"
+      - "oneclickvpnkeys NL"
+      - "CA 65688 Telegram t.me SOSkeyNET"
+      - "SC 66006 Telegram t.me SOSkeyNET"
+      - "CA 66031 Telegram t.me SOSkeyNET"
+      - "XX XX TROJAN vmesskhodam 1"
+      - "oneclickvpnkeys US 9447"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 5734"
+      - "12https t.me ConfigX2ray"
+      - "meliproxyy 3543"
+      - "oneclickvpnkeys NL"
+      - "oneclickvpnkeys FR"
+      - "CA 65688 Telegram t.me SOSkeyNET"
+      - "SC 66006 Telegram t.me SOSkeyNET"
+      - "XX XX TROJAN vmesskhodam 1"
+      - "CA 66031 Telegram t.me SOSkeyNET"
+      - "oneclickvpnkeys US 9447"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST VMESS"
+    type: url-test
+    proxies:
+      - "By EbraSha 2520"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST VLESS"
+    type: url-test
+    proxies:
+      - "v2reya88"
+      - "configV2rayNG DE"
+      - "configV2rayNG DE 1234"
+      - "oneclickvpnkeys IL"
+      - "configV2rayNG XX"
+      - "oneclickvpnkeys US 8652"
+      - "oneclickvpnkeys US 7008"
+      - "oneclickvpnkeys US 9447"
+      - "oneclickvpnkeys FI"
+      - "CA 65690 Telegram t.me SOSkeyNET"
+      - "CA 65687 Telegram t.me SOSkeyNET"
+      - "CA 65689 Telegram t.me SOSkeyNET"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "12https t.me ConfigX2ray"
+      - "CA 65688 Telegram t.me SOSkeyNET"
+      - "SC 66006 Telegram t.me SOSkeyNET"
+      - "CA 66031 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST TROJAN"
+    type: url-test
+    proxies:
+      - "XX XX TROJAN vmesskhodam 1"
+      - "v2reya88 5734"
+      - "oneclickvpnkeys FR"
+      - "oneclickvpnkeys FR 7751"
+      - "oneclickvpnkeys NL"
+      - "oneclickvpnkeys FR 2153"
+      - "configshub2 PL"
+      - "meliproxyy 3543"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "By EbraSha 2520"
+      - "v2reya88"
+      - "configV2rayNG DE"
+      - "configV2rayNG DE 1234"
+      - "oneclickvpnkeys IL"
+      - "configV2rayNG XX"
+      - "oneclickvpnkeys US 8652"
+      - "oneclickvpnkeys US 7008"
+      - "oneclickvpnkeys US 9447"
+      - "oneclickvpnkeys FI"
+      - "CA 65690 Telegram t.me SOSkeyNET"
+      - "CA 65687 Telegram t.me SOSkeyNET"
+      - "CA 65689 Telegram t.me SOSkeyNET"
+      - "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+      - "12https t.me ConfigX2ray"
+      - "CA 65688 Telegram t.me SOSkeyNET"
+      - "SC 66006 Telegram t.me SOSkeyNET"
+      - "CA 66031 Telegram t.me SOSkeyNET"
+      - "XX XX TROJAN vmesskhodam 1"
+      - "v2reya88 5734"
+      - "oneclickvpnkeys FR"
+      - "oneclickvpnkeys FR 7751"
+      - "oneclickvpnkeys NL"
+      - "oneclickvpnkeys FR 2153"
+      - "configshub2 PL"
+      - "meliproxyy 3543"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "v2reya88 5734"
+      - "12https t.me ConfigX2ray"
+      - "meliproxyy 3543"
+      - "oneclickvpnkeys NL"
+      - "oneclickvpnkeys FR"
+      - "CA 65688 Telegram t.me SOSkeyNET"
+      - "SC 66006 Telegram t.me SOSkeyNET"
+      - "XX XX TROJAN vmesskhodam 1"
+      - "CA 66031 Telegram t.me SOSkeyNET"
+      - "oneclickvpnkeys US 9447"
+      - "oneclickvpnkeys US 8652"
+      - "v2reya88"
+      - "By EbraSha 2520"
+      - "oneclickvpnkeys US 7008"
+      - "CA 65690 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "URL-TEST VMESS"
+      - "URL-TEST VLESS"
+      - "URL-TEST TROJAN"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

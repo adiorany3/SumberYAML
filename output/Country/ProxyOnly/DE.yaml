@@ -1,5 +1,35 @@
 proxies:
-  - name: "meliproxyy 1856"
+  - name: "configV2rayNG DE"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 30693e15-1014-443b-88dd-1232b55a06b6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sub.rfiksma.top"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "mos.rfiksma.top"
+    udp: true
+  - name: "configV2rayNG DE 1234"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 627c3a7a-29a7-41d1-9d9e-9f809b690988
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sub.rfiksma.top"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "mos.rfiksma.top"
+    udp: true
+  - name: "meliproxyy 3543"
     server: "104.17.3.81"
     port: 443
     type: trojan
