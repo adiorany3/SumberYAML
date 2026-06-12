@@ -1,0 +1,459 @@
+# Auto generated compact OpenClash config
+# Output: output/lite.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 04cb9c0f-363c-4bf8-a195-2cb8bd43b02a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "O.seRVer5peEKCOnFIG.WOrKers.dEV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiSU9LdXp3R1p6IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+      headers:
+        Host: "o.server5peekconfig.workers.dev"
+    udp: true
+  - name: "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7e346122-2ee0-406e-b964-a8ee665f1814
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV"
+    udp: true
+  - name: "https telegraph.rayan-config.workers.dev persian"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rAyAn-007.nAsTaRaN.DpDnS.OrG"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "rayan-007.nastaran.dpdns.org"
+    udp: true
+  - name: "Ap_Ir6 5449"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5a5fba4d-6ae8-4975-936d-bb643fb15957
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "bIyapain.bIYApaiNbAcHe.WoRkers.DeV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiV0lISkpXU0trWFI4OGdUIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMjYwMjpmYzU5OjExOjY0OjpdIl19?ed=2560"
+      headers:
+        Host: "biyapain.biyapainbache.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 2556"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7b110fd1-2c7f-4df3-8a2f-10085c500f4c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "orange-math-8a2e.parsa-esfandpoor89.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "orange-math-8a2e.parsa-esfandpoor89.workers.dev"
+    udp: true
+  - name: "meliproxyy 4621"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "2.1.mitivpn.dee.srfsl.gleobal.fastl3y.n3et.mitivpn.site"
+    ws-opts:
+      path: "/https://chatgpt.com"
+      headers:
+        Host: "mitivpn.de.ssl.global.fastly.net.mitivpn.site"
+    udp: true
+  - name: "FR - FR - FreeOnlineVPN"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "v2rayconfigamir 5587"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "V2rayNG3 NL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?L=tls"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "filembad 7669"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "qFgh3C8Ei8"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "dh.aananas.ir."
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "dh.aananas.ir."
+    udp: true
+  - name: "VPsave 4080"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "server-ir-3.ariyuz.org"
+    ws-opts:
+      path: "/page=2"
+      headers:
+        Host: "server-ir-3.ariyuz.org"
+    udp: true
+  - name: "armindone"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.creationlong.org"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.creationlong.org"
+    udp: true
+  - name: "FarazV2ray 9267"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "octopusss4.com"
+    ws-opts:
+      path: "/tsghdws"
+      headers:
+        Host: "octopusss4.com"
+    udp: true
+  - name: "appsooner"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4311bd3f-4f66-4538-a624-221b87690b2c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "mjtbknetmkhremge.ordak.qzz.io"
+    ws-opts:
+      path: "/fl?ed=2560"
+      headers:
+        Host: "mjtbknetmkhremge.ordak.qzz.io"
+    udp: true
+  - name: "NL ProxyVPN11"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "renderer-stream-1-411.mirra.now"
+    network: ws
+    ws-opts:
+      path: "/api/v1/gpu-stream/socket"
+      headers:
+        Host: "renderer-stream-1-411.mirra.now"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "VPNine1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "Ap_Ir6 5449"
+      - "oneclickvpnkeys US 2556"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "VPNine1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "Ap_Ir6 5449"
+      - "oneclickvpnkeys US 2556"
+      - "meliproxyy 4621"
+      - "FR - FR - FreeOnlineVPN"
+      - "v2rayconfigamir 5587"
+      - "V2rayNG3 NL"
+      - "filembad 7669"
+      - "VPsave 4080"
+      - "armindone"
+      - "FarazV2ray 9267"
+      - "appsooner"
+      - "NL ProxyVPN11"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "Ap_Ir6 5449"
+      - "oneclickvpnkeys US 2556"
+      - "meliproxyy 4621"
+      - "FR - FR - FreeOnlineVPN"
+      - "v2rayconfigamir 5587"
+      - "filembad 7669"
+      - "V2rayNG3 NL"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "Ap_Ir6 5449"
+      - "oneclickvpnkeys US 2556"
+      - "meliproxyy 4621"
+      - "FR - FR - FreeOnlineVPN"
+      - "v2rayconfigamir 5587"
+      - "V2rayNG3 NL"
+      - "filembad 7669"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "Ap_Ir6 5449"
+      - "oneclickvpnkeys US 2556"
+      - "meliproxyy 4621"
+      - "FR - FR - FreeOnlineVPN"
+      - "v2rayconfigamir 5587"
+      - "V2rayNG3 NL"
+      - "filembad 7669"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "Ap_Ir6 5449"
+      - "oneclickvpnkeys US 2556"
+      - "meliproxyy 4621"
+      - "FR - FR - FreeOnlineVPN"
+      - "v2rayconfigamir 5587"
+      - "filembad 7669"
+      - "V2rayNG3 NL"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "Ap_Ir6 5449"
+      - "oneclickvpnkeys US 2556"
+      - "meliproxyy 4621"
+      - "FR - FR - FreeOnlineVPN"
+      - "v2rayconfigamir 5587"
+      - "V2rayNG3 NL"
+      - "filembad 7669"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST TOP GLOBAL"
+    type: url-test
+    proxies:
+      - "VPNine1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "Ap_Ir6 5449"
+      - "oneclickvpnkeys US 2556"
+      - "meliproxyy 4621"
+      - "FR - FR - FreeOnlineVPN"
+      - "v2rayconfigamir 5587"
+      - "V2rayNG3 NL"
+      - "filembad 7669"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "VPNine1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "Ap_Ir6 5449"
+      - "oneclickvpnkeys US 2556"
+      - "meliproxyy 4621"
+      - "FR - FR - FreeOnlineVPN"
+      - "v2rayconfigamir 5587"
+      - "V2rayNG3 NL"
+      - "filembad 7669"
+      - "VPsave 4080"
+      - "armindone"
+      - "FarazV2ray 9267"
+      - "appsooner"
+      - "NL ProxyVPN11"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "VPNine1"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "Ap_Ir6 5449"
+      - "oneclickvpnkeys US 2556"
+      - "meliproxyy 4621"
+      - "FR - FR - FreeOnlineVPN"
+      - "v2rayconfigamir 5587"
+      - "V2rayNG3 NL"
+      - "filembad 7669"
+      - "VPsave 4080"
+      - "armindone"
+      - "FarazV2ray 9267"
+      - "appsooner"
+      - "NL ProxyVPN11"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST TOP GLOBAL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

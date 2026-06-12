@@ -34,20 +34,49 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA Join Telegram Farah_VPN CA 6249"
+  - name: "CA internet_azad_2026"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    uuid: 7752f6f7-7052-42bf-b571-34a02658cc71
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    servername: "Cdn8-pro.postshup.ir."
     ws-opts:
-      path: "/"
+      path: "/news"
       headers:
-        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+        Host: "Cdn8-pro.postshup.ir."
+    udp: true
+  - name: "CA 65605 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d195909a-eff4-489d-a261-955b904894cb
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fREE.sERVer6PeeKCOnFIG.wOrkErs.dEv"
+    ws-opts:
+      path: "/eyJqdW5rIjoieUhYMWhoZEVEIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19?ed=2560"
+      headers:
+        Host: "free.server6peekconfig.workers.dev"
+    udp: true
+  - name: "CA 65576 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
     udp: true
 
 proxy-groups:

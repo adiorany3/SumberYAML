@@ -1,31 +1,29 @@
 proxies:
-  - name: "configV2rayNG XX 3751"
+  - name: "filembad 1483"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
-    cipher: none
+    type: trojan
+    password: "mitivpn"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "server-ir-3.ariyuz.org"
+    sni: "95r.ir"
     ws-opts:
-      path: "/page=2"
+      path: "/?mitivpn"
       headers:
-        Host: "server-ir-3.ariyuz.org"
+        Host: "dash.cloudflare.com.www.95r.ir"
     udp: true
-  - name: "filembad"
+  - name: "filembad 7669"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 1435f6f7-f53c-422e-b9ba-4eef2fa8d5f9
-    cipher: none
+    type: trojan
+    password: "qFgh3C8Ei8"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "ssd.mojaz-persian-music.ir"
+    sni: "dh.aananas.ir."
     ws-opts:
-      path: "/?ed=80"
+      path: "/?ed=2048"
       headers:
-        Host: "ssd.mojaz-persian-music.ir"
+        Host: "dh.aananas.ir."
     udp: true
