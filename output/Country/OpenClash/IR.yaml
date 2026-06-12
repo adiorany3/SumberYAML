@@ -34,7 +34,37 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "filembad 1483"
+  - name: "Ap_Ir6"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0bbcbcbf-a964-4e47-b8c5-c4917708ef93
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ssd.mojaz-persian-music.ir"
+    ws-opts:
+      path: "/?ed=80"
+      headers:
+        Host: "ssd.mojaz-persian-music.ir"
+    udp: true
+  - name: "kurdconfig"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1435f6f7-f53c-422e-b9ba-4eef2fa8d5f9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ssd.mojaz-persian-music.ir"
+    ws-opts:
+      path: "/?ed=80"
+      headers:
+        Host: "ssd.mojaz-persian-music.ir"
+    udp: true
+  - name: "filembad-34"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -47,20 +77,6 @@ proxies:
       path: "/?mitivpn"
       headers:
         Host: "dash.cloudflare.com.www.95r.ir"
-    udp: true
-  - name: "filembad 7669"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "qFgh3C8Ei8"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "dh.aananas.ir."
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "dh.aananas.ir."
     udp: true
 
 proxy-groups:

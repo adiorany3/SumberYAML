@@ -1,0 +1,441 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "US 65789 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2bb88788-1554-0608-0c71-d6c193575dd6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pmoiran.qzz.io"
+    ws-opts:
+      path: "/sync"
+      headers:
+        Host: "pmoiran.qzz.io"
+    udp: true
+  - name: "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7e346122-2ee0-406e-b964-a8ee665f1814
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "paRMis-1Tk63J.PArMiS.WoRkeRs.DeV"
+    udp: true
+  - name: "Kia_Net -_- 129"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nuclear.us.kg"
+    ws-opts:
+      path: "/free/1.226.227.169:50001"
+      headers:
+        Host: "nuclear.us.kg"
+    udp: true
+  - name: "chillguy_vpn"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "https telegraph.rayan-config.workers.dev persian 3053"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d2d0f796-edb0-427a-af32-ae360679f9e7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rAyAn-007.fOtOn.dPdNs.oRg"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "rayan-007.foton.dpdns.org"
+    udp: true
+  - name: "oneclickvpnkeys US 3462"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d555dac9-27cb-4ddb-89f5-6a1d8d1e4798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "momi.timoreyhaneh.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "momi.timoreyhaneh.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6bc1bd81-b763-4213-80ad-4586224e3079
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tohidza.et6m22266a.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tohidza.et6m22266a.workers.dev"
+    udp: true
+  - name: "https telegraph.rayan-config.workers.dev persian"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rAyAn-007.nAsTaRaN.DpDnS.OrG"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "rayan-007.nastaran.dpdns.org"
+    udp: true
+  - name: "meliproxyy 1856"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "2.1.mitivpn.dee.srfsl.gleobal.fastl3y.n3et.mitivpn.site"
+    ws-opts:
+      path: "/https://chatgpt.com"
+      headers:
+        Host: "mitivpn.de.ssl.global.fastly.net.mitivpn.site"
+    udp: true
+  - name: "53 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "filter.elitesilver002.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "filter.elitesilver002.workers.dev"
+    udp: true
+  - name: "V2rayNG3 NL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?L=tls"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "v2rayconfigamir 5587"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "95 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "CA 65687 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7d67ebcd-9b3a-4c9c-9fe0-77de26e2ffda
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ghahve.nikanix.lol"
+    ws-opts:
+      path: "/ray"
+      headers:
+        Host: "ghahve.nikanix.lol"
+    udp: true
+  - name: "CA 65689 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a5cd0c83-f5c0-4268-a7a5-9411fe0858a4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ghahve.nikanix.lol"
+    ws-opts:
+      path: "/ray"
+      headers:
+        Host: "ghahve.nikanix.lol"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "US 65789 Telegram t.me SOSkeyNET"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "Kia_Net -_- 129"
+      - "chillguy_vpn"
+      - "https telegraph.rayan-config.workers.dev persian 3053"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "US 65789 Telegram t.me SOSkeyNET"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "Kia_Net -_- 129"
+      - "chillguy_vpn"
+      - "https telegraph.rayan-config.workers.dev persian 3053"
+      - "oneclickvpnkeys US 3462"
+      - "oneclickvpnkeys US"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "meliproxyy 1856"
+      - "53 oneclickvpnkeys"
+      - "V2rayNG3 NL"
+      - "v2rayconfigamir 5587"
+      - "95 oneclickvpnkeys"
+      - "CA 65687 Telegram t.me SOSkeyNET"
+      - "CA 65689 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "US 65789 Telegram t.me SOSkeyNET"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "oneclickvpnkeys US 3462"
+      - "Kia_Net -_- 129"
+      - "chillguy_vpn"
+      - "https telegraph.rayan-config.workers.dev persian 3053"
+      - "oneclickvpnkeys US"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "meliproxyy 1856"
+      - "53 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "US 65789 Telegram t.me SOSkeyNET"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "Kia_Net -_- 129"
+      - "chillguy_vpn"
+      - "https telegraph.rayan-config.workers.dev persian 3053"
+      - "oneclickvpnkeys US 3462"
+      - "oneclickvpnkeys US"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "meliproxyy 1856"
+      - "53 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "US 65789 Telegram t.me SOSkeyNET"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "Kia_Net -_- 129"
+      - "chillguy_vpn"
+      - "https telegraph.rayan-config.workers.dev persian 3053"
+      - "oneclickvpnkeys US 3462"
+      - "oneclickvpnkeys US"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "meliproxyy 1856"
+      - "53 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "US 65789 Telegram t.me SOSkeyNET"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "Kia_Net -_- 129"
+      - "chillguy_vpn"
+      - "https telegraph.rayan-config.workers.dev persian 3053"
+      - "oneclickvpnkeys US 3462"
+      - "oneclickvpnkeys US"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "meliproxyy 1856"
+      - "53 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "US 65789 Telegram t.me SOSkeyNET"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "Kia_Net -_- 129"
+      - "chillguy_vpn"
+      - "https telegraph.rayan-config.workers.dev persian 3053"
+      - "oneclickvpnkeys US 3462"
+      - "oneclickvpnkeys US"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "meliproxyy 1856"
+      - "53 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "US 65789 Telegram t.me SOSkeyNET"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "Kia_Net -_- 129"
+      - "chillguy_vpn"
+      - "https telegraph.rayan-config.workers.dev persian 3053"
+      - "oneclickvpnkeys US 3462"
+      - "oneclickvpnkeys US"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "meliproxyy 1856"
+      - "53 oneclickvpnkeys"
+      - "V2rayNG3 NL"
+      - "v2rayconfigamir 5587"
+      - "95 oneclickvpnkeys"
+      - "CA 65687 Telegram t.me SOSkeyNET"
+      - "CA 65689 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "US 65789 Telegram t.me SOSkeyNET"
+      - "Fast Deploy Your Own Worker For Creation Of Configs https telegraph.rayan.dpdns"
+      - "Kia_Net -_- 129"
+      - "chillguy_vpn"
+      - "https telegraph.rayan-config.workers.dev persian 3053"
+      - "oneclickvpnkeys US 3462"
+      - "oneclickvpnkeys US"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "meliproxyy 1856"
+      - "53 oneclickvpnkeys"
+      - "V2rayNG3 NL"
+      - "v2rayconfigamir 5587"
+      - "95 oneclickvpnkeys"
+      - "CA 65687 Telegram t.me SOSkeyNET"
+      - "CA 65689 Telegram t.me SOSkeyNET"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
