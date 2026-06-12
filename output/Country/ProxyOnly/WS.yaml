@@ -1,15 +1,30 @@
 proxies:
-  - name: "XX XX TROJAN vmesskhodam 1"
+  - name: "telegram mtmvpn 3336"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "humanity"
+    type: vless
+    uuid: eba407c9-7c1f-477e-977c-ba5ed81a763a
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.calmlunch.com"
+    servername: "t1.tzteam.online"
     ws-opts:
-      path: "/assignment"
+      path: "/?ed=2048"
       headers:
-        Host: "www.calmlunch.com"
+        Host: "t1.tzteam.online"
+    udp: true
+  - name: "KAFING_2 8094"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
     udp: true

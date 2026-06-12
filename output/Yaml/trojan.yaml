@@ -13,6 +13,20 @@ proxies:
       headers:
         Host: "www.ignitelimit.com"
     udp: true
+  - name: "oneclickvpnkeys FR 4297"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
   - name: "v2ray1_ng FR"
     server: "104.17.3.81"
     port: 443
@@ -41,20 +55,6 @@ proxies:
       headers:
         Host: "www.multiplydose.com"
     udp: true
-  - name: "V2rayNG3 FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment?L=tls"
-      headers:
-        Host: "www.gossipglove.com"
-    udp: true
   - name: "configshub2 PL"
     server: "104.17.3.81"
     port: 443
@@ -69,7 +69,35 @@ proxies:
       headers:
         Host: "www.creationlong.org"
     udp: true
-  - name: "meliproxyy 5172"
+  - name: "KAFING_2 8094"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "20ba0c60-0133-11f1-95ef-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "internet_azad_2026 DE"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "global.fastly.com.mitivpn-a.site"
+    ws-opts:
+      path: "/ed=mitivpn"
+      headers:
+        Host: "sdasdfgv.global.ssl.fastly.top.mitivpn-a.site"
+    udp: true
+  - name: "DE internet_azad_2026"
     server: "104.17.3.81"
     port: 443
     type: trojan

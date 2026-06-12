@@ -1,5 +1,34 @@
 proxies:
-  - name: "meliproxyy 5172"
+  - name: "oneclickvpnkeys DE"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cabbfe13-038b-4dbb-9c45-5079c829abfa
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tr-cd.sublink-vip2.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tr-cd.sublink-vip2.com"
+    udp: true
+  - name: "internet_azad_2026 DE"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "global.fastly.com.mitivpn-a.site"
+    ws-opts:
+      path: "/ed=mitivpn"
+      headers:
+        Host: "sdasdfgv.global.ssl.fastly.top.mitivpn-a.site"
+    udp: true
+  - name: "DE internet_azad_2026"
     server: "104.17.3.81"
     port: 443
     type: trojan
