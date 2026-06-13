@@ -14,22 +14,7 @@ proxies:
       headers:
         Host: "ws23.iranservicepro.com"
     udp: true
-  - name: "FarazV2ray 5087"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "hhlfy.twiladaphne.ndjp.net"
-    ws-opts:
-      path: "/fp"
-      headers:
-        Host: "hhlfy.twiladaphne.ndjp.net"
-    udp: true
-  - name: "KAFING_2 5889"
+  - name: "KAFING_2 4361"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -42,4 +27,18 @@ proxies:
       path: "/howdy"
       headers:
         Host: "uk1.test3.net"
+    udp: true
+  - name: "Maznet -SOS466"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?TELEGRAM--KANAL--JKVPN--JKVPN--JKVPN--JKVPN--JKVPN--JKVPN"
+      headers:
+        Host: "www.gossipglove.com"
     udp: true
