@@ -34,33 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "GB GB- VPNine1"
+  - name: "mehrosaboran GB"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "N33CBbQDyAjLmcAT7rVaZMeqHcDXLfSTWcxUcebU9ipfoHTP"
+    type: vless
+    uuid: eba407c9-7c1f-477e-977c-ba5ed81a763a
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "uk2.bw8848.org"
+    servername: "t1.tzteam.online"
     ws-opts:
-      path: "/uk2-uk2-csrde2"
+      path: "/?ed=2048"
       headers:
-        Host: "uk2.bw8848.org"
-    udp: true
-  - name: "GB GB- VPNine1 5589"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "hF7uSJfeBPtSNXKtuYvTRNaBdGkkXHpKJfLRfbpaDWovomSL"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "uk1.bw8848.org"
-    ws-opts:
-      path: "/uk1-uk1-gcjtze"
-      headers:
-        Host: "uk1.bw8848.org"
+        Host: "t1.tzteam.online"
     udp: true
 
 proxy-groups:
