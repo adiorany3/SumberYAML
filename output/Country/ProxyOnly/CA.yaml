@@ -1,18 +1,32 @@
 proxies:
-  - name: "CA 67690 Telegram t.me SOSkeyNET"
+  - name: "CA 67997 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 30693e15-1014-443b-88dd-1232b55a06b6
+    uuid: 33b83411-cf14-48af-8105-ff8370f7a3d5
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "sub.rfiksma.top"
+    servername: "us1-us1.aiopen.sbs"
     ws-opts:
-      path: "/"
+      path: "/kbjc/us1"
       headers:
-        Host: "mos.rfiksma.top"
+        Host: "us1-us1.aiopen.sbs"
+    udp: true
+  - name: "CA 67832 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "e9c95d49-2e1e-4895-a164-69e2ec2830cb"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "floral-violet-e5c7.asdasfgg233424.workers.dev"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "floral-violet-e5c7.asdasfgg233424.workers.dev"
     udp: true
   - name: "Channel id internet_azad_2026 CA"
     server: "104.17.3.81"
