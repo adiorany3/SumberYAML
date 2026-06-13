@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-06-12T20:11:50Z",
+  "generated_at_utc": "2026-06-13T03:43:03Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
@@ -22,8 +22,20 @@
       "sample": [
         {
           "scheme": "vless",
-          "name": "@V2ray_official",
-          "server": "46.175.150.23",
+          "name": "@FarazV2ray",
+          "server": "138.124.52.85",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🇳🇱67212",
+          "server": "138.124.52.85",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🇳🇱NL-🚀@VPNine1",
+          "server": "138.124.52.85",
           "port": 443
         },
         {
@@ -40,20 +52,26 @@
         },
         {
           "scheme": "vless",
+          "name": "🚀@VPNine1",
+          "server": "104.21.11.130",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
           "name": "🔥",
           "server": "38.107.233.130",
           "port": 443
         },
         {
           "scheme": "vless",
-          "name": "@V2ray_official",
+          "name": "@appsooner",
           "server": "de.pink-perfect.ru",
           "port": 443
         },
         {
           "scheme": "vless",
           "name": "@appsooner",
-          "server": "de.pink-perfect.ru",
+          "server": "fin.pink-perfect.ru",
           "port": 443
         },
         {
@@ -61,48 +79,23 @@
           "name": "@v2rayNplus",
           "server": "fr.pink-perfect.ru",
           "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🔥",
-          "server": "fr.pink-perfect.ru",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@appsooner",
-          "server": "nid.pink-perfect.ru",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@HajmVPN_Config",
-          "server": "144.31.217.99",
-          "port": 443
         }
       ]
     },
     "oracle": {
       "file": "input/oracle.txt",
-      "count": 1,
+      "count": 0,
       "keywords": [
         "oracle",
         "oci",
         "oraclecloud",
         "oracle-cloud"
       ],
-      "sample": [
-        {
-          "scheme": "vless",
-          "name": "🚀@VPNine1",
-          "server": "www.speedtest.net",
-          "port": 443
-        }
-      ]
+      "sample": []
     },
     "microsoft": {
       "file": "input/microsoft.txt",
-      "count": 13,
+      "count": 11,
       "keywords": [
         "microsoft",
         "azure",
@@ -113,8 +106,8 @@
       "sample": [
         {
           "scheme": "vless",
-          "name": "@v2rayconfigamir",
-          "server": "45.89.106.4",
+          "name": "⚕️70@oneclickvpnkeys",
+          "server": "138.68.150.88",
           "port": 443
         },
         {
@@ -125,20 +118,14 @@
         },
         {
           "scheme": "vless",
-          "name": "🇺🇸US-🚀@VPNine1",
-          "server": "43.159.171.163",
+          "name": "@v2rayconfigamir",
+          "server": "45.89.106.4",
           "port": 443
         },
         {
           "scheme": "vless",
-          "name": "🪬82@oneclickvpnkeys",
-          "server": "103.119.18.158",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🪬82@v2ray_configs_pools",
-          "server": "103.119.18.158",
+          "name": "⚕️85@oneclickvpnkeys",
+          "server": "103.119.18.159",
           "port": 443
         },
         {
@@ -170,12 +157,18 @@
           "name": "⚡@V2ray_official",
           "server": "195.184.247.138",
           "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🇬🇧",
+          "server": "195.184.247.138",
+          "port": 443
         }
       ]
     },
     "amazon": {
       "file": "input/amazon.txt",
-      "count": 4,
+      "count": 1,
       "keywords": [
         "amazon",
         "aws",
@@ -188,24 +181,6 @@
           "scheme": "vless",
           "name": "TEL;Father_vpn",
           "server": "188.114.97.6",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "⚕️28@oneclickvpnkeys",
-          "server": "64.188.77.219",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "⚕️28@v2ray_configs_pools",
-          "server": "64.188.77.219",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "⚕️14@oneclickvpnkeys",
-          "server": "95.85.228.80",
           "port": 443
         }
       ]
@@ -225,12 +200,19 @@
     },
     "melbikom": {
       "file": "input/melbikom.txt",
-      "count": 0,
+      "count": 1,
       "keywords": [
         "melbikom",
         "melbi"
       ],
-      "sample": []
+      "sample": [
+        {
+          "scheme": "vless",
+          "name": "🇸🇨SC-🚀@VPNine1",
+          "server": "45.130.125.0",
+          "port": 443
+        }
+      ]
     },
     "vultr": {
       "file": "input/vultr.txt",

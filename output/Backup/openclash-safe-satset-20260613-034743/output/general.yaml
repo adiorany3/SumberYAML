@@ -1,0 +1,214 @@
+# Auto generated usage profile OpenClash config
+# Output: output/general.yaml
+# Profile group: GENERAL STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "1 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "VPNine1 1475"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f3273de3-abfe-4a7c-a747-56def262f381
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "SeRVER1.pEekconfIGGG.wORkERS.dEv"
+    ws-opts:
+      path: "/eyJqdW5rIjoiQ1BnWDdUN21oOUpRc1hPdyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSIsIlsyNjAyOmZjNTk6MTE6NjQ6Ol0iLCJbMjYwMjpmYzU5OmIwOjY0OjpdIl19?ed=2560"
+      headers:
+        Host: "server1.peekconfiggg.workers.dev"
+    udp: true
+  - name: "76190 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b991b390-dd0f-4061-9150-bee0cb467bce
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "opu-ao6.pages.dev"
+    ws-opts:
+      path: "/1wgvlggw75ayt15e/ns4yntuumtizljiz?ed=2560"
+      headers:
+        Host: "opu-ao6.pages.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 4382"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7506fe3e-7e78-497c-bd01-db9d0be4d7e3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "filter.elitesilver002.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "filter.elitesilver002.workers.dev"
+    udp: true
+  - name: "68 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "CA Join Telegram Farah_VPN CA"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 8995"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d555dac9-27cb-4ddb-89f5-6a1d8d1e4798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "momi.timoreyhaneh.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "momi.timoreyhaneh.workers.dev"
+    udp: true
+  - name: "internet_azad_2026 DE"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "global.fastly.com.mitivpn-a.site"
+    ws-opts:
+      path: "/ed=mitivpn"
+      headers:
+        Host: "sdasdfgv.global.ssl.fastly.top.mitivpn-a.site"
+    udp: true
+  - name: "oneclickvpnkeys US 7034"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "US Join Telegram Farah_VPN US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+
+proxy-groups:
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "1 oneclickvpnkeys"
+      - "VPNine1 1475"
+      - "76190 - Telegram V2All"
+      - "oneclickvpnkeys US 4382"
+      - "68 oneclickvpnkeys"
+      - "CA Join Telegram Farah_VPN CA"
+      - "oneclickvpnkeys US 8995"
+      - "internet_azad_2026 DE"
+      - "oneclickvpnkeys US 7034"
+      - "US Join Telegram Farah_VPN US"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GENERAL STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

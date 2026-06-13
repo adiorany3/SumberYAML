@@ -34,50 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "meliproxyy"
+  - name: "76192 - Telegram V2All"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 0057983b-1342-40ce-a570-ad08046977e5
-    cipher: none
+    type: trojan
+    password: "trojan"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "sni.mmadcoffee.info"
+    sni: "store.timimi.dpdns.org"
     ws-opts:
-      path: "/15284/coffee"
+      path: "/?ed=2560"
       headers:
-        Host: "xh.mmadcoffee.info"
-    udp: true
-  - name: "SheriffNet"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.111000.v6.navy"
-    ws-opts:
-      path: "/?Telegram🇨🇳 @WangCai2="
-      headers:
-        Host: "sni.111000.v6.navy"
-    udp: true
-  - name: "CA 53173 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.latonyamadeline.ndjp.net"
-    ws-opts:
-      path: "/?https://t.me/wangcai2🇨🇳="
-      headers:
-        Host: "sni.latonyamadeline.ndjp.net"
+        Host: "store.timimi.dpdns.org"
     udp: true
 
 proxy-groups:
