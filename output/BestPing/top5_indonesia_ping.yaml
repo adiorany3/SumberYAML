@@ -1,18 +1,4 @@
 proxies:
-  - name: "NL NL(mibei77.com"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "tjsp.hhxaf.cc.cd"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "tjsp.hhxaf.cc.cd"
-    udp: true
   - name: "internet_azad_2026"
     server: "104.17.3.81"
     port: 443
@@ -25,6 +11,21 @@ proxies:
     servername: "hhlfy.twiladaphne.ndjp.net"
     ws-opts:
       path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 9645"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
@@ -43,31 +44,32 @@ proxies:
       headers:
         Host: "t1s1.rittbo.kdns.fr"
     udp: true
-  - name: "tootffarangi"
+  - name: "v2ray1_ng FR"
     server: "104.17.3.81"
     port: 443
     type: trojan
-    password: "mitivpn"
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "2ee.we.wwww.swsl.glowbal.diwgi.mwy.mitivpn.xyz"
+    sni: "www.calmlunch.com"
     ws-opts:
-      path: "/ed=mitivpn"
+      path: "/assignment"
       headers:
-        Host: "2ee.we.wwww.swsl.glowbal.diwgi.mwy.mitivpn.xyz"
+        Host: "www.calmlunch.com"
     udp: true
-  - name: "Ap_Ir6 5512"
+  - name: "chillguy_vpn 6574"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "mitivpn"
+    type: vless
+    uuid: 0791d656-5507-494e-933e-b4bcf589fa6f
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "gamingdll.ir"
+    servername: "semimag.ir"
     ws-opts:
-      path: "/ed=mitivpn"
+      path: "/"
       headers:
-        Host: "cdn.gamingdll.ir"
+        Host: "semimag.ir"
     udp: true

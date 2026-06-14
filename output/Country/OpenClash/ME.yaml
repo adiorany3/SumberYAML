@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "Ap_Ir6"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9ec16323-954c-4b09-aec9-367e18844fa8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cHAnnel.T-mE-sH4DOW-Vpn.WOrkerS.dEv"
+    ws-opts:
+      path: "/eyJqdW5rIjoiWlNHcnk5RHUiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyNjAyOmZjNTk6MTE6NjQ6Ol0iXX0=?ed=2560"
+      headers:
+        Host: "channel.t-me-sh4dow-vpn.workers.dev"
+    udp: true
   - name: "5 https t.me fastkanfig"
     server: "104.17.3.81"
     port: 443

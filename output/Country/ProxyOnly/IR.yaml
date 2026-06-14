@@ -1,16 +1,30 @@
 proxies:
-  - name: "hex_proxy 8"
+  - name: "chillguy_vpn 6574"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
+    uuid: 0791d656-5507-494e-933e-b4bcf589fa6f
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "server-ir-3.ariyuz.org"
+    servername: "semimag.ir"
     ws-opts:
-      path: "/page=2"
+      path: "/"
       headers:
-        Host: "server-ir-3.ariyuz.org"
+        Host: "semimag.ir"
+    udp: true
+  - name: "Best_internet_iran"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "96088230-67bd-11f1-a421-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
     udp: true
