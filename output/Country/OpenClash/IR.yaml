@@ -34,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "filembad 5961"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: a2ad7375-5610-411e-a7d0-e13d505c2ebc
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "watson.ferrarikingfr.ir"
-    ws-opts:
-      path: "/watson"
-      headers:
-        Host: "watson.ferrarikingfr.ir"
-    udp: true
   - name: "Best_internet_iran"
     server: "104.17.3.81"
     port: 443

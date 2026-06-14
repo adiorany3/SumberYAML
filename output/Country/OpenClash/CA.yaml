@@ -34,35 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA 69610 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 6f840c92-69f2-cbff-91e7-504f75008262
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "amirnovas.dpdns.org"
-    ws-opts:
-      path: "/ws/6f840c92-69f2-cbff-91e7-504f75008262"
-      headers:
-        Host: "amirnovas.dpdns.org"
-    udp: true
-  - name: "CA 69355 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "A4u^p(_UR*F6"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "027.ELeCTroCelLco-CF-027.wORkERS.dEv"
-    ws-opts:
-      path: "/eyJqdW5rIjoidlhnMXN5OXFUSiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560"
-      headers:
-        Host: "027.electrocellco-cf-027.workers.dev"
-    udp: true
   - name: "Channel id internet_azad_2026 CA"
     server: "104.17.3.81"
     port: 443
