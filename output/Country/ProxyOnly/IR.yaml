@@ -1,15 +1,16 @@
 proxies:
-  - name: "Best_internet_iran"
+  - name: "hex_proxy 8"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "96088230-67bd-11f1-a421-1239d0255272"
+    type: vless
+    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "uk1.test3.net"
+    servername: "server-ir-3.ariyuz.org"
     ws-opts:
-      path: "/howdy"
+      path: "/page=2"
       headers:
-        Host: "uk1.test3.net"
+        Host: "server-ir-3.ariyuz.org"
     udp: true

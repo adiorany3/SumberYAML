@@ -1,4 +1,19 @@
 proxies:
+  - name: "CA 70156 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 388db1a8-ea90-4ad0-94a8-2ebdae903acd
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ez-a5d2b7.ezaccess11666b5.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ez-a5d2b7.ezaccess11666b5.workers.dev"
+    udp: true
   - name: "Channel id internet_azad_2026 CA"
     server: "104.17.3.81"
     port: 443
