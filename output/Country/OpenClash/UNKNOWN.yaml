@@ -34,7 +34,71 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "RELAY-104.16.0.0-0809"
+  - name: "XX XX VMESS hope_net 1"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: b3a21def-5fcc-47a8-a6a0-a34e29d5288a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "188.114.99.29"
+    network: ws
+    ws-opts:
+      path: "/wss51068"
+      headers:
+        Host: "188.114.99.29"
+    udp: true
+  - name: "XX XX VMESS iranvpnet 1"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "mute-math-d64e.0e503992ad7026.woRKERS.DeV"
+    network: ws
+    ws-opts:
+      path: "/aveiror.com:443/linkvws"
+      headers:
+        Host: "mute-math-d64e.0e503992ad7026.woRKERS.DeV"
+    udp: true
+  - name: "XX XX VMESS manstervpn 2"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 05641cf5-58d2-4ba4-a9f1-b3cda0b1fb1d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "obdii.cfd"
+    network: ws
+    ws-opts:
+      path: "/linkws"
+      headers:
+        Host: "obdii.cfd"
+    udp: true
+  - name: "RELAY-190.93.244.195-7762"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: b3a21def-5fcc-47a8-a6a0-a34e29d5288a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "190.93.244.195"
+    network: ws
+    ws-opts:
+      path: "/wss51068"
+      headers:
+        Host: "190.93.244.195"
+    udp: true
+  - name: "RELAY-104.16.0.0-0094"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -46,9 +110,458 @@ proxies:
     servername: "gongyilm.dpdns.org"
     network: ws
     ws-opts:
-      path: "/ws-gongyi"
+      path: "/"
       headers:
         Host: "gongyilm.dpdns.org"
+    udp: true
+  - name: "RELAY-104.19.3.16-0055"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 9e6ceeff-2546-3690-ac00-6fcdf31dec94
+    alterId: 1
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "v2fly.samrt.website"
+    network: ws
+    ws-opts:
+      path: "/chcar"
+      headers:
+        Host: "v2fly.samrt.website"
+    udp: true
+  - name: "RELAY-188.114.97.110-0201"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 9e6ceeff-2546-3690-ac00-6fcdf31dec94
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "v2fly.samrt.website"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "v2fly.samrt.website"
+    udp: true
+  - name: "meliproxyy"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: b3a21def-5fcc-47a8-a6a0-a34e29d5288a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "104.31.16.196"
+    network: ws
+    ws-opts:
+      path: "/wss51068"
+      headers:
+        Host: "104.31.16.196"
+    udp: true
+  - name: "chillguy_vpn"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: e7d72a8d-26f2-4b54-b366-0c43e0bcba7d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "165.140.216.141"
+    network: tcp
+    udp: true
+  - name: "v2rayngzendegimamad"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "serkat.org"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "Join---v2rayngzendegimamad"
+    udp: true
+  - name: "SONIC_2524"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: b4a65611-4969-42b2-bc74-5768b940bd9e
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "vyvzyhgz.com"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vyvzyhgz.com"
+    udp: true
+  - name: "v2rayconfigamir 9144"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "159.69.4.119"
+    network: tcp
+    udp: true
+  - name: "v2rayconfigamir 1360"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "167.235.28.242"
+    network: tcp
+    udp: true
+  - name: "prrofile_purple"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 185a3bb6-a1a7-4a43-da37-659026c79aea
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "31.56.178.107"
+    network: tcp
+    udp: true
+  - name: "v2rayconfigamir 6413"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: ba11eb49-0dec-49b6-959c-7235fab71eb8
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "lille.kotick.site"
+    network: ws
+    ws-opts:
+      path: "/speedtest"
+      headers:
+        Host: "lille.kotick.site"
+    udp: true
+  - name: "Random Location"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "yichueng.org"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "yichueng.org"
+    udp: true
+  - name: "v2rayfree.eu.org"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "inna.cfd"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "inna.cfd"
+    udp: true
+  - name: "XX XX VMESS hope_net 1 4640"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 927094d3-d678-4763-8591-e240d0bcae87
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "104.25.227.40"
+    network: ws
+    ws-opts:
+      path: "/vus3.0bad.com/chat"
+      headers:
+        Host: "104.25.227.40"
+    udp: true
+  - name: "soscw"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 7bfccd9e-d799-481e-8806-d91ee446b7cc
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "v2ray.v2rayngorg.live"
+    network: tcp
+    udp: true
+  - name: "soscw 4510"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 9800f5c5-f77f-4b2c-bc90-d91e19dde022
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "bmw.arvandserver.fun"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "bmw.arvandserver.fun"
+    udp: true
+  - name: "telegram shadowlinkserverr"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 3df270df-3e80-5315-8f4c-bcefc86de371
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "f0c6d354-b9e0-11ed-b125-5e12220ac52a.sobhsepid.com"
+    network: ws
+    ws-opts:
+      path: "/api01"
+      headers:
+        Host: "scheretest01.sobhsepid.com"
+    udp: true
+  - name: "ho3ino00"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6f514878-9513-4393-a68f-1225de4960a7
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "78.47.131.39"
+    network: tcp
+    udp: true
+  - name: "ho3ino00 3220"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6f514878-9513-4393-a68f-1225de4960a7
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "91.107.171.113"
+    network: tcp
+    udp: true
+  - name: "VPNAzadiOfficiali"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "167.235.76.4"
+    network: tcp
+    udp: true
+  - name: "VPNAzadiOfficiali 3904"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: f0c3a14e-1f54-4064-a42b-042a803fb268
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "v2rayng14.govermentco.space"
+    network: ws
+    ws-opts:
+      path: "/@v2rayng14"
+      headers:
+        Host: "v2rayng14.govermentco.space"
+    udp: true
+  - name: "VPNAzadiOfficiali 3299"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "168.119.226.180"
+    network: tcp
+    udp: true
+  - name: "VPNAzadiOfficiali 2396"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "49.12.102.240"
+    network: tcp
+    udp: true
+  - name: "vpnmasi"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "78.47.186.183"
+    network: tcp
+    udp: true
+  - name: "v2rayfast7"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 7e4e4500-b393-11ed-b238-205c6d5f5d78
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "channel:hope v2ray"
+    network: ws
+    ws-opts:
+      path: "/yjx8rbvp"
+      headers:
+        Host: "channel:hope v2ray"
+    udp: true
+  - name: "vpn_443"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "5.75.246.162"
+    network: tcp
+    udp: true
+  - name: "vpn_443 1614"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "23.88.39.4"
+    network: tcp
+    udp: true
+  - name: "meliproxyy 6053"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1435f6f7-f53c-422e-b9ba-4eef2fa8d5f9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.130.125.162"
+    ws-opts:
+      path: "/?ed="
+      headers:
+        Host: "45.130.125.162"
+    udp: true
+  - name: "v2nodes XX"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "qDVh0NalwefxyZlHh3Ni2JSlhErcuC3Wiq"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.homelywebs.click"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.homelywebs.click"
+    udp: true
+  - name: "VPNine1 4644"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8800c518-e68a-4441-a45c-cd678n55h7ت84c8"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "jp1.sanfen001.pics"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "jp1.sanfen001.pics"
+    udp: true
+  - name: "filembad"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8078dd51-d4d9-4024-89df-50e3b58a00a54"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "103.195.236.24"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "103.195.236.24"
+    udp: true
+  - name: "filembad 4306"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8800c518-e68a-4441-a45c-cd67855784c8"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "kr1.sanfen001.pics"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "kr1.sanfen001.pics"
+    udp: true
+  - name: "v2reya88 confinghub2"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8800c518-e68a-4441-a45c-cd67855h784c8"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "jp1.sanfen001.pics"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "jp1.sanfen001.pics"
     udp: true
 
 proxy-groups:

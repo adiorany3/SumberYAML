@@ -1,16 +1,32 @@
 proxies:
-  - name: "IN t.me Natrixo BB"
+  - name: "IN IN-129.227.201.234-0021"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
+    alterId: 4
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "aicoo6du.com"
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "aicoo6du.com"
+    udp: true
+  - name: "V2raySup0"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: f6ec3ac9-fb0f-4bce-86bb-26cdb9933a60
+    uuid: 228639b0-48de-4162-a818-d5651ee297b3
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "zaintest.vuclip.com.r3xxe.eu.cc"
+    servername: "investors.spotify.com.cyylr.eu.cc"
     ws-opts:
       path: "/in-do"
       headers:
-        Host: "zaintest.vuclip.com.r3xxe.eu.cc"
+        Host: "investors.spotify.com.cyylr.eu.cc"
     udp: true

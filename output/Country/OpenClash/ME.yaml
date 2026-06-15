@@ -34,6 +34,114 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "Telegram V2ynpv"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: ffece2a9-0296-46a9-8db8-742d29d240ff
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "bedrid.denizhosting.me"
+    network: ws
+    ws-opts:
+      path: "/ISwpYVR8SjxXcUZEUzVfNURTUC8lV29DXSgsKH1SN0g1JVpDHU1cWigKAC8QRltMCi86ABw4JV14HVMn"
+      headers:
+        Host: "bedrid.denizhosting.me"
+    udp: true
+  - name: "t.me arisping"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 67f79907-6163-475c-b5ba-2a3faa0c02c5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "de.arisping-ir.click"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "a25.arisping-ir.click"
+    udp: true
+  - name: "t.me arisping Free"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 67f79907-6163-475c-b5ba-2a3faa0c02c5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "cdn.arisping-ir.store"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cdn.arisping-ir.store"
+    udp: true
+  - name: "0 -https t.me MrXbin-97"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "o.metuji.com"
+    udp: true
+  - name: "https t.me aifenxiang2020"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: f4ef14c4-d811-455c-a4c3-c63dfeffb0a6
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "vfly3.win"
+    network: ws
+    ws-opts:
+      path: "/myblog"
+      headers:
+        Host: "vfly3.win"
+    udp: true
+  - name: "t.me kutoproxy DE"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 2060af6e-73c5-4090-b09a-bd4114365135
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "m.zoom.us"
+    network: ws
+    ws-opts:
+      path: "/worryfree"
+      headers:
+        Host: "m.zoom.us"
+    udp: true
+  - name: "t.me v_p_lv"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "168.119.167.204"
+    network: tcp
+    udp: true
   - name: "Ap_Ir6"
     server: "104.17.3.81"
     port: 443
@@ -49,20 +157,47 @@ proxies:
       headers:
         Host: "channel.t-me-sh4dow-vpn.workers.dev"
     udp: true
-  - name: "5 https t.me fastkanfig"
+  - name: "71040 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
-    cipher: none
+    type: trojan
+    password: "8078dd51-d4d9-4024-89df-50e358a00a54"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "octopusss5.info"
+    sni: "103.195.g236.24"
     ws-opts:
-      path: "/udfyfws"
+      path: "/"
       headers:
-        Host: "octopusss5.info"
+        Host: "103.195.g236.24"
+    udp: true
+  - name: "71043 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8078dd51-d4d9-4024-89df-50e358a00a54"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "103.f195.236.24"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "103.f195.236.24"
+    udp: true
+  - name: "71045 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8800c518-e68a-4441-a45c-cd67855784c8"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "jp1.sanfen001.pics"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "jp1.sanfen001.pics"
     udp: true
 
 proxy-groups:

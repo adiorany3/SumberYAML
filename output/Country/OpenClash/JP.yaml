@@ -34,20 +34,50 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "JP 68475 Telegram t.me SOSkeyNET"
+  - name: "JP 71136 Telegram t.me SOSkeyNET"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: bc82b8e0-026b-4b7e-8fa7-69977b6d9dc0
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "polartime.link"
+    network: ws
+    ws-opts:
+      path: "/ws/"
+      headers:
+        Host: "polartime.link"
+    udp: true
+  - name: "JP JP VLESS megavpn_link 1"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "t1s1.rittbo.kdns.fr"
+    servername: "134.122.194.186"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "134.122.194.186"
+    udp: true
+  - name: "JP JP TROJAN free4allvpn 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "FDIypSwe64a3DA7un2R8DFjYXZO3NS05gKZTTOC8SxO0Fy3cqYg3EaFDA3ABaEYKNx39D"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "kuame.missionsec.us"
     ws-opts:
       path: "/"
       headers:
-        Host: "t1s1.rittbo.kdns.fr"
+        Host: "kuame.missionsec.us"
     udp: true
 
 proxy-groups:

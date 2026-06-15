@@ -34,20 +34,49 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CZ 57779 Telegram t.me SOSkeyNET"
+  - name: "CZ CZ VLESS flyv2ray 1"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: bbd67e54-1b4b-488b-a5df-708ef896ecaa
+    uuid: 8d1803b9-f9ff-4c09-a6d0-aceb98c4a019
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "wof2.cerosmakom.com"
+    servername: "de.srv.anti-zapret.com"
     ws-opts:
-      path: "/api/v2/sync/data-stream"
+      path: "/"
       headers:
-        Host: "wof2.cerosmakom.com"
+        Host: "de.srv.anti-zapret.com"
+    udp: true
+  - name: "CZ 71103 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b35941d3-c650-49e5-b960-e9069ceca4a6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ez-9f1051.ezaccess18b09ba.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ez-9f1051.ezaccess18b09ba.workers.dev"
+    udp: true
+  - name: "CZ CZ-46.8.113.142-0158"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "ch-2.bexum.fun"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ch-2.bexum.fun"
     udp: true
 
 proxy-groups:

@@ -1,0 +1,77 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "CY 70977 Telegram t.me SOSkeyNET"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 40d496a6-ceeb-4096-baeb-4cc52b205621
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "lg1.trump2023.us"
+    network: ws
+    ws-opts:
+      path: "/ECTCJ0DF"
+      headers:
+        Host: "lg1.trump2023.us"
+    udp: true
+  - name: "CY CY VLESS red2ray 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ee6ca40f-57e4-5943-8e4c-7a9b911aff44
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.89.106.4"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "45.89.106.4"
+    udp: true
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

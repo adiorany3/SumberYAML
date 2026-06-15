@@ -1,0 +1,213 @@
+# Auto generated usage profile OpenClash config
+# Output: output/streaming.yaml
+# Profile group: STREAMING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "By EbraSha 1055"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6b7cbc41-fb80-41a8-8eb6-b5bdb0e86147
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "91.107.137.137"
+    network: tcp
+    udp: true
+  - name: "By EbraSha 1068"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: b92a0371-737e-4083-a9d1-735a69b008f5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "xxxx.moshavere.group"
+    network: ws
+    ws-opts:
+      path: "/images_46553"
+      headers:
+        Host: "xxxx.moshavere.group"
+    udp: true
+  - name: "By EbraSha 1161"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 4612618c-24cd-4379-9924-cfdf3d61fa5a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "190.93.245.170"
+    network: ws
+    ws-opts:
+      path: "/IYKLD53M"
+      headers:
+        Host: "190.93.245.170"
+    udp: true
+  - name: "By EbraSha 1435"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 0764a598-82c4-4b41-ba10-551a625beed5
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "uk2.v2rayserv.com"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "uk2.v2rayserv.com"
+    udp: true
+  - name: "By EbraSha 1596"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "23.158.56.50"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "23.158.56.50"
+    udp: true
+  - name: "By EbraSha 2329"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 4040838c-f0a2-4380-81f9-9b255f44043a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "www.jolimolilap.com"
+    network: grpc
+    udp: true
+  - name: "By EbraSha 2350"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
+    alterId: 4
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "usa-buffalo.lvuft.com"
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "usa-buffalo.lvuft.com"
+    udp: true
+  - name: "By EbraSha 2355"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: b3a21def-5fcc-47a8-a6a0-a34e29d5288a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "104.27.115.85"
+    network: ws
+    ws-opts:
+      path: "/wss51068"
+      headers:
+        Host: "104.27.115.85"
+    udp: true
+  - name: "By EbraSha 2735"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 4040838c-f0a2-4380-81f9-9b255f44043a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "sub.coli-app.top"
+    network: grpc
+    udp: true
+  - name: "By EbraSha 2827"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "140.99.157.86"
+    network: ws
+    ws-opts:
+      path: "/path/1689935243027"
+      headers:
+        Host: "140.99.157.86"
+    udp: true
+
+proxy-groups:
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "By EbraSha 1055"
+      - "By EbraSha 1068"
+      - "By EbraSha 1161"
+      - "By EbraSha 1435"
+      - "By EbraSha 1596"
+      - "By EbraSha 2329"
+      - "By EbraSha 2350"
+      - "By EbraSha 2355"
+      - "By EbraSha 2735"
+      - "By EbraSha 2827"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "STREAMING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

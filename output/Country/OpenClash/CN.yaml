@@ -34,19 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "76192 - Telegram V2All"
+  - name: "SheriffNet"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "trojan"
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "store.timimi.dpdns.org"
+    servername: "sni.111000.v6.navy"
     ws-opts:
-      path: "/?ed=2560"
+      path: "/?Telegram🇨🇳 @WangCai2="
       headers:
-        Host: "store.timimi.dpdns.org"
+        Host: "sni.111000.v6.navy"
     udp: true
 
 proxy-groups:

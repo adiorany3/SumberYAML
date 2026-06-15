@@ -34,21 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "RU RU- VPNine1"
-    type: vmess
+  - name: "71 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
-    uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: 95e118b4-4352-4218-8493-f20cc7fc467a
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: "renderer-stream-1-411.mirra.now"
     network: ws
+    servername: "nl08.abvpn.ru"
     ws-opts:
-      path: "/api/v1/gpu-stream/socket"
+      path: "/websocket"
       headers:
-        Host: "renderer-stream-1-411.mirra.now"
+        Host: "nl08.abvpn.ru"
     udp: true
 
 proxy-groups:

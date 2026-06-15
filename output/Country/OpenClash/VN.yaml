@@ -1,0 +1,116 @@
+# Auto generated OpenClash config
+# Output: output/lengkap.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "VN VN- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8078dd51-d4d9-4024-89df-50e3nhb58تa00a54"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "103.195.236.24"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "103.195.236.24"
+    udp: true
+  - name: "VN VN- VPNine1 1487"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8078dd51-d4d9-4024-89df-50e358a00a54"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "103.195.236.24"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "103.195.236.24"
+    udp: true
+  - name: "VN 70972 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8078dd51-d4d9-4024-89df-50e358ha00a54"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "103.195.236.24"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "103.195.236.24"
+    udp: true
+  - name: "VN 71037 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8078dd51-d4d9-4024-89df-50e35ک8a00a54"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "103.195.236.24"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "103.195.236.24"
+    udp: true
+  - name: "VN 70963 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "8078dd51-d4d9-4024-89df-50e3bg58a00a54"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "103.195.236.24"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "103.195.236.24"
+    udp: true
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

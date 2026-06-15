@@ -1,16 +1,29 @@
 proxies:
-  - name: "oneclickvpnkeys AT"
+  - name: "AT AT TROJAN freeconfigsplus 1"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: f2a806c6-f36b-4cd9-8bb6-7addb218ad2d
-    cipher: none
+    type: trojan
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "91.244.70.205"
+    sni: "212.183.88.136"
     ws-opts:
       path: "/"
       headers:
-        Host: "91.244.70.205"
+        Host: "212.183.88.136"
+    udp: true
+  - name: "AT V2CROSS.COM"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.calmlunch.com"
     udp: true
