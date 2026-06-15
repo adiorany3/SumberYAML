@@ -1,5 +1,5 @@
 proxies:
-  - name: "JP 71136 Telegram t.me SOSkeyNET"
+  - name: "JP JP(mibei77.com"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -14,33 +14,4 @@ proxies:
       path: "/ws/"
       headers:
         Host: "polartime.link"
-    udp: true
-  - name: "JP JP VLESS megavpn_link 1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "134.122.194.186"
-    ws-opts:
-      path: "/fp"
-      headers:
-        Host: "134.122.194.186"
-    udp: true
-  - name: "JP JP TROJAN free4allvpn 1"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "FDIypSwe64a3DA7un2R8DFjYXZO3NS05gKZTTOC8SxO0Fy3cqYg3EaFDA3ABaEYKNx39D"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "kuame.missionsec.us"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "kuame.missionsec.us"
     udp: true

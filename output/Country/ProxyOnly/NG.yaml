@@ -1,34 +1,4 @@
 proxies:
-  - name: "XX XX VLESS v2ra_ng_iran 1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 5e1306ff-3ffa-4166-89ab-1a06ff42eca6
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "www.speedtest.net"
-    ws-opts:
-      path: "/Telegram-mtmvpn_mtmvpn?ed=512"
-      headers:
-        Host: "www.speedtest.net"
-    udp: true
-  - name: "config_NG"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 9ede7f65-aa2c-09b1-3312-25625215edad
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "rvg-production-7c12.up.railway.app"
-    ws-opts:
-      path: "/ws/9ede7f65-aa2c-09b1-3312-25625215edad"
-      headers:
-        Host: "rvg-production-7c12.up.railway.app"
-    udp: true
   - name: "v2ray1_ng FR"
     server: "104.17.3.81"
     port: 443
