@@ -1,5 +1,5 @@
 proxies:
-  - name: "RELAY-104.16.0.0-0775"
+  - name: "RELAY-104.16.0.0-0816"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -15,7 +15,7 @@ proxies:
       headers:
         Host: "gongyilm.dpdns.org"
     udp: true
-  - name: "JP JP(mibei77.com"
+  - name: "JP JP-8.211.149.30-0856"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -30,20 +30,4 @@ proxies:
       path: "/ws/"
       headers:
         Host: "polartime.link"
-    udp: true
-  - name: "By EbraSha 8401"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "vienna-bread-threats-amendment.trycloudflare.com"
-    network: ws
-    ws-opts:
-      path: "/7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm"
-      headers:
-        Host: "vienna-bread-threats-amendment.trycloudflare.com"
     udp: true

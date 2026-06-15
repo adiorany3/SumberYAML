@@ -34,6 +34,80 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "filembad-194"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 71152717-dc50-4fee-a13d-c6656b51e341
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdn-pro4.postshup.ir."
+    ws-opts:
+      path: "/news"
+      headers:
+        Host: "cdn-pro4.postshup.ir."
+    udp: true
+  - name: "freenettir"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 71152717-dc50-4fee-a13d-c6656b51e341
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdn-pro3.postshup.ir."
+    ws-opts:
+      path: "/news"
+      headers:
+        Host: "cdn-pro3.postshup.ir."
+    udp: true
+  - name: "33 spotfyhits"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 71152717-dc50-4fee-a13d-c6656b51e341
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cdn-pro2.postshup.ir."
+    ws-opts:
+      path: "/news"
+      headers:
+        Host: "cdn-pro2.postshup.ir."
+    udp: true
+  - name: "hex_proxy 8"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "server-ir-3.ariyuz.org"
+    ws-opts:
+      path: "/page=2"
+      headers:
+        Host: "server-ir-3.ariyuz.org"
+    udp: true
+  - name: "Best_internet_iran"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "96088230-67bd-11f1-a421-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
   - name: "filembad"
     server: "104.17.3.81"
     port: 443
@@ -44,7 +118,35 @@ proxies:
     network: ws
     sni: "gamingdll.ir"
     ws-opts:
-      path: "/index.php/ed=mitivpn"
+      path: "/ed=mitivpn"
+      headers:
+        Host: "gamingdll.ir"
+    udp: true
+  - name: "filembad 6959"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "gamingdll.ir"
+    ws-opts:
+      path: "/ed=mitivpn/index.php"
+      headers:
+        Host: "gamingdll.ir"
+    udp: true
+  - name: "filembad 4792"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "gamingdll.ir"
+    ws-opts:
+      path: "/index.html/ed=mitivpn"
       headers:
         Host: "gamingdll.ir"
     udp: true

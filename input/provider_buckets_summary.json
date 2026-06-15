@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-15T12:14:24Z",
+  "generated_at_utc": "2026-06-15T20:56:12Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 16,
+      "count": 18,
       "keywords": [
         "google",
         "gcp",
@@ -95,7 +95,7 @@
     },
     "microsoft": {
       "file": "input/microsoft.txt",
-      "count": 24,
+      "count": 17,
       "keywords": [
         "microsoft",
         "azure",
@@ -106,7 +106,13 @@
       "sample": [
         {
           "scheme": "trojan",
-          "name": "🇺🇸US-🚀@VPNine1",
+          "name": "@",
+          "server": "news.microsoft.com",
+          "port": 443
+        },
+        {
+          "scheme": "trojan",
+          "name": "@prrofile_purple",
           "server": "news.microsoft.com",
           "port": 443
         },
@@ -124,13 +130,13 @@
         },
         {
           "scheme": "trojan",
-          "name": "🇺🇸",
+          "name": "@",
           "server": "news.microsoft.com",
           "port": 443
         },
         {
           "scheme": "trojan",
-          "name": "@GozargahAzad|🏁",
+          "name": "@prrofile_purple",
           "server": "news.microsoft.com",
           "port": 443
         },
@@ -142,12 +148,6 @@
         },
         {
           "scheme": "trojan",
-          "name": "🇺🇸",
-          "server": "news.microsoft.com",
-          "port": 443
-        },
-        {
-          "scheme": "trojan",
           "name": "@",
           "server": "news.microsoft.com",
           "port": 443
@@ -159,16 +159,16 @@
           "port": 443
         },
         {
-          "scheme": "trojan",
-          "name": "🇺🇸US-🚀@VPNine1",
-          "server": "news.microsoft.com",
+          "scheme": "vless",
+          "name": "🛸@V2ray_official",
+          "server": "5.199.171.88",
           "port": 443
         }
       ]
     },
     "amazon": {
       "file": "input/amazon.txt",
-      "count": 5,
+      "count": 1,
       "keywords": [
         "amazon",
         "aws",
@@ -177,30 +177,6 @@
         "cloudfront"
       ],
       "sample": [
-        {
-          "scheme": "vless",
-          "name": "🇺🇸US-🚀@VPNine1",
-          "server": "speedtest.net",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@Hope_Net-join-us-on-Telegram",
-          "server": "speedtest.net",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "[77260",
-          "server": "speedtest.net",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🇨🇦71262",
-          "server": "speedtest.net",
-          "port": 443
-        },
         {
           "scheme": "vless",
           "name": "TEL;Father_vpn",
