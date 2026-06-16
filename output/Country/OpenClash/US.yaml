@@ -34,7 +34,67 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "configshub2 US 6398"
+  - name: "oneclickvpnkeys US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 00e94078-bb1e-49aa-8567-e1b3b2843150
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rapid-hat-441d.platovpn.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "rapid-hat-441d.platovpn.workers.dev"
+    udp: true
+  - name: "configshub2 US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nuclear.us.kg"
+    ws-opts:
+      path: "/free/1.226.227.169:50001"
+      headers:
+        Host: "nuclear.us.kg"
+    udp: true
+  - name: "configshub2 US 3528"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5dc15e15-f285-4a9d-959b-0e4fbdd77b63
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "powered-by-surena.user68f797c2f3e1b.workers.dev"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "powered-by-surena.user68f797c2f3e1b.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 9373"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6bc1bd81-b763-4213-80ad-4586224e3079
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tohidza.et6m22266a.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tohidza.et6m22266a.workers.dev"
+    udp: true
+  - name: "configshub2 US 7939"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,7 +109,22 @@ proxies:
       headers:
         Host: "fgnix832fx.fx6hsv0.ccwu.cc"
     udp: true
-  - name: "oneclickvpnkeys US 3332"
+  - name: "oneclickvpnkeys US 7148"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d555dac9-27cb-4ddb-89f5-6a1d8d1e4798
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "momi.timoreyhaneh.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "momi.timoreyhaneh.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 7110"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -64,7 +139,7 @@ proxies:
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
-  - name: "oneclickvpnkeys US 3813"
+  - name: "oneclickvpnkeys US 6777"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -79,7 +154,22 @@ proxies:
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
-  - name: "oneclickvpnkeys US 4529"
+  - name: "configshub2 US 6134"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e3089afa-1e51-40c5-9f33-88ea664a67de
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "DaYiJoon.mbs-SAteHi.WorkeRs.DeV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiWnVDTzNXbmEzIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+      headers:
+        Host: "DaYiJoon.mbs-SAteHi.WorkeRs.DeV"
+    udp: true
+  - name: "oneclickvpnkeys US 6296"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -94,7 +184,7 @@ proxies:
       headers:
         Host: "hhlfy.twiladaphne.ndjp.net"
     udp: true
-  - name: "oneclickvpnkeys US 3296"
+  - name: "oneclickvpnkeys US 5193"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -109,35 +199,19 @@ proxies:
       headers:
         Host: "t1s1.rittbo.kdns.fr"
     udp: true
-  - name: "US Join Telegram Farah_VPN US"
+  - name: "US internet_azad_2026"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
-    cipher: none
+    type: trojan
+    password: "57ad2e80-6775-11f1-9098-1239d0255272"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "t1s1.rittbo.kdns.fr"
+    sni: "usa.test3.net"
     ws-opts:
-      path: "/fp=chrome"
+      path: "/howdy"
       headers:
-        Host: "t1s1.rittbo.kdns.fr"
-    udp: true
-  - name: "US FreakConfig"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "t1s1.rittbo.kdns.fr"
-    ws-opts:
-      path: "/fp"
-      headers:
-        Host: "t1s1.rittbo.kdns.fr"
+        Host: "usa.test3.net"
     udp: true
   - name: "US US TROJAN hope_net 1"
     server: "104.17.3.81"
