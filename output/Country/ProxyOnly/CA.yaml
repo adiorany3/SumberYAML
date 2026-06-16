@@ -1,15 +1,31 @@
 proxies:
-  - name: "CA 73221 Telegram t.me SOSkeyNET"
+  - name: "CA 74172 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "4c3164ee-abcf-4091-abea-d1cd4937a68d"
+    type: vless
+    uuid: 0137ab09-0728-4c44-8dc4-f2ac1847bffd
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "jy.hhllfly.kdns.fr"
+    servername: "cfoo-n0d.pages.dev"
     ws-opts:
       path: "/"
       headers:
-        Host: "jy.hhllfly.kdns.fr"
+        Host: "cfoo-n0d.pages.dev"
+    udp: true
+  - name: "CA 74176 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 3a8aa3ad-d125-4285-8542-3a1832187f5d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "alireza10.karamzade546alireza.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "alireza10.karamzade546alireza.workers.dev"
     udp: true

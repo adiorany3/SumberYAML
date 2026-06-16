@@ -1,0 +1,189 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "Channel id ShadowProxy6"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f7e3ff36-276c-4477-b6d4-47257500d869
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pon.antalmani.mm.am"
+    ws-opts:
+      path: "/?ed=3000"
+      headers:
+        Host: "pon.antalmani.mm.am"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "Channel id ShadowProxy6"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "Channel id ShadowProxy6"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "US Join Telegram Farah_VPN US"
+      - "Ap_Ir6 5783"
+      - "freenettir 1354"
+      - "v2rayconfigamir 9621"
+      - "JP JP(mibei77.com"
+      - "CA 74172 Telegram t.me SOSkeyNET"
+      - "RELAY-104.16.0.0-0793"
+      - "By EbraSha 6856"
+      - "ShadowsocksM XX"
+      - "oneclickvpnkeys FR"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "freenettir 1354"
+      - "v2rayconfigamir 9621"
+      - "US Join Telegram Farah_VPN US"
+      - "Ap_Ir6 5783"
+      - "JP JP(mibei77.com"
+      - "CA 74172 Telegram t.me SOSkeyNET"
+      - "RELAY-104.16.0.0-0793"
+      - "By EbraSha 6856"
+      - "ShadowsocksM XX"
+      - "V2rayNG3 NL"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "US Join Telegram Farah_VPN US"
+      - "Ap_Ir6 5783"
+      - "freenettir 1354"
+      - "v2rayconfigamir 9621"
+      - "JP JP(mibei77.com"
+      - "CA 74172 Telegram t.me SOSkeyNET"
+      - "RELAY-104.16.0.0-0793"
+      - "By EbraSha 6856"
+      - "ShadowsocksM XX"
+      - "V2rayNG3 NL"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "US Join Telegram Farah_VPN US"
+      - "Ap_Ir6 5783"
+      - "freenettir 1354"
+      - "v2rayconfigamir 9621"
+      - "JP JP(mibei77.com"
+      - "CA 74172 Telegram t.me SOSkeyNET"
+      - "RELAY-104.16.0.0-0793"
+      - "By EbraSha 6856"
+      - "ShadowsocksM XX"
+      - "V2rayNG3 NL"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "US Join Telegram Farah_VPN US"
+      - "freenettir 1354"
+      - "v2rayconfigamir 9621"
+      - "Ap_Ir6 5783"
+      - "JP JP(mibei77.com"
+      - "CA 74172 Telegram t.me SOSkeyNET"
+      - "RELAY-104.16.0.0-0793"
+      - "By EbraSha 6856"
+      - "ShadowsocksM XX"
+      - "V2rayNG3 NL"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "Channel id ShadowProxy6"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "Channel id ShadowProxy6"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
