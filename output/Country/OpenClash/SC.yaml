@@ -34,50 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "SC SC VLESS ai_duet 1"
+  - name: "GozargahAzad SC"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 406d8436-0eb9-4eb2-84fb-960e076ffba6
-    cipher: none
+    type: trojan
+    password: "mitivpn"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "45.130.125.160"
+    sni: "linkkon-a.ir"
     ws-opts:
-      path: "/"
+      path: "/index.html=mitivpn"
       headers:
-        Host: "45.130.125.160"
-    udp: true
-  - name: "SC SC VLESS mpproxy 1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "srv1.khatibirepair.ir"
-    ws-opts:
-      path: "/?ed"
-      headers:
-        Host: "srv1.khatibirepair.ir"
-    udp: true
-  - name: "SC SC- VPNine1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 1444b496-5c4d-4ac2-aa5c-8422d86113c7
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "naker.sarbazit.com"
-    ws-opts:
-      path: "/?ed=2560"
-      headers:
-        Host: "naker.sarbazit.com"
+        Host: "linkkon-a.ir"
     udp: true
 
 proxy-groups:

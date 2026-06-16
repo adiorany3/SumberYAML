@@ -1,0 +1,212 @@
+# Auto generated usage profile OpenClash config
+# Output: output/gaming.yaml
+# Profile group: GAMING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "ShadowsocksM US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "v2rayconfigamir 9621"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "tjsp.hhxaf.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tjsp.hhxaf.cc.cd"
+    udp: true
+  - name: "configshub2 US 2491"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e3089afa-1e51-40c5-9f33-88ea664a67de
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "DaYiJoon.mbs-SAteHi.WorkeRs.DeV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiWnVDTzNXbmEzIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+      headers:
+        Host: "DaYiJoon.mbs-SAteHi.WorkeRs.DeV"
+    udp: true
+  - name: "US Join Telegram Farah_VPN US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 2040"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "JP JP(mibei77.com"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "hhcm.hhxaf.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhcm.hhxaf.cc.cd"
+    udp: true
+  - name: "GozargahAzad SC"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "linkkon-a.ir"
+    ws-opts:
+      path: "/index.html=mitivpn"
+      headers:
+        Host: "linkkon-a.ir"
+    udp: true
+  - name: "oneclickvpnkeys US 6822"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "freenettir 2723"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 9403"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+
+proxy-groups:
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "ShadowsocksM US"
+      - "v2rayconfigamir 9621"
+      - "configshub2 US 2491"
+      - "US Join Telegram Farah_VPN US"
+      - "oneclickvpnkeys US 2040"
+      - "JP JP(mibei77.com"
+      - "GozargahAzad SC"
+      - "oneclickvpnkeys US 6822"
+      - "freenettir 2723"
+      - "oneclickvpnkeys US 9403"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GAMING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

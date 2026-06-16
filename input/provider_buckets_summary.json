@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-16T11:11:20Z",
+  "generated_at_utc": "2026-06-16T16:52:47Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 16,
+      "count": 21,
       "keywords": [
         "google",
         "gcp",
@@ -64,38 +64,45 @@
         },
         {
           "scheme": "vless",
+          "name": "🇩🇪DE-🚀@VPNine1",
+          "server": "91.107.131.89",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🇩🇪DE-🚀@VPNine1",
+          "server": "recap.rezznet.org",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
           "name": "🔥",
           "server": "38.107.233.130",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@v2rayNplus",
-          "server": "fr.pink-perfect.ru",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🔥",
-          "server": "fr.pink-perfect.ru",
           "port": 443
         }
       ]
     },
     "oracle": {
       "file": "input/oracle.txt",
-      "count": 0,
+      "count": 1,
       "keywords": [
         "oracle",
         "oci",
         "oraclecloud",
         "oracle-cloud"
       ],
-      "sample": []
+      "sample": [
+        {
+          "scheme": "vless",
+          "name": "",
+          "server": "38.180.171.152",
+          "port": 443
+        }
+      ]
     },
     "microsoft": {
       "file": "input/microsoft.txt",
-      "count": 13,
+      "count": 14,
       "keywords": [
         "microsoft",
         "azure",
@@ -148,14 +155,14 @@
         },
         {
           "scheme": "vless",
-          "name": "",
-          "server": "news.microsoft.com",
+          "name": "🇬🇧73622",
+          "server": "138.68.150.88",
           "port": 443
         },
         {
           "scheme": "vless",
-          "name": "⏰50@oneclickvpnkeys",
-          "server": "176.65.144.3",
+          "name": "🔵@chillguy_vpn",
+          "server": "138.68.150.88",
           "port": 443
         },
         {
@@ -168,7 +175,7 @@
     },
     "amazon": {
       "file": "input/amazon.txt",
-      "count": 2,
+      "count": 1,
       "keywords": [
         "amazon",
         "aws",
@@ -177,12 +184,6 @@
         "cloudfront"
       ],
       "sample": [
-        {
-          "scheme": "trojan",
-          "name": "⏰54@oneclickvpnkeys",
-          "server": "162.159.21.120",
-          "port": 443
-        },
         {
           "scheme": "vless",
           "name": "TEL;Father_vpn",
