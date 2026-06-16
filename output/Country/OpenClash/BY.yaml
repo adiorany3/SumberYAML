@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "By EbraSha 6743"
+  - name: "By EbraSha 1225"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -49,6 +49,22 @@ proxies:
       path: "/7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm"
       headers:
         Host: "vienna-bread-threats-amendment.trycloudflare.com"
+    udp: true
+  - name: "By EbraSha 9575"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: bc82b8e0-026b-4b7e-8fa7-69977b6d9dc0
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "polartime.link"
+    network: ws
+    ws-opts:
+      path: "/ws/"
+      headers:
+        Host: "polartime.link"
     udp: true
 
 proxy-groups:

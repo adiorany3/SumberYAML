@@ -13,7 +13,21 @@ proxies:
       headers:
         Host: "www.ignitelimit.com"
     udp: true
-  - name: "oneclickvpnkeys FR 6620"
+  - name: "configV2rayNG FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 4864"
     server: "104.17.3.81"
     port: 443
     type: trojan
