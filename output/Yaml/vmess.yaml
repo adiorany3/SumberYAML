@@ -1,5 +1,21 @@
 proxies:
-  - name: "RELAY-104.16.0.0-0793"
+  - name: "meliproxyy 2202"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "renderer-stream-1-411.mirra.now"
+    network: ws
+    ws-opts:
+      path: "/api/v1/gpu-stream/socket"
+      headers:
+        Host: "renderer-stream-1-411.mirra.now"
+    udp: true
+  - name: "By EbraSha 5332"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -15,19 +31,19 @@ proxies:
       headers:
         Host: "gongyilm.dpdns.org"
     udp: true
-  - name: "meliproxyy 8781"
+  - name: "By EbraSha 8034"
     type: vmess
     server: "104.17.3.81"
     port: 443
-    uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+    uuid: bc82b8e0-026b-4b7e-8fa7-69977b6d9dc0
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: "renderer-stream-1-411.mirra.now"
+    servername: "polartime.link"
     network: ws
     ws-opts:
-      path: "/api/v1/gpu-stream/socket"
+      path: "/ws/"
       headers:
-        Host: "renderer-stream-1-411.mirra.now"
+        Host: "polartime.link"
     udp: true

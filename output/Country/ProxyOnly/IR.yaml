@@ -1,33 +1,5 @@
 proxies:
-  - name: "outline_ir 7553"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "MiTiVPN"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "linkkon-w.ir"
-    ws-opts:
-      path: "/cdn=mitivpn"
-      headers:
-        Host: "linkkon-w.ir"
-    udp: true
-  - name: "outline_ir 7295"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "MiTiVPN"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "wwww.95r.ir"
-    ws-opts:
-      path: "/ed=mitivpn"
-      headers:
-        Host: "wwww.95r.ir"
-    udp: true
-  - name: "outline_ir 4887"
+  - name: "XX XX TROJAN red2ray 1"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -41,7 +13,7 @@ proxies:
       headers:
         Host: "cdn.95r.ir"
     udp: true
-  - name: "78356 - Telegram V2All"
+  - name: "outline_ir 2298"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -51,7 +23,21 @@ proxies:
     network: ws
     sni: "linkkon-w.ir"
     ws-opts:
-      path: "/ed=mitivpn"
+      path: "/cdn=mitivpn"
       headers:
         Host: "linkkon-w.ir"
+    udp: true
+  - name: "outline_ir 5933"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "wwww.95r.ir"
+    ws-opts:
+      path: "/ed=mitivpn"
+      headers:
+        Host: "wwww.95r.ir"
     udp: true
