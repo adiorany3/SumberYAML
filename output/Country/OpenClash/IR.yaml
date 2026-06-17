@@ -34,35 +34,61 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "outline_ir"
+  - name: "outline_ir 7553"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 657f0a00-89fe-4a88-b26a-a1c831dc7ba2
-    cipher: none
+    type: trojan
+    password: "MiTiVPN"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "FaSt-ROute-dD4e2d.FREefIReMo7964.WOrkerS.DEv"
+    sni: "linkkon-w.ir"
     ws-opts:
-      path: "/eyJqdW5rIjoiRXZpcUo0T1lZeCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJlZml4IiwicGFuZWxJUHMiOlsiWzJhMDI6ODk4OjE0Njo2NDo6XSJdfQ==?ed=2560"
+      path: "/cdn=mitivpn"
       headers:
-        Host: "fAsT-rOUte-dd4E2d.FREeFIReMO7964.WORKers.dEV"
+        Host: "linkkon-w.ir"
     udp: true
-  - name: "VPNine1"
+  - name: "outline_ir 7295"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 64647238-c6a2-4142-8c74-c1be239140ab
-    cipher: none
+    type: trojan
+    password: "MiTiVPN"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "fty.jison.ir"
+    sni: "wwww.95r.ir"
     ws-opts:
-      path: "/ws"
+      path: "/ed=mitivpn"
       headers:
-        Host: "sdt.jison.ir"
+        Host: "wwww.95r.ir"
+    udp: true
+  - name: "outline_ir 4887"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cdn.95r.ir"
+    ws-opts:
+      path: "/index.php?mitivpn"
+      headers:
+        Host: "cdn.95r.ir"
+    udp: true
+  - name: "78356 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "linkkon-w.ir"
+    ws-opts:
+      path: "/ed=mitivpn"
+      headers:
+        Host: "linkkon-w.ir"
     udp: true
 
 proxy-groups:
