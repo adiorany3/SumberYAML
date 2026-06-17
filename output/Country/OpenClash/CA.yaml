@@ -34,35 +34,49 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA 74172 Telegram t.me SOSkeyNET"
+  - name: "CA 74629 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 0137ab09-0728-4c44-8dc4-f2ac1847bffd
+    uuid: 7762470f-39ea-2c8e-a4be-ca6fbb3a044f
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "cfoo-n0d.pages.dev"
+    servername: "black-king-f47d.masterdj2000.workers.dev"
     ws-opts:
-      path: "/"
+      path: "/master_dj_021"
       headers:
-        Host: "cfoo-n0d.pages.dev"
+        Host: "black-king-f47d.masterdj2000.workers.dev"
     udp: true
-  - name: "CA 74176 Telegram t.me SOSkeyNET"
+  - name: "CA 74565 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 3a8aa3ad-d125-4285-8542-3a1832187f5d
+    uuid: ed67de09-2283-4ce0-8da8-382d828e8508
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "alireza10.karamzade546alireza.workers.dev"
+    servername: "LWa4Jxf1sx58NnL51K0Ugg8U3xBSubxl.PAGes.Dev"
     ws-opts:
-      path: "/"
+      path: "/eyJqdW5rIjoiZWF3djRCd0dud1lTSCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560"
       headers:
-        Host: "alireza10.karamzade546alireza.workers.dev"
+        Host: "lwa4jxf1sx58nnl51k0ugg8u3xbsubxl.pages.dev"
+    udp: true
+  - name: "Channel id internet_azad_2026 CA"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "A4u^p(_UR*F6"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "027.ELeCTroCelLco-CF-027.wORkERS.dEv"
+    ws-opts:
+      path: "/eyJqdW5rIjoidlhnMXN5OXFUSiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560"
+      headers:
+        Host: "027.electrocellco-cf-027.workers.dev"
     udp: true
 
 proxy-groups:
