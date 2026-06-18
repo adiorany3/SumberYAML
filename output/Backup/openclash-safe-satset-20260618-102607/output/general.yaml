@@ -1,0 +1,210 @@
+# Auto generated usage profile OpenClash config
+# Output: output/general.yaml
+# Profile group: GENERAL STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "v2reya88 2678"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "tjsp.hhxaf.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tjsp.hhxaf.cc.cd"
+    udp: true
+  - name: "configV2rayNG US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "CA 76448 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 38b890e9-b864-27d5-8759-0872d520b320
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "autumn-leaf-474d.tahapassmail.workers.dev"
+    ws-opts:
+      path: "/Taha"
+      headers:
+        Host: "autumn-leaf-474d.tahapassmail.workers.dev"
+    udp: true
+  - name: "V2raySup0 2802"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "f922fa0f-3311-4368-85ff-cf65e727c854"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "CA 76450 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "38b890e9-b864-27d5-8759-0872d520b320"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "autumn-leaf-474d.tahapassmail.workers.dev"
+    ws-opts:
+      path: "/Taha"
+      headers:
+        Host: "autumn-leaf-474d.tahapassmail.workers.dev"
+    udp: true
+  - name: "CA 76200 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "ansooyefilter"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2db92da9-8ffb-491b-81d6-6e8d50876020
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "bpB-01c11365.HJdBcvDbKV.WORKErS.dEV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiWlFRWlMwRDdLakVqMyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560"
+      headers:
+        Host: "bpb-01c11365.hjdbcvdbkv.workers.dev"
+    udp: true
+  - name: "configV2rayNG US 6932"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "linkkon-w.ir"
+    ws-opts:
+      path: "/ed=mitivpn"
+      headers:
+        Host: "linkkon-w.ir"
+    udp: true
+  - name: "configshub2 US 4669"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e3089afa-1e51-40c5-9f33-88ea664a67de
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "DaYiJoon.mbs-SAteHi.WorkeRs.DeV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiWnVDTzNXbmEzIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+      headers:
+        Host: "DaYiJoon.mbs-SAteHi.WorkeRs.DeV"
+    udp: true
+  - name: "configV2rayNG US 7414"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "linkkon-w.ir"
+    ws-opts:
+      path: "/cdn=mitivpn"
+      headers:
+        Host: "linkkon-w.ir"
+    udp: true
+
+proxy-groups:
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 2678"
+      - "configV2rayNG US"
+      - "CA 76448 Telegram t.me SOSkeyNET"
+      - "V2raySup0 2802"
+      - "CA 76450 Telegram t.me SOSkeyNET"
+      - "CA 76200 Telegram t.me SOSkeyNET"
+      - "ansooyefilter"
+      - "configV2rayNG US 6932"
+      - "configshub2 US 4669"
+      - "configV2rayNG US 7414"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GENERAL STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

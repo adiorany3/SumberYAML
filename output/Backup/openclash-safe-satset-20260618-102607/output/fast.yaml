@@ -1,0 +1,189 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "Channel id internet_azad_2026"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 72d1797c-cef8-410a-b8fd-db9104dc3cb0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "amooaliii.net"
+    ws-opts:
+      path: "/jdhfyws"
+      headers:
+        Host: "amooaliii.net"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "Channel id internet_azad_2026"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "Channel id internet_azad_2026"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 2678"
+      - "configV2rayNG US"
+      - "V2raySup0 2802"
+      - "CA 76448 Telegram t.me SOSkeyNET"
+      - "ansooyefilter"
+      - "CA 76200 Telegram t.me SOSkeyNET"
+      - "CA 76450 Telegram t.me SOSkeyNET"
+      - "configV2rayNG US 6932"
+      - "configshub2 US 4669"
+      - "configV2rayNG US 7414"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 2678"
+      - "CA 76450 Telegram t.me SOSkeyNET"
+      - "CA 76448 Telegram t.me SOSkeyNET"
+      - "configV2rayNG US"
+      - "V2raySup0 2802"
+      - "CA 76200 Telegram t.me SOSkeyNET"
+      - "ansooyefilter"
+      - "configshub2 US 4669"
+      - "configV2rayNG US 6932"
+      - "hex_proxy 3"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 2678"
+      - "configV2rayNG US"
+      - "CA 76448 Telegram t.me SOSkeyNET"
+      - "V2raySup0 2802"
+      - "CA 76450 Telegram t.me SOSkeyNET"
+      - "CA 76200 Telegram t.me SOSkeyNET"
+      - "ansooyefilter"
+      - "configV2rayNG US 6932"
+      - "configshub2 US 4669"
+      - "configV2rayNG US 7414"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 2678"
+      - "configV2rayNG US"
+      - "V2raySup0 2802"
+      - "CA 76448 Telegram t.me SOSkeyNET"
+      - "ansooyefilter"
+      - "CA 76450 Telegram t.me SOSkeyNET"
+      - "CA 76200 Telegram t.me SOSkeyNET"
+      - "configV2rayNG US 6932"
+      - "configshub2 US 4669"
+      - "configV2rayNG US 7414"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "v2reya88 2678"
+      - "configV2rayNG US"
+      - "CA 76448 Telegram t.me SOSkeyNET"
+      - "V2raySup0 2802"
+      - "CA 76450 Telegram t.me SOSkeyNET"
+      - "CA 76200 Telegram t.me SOSkeyNET"
+      - "ansooyefilter"
+      - "configV2rayNG US 6932"
+      - "configshub2 US 4669"
+      - "configV2rayNG US 7414"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "Channel id internet_azad_2026"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "Channel id internet_azad_2026"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

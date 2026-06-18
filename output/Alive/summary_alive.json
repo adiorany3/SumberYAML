@@ -14,60 +14,45 @@
   "timeout_ms": 5000,
   "workers": 20,
   "tester": "strict-mihomo-delay",
-  "tester_ok": false,
-  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms. | Strict result kosong, fallback longgar diaktifkan agar output tidak kosong.",
+  "tester_ok": true,
+  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
   "rounds": [
     {
       "round": 1,
       "tester": "mihomo-delay",
-      "tester_ok": false,
-      "alive": 0,
-      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
+      "tester_ok": true,
+      "alive": 42,
+      "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
-      "tester_ok": false,
-      "alive": 0,
-      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
+      "tester_ok": true,
+      "alive": 30,
+      "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1374,
-  "alive": 1374,
-  "strict_alive": 0,
-  "dead": 0,
+  "total": 1373,
+  "alive": 44,
+  "strict_alive": 44,
+  "dead": 1329,
   "untested": 0,
-  "final_output_filter": "fallback alive because strict empty",
-  "fallback_tester": "tcp-fallback",
-  "fallback_message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis.",
+  "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
   "best_ping_country_filter": "ID",
   "best_ping_fallback_global_if_empty": true,
   "best_ping_url_test_group": "URL-TEST TOP 5 INDONESIA",
   "best_ping_group_type": "url-test",
-  "best_ping_count": 5,
+  "best_ping_count": 1,
   "best_ping_names": [
-    "TEL Father_vpn",
-    "ConfigV2RayNG",
-    "ID ID-130.94.94.15-0542",
-    "TEL Father_vpn 5447",
-    "v2rayNplus"
+    "Channel id internet_azad_2026"
   ],
   "responsive_top_n": 15,
-  "responsive_count": 10,
+  "responsive_count": 1,
   "responsive_names": [
-    "TEL Father_vpn",
-    "ConfigV2RayNG",
-    "ID ID-130.94.94.15-0542",
-    "TEL Father_vpn 5447",
-    "v2rayNplus",
-    "Channel id ShadowProxy66 DE",
-    "Channel id internet_azad_2026",
-    "V2raySup0 5008",
-    "hopev2ray 8142",
-    "TEL Father_vpn 8730"
+    "Channel id internet_azad_2026"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -79,5 +64,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 1374
+  "strict_output_count": 44
 }
