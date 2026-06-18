@@ -34,37 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "TelegramID Express_freevpn"
+  - name: "filembad"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 59fba915-ed1c-46f5-9417-5ee65c7cb175
+    uuid: 06a368f4-e62e-4486-97a1-4c60bb7a0eed
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "vlam-3xiozxip02.wordpresscpanel.ir"
+    servername: "fty.jison.ir"
     ws-opts:
-      path: "/stayonline"
+      path: "/ws"
       headers:
-        Host: "vlam-3xiozxip02.wordpresscpanel.ir"
+        Host: "sdt.jison.ir"
     udp: true
-  - name: "Ap_Ir6 4420"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 76a556ba-cec0-4323-81d4-546ea40a360c
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "d2.iratom.com"
-    ws-opts:
-      path: "/atom10?ed=2560"
-      headers:
-        Host: "d2.iratom.com"
-    udp: true
-  - name: "meliproxyy 2898"
+  - name: "GozargahAzad 8739"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -78,7 +63,21 @@ proxies:
       headers:
         Host: "wwww.95r.ir"
     udp: true
-  - name: "outline_ir 2049"
+  - name: "v2rayNplus 5671"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "wwww.95r.ir"
+    ws-opts:
+      path: "/ed"
+      headers:
+        Host: "wwww.95r.ir"
+    udp: true
+  - name: "outline_ir 5490"
     server: "104.17.3.81"
     port: 443
     type: trojan

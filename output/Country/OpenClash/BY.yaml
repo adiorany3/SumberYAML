@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "By EbraSha 8467"
+  - name: "By EbraSha 9986"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -50,7 +50,7 @@ proxies:
       headers:
         Host: "gongyilm.dpdns.org"
     udp: true
-  - name: "By EbraSha 2842"
+  - name: "By EbraSha 1954"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -65,22 +65,6 @@ proxies:
       path: "/ws/"
       headers:
         Host: "polartime.link"
-    udp: true
-  - name: "By EbraSha 2222"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 5f72f180-b21b-4b7a-8484-240759012606
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "vip1314.vip"
-    network: ws
-    ws-opts:
-      path: "/5f72f180-b21b-4b7a-8484-240759096785"
-      headers:
-        Host: "vip1314.vip"
     udp: true
 
 proxy-groups:
