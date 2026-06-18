@@ -34,49 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CA 76200 Telegram t.me SOSkeyNET"
+  - name: "CA 76709 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    uuid: ac419ddc-2557-47d3-bd01-87a513da0290
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "unnes.ac.id.yxls.eu.cc"
+    servername: "zx.hostxyz.ir"
     ws-opts:
-      path: "/ca-cl"
+      path: "/xui"
       headers:
-        Host: "unnes.ac.id.yxls.eu.cc"
+        Host: "zx.hostxyz.ir"
     udp: true
-  - name: "CA 76448 Telegram t.me SOSkeyNET"
+  - name: "CA 76636 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 38b890e9-b864-27d5-8759-0872d520b320
+    uuid: eddd9fcb-4e17-a862-29f9-80ee1000302f
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "autumn-leaf-474d.tahapassmail.workers.dev"
+    servername: "mahdi-lla.dilit33980.workers.dev"
     ws-opts:
-      path: "/Taha"
+      path: "/mahdi"
       headers:
-        Host: "autumn-leaf-474d.tahapassmail.workers.dev"
-    udp: true
-  - name: "CA 76450 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "38b890e9-b864-27d5-8759-0872d520b320"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "autumn-leaf-474d.tahapassmail.workers.dev"
-    ws-opts:
-      path: "/Taha"
-      headers:
-        Host: "autumn-leaf-474d.tahapassmail.workers.dev"
+        Host: "mahdi-lla.dilit33980.workers.dev"
     udp: true
 
 proxy-groups:

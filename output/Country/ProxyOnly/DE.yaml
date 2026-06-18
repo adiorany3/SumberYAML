@@ -44,18 +44,3 @@ proxies:
       headers:
         Host: "pon.antalmani.mm.am"
     udp: true
-  - name: "filembad 6764"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 59d4ea09-0804-4694-ad20-281d8396ddbc
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "de-cdn.doggoapp.net"
-    ws-opts:
-      path: "/ws-vless"
-      headers:
-        Host: "de-cdn.doggoapp.net"
-    udp: true
