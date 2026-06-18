@@ -1,16 +1,31 @@
 proxies:
-  - name: "@GozargahAzad|🇱🇻"
-    server: 104.17.3.81
+  - name: "v2rayngvpn LV"
+    server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    uuid: 835989bc-f82c-4ae5-93d8-77bcb63105b3
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: sni.111000.v6.navy
+    servername: "31.56.117.211"
     ws-opts:
-      path: /?ed=2560
+      path: "/ws"
       headers:
-        Host: sni.111000.v6.navy
+        Host: "31.56.117.211"
+    udp: true
+  - name: "LV rayhub_ir 0617-8"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 457d9c9f-6b8a-45d5-97aa-58ec708fc1c3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "finlandhetzner.260109.xyz"
+    ws-opts:
+      path: "/muhasv"
+      headers:
+        Host: "finlandhetzner.260109.xyz"
     udp: true

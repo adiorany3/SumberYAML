@@ -1,0 +1,16 @@
+proxies:
+  - name: "XX XX VLESS v2raytg 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "162.159.44.142"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "162.159.44.142"
+    udp: true

@@ -31,19 +31,20 @@ proxies:
       headers:
         Host: "8.210.239.58"
     udp: true
-  - name: "HK 71014 Telegram t.me SOSkeyNET"
+  - name: "HK 76064 Telegram t.me SOSkeyNET"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "mitivpn"
+    type: vless
+    uuid: b69a71ef-51dc-48c6-b3df-4c3533062606
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "gamingdll.ir"
+    servername: "assets.trorays.com"
     ws-opts:
-      path: "/index.html/ed=mitivpn"
+      path: "/"
       headers:
-        Host: "gamingdll.ir"
+        Host: "assets.trorays.com"
     udp: true
   - name: "HK _HK_ssr MTE2LjE2Mi4xMjAuNDk6NTYwOmF1dGhfYWVzMTI4X21kNTpjaGFjaGEyMC1pZXRmOnBsY"
     server: "104.17.3.81"

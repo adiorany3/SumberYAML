@@ -34,22 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "IN IN-129.227.201.234-0021"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-    alterId: 4
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "aicoo6du.com"
-    network: ws
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "aicoo6du.com"
-    udp: true
   - name: "V2raySup0"
     server: "104.17.3.81"
     port: 443
@@ -64,6 +48,21 @@ proxies:
       path: "/in-do"
       headers:
         Host: "investors.spotify.com.cyylr.eu.cc"
+    udp: true
+  - name: "hopev2ray 3872"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 58341346-98dd-4094-a26c-c378e86261e1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.cyylr.eu.cc"
+    ws-opts:
+      path: "/in-pdr"
+      headers:
+        Host: "support.zoom.us.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

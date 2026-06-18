@@ -1,5 +1,80 @@
 proxies:
-  - name: "GozargahAzad SC"
+  - name: "SC SC VLESS ai_duet 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 406d8436-0eb9-4eb2-84fb-960e076ffba6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.130.125.160"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "45.130.125.160"
+    udp: true
+  - name: "SC SC VLESS flyv2ray 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.130.125.158"
+    ws-opts:
+      path: "/fp#TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "45.130.125.158"
+    udp: true
+  - name: "SC SC VLESS mpproxy 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "srv1.khatibirepair.ir"
+    ws-opts:
+      path: "/?ed"
+      headers:
+        Host: "srv1.khatibirepair.ir"
+    udp: true
+  - name: "SC SC VLESS v2ray_free_conf 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 44f7eb71-de22-4a9c-8d5a-64fb7115c82f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.205.0.58"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "45.205.0.58"
+    udp: true
+  - name: "SC SC VLESS vmesskhodam 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 44f7eb71-de22-4a9c-8d5a-64fb7115c82f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.205.0.55"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "45.205.0.55"
+    udp: true
+  - name: "SC SC TROJAN netmellianti 1"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -7,9 +82,23 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "linkkon-a.ir"
+    sni: "45.130.125.220"
     ws-opts:
       path: "/index.html=mitivpn"
       headers:
-        Host: "linkkon-a.ir"
+        Host: "45.130.125.220"
+    udp: true
+  - name: "SC SC TROJAN v2rayopen 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "45.130.125.158"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "45.130.125.158"
     udp: true

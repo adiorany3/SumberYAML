@@ -1,0 +1,221 @@
+# Auto generated usage profile OpenClash config
+# Output: output/streaming.yaml
+# Profile group: STREAMING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "6 fastkanfig"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "2ee.we.wwww.swsl.glowbal.diwgi.mwy.mitivpn.xyz"
+    ws-opts:
+      path: "/ed=mitivpn"
+      headers:
+        Host: "2ee.we.wwww.swsl.glowbal.diwgi.mwy.mitivpn.xyz"
+    udp: true
+  - name: "78574 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 168eb5ad-3fda-490b-a2d7-af2d74d981ac
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "gb.fennix.cyou"
+    ws-opts:
+      path: "/assets"
+      headers:
+        Host: "gb.fennix.cyou"
+    udp: true
+  - name: "91-3"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b546c7bf-c4dd-2ee6-b307-6975dc02e2f3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tmesubgift.up.railway.app"
+    ws-opts:
+      path: "/ws/b546c7bf-c4dd-2ee6-b307-6975dc02e2f3"
+      headers:
+        Host: "tmesubgift.up.railway.app"
+    udp: true
+  - name: "By EbraSha 1098"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: c5a2d7b8-bf84-4f97-8577-b9b87f2baaf7
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "185.162.228.110"
+    network: ws
+    ws-opts:
+      path: "/AUIKN8AU"
+      headers:
+        Host: "185.162.228.110"
+    udp: true
+  - name: "By EbraSha 1230"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 824c58b1-65ba-4680-a609-663a000dbb92
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "45.159.218.111"
+    network: ws
+    ws-opts:
+      path: "/wss13889"
+      headers:
+        Host: "45.159.218.111"
+    udp: true
+  - name: "By EbraSha 1410"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: c592f040-faff-47dc-a464-9bccf2dd4e7b
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "n1761214919.mv7wh.tech"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "n1761214919.mv7wh.tech"
+    udp: true
+  - name: "By EbraSha 1872"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: a5ba8b2b-8fc5-4521-a35e-9281be61c1c3
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "lg1.zhujicn2.com"
+    network: ws
+    ws-opts:
+      path: "/dongtaiwang.com"
+      headers:
+        Host: "lg1.zhujicn2.com"
+    udp: true
+  - name: "By EbraSha 2180"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "23.158.56.229"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "23.158.56.229"
+    udp: true
+  - name: "By EbraSha 2220"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: c7e645be-1704-4f0a-afe9-8b21f9c711d6
+    alterId: 64
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "27.124.8.141"
+    network: ws
+    ws-opts:
+      path: "/path/220128071100"
+      headers:
+        Host: "27.124.8.141"
+    udp: true
+  - name: "By EbraSha 2275"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 824c58b1-65ba-4680-a609-663a000dbb92
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "104.16.72.175"
+    network: ws
+    ws-opts:
+      path: "/wss13889"
+      headers:
+        Host: "104.16.72.175"
+    udp: true
+
+proxy-groups:
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "6 fastkanfig"
+      - "78574 - Telegram V2All"
+      - "91-3"
+      - "By EbraSha 1098"
+      - "By EbraSha 1230"
+      - "By EbraSha 1410"
+      - "By EbraSha 1872"
+      - "By EbraSha 2180"
+      - "By EbraSha 2220"
+      - "By EbraSha 2275"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "STREAMING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
