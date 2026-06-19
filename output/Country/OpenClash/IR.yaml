@@ -34,22 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "VPNine1 7123"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 5e4d4ec6-b781-4985-bc8a-910a24e0e1ee
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "zx.hostxyz.ir"
-    ws-opts:
-      path: "/xui"
-      headers:
-        Host: "zx.hostxyz.ir"
-    udp: true
-  - name: "ReleaseNet 6794"
+  - name: "ReleaseNet 3037"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -64,22 +49,37 @@ proxies:
       headers:
         Host: "server-ir-3.ariyuz.org"
     udp: true
-  - name: "tootffarangi-5"
+  - name: "hope of freedom - anotherme_night"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: f106648e-0644-40bc-974c-6edc966fe18d
+    uuid: 533b9db9-da5a-41ac-ae9d-0c982ec8f880
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "ssd.mojaz-persian-music.ir"
+    servername: "fty.jison.ir"
     ws-opts:
-      path: "/?ed=80"
+      path: "/ws"
       headers:
-        Host: "ssd.mojaz-persian-music.ir"
+        Host: "sdt.jison.ir"
     udp: true
-  - name: "mehrosaboran 9747"
+  - name: "outline_ir 9038"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ec2faffd-c40f-ff1b-0983-45e76698b41e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "node-8733566702-89c0b6.s-vpnsub.workers.dev"
+    ws-opts:
+      path: "/sync"
+      headers:
+        Host: "node-8733566702-89c0b6.s-vpnsub.workers.dev"
+    udp: true
+  - name: "mehrosaboran 8514"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -107,7 +107,7 @@ proxies:
       headers:
         Host: "wwww.95r.ir"
     udp: true
-  - name: "v2rayNplus 4467"
+  - name: "v2rayNplus 4453"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -120,6 +120,34 @@ proxies:
       path: "/ed"
       headers:
         Host: "wwww.95r.ir"
+    udp: true
+  - name: "NETMelliAnti"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "55zHQQIIKK"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "s6.aananas.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "s6.aananas.ir"
+    udp: true
+  - name: "vmesskhodam 9849"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "r0iZZEo18S"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "s5.aananas.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "s5.aananas.ir"
     udp: true
 
 proxy-groups:

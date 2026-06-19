@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "NL ProxyVPN11"
+  - name: "NL NL Raydikalx 2400"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -63,20 +63,6 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.multiplydose.com"
-    udp: true
-  - name: "FreakConfig NL 7513"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.gossipglove.com"
     udp: true
 
 proxy-groups:
