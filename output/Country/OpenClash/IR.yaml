@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "filembad"
+  - name: "vmesskhodam"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,21 +49,22 @@ proxies:
       headers:
         Host: "sdt.jison.ir"
     udp: true
-  - name: "GozargahAzad 8739"
+  - name: "filembad"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "MiTiVPN"
+    type: vless
+    uuid: f106648e-0644-40bc-974c-6edc966fe18d
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "wwww.95r.ir"
+    servername: "ssd.mojaz-persian-music.ir"
     ws-opts:
-      path: "/ed=mitivpn"
+      path: "/?ed=80"
       headers:
-        Host: "wwww.95r.ir"
+        Host: "ssd.mojaz-persian-music.ir"
     udp: true
-  - name: "v2rayNplus 5671"
+  - name: "v2rayNplus 2895"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -77,7 +78,7 @@ proxies:
       headers:
         Host: "wwww.95r.ir"
     udp: true
-  - name: "outline_ir 5490"
+  - name: "Trojan"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -85,11 +86,11 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "cdn.95r.ir"
+    sni: "wwww.95r.ir"
     ws-opts:
-      path: "/index.php?mitivpn"
+      path: "/ed=mitivpn"
       headers:
-        Host: "cdn.95r.ir"
+        Host: "wwww.95r.ir"
     udp: true
 
 proxy-groups:
