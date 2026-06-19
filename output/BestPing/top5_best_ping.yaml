@@ -1,5 +1,20 @@
 proxies:
-  - name: "Channel id internet_azad_2026 2654"
+  - name: "Channel id internet_azad_2026"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t01.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t01.tzteam.online"
+    udp: true
+  - name: "Channel id internet_azad_2026 2326"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -14,37 +29,7 @@ proxies:
       headers:
         Host: "t06.tzteam.online"
     udp: true
-  - name: "Channel id internet_azad_2026 9107"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "t02.tzteam.online"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "t02.tzteam.online"
-    udp: true
-  - name: "Channel id internet_azad_2026 4122"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "t05.tzteam.online"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "t05.tzteam.online"
-    udp: true
-  - name: "Channel id internet_azad_2026 5908"
+  - name: "Channel id internet_azad_2026 3436"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -59,7 +44,22 @@ proxies:
       headers:
         Host: "t03.tzteam.online"
     udp: true
-  - name: "Channel id internet_azad_2026 4236"
+  - name: "Channel id internet_azad_2026 5107"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t05.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t05.tzteam.online"
+    udp: true
+  - name: "Channel id internet_azad_2026 1022"
     server: "104.17.3.81"
     port: 443
     type: vless

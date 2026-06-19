@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-19T04:18:17Z",
+  "generated_at_utc": "2026-06-19T10:26:44Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 6,
+      "count": 3,
       "keywords": [
         "google",
         "gcp",
@@ -37,24 +37,6 @@
           "name": "CxrolVPN",
           "server": "104.21.32.1",
           "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🇩🇪DE-🚀@VPNine1",
-          "server": "recap.rezznet.org",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🇩🇪",
-          "server": "recap.rezznet.org",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🇩🇪DE-🚀@VPNine1",
-          "server": "recap.rezznet.org",
-          "port": 443
         }
       ]
     },
@@ -71,7 +53,7 @@
     },
     "microsoft": {
       "file": "input/microsoft.txt",
-      "count": 9,
+      "count": 10,
       "keywords": [
         "microsoft",
         "azure",
@@ -133,6 +115,12 @@
           "name": "",
           "server": "news.microsoft.com",
           "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🇩🇪",
+          "server": "news.microsoft.com",
+          "port": 443
         }
       ]
     },
@@ -149,13 +137,13 @@
       "sample": [
         {
           "scheme": "vless",
-          "name": "🚀@VPNine1",
-          "server": "188.114.97.6",
+          "name": "🇩🇪",
+          "server": "betty.ns.cloudflare.com",
           "port": 443
         },
         {
           "scheme": "vless",
-          "name": "Channel",
+          "name": "🔵@chillguy_vpn",
           "server": "betty.ns.cloudflare.com",
           "port": 443
         },
@@ -167,8 +155,8 @@
         },
         {
           "scheme": "vless",
-          "name": "@ansooyefilter",
-          "server": "ansooyefilter.qeshmdiyar.ir",
+          "name": "Channel",
+          "server": "betty.ns.cloudflare.com",
           "port": 443
         }
       ]

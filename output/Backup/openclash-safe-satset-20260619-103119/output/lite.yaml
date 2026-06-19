@@ -1,0 +1,473 @@
+# Auto generated compact OpenClash config
+# Output: output/lite.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "Channel id internet_azad_2026"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t01.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t01.tzteam.online"
+    udp: true
+  - name: "Channel id internet_azad_2026 2326"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t06.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t06.tzteam.online"
+    udp: true
+  - name: "Channel id internet_azad_2026 3436"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t03.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t03.tzteam.online"
+    udp: true
+  - name: "Channel id internet_azad_2026 5107"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t05.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t05.tzteam.online"
+    udp: true
+  - name: "Channel id internet_azad_2026 1022"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 72d1797c-cef8-410a-b8fd-db9104dc3cb0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "amooaliii.net"
+    ws-opts:
+      path: "/jdhfyws"
+      headers:
+        Host: "amooaliii.net"
+    udp: true
+  - name: "Channel id internet_azad_2026 1820"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t04.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t04.tzteam.online"
+    udp: true
+  - name: "Channel id internet_azad_2026 9157"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t02.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t02.tzteam.online"
+    udp: true
+  - name: "Arvand_soul Arvand_soul 1914"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "6c862415-30d2-4813-8e49-42e99a0bd415"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "Ap_Ir6 3238"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 889f1c8f-c286-4365-861b-8e45dbff09b6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ezaccess-project-f9917b.ez-763875.workers.dev"
+    ws-opts:
+      path: "/eyJqdW5rIjoiVkdJdXNwVmNyWVpTd1A1IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+      headers:
+        Host: "ezaccess-project-f9917b.ez-763875.workers.dev"
+    udp: true
+  - name: "Arvand_soul Arvand_soul 5296"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "86957ec0-b213-433b-a43b-51f2175e0ec3"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "ShadowsocksM US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "Channel id internet_azad_2026 CA 6858"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "linkkon-w.ir"
+    ws-opts:
+      path: "/cdn=mitivpn"
+      headers:
+        Host: "linkkon-w.ir"
+    udp: true
+  - name: "JP JP- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "US Join Telegram Farah_VPN US"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "hhcm.hhxaf.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hhcm.hhxaf.cc.cd"
+    udp: true
+  - name: "SylphNet 2026-06-19 08 27"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "f922fa0f-3311-4368-85ff-cf65e727c854"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "v2rayNplus 4080"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "wwww.95r.ir"
+    ws-opts:
+      path: "/ed"
+      headers:
+        Host: "wwww.95r.ir"
+    udp: true
+  - name: "EXPRESSVPN_420"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "wwww.95r.ir"
+    ws-opts:
+      path: "/ed=mitivpn"
+      headers:
+        Host: "wwww.95r.ir"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "Channel id internet_azad_2026"
+      - "Channel id internet_azad_2026 2326"
+      - "Channel id internet_azad_2026 3436"
+      - "Channel id internet_azad_2026 5107"
+      - "Channel id internet_azad_2026 1022"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "Channel id internet_azad_2026"
+      - "Channel id internet_azad_2026 2326"
+      - "Channel id internet_azad_2026 3436"
+      - "Channel id internet_azad_2026 5107"
+      - "Channel id internet_azad_2026 1022"
+      - "Channel id internet_azad_2026 1820"
+      - "Channel id internet_azad_2026 9157"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "Arvand_soul Arvand_soul 1914"
+      - "Ap_Ir6 3238"
+      - "Channel id internet_azad_2026 CA 6858"
+      - "Arvand_soul Arvand_soul 5296"
+      - "ShadowsocksM US"
+      - "JP JP- VPNine1"
+      - "hope of freedom - anotherme_night"
+      - "US Join Telegram Farah_VPN US"
+      - "SylphNet 2026-06-19 08 27"
+      - "v2rayNplus 4080"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "Arvand_soul Arvand_soul 1914"
+      - "Ap_Ir6 3238"
+      - "Arvand_soul Arvand_soul 5296"
+      - "Channel id internet_azad_2026 CA 6858"
+      - "ShadowsocksM US"
+      - "JP JP- VPNine1"
+      - "US Join Telegram Farah_VPN US"
+      - "SylphNet 2026-06-19 08 27"
+      - "v2rayNplus 4080"
+      - "hope of freedom - anotherme_night"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "Arvand_soul Arvand_soul 1914"
+      - "Ap_Ir6 3238"
+      - "Arvand_soul Arvand_soul 5296"
+      - "Channel id internet_azad_2026 CA 6858"
+      - "ShadowsocksM US"
+      - "JP JP- VPNine1"
+      - "US Join Telegram Farah_VPN US"
+      - "SylphNet 2026-06-19 08 27"
+      - "hope of freedom - anotherme_night"
+      - "v2rayNplus 4080"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "Arvand_soul Arvand_soul 1914"
+      - "Ap_Ir6 3238"
+      - "Channel id internet_azad_2026 CA 6858"
+      - "Arvand_soul Arvand_soul 5296"
+      - "ShadowsocksM US"
+      - "JP JP- VPNine1"
+      - "US Join Telegram Farah_VPN US"
+      - "SylphNet 2026-06-19 08 27"
+      - "hope of freedom - anotherme_night"
+      - "v2rayNplus 4080"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "Arvand_soul Arvand_soul 1914"
+      - "Ap_Ir6 3238"
+      - "Arvand_soul Arvand_soul 5296"
+      - "Channel id internet_azad_2026 CA 6858"
+      - "ShadowsocksM US"
+      - "JP JP- VPNine1"
+      - "US Join Telegram Farah_VPN US"
+      - "SylphNet 2026-06-19 08 27"
+      - "hope of freedom - anotherme_night"
+      - "v2rayNplus 4080"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST TOP GLOBAL"
+    type: url-test
+    proxies:
+      - "Arvand_soul Arvand_soul 1914"
+      - "Ap_Ir6 3238"
+      - "Arvand_soul Arvand_soul 5296"
+      - "ShadowsocksM US"
+      - "Channel id internet_azad_2026 CA 6858"
+      - "JP JP- VPNine1"
+      - "US Join Telegram Farah_VPN US"
+      - "SylphNet 2026-06-19 08 27"
+      - "v2rayNplus 4080"
+      - "EXPRESSVPN_420"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "Channel id internet_azad_2026"
+      - "Channel id internet_azad_2026 2326"
+      - "Channel id internet_azad_2026 3436"
+      - "Channel id internet_azad_2026 5107"
+      - "Channel id internet_azad_2026 1022"
+      - "Channel id internet_azad_2026 1820"
+      - "Channel id internet_azad_2026 9157"
+      - "Arvand_soul Arvand_soul 1914"
+      - "Ap_Ir6 3238"
+      - "Arvand_soul Arvand_soul 5296"
+      - "ShadowsocksM US"
+      - "Channel id internet_azad_2026 CA 6858"
+      - "JP JP- VPNine1"
+      - "US Join Telegram Farah_VPN US"
+      - "SylphNet 2026-06-19 08 27"
+      - "v2rayNplus 4080"
+      - "EXPRESSVPN_420"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "Channel id internet_azad_2026"
+      - "Channel id internet_azad_2026 2326"
+      - "Channel id internet_azad_2026 3436"
+      - "Channel id internet_azad_2026 5107"
+      - "Channel id internet_azad_2026 1022"
+      - "Channel id internet_azad_2026 1820"
+      - "Channel id internet_azad_2026 9157"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST TOP GLOBAL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
