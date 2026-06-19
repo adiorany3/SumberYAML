@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-06-19T10:26:44Z",
+  "generated_at_utc": "2026-06-19T15:16:51Z",
   "policy": "extra-sources-tcp-alive-vmess-vless-trojan-only",
   "note": "Alive means TCP connection to server:port succeeded before the main generator's own proxy test. SS/SSR are intentionally skipped for OpenClash compatibility.",
   "sources": [
@@ -7,36 +7,36 @@
       "url": "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/sub/port_443.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 1440085,
-      "extracted_links": 5183
+      "bytes": 1360746,
+      "extracted_links": 4823
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub1.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 58878,
+      "bytes": 58308,
       "extracted_links": 441
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/All_Configs_Sub.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 1243100,
-      "extracted_links": 5576
+      "bytes": 1240693,
+      "extracted_links": 5565
     },
     {
       "url": "https://raw.githubusercontent.com/hamedcode/port-based-v2ray-configs/main/detailed/vless/443.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 653950,
-      "extracted_links": 2457
+      "bytes": 608387,
+      "extracted_links": 2269
     },
     {
       "url": "https://raw.githubusercontent.com/itsyebekhe/PSG/main/lite/subscriptions/xray/normal/mix",
       "fetch_ok": true,
       "error": null,
       "bytes": 77710,
-      "extracted_links": 252
+      "extracted_links": 248
     },
     {
       "url": "https://raw.githubusercontent.com/arshiacomplus/v2rayExtractor/refs/heads/main/mix/sub.html",
@@ -49,7 +49,7 @@
       "url": "https://raw.githubusercontent.com/Rayan-Config/C-Sub/refs/heads/main/configs/proxy.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 17549,
+      "bytes": 17555,
       "extracted_links": 73
     },
     {
@@ -77,64 +77,64 @@
       "url": "https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 2054779,
-      "extracted_links": 7200
+      "bytes": 2052147,
+      "extracted_links": 7192
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 981559,
-      "extracted_links": 4149
+      "bytes": 979514,
+      "extracted_links": 4140
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/trojan.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 100270,
+      "bytes": 100106,
       "extracted_links": 540
     },
     {
       "url": "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/main/vmess_configs.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 2578856,
-      "extracted_links": 7493
+      "bytes": 2094158,
+      "extracted_links": 6023
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub2.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 85783,
+      "bytes": 86423,
       "extracted_links": 485
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub3.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 116546,
+      "bytes": 117472,
       "extracted_links": 491
     },
     {
       "url": "https://raw.githubusercontent.com/barry-far/V2ray-Config/main/Sub4.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 110830,
+      "bytes": 110718,
       "extracted_links": 496
     },
     {
       "url": "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 2724,
-      "extracted_links": 5
+      "bytes": 7215,
+      "extracted_links": 15
     },
     {
       "url": "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt",
       "fetch_ok": true,
       "error": null,
-      "bytes": 42121,
-      "extracted_links": 137
+      "bytes": 24385,
+      "extracted_links": 85
     }
   ],
   "input_urls": [
@@ -158,19 +158,19 @@
     "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
     "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS_mobile.txt"
   ],
-  "total_extracted_raw": 35667,
-  "dropped_ss_ssr": 2559,
+  "total_extracted_raw": 33575,
+  "dropped_ss_ssr": 2505,
   "unique_supported_candidates": 3000,
   "checked_candidates": 3000,
   "alive_candidates": 700,
   "by_scheme": {
-    "vless": 1571,
-    "trojan": 649,
-    "vmess": 780
+    "trojan": 651,
+    "vless": 1568,
+    "vmess": 781
   },
   "alive_by_scheme": {
-    "vless": 1398,
-    "trojan": 537,
+    "trojan": 538,
+    "vless": 1402,
     "vmess": 516
   },
   "append_to": "input/links.txt",
@@ -189,6 +189,13 @@
   },
   "sample_alive": [
     {
+      "scheme": "trojan",
+      "name": "@mehrosaboran",
+      "server": "172.67.210.215",
+      "port": 443,
+      "peer": "172.67.210.215:443"
+    },
+    {
       "scheme": "vless",
       "name": "@FarazV2ray",
       "server": "144.124.228.113",
@@ -204,10 +211,10 @@
     },
     {
       "scheme": "vless",
-      "name": "🌻71@oneclickvpnkeys",
-      "server": "144.31.131.33",
+      "name": "Russia",
+      "server": "85.234.114.53",
       "port": 443,
-      "peer": "144.31.131.33:443"
+      "peer": "85.234.114.53:443"
     },
     {
       "scheme": "trojan",
@@ -235,7 +242,7 @@
       "name": "🇺🇸",
       "server": "news.microsoft.com",
       "port": 443,
-      "peer": "141.193.213.20:443"
+      "peer": "141.193.213.21:443"
     },
     {
       "scheme": "trojan",
@@ -249,7 +256,7 @@
       "name": "@prrofile_purple",
       "server": "news.microsoft.com",
       "port": 443,
-      "peer": "141.193.213.20:443"
+      "peer": "141.193.213.21:443"
     },
     {
       "scheme": "trojan",
@@ -320,13 +327,6 @@
       "server": "141.193.213.30",
       "port": 443,
       "peer": "141.193.213.30:443"
-    },
-    {
-      "scheme": "trojan",
-      "name": "@prrofile_purple",
-      "server": "news.microsoft.com",
-      "port": 443,
-      "peer": "141.193.213.20:443"
     }
   ]
 }
