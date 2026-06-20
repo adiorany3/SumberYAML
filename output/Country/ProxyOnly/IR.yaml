@@ -1,33 +1,17 @@
 proxies:
-  - name: "Channel Daily_Configs 8300"
+  - name: "internet_azad_2026"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 533b9db9-da5a-41ac-ae9d-0c982ec8f880
-    cipher: none
+    type: trojan
+    password: "MiTiVPN"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "fty.jison.ir"
+    sni: "blog.95r.ir"
     ws-opts:
-      path: "/ws"
+      path: "/ed=mitivpn"
       headers:
-        Host: "sdt.jison.ir"
-    udp: true
-  - name: "ReleaseNet 8899"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "server-ir-3.ariyuz.org"
-    ws-opts:
-      path: "/page=2"
-      headers:
-        Host: "server-ir-3.ariyuz.org"
+        Host: "blog.95r.ir"
     udp: true
   - name: "v2rayNplus"
     server: "104.17.3.81"

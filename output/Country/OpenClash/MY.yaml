@@ -34,49 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "TEL Father_vpn 8260"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 12d8b109-394d-4d0c-a208-2b9a41f09f36
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "ads.ruangguru.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/my-wbv"
-      headers:
-        Host: "ads.ruangguru.com.cyylr.eu.cc"
-    udp: true
-  - name: "MY Malaysia"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 297df885-9161-46cb-94d4-90a8a8489645
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "45.128.54.17"
-    ws-opts:
-      path: "/dahuqpws"
-      headers:
-        Host: "45.128.54.17"
-    udp: true
-  - name: "TEL Father_vpn 8060"
+  - name: "internet_azad_2026 1548"
     server: "104.17.3.81"
     port: 443
     type: trojan
-    password: "de4dbc41-fe13-4498-b5b4-083e451270f6"
+    password: "MiTiVPN"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "zaintest.vuclip.com.cyylr.eu.cc"
+    sni: "my.95r.ir"
     ws-opts:
-      path: "/my-wbv"
+      path: "/ed=mitivpn"
       headers:
-        Host: "zaintest.vuclip.com.cyylr.eu.cc"
+        Host: "my.95r.ir"
     udp: true
 
 proxy-groups:
