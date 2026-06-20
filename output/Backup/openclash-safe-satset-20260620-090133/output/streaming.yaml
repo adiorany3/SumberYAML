@@ -1,0 +1,211 @@
+# Auto generated usage profile OpenClash config
+# Output: output/streaming.yaml
+# Profile group: STREAMING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "Arvand_soul Arvand_soul 1404"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "86957ec0-b213-433b-a43b-51f2175e0ec3"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "V2dogs_n 7209"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "V2ray_official 1990"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "tjsp.hhxaf.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tjsp.hhxaf.cc.cd"
+    udp: true
+  - name: "meliproxyy 7987"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "f922fa0f-3311-4368-85ff-cf65e727c854"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "configshub2 US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nuclear.us.kg"
+    ws-opts:
+      path: "/free/1.226.227.169:50001"
+      headers:
+        Host: "nuclear.us.kg"
+    udp: true
+  - name: "Ap_Ir6 9363"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 889f1c8f-c286-4365-861b-8e45dbff09b6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ezaccess-project-f9917b.ez-763875.workers.dev"
+    ws-opts:
+      path: "/eyJqdW5rIjoiVkdJdXNwVmNyWVpTd1A1IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+      headers:
+        Host: "ezaccess-project-f9917b.ez-763875.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 3047"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "ar14n24b VL-WS-N A XX 11ms"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d9668a4c-4b22-454e-90fa-c6a49c29474e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "old-dust-2bd3.shaghayeghghasemii82.workers.dev"
+    ws-opts:
+      path: "/eyJqdW5rIjoiZG9YbmxRWGNEIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiMTkzLjEyNC45Mi41OCJdfQ=="
+      headers:
+        Host: "old-dust-2bd3.shaghayeghghasemii82.workers.dev"
+    udp: true
+  - name: "configshub2 US 5786"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e3089afa-1e51-40c5-9f33-88ea664a67de
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "DaYiJoon.mbs-SAteHi.WorkeRs.DeV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiWnVDTzNXbmEzIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+      headers:
+        Host: "DaYiJoon.mbs-SAteHi.WorkeRs.DeV"
+    udp: true
+  - name: "30 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "sbdsbdbdgbdgbdg"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cfnew.tehranhost.online"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cfnew.tehranhost.online"
+    udp: true
+
+proxy-groups:
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "Arvand_soul Arvand_soul 1404"
+      - "V2dogs_n 7209"
+      - "V2ray_official 1990"
+      - "meliproxyy 7987"
+      - "configshub2 US"
+      - "Ap_Ir6 9363"
+      - "oneclickvpnkeys US 3047"
+      - "ar14n24b VL-WS-N A XX 11ms"
+      - "configshub2 US 5786"
+      - "30 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "STREAMING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

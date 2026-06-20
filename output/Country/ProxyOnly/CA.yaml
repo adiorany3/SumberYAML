@@ -1,5 +1,20 @@
 proxies:
-  - name: "Channel id internet_azad_2026 CA 6383"
+  - name: "oneclickvpnkeys CA"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "Channel id internet_azad_2026 CA 9825"
     server: "104.17.3.81"
     port: 443
     type: trojan

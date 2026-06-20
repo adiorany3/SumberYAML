@@ -14,7 +14,22 @@ proxies:
       headers:
         Host: "sdt.jison.ir"
     udp: true
-  - name: "ReleaseNet 1261"
+  - name: "GozargahAzad"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 62c7426b-38b6-4625-9d31-4a47f7d598bc
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "amtal.soltankabos.ir"
+    ws-opts:
+      path: "/ws?ed=2560"
+      headers:
+        Host: "amtal.soltankabos.ir"
+    udp: true
+  - name: "ReleaseNet 7955"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -28,21 +43,6 @@ proxies:
       path: "/page=2"
       headers:
         Host: "server-ir-3.ariyuz.org"
-    udp: true
-  - name: "outline_ir 6678"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ec2faffd-c40f-ff1b-0983-45e76698b41e
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "node-8733566702-89c0b6.s-vpnsub.workers.dev"
-    ws-opts:
-      path: "/sync"
-      headers:
-        Host: "node-8733566702-89c0b6.s-vpnsub.workers.dev"
     udp: true
   - name: "EXPRESSVPN_420"
     server: "104.17.3.81"
@@ -58,7 +58,7 @@ proxies:
       headers:
         Host: "wwww.95r.ir"
     udp: true
-  - name: "v2rayNplus 5082"
+  - name: "v2rayNplus 7768"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -71,4 +71,18 @@ proxies:
       path: "/ed"
       headers:
         Host: "wwww.95r.ir"
+    udp: true
+  - name: "NETMelliAnti 5030"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "k2CQ2JboS7"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "s6.aananas.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "s6.aananas.ir"
     udp: true
