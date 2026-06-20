@@ -1,4 +1,18 @@
 proxies:
+  - name: "79949 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "wwww.95r.ir"
+    ws-opts:
+      path: "/ed=mitivpn"
+      headers:
+        Host: "wwww.95r.ir"
+    udp: true
   - name: "30 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443

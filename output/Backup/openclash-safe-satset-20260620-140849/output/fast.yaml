@@ -1,0 +1,263 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "12 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "f922fa0f-3311-4368-85ff-cf65e727c854"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "43 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "6c862415-30d2-4813-8e49-42e99a0bd415"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "Channel id internet_azad_2026 3759"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t05.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t05.tzteam.online"
+    udp: true
+  - name: "Channel id internet_azad_2026 8455"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t04.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t04.tzteam.online"
+    udp: true
+  - name: "Channel id internet_azad_2026"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t02.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t02.tzteam.online"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "12 oneclickvpnkeys"
+      - "43 oneclickvpnkeys"
+      - "Channel id internet_azad_2026 3759"
+      - "Channel id internet_azad_2026 8455"
+      - "Channel id internet_azad_2026"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "12 oneclickvpnkeys"
+      - "43 oneclickvpnkeys"
+      - "Channel id internet_azad_2026 3759"
+      - "Channel id internet_azad_2026 8455"
+      - "Channel id internet_azad_2026"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 9501"
+      - "12 oneclickvpnkeys"
+      - "V2ray_official 2832"
+      - "NetFlowTools"
+      - "16 oneclickvpnkeys"
+      - "oneclickvpnkeys CA"
+      - "v2rayNplus"
+      - "v2rayconfigamir 9635"
+      - "configV2rayNG US"
+      - "30 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 9501"
+      - "12 oneclickvpnkeys"
+      - "V2ray_official 2832"
+      - "FR t.me Natrixo BB"
+      - "NetFlowTools"
+      - "v2rayconfigamir 9635"
+      - "16 oneclickvpnkeys"
+      - "oneclickvpnkeys CA"
+      - "v2rayNplus"
+      - "43 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 9501"
+      - "12 oneclickvpnkeys"
+      - "V2ray_official 2832"
+      - "NetFlowTools"
+      - "16 oneclickvpnkeys"
+      - "oneclickvpnkeys CA"
+      - "v2rayNplus"
+      - "v2rayconfigamir 9635"
+      - "configV2rayNG US"
+      - "30 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 9501"
+      - "12 oneclickvpnkeys"
+      - "V2ray_official 2832"
+      - "NetFlowTools"
+      - "16 oneclickvpnkeys"
+      - "oneclickvpnkeys CA"
+      - "v2rayNplus"
+      - "v2rayconfigamir 9635"
+      - "30 oneclickvpnkeys"
+      - "79949 - Telegram V2All"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 9501"
+      - "12 oneclickvpnkeys"
+      - "V2ray_official 2832"
+      - "NetFlowTools"
+      - "16 oneclickvpnkeys"
+      - "oneclickvpnkeys CA"
+      - "v2rayNplus"
+      - "v2rayconfigamir 9635"
+      - "43 oneclickvpnkeys"
+      - "configV2rayNG US"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "12 oneclickvpnkeys"
+      - "43 oneclickvpnkeys"
+      - "Channel id internet_azad_2026 3759"
+      - "Channel id internet_azad_2026 8455"
+      - "Channel id internet_azad_2026"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "12 oneclickvpnkeys"
+      - "43 oneclickvpnkeys"
+      - "Channel id internet_azad_2026 3759"
+      - "Channel id internet_azad_2026 8455"
+      - "Channel id internet_azad_2026"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

@@ -1,0 +1,210 @@
+# Auto generated usage profile OpenClash config
+# Output: output/working.yaml
+# Profile group: WORKING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "VPNine1 9501"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4d40a593-14fc-71d2-2b76-69f1a5ee3123
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nahan-bsm2sp.urmia4693.workers.dev"
+    ws-opts:
+      path: "/sync"
+      headers:
+        Host: "nahan-bsm2sp.urmia4693.workers.dev"
+    udp: true
+  - name: "12 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "f922fa0f-3311-4368-85ff-cf65e727c854"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "V2ray_official 2832"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "tjsp.hhxaf.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tjsp.hhxaf.cc.cd"
+    udp: true
+  - name: "NetFlowTools"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-NetFlowTools?ed=512"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "16 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip=dc844a1f.tp15333.ip.090227.xyz"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys CA"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "v2rayNplus"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "wwww.95r.ir"
+    ws-opts:
+      path: "/ed"
+      headers:
+        Host: "wwww.95r.ir"
+    udp: true
+  - name: "v2rayconfigamir 9635"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "30 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "sbdsbdbdgbdgbdg"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "cfnew.tehranhost.online"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cfnew.tehranhost.online"
+    udp: true
+  - name: "79949 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "wwww.95r.ir"
+    ws-opts:
+      path: "/ed=mitivpn"
+      headers:
+        Host: "wwww.95r.ir"
+    udp: true
+
+proxy-groups:
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "VPNine1 9501"
+      - "12 oneclickvpnkeys"
+      - "V2ray_official 2832"
+      - "NetFlowTools"
+      - "16 oneclickvpnkeys"
+      - "oneclickvpnkeys CA"
+      - "v2rayNplus"
+      - "v2rayconfigamir 9635"
+      - "30 oneclickvpnkeys"
+      - "79949 - Telegram V2All"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "WORKING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

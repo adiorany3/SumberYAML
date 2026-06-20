@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "hope of freedom - anotherme_night"
+  - name: "Channel Daily_Configs 8300"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,22 +49,7 @@ proxies:
       headers:
         Host: "sdt.jison.ir"
     udp: true
-  - name: "GozargahAzad"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 62c7426b-38b6-4625-9d31-4a47f7d598bc
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "amtal.soltankabos.ir"
-    ws-opts:
-      path: "/ws?ed=2560"
-      headers:
-        Host: "amtal.soltankabos.ir"
-    udp: true
-  - name: "ReleaseNet 7955"
+  - name: "ReleaseNet 8899"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -79,21 +64,7 @@ proxies:
       headers:
         Host: "server-ir-3.ariyuz.org"
     udp: true
-  - name: "EXPRESSVPN_420"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "MiTiVPN"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "wwww.95r.ir"
-    ws-opts:
-      path: "/ed=mitivpn"
-      headers:
-        Host: "wwww.95r.ir"
-    udp: true
-  - name: "v2rayNplus 7768"
+  - name: "v2rayNplus"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -106,20 +77,6 @@ proxies:
       path: "/ed"
       headers:
         Host: "wwww.95r.ir"
-    udp: true
-  - name: "NETMelliAnti 5030"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "k2CQ2JboS7"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "s6.aananas.ir"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "s6.aananas.ir"
     udp: true
 
 proxy-groups:

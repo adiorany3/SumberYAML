@@ -14,7 +14,22 @@ proxies:
       headers:
         Host: "t02.tzteam.online"
     udp: true
-  - name: "Channel id internet_azad_2026 1758"
+  - name: "Channel id internet_azad_2026 8455"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t04.tzteam.online"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "t04.tzteam.online"
+    udp: true
+  - name: "Channel id internet_azad_2026 3759"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -29,36 +44,6 @@ proxies:
       headers:
         Host: "t05.tzteam.online"
     udp: true
-  - name: "Channel id internet_azad_2026 5844"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 5b9503aa-119b-4288-aa4f-0bbee2b4d5af
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "t06.tzteam.online"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "t06.tzteam.online"
-    udp: true
-  - name: "Channel id internet_azad_2026 5589"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 72d1797c-cef8-410a-b8fd-db9104dc3cb0
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "amooaliii.net"
-    ws-opts:
-      path: "/jdhfyws"
-      headers:
-        Host: "amooaliii.net"
-    udp: true
   - name: "43 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
@@ -70,6 +55,20 @@ proxies:
     sni: "space.byu.id.yxls.eu.cc"
     ws-opts:
       path: "/us-gllc"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "12 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "f922fa0f-3311-4368-85ff-cf65e727c854"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
       headers:
         Host: "space.byu.id.yxls.eu.cc"
     udp: true
