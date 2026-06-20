@@ -1,19 +1,4 @@
 proxies:
-  - name: "ReleaseNet 3037"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "server-ir-3.ariyuz.org"
-    ws-opts:
-      path: "/page=2"
-      headers:
-        Host: "server-ir-3.ariyuz.org"
-    udp: true
   - name: "hope of freedom - anotherme_night"
     server: "104.17.3.81"
     port: 443
@@ -29,7 +14,22 @@ proxies:
       headers:
         Host: "sdt.jison.ir"
     udp: true
-  - name: "outline_ir 9038"
+  - name: "ReleaseNet 1261"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "server-ir-3.ariyuz.org"
+    ws-opts:
+      path: "/page=2"
+      headers:
+        Host: "server-ir-3.ariyuz.org"
+    udp: true
+  - name: "outline_ir 6678"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -43,20 +43,6 @@ proxies:
       path: "/sync"
       headers:
         Host: "node-8733566702-89c0b6.s-vpnsub.workers.dev"
-    udp: true
-  - name: "mehrosaboran 8514"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "MiTiVPN"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "linkkon-w.ir"
-    ws-opts:
-      path: "/ed=mitivpn"
-      headers:
-        Host: "linkkon-w.ir"
     udp: true
   - name: "EXPRESSVPN_420"
     server: "104.17.3.81"
@@ -72,7 +58,7 @@ proxies:
       headers:
         Host: "wwww.95r.ir"
     udp: true
-  - name: "v2rayNplus 4453"
+  - name: "v2rayNplus 5082"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -85,32 +71,4 @@ proxies:
       path: "/ed"
       headers:
         Host: "wwww.95r.ir"
-    udp: true
-  - name: "NETMelliAnti"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "55zHQQIIKK"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "s6.aananas.ir"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "s6.aananas.ir"
-    udp: true
-  - name: "vmesskhodam 9849"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "r0iZZEo18S"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "s5.aananas.ir"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "s5.aananas.ir"
     udp: true

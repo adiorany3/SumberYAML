@@ -34,20 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "JP JP- VPNine1"
+  - name: "JP JP(mibei77.com"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
-    cipher: none
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "t1s1.rittbo.kdns.fr"
+    sni: "tjsp.hhxaf.cc.cd"
     ws-opts:
-      path: "/fp=chrome"
+      path: "/"
       headers:
-        Host: "t1s1.rittbo.kdns.fr"
+        Host: "tjsp.hhxaf.cc.cd"
     udp: true
 
 proxy-groups:
