@@ -1,29 +1,16 @@
 proxies:
-  - name: "internet_azad_2026"
+  - name: "ReleaseNet 6356"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "MiTiVPN"
+    type: vless
+    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "blog.95r.ir"
+    servername: "server-ir-3.ariyuz.org"
     ws-opts:
-      path: "/ed=mitivpn"
+      path: "/page=2"
       headers:
-        Host: "blog.95r.ir"
-    udp: true
-  - name: "v2rayNplus"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "MiTiVPN"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "wwww.95r.ir"
-    ws-opts:
-      path: "/ed"
-      headers:
-        Host: "wwww.95r.ir"
+        Host: "server-ir-3.ariyuz.org"
     udp: true

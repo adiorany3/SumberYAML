@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-21T04:12:45Z",
+  "generated_at_utc": "2026-06-21T09:50:52Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 12,
+      "count": 16,
       "keywords": [
         "google",
         "gcp",
@@ -58,6 +58,12 @@
         },
         {
           "scheme": "vless",
+          "name": "[80233",
+          "server": "5.252.26.69",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
           "name": "@meliproxyy",
           "server": "82.158.120.24",
           "port": 443
@@ -70,14 +76,8 @@
         },
         {
           "scheme": "vless",
-          "name": "@IRANI13⚡",
-          "server": "85.234.84.206",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@meliproxyy",
-          "server": "85.234.84.206",
+          "name": "[80232",
+          "server": "82.158.120.24",
           "port": 443
         }
       ]
@@ -168,7 +168,7 @@
     },
     "amazon": {
       "file": "input/amazon.txt",
-      "count": 23,
+      "count": 26,
       "keywords": [
         "amazon",
         "aws",
@@ -177,6 +177,12 @@
         "cloudfront"
       ],
       "sample": [
+        {
+          "scheme": "vless",
+          "name": "[80257",
+          "server": "188.114.97.6",
+          "port": 443
+        },
         {
           "scheme": "vless",
           "name": "@ReleaseNet",
@@ -192,6 +198,12 @@
         {
           "scheme": "vless",
           "name": "kurdconfig",
+          "server": "188.114.97.6",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "[80262",
           "server": "188.114.97.6",
           "port": 443
         },
@@ -222,18 +234,6 @@
         {
           "scheme": "vless",
           "name": "🔵@chillguy_vpn",
-          "server": "188.114.97.6",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "23🐝Tel--@V2rayAlpha",
-          "server": "188.114.97.6",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@FarazV2ray",
           "server": "188.114.97.6",
           "port": 443
         }
