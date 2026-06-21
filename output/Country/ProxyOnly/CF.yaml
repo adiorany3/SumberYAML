@@ -1,21 +1,5 @@
 proxies:
-  - name: "US4"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "vienna-bread-threats-amendment.trycloudflare.com"
-    network: ws
-    ws-opts:
-      path: "/7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm"
-      headers:
-        Host: "vienna-bread-threats-amendment.trycloudflare.com"
-    udp: true
-  - name: "hope of freedom - anotherme_night 6545"
+  - name: "chillguy_vpn 2236"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -29,4 +13,18 @@ proxies:
       path: "/proxyip=167.71.48.187"
       headers:
         Host: "lively-resonance-4e12.electrocellco-cf-059.workers.dev"
+    udp: true
+  - name: "Trojan"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "A4u^p(_UR*F6"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "027.ELeCTroCelLco-CF-027.wORkERS.dEv"
+    ws-opts:
+      path: "/eyJqdW5rIjoidlhnMXN5OXFUSiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560"
+      headers:
+        Host: "027.electrocellco-cf-027.workers.dev"
     udp: true
