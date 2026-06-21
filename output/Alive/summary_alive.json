@@ -21,23 +21,23 @@
       "round": 1,
       "tester": "mihomo-delay",
       "tester_ok": true,
-      "alive": 50,
+      "alive": 36,
       "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
-      "tester_ok": true,
-      "alive": 40,
-      "message": "Mihomo proxy delay test selesai."
+      "tester_ok": false,
+      "alive": 0,
+      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1440,
-  "alive": 55,
-  "strict_alive": 55,
-  "dead": 1385,
+  "total": 1463,
+  "alive": 36,
+  "strict_alive": 36,
+  "dead": 1427,
   "untested": 0,
   "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
@@ -45,14 +45,32 @@
   "best_ping_fallback_global_if_empty": true,
   "best_ping_url_test_group": "URL-TEST TOP 5 INDONESIA",
   "best_ping_group_type": "url-test",
-  "best_ping_count": 1,
+  "best_ping_count": 5,
   "best_ping_names": [
-    "80358 - Telegram V2All"
+    "V2dogs_n 3081",
+    "oneclickvpnkeys US 8489",
+    "V2ray_official 5628",
+    "configV2rayNG US 7794",
+    "configfa VL-WS-N A XX 175ms"
   ],
   "responsive_top_n": 15,
-  "responsive_count": 1,
+  "responsive_count": 15,
   "responsive_names": [
-    "80358 - Telegram V2All"
+    "V2dogs_n 3081",
+    "oneclickvpnkeys US 8489",
+    "V2ray_official 5628",
+    "configV2rayNG US 7794",
+    "configfa VL-WS-N A XX 175ms",
+    "oneclickvpnkeys US 2083",
+    "oneclickvpnkeys US 8523",
+    "v2rayconfigamir 9635",
+    "configV2rayNG SG",
+    "configV2rayNG US 8153",
+    "configfa VL-WS-N A XX 2ms",
+    "configshub2 US 2161",
+    "oneclickvpnkeys US 8992",
+    "oneclickvpnkeys US 9282",
+    "v2ray1_ng US"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -64,5 +82,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 55
+  "strict_output_count": 36
 }
