@@ -1,0 +1,460 @@
+# Auto generated compact OpenClash config
+# Output: output/lite.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "US"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "6c862415-30d2-4813-8e49-42e99a0bd415"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "configfa VL-WS-N A XX 2ms"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp#TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "v2ray1_ng VL-WS-N A XX 167ms"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp#TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2560"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "vpnserverrr VL-WS-N A XX 2ms"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr?ed=2048"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "V2dogs_n 6783"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2048"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "AU"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "86957ec0-b213-433b-a43b-51f2175e0ec3"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 8584"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "configfa VL-WS-N A XX 14ms"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 49c0ae46-767c-47d1-9703-8740e0c4b15a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "FLAT-night-EDD0.hOsEin9saLEAZhuongOoYeH87.wOrkerS.DeV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiZU1pQlVqNTBYVmpTeDlCIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMjYwMjpmYzU5OmIwOjY0OjpdIl19?ed=2560"
+      headers:
+        Host: "flat-night-edd0.hosein9saleazhuongooyeh87.workers.dev"
+    udp: true
+  - name: "configfa VL-WS-N A XX 168ms"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 1393"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 7908"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/fp=random"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 3712"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "f922fa0f-3311-4368-85ff-cf65e727c854"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 3073"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip=dc844a1f.tp15333.ip.090227.xyz"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "vpnserverrr VL-WS-N A XX 2ms 3439"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhlfy.twiladaphne.ndjp.net"
+    ws-opts:
+      path: "/?TELEGRAM-vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr?ed=2560"
+      headers:
+        Host: "hhlfy.twiladaphne.ndjp.net"
+    udp: true
+  - name: "oneclickvpnkeys US 5543"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "tjsp.hhxaf.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tjsp.hhxaf.cc.cd"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "US"
+      - "configfa VL-WS-N A XX 2ms"
+      - "v2ray1_ng VL-WS-N A XX 167ms"
+      - "vpnserverrr VL-WS-N A XX 2ms"
+      - "V2dogs_n 6783"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "US"
+      - "configfa VL-WS-N A XX 2ms"
+      - "v2ray1_ng VL-WS-N A XX 167ms"
+      - "vpnserverrr VL-WS-N A XX 2ms"
+      - "V2dogs_n 6783"
+      - "AU"
+      - "oneclickvpnkeys US 8584"
+      - "configfa VL-WS-N A XX 14ms"
+      - "configfa VL-WS-N A XX 168ms"
+      - "oneclickvpnkeys US 1393"
+      - "oneclickvpnkeys US 7908"
+      - "oneclickvpnkeys US 3712"
+      - "oneclickvpnkeys US 3073"
+      - "vpnserverrr VL-WS-N A XX 2ms 3439"
+      - "oneclickvpnkeys US 5543"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "US"
+      - "configfa VL-WS-N A XX 2ms"
+      - "v2ray1_ng VL-WS-N A XX 167ms"
+      - "vpnserverrr VL-WS-N A XX 2ms"
+      - "oneclickvpnkeys US 5543"
+      - "v2rayconfigamir 9635"
+      - "US US2"
+      - "V2dogs_n 6783"
+      - "configfa VL-WS-N A XX 168ms"
+      - "oneclickvpnkeys US 1393"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "US"
+      - "configfa VL-WS-N A XX 2ms"
+      - "v2ray1_ng VL-WS-N A XX 167ms"
+      - "vpnserverrr VL-WS-N A XX 2ms"
+      - "V2dogs_n 6783"
+      - "AU"
+      - "oneclickvpnkeys US 8584"
+      - "configfa VL-WS-N A XX 14ms"
+      - "configfa VL-WS-N A XX 168ms"
+      - "oneclickvpnkeys US 1393"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "US"
+      - "configfa VL-WS-N A XX 2ms"
+      - "v2ray1_ng VL-WS-N A XX 167ms"
+      - "vpnserverrr VL-WS-N A XX 2ms"
+      - "oneclickvpnkeys US 5543"
+      - "v2rayconfigamir 9635"
+      - "V2dogs_n 6783"
+      - "US US2"
+      - "AU"
+      - "oneclickvpnkeys US 8584"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "US"
+      - "configfa VL-WS-N A XX 2ms"
+      - "v2ray1_ng VL-WS-N A XX 167ms"
+      - "vpnserverrr VL-WS-N A XX 2ms"
+      - "oneclickvpnkeys US 5543"
+      - "v2rayconfigamir 9635"
+      - "US US2"
+      - "V2dogs_n 6783"
+      - "AU"
+      - "oneclickvpnkeys US 8584"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "US"
+      - "configfa VL-WS-N A XX 2ms"
+      - "v2ray1_ng VL-WS-N A XX 167ms"
+      - "vpnserverrr VL-WS-N A XX 2ms"
+      - "oneclickvpnkeys US 5543"
+      - "V2dogs_n 6783"
+      - "v2rayconfigamir 9635"
+      - "AU"
+      - "oneclickvpnkeys US 8584"
+      - "configfa VL-WS-N A XX 14ms"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST TOP GLOBAL"
+    type: url-test
+    proxies:
+      - "US"
+      - "configfa VL-WS-N A XX 2ms"
+      - "v2ray1_ng VL-WS-N A XX 167ms"
+      - "vpnserverrr VL-WS-N A XX 2ms"
+      - "V2dogs_n 6783"
+      - "AU"
+      - "oneclickvpnkeys US 8584"
+      - "configfa VL-WS-N A XX 14ms"
+      - "configfa VL-WS-N A XX 168ms"
+      - "oneclickvpnkeys US 1393"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "US"
+      - "configfa VL-WS-N A XX 2ms"
+      - "v2ray1_ng VL-WS-N A XX 167ms"
+      - "vpnserverrr VL-WS-N A XX 2ms"
+      - "V2dogs_n 6783"
+      - "AU"
+      - "oneclickvpnkeys US 8584"
+      - "configfa VL-WS-N A XX 14ms"
+      - "configfa VL-WS-N A XX 168ms"
+      - "oneclickvpnkeys US 1393"
+      - "oneclickvpnkeys US 7908"
+      - "oneclickvpnkeys US 3712"
+      - "oneclickvpnkeys US 3073"
+      - "vpnserverrr VL-WS-N A XX 2ms 3439"
+      - "oneclickvpnkeys US 5543"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "US"
+      - "configfa VL-WS-N A XX 2ms"
+      - "v2ray1_ng VL-WS-N A XX 167ms"
+      - "vpnserverrr VL-WS-N A XX 2ms"
+      - "V2dogs_n 6783"
+      - "AU"
+      - "oneclickvpnkeys US 8584"
+      - "configfa VL-WS-N A XX 14ms"
+      - "configfa VL-WS-N A XX 168ms"
+      - "oneclickvpnkeys US 1393"
+      - "oneclickvpnkeys US 7908"
+      - "oneclickvpnkeys US 3712"
+      - "oneclickvpnkeys US 3073"
+      - "vpnserverrr VL-WS-N A XX 2ms 3439"
+      - "oneclickvpnkeys US 5543"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST TOP GLOBAL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
