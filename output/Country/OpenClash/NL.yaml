@@ -34,23 +34,37 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "NL NL Raydikalx 3043"
-    type: vmess
+  - name: "oneclickvpnkeys NL"
     server: "104.17.3.81"
     port: 443
-    uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: 60631b26-691b-40dc-9255-436a9b612754
+    cipher: none
     tls: true
     skip-cert-verify: true
-    servername: "renderer-stream-1-411.mirra.now"
     network: ws
+    servername: "0gnoyqei.muzxslk2hja4hbyckl6p.workers.dev"
     ws-opts:
-      path: "/api/v1/gpu-stream/socket"
+      path: "/"
       headers:
-        Host: "renderer-stream-1-411.mirra.now"
+        Host: "0gnoyqei.muzxslk2hja4hbyckl6p.workers.dev"
     udp: true
-  - name: "oneclickvpnkeys NL 8199"
+  - name: "oneclickvpnkeys NL 4004"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c7665648-eff9-4317-8978-4ee2fb34f752
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v7s1e040.5qqzdipkj05g8copceva.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "v7s1e040.5qqzdipkj05g8copceva.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys NL 6957"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -64,7 +78,7 @@ proxies:
       headers:
         Host: "www.gossipglove.com"
     udp: true
-  - name: "oneclickvpnkeys NL 3070"
+  - name: "oneclickvpnkeys NL 9741"
     server: "104.17.3.81"
     port: 443
     type: trojan
