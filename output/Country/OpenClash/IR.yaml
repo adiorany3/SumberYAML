@@ -34,20 +34,33 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "IR"
+  - name: "tootffarangi-4"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
-    cipher: none
+    type: trojan
+    password: "B7X8C5rOaZ"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "server-ir-3.ariyuz.org"
+    sni: "a1.aananas.ir"
     ws-opts:
-      path: "/page=2"
+      path: "/?ed=2048"
       headers:
-        Host: "server-ir-3.ariyuz.org"
+        Host: "a1.aananas.ir"
+    udp: true
+  - name: "FarazV2ray 6547"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "iKmZWib7Mb"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "a2.aananas.ir"
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        Host: "a2.aananas.ir"
     udp: true
 
 proxy-groups:

@@ -1,4 +1,19 @@
 proxies:
+  - name: "PL"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0d27ab04-4523-4ae0-94b0-3e14c2089756
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hadi.getfreecp.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hadi.getfreecp.com"
+    udp: true
   - name: "FreakConfig PL"
     server: "104.17.3.81"
     port: 443

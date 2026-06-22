@@ -1,5 +1,20 @@
 proxies:
-  - name: "oneclickvpnkeys DE 8946"
+  - name: "oneclickvpnkeys DE"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4f013568-a58b-4b04-b5dd-4d52bf1c33a4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "amoosamiii.net"
+    ws-opts:
+      path: "/poiuyws"
+      headers:
+        Host: "amoosamiii.net"
+    udp: true
+  - name: "oneclickvpnkeys DE 9500"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -13,4 +28,19 @@ proxies:
       path: "/rsedgws"
       headers:
         Host: "shegeftihaaa.net"
+    udp: true
+  - name: "DE V2ngFast"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1a0be96d-7953-4994-8532-43640268e756
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "v2nGFASt.masOUMKkl.wORkeRS.DEv"
+    ws-opts:
+      path: "/eyJqdW5rIjoiN2lzNjh0STgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560"
+      headers:
+        Host: "v2ngfast.masoumkkl.workers.dev"
     udp: true
