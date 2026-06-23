@@ -1,0 +1,15 @@
+proxies:
+  - name: "Trojan"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "7002R3Gxo1"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "sa.farxmode.ir"
+    ws-opts:
+      path: "/da"
+      headers:
+        Host: "sa.farxmode.ir"
+    udp: true
