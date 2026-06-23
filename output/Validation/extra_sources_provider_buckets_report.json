@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-23T09:39:21Z",
+  "generated_at_utc": "2026-06-23T14:49:14Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 10,
+      "count": 8,
       "keywords": [
         "google",
         "gcp",
@@ -40,6 +40,12 @@
         },
         {
           "scheme": "vless",
+          "name": "@W570W",
+          "server": "64.49.15.180",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
           "name": "@CUSTOMVPNSERVER",
           "server": "157.173.127.225",
           "port": 443
@@ -52,32 +58,14 @@
         },
         {
           "scheme": "vless",
-          "name": "🇹🇷TR-🚀@VPNine1",
-          "server": "130.94.0.124",
+          "name": "🇳🇱NL-🚀@VPNine1",
+          "server": "b-jwn.trafficflow.ir",
           "port": 443
         },
         {
           "scheme": "vless",
           "name": "kurdconfig",
           "server": "130.94.46.140",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🇦🇪AE-🚀@VPNine1",
-          "server": "130.94.46.140",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🇦🇹AT-🚀@VPNine1",
-          "server": "147.45.41.227",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "🇩🇪DE-🚀@VPNine1",
-          "server": "178.83.45.83",
           "port": 443
         }
       ]
@@ -95,7 +83,7 @@
     },
     "microsoft": {
       "file": "input/microsoft.txt",
-      "count": 12,
+      "count": 9,
       "keywords": [
         "microsoft",
         "azure",
@@ -157,18 +145,12 @@
           "name": "",
           "server": "news.microsoft.com",
           "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "Proxy_Se7en",
-          "server": "news.microsoft.com",
-          "port": 443
         }
       ]
     },
     "amazon": {
       "file": "input/amazon.txt",
-      "count": 29,
+      "count": 28,
       "keywords": [
         "amazon",
         "aws",
@@ -177,6 +159,30 @@
         "cloudfront"
       ],
       "sample": [
+        {
+          "scheme": "vless",
+          "name": "@filembad",
+          "server": "peekconfigg.vipserver1-39d.workers.dev",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "V-Core-443-New",
+          "server": "peekconfigg.vipserver1-39d.workers.dev",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🔵@chillguy_vpn",
+          "server": "peekconfigg.vipserver1-39d.workers.dev",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🚀@VPNine1",
+          "server": "peekconfigg.vipserver1-39d.workers.dev",
+          "port": 443
+        },
         {
           "scheme": "vless",
           "name": "@ReleaseNet",
@@ -210,30 +216,6 @@
         {
           "scheme": "vless",
           "name": "@erfanandroid",
-          "server": "188.114.97.6",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@hi_proxy_iran",
-          "server": "188.114.97.6",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@icv2ray",
-          "server": "188.114.97.6",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@meliproxyy",
-          "server": "188.114.97.6",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@vpnbaz",
           "server": "188.114.97.6",
           "port": 443
         }
