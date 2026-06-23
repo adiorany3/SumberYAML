@@ -1,19 +1,4 @@
 proxies:
-  - name: "oneclickvpnkeys NL"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 60631b26-691b-40dc-9255-436a9b612754
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "0gnoyqei.muzxslk2hja4hbyckl6p.workers.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "0gnoyqei.muzxslk2hja4hbyckl6p.workers.dev"
-    udp: true
   - name: "v2rayng_fast NL"
     server: "104.17.3.81"
     port: 443
@@ -29,7 +14,21 @@ proxies:
       headers:
         Host: "speed.thctech.ir"
     udp: true
-  - name: "oneclickvpnkeys NL 3663"
+  - name: "oneclickvpnkeys NL 5118"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "oneclickvpnkeys NL 7990"
     server: "104.17.3.81"
     port: 443
     type: trojan
