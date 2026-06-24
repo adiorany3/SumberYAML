@@ -2,14 +2,15 @@ proxies:
   - name: "HK HK- VPNine1"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "114514"
+    type: vless
+    uuid: 48a66410-0de7-4483-fbbc-bea0082e6375
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "tjaaa.hhllfly.kdns.fr"
+    servername: "krb.hterre.me"
     ws-opts:
-      path: "/"
+      path: "/bing"
       headers:
-        Host: "tjaaa.hhllfly.kdns.fr"
+        Host: "krb.hterre.me"
     udp: true

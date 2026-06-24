@@ -29,7 +29,7 @@ proxies:
       headers:
         Host: "nbhhh.mrcool.kdns.fr"
     udp: true
-  - name: "W570W 4120"
+  - name: "W570W 5963"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -44,22 +44,7 @@ proxies:
       headers:
         Host: "t1s1.rittbo.kdns.fr"
     udp: true
-  - name: "freenettir"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "nbhhh.mrcool.kdns.fr"
-    ws-opts:
-      path: "/proxyip"
-      headers:
-        Host: "nbhhh.mrcool.kdns.fr"
-    udp: true
-  - name: "hopev2ray 2819"
+  - name: "hopev2ray 6730"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -74,7 +59,7 @@ proxies:
       headers:
         Host: "t1s1.rittbo.kdns.fr"
     udp: true
-  - name: "V2dogs_n 7146"
+  - name: "V2dogs_n"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -89,7 +74,7 @@ proxies:
       headers:
         Host: "t1s1.rittbo.kdns.fr"
     udp: true
-  - name: "Soul737 2793"
+  - name: "Soul737 2177"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -104,22 +89,35 @@ proxies:
       headers:
         Host: "t1s1.rittbo.kdns.fr"
     udp: true
-  - name: "farsiproxy 4112"
+  - name: "oneclickvpnkeys FR 6900"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
-    cipher: none
+    type: trojan
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "nbhhh.mrcool.kdns.fr"
+    sni: "www.ignitelimit.com"
     ws-opts:
-      path: "/proxyip=3cfb8e26.tp30304.ip.090227.xyz"
+      path: "/assignment"
       headers:
-        Host: "nbhhh.mrcool.kdns.fr"
+        Host: "www.ignitelimit.com"
     udp: true
-  - name: "oneclickvpnkeys FR 2058"
+  - name: "oneclickvpnkeys FR 9416"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmloud.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmloud.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 8294"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -130,34 +128,6 @@ proxies:
     sni: "www.gossipglove.com"
     ws-opts:
       path: "/assignment"
-      headers:
-        Host: "www.gossipglove.com"
-    udp: true
-  - name: "oneclickvpnkeys FR 8359"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.calmlunch.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.calmlunch.com"
-    udp: true
-  - name: "V2rayNG3 FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment?L=tls"
       headers:
         Host: "www.gossipglove.com"
     udp: true
