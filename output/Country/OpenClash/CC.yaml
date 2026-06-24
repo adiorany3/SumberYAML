@@ -34,7 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "47 oneclickvpnkeys"
+  - name: "81648 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "tjsp.hhxaf.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tjsp.hhxaf.cc.cd"
+    udp: true
+  - name: "81657 - Telegram V2All"
     server: "104.17.3.81"
     port: 443
     type: trojan
