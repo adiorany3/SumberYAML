@@ -34,20 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "HK HK- VPNine1"
+  - name: "GozargahAzad HK"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 48a66410-0de7-4483-fbbc-bea0082e6375
-    cipher: none
+    type: trojan
+    password: "114514"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "krb.hterre.me"
+    sni: "tjaaa.hhllfly.kdns.fr"
     ws-opts:
-      path: "/bing"
+      path: "/"
       headers:
-        Host: "krb.hterre.me"
+        Host: "tjaaa.hhllfly.kdns.fr"
     udp: true
 
 proxy-groups:
