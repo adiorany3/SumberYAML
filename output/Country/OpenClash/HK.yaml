@@ -34,6 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "HK Join Telegram Farah_VPN HK"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: a2243c24-a82c-4098-bc4d-e85331a1e1d1
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "associations-bryan-manchester-latino.trycloudflare.com"
+    network: ws
+    ws-opts:
+      path: "/a2243c24-a82c-4098-bc4d-e85331a1e1d1-vm"
+      headers:
+        Host: "associations-bryan-manchester-latino.trycloudflare.com"
+    udp: true
   - name: "GozargahAzad HK"
     server: "104.17.3.81"
     port: 443
