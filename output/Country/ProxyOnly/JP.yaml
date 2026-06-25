@@ -3,14 +3,29 @@ proxies:
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 890cb407-0d00-4337-9e5d-b4df06a1635c
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "auv.vavava.kdns.fr"
+    servername: "t1s1.rittbo.kdns.fr"
     ws-opts:
-      path: "/"
+      path: "/fp"
       headers:
-        Host: "auv.vavava.kdns.fr"
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "JP Join Telegram Farah_VPN JP"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
     udp: true
