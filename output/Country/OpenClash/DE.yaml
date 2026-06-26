@@ -49,6 +49,20 @@ proxies:
       headers:
         Host: "amoosamiii.net"
     udp: true
+  - name: "DE Telegram SRCVPN"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "CHhHZoXQCp"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "se.farxmode.ir"
+    ws-opts:
+      path: "/da"
+      headers:
+        Host: "se.farxmode.ir"
+    udp: true
   - name: "DE Telegram SRCVPN 2"
     server: "104.17.3.81"
     port: 443

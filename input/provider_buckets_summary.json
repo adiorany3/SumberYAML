@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-26T14:25:13Z",
+  "generated_at_utc": "2026-06-26T19:48:51Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 3,
+      "count": 2,
       "keywords": [
         "google",
         "gcp",
@@ -31,12 +31,6 @@
           "name": "@CUSTOMVPNSERVER",
           "server": "157.173.127.225",
           "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "CxrolVPN",
-          "server": "104.21.32.1",
-          "port": 443
         }
       ]
     },
@@ -53,7 +47,7 @@
     },
     "microsoft": {
       "file": "input/microsoft.txt",
-      "count": 7,
+      "count": 8,
       "keywords": [
         "microsoft",
         "azure",
@@ -103,12 +97,18 @@
           "name": "",
           "server": "news.microsoft.com",
           "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "🇺🇸US-🚀@VPNine1",
+          "server": "news.microsoft.com",
+          "port": 443
         }
       ]
     },
     "amazon": {
       "file": "input/amazon.txt",
-      "count": 15,
+      "count": 12,
       "keywords": [
         "amazon",
         "aws",
@@ -117,12 +117,6 @@
         "cloudfront"
       ],
       "sample": [
-        {
-          "scheme": "vless",
-          "name": "🚀@VPNine1",
-          "server": "104.16.72.139",
-          "port": 443
-        },
         {
           "scheme": "vless",
           "name": "@Daily_Configs",
@@ -144,6 +138,12 @@
         {
           "scheme": "vless",
           "name": "@Ap_Ir6",
+          "server": "104.16.72.70",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@outline_ir",
           "server": "104.16.72.70",
           "port": 443
         },
