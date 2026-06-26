@@ -34,20 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "NetliVPN"
+  - name: "https t.me VIPV2rayNGNP"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: b490830e-b6a4-d468-ad15-6d25d801c462
-    cipher: none
+    type: trojan
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "1.t-me-netlivpn.workers.dev"
+    sni: "www.calmloud.com"
     ws-opts:
-      path: "/netlivpn"
+      path: "/assignment"
       headers:
-        Host: "1.t-me-netlivpn.workers.dev"
+        Host: "www.calmloud.com"
     udp: true
 
 proxy-groups:

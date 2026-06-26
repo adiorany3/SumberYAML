@@ -1,0 +1,441 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "oneclickvpnkeys US 6824"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "AU"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "86957ec0-b213-433b-a43b-51f2175e0ec3"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "W570W"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-YamYamProxy_YamYamProxy_YamYamProxy_YamYamProxy_YamYamProxy?ed=512"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "US"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "6c862415-30d2-4813-8e49-42e99a0bd415"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "v2ray1_ng US 5285"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "IT RouTel1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2db92da9-8ffb-491b-81d6-6e8d50876020
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "bpB-01c11365.HJdBcvDbKV.WORKErS.dEV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiWlFRWlMwRDdLakVqMyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560"
+      headers:
+        Host: "bpb-01c11365.hjdbcvdbkv.workers.dev"
+    udp: true
+  - name: "SG SG(mibei77.com"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "114514"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "tjaaa.hhllfly.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tjaaa.hhllfly.kdns.fr"
+    udp: true
+  - name: "hopev2ray 5133"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 1762"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5da16620-0386-4da3-a252-12a6380ed1a6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "server3.pegibol940.workers.dev"
+    ws-opts:
+      path: "/eyJqdW5rIjoiUHRlMEpuSzRFY1EyeUUwIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIiwiWzI2MDI6ZmM1OTpiMDo2NDo6XSIsIlsyNjAyOmZjNTk6MTE6NjQ6Ol0iXX0="
+      headers:
+        Host: "server3.pegibol940.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 6785"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 6877"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "f922fa0f-3311-4368-85ff-cf65e727c854"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "soskeynet VL-WS-N A US US 201ms"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5b9fa73b-b549-480b-add9-c45e650d236f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "gddy.hhlfy.de5.net"
+    ws-opts:
+      path: "/fp=firefoxsecurity=tls"
+      headers:
+        Host: "gddy.hhlfy.de5.net"
+    udp: true
+  - name: "16 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip=dc844a1f.tp15333.ip.090227.xyz"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "configV2rayNG US 7729"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys DE 1486"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 79863d42-9f1c-4e8e-a65b-1003090871c1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "coNFIghayE.moKhaBeraTebInZON.workErS.deV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiUHVXcXFjYTJGVGI3IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19"
+      headers:
+        Host: "confighaye.mokhaberatebinzon.workers.dev"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "oneclickvpnkeys US 6824"
+      - "AU"
+      - "W570W"
+      - "US"
+      - "v2ray1_ng US 5285"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 6824"
+      - "AU"
+      - "W570W"
+      - "US"
+      - "v2ray1_ng US 5285"
+      - "IT RouTel1"
+      - "SG SG(mibei77.com"
+      - "hopev2ray 5133"
+      - "oneclickvpnkeys US 1762"
+      - "oneclickvpnkeys US 6785"
+      - "oneclickvpnkeys US 6877"
+      - "soskeynet VL-WS-N A US US 201ms"
+      - "16 oneclickvpnkeys"
+      - "configV2rayNG US 7729"
+      - "oneclickvpnkeys DE 1486"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 6824"
+      - "AU"
+      - "W570W"
+      - "v2ray1_ng US 5285"
+      - "US"
+      - "IT RouTel1"
+      - "SG SG(mibei77.com"
+      - "TG QiangLieTuiJian"
+      - "hopev2ray 5133"
+      - "oneclickvpnkeys US 1762"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 6824"
+      - "AU"
+      - "W570W"
+      - "US"
+      - "v2ray1_ng US 5285"
+      - "IT RouTel1"
+      - "SG SG(mibei77.com"
+      - "hopev2ray 5133"
+      - "oneclickvpnkeys US 1762"
+      - "oneclickvpnkeys US 6785"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 6824"
+      - "AU"
+      - "W570W"
+      - "US"
+      - "v2ray1_ng US 5285"
+      - "IT RouTel1"
+      - "SG SG(mibei77.com"
+      - "hopev2ray 5133"
+      - "oneclickvpnkeys US 1762"
+      - "oneclickvpnkeys US 6785"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 6824"
+      - "AU"
+      - "W570W"
+      - "US"
+      - "v2ray1_ng US 5285"
+      - "IT RouTel1"
+      - "SG SG(mibei77.com"
+      - "hopev2ray 5133"
+      - "oneclickvpnkeys US 1762"
+      - "oneclickvpnkeys US 6785"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 6824"
+      - "AU"
+      - "W570W"
+      - "US"
+      - "v2ray1_ng US 5285"
+      - "IT RouTel1"
+      - "SG SG(mibei77.com"
+      - "hopev2ray 5133"
+      - "oneclickvpnkeys US 1762"
+      - "oneclickvpnkeys US 6785"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "oneclickvpnkeys US 6824"
+      - "AU"
+      - "W570W"
+      - "US"
+      - "v2ray1_ng US 5285"
+      - "IT RouTel1"
+      - "SG SG(mibei77.com"
+      - "hopev2ray 5133"
+      - "oneclickvpnkeys US 1762"
+      - "oneclickvpnkeys US 6785"
+      - "oneclickvpnkeys US 6877"
+      - "soskeynet VL-WS-N A US US 201ms"
+      - "16 oneclickvpnkeys"
+      - "configV2rayNG US 7729"
+      - "oneclickvpnkeys DE 1486"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 6824"
+      - "AU"
+      - "W570W"
+      - "US"
+      - "v2ray1_ng US 5285"
+      - "IT RouTel1"
+      - "SG SG(mibei77.com"
+      - "hopev2ray 5133"
+      - "oneclickvpnkeys US 1762"
+      - "oneclickvpnkeys US 6785"
+      - "oneclickvpnkeys US 6877"
+      - "soskeynet VL-WS-N A US US 201ms"
+      - "16 oneclickvpnkeys"
+      - "configV2rayNG US 7729"
+      - "oneclickvpnkeys DE 1486"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
