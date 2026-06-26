@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "By EbraSha 1757"
+  - name: "By EbraSha 6045"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -49,6 +49,38 @@ proxies:
       path: "/ws-gongyi"
       headers:
         Host: "gongyilm.dpdns.org"
+    udp: true
+  - name: "By EbraSha 1128"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: a2243c24-a82c-4098-bc4d-e85331a1e1d1
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "associations-bryan-manchester-latino.trycloudflare.com"
+    network: ws
+    ws-opts:
+      path: "/a2243c24-a82c-4098-bc4d-e85331a1e1d1-vm"
+      headers:
+        Host: "associations-bryan-manchester-latino.trycloudflare.com"
+    udp: true
+  - name: "By EbraSha 5075"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: bc82b8e0-026b-4b7e-8fa7-69977b6d9dc0
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "polartime.link"
+    network: ws
+    ws-opts:
+      path: "/ws/"
+      headers:
+        Host: "polartime.link"
     udp: true
 
 proxy-groups:

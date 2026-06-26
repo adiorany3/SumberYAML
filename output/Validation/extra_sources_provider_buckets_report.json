@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-06-25T20:01:11Z",
+  "generated_at_utc": "2026-06-26T03:41:04Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 4,
+      "count": 2,
       "keywords": [
         "google",
         "gcp",
@@ -28,20 +28,8 @@
         },
         {
           "scheme": "vless",
-          "name": "@W570W",
-          "server": "188.114.97.5",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
           "name": "@CUSTOMVPNSERVER",
           "server": "157.173.127.225",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "CxrolVPN",
-          "server": "104.21.32.1",
           "port": 443
         }
       ]
@@ -102,7 +90,7 @@
     },
     "amazon": {
       "file": "input/amazon.txt",
-      "count": 16,
+      "count": 15,
       "keywords": [
         "amazon",
         "aws",
@@ -119,7 +107,7 @@
         },
         {
           "scheme": "vless",
-          "name": "@freenettir",
+          "name": "@meliproxyy",
           "server": "104.16.72.70",
           "port": 443
         },
@@ -131,13 +119,7 @@
         },
         {
           "scheme": "vless",
-          "name": "@freenettir",
-          "server": "104.16.72.70",
-          "port": 443
-        },
-        {
-          "scheme": "vless",
-          "name": "@meliproxyy",
+          "name": "ProxyMtpVPN-186",
           "server": "104.16.72.70",
           "port": 443
         },
@@ -169,6 +151,12 @@
           "scheme": "vless",
           "name": "@icv2ray",
           "server": "188.114.97.6",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@Soul737",
+          "server": "45.130.125.126",
           "port": 443
         }
       ]

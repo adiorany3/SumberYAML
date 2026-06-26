@@ -1,31 +1,16 @@
 proxies:
-  - name: "kurdconfig"
+  - name: "vmess_ir"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 39bd10b8-9234-4171-be41-71ce4dda4573
+    uuid: b9cd0054-e289-a643-071b-e38cc7b6cf23
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "ash000005.mastermarly.ir"
+    servername: "peekconfigg.vipserver1-39d.workers.dev"
     ws-opts:
-      path: "/?ed=2048"
+      path: "/sync"
       headers:
-        Host: "ash000005.mastermarly.ir"
-    udp: true
-  - name: "kurdconfig 2862"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 39bd10b8-9234-4171-be41-71ce4dda4573
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "marly.mastermarly.ir"
-    ws-opts:
-      path: "/?ed=2048"
-      headers:
-        Host: "marly.mastermarly.ir"
+        Host: "peekconfigg.vipserver1-39d.workers.dev"
     udp: true

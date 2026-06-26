@@ -1,15 +1,16 @@
 proxies:
-  - name: "https t.me VIPV2rayNGNP"
+  - name: "NetliVPN"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "humanity"
+    type: vless
+    uuid: b490830e-b6a4-d468-ad15-6d25d801c462
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.calmloud.com"
+    servername: "1.t-me-netlivpn.workers.dev"
     ws-opts:
-      path: "/assignment"
+      path: "/netlivpn"
       headers:
-        Host: "www.calmloud.com"
+        Host: "1.t-me-netlivpn.workers.dev"
     udp: true

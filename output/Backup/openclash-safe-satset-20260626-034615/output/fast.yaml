@@ -1,0 +1,443 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "16 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip=dc844a1f.tp15333.ip.090227.xyz"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "chillguy_vpn 5556"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip=dc844a1f.tp15333.ip.090227.xyzfp=chrome"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 5247"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "US"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "6c862415-30d2-4813-8e49-42e99a0bd415"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "configprxy"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 9917"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "v2rayng_fast US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a75eb396-7fac-35f4-dbc0-fcababfac510
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nahan-wizlj6.amirrrrrifj.workers.dev"
+    ws-opts:
+      path: "/amir5i"
+      headers:
+        Host: "nahan-wizlj6.amirrrrrifj.workers.dev"
+    udp: true
+  - name: "configV2rayNG US 8252"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 8902"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5da16620-0386-4da3-a252-12a6380ed1a6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "server3.pegibol940.workers.dev"
+    ws-opts:
+      path: "/eyJqdW5rIjoiUHRlMEpuSzRFY1EyeUUwIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIiwiWzI2MDI6ZmM1OTpiMDo2NDo6XSIsIlsyNjAyOmZjNTk6MTE6NjQ6Ol0iXX0="
+      headers:
+        Host: "server3.pegibol940.workers.dev"
+    udp: true
+  - name: "https telegraph.rayan-config.workers.dev persian 7446"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d2d0f796-edb0-427a-af32-ae360679f9e7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rAyAn-007.fOtOn.dPdNs.oRg"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "rayan-007.foton.dpdns.org"
+    udp: true
+  - name: "oneclickvpnkeys US 4955"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "SG SG(mibei77.com"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "114514"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "tjaaa.hhllfly.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tjaaa.hhllfly.kdns.fr"
+    udp: true
+  - name: "NetliVPN"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b490830e-b6a4-d468-ad15-6d25d801c462
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "1.t-me-netlivpn.workers.dev"
+    ws-opts:
+      path: "/netlivpn"
+      headers:
+        Host: "1.t-me-netlivpn.workers.dev"
+    udp: true
+  - name: "configshub2 US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nuclear.us.kg"
+    ws-opts:
+      path: "/free/1.226.227.169:50001"
+      headers:
+        Host: "nuclear.us.kg"
+    udp: true
+  - name: "V2raNG_DA US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5d5b12de-0da5-3243-f674-e75a691053f3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "daltun.daltunads.workers.dev"
+    ws-opts:
+      path: "/sync"
+      headers:
+        Host: "daltun.daltunads.workers.dev"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "16 oneclickvpnkeys"
+      - "chillguy_vpn 5556"
+      - "oneclickvpnkeys US 5247"
+      - "US"
+      - "configprxy"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "16 oneclickvpnkeys"
+      - "chillguy_vpn 5556"
+      - "oneclickvpnkeys US 5247"
+      - "US"
+      - "configprxy"
+      - "oneclickvpnkeys US 9917"
+      - "v2rayng_fast US"
+      - "configV2rayNG US 8252"
+      - "oneclickvpnkeys US 8902"
+      - "https telegraph.rayan-config.workers.dev persian 7446"
+      - "oneclickvpnkeys US 4955"
+      - "SG SG(mibei77.com"
+      - "NetliVPN"
+      - "configshub2 US"
+      - "V2raNG_DA US"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "US"
+      - "configprxy"
+      - "oneclickvpnkeys US 9917"
+      - "v2rayng_fast US"
+      - "16 oneclickvpnkeys"
+      - "chillguy_vpn 5556"
+      - "oneclickvpnkeys US 5247"
+      - "configV2rayNG US 8252"
+      - "https telegraph.rayan-config.workers.dev persian 7446"
+      - "oneclickvpnkeys US 4955"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "16 oneclickvpnkeys"
+      - "chillguy_vpn 5556"
+      - "oneclickvpnkeys US 5247"
+      - "US"
+      - "configprxy"
+      - "oneclickvpnkeys US 9917"
+      - "v2rayng_fast US"
+      - "configV2rayNG US 8252"
+      - "https telegraph.rayan-config.workers.dev persian 7446"
+      - "oneclickvpnkeys US 4955"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "16 oneclickvpnkeys"
+      - "chillguy_vpn 5556"
+      - "oneclickvpnkeys US 5247"
+      - "US"
+      - "configprxy"
+      - "oneclickvpnkeys US 9917"
+      - "v2rayng_fast US"
+      - "configV2rayNG US 8252"
+      - "https telegraph.rayan-config.workers.dev persian 7446"
+      - "oneclickvpnkeys US 4955"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "US"
+      - "configprxy"
+      - "oneclickvpnkeys US 9917"
+      - "v2rayng_fast US"
+      - "16 oneclickvpnkeys"
+      - "chillguy_vpn 5556"
+      - "oneclickvpnkeys US 5247"
+      - "configV2rayNG US 8252"
+      - "https telegraph.rayan-config.workers.dev persian 7446"
+      - "oneclickvpnkeys US 4955"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "16 oneclickvpnkeys"
+      - "chillguy_vpn 5556"
+      - "oneclickvpnkeys US 5247"
+      - "US"
+      - "configprxy"
+      - "oneclickvpnkeys US 9917"
+      - "v2rayng_fast US"
+      - "configV2rayNG US 8252"
+      - "https telegraph.rayan-config.workers.dev persian 7446"
+      - "oneclickvpnkeys US 4955"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "16 oneclickvpnkeys"
+      - "chillguy_vpn 5556"
+      - "oneclickvpnkeys US 5247"
+      - "US"
+      - "configprxy"
+      - "oneclickvpnkeys US 9917"
+      - "v2rayng_fast US"
+      - "configV2rayNG US 8252"
+      - "oneclickvpnkeys US 8902"
+      - "https telegraph.rayan-config.workers.dev persian 7446"
+      - "oneclickvpnkeys US 4955"
+      - "SG SG(mibei77.com"
+      - "NetliVPN"
+      - "configshub2 US"
+      - "V2raNG_DA US"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "16 oneclickvpnkeys"
+      - "chillguy_vpn 5556"
+      - "oneclickvpnkeys US 5247"
+      - "US"
+      - "configprxy"
+      - "oneclickvpnkeys US 9917"
+      - "v2rayng_fast US"
+      - "configV2rayNG US 8252"
+      - "oneclickvpnkeys US 8902"
+      - "https telegraph.rayan-config.workers.dev persian 7446"
+      - "oneclickvpnkeys US 4955"
+      - "SG SG(mibei77.com"
+      - "NetliVPN"
+      - "configshub2 US"
+      - "V2raNG_DA US"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
