@@ -34,33 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "81648 - Telegram V2All"
+  - name: "82628 - Telegram V2All"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
+    type: vless
+    uuid: 4c1b83e4-5ade-46a8-966d-1eeb7a8dcc65
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "tjsp.hhxaf.cc.cd"
+    servername: "wz1.fum.ccwu.cc"
     ws-opts:
-      path: "/"
+      path: "/proxyip=sjc.o00o.ooo"
       headers:
-        Host: "tjsp.hhxaf.cc.cd"
-    udp: true
-  - name: "81657 - Telegram V2All"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "hhcm.hhxaf.cc.cd"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "hhcm.hhxaf.cc.cd"
+        Host: "wz1.fum.ccwu.cc"
     udp: true
 
 proxy-groups:

@@ -48,20 +48,6 @@ proxies:
       headers:
         Host: "se.farxmode.ir"
     udp: true
-  - name: "Proxy 2859"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "MiTiVPN"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "95r.ir"
-    ws-opts:
-      path: "/MiTiVPN=Se"
-      headers:
-        Host: "95r.ir"
-    udp: true
 
 proxy-groups:
   - name: "PROXY"

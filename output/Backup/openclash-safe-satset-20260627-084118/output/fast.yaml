@@ -1,0 +1,189 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "23 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "23 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "23 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "US"
+      - "Channel id ShadowProxy66 CA"
+      - "Channel id ShadowProxy66 CA 6039"
+      - "Daily_Configs"
+      - "IT RouTel1"
+      - "23 oneclickvpnkeys"
+      - "TG QiangLieTuiJian 7476"
+      - "configV2rayNG US 5986"
+      - "hi_proxy_iran 2102"
+      - "TG QiangLieTuiJian 3012"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "Channel id ShadowProxy66 CA"
+      - "Channel id ShadowProxy66 CA 6039"
+      - "Daily_Configs"
+      - "US"
+      - "23 oneclickvpnkeys"
+      - "hi_proxy_iran 2102"
+      - "IT RouTel1"
+      - "TG QiangLieTuiJian 7476"
+      - "configV2rayNG US 5986"
+      - "TG QiangLieTuiJian 3012"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "US"
+      - "Channel id ShadowProxy66 CA"
+      - "Channel id ShadowProxy66 CA 6039"
+      - "Daily_Configs"
+      - "23 oneclickvpnkeys"
+      - "IT RouTel1"
+      - "hi_proxy_iran 2102"
+      - "TG QiangLieTuiJian 7476"
+      - "configV2rayNG US 5986"
+      - "TG QiangLieTuiJian 3012"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "US"
+      - "Channel id ShadowProxy66 CA"
+      - "Channel id ShadowProxy66 CA 6039"
+      - "Daily_Configs"
+      - "IT RouTel1"
+      - "23 oneclickvpnkeys"
+      - "TG QiangLieTuiJian 7476"
+      - "configV2rayNG US 5986"
+      - "hi_proxy_iran 2102"
+      - "TG QiangLieTuiJian"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "Channel id ShadowProxy66 CA"
+      - "Channel id ShadowProxy66 CA 6039"
+      - "Daily_Configs"
+      - "US"
+      - "23 oneclickvpnkeys"
+      - "IT RouTel1"
+      - "hi_proxy_iran 2102"
+      - "TG QiangLieTuiJian 7476"
+      - "configV2rayNG US 5986"
+      - "TG QiangLieTuiJian 3012"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "23 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "23 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
