@@ -34,20 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2rayNG_Matsuri GB"
+  - name: "GB rayhub_ir 0627-6"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 8ad6f598-cd8d-4fca-848e-05fc9be15ff3
-    cipher: none
+    type: trojan
+    password: "MITIVPN"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "imblo.fastcitylab-byte.info"
+    sni: "95r.ir"
     ws-opts:
-      path: "/sea"
+      path: "/MiTiVPN=De"
       headers:
-        Host: "imblo.fastcitylab-byte.info"
+        Host: "95r.ir"
     udp: true
 
 proxy-groups:

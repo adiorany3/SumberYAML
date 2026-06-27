@@ -1,16 +1,45 @@
 proxies:
-  - name: "NetliVPN"
+  - name: "https t.me QiangLieTuiJian"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: b490830e-b6a4-d468-ad15-6d25d801c462
+    uuid: b08562b0-dbc0-47d1-860d-9435133b25c9
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "1.t-me-netlivpn.workers.dev"
+    servername: "cfoo-146.pages.dev"
     ws-opts:
-      path: "/netlivpn"
+      path: "/QiangLieTuiJian?ed=2560"
       headers:
-        Host: "1.t-me-netlivpn.workers.dev"
+        Host: "cfoo-146.pages.dev"
+    udp: true
+  - name: "https t.me QiangLieTuiJian 9842"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f2e0e242-0962-4958-874c-4fb3a4c8c439
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zdy.hhhdl.kdns.fr"
+    ws-opts:
+      path: "/pyip=ProxyIP.CMLiussss.net"
+      headers:
+        Host: "zdy.hhhdl.kdns.fr"
+    udp: true
+  - name: "https t.me QiangLieTuiJian 8259"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "114514"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "tjaaa.hhllfly.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tjaaa.hhllfly.kdns.fr"
     udp: true
