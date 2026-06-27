@@ -34,20 +34,63 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "vmess_ir"
+  - name: "outline_ir 4441"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: b9cd0054-e289-a643-071b-e38cc7b6cf23
+    uuid: 838750d6-1970-4569-a471-24337e40c8e0
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "peekconfigg.vipserver1-39d.workers.dev"
+    servername: "zeus-panel-efn0dw.zeus-q2agkd.workers.dev"
     ws-opts:
-      path: "/sync"
+      path: "/"
       headers:
-        Host: "peekconfigg.vipserver1-39d.workers.dev"
+        Host: "zeus-panel-efn0dw.zeus-q2agkd.workers.dev"
+    udp: true
+  - name: "Daily_Configs"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a5c05c1e-aa68-443f-8598-09800244bd4b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "kingcloud.biack.ir"
+    ws-opts:
+      path: "/LiL?ed=2560"
+      headers:
+        Host: "kingcloud.biack.ir"
+    udp: true
+  - name: "kurdconfig 4148"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MITIVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "95r.ir"
+    ws-opts:
+      path: "/MiTiVPN=Usa"
+      headers:
+        Host: "95r.ir"
+    udp: true
+  - name: "V2ray_confiig 1046"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "95r.ir"
+    ws-opts:
+      path: "/MiTiVPN=fL"
+      headers:
+        Host: "95r.ir"
     udp: true
 
 proxy-groups:

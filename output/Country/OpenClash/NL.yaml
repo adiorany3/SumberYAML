@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys NL 5210"
+  - name: "oneclickvpnkeys NL 7793"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -47,6 +47,20 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.multiplydose.com"
+    udp: true
+  - name: "V2ray_confiig 3063"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "95r.ir"
+    ws-opts:
+      path: "/MiTiVPN=NL"
+      headers:
+        Host: "95r.ir"
     udp: true
 
 proxy-groups:

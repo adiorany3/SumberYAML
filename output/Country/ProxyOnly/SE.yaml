@@ -1,16 +1,29 @@
 proxies:
-  - name: "SE In_memory_of_the_Fallen_Heroes_January_8th_and_9th"
+  - name: "vmesskhodam"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: a9d3f779-43ae-ee7d-4dc3-fa073c1797d8
-    cipher: none
+    type: trojan
+    password: "CHhHZoXQCp"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "crm.lotussec.com"
+    sni: "se.farxmode.ir"
     ws-opts:
-      path: "/@JavidnamanIran/Javid-SHAH-KingRezaPahlavi/"
+      path: "/da"
       headers:
-        Host: "crm.lotussec.com"
+        Host: "se.farxmode.ir"
+    udp: true
+  - name: "Proxy 2859"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "95r.ir"
+    ws-opts:
+      path: "/MiTiVPN=Se"
+      headers:
+        Host: "95r.ir"
     udp: true
