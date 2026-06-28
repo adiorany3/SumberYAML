@@ -49,6 +49,21 @@ proxies:
       headers:
         Host: "amoosamiii.net"
     udp: true
+  - name: "v2ray1_ng US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 690b6997-198a-49d2-8cef-e4c70efc2288
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "bold-term-2b48.stary3989.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "bold-term-2b48.stary3989.workers.dev"
+    udp: true
 
 proxy-groups:
   - name: "PROXY"

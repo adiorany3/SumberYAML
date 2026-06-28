@@ -1,4 +1,19 @@
 proxies:
+  - name: "outline_ir"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d278a1f1-a6b4-4783-8fd5-7d0d9a9dd88f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zeus-panel-7gtag4.kingworker11228peekconfig.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "zeus-panel-7gtag4.kingworker11228peekconfig.workers.dev"
+    udp: true
   - name: "hope of freedom - anotherme_night"
     server: "104.17.3.81"
     port: 443
@@ -14,7 +29,7 @@ proxies:
       headers:
         Host: "cloud.pedramhost.ir"
     udp: true
-  - name: "kurdconfig 3228"
+  - name: "kurdconfig 2013"
     server: "104.17.3.81"
     port: 443
     type: trojan
