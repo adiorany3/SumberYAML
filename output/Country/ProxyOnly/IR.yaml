@@ -1,5 +1,20 @@
 proxies:
-  - name: "Daily_Configs 8525"
+  - name: "erfanandroid"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a47f13eb-eac7-4bc8-843a-da8688cc1621
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "docs.ravinoz.ir"
+    ws-opts:
+      path: "/live-stream"
+      headers:
+        Host: "live.ravinoz.ir"
+    udp: true
+  - name: "83142 - Telegram V2All"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -14,7 +29,36 @@ proxies:
       headers:
         Host: "kingcloud.biack.ir"
     udp: true
-  - name: "kurdconfig 1650"
+  - name: "hope of freedom - anotherme_night"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fb35b76f-0319-4382-bb92-2dee3bf85e0d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cloud.pedramhost.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cloud.pedramhost.ir"
+    udp: true
+  - name: "29 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MITIVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "95r.ir"
+    ws-opts:
+      path: "/MiTiVPN=De"
+      headers:
+        Host: "95r.ir"
+    udp: true
+  - name: "kurdconfig 1009"
     server: "104.17.3.81"
     port: 443
     type: trojan
