@@ -1,0 +1,436 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+  - 1.1.1.1
+  - 8.8.8.8
+  fallback:
+  - 1.0.0.1
+  - 8.8.4.4
+proxies:
+- name: kurdconfig
+  server: 104.17.3.81
+  port: 443
+  type: vless
+  uuid: 210c8277-10fb-238a-b715-82da00000000
+  cipher: none
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  servername: nameless-dream-a133.ftmhkhtb.workers.dev
+  ws-opts:
+    path: /melobery
+    headers:
+      Host: nameless-dream-a133.ftmhkhtb.workers.dev
+  udp: true
+proxy-groups:
+- name: PROXY
+  type: select
+  proxies:
+  - UTAMA
+  - GOOGLE
+  - YOUTUBE
+  - REDDIT
+  - LINKEDIN
+  - BLIBLI
+  - BANK
+  - MARKETPLACE
+  - SOCIAL
+  - STREAMING
+  - GAME
+  - AI
+  - WORK
+  - DOWNLOAD
+  - AUTO
+  - FALLBACK
+  - DEFAULT
+  - BYPASS
+  - BLOCK
+- name: UTAMA
+  type: select
+  proxies:
+  - kurdconfig
+  - AUTO
+  - FALLBACK
+  - DIRECT
+- name: AUTO
+  type: url-test
+  proxies:
+  - kurdconfig
+  url: https://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 40
+- name: FALLBACK
+  type: fallback
+  proxies:
+  - kurdconfig
+  url: https://www.gstatic.com/generate_204
+  interval: 90
+- name: INPUT-VMESS
+  type: fallback
+  proxies:
+  - kurdconfig
+  url: https://www.gstatic.com/generate_204
+  interval: 90
+- name: GOOGLE
+  type: url-test
+  proxies:
+  - kurdconfig
+  url: https://www.gstatic.com/generate_204
+  interval: 90
+  tolerance: 40
+- name: YOUTUBE
+  type: url-test
+  proxies:
+  - kurdconfig
+  url: https://www.youtube.com/generate_204
+  interval: 90
+  tolerance: 40
+- name: REDDIT
+  type: url-test
+  proxies:
+  - kurdconfig
+  url: https://www.reddit.com/
+  interval: 90
+  tolerance: 40
+- name: LINKEDIN
+  type: url-test
+  proxies:
+  - kurdconfig
+  url: https://www.linkedin.com/
+  interval: 90
+  tolerance: 40
+- name: BLIBLI
+  type: url-test
+  proxies:
+  - kurdconfig
+  url: https://www.blibli.com/
+  interval: 90
+  tolerance: 40
+- name: BANK
+  type: select
+  proxies:
+  - kurdconfig
+  - UTAMA
+  - AUTO
+  - FALLBACK
+  - BYPASS
+- name: MARKETPLACE
+  type: select
+  proxies:
+  - kurdconfig
+  - UTAMA
+  - AUTO
+  - FALLBACK
+  - BYPASS
+- name: SOCIAL
+  type: select
+  proxies:
+  - kurdconfig
+  - LINKEDIN
+  - UTAMA
+  - AUTO
+  - FALLBACK
+- name: STREAMING
+  type: url-test
+  proxies:
+  - kurdconfig
+  url: https://www.youtube.com/generate_204
+  interval: 90
+  tolerance: 40
+- name: GAME
+  type: url-test
+  proxies:
+  - kurdconfig
+  url: https://store.steampowered.com/
+  interval: 90
+  tolerance: 40
+- name: AI
+  type: url-test
+  proxies:
+  - kurdconfig
+  url: https://chatgpt.com/
+  interval: 90
+  tolerance: 40
+- name: WORK
+  type: url-test
+  proxies:
+  - kurdconfig
+  url: https://github.com/
+  interval: 90
+  tolerance: 40
+- name: DOWNLOAD
+  type: fallback
+  proxies:
+  - kurdconfig
+  url: https://github.com/
+  interval: 120
+- name: DEFAULT
+  type: select
+  proxies:
+  - UTAMA
+  - AUTO
+  - FALLBACK
+  - DIRECT
+- name: BYPASS
+  type: select
+  proxies:
+  - DIRECT
+  - UTAMA
+  - AUTO
+  - FALLBACK
+- name: BLOCK
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+  - UTAMA
+  - AUTO
+rules:
+- DOMAIN-SUFFIX,activision.com,BLOCK
+- DOMAIN-SUFFIX,addictinggames.com,BLOCK
+- DOMAIN-SUFFIX,agame.com,BLOCK
+- DOMAIN-SUFFIX,agar.io,BLOCK
+- DOMAIN-SUFFIX,airgpu.com,BLOCK
+- DOMAIN-SUFFIX,armor-games.com,BLOCK
+- DOMAIN-SUFFIX,armorgames.com,BLOCK
+- DOMAIN-SUFFIX,battle.net,BLOCK
+- DOMAIN-SUFFIX,blizzard.com,BLOCK
+- DOMAIN-SUFFIX,bonk.io,BLOCK
+- DOMAIN-SUFFIX,boosteroid.com,BLOCK
+- DOMAIN-SUFFIX,brawlstars.com,BLOCK
+- DOMAIN-SUFFIX,bytro.com,BLOCK
+- DOMAIN-SUFFIX,callofduty.com,BLOCK
+- DOMAIN-SUFFIX,callofwar.com,BLOCK
+- DOMAIN-SUFFIX,clashofclans.com,BLOCK
+- DOMAIN-SUFFIX,clashroyale.com,BLOCK
+- DOMAIN-SUFFIX,conflictnations.com,BLOCK
+- DOMAIN-SUFFIX,conflictofnations.com,BLOCK
+- DOMAIN-SUFFIX,coolmathgames.com,BLOCK
+- DOMAIN-SUFFIX,crazygames.com,BLOCK
+- DOMAIN-SUFFIX,diep.io,BLOCK
+- DOMAIN-SUFFIX,ea.com,BLOCK
+- DOMAIN-SUFFIX,elvenar.com,BLOCK
+- DOMAIN-SUFFIX,epicgames.com,BLOCK
+- DOMAIN-SUFFIX,epicgames.dev,BLOCK
+- DOMAIN-SUFFIX,erepublik.com,BLOCK
+- DOMAIN-SUFFIX,ev.io,BLOCK
+- DOMAIN-SUFFIX,forgeofempires.com,BLOCK
+- DOMAIN-SUFFIX,freefiremobile.com,BLOCK
+- DOMAIN-SUFFIX,friv.com,BLOCK
+- DOMAIN-SUFFIX,gamesgames.com,BLOCK
+- DOMAIN-SUFFIX,garena.com,BLOCK
+- DOMAIN-SUFFIX,gartic.io,BLOCK
+- DOMAIN-SUFFIX,garticphone.com,BLOCK
+- DOMAIN-SUFFIX,geforcenow.com,BLOCK
+- DOMAIN-SUFFIX,genshinimpact.com,BLOCK
+- DOMAIN-SUFFIX,geoguessr.com,BLOCK
+- DOMAIN-SUFFIX,grepolis.com,BLOCK
+- DOMAIN-SUFFIX,gta5-mods.com,BLOCK
+- DOMAIN-SUFFIX,honkai-star-rail.com,BLOCK
+- DOMAIN-SUFFIX,honkaiimpact3.com,BLOCK
+- DOMAIN-SUFFIX,hordes.io,BLOCK
+- DOMAIN-SUFFIX,hoyoverse.com,BLOCK
+- DOMAIN-SUFFIX,ikariam.com,BLOCK
+- DOMAIN-SUFFIX,ikariam.gameforge.com,BLOCK
+- DOMAIN-SUFFIX,innogames.com,BLOCK
+- DOMAIN-SUFFIX,iogames.space,BLOCK
+- DOMAIN-SUFFIX,ironorder1919.com,BLOCK
+- DOMAIN-SUFFIX,kizi.com,BLOCK
+- DOMAIN-SUFFIX,kongregate.com,BLOCK
+- DOMAIN-SUFFIX,krafton.com,BLOCK
+- DOMAIN-SUFFIX,krunker.io,BLOCK
+- DOMAIN-SUFFIX,leagueoflegends.com,BLOCK
+- DOMAIN-SUFFIX,littlebigsnake.com,BLOCK
+- DOMAIN-SUFFIX,mathplayground.com,BLOCK
+- DOMAIN-SUFFIX,mihoyo.com,BLOCK
+- DOMAIN-SUFFIX,minecraft.net,BLOCK
+- DOMAIN-SUFFIX,miniclip.com,BLOCK
+- DOMAIN-SUFFIX,mobilelegends.com,BLOCK
+- DOMAIN-SUFFIX,mojang.com,BLOCK
+- DOMAIN-SUFFIX,moomoo.io,BLOCK
+- DOMAIN-SUFFIX,moonton.com,BLOCK
+- DOMAIN-SUFFIX,nationstates.net,BLOCK
+- DOMAIN-SUFFIX,netease.com,BLOCK
+- DOMAIN-SUFFIX,neteasegames.com,BLOCK
+- DOMAIN-SUFFIX,newgrounds.com,BLOCK
+- DOMAIN-SUFFIX,newworldempires.com,BLOCK
+- DOMAIN-SUFFIX,nintendo.com,BLOCK
+- DOMAIN-SUFFIX,nintendo.net,BLOCK
+- DOMAIN-SUFFIX,now.gg,BLOCK
+- DOMAIN-SUFFIX,nvidia.com,BLOCK
+- DOMAIN-SUFFIX,ogame.gameforge.com,BLOCK
+- DOMAIN-SUFFIX,ogame.org,BLOCK
+- DOMAIN-SUFFIX,origin.com,BLOCK
+- DOMAIN-SUFFIX,paper-io.com,BLOCK
+- DOMAIN-SUFFIX,paper.io,BLOCK
+- DOMAIN-SUFFIX,play.geforcenow.com,BLOCK
+- DOMAIN-SUFFIX,playstation.com,BLOCK
+- DOMAIN-SUFFIX,playstation.net,BLOCK
+- DOMAIN-SUFFIX,playvalorant.com,BLOCK
+- DOMAIN-SUFFIX,poki.com,BLOCK
+- DOMAIN-SUFFIX,pubgmobile.com,BLOCK
+- DOMAIN-SUFFIX,rbxcdn.com,BLOCK
+- DOMAIN-SUFFIX,riotcdn.net,BLOCK
+- DOMAIN-SUFFIX,riotgames.com,BLOCK
+- DOMAIN-SUFFIX,roblox.com,BLOCK
+- DOMAIN-SUFFIX,rockstargames.com,BLOCK
+- DOMAIN-SUFFIX,shellshock.io,BLOCK
+- DOMAIN-SUFFIX,silvergames.com,BLOCK
+- DOMAIN-SUFFIX,skribbl.io,BLOCK
+- DOMAIN-SUFFIX,slither.io,BLOCK
+- DOMAIN-SUFFIX,steamcommunity.com,BLOCK
+- DOMAIN-SUFFIX,steamcontent.com,BLOCK
+- DOMAIN-SUFFIX,steamgames.com,BLOCK
+- DOMAIN-SUFFIX,steampowered.com,BLOCK
+- DOMAIN-SUFFIX,steamstatic.com,BLOCK
+- DOMAIN-SUFFIX,supercell.com,BLOCK
+- DOMAIN-SUFFIX,supremacy1914.com,BLOCK
+- DOMAIN-SUFFIX,surviv.io,BLOCK
+- DOMAIN-SUFFIX,the-west.net,BLOCK
+- DOMAIN-SUFFIX,thirtykingdoms.com,BLOCK
+- DOMAIN-SUFFIX,torn.com,BLOCK
+- DOMAIN-SUFFIX,travian-games.com,BLOCK
+- DOMAIN-SUFFIX,travian.co.uk,BLOCK
+- DOMAIN-SUFFIX,travian.com,BLOCK
+- DOMAIN-SUFFIX,travian.com.au,BLOCK
+- DOMAIN-SUFFIX,travian.com.tr,BLOCK
+- DOMAIN-SUFFIX,travian.us,BLOCK
+- DOMAIN-SUFFIX,tribalwars.com,BLOCK
+- DOMAIN-SUFFIX,tribalwars.net,BLOCK
+- DOMAIN-SUFFIX,ubi.com,BLOCK
+- DOMAIN-SUFFIX,ubisoft.com,BLOCK
+- DOMAIN-SUFFIX,unrealengine.com,BLOCK
+- DOMAIN-SUFFIX,valvesoftware.com,BLOCK
+- DOMAIN-SUFFIX,venge.io,BLOCK
+- DOMAIN-SUFFIX,warbrokers.io,BLOCK
+- DOMAIN-SUFFIX,xbox.com,BLOCK
+- DOMAIN-SUFFIX,xboxcloudgaming.com,BLOCK
+- DOMAIN-SUFFIX,xboxlive.com,BLOCK
+- DOMAIN-SUFFIX,y8.com,BLOCK
+- DOMAIN-SUFFIX,zenlesszonezero.com,BLOCK
+- DOMAIN-SUFFIX,zombsroyale.io,BLOCK
+- DOMAIN-KEYWORD,callofwar,BLOCK
+- DOMAIN-KEYWORD,freefire,BLOCK
+- DOMAIN-KEYWORD,gameforge,BLOCK
+- DOMAIN-KEYWORD,hoyoverse,BLOCK
+- DOMAIN-KEYWORD,mobilelegends,BLOCK
+- DOMAIN-KEYWORD,moonton,BLOCK
+- DOMAIN-KEYWORD,pubg,BLOCK
+- DOMAIN-KEYWORD,roblox,BLOCK
+- DOMAIN-KEYWORD,steam,BLOCK
+- DOMAIN-KEYWORD,valorant,BLOCK
+- IP-CIDR,10.0.0.0/8,BYPASS,no-resolve
+- IP-CIDR,172.16.0.0/12,BYPASS,no-resolve
+- IP-CIDR,192.168.0.0/16,BYPASS,no-resolve
+- IP-CIDR,127.0.0.0/8,BYPASS,no-resolve
+- IP-CIDR,224.0.0.0/4,BYPASS,no-resolve
+- DOMAIN-SUFFIX,google.com,GOOGLE
+- DOMAIN-SUFFIX,google.co.id,GOOGLE
+- DOMAIN-SUFFIX,googleapis.com,GOOGLE
+- DOMAIN-SUFFIX,gstatic.com,GOOGLE
+- DOMAIN-SUFFIX,googleusercontent.com,GOOGLE
+- DOMAIN-SUFFIX,ggpht.com,GOOGLE
+- DOMAIN-SUFFIX,gmail.com,GOOGLE
+- DOMAIN-SUFFIX,googlemail.com,GOOGLE
+- DOMAIN-SUFFIX,google-analytics.com,GOOGLE
+- DOMAIN-SUFFIX,googletagmanager.com,GOOGLE
+- DOMAIN-SUFFIX,googlesyndication.com,GOOGLE
+- DOMAIN-SUFFIX,doubleclick.net,GOOGLE
+- DOMAIN-SUFFIX,googleadservices.com,GOOGLE
+- DOMAIN-SUFFIX,meet.google.com,GOOGLE
+- DOMAIN-SUFFIX,youtube.com,YOUTUBE
+- DOMAIN-SUFFIX,youtu.be,YOUTUBE
+- DOMAIN-SUFFIX,ytimg.com,YOUTUBE
+- DOMAIN-SUFFIX,googlevideo.com,YOUTUBE
+- DOMAIN-SUFFIX,youtubei.googleapis.com,YOUTUBE
+- DOMAIN-SUFFIX,youtubekids.com,YOUTUBE
+- DOMAIN-SUFFIX,reddit.com,REDDIT
+- DOMAIN-SUFFIX,redd.it,REDDIT
+- DOMAIN-SUFFIX,redditmedia.com,REDDIT
+- DOMAIN-SUFFIX,redditstatic.com,REDDIT
+- DOMAIN-SUFFIX,redditinc.com,REDDIT
+- DOMAIN-SUFFIX,linkedin.com,LINKEDIN
+- DOMAIN-SUFFIX,linkedin.cn,LINKEDIN
+- DOMAIN-SUFFIX,licdn.com,LINKEDIN
+- DOMAIN-SUFFIX,lnkd.in,LINKEDIN
+- DOMAIN-SUFFIX,blibli.com,BLIBLI
+- DOMAIN-SUFFIX,blibli.co.id,BLIBLI
+- DOMAIN-SUFFIX,bca.co.id,BANK
+- DOMAIN-SUFFIX,klikbca.com,BANK
+- DOMAIN-SUFFIX,bankmandiri.co.id,BANK
+- DOMAIN-SUFFIX,livin.mandiri.co.id,BANK
+- DOMAIN-SUFFIX,bri.co.id,BANK
+- DOMAIN-SUFFIX,bni.co.id,BANK
+- DOMAIN-SUFFIX,jenius.com,BANK
+- DOMAIN-SUFFIX,jago.com,BANK
+- DOMAIN-SUFFIX,seabank.co.id,BANK
+- DOMAIN-SUFFIX,blu.id,BANK
+- DOMAIN-SUFFIX,dana.id,BANK
+- DOMAIN-SUFFIX,ovo.id,BANK
+- DOMAIN-SUFFIX,gopay.co.id,BANK
+- DOMAIN-SUFFIX,linkaja.id,BANK
+- DOMAIN-SUFFIX,tokopedia.com,MARKETPLACE
+- DOMAIN-SUFFIX,shopee.co.id,MARKETPLACE
+- DOMAIN-SUFFIX,shopee.com,MARKETPLACE
+- DOMAIN-SUFFIX,lazada.co.id,MARKETPLACE
+- DOMAIN-SUFFIX,bukalapak.com,MARKETPLACE
+- DOMAIN-SUFFIX,olx.co.id,MARKETPLACE
+- DOMAIN-SUFFIX,whatsapp.com,SOCIAL
+- DOMAIN-SUFFIX,whatsapp.net,SOCIAL
+- DOMAIN-SUFFIX,telegram.org,SOCIAL
+- DOMAIN-SUFFIX,t.me,SOCIAL
+- DOMAIN-SUFFIX,facebook.com,SOCIAL
+- DOMAIN-SUFFIX,fbcdn.net,SOCIAL
+- DOMAIN-SUFFIX,instagram.com,SOCIAL
+- DOMAIN-SUFFIX,cdninstagram.com,SOCIAL
+- DOMAIN-SUFFIX,twitter.com,SOCIAL
+- DOMAIN-SUFFIX,x.com,SOCIAL
+- DOMAIN-SUFFIX,t.co,SOCIAL
+- DOMAIN-SUFFIX,netflix.com,STREAMING
+- DOMAIN-SUFFIX,nflxvideo.net,STREAMING
+- DOMAIN-SUFFIX,spotify.com,STREAMING
+- DOMAIN-SUFFIX,twitch.tv,STREAMING
+- DOMAIN-SUFFIX,disneyplus.com,STREAMING
+- DOMAIN-SUFFIX,steampowered.com,GAME
+- DOMAIN-SUFFIX,steamcommunity.com,GAME
+- DOMAIN-SUFFIX,steamstatic.com,GAME
+- DOMAIN-SUFFIX,riotgames.com,GAME
+- DOMAIN-SUFFIX,roblox.com,GAME
+- DOMAIN-SUFFIX,pubgmobile.com,GAME
+- DOMAIN-SUFFIX,openai.com,AI
+- DOMAIN-SUFFIX,chatgpt.com,AI
+- DOMAIN-SUFFIX,anthropic.com,AI
+- DOMAIN-SUFFIX,claude.ai,AI
+- DOMAIN-SUFFIX,gemini.google.com,AI
+- DOMAIN-SUFFIX,github.com,WORK
+- DOMAIN-SUFFIX,githubusercontent.com,WORK
+- DOMAIN-SUFFIX,gitlab.com,WORK
+- DOMAIN-SUFFIX,docker.com,WORK
+- DOMAIN-SUFFIX,npmjs.com,WORK
+- DOMAIN-SUFFIX,pypi.org,WORK
+- DOMAIN-SUFFIX,pythonhosted.org,WORK
+- DOMAIN-SUFFIX,ubuntu.com,DOWNLOAD
+- DOMAIN-SUFFIX,debian.org,DOWNLOAD
+- DOMAIN-SUFFIX,microsoft.com,DOWNLOAD
+- DOMAIN-SUFFIX,windowsupdate.com,DOWNLOAD
+- DOMAIN-SUFFIX,apple.com,DOWNLOAD
+- MATCH,PROXY

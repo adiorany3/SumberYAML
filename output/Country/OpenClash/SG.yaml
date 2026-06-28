@@ -34,20 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "SG SG- VPNine1"
+  - name: "oneclickvpnkeys SG"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 03d73bc8-01a9-46a7-90b9-3d27065ed328
-    cipher: none
+    type: trojan
+    password: "eeb6823c-b926-4ea2-866a-5542edd26e59"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "c.eoa.ccwu.cc"
+    sni: "hhcm.hhxaf.cc.cd"
     ws-opts:
       path: "/"
       headers:
-        Host: "c.eoa.ccwu.cc"
+        Host: "hhcm.hhxaf.cc.cd"
     udp: true
 
 proxy-groups:
