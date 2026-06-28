@@ -37,17 +37,30 @@ proxies:
   - name: "SC SC- VPNine1"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: a3585167-b919-4067-c770-972d53aedc5e
-    cipher: none
+    type: trojan
+    password: "6g3hTs47jO"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "vip.sirsis2.my.id"
+    sni: "sg.farxmode.ir"
     ws-opts:
-      path: "/"
+      path: "/da"
       headers:
-        Host: "vip.sirsis2.my.id"
+        Host: "sg.farxmode.ir"
+    udp: true
+  - name: "SC SC- VPNine1 1961"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "ZzE0ZXql6p"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "sh.farxmode.ir"
+    ws-opts:
+      path: "/db"
+      headers:
+        Host: "sh.farxmode.ir"
     udp: true
 
 proxy-groups:
