@@ -34,19 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "TW TW- VPNine1"
+  - name: "SheriffNet"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "114514"
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "tjaaa.hhllfly.kdns.fr"
+    servername: "sni.111000.v6.navy"
     ws-opts:
-      path: "/https://t.me/WangCai2🇨🇳"
+      path: "/?Telegram🇨🇳 @WangCai2="
       headers:
-        Host: "tjaaa.hhllfly.kdns.fr"
+        Host: "sni.111000.v6.navy"
+    udp: true
+  - name: "Tel Proxy_Vpney (3"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b991b390-dd0f-4061-9150-bee0cb467bce
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "opu-ao6.pages.dev"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "opu-ao6.pages.dev"
     udp: true
 
 proxy-groups:

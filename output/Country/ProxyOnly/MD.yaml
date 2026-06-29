@@ -1,0 +1,16 @@
+proxies:
+  - name: "MD MD- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e216dbe3-fd1b-4810-9673-cddb3ecd7d91
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nebula-ali.v2rayfarsicf.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "nebula-ali.v2rayfarsicf.workers.dev"
+    udp: true

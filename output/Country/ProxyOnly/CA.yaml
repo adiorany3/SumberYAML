@@ -1,31 +1,155 @@
 proxies:
-  - name: "Channel id ShadowProxy66 CA"
+  - name: "CA CA-158.51.121.63-1184"
+    type: vmess
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
-    cipher: none
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
     tls: true
     skip-cert-verify: true
+    servername: "seribus.org"
     network: ws
-    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "seribus.org"
+    udp: true
+  - name: "CA CA-134.195.198.147-7884"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "inna.cfd"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "inna.cfd"
+    udp: true
+  - name: "CA CA-23.162.200.227-7882"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "23.162.200.227"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "23.162.200.227"
+    udp: true
+  - name: "CA CA-134.195.198.147-0115"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "inna.cfd"
+    network: ws
     ws-opts:
       path: "/"
       headers:
-        Host: "nbhhh.mrcool.kdns.fr"
+        Host: "inna.cfd"
     udp: true
-  - name: "Channel id ShadowProxy66 CA 6039"
+  - name: "CA CA-158.51.121.63-0114"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "seribus.org"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "seribus.org"
+    udp: true
+  - name: "TELEGRAM-ICV2RAY ed 512 security tls encryption none insecure 0 host unnes.ac.id"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "t1s1.rittbo.kdns.fr"
+    servername: "104.16.72.70"
     ws-opts:
-      path: "/fp"
+      path: "/ca-cl"
       headers:
-        Host: "t1s1.rittbo.kdns.fr"
+        Host: "104.16.72.70"
+    udp: true
+  - name: "Soul737"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en"
+    udp: true
+  - name: "CA rayhub_ir 0628-6"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6b801a4e-ef3a-4fc8-9e14-82c40447caab
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sg.sogand.tr"
+    ws-opts:
+      path: "/api-ip"
+      headers:
+        Host: "sg.sogand.tr"
+    udp: true
+  - name: "CA telegram V2ray_Custom V2ray_Custom"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b37deda3-795f-4bce-bc94-f852c3d4e14a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "14446c64f.gheychi.games"
+    ws-opts:
+      path: "/metrix"
+      headers:
+        Host: "14446c64f.gheychi.games"
+    udp: true
+  - name: "TEL Father_vpn 6287"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Telegram-Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "go.appsflyer.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "go.appsflyer.com.r3xxe.eu.cc"
     udp: true

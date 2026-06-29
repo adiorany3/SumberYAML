@@ -34,20 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys XX"
+  - name: "6 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: aa3415b8-f471-47c4-8159-7681d645c8ca
+    uuid: 3d8bc73a-36d2-4b1c-83ff-d1e7bcdf3b98
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "b6n3d22n.qcwdcq.workers.dev"
+    servername: "global.fastly.com"
     ws-opts:
       path: "/"
       headers:
-        Host: "b6n3d22n.qcwdcq.workers.dev"
+        Host: "npnl-2-one.global.ssl.fastly.net"
     udp: true
 
 proxy-groups:

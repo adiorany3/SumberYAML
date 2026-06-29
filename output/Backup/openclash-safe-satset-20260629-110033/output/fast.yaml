@@ -1,0 +1,334 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "ID ID-130.94.94.15-0164"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "tUtK5TKdjxsPnOyritLtv8OQWHAK8f8yNR"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "130.94.94.15"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "130.94.94.15"
+    udp: true
+  - name: "TEL Father_vpn"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1043634e-8d9d-4736-83fa-f14ddc9d464c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "TEL Father_vpn 1382"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 63ec2a82-e47c-4782-a89e-9aca2baf17ef
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "quiz.int.vidio.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "quiz.int.vidio.com.ex33r.eu.cc"
+    udp: true
+  - name: "TEL Father_vpn 3420"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1ce9392f-caf4-48f7-bbb9-475b101fbde0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "graph.instagram.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
+  - name: "VLESS"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl@NebulaVPNx"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "XX XX VLESS father_vpn 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1ce9392f-caf4-48f7-bbb9-475b101fbde0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "188.114.97.6"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "188.114.97.6"
+    udp: true
+  - name: "free_conf_iran 2"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 28607fa7-db30-47d6-942a-f5744e4be9ad
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "routel1 3612"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "api24-normal.tiktokv.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "api24-normal.tiktokv.com.cyylr.eu.cc"
+    udp: true
+  - name: "routel1 1901"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "bb45f73f-795b-4a05-a8e0-ba717bce87e3"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "api24-normal.tiktokv.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "api24-normal.tiktokv.com.cyylr.eu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "ID ID-130.94.94.15-0164"
+      - "TEL Father_vpn"
+      - "TEL Father_vpn 1382"
+      - "TEL Father_vpn 3420"
+      - "VLESS"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "ID ID-130.94.94.15-0164"
+      - "TEL Father_vpn"
+      - "TEL Father_vpn 1382"
+      - "TEL Father_vpn 3420"
+      - "VLESS"
+      - "XX XX VLESS father_vpn 1"
+      - "free_conf_iran 2"
+      - "routel1 3612"
+      - "routel1 1901"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "100"
+      - "103"
+      - "16 oneclickvpnkeys"
+      - "23. DE LimeVPNFREE"
+      - "29 oneclickvpnkeys"
+      - "4 fastkanfig"
+      - "53 oneclickvpnkeys"
+      - "54 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "6 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "100"
+      - "103"
+      - "16 oneclickvpnkeys"
+      - "23. DE LimeVPNFREE"
+      - "29 oneclickvpnkeys"
+      - "4 fastkanfig"
+      - "53 oneclickvpnkeys"
+      - "54 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "6 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "100"
+      - "103"
+      - "16 oneclickvpnkeys"
+      - "23. DE LimeVPNFREE"
+      - "29 oneclickvpnkeys"
+      - "4 fastkanfig"
+      - "53 oneclickvpnkeys"
+      - "54 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "6 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "100"
+      - "103"
+      - "16 oneclickvpnkeys"
+      - "23. DE LimeVPNFREE"
+      - "29 oneclickvpnkeys"
+      - "4 fastkanfig"
+      - "53 oneclickvpnkeys"
+      - "54 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "6 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "100"
+      - "103"
+      - "16 oneclickvpnkeys"
+      - "23. DE LimeVPNFREE"
+      - "29 oneclickvpnkeys"
+      - "4 fastkanfig"
+      - "53 oneclickvpnkeys"
+      - "54 oneclickvpnkeys"
+      - "55 oneclickvpnkeys"
+      - "6 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "ID ID-130.94.94.15-0164"
+      - "TEL Father_vpn"
+      - "TEL Father_vpn 1382"
+      - "TEL Father_vpn 3420"
+      - "VLESS"
+      - "XX XX VLESS father_vpn 1"
+      - "free_conf_iran 2"
+      - "routel1 3612"
+      - "routel1 1901"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "ID ID-130.94.94.15-0164"
+      - "TEL Father_vpn"
+      - "TEL Father_vpn 1382"
+      - "TEL Father_vpn 3420"
+      - "VLESS"
+      - "XX XX VLESS father_vpn 1"
+      - "free_conf_iran 2"
+      - "routel1 3612"
+      - "routel1 1901"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

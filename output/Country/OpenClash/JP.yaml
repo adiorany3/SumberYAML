@@ -34,7 +34,94 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys JP 7584"
+  - name: "JP JP VLESS megavpn_link 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "134.122.194.186"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "134.122.194.186"
+    udp: true
+  - name: "JP JP- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 296b3a95-2815-4594-a470-ea8fa78ec071
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "apple.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "apple.com"
+    udp: true
+  - name: "JP JP- VPNine1 8488"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 64c1b992-47ff-42ef-8d6d-d7ee13c5b716
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "www.apple.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.apple.com"
+    udp: true
+  - name: "JP JP-103.125.216.68-0130"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "T9qoEuuxUEa9Dk3KxnTWrs6J8ilng9sCIf"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "103.125.216.68"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "103.125.216.68"
+    udp: true
+  - name: "JP JP-103.125.216.18-0133"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "T9qoEuuxUEa9Dk3KxnTWrs6J8ilng9sCIf"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "103.125.216.18"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "103.125.216.18"
+    udp: true
+  - name: "JP JP-150.230.96.103-4123"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "da777aae-defb-41d0-a183-2c27da2b4677"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "150.230.96.103"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "150.230.96.103"
+    udp: true
+  - name: "oneclickvpnkeys JP"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -47,6 +134,20 @@ proxies:
       path: "/"
       headers:
         Host: "tjsp.hhxaf.cc.cd"
+    udp: true
+  - name: "JP JP TROJAN free4allvpn 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "FDIypSwe64a3DA7un2R8DFjYXZO3NS05gKZTTOC8SxO0Fy3cqYg3EaFDA3ABaEYKNx39D"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "kuame.missionsec.us"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "kuame.missionsec.us"
     udp: true
 
 proxy-groups:

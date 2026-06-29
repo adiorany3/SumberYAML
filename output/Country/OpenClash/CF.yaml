@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "v2raybaaz 4"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7b3c9cec-6a21-4d57-b9c9-383d519e0b27
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "tt86554he5f4jb8ezvry6v8us.another-appleid.ccwu.cc"
+    ws-opts:
+      path: "/gateway/ws/a8d2f91c"
+      headers:
+        Host: "tt86554he5f4jb8ezvry6v8us.another-appleid.ccwu.cc"
+    udp: true
   - name: "CF EarnMoney_arz - 3"
     server: "104.17.3.81"
     port: 443
@@ -48,20 +63,6 @@ proxies:
       path: "/9df8feba-3070-40f4-94bb-0e538fcc50c6-vless?ed=2560"
       headers:
         Host: "off-administered-publicity-ate.trycloudflare.com"
-    udp: true
-  - name: "ip_cf FR"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.ignitelimit.com"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.ignitelimit.com"
     udp: true
 
 proxy-groups:

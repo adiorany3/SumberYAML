@@ -1,20 +1,5 @@
 proxies:
-  - name: "AE AE VLESS filterk0sh 1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 0bb6dff2-0029-4b81-8c81-4fc70fae1ed9
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "eng14.netliberated.org"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "eng14.netliberated.org"
-    udp: true
-  - name: "V2raySup0 2615"
+  - name: "routel1 2102"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -29,18 +14,32 @@ proxies:
       headers:
         Host: "s.blibli.com.cyylr.eu.cc"
     udp: true
-  - name: "hopev2ray 1436"
+  - name: "AE AE- VPNine1"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: ace095c0-debd-46fd-903f-d29b9c8b4101
+    uuid: e286cebe-7473-44e9-8c30-273ac36ac83b
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "collection.linefriends.com.cyylr.eu.cc"
+    servername: "nlll.mohammadaz2d.ir"
+    ws-opts:
+      path: "/ws?ed=2048"
+      headers:
+        Host: "nlll.mohammadaz2d.ir"
+    udp: true
+  - name: "routel1 2692"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "aa710f78-eddb-45b4-bd32-1f8692a754e5"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "s.blibli.com.cyylr.eu.cc"
     ws-opts:
       path: "/ae-bo"
       headers:
-        Host: "collection.linefriends.com.cyylr.eu.cc"
+        Host: "s.blibli.com.cyylr.eu.cc"
     udp: true

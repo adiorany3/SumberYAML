@@ -34,7 +34,36 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "SC SC- VPNine1"
+  - name: "SC SC VLESS ai_duet 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 406d8436-0eb9-4eb2-84fb-960e076ffba6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.130.125.160"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "45.130.125.160"
+    udp: true
+  - name: "SC SC TROJAN vpn_ioss 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "45.130.125.158"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "45.130.125.158"
+    udp: true
+  - name: "GozargahAzad SC"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -48,19 +77,19 @@ proxies:
       headers:
         Host: "sg.farxmode.ir"
     udp: true
-  - name: "SC SC- VPNine1 1961"
+  - name: "https t.me v2rayNplus SC"
     server: "104.17.3.81"
     port: 443
     type: trojan
-    password: "ZzE0ZXql6p"
+    password: "P6oS8vzFbu"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "sh.farxmode.ir"
+    sni: "sb.farxmode.ir"
     ws-opts:
       path: "/db"
       headers:
-        Host: "sh.farxmode.ir"
+        Host: "sb.farxmode.ir"
     udp: true
 
 proxy-groups:

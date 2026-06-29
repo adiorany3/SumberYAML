@@ -34,7 +34,38 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CZ CZ-46.8.113.142-0195"
+  - name: "CZ CZ VMESS freev2rays 1"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: b526926d-1474-4f41-985e-8b877cb840cd
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "time.is"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "shs111.kejixiaoqi666.store"
+    udp: true
+  - name: "CZ CZ VLESS bored_vpn 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e0bb3250-1873-4b9d-b9b5-7aa6c863885f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "95.85.233.181"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "95.85.233.181"
+    udp: true
+  - name: "CZ CZ-46.8.113.142-0223"
     server: "104.17.3.81"
     port: 443
     type: trojan

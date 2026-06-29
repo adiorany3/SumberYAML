@@ -1,5 +1,64 @@
 proxies:
-  - name: "vpnserverrr VL-WS-N A US US 14ms"
+  - name: "ID ID-130.94.94.15-0164"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "tUtK5TKdjxsPnOyritLtv8OQWHAK8f8yNR"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "130.94.94.15"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "130.94.94.15"
+    udp: true
+  - name: "TEL Father_vpn"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1043634e-8d9d-4736-83fa-f14ddc9d464c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "TEL Father_vpn 1382"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 63ec2a82-e47c-4782-a89e-9aca2baf17ef
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "quiz.int.vidio.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "quiz.int.vidio.com.ex33r.eu.cc"
+    udp: true
+  - name: "TEL Father_vpn 3420"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1ce9392f-caf4-48f7-bbb9-475b101fbde0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "graph.instagram.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
+  - name: "VLESS"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -10,67 +69,7 @@ proxies:
     network: ws
     servername: "unnes.ac.id.yxls.eu.cc"
     ws-opts:
-      path: "/ca-cl#TELEGRAM-vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr?ed=512"
+      path: "/ca-cl@NebulaVPNx"
       headers:
         Host: "unnes.ac.id.yxls.eu.cc"
-    udp: true
-  - name: "https telegraph.rayan.dpdns.org persian"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 1679af35-6dd6-4c09-ae3b-18f239217f3e
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "rAyAn-007.pArViN.DpDnS.OrG"
-    ws-opts:
-      path: "/?ed=2560"
-      headers:
-        Host: "rayan-007.parvin.dpdns.org"
-    udp: true
-  - name: "oneclickvpnkeys US 4925"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 5da16620-0386-4da3-a252-12a6380ed1a6
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "server3.pegibol940.workers.dev"
-    ws-opts:
-      path: "/eyJqdW5rIjoiUHRlMEpuSzRFY1EyeUUwIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIiwiWzI2MDI6ZmM1OTpiMDo2NDo6XSIsIlsyNjAyOmZjNTk6MTE6NjQ6Ol0iXX0="
-      headers:
-        Host: "server3.pegibol940.workers.dev"
-    udp: true
-  - name: "oneclickvpnkeys US 8796"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "nbhhh.mrcool.kdns.fr"
-    ws-opts:
-      path: "/proxyip"
-      headers:
-        Host: "nbhhh.mrcool.kdns.fr"
-    udp: true
-  - name: "https telegraph.rayan-config.workers.dev persian"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "rAyAn-007.nAsTaRaN.DpDnS.OrG"
-    ws-opts:
-      path: "/?ed=2560"
-      headers:
-        Host: "rayan-007.nastaran.dpdns.org"
     udp: true

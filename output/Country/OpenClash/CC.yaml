@@ -34,20 +34,50 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "15 oneclickvpnkeys"
+  - name: "XX XX VLESS kesslervpn 1"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 4c1b83e4-5ade-46a8-966d-1eeb7a8dcc65
+    uuid: 8a30cf48-9fa2-46c5-8815-2822b12852e0
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "wz1.fum.ccwu.cc"
+    servername: "188.114.98.0"
     ws-opts:
-      path: "/proxyip=sjc.o00o.ooo"
+      path: "/"
       headers:
-        Host: "wz1.fum.ccwu.cc"
+        Host: "188.114.98.0"
+    udp: true
+  - name: "Evay_vpn"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 8a30cf48-9fa2-46c5-8815-2822b12852e0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "xqkxw.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "xqkxw.ccwu.cc"
+    udp: true
+  - name: "v2reya88 confinghub2 8600"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fgnix832fx.fx6hsv0.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fgnix832fx.fx6hsv0.ccwu.cc"
     udp: true
 
 proxy-groups:

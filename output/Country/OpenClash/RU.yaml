@@ -34,20 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "RU RU- VPNine1"
+  - name: "MTMVPN"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: a4548d7f-8e0f-4780-9f5a-30cbd2754550
+    uuid: 15fc02f9-dadd-49fa-a259-baec0ee71339
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "freednz.Mastermarly.IR."
+    servername: "213.21.222.28.speed-storage.ru"
     ws-opts:
-      path: "/?ed=2048"
+      path: "/sequre/ws?ed=2560"
       headers:
-        Host: "freednz.Mastermarly.IR."
+        Host: "213.21.222.28.speed-storage.ru"
+    udp: true
+  - name: "83592 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 92e41c23-4b39-464a-bbff-63ef84f317da
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "api-maps.yandex.ru"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "api-maps.yandex.ru"
     udp: true
 
 proxy-groups:

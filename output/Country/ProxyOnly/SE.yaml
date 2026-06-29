@@ -1,4 +1,19 @@
 proxies:
+  - name: "SE SE- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5fdf2809-9b94-4c77-bd50-81027af9cef4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sweden08.anotherboring.top"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "sweden08.anotherboring.top"
+    udp: true
   - name: "Rahin_vpn1"
     server: "104.17.3.81"
     port: 443

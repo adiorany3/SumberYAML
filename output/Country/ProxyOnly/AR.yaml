@@ -1,4 +1,19 @@
 proxies:
+  - name: "AR AR- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "r1.mizulina.top"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "r1.mizulina.top"
+    udp: true
   - name: "v2ray_ar v2ray_ar oorg_ar"
     server: "104.17.3.81"
     port: 443

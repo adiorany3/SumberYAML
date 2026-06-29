@@ -34,75 +34,17 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "VN VN- VPNine1"
+  - name: "VN VN-14.225.252.79-0216"
+    type: vmess
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "8078dd51-d4d9-4024-89df-50e3nhb58تa00a54"
+    uuid: 5158aa9b-194f-4d48-a40a-17ae49650a9a
+    alterId: 0
+    cipher: auto
     tls: true
     skip-cert-verify: true
-    network: ws
-    sni: "103.195.236.24"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "103.195.236.24"
-    udp: true
-  - name: "VN VN- VPNine1 1487"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "8078dd51-d4d9-4024-89df-50e358a00a54"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "103.195.236.24"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "103.195.236.24"
-    udp: true
-  - name: "VN 70972 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "8078dd51-d4d9-4024-89df-50e358ha00a54"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "103.195.236.24"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "103.195.236.24"
-    udp: true
-  - name: "VN 71037 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "8078dd51-d4d9-4024-89df-50e35ک8a00a54"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "103.195.236.24"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "103.195.236.24"
-    udp: true
-  - name: "VN 70963 Telegram t.me SOSkeyNET"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "8078dd51-d4d9-4024-89df-50e3bg58a00a54"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "103.195.236.24"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "103.195.236.24"
+    servername: "hcm.fuzzypn.me"
+    network: grpc
     udp: true
 
 proxy-groups:
