@@ -1,0 +1,215 @@
+# Auto generated usage profile OpenClash config
+# Output: output/gaming.yaml
+# Profile group: GAMING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "vpnserverrr VL-WS-N A US US 14ms"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl#TELEGRAM-vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr?ed=512"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "https telegraph.rayan.dpdns.org persian"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1679af35-6dd6-4c09-ae3b-18f239217f3e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rAyAn-007.pArViN.DpDnS.OrG"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "rayan-007.parvin.dpdns.org"
+    udp: true
+  - name: "oneclickvpnkeys US 4925"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5da16620-0386-4da3-a252-12a6380ed1a6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "server3.pegibol940.workers.dev"
+    ws-opts:
+      path: "/eyJqdW5rIjoiUHRlMEpuSzRFY1EyeUUwIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIiwiWzI2MDI6ZmM1OTpiMDo2NDo6XSIsIlsyNjAyOmZjNTk6MTE6NjQ6Ol0iXX0="
+      headers:
+        Host: "server3.pegibol940.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 8796"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "https telegraph.rayan-config.workers.dev persian"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: aebe5a70-0ca3-46ce-8208-8b5bab1346ce
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rAyAn-007.nAsTaRaN.DpDnS.OrG"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "rayan-007.nastaran.dpdns.org"
+    udp: true
+  - name: "https telegraph.rayan-config.workers.dev persian 1712"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: d2d0f796-edb0-427a-af32-ae360679f9e7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "rAyAn-007.fOtOn.dPdNs.oRg"
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: "rayan-007.foton.dpdns.org"
+    udp: true
+  - name: "oneclickvpnkeys DE"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 79863d42-9f1c-4e8e-a65b-1003090871c1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "coNFIghayE.moKhaBeraTebInZON.workErS.deV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiUHVXcXFjYTJGVGI3IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19"
+      headers:
+        Host: "confighaye.mokhaberatebinzon.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 7592"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "DE V2ngFast 8336"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 27fa0b14-1360-4376-826f-d6be3f7e7636
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "Ez-16D6b5.AliAlO87.wORKErS.DEv"
+    ws-opts:
+      path: "/eyJqdW5rIjoiZ3U3MGx2S20iLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560"
+      headers:
+        Host: "ez-16d6b5.alialo87.workers.dev"
+    udp: true
+  - name: "kurdconfig"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 210c8277-10fb-238a-b715-82da00000000
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nameless-dream-a133.ftmhkhtb.workers.dev"
+    ws-opts:
+      path: "/melobery"
+      headers:
+        Host: "nameless-dream-a133.ftmhkhtb.workers.dev"
+    udp: true
+
+proxy-groups:
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "vpnserverrr VL-WS-N A US US 14ms"
+      - "https telegraph.rayan.dpdns.org persian"
+      - "oneclickvpnkeys US 4925"
+      - "oneclickvpnkeys US 8796"
+      - "https telegraph.rayan-config.workers.dev persian"
+      - "https telegraph.rayan-config.workers.dev persian 1712"
+      - "oneclickvpnkeys DE"
+      - "oneclickvpnkeys US 7592"
+      - "DE V2ngFast 8336"
+      - "kurdconfig"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GAMING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

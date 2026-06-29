@@ -1,15 +1,16 @@
 proxies:
-  - name: "internet_azad_2026 1548"
+  - name: "meliproxyy"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "MiTiVPN"
+    type: vless
+    uuid: 631a49ec-2eb5-2215-0cac-9d292696d162
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "my.95r.ir"
+    servername: "my-pp.arminpixel2.workers.dev"
     ws-opts:
-      path: "/ed=mitivpn"
+      path: "/sync"
       headers:
-        Host: "my.95r.ir"
+        Host: "my-pp.arminpixel2.workers.dev"
     udp: true

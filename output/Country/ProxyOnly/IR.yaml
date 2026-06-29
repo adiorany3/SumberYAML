@@ -14,6 +14,21 @@ proxies:
       headers:
         Host: "kingcloud.biack.ir"
     udp: true
+  - name: "vmesskhodam 5116"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e7186358-4330-f129-f14e-34ca00000007
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "orange-rain-6e34.cimarac875.workers.dev"
+    ws-opts:
+      path: "/sync"
+      headers:
+        Host: "orange-rain-6e34.cimarac875.workers.dev"
+    udp: true
   - name: "29 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443

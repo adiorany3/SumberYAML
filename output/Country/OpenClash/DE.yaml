@@ -34,7 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "DE V2ngFast 8579"
+  - name: "oneclickvpnkeys DE"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 79863d42-9f1c-4e8e-a65b-1003090871c1
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "coNFIghayE.moKhaBeraTebInZON.workErS.deV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiUHVXcXFjYTJGVGI3IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19"
+      headers:
+        Host: "confighaye.mokhaberatebinzon.workers.dev"
+    udp: true
+  - name: "DE V2ngFast 8336"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,6 +63,21 @@ proxies:
       path: "/eyJqdW5rIjoiZ3U3MGx2S20iLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560"
       headers:
         Host: "ez-16d6b5.alialo87.workers.dev"
+    udp: true
+  - name: "DE DE- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4c53f3d2-ee8e-4f4d-8bf8-f8e6a8906c3d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "zeus-panel-2dl831.pabhsscvdgeeb.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "zeus-panel-2dl831.pabhsscvdgeeb.workers.dev"
     udp: true
 
 proxy-groups:
