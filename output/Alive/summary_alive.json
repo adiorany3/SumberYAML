@@ -14,34 +14,32 @@
   "timeout_ms": 5000,
   "workers": 20,
   "tester": "strict-mihomo-delay",
-  "tester_ok": false,
-  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms. | Strict result kosong, fallback longgar diaktifkan agar output tidak kosong.",
+  "tester_ok": true,
+  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
   "rounds": [
     {
       "round": 1,
       "tester": "mihomo-delay",
-      "tester_ok": false,
-      "alive": 0,
-      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
+      "tester_ok": true,
+      "alive": 37,
+      "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
-      "tester_ok": false,
-      "alive": 0,
-      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
+      "tester_ok": true,
+      "alive": 67,
+      "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1717,
-  "alive": 1717,
-  "strict_alive": 0,
-  "dead": 0,
+  "total": 1694,
+  "alive": 68,
+  "strict_alive": 68,
+  "dead": 1626,
   "untested": 0,
-  "final_output_filter": "fallback alive because strict empty",
-  "fallback_tester": "tcp-fallback",
-  "fallback_message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis.",
+  "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
   "best_ping_country_filter": "ID",
   "best_ping_fallback_global_if_empty": true,
@@ -49,24 +47,30 @@
   "best_ping_group_type": "url-test",
   "best_ping_count": 5,
   "best_ping_names": [
-    "ID ID-130.94.94.15-0164",
-    "TEL Father_vpn",
-    "TEL Father_vpn 1382",
-    "TEL Father_vpn 3420",
-    "VLESS"
+    "V2raySup0",
+    "vpnserverrr VL-WS-N A US US 13ms",
+    "Daily_Configs 6197",
+    "oneclickvpnkeys US 3026",
+    "vpnserverrr VL-WS-N A US US 14ms"
   ],
   "responsive_top_n": 15,
-  "responsive_count": 9,
+  "responsive_count": 15,
   "responsive_names": [
-    "ID ID-130.94.94.15-0164",
-    "TEL Father_vpn",
-    "TEL Father_vpn 1382",
-    "TEL Father_vpn 3420",
-    "VLESS",
-    "XX XX VLESS father_vpn 1",
-    "free_conf_iran 2",
-    "routel1 3612",
-    "routel1 1901"
+    "V2raySup0",
+    "vpnserverrr VL-WS-N A US US 13ms",
+    "Daily_Configs 6197",
+    "oneclickvpnkeys US 3026",
+    "vpnserverrr VL-WS-N A US US 14ms",
+    "configfa VL-WS-N A XX 2ms 6070",
+    "oneclickvpnkeys US 3809",
+    "W570W 9455",
+    "oneclickvpnkeys US 3186",
+    "Ap_Ir6 2641",
+    "chillguy_vpn 9605",
+    "configV2rayNG US 8658",
+    "V2ConfigPro",
+    "oneclickvpnkeys US 8569",
+    "62 oneclickvpnkeys"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -78,5 +82,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 1717
+  "strict_output_count": 68
 }
