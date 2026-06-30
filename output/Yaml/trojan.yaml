@@ -1,4 +1,18 @@
 proxies:
+  - name: "bored_vpn"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "6c862415-30d2-4813-8e49-42e99a0bd415"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/us-gllc"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
+    udp: true
   - name: "oneclickvpnkeys SG"
     server: "104.17.3.81"
     port: 443
@@ -27,7 +41,7 @@ proxies:
       headers:
         Host: "tjsp.hhxaf.cc.cd"
     udp: true
-  - name: "oneclickvpnkeys US 7290"
+  - name: "oneclickvpnkeys US 2803"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -40,6 +54,34 @@ proxies:
       path: "/br-orcl"
       headers:
         Host: "space.byu.id.yxls.eu.cc"
+    udp: true
+  - name: "oneclickvpnkeys FR 4125"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
+    udp: true
+  - name: "configV2rayNG FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
     udp: true
   - name: "v2rayng_fast FR"
     server: "104.17.3.81"
@@ -55,7 +97,7 @@ proxies:
       headers:
         Host: "www.calmloud.com"
     udp: true
-  - name: "oneclickvpnkeys FR 3308"
+  - name: "oneclickvpnkeys FR 4288"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -111,35 +153,7 @@ proxies:
       headers:
         Host: "www.creationlong.org"
     udp: true
-  - name: "US"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "6c862415-30d2-4813-8e49-42e99a0bd415"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "space.byu.id.yxls.eu.cc"
-    ws-opts:
-      path: "/us-gllc"
-      headers:
-        Host: "space.byu.id.yxls.eu.cc"
-    udp: true
-  - name: "AU"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "86957ec0-b213-433b-a43b-51f2175e0ec3"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "space.byu.id.yxls.eu.cc"
-    ws-opts:
-      path: "/au-do"
-      headers:
-        Host: "space.byu.id.yxls.eu.cc"
-    udp: true
-  - name: "vmesskhodam 4944"
+  - name: "vmesskhodam 2024"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -152,6 +166,20 @@ proxies:
       path: "/da"
       headers:
         Host: "sg.farxmode.ir"
+    udp: true
+  - name: "83891 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "86957ec0-b213-433b-a43b-51f2175e0ec3"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "space.byu.id.yxls.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "space.byu.id.yxls.eu.cc"
     udp: true
   - name: "29 NetFlowTools"
     server: "104.17.3.81"
@@ -223,7 +251,7 @@ proxies:
       headers:
         Host: "95r.ir"
     udp: true
-  - name: "W570W 1570"
+  - name: "W570W 1339"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -236,4 +264,46 @@ proxies:
       path: "/db"
       headers:
         Host: "sh.farxmode.ir"
+    udp: true
+  - name: "ReleaseNet 3522"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "c30f9be0-6d5d-11f1-b3fc-1239d0255272"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "uk1.test3.net"
+    ws-opts:
+      path: "/howdy"
+      headers:
+        Host: "uk1.test3.net"
+    udp: true
+  - name: "Maznet -SOS466"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.gossipglove.com"
+    ws-opts:
+      path: "/assignment?TELEGRAM--KANAL--JKVPN--JKVPN--JKVPN--JKVPN--JKVPN--JKVPN"
+      headers:
+        Host: "www.gossipglove.com"
+    udp: true
+  - name: "SG"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "0ab59a11983d4ce7862d156c164d927d"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "FAST-Route-DD4E2D.FREEfiReMO7964.WOrkeRS.DEV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiajRMMndudHIiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyIxMDkuMTIyLjE5OC4xMjciXX0=?ed=2560"
+      headers:
+        Host: "FAST-RouTE-Dd4E2d.fREefIREmO7964.wOrKerS.dev"
     udp: true

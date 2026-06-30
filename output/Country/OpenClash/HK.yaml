@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "vmesskhodam 3957"
+  - name: "vmesskhodam 1921"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,20 +48,6 @@ proxies:
       path: "/sync"
       headers:
         Host: "orange-rain-6e34.cimarac875.workers.dev"
-    udp: true
-  - name: "HK _HK_ssr MTE2LjE2Mi4xMjAuNDk6NTYwOmF1dGhfYWVzMTI4X21kNTpjaGFjaGEyMC1pZXRmOnBsY"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "fab16fff-d149-417c-bdef-4bfcf2333bbe"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "hkt.iamnotagoodman.com"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "hkt.iamnotagoodman.com"
     udp: true
 
 proxy-groups:
