@@ -1,0 +1,188 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "36 NetFlowTools"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "afbcd89a-5a90-4a44-a42a-be08f444aa3f"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "36 NetFlowTools"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "36 NetFlowTools"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "AU"
+      - "W570W 6297"
+      - "oneclickvpnkeys JP"
+      - "16 oneclickvpnkeys"
+      - "65 NetFlowTools"
+      - "TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI ed 512 alpn h3 i"
+      - "36 NetFlowTools"
+      - "oneclickvpnkeys US 4858"
+      - "mia6 https t.me QiangLieTuiJian"
+      - "mia1 https t.me QiangLieTuiJian"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "16 oneclickvpnkeys"
+      - "65 NetFlowTools"
+      - "AU"
+      - "W570W 6297"
+      - "oneclickvpnkeys JP"
+      - "TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI ed 512 alpn h3 i"
+      - "Ap_Ir6"
+      - "36 NetFlowTools"
+      - "64 NetFlowTools"
+      - "oneclickvpnkeys US 4858"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "16 oneclickvpnkeys"
+      - "65 NetFlowTools"
+      - "AU"
+      - "W570W 6297"
+      - "oneclickvpnkeys JP"
+      - "36 NetFlowTools"
+      - "TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI ed 512 alpn h3 i"
+      - "oneclickvpnkeys US 4858"
+      - "mia6 https t.me QiangLieTuiJian"
+      - "Ap_Ir6"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "AU"
+      - "W570W 6297"
+      - "oneclickvpnkeys JP"
+      - "16 oneclickvpnkeys"
+      - "65 NetFlowTools"
+      - "TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI ed 512 alpn h3 i"
+      - "36 NetFlowTools"
+      - "mia6 https t.me QiangLieTuiJian"
+      - "Ap_Ir6"
+      - "oneclickvpnkeys US 4858"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "16 oneclickvpnkeys"
+      - "65 NetFlowTools"
+      - "AU"
+      - "W570W 6297"
+      - "oneclickvpnkeys JP"
+      - "TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI ed 512 alpn h3 i"
+      - "Ap_Ir6"
+      - "36 NetFlowTools"
+      - "oneclickvpnkeys US 4858"
+      - "mia6 https t.me QiangLieTuiJian"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "36 NetFlowTools"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "36 NetFlowTools"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
