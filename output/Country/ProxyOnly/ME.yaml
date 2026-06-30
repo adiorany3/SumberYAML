@@ -1,5 +1,20 @@
 proxies:
-  - name: "https t.me QiangLieTuiJian"
+  - name: "https t.me QiangLieTuiJian https t.me QiangLieTuiJian"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7968c546-02dc-4f8c-b791-934591a94cb2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhvl.hhapp.kdns.fr"
+    ws-opts:
+      path: "/cbasur"
+      headers:
+        Host: "hhvl.hhapp.kdns.fr"
+    udp: true
+  - name: "https t.me QiangLieTuiJian 3836"
     server: "104.17.3.81"
     port: 443
     type: vless
