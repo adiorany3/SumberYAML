@@ -1,0 +1,43 @@
+proxies:
+  - name: "dy_gt-5"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MITIVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "PioHosting.ir"
+    ws-opts:
+      path: "/MiTiVPN=De"
+      headers:
+        Host: "PioHosting.ir"
+    udp: true
+  - name: "dy_gt-1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "PioHosting.ir"
+    ws-opts:
+      path: "/MiTiVPN=fL"
+      headers:
+        Host: "PioHosting.ir"
+    udp: true
+  - name: "dy_gt-3"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "PioHosting.ir"
+    ws-opts:
+      path: "/MiTiVPN=NL"
+      headers:
+        Host: "PioHosting.ir"
+    udp: true

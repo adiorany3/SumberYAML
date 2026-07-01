@@ -1,0 +1,15 @@
+proxies:
+  - name: "NetFlowTools"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "kZSruDyvxP"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "sk.farxmode.ir"
+    ws-opts:
+      path: "/da"
+      headers:
+        Host: "sk.farxmode.ir"
+    udp: true

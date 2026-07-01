@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "Unlimited pythash 2"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
   - name: "36 NetFlowTools"
     server: "104.17.3.81"
     port: 443

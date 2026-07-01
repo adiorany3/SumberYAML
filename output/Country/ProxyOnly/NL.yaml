@@ -1,5 +1,20 @@
 proxies:
-  - name: "oneclickvpnkeys NL 1942"
+  - name: "Zlinkid NL _MCI_iranc"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a5c05c1e-aa68-443f-8598-09800244bd4b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "kingcloud.biack.ir"
+    ws-opts:
+      path: "/LiL"
+      headers:
+        Host: "kingcloud.biack.ir"
+    udp: true
+  - name: "NL ProxyVPN11"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -12,18 +27,4 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.multiplydose.com"
-    udp: true
-  - name: "V2rayNG3 NL"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.gossipglove.com"
-    ws-opts:
-      path: "/assignment?L=tls"
-      headers:
-        Host: "www.gossipglove.com"
     udp: true

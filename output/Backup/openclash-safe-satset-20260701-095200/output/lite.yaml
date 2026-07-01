@@ -1,0 +1,370 @@
+# Auto generated compact OpenClash config
+# Output: output/lite.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "36 NetFlowTools"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "afbcd89a-5a90-4a44-a42a-be08f444aa3f"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "Unlimited pythash 2"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "55 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4908acbe-485f-4e1c-bb11-5dd04b9f7e88
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "restless-base-fe24.alirezahabibi20009.workers.dev"
+    ws-opts:
+      path: "/eyJqdW5rIjoiRjhycEV5WUpJTGZpQSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0="
+      headers:
+        Host: "restless-base-fe24.alirezahabibi20009.workers.dev"
+    udp: true
+  - name: "93 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6680846a-8a57-4dfd-9a0e-63209cfc8535
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.yxls.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "support.zoom.us.yxls.eu.cc"
+    udp: true
+  - name: "FreeConfigForYou 5986"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a5c05c1e-aa68-443f-8598-09800244bd4b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "kingcloud.biack.ir"
+    ws-opts:
+      path: "/LiL?ed=#TELEGRAM-vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr?ed=512"
+      headers:
+        Host: "kingcloud.biack.ir"
+    udp: true
+  - name: "hi_proxy_iran"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "vmesskhodam 6937"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a5c05c1e-aa68-443f-8598-09800244bd4b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "kingcloud.biack.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "kingcloud.biack.ir"
+    udp: true
+  - name: "GozargahAzad 4188"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a5c05c1e-aa68-443f-8598-09800244bd4b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "kingcloud.biack.ir"
+    ws-opts:
+      path: "/LiL?ed"
+      headers:
+        Host: "kingcloud.biack.ir"
+    udp: true
+  - name: "Daily_Configs 2999"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip@NebulaVPNx"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "FarazV2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "Leecher56"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a5c05c1e-aa68-443f-8598-09800244bd4b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "kingcloud.biack.ir"
+    ws-opts:
+      path: "/LiL?ed=512"
+      headers:
+        Host: "kingcloud.biack.ir"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "36 NetFlowTools"
+      - "Unlimited pythash 2"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "36 NetFlowTools"
+      - "Unlimited pythash 2"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "55 oneclickvpnkeys"
+      - "Daily_Configs 2999"
+      - "FarazV2ray"
+      - "Leecher56"
+      - "filembad 2926"
+      - "hope of freedom - anotherme_night 7549"
+      - "36 NetFlowTools"
+      - "93 oneclickvpnkeys"
+      - "FreeConfigForYou 5986"
+      - "hi_proxy_iran"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "55 oneclickvpnkeys"
+      - "36 NetFlowTools"
+      - "93 oneclickvpnkeys"
+      - "FreeConfigForYou 5986"
+      - "hi_proxy_iran"
+      - "vmesskhodam 6937"
+      - "GozargahAzad 4188"
+      - "Daily_Configs 2999"
+      - "FarazV2ray"
+      - "Leecher56"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "55 oneclickvpnkeys"
+      - "36 NetFlowTools"
+      - "93 oneclickvpnkeys"
+      - "FreeConfigForYou 5986"
+      - "hi_proxy_iran"
+      - "Daily_Configs 2999"
+      - "FarazV2ray"
+      - "Leecher56"
+      - "filembad 2926"
+      - "hope of freedom - anotherme_night 7549"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "55 oneclickvpnkeys"
+      - "Daily_Configs 2999"
+      - "FarazV2ray"
+      - "Leecher56"
+      - "filembad 2926"
+      - "hope of freedom - anotherme_night 7549"
+      - "36 NetFlowTools"
+      - "93 oneclickvpnkeys"
+      - "FreeConfigForYou 5986"
+      - "hi_proxy_iran"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "55 oneclickvpnkeys"
+      - "36 NetFlowTools"
+      - "93 oneclickvpnkeys"
+      - "FreeConfigForYou 5986"
+      - "hi_proxy_iran"
+      - "Daily_Configs 2999"
+      - "FarazV2ray"
+      - "Leecher56"
+      - "filembad 2926"
+      - "hope of freedom - anotherme_night 7549"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST TOP GLOBAL"
+    type: url-test
+    proxies:
+      - "55 oneclickvpnkeys"
+      - "36 NetFlowTools"
+      - "93 oneclickvpnkeys"
+      - "FreeConfigForYou 5986"
+      - "hi_proxy_iran"
+      - "vmesskhodam 6937"
+      - "GozargahAzad 4188"
+      - "Daily_Configs 2999"
+      - "FarazV2ray"
+      - "Leecher56"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "36 NetFlowTools"
+      - "Unlimited pythash 2"
+      - "55 oneclickvpnkeys"
+      - "93 oneclickvpnkeys"
+      - "FreeConfigForYou 5986"
+      - "hi_proxy_iran"
+      - "vmesskhodam 6937"
+      - "GozargahAzad 4188"
+      - "Daily_Configs 2999"
+      - "FarazV2ray"
+      - "Leecher56"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "36 NetFlowTools"
+      - "Unlimited pythash 2"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST TOP GLOBAL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
