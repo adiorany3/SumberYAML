@@ -1,0 +1,207 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "Channel id ShadowProxy66 SE"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a5c05c1e-aa68-443f-8598-09800244bd4b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "kingcloud.biack.ir"
+    ws-opts:
+      path: "/LiL?ed"
+      headers:
+        Host: "kingcloud.biack.ir"
+    udp: true
+  - name: "oneclickvpnkeys XX 3871"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "afbcd89a-5a90-4a44-a42a-be08f444aa3f"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/br-orcl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "Channel id ShadowProxy66 SE"
+      - "oneclickvpnkeys XX 3871"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "Channel id ShadowProxy66 SE"
+      - "oneclickvpnkeys XX 3871"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "AU"
+      - "TELEGRAM-vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr ed 512 EPOD"
+      - "EPODONIOS 6749"
+      - "chillguy_vpn 7524"
+      - "configV2rayNG US 7315"
+      - "EPODONIOS 2926"
+      - "FreeConfigForYou"
+      - "configV2rayNG US 8137"
+      - "https t.me QiangLieTuiJian EPODONIOS"
+      - "oneclickvpnkeys US 2014"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "AU"
+      - "TELEGRAM-vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr ed 512 EPOD"
+      - "oneclickvpnkeys US 2014"
+      - "oneclickvpnkeys US 6385"
+      - "EPODONIOS 6749"
+      - "chillguy_vpn 7524"
+      - "configV2rayNG US 7315"
+      - "configV2rayNG US 8137"
+      - "https t.me QiangLieTuiJian EPODONIOS"
+      - "EPODONIOS 4882"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "AU"
+      - "TELEGRAM-vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr ed 512 EPOD"
+      - "EPODONIOS 6749"
+      - "chillguy_vpn 7524"
+      - "configV2rayNG US 7315"
+      - "EPODONIOS 2926"
+      - "FreeConfigForYou"
+      - "oneclickvpnkeys US 2014"
+      - "oneclickvpnkeys US 6385"
+      - "configV2rayNG US 8137"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "AU"
+      - "TELEGRAM-vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr ed 512 EPOD"
+      - "EPODONIOS 6749"
+      - "chillguy_vpn 7524"
+      - "configV2rayNG US 7315"
+      - "EPODONIOS 2926"
+      - "FreeConfigForYou"
+      - "oneclickvpnkeys US 2014"
+      - "oneclickvpnkeys US 6385"
+      - "configV2rayNG US 8137"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "AU"
+      - "TELEGRAM-vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr_vpnserverrr ed 512 EPOD"
+      - "oneclickvpnkeys US 2014"
+      - "oneclickvpnkeys US 6385"
+      - "EPODONIOS 6749"
+      - "chillguy_vpn 7524"
+      - "configV2rayNG US 7315"
+      - "configV2rayNG US 8137"
+      - "https t.me QiangLieTuiJian EPODONIOS"
+      - "EPODONIOS 4882"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "Channel id ShadowProxy66 SE"
+      - "oneclickvpnkeys XX 3871"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "Channel id ShadowProxy66 SE"
+      - "oneclickvpnkeys XX 3871"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
