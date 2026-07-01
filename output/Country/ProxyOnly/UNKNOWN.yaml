@@ -1,20 +1,4 @@
 proxies:
-  - name: "RELAY-172.67.176.245-6242"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 3756f0f8-3973-4e40-97a3-54c811f34e5b
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "cg1c13.waimaojd.com"
-    network: ws
-    ws-opts:
-      path: "/api/v1/graphql"
-      headers:
-        Host: "cg1c13.waimaojd.com"
-    udp: true
   - name: "RELAY-172.67.152.227-0143"
     type: vmess
     server: "104.17.3.81"
