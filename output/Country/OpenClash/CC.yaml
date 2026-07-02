@@ -34,7 +34,22 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "81 oneclickvpnkeys"
+  - name: "EPODONIOS 1208"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0970324b-8c61-4ae7-8c3f-385a6f1e17e4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "vpn47.cc.cd"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vpn47.cc.cd"
+    udp: true
+  - name: "EPODONIOS 8187"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,7 +64,7 @@ proxies:
       headers:
         Host: "blog.webex.com.yxls.eu.cc"
     udp: true
-  - name: "Trojan"
+  - name: "EPODONIOS 5794"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -57,11 +72,11 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "hhcm.hhxaf.cc.cd"
+    sni: "tjsp.hhxaf.cc.cd"
     ws-opts:
-      path: "/@NebulaVPNx"
+      path: "/"
       headers:
-        Host: "hhcm.hhxaf.cc.cd"
+        Host: "tjsp.hhxaf.cc.cd"
     udp: true
 
 proxy-groups:
