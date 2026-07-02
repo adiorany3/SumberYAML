@@ -34,49 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "routel1 2102"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 47422044-85e3-426b-b6c4-3588cb24a3e5
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "s.blibli.com.cyylr.eu.cc"
-    ws-opts:
-      path: "/ae-bo"
-      headers:
-        Host: "s.blibli.com.cyylr.eu.cc"
-    udp: true
   - name: "AE AE- VPNine1"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: e286cebe-7473-44e9-8c30-273ac36ac83b
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "nlll.mohammadaz2d.ir"
-    ws-opts:
-      path: "/ws?ed=2048"
-      headers:
-        Host: "nlll.mohammadaz2d.ir"
-    udp: true
-  - name: "routel1 2692"
-    server: "104.17.3.81"
-    port: 443
     type: trojan
-    password: "aa710f78-eddb-45b4-bd32-1f8692a754e5"
+    password: "MITIVPN"
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "s.blibli.com.cyylr.eu.cc"
+    sni: "Usa.App-Cloud.ir"
     ws-opts:
-      path: "/ae-bo"
+      path: "/MiTiVPN=Usa"
       headers:
-        Host: "s.blibli.com.cyylr.eu.cc"
+        Host: "Usa.App-Cloud.ir"
     udp: true
 
 proxy-groups:

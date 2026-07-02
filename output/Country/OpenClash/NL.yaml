@@ -49,7 +49,7 @@ proxies:
       headers:
         Host: "kingcloud.biack.ir"
     udp: true
-  - name: "oneclickvpnkeys NL 8785"
+  - name: "oneclickvpnkeys NL 5537"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -62,6 +62,20 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.multiplydose.com"
+    udp: true
+  - name: "VPNine1 8271"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "NL.App-Cloud.ir"
+    ws-opts:
+      path: "/MiTiVPN=NL"
+      headers:
+        Host: "NL.App-Cloud.ir"
     udp: true
 
 proxy-groups:
