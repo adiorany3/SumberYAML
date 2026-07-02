@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "CF EarnMoney_arz - 3"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 9df8feba-3070-40f4-94bb-0e538fcc50c6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "off-administered-publicity-ate.trycloudflare.com"
+    ws-opts:
+      path: "/9df8feba-3070-40f4-94bb-0e538fcc50c6-vless?ed=2560"
+      headers:
+        Host: "off-administered-publicity-ate.trycloudflare.com"
+    udp: true
   - name: "ip_cf FR"
     server: "104.17.3.81"
     port: 443
