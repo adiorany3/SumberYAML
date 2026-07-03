@@ -1,0 +1,189 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "11 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "11 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "11 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "NetFlowTools 7556"
+      - "oneclickvpnkeys US 8519"
+      - "20 oneclickvpnkeys"
+      - "confiig_hub"
+      - "Daily_Configs 3463"
+      - "confiig_hub 7713"
+      - "oneclickvpnkeys US 3466"
+      - "icv2ray"
+      - "oneclickvpnkeys US 3188"
+      - "24 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "NetFlowTools 7556"
+      - "oneclickvpnkeys US 8519"
+      - "20 oneclickvpnkeys"
+      - "confiig_hub"
+      - "icv2ray"
+      - "oneclickvpnkeys US 3188"
+      - "Daily_Configs 3463"
+      - "confiig_hub 7713"
+      - "oneclickvpnkeys US 3466"
+      - "Daily_Configs 8473"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "NetFlowTools 7556"
+      - "oneclickvpnkeys US 8519"
+      - "20 oneclickvpnkeys"
+      - "confiig_hub"
+      - "icv2ray"
+      - "oneclickvpnkeys US 3188"
+      - "Daily_Configs 3463"
+      - "confiig_hub 7713"
+      - "oneclickvpnkeys US 3466"
+      - "Arvand_soul 5"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "NetFlowTools 7556"
+      - "oneclickvpnkeys US 8519"
+      - "20 oneclickvpnkeys"
+      - "confiig_hub"
+      - "icv2ray"
+      - "oneclickvpnkeys US 3188"
+      - "Daily_Configs 3463"
+      - "confiig_hub 7713"
+      - "oneclickvpnkeys US 3466"
+      - "23 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "NetFlowTools 7556"
+      - "oneclickvpnkeys US 8519"
+      - "20 oneclickvpnkeys"
+      - "confiig_hub"
+      - "icv2ray"
+      - "oneclickvpnkeys US 3188"
+      - "Daily_Configs 3463"
+      - "confiig_hub 7713"
+      - "oneclickvpnkeys US 3466"
+      - "Daily_Configs 8473"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "11 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "11 oneclickvpnkeys"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
