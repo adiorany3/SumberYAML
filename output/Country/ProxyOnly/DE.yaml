@@ -1,5 +1,5 @@
 proxies:
-  - name: "erfanandroid 2092"
+  - name: "GozargahAzad"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -12,4 +12,18 @@ proxies:
       path: "/MiTiVPN=De"
       headers:
         Host: "De.App-Cloud.ir"
+    udp: true
+  - name: "VPNine1 5685"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MITIVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "germany.App-Cloud.ir"
+    ws-opts:
+      path: "/MiTiVPN=De"
+      headers:
+        Host: "germany.App-Cloud.ir"
     udp: true
