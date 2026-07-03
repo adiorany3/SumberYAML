@@ -15,7 +15,7 @@ proxies:
       headers:
         Host: "hl112.cowjump.site"
     udp: true
-  - name: "By EbraSha 6112"
+  - name: "By EbraSha 8243"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -30,4 +30,36 @@ proxies:
       path: "/ws-gongyi"
       headers:
         Host: "gongyilm.dpdns.org"
+    udp: true
+  - name: "By EbraSha 2276"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 537a036f-a4ad-4051-80c4-011a46c62bb0
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "blogging-responsibility-recruiting-most.trycloudflare.com"
+    network: ws
+    ws-opts:
+      path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
+      headers:
+        Host: "blogging-responsibility-recruiting-most.trycloudflare.com"
+    udp: true
+  - name: "By EbraSha 3088"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 0632bfa9-b15c-4257-8c75-32f7c0c53b27
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "cg1c12.waimaojd.com"
+    network: ws
+    ws-opts:
+      path: "/api/v1/graphql"
+      headers:
+        Host: "cg1c12.waimaojd.com"
     udp: true

@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "49 NetFlowTools"
+  - name: "EPODONIOS 6306"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,21 +48,6 @@ proxies:
       path: "/fp=chrome"
       headers:
         Host: "vpn47.cc.cd"
-    udp: true
-  - name: "52 NetFlowTools"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: c1842b1d-433d-4576-ab60-7603fd3dcc55
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "blog.webex.com.yxls.eu.cc"
-    ws-opts:
-      path: "/au-do"
-      headers:
-        Host: "blog.webex.com.yxls.eu.cc"
     udp: true
 
 proxy-groups:

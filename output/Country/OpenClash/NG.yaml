@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "v2ray1_ng XX 1591"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4f013568-a58b-4b04-b5dd-4d52bf1c33a4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "amoosamiii.net"
+    ws-opts:
+      path: "/poiuyws"
+      headers:
+        Host: "amoosamiii.net"
+    udp: true
   - name: "v2ray1_ng US"
     server: "104.17.3.81"
     port: 443
@@ -49,7 +64,7 @@ proxies:
       headers:
         Host: "nbhhh.mrcool.kdns.fr"
     udp: true
-  - name: "v2ray1_ng XX"
+  - name: "v2ray1_ng XX 8265"
     server: "104.17.3.81"
     port: 443
     type: vless
