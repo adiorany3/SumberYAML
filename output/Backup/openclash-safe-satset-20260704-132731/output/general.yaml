@@ -1,0 +1,215 @@
+# Auto generated usage profile OpenClash config
+# Output: output/general.yaml
+# Profile group: GENERAL STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "oneclickvpnkeys US 2716"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 57d22829-187c-4f83-b757-d6e367ca6de8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "blog.webex.com.yxls.eu.cc"
+    ws-opts:
+      path: "/au-mt"
+      headers:
+        Host: "blog.webex.com.yxls.eu.cc"
+    udp: true
+  - name: "https t.me QiangLieTuiJian https t.me QiangLieTuiJian"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7968c546-02dc-4f8c-b791-934591a94cb2
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "hhvl.hhapp.kdns.fr"
+    ws-opts:
+      path: "/cbasur"
+      headers:
+        Host: "hhvl.hhapp.kdns.fr"
+    udp: true
+  - name: "icv2ray"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip=dc844a1f.tp15333.ip.090227.xyz"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 1190"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c1842b1d-433d-4576-ab60-7603fd3dcc55
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "blog.webex.com.yxls.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "blog.webex.com.yxls.eu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 5145"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 8883"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6680846a-8a57-4dfd-9a0e-63209cfc8535
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.yxls.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "support.zoom.us.yxls.eu.cc"
+    udp: true
+  - name: "configV2rayNG US 1313"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 1584"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 4651"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: f0db70ae-559e-4cba-aa00-3a04eb04c3e0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fm3.pages.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "fm3.pages.dev"
+    udp: true
+  - name: "support https t.me QiangLieTuiJian"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4d10c997-4781-4cd9-82c3-15453523e12c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.yxls.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "support.zoom.us.yxls.eu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "oneclickvpnkeys US 2716"
+      - "https t.me QiangLieTuiJian https t.me QiangLieTuiJian"
+      - "icv2ray"
+      - "oneclickvpnkeys US 1190"
+      - "oneclickvpnkeys US 5145"
+      - "oneclickvpnkeys US 8883"
+      - "configV2rayNG US 1313"
+      - "oneclickvpnkeys US 1584"
+      - "oneclickvpnkeys US 4651"
+      - "support https t.me QiangLieTuiJian"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GENERAL STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

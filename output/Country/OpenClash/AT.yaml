@@ -34,33 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "AT AT TROJAN freeconfigsplus 1"
+  - name: "AT best_internet_iran AT1 4.9MB s DNSOK GPT -DE CL-DE"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "humanity"
+    type: vless
+    uuid: 00722148-3d6c-403d-854e-581b105ceffd
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "212.183.88.136"
+    servername: "0iXGgvWA3b.geekylinux.com"
     ws-opts:
-      path: "/"
+      path: "/api/v3/ws/events"
       headers:
-        Host: "212.183.88.136"
-    udp: true
-  - name: "AT V2CROSS.COM"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "humanity"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "www.calmlunch.com"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "www.calmlunch.com"
+        Host: "0iXGgvWA3b.geekylinux.com"
     udp: true
 
 proxy-groups:

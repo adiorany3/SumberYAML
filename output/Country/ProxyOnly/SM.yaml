@@ -1,0 +1,15 @@
+proxies:
+  - name: "filembad 6605"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "v2TkL6FH3h"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "sm.farxmode.ir"
+    ws-opts:
+      path: "/da"
+      headers:
+        Host: "sm.farxmode.ir"
+    udp: true

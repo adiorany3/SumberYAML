@@ -1,0 +1,15 @@
+proxies:
+  - name: "V2ray_Alpha 3"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "zBfIAxaXtz"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "sn.farxmode.ir"
+    ws-opts:
+      path: "/db"
+      headers:
+        Host: "sn.farxmode.ir"
+    udp: true

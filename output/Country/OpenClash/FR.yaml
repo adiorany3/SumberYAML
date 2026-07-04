@@ -34,20 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "Daily_Configs 6948"
+  - name: "oneclickvpnkeys FR"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    uuid: 72d1797c-cef8-410a-b8fd-db9104dc3cb0
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "nbhhh.mrcool.kdns.fr"
+    servername: "amooaliii.net"
     ws-opts:
-      path: "/proxyip"
+      path: "/jdhfyws"
       headers:
-        Host: "nbhhh.mrcool.kdns.fr"
+        Host: "amooaliii.net"
+    udp: true
+  - name: "oneclickvpnkeys FR 9611"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 72d1797c-cef8-410a-b8fd-db9104dc3cb0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "JoinProxyVPN11.amooaliii.net"
+    ws-opts:
+      path: "/jdhfyws"
+      headers:
+        Host: "amooaliii.net"
     udp: true
   - name: "icv2ray"
     server: "104.17.3.81"
@@ -64,50 +79,19 @@ proxies:
       headers:
         Host: "nbhhh.mrcool.kdns.fr"
     udp: true
-  - name: "Daily_Configs 3463"
+  - name: "configV2rayNG FR"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
-    cipher: none
+    type: trojan
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "t1s1.rittbo.kdns.fr"
+    sni: "www.calmlunch.com"
     ws-opts:
-      path: "/fp"
+      path: "/assignment"
       headers:
-        Host: "t1s1.rittbo.kdns.fr"
-    udp: true
-  - name: "hopev2ray 5603"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "t1s1.rittbo.kdns.fr"
-    ws-opts:
-      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed"
-      headers:
-        Host: "t1s1.rittbo.kdns.fr"
-    udp: true
-  - name: "V2raySup0 5804"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "t1s1.rittbo.kdns.fr"
-    ws-opts:
-      path: "/?TELEGRAM-YamYamProxy_YamYamProxy_YamYamProxy_YamYamProxy_YamYamProxy?ed=512"
-      headers:
-        Host: "t1s1.rittbo.kdns.fr"
+        Host: "www.calmlunch.com"
     udp: true
 
 proxy-groups:
