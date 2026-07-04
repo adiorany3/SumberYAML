@@ -1,4 +1,19 @@
 proxies:
+  - name: "t.me iProxyChannel 6"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b08562b0-dbc0-47d1-860d-9435133b25c9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cfoo-146.pages.dev"
+    ws-opts:
+      path: "/QiangLieTuiJian?ed"
+      headers:
+        Host: "cfoo-146.pages.dev"
+    udp: true
   - name: "support https t.me QiangLieTuiJian"
     server: "104.17.3.81"
     port: 443
@@ -28,19 +43,4 @@ proxies:
       path: "/cbasur"
       headers:
         Host: "hhvl.hhapp.kdns.fr"
-    udp: true
-  - name: "t.me iProxyChannel 6"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: b08562b0-dbc0-47d1-860d-9435133b25c9
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "cfoo-146.pages.dev"
-    ws-opts:
-      path: "/QiangLieTuiJian?ed"
-      headers:
-        Host: "cfoo-146.pages.dev"
     udp: true

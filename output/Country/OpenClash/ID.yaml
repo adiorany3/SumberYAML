@@ -34,20 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "11 oneclickvpnkeys"
+  - name: "Proxy 9943"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
-    cipher: none
+    type: trojan
+    password: "86957ec0-b213-433b-a43b-51f2175e0ec3"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "unnes.ac.id.yxls.eu.cc"
+    sni: "space.byu.id.yxls.eu.cc"
     ws-opts:
-      path: "/ca-cl"
+      path: "/au-do"
       headers:
-        Host: "unnes.ac.id.yxls.eu.cc"
+        Host: "space.byu.id.yxls.eu.cc"
     udp: true
 
 proxy-groups:

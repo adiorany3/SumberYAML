@@ -1,5 +1,5 @@
 proxies:
-  - name: "oneclickvpnkeys NL 7811"
+  - name: "oneclickvpnkeys NL"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -7,9 +7,23 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.gossipglove.com"
+    sni: "www.multiplydose.com"
     ws-opts:
       path: "/assignment"
       headers:
-        Host: "www.gossipglove.com"
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "Leecher56 2445"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "Nl-L.App-Cloud.ir"
+    ws-opts:
+      path: "/MiTiVPN=N-L"
+      headers:
+        Host: "Nl-L.App-Cloud.ir"
     udp: true
