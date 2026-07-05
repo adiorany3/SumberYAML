@@ -34,20 +34,34 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "CF EarnMoney_arz - 3"
+  - name: "EPODONIOS 5659"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 9df8feba-3070-40f4-94bb-0e538fcc50c6
+    uuid: 5dc15e15-f285-4a9d-959b-0e4fbdd77b63
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "off-administered-publicity-ate.trycloudflare.com"
+    servername: "powered-by-surena.configfarsi695fcfe8a2e58.workers.dev"
     ws-opts:
-      path: "/9df8feba-3070-40f4-94bb-0e538fcc50c6-vless?ed=2560"
+      path: "/"
       headers:
-        Host: "off-administered-publicity-ate.trycloudflare.com"
+        Host: "powered-by-surena.configfarsi695fcfe8a2e58.workers.dev"
+    udp: true
+  - name: "ip_cf FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.ignitelimit.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.ignitelimit.com"
     udp: true
 
 proxy-groups:

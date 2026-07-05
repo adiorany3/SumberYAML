@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "49 NetFlowTools"
+  - name: "EPODONIOS 1386"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,6 +48,21 @@ proxies:
       path: "/fp=chrome"
       headers:
         Host: "vpn47.cc.cd"
+    udp: true
+  - name: "EPODONIOS 7377"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 3ccba794-1c6d-48a8-acf2-f5caf0e69d86
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "all.speedtest03.ccwu.cc"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "all.speedtest03.ccwu.cc"
     udp: true
 
 proxy-groups:

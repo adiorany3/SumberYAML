@@ -1,5 +1,5 @@
 proxies:
-  - name: "By EbraSha 6877"
+  - name: "By EbraSha 2238"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -14,4 +14,20 @@ proxies:
       path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
       headers:
         Host: "blogging-responsibility-recruiting-most.trycloudflare.com"
+    udp: true
+  - name: "By EbraSha 3281"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 95d2c461-61f5-4dae-bc74-4d10ce1f6236
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "gongyilm.dpdns.org"
+    network: ws
+    ws-opts:
+      path: "/ws-gongyi"
+      headers:
+        Host: "gongyilm.dpdns.org"
     udp: true
