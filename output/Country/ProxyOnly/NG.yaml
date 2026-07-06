@@ -1,31 +1,15 @@
 proxies:
-  - name: "v2ray1_ng XX"
+  - name: "v2ray1_ng FR"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: b3bd8d0e-3cbe-4241-a4f1-e3dd0a9e432c
-    cipher: none
+    type: trojan
+    password: "humanity"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "server-ir-3.ariyuz.org"
+    sni: "www.calmlunch.com"
     ws-opts:
-      path: "/page=2"
+      path: "/assignment"
       headers:
-        Host: "server-ir-3.ariyuz.org"
-    udp: true
-  - name: "v2ray1_ng US"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: e18cdfef-c81f-4199-8b2d-afcaf9f21cd0
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "nova-river-portal-b162.alireza57290.workers.dev"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "nova-river-portal-b162.alireza57290.workers.dev"
+        Host: "www.calmlunch.com"
     udp: true

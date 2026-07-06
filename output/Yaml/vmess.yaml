@@ -1,5 +1,5 @@
 proxies:
-  - name: "RELAY-104.21.2.202-0152"
+  - name: "RELAY-172.67.152.227-0187"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -15,23 +15,7 @@ proxies:
       headers:
         Host: "hl112.cowjump.site"
     udp: true
-  - name: "By EbraSha 2238"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 537a036f-a4ad-4051-80c4-011a46c62bb0
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "blogging-responsibility-recruiting-most.trycloudflare.com"
-    network: ws
-    ws-opts:
-      path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
-      headers:
-        Host: "blogging-responsibility-recruiting-most.trycloudflare.com"
-    udp: true
-  - name: "By EbraSha 3281"
+  - name: "By EbraSha 2641"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -46,4 +30,20 @@ proxies:
       path: "/ws-gongyi"
       headers:
         Host: "gongyilm.dpdns.org"
+    udp: true
+  - name: "By EbraSha 2816"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 537a036f-a4ad-4051-80c4-011a46c62bb0
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "jp01.scpnb.top"
+    network: ws
+    ws-opts:
+      path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
+      headers:
+        Host: "jp01.scpnb.top"
     udp: true
