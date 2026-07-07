@@ -14,34 +14,32 @@
   "timeout_ms": 5000,
   "workers": 20,
   "tester": "strict-mihomo-delay",
-  "tester_ok": false,
-  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms. | Strict result kosong, fallback longgar diaktifkan agar output tidak kosong.",
+  "tester_ok": true,
+  "tester_message": "STRICT_ALIVE_ONLY aktif tapi dibuat balanced: node cukup lolos 1/2 ronde URL delay Mihomo dengan delay <= 8000ms.",
   "rounds": [
     {
       "round": 1,
       "tester": "mihomo-delay",
-      "tester_ok": false,
-      "alive": 0,
-      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
+      "tester_ok": true,
+      "alive": 58,
+      "message": "Mihomo proxy delay test selesai."
     },
     {
       "round": 2,
       "tester": "mihomo-delay",
-      "tester_ok": false,
-      "alive": 0,
-      "message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis."
+      "tester_ok": true,
+      "alive": 86,
+      "message": "Mihomo proxy delay test selesai."
     }
   ],
   "max_delay_ms": 8000,
   "filter_max_delay_for_output": false,
-  "total": 1728,
-  "alive": 1728,
-  "strict_alive": 0,
-  "dead": 0,
+  "total": 1750,
+  "alive": 89,
+  "strict_alive": 89,
+  "dead": 1661,
   "untested": 0,
-  "final_output_filter": "fallback alive because strict empty",
-  "fallback_tester": "tcp-fallback",
-  "fallback_message": "Mihomo/Clash binary tidak ditemukan dan gagal download otomatis.",
+  "final_output_filter": "strict/balanced alive 1/2 <= 8000ms",
   "best_ping_top_n": 5,
   "best_ping_country_filter": "ID",
   "best_ping_fallback_global_if_empty": true,
@@ -49,23 +47,30 @@
   "best_ping_group_type": "url-test",
   "best_ping_count": 5,
   "best_ping_names": [
-    "EPODONIOS",
-    "ID ID-130.94.94.15-0214",
-    "TEL Father_vpn",
-    "TEL Father_vpn 5727",
-    "TEL Father_vpn 6819"
+    "Tel- ProxyMtAlpha 4",
+    "oneclickvpnkeys US 2586",
+    "v2rayng_fast US",
+    "VLESS 3341",
+    "oneclickvpnkeys US 3532"
   ],
   "responsive_top_n": 15,
-  "responsive_count": 8,
+  "responsive_count": 15,
   "responsive_names": [
-    "EPODONIOS",
-    "ID ID-130.94.94.15-0214",
-    "TEL Father_vpn",
-    "TEL Father_vpn 5727",
-    "TEL Father_vpn 6819",
-    "V2raySup0 5008",
-    "XX XX VLESS father_vpn 1",
-    "free_conf_iran 2"
+    "Tel- ProxyMtAlpha 4",
+    "oneclickvpnkeys US 2586",
+    "v2rayng_fast US",
+    "VLESS 3341",
+    "oneclickvpnkeys US 3532",
+    "t.me iProxyChannel 6588",
+    "v2ray1_ng US 7585",
+    "DE 200GB",
+    "icv2ray 7238",
+    "oneclickvpnkeys US 4920",
+    "EPODONIOS 7734",
+    "oneclickvpnkeys US 6039",
+    "Proxy 4470",
+    "IT RouTel1",
+    "MARAMBASHI FR"
   ],
   "fast_output_file": "output/fast.yaml",
   "usage_profile_groups": [
@@ -77,5 +82,5 @@
   ],
   "usage_profile_count": 5,
   "strict_output_file": "output/strict_alive.yaml",
-  "strict_output_count": 1728
+  "strict_output_count": 89
 }

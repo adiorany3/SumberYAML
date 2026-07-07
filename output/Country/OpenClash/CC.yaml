@@ -34,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "XX XX VLESS kesslervpn 1"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 8a30cf48-9fa2-46c5-8815-2822b12852e0
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "188.114.98.0"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "188.114.98.0"
-    udp: true
   - name: "49 NetFlowTools"
     server: "104.17.3.81"
     port: 443
@@ -63,21 +48,6 @@ proxies:
       path: "/fp=chrome"
       headers:
         Host: "vpn47.cc.cd"
-    udp: true
-  - name: "Evay_vpn"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 8a30cf48-9fa2-46c5-8815-2822b12852e0
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "xqkxw.ccwu.cc"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "xqkxw.ccwu.cc"
     udp: true
 
 proxy-groups:

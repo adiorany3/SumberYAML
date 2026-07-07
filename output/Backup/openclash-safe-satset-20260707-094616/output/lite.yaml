@@ -1,0 +1,464 @@
+# Auto generated compact OpenClash config
+# Output: output/lite.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "Tel- ProxyMtAlpha 4"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "oneclickvpnkeys US 2586"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c1842b1d-433d-4576-ab60-7603fd3dcc55
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "blog.webex.com.yxls.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "blog.webex.com.yxls.eu.cc"
+    udp: true
+  - name: "v2rayng_fast US"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "VLESS 3341"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a73b8135-ec7a-4f70-bac6-81fbccad4515
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "labeller.neonime83.workers.dev"
+    ws-opts:
+      path: "/@NebulaVPNx"
+      headers:
+        Host: "labeller.neonime83.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 3532"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "t.me iProxyChannel 6588"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: a73b8135-ec7a-4f70-bac6-81fbccad4515
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "labeller.neonime83.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "labeller.neonime83.workers.dev"
+    udp: true
+  - name: "v2ray1_ng US 7585"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "DE 200GB"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 22e9bd74-1961-4d69-a12a-24d333633cb6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "parsa-panel-ord74.hajealizadehamir.workers.dev"
+    ws-opts:
+      path: "/drift"
+      headers:
+        Host: "parsa-panel-ord74.hajealizadehamir.workers.dev"
+    udp: true
+  - name: "icv2ray 7238"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 78b9ac78-ebdf-4e51-8114-f6b0cd6d2169
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sErVER15.PEeKCOnF1-741.wOrkErs.Dev"
+    ws-opts:
+      path: "/eyJqdW5rIjoiOUZIcXVMV3FlbnoiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iLCJbMjYwMjpmYzU5OjExOjY0OjpdIiwiWzI2MDI6ZmM1OTpiMDo2NDo6XSJdfQ==?ed=2560"
+      headers:
+        Host: "server15.peekconf1-741.workers.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 4920"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6680846a-8a57-4dfd-9a0e-63209cfc8535
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.yxls.eu.cc"
+    ws-opts:
+      path: "/sg-amz"
+      headers:
+        Host: "support.zoom.us.yxls.eu.cc"
+    udp: true
+  - name: "EPODONIOS 7734"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/proxyip=dc844a1f.tp15333.ip.090227.xyzfp=chrome"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "oneclickvpnkeys US 6039"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 659a9075-d5ab-4fd2-bf34-b37043fae832
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nbhhh.mrcool.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "nbhhh.mrcool.kdns.fr"
+    udp: true
+  - name: "Proxy 4470"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4d10c997-4781-4cd9-82c3-15453523e12c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.yxls.eu.cc"
+    ws-opts:
+      path: "/sg-melbi"
+      headers:
+        Host: "support.zoom.us.yxls.eu.cc"
+    udp: true
+  - name: "IT RouTel1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 2db92da9-8ffb-491b-81d6-6e8d50876020
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "bpB-01c11365.HJdBcvDbKV.WORKErS.dEV"
+    ws-opts:
+      path: "/eyJqdW5rIjoiWlFRWlMwRDdLakVqMyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560"
+      headers:
+        Host: "bpb-01c11365.hjdbcvdbkv.workers.dev"
+    udp: true
+  - name: "MARAMBASHI FR"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=2560"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "Tel- ProxyMtAlpha 4"
+      - "oneclickvpnkeys US 2586"
+      - "v2rayng_fast US"
+      - "VLESS 3341"
+      - "oneclickvpnkeys US 3532"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "Tel- ProxyMtAlpha 4"
+      - "oneclickvpnkeys US 2586"
+      - "v2rayng_fast US"
+      - "VLESS 3341"
+      - "oneclickvpnkeys US 3532"
+      - "t.me iProxyChannel 6588"
+      - "v2ray1_ng US 7585"
+      - "DE 200GB"
+      - "icv2ray 7238"
+      - "oneclickvpnkeys US 4920"
+      - "EPODONIOS 7734"
+      - "oneclickvpnkeys US 6039"
+      - "Proxy 4470"
+      - "IT RouTel1"
+      - "MARAMBASHI FR"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "VLESS 3341"
+      - "oneclickvpnkeys US 3532"
+      - "t.me iProxyChannel 6588"
+      - "v2ray1_ng US 7585"
+      - "Tel- ProxyMtAlpha 4"
+      - "oneclickvpnkeys US 2586"
+      - "v2rayng_fast US"
+      - "DE 200GB"
+      - "icv2ray 7238"
+      - "oneclickvpnkeys US 4920"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "Tel- ProxyMtAlpha 4"
+      - "oneclickvpnkeys US 2586"
+      - "v2rayng_fast US"
+      - "VLESS 3341"
+      - "oneclickvpnkeys US 3532"
+      - "t.me iProxyChannel 6588"
+      - "v2ray1_ng US 7585"
+      - "DE 200GB"
+      - "icv2ray 7238"
+      - "oneclickvpnkeys US 4920"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "Tel- ProxyMtAlpha 4"
+      - "oneclickvpnkeys US 2586"
+      - "v2rayng_fast US"
+      - "VLESS 3341"
+      - "oneclickvpnkeys US 3532"
+      - "t.me iProxyChannel 6588"
+      - "v2ray1_ng US 7585"
+      - "DE 200GB"
+      - "icv2ray 7238"
+      - "oneclickvpnkeys US 4920"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "VLESS 3341"
+      - "oneclickvpnkeys US 3532"
+      - "t.me iProxyChannel 6588"
+      - "v2ray1_ng US 7585"
+      - "Tel- ProxyMtAlpha 4"
+      - "oneclickvpnkeys US 2586"
+      - "v2rayng_fast US"
+      - "DE 200GB"
+      - "icv2ray 7238"
+      - "oneclickvpnkeys US 4920"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "Tel- ProxyMtAlpha 4"
+      - "oneclickvpnkeys US 2586"
+      - "v2rayng_fast US"
+      - "VLESS 3341"
+      - "oneclickvpnkeys US 3532"
+      - "t.me iProxyChannel 6588"
+      - "v2ray1_ng US 7585"
+      - "DE 200GB"
+      - "icv2ray 7238"
+      - "oneclickvpnkeys US 4920"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST TOP GLOBAL"
+    type: url-test
+    proxies:
+      - "Tel- ProxyMtAlpha 4"
+      - "oneclickvpnkeys US 2586"
+      - "v2rayng_fast US"
+      - "VLESS 3341"
+      - "oneclickvpnkeys US 3532"
+      - "t.me iProxyChannel 6588"
+      - "v2ray1_ng US 7585"
+      - "DE 200GB"
+      - "icv2ray 7238"
+      - "oneclickvpnkeys US 4920"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "Tel- ProxyMtAlpha 4"
+      - "oneclickvpnkeys US 2586"
+      - "v2rayng_fast US"
+      - "VLESS 3341"
+      - "oneclickvpnkeys US 3532"
+      - "t.me iProxyChannel 6588"
+      - "v2ray1_ng US 7585"
+      - "DE 200GB"
+      - "icv2ray 7238"
+      - "oneclickvpnkeys US 4920"
+      - "EPODONIOS 7734"
+      - "oneclickvpnkeys US 6039"
+      - "Proxy 4470"
+      - "IT RouTel1"
+      - "MARAMBASHI FR"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "Tel- ProxyMtAlpha 4"
+      - "oneclickvpnkeys US 2586"
+      - "v2rayng_fast US"
+      - "VLESS 3341"
+      - "oneclickvpnkeys US 3532"
+      - "t.me iProxyChannel 6588"
+      - "v2ray1_ng US 7585"
+      - "DE 200GB"
+      - "icv2ray 7238"
+      - "oneclickvpnkeys US 4920"
+      - "EPODONIOS 7734"
+      - "oneclickvpnkeys US 6039"
+      - "Proxy 4470"
+      - "IT RouTel1"
+      - "MARAMBASHI FR"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST TOP GLOBAL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
