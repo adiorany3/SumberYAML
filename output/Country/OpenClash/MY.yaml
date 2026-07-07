@@ -34,7 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "TEL Father_vpn 1860"
+  - name: "TEL Father_vpn 8331"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -49,37 +49,7 @@ proxies:
       headers:
         Host: "ads.ruangguru.com.cyylr.eu.cc"
     udp: true
-  - name: "meliproxyy"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 631a49ec-2eb5-2215-0cac-9d292696d162
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "my-pp.arminpixel2.workers.dev"
-    ws-opts:
-      path: "/sync"
-      headers:
-        Host: "my-pp.arminpixel2.workers.dev"
-    udp: true
-  - name: "MY Malaysia"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 297df885-9161-46cb-94d4-90a8a8489645
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "45.128.54.17"
-    ws-opts:
-      path: "/dahuqpws"
-      headers:
-        Host: "45.128.54.17"
-    udp: true
-  - name: "TEL Father_vpn 3101"
+  - name: "TEL Father_vpn 8172"
     server: "104.17.3.81"
     port: 443
     type: trojan

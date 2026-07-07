@@ -34,7 +34,36 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "GozargahAzad SC"
+  - name: "SC SC VLESS ai_duet 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 406d8436-0eb9-4eb2-84fb-960e076ffba6
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.130.125.160"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "45.130.125.160"
+    udp: true
+  - name: "SC SC TROJAN vpn_ioss 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "45.130.125.158"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "45.130.125.158"
+    udp: true
+  - name: "SC SC- VPNine1"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -44,9 +73,23 @@ proxies:
     network: ws
     sni: "deioej-ieid.App-Cloud.ir"
     ws-opts:
-      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=GE"
+      path: "/---@VPNine1/---@VPNine1/---@VPNine1/---@VPNine1/---@VPNine1=GE"
       headers:
         Host: "De-e-d.App-Cloud.ir"
+    udp: true
+  - name: "SC SC- VPNine1 2671"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "nlll-lls-e.MaQror.ir"
+    ws-opts:
+      path: "/---@VPNine1/---@VPNine1/---@VPNine1/---@VPNine1/---@VPNine1=nl"
+      headers:
+        Host: "n--l-l.MaQror.ir"
     udp: true
 
 proxy-groups:

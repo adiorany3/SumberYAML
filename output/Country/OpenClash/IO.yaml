@@ -34,6 +34,36 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "XX XX VLESS kilid_stor 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: ecb790d4-36ca-4dfc-a142-b3a395d1c50d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "codepen.io"
+    ws-opts:
+      path: "/ld?ed=2048"
+      headers:
+        Host: "codepen.io"
+    udp: true
+  - name: "V2Ray_Hub1200 6842"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 84782bd5-033c-493d-b5aa-8d1b7fb97076
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "emad.babyoda.qzz.io"
+    ws-opts:
+      path: "/api-emad"
+      headers:
+        Host: "emad.babyoda.qzz.io"
+    udp: true
   - name: "hope of freedom"
     server: "104.17.3.81"
     port: 443

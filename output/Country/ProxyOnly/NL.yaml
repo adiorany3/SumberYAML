@@ -1,4 +1,64 @@
 proxies:
+  - name: "NL NL VLESS v2ray_collector 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c931b432-cbab-47f4-ae30-917b17e5fb1f
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "208.67.105.196"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "208.67.105.196"
+    udp: true
+  - name: "XX XX VLESS v2rayngconfiig 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bd68a2b8-3896-4f87-8787-5270461ea0f4
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "104.20.46.193"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "104.20.46.193"
+    udp: true
+  - name: "NL NL VLESS vpn_ioss 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b0f08ae1-7cf9-4612-ad61-72681e0b92da
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "nl-1.coinbridge.nl"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "nl-1.coinbridge.nl"
+    udp: true
+  - name: "NL - EXPRESSVPN_420"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 3f61815a-1c63-456a-ad05-655374dfd7c8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "default.ssl.fastly.net"
+    ws-opts:
+      path: "//?ed=2560/JOIN/AV2rayBOT/JOIN/AV2rayBOT/JOIN/AV2rayBOT/JOIN/AV2rayBOT/JOIN/AV2rayBOT"
+      headers:
+        Host: "bazaryabab.global.ssl.fastly.net"
+    udp: true
   - name: "oneclickvpnkeys NL"
     server: "104.17.3.81"
     port: 443
@@ -13,7 +73,7 @@ proxies:
       headers:
         Host: "www.gossipglove.com"
     udp: true
-  - name: "oneclickvpnkeys NL 5693"
+  - name: "oneclickvpnkeys NL 2693"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -24,6 +84,20 @@ proxies:
     sni: "www.multiplydose.com"
     ws-opts:
       path: "/assignment"
+      headers:
+        Host: "www.multiplydose.com"
+    udp: true
+  - name: "oneclickvpnkeys NL 1257"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.multiplydose.com"
+    ws-opts:
+      path: "//assignment"
       headers:
         Host: "www.multiplydose.com"
     udp: true
@@ -41,7 +115,7 @@ proxies:
       headers:
         Host: "www.gossipglove.com"
     udp: true
-  - name: "erfanandroid 3132"
+  - name: "V2ray_Alpha 6"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -49,9 +123,233 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "NL-L-ll.MaQror.ir"
+    sni: "N--l.App-Cloud.ir"
     ws-opts:
-      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=Nl"
+      path: "/MiTiVPN=NL"
       headers:
-        Host: "N-l.MaQror.ir"
+        Host: "N--l.App-Cloud.ir"
+    udp: true
+  - name: "tootffarangi-7"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "nl-ll-nl.App-Cloud.ir"
+    ws-opts:
+      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=NL"
+      headers:
+        Host: "sjus-kdid-iodp.App-Cloud.ir"
+    udp: true
+  - name: "vistav2ray 4616"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "Nl.App-Cloud.ir"
+    ws-opts:
+      path: "/MiTiVPN=NL"
+      headers:
+        Host: "Nl.App-Cloud.ir"
+    udp: true
+  - name: "tootffarangi-5"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "fffffl-lls.MaQror.ir"
+    ws-opts:
+      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=fl"
+      headers:
+        Host: "f-l-nl.MaQror.ir"
+    udp: true
+  - name: "fastkanfig 4100"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "ssl.fastly.com"
+    ws-opts:
+      path: "/MiTiVPN=NL"
+      headers:
+        Host: "esalat-mitivpn.global.ssl.fastly.net"
+    udp: true
+  - name: "V2dogs_n 4066"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "default.ssl.fastly.net"
+    ws-opts:
+      path: "/nl=mitivpn"
+      headers:
+        Host: "cdn-mitivpn.global.ssl.fastly.net"
+    udp: true
+  - name: "vistav2ray 5007"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "ssl.fastly.com"
+    ws-opts:
+      path: "/MiTiVPN=NL"
+      headers:
+        Host: "mitivpn----a.global.ssl.fastly.net"
+    udp: true
+  - name: "v2ray_configs_pools NL 3"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "ssl.fastly.com"
+    ws-opts:
+      path: "/---@v2ray_configs_pools=NL"
+      headers:
+        Host: "mitivpn----a.global.ssl.fastly.net"
+    udp: true
+  - name: "tootffarangi-2"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "nlll-lls-e.MaQror.ir"
+    ws-opts:
+      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=nl"
+      headers:
+        Host: "n--l-l.MaQror.ir"
+    udp: true
+  - name: "vmesskhodam 6908"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "Nl-L.App-Cloud.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "Nl-L.App-Cloud.ir"
+    udp: true
+  - name: "V2ray_confiig 5635"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "Nl-L.App-Cloud.ir"
+    ws-opts:
+      path: "/MiTiVPN=N-L"
+      headers:
+        Host: "Nl-L.App-Cloud.ir"
+    udp: true
+  - name: "Soul737 9813"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "Nel.App-Cloud.ir"
+    ws-opts:
+      path: "/MiTiVPN=NL"
+      headers:
+        Host: "Nel.App-Cloud.ir"
+    udp: true
+  - name: "prrofile_purple 1780"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "f6r.ir"
+    ws-opts:
+      path: "/nl=mitivpn"
+      headers:
+        Host: "f6r.ir"
+    udp: true
+  - name: "vistav2ray 8615"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "95r.ir"
+    ws-opts:
+      path: "/MiTiVPN=NL"
+      headers:
+        Host: "95r.ir"
+    udp: true
+  - name: "vistav2ray 1115"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "PioHosting.ir"
+    ws-opts:
+      path: "/MiTiVPN=NL"
+      headers:
+        Host: "PioHosting.ir"
+    udp: true
+  - name: "Proxy_Se7en 8985"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "PioHosting.ir"
+    ws-opts:
+      path: "/MiTiVPN=NL"
+      headers:
+        Host: "Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en"
+    udp: true
+  - name: "TEL Father_vpn 5242"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "mitivpn"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "s2.mitivpn.nl.ssl.global.fastly.dev.iranpoems.ir"
+    ws-opts:
+      path: "/?mitivpn"
+      headers:
+        Host: "s2.mitivpn.nl.ssl.global.fastly.ir.iranpoems.ir"
     udp: true

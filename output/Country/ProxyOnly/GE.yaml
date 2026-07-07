@@ -1,16 +1,29 @@
 proxies:
-  - name: "GE Amirhossein_Mahboobi"
+  - name: "vistav2ray 5955"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
-    cipher: none
+    type: trojan
+    password: "MITIVPN"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "r1.mizulina.top"
+    sni: "ssl.fastly.com"
     ws-opts:
-      path: "/"
+      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=GE"
       headers:
-        Host: "r1.mizulina.top"
+        Host: "mitivpn----a.global.ssl.fastly.net"
+    udp: true
+  - name: "filembad"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MITIVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "deioej-ieid.App-Cloud.ir"
+    ws-opts:
+      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=GE"
+      headers:
+        Host: "De-e-d.App-Cloud.ir"
     udp: true

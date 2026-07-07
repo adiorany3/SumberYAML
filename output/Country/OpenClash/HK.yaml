@@ -34,19 +34,34 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "EPODONIOS 7824"
+  - name: "HK"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "a4dbc061021f2931c0e28901a602f3c5"
+    type: vless
+    uuid: 31fc82da-1136-4a84-a596-7fbba8026c1d
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "hk-007.pg13900.com"
+    servername: "dfs8545fads4ds5.another-appleid.ccwu.cc"
     ws-opts:
-      path: "/atlas-cdn"
+      path: "/gateway/ws/a8d2f91c"
       headers:
-        Host: "hk-007.pg13900.com"
+        Host: "dfs8545fads4ds5.another-appleid.ccwu.cc"
+    udp: true
+  - name: "v2nodes HK"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "PI36027154"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "moved-osprey.rooster465.autos"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "moved-osprey.rooster465.autos"
     udp: true
 
 proxy-groups:

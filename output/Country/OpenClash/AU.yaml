@@ -34,7 +34,51 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "meliproxyy 2921"
+  - name: "Tel- ProxyMtAlpha 4"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/au-do"
+      headers:
+        Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "Tel- ProxyMtAlpha 5"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 6680846a-8a57-4dfd-9a0e-63209cfc8535
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.yxls.eu.cc"
+    ws-opts:
+      path: "/au-mt"
+      headers:
+        Host: "support.zoom.us.yxls.eu.cc"
+    udp: true
+  - name: "v2nodes AU"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "PI36027154"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "tight-possum.rooster465.autos"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "tight-possum.rooster465.autos"
+    udp: true
+  - name: "Proxy_Se7en 8129"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -46,7 +90,7 @@ proxies:
     ws-opts:
       path: "/au-do"
       headers:
-        Host: "space.byu.id.yxls.eu.cc"
+        Host: "Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en"
     udp: true
 
 proxy-groups:

@@ -1,5 +1,5 @@
 proxies:
-  - name: "prrofile_purple 6016"
+  - name: "prrofile_purple 5326"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -14,7 +14,7 @@ proxies:
       headers:
         Host: "bazaryabab.global.ssl.fastly.net"
     udp: true
-  - name: "prrofile_purple 8009"
+  - name: "Fear_Config"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -29,11 +29,11 @@ proxies:
       headers:
         Host: "pan3.global.ssl.fastly.net"
     udp: true
-  - name: "Proxy_Se7en 2788"
+  - name: "appsooner 5383"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: cb7b5122-7030-4d3d-9590-da00fafe1c05
+    uuid: 9a1ca418-134f-4750-b97a-55ea81135742
     cipher: none
     tls: true
     skip-cert-verify: true
@@ -42,5 +42,20 @@ proxies:
     ws-opts:
       path: "/"
       headers:
-        Host: "bazaryabab.global.ssl.fastly.net"
+        Host: "pan1.global.ssl.fastly.net"
+    udp: true
+  - name: "prrofile_purple 1269"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e7d3fb75-034f-4f3f-83d6-33845dafa81c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "default.ssl.fastly.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "pan1.global.ssl.fastly.net"
     udp: true

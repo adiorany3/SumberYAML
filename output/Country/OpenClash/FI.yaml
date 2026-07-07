@@ -34,6 +34,36 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI ed 512 security 2722"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 14b59caf-a196-4ec2-8c70-c7b388062f5b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "104.16.72.101"
+    ws-opts:
+      path: "/rdfgtws"
+      headers:
+        Host: "104.16.72.101"
+    udp: true
+  - name: "TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI ed 512 security 6237"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c35050ce-01ab-45a9-91b8-54cec637d0a8
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "45.130.125.229"
+    ws-opts:
+      path: "/udfyfws"
+      headers:
+        Host: "45.130.125.229"
+    udp: true
   - name: "FI"
     server: "104.17.3.81"
     port: 443
@@ -48,6 +78,35 @@ proxies:
       path: "/@Alfred_Config"
       headers:
         Host: "alfi.yas-nowin.ir"
+    udp: true
+  - name: "TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI ed 2048 security 9978"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cf39fab0-bb85-42cb-9945-2ad69d78e575
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "188.114.97.4"
+    ws-opts:
+      path: "/GOrbEh"
+      headers:
+        Host: "188.114.97.4"
+    udp: true
+  - name: "v2ray_configs_pools FI 6"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "ssl.fastly.com"
+    ws-opts:
+      path: "/---@MiTiVPN/---@v2ray_configs_pools=fl"
+      headers:
+        Host: "miticonfig.global.ssl.fastly.net"
     udp: true
 
 proxy-groups:

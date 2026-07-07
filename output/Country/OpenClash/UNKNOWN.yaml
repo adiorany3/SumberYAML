@@ -34,7 +34,55 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "RELAY-172.67.152.227-0187"
+  - name: "XX XX VMESS hope_net 1"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 33aa57df-1c93-4318-9fce-e850437ee781
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "141.101.115.120"
+    network: ws
+    ws-opts:
+      path: "/dongtaiwang.com"
+      headers:
+        Host: "141.101.115.120"
+    udp: true
+  - name: "XX XX VMESS iranvpnet 1"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "mute-math-d64e.0e503992ad7026.woRKERS.DeV"
+    network: ws
+    ws-opts:
+      path: "/aveiror.com:443/linkvws"
+      headers:
+        Host: "mute-math-d64e.0e503992ad7026.woRKERS.DeV"
+    udp: true
+  - name: "XX XX VMESS manstervpn 2"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 05641cf5-58d2-4ba4-a9f1-b3cda0b1fb1d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "obdii.cfd"
+    network: ws
+    ws-opts:
+      path: "/linkws"
+      headers:
+        Host: "obdii.cfd"
+    udp: true
+  - name: "RELAY-172.67.152.227-0217"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -49,6 +97,95 @@ proxies:
       path: "/"
       headers:
         Host: "hl112.cowjump.site"
+    udp: true
+  - name: "RELAY-104.21.43.81-0253"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 0632bfa9-b15c-4257-8c75-32f7c0c53b27
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "cg1c12.waimaojd.com"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "cg1c12.waimaojd.com"
+    udp: true
+  - name: "v2rayngzendegimamad"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "serkat.org"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "Join---v2rayngzendegimamad"
+    udp: true
+  - name: "Server MKH Downloaded 0.17GB Uploaded 0.28GB"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 8f74ec8a-971c-11ed-a8fc-0242ac120002
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "4fc128ce-4845-11f0-a948-6a75f667b472.ShomaParvazRoYadetonNist-BypassIsHere.lat"
+    network: ws
+    ws-opts:
+      path: "/4fc128ce-4845-11f0-a948-6a75f667b472?ed=2365"
+      headers:
+        Host: "4fc128ce-4845-11f0-a948-6a75f667b472.ShomaParvazRoYadetonNist-BypassIsHere.lat"
+    udp: true
+  - name: "erfanandroid"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: c1f1060c-6168-4931-a63f-817a7ade25e2
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "digi39.ez0535.com"
+    network: tcp
+    udp: true
+  - name: "v2rayconfigamir 7620"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 181d203a-e738-4aa4-a2d8-d82765f1c0c5
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "31-77-146-252.cdn-one.org"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "31-77-146-252.cdn-one.org"
+    udp: true
+  - name: "EPODONIOS 7723"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "BSs5IAVMQdYuykvDsOYZoa6gNPSGBjAbLL"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.mesaly.click"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "www.mesaly.click"
     udp: true
 
 proxy-groups:

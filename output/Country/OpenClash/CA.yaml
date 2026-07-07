@@ -34,7 +34,87 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "EPODONIOS 7952"
+  - name: "CA CA-158.51.121.63-1318"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "seribus.org"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "seribus.org"
+    udp: true
+  - name: "CA CA-134.195.198.147-8031"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "inna.cfd"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "inna.cfd"
+    udp: true
+  - name: "CA CA-134.195.198.147-0193"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "inna.cfd"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "inna.cfd"
+    udp: true
+  - name: "CA CA-158.51.121.63-0179"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "seribus.org"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "seribus.org"
+    udp: true
+  - name: "CA CA-23.162.200.227-0262"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "23.162.200.227"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "23.162.200.227"
+    udp: true
+  - name: "V2ray_confiig"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -48,6 +128,109 @@ proxies:
       path: "/ca-cl"
       headers:
         Host: "unnes.ac.id.yxls.eu.cc"
+    udp: true
+  - name: "Proxy_Se7en 8833"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "unnes.ac.id.yxls.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en---Proxy-Se7en"
+    udp: true
+  - name: "TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI ed 512 security"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "104.16.72.70"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "104.16.72.70"
+    udp: true
+  - name: "CA FreakConfig"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 12be3561-c732-4066-bc0b-1bcf28b0c400
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "line.sugerdood.qzz.io"
+    ws-opts:
+      path: "/take"
+      headers:
+        Host: "line.sugerdood.qzz.io"
+    udp: true
+  - name: "CA Join Telegram Farah_VPN CA"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5d8eb33a-2166-4daf-88fe-4be5799c493b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "noisy-term-e657.airdrop2014aa5168.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "noisy-term-e657.airdrop2014aa5168.workers.dev"
+    udp: true
+  - name: "CA FreakConfig 2434"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: cee8c30c-fb13-4a89-abb4-5a32cf716c97
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "emad.babyoda.qzz.io"
+    ws-opts:
+      path: "/api-emad"
+      headers:
+        Host: "emad.babyoda.qzz.io"
+    udp: true
+  - name: "CA rayhub_ir 0705-13"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MITIVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "U-S-A.MaQror.ir"
+    ws-opts:
+      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=De"
+      headers:
+        Host: "U-s.MaQror.ir"
+    udp: true
+  - name: "TEL Father_vpn 5011"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Telegram-Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "go.appsflyer.com.r3xxe.eu.cc"
+    ws-opts:
+      path: "/ca-cl"
+      headers:
+        Host: "go.appsflyer.com.r3xxe.eu.cc"
     udp: true
 
 proxy-groups:

@@ -1,0 +1,317 @@
+# Auto generated compact OpenClash config
+# Output: output/fast.yaml
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "EPODONIOS"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1a5b24bc-6180-4fa7-922d-ba7ee8a7a2b7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "support.zoom.us.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "support.zoom.us.cyylr.eu.cc"
+    udp: true
+  - name: "ID ID-130.94.94.15-0214"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "tUtK5TKdjxsPnOyritLtv8OQWHAK8f8yNR"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "130.94.94.15"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "130.94.94.15"
+    udp: true
+  - name: "TEL Father_vpn"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1043634e-8d9d-4736-83fa-f14ddc9d464c
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-amz"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+  - name: "TEL Father_vpn 5727"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1ce9392f-caf4-48f7-bbb9-475b101fbde0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "graph.instagram.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "graph.instagram.com.cyylr.eu.cc"
+    udp: true
+  - name: "TEL Father_vpn 6819"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 63ec2a82-e47c-4782-a89e-9aca2baf17ef
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "quiz.int.vidio.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "quiz.int.vidio.com.ex33r.eu.cc"
+    udp: true
+  - name: "V2raySup0 5008"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "Config0plus"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "api24-normal.tiktokv.com.cyylr.eu.cc"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "api24-normal.tiktokv.com.cyylr.eu.cc"
+    udp: true
+  - name: "XX XX VLESS father_vpn 1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1ce9392f-caf4-48f7-bbb9-475b101fbde0
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "188.114.97.6"
+    ws-opts:
+      path: "/id-tksi"
+      headers:
+        Host: "188.114.97.6"
+    udp: true
+  - name: "free_conf_iran 2"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 28607fa7-db30-47d6-942a-f5744e4be9ad
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dfsuporte.garena.com.ex33r.eu.cc"
+    ws-opts:
+      path: "/id-pusat"
+      headers:
+        Host: "dfsuporte.garena.com.ex33r.eu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "URL-TEST TOP 5 INDONESIA"
+    type: url-test
+    proxies:
+      - "EPODONIOS"
+      - "ID ID-130.94.94.15-0214"
+      - "TEL Father_vpn"
+      - "TEL Father_vpn 5727"
+      - "TEL Father_vpn 6819"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK CEPAT"
+    type: fallback
+    proxies:
+      - "EPODONIOS"
+      - "ID ID-130.94.94.15-0214"
+      - "TEL Father_vpn"
+      - "TEL Father_vpn 5727"
+      - "TEL Father_vpn 6819"
+      - "V2raySup0 5008"
+      - "XX XX VLESS father_vpn 1"
+      - "free_conf_iran 2"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "88826 - Telegram V2All"
+      - "By EbraSha 1110"
+      - "By EbraSha 1127"
+      - "By EbraSha 1187"
+      - "By EbraSha 1279"
+      - "By EbraSha 1518"
+      - "By EbraSha 1683"
+      - "By EbraSha 1922"
+      - "By EbraSha 1946"
+      - "By EbraSha 2009"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "SOCIAL MEDIA STABIL"
+    type: fallback
+    proxies:
+      - "88826 - Telegram V2All"
+      - "By EbraSha 1110"
+      - "By EbraSha 1127"
+      - "By EbraSha 1187"
+      - "By EbraSha 1279"
+      - "By EbraSha 1518"
+      - "By EbraSha 1683"
+      - "By EbraSha 1922"
+      - "By EbraSha 1946"
+      - "By EbraSha 2009"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "STREAMING STABIL"
+    type: fallback
+    proxies:
+      - "88826 - Telegram V2All"
+      - "By EbraSha 1110"
+      - "By EbraSha 1127"
+      - "By EbraSha 1187"
+      - "By EbraSha 1279"
+      - "By EbraSha 1518"
+      - "By EbraSha 1683"
+      - "By EbraSha 1922"
+      - "By EbraSha 1946"
+      - "By EbraSha 2009"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "WORKING STABIL"
+    type: fallback
+    proxies:
+      - "88826 - Telegram V2All"
+      - "By EbraSha 1110"
+      - "By EbraSha 1127"
+      - "By EbraSha 1187"
+      - "By EbraSha 1279"
+      - "By EbraSha 1518"
+      - "By EbraSha 1683"
+      - "By EbraSha 1922"
+      - "By EbraSha 1946"
+      - "By EbraSha 2009"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "88826 - Telegram V2All"
+      - "By EbraSha 1110"
+      - "By EbraSha 1127"
+      - "By EbraSha 1187"
+      - "By EbraSha 1279"
+      - "By EbraSha 1518"
+      - "By EbraSha 1683"
+      - "By EbraSha 1922"
+      - "By EbraSha 1946"
+      - "By EbraSha 2009"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "URL-TEST GABUNGAN"
+    type: url-test
+    proxies:
+      - "EPODONIOS"
+      - "ID ID-130.94.94.15-0214"
+      - "TEL Father_vpn"
+      - "TEL Father_vpn 5727"
+      - "TEL Father_vpn 6819"
+      - "V2raySup0 5008"
+      - "XX XX VLESS father_vpn 1"
+      - "free_conf_iran 2"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    tolerance: 40
+    lazy: false
+
+  - name: "FALLBACK"
+    type: fallback
+    proxies:
+      - "EPODONIOS"
+      - "ID ID-130.94.94.15-0214"
+      - "TEL Father_vpn"
+      - "TEL Father_vpn 5727"
+      - "TEL Father_vpn 6819"
+      - "V2raySup0 5008"
+      - "XX XX VLESS father_vpn 1"
+      - "free_conf_iran 2"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "URL-TEST TOP 5 INDONESIA"
+      - "FALLBACK CEPAT"
+      - "GAMING STABIL"
+      - "SOCIAL MEDIA STABIL"
+      - "STREAMING STABIL"
+      - "WORKING STABIL"
+      - "GENERAL STABIL"
+      - "URL-TEST GABUNGAN"
+      - "FALLBACK"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

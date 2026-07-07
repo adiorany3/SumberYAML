@@ -1,0 +1,224 @@
+# Auto generated usage profile OpenClash config
+# Output: output/general.yaml
+# Profile group: GENERAL STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "88826 - Telegram V2All"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 73fc635f-e51c-4cf8-b659-6b99482618f9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "pass.pccmd.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "pass.pccmd.ir"
+    udp: true
+  - name: "By EbraSha 1110"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 3b5e258e-8c5e-45d3-b7d2-02c8f5fc0bb2
+    alterId: 64
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "104.21.48.161"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "104.21.48.161"
+    udp: true
+  - name: "By EbraSha 1127"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: c5a2d7b8-bf84-4f97-8577-b9b87f2baaf7
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "203.30.191.8"
+    network: ws
+    ws-opts:
+      path: "/AUIKN8AU"
+      headers:
+        Host: "203.30.191.8"
+    udp: true
+  - name: "By EbraSha 1187"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 1
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "57.128.184.119"
+    network: ws
+    ws-opts:
+      path: "/linkvws"
+      headers:
+        Host: "57.128.184.119"
+    udp: true
+  - name: "By EbraSha 1279"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 4b36625c-b9d9-3ea6-aed5-86d62c70e16d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "100-4-20-123.s2.db-link02.top"
+    network: ws
+    ws-opts:
+      path: "/dabai.in104.21.83.57"
+      headers:
+        Host: "100-4-20-123.s2.db-link02.top"
+    udp: true
+  - name: "By EbraSha 1518"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 927094d3-d678-4763-8591-e240d0bcae87
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "170.187.185.37"
+    network: ws
+    ws-opts:
+      path: "/chat"
+      headers:
+        Host: "170.187.185.37"
+    udp: true
+  - name: "By EbraSha 1683"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 6c168fcc-2231-4f3b-8c1e-f6391692df4a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "ab-test-frosty-flower-e7fb.tariroc864.workers.dev"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ab-test-frosty-flower-e7fb.tariroc864.workers.dev"
+    udp: true
+  - name: "By EbraSha 1922"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "154.85.1.130"
+    network: ws
+    ws-opts:
+      path: "/path/1690369250008"
+      headers:
+        Host: "154.85.1.130"
+    udp: true
+  - name: "By EbraSha 1946"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 8f74ec8a-971c-11ed-a8fc-0242ac120002
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "185.59.218.177"
+    network: ws
+    ws-opts:
+      path: "/72d6d25e-1b39-11ee-a5c8-8213fd3be4b9"
+      headers:
+        Host: "185.59.218.177"
+    udp: true
+  - name: "By EbraSha 2009"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 16702ec2-3808-46e6-a7b5-582c062be13d
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "104.31.16.58"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "104.31.16.58"
+    udp: true
+
+proxy-groups:
+  - name: "GENERAL STABIL"
+    type: fallback
+    proxies:
+      - "88826 - Telegram V2All"
+      - "By EbraSha 1110"
+      - "By EbraSha 1127"
+      - "By EbraSha 1187"
+      - "By EbraSha 1279"
+      - "By EbraSha 1518"
+      - "By EbraSha 1683"
+      - "By EbraSha 1922"
+      - "By EbraSha 1946"
+      - "By EbraSha 2009"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GENERAL STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY

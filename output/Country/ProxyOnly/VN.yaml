@@ -1,13 +1,15 @@
 proxies:
-  - name: "VN VN-14.225.252.79-0216"
-    type: vmess
+  - name: "VN VN-38.60.252.118-0186"
     server: "104.17.3.81"
     port: 443
-    uuid: 5158aa9b-194f-4d48-a40a-17ae49650a9a
-    alterId: 0
-    cipher: auto
+    type: trojan
+    password: "NAdtbpuyJXPH=CfKmdBqD2YVbzdvwAtuxw"
     tls: true
     skip-cert-verify: true
-    servername: "hcm.fuzzypn.me"
-    network: grpc
+    network: ws
+    sni: "38.60.252.118"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "38.60.252.118"
     udp: true

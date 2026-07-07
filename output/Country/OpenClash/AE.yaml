@@ -34,19 +34,20 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "AE AE- VPNine1"
+  - name: "V2raySup0 2137"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "MITIVPN"
+    type: vless
+    uuid: 47422044-85e3-426b-b6c4-3588cb24a3e5
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "Usa.App-Cloud.ir"
+    servername: "s.blibli.com.cyylr.eu.cc"
     ws-opts:
-      path: "/MiTiVPN=Usa"
+      path: "/ae-bo"
       headers:
-        Host: "Usa.App-Cloud.ir"
+        Host: "s.blibli.com.cyylr.eu.cc"
     udp: true
 
 proxy-groups:

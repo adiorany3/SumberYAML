@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "PL PL- VPNine1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 673d3734-e90b-4b23-ad0a-cc32eb22e4d7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "dl4.karmatel.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "dl4.karmatel.ir"
+    udp: true
   - name: "oneclickvpnkeys PL"
     server: "104.17.3.81"
     port: 443
@@ -47,6 +62,20 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.creationlong.org"
+    udp: true
+  - name: "oneclickvpnkeys PL 2693"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "nsKBtW4V7LPHG5.iSySU8_pNM88Gkxz7eE"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "64.176.74.241"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "64.176.74.241"
     udp: true
 
 proxy-groups:

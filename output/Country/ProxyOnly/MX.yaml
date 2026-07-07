@@ -1,16 +1,15 @@
 proxies:
-  - name: "v2rayNG_Matsuri MX"
+  - name: "MX MX-149.104.87.141-0659"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 8ad6f598-cd8d-4fca-848e-05fc9be15ff3
-    cipher: none
+    type: trojan
+    password: "NX7LOtiM.=RdQTq..yxi-dm6OcQrkgE5rg"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "imblo.fastcitylab-byte.info"
+    sni: "149.104.87.141"
     ws-opts:
-      path: "/sea"
+      path: "/"
       headers:
-        Host: "imblo.fastcitylab-byte.info"
+        Host: "149.104.87.141"
     udp: true

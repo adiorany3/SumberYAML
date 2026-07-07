@@ -1,16 +1,4 @@
 proxies:
-  - name: "W570W"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 97775936-05ea-4fea-8562-e9eb98559790
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "atiins.com.tr"
-    network: tcp
-    udp: true
   - name: "TR TR VLESS red2ray 1"
     server: "104.17.3.81"
     port: 443
@@ -54,7 +42,7 @@ proxies:
       headers:
         Host: "104.18.109.147"
     udp: true
-  - name: "Azarakhsh_Proxy 7564"
+  - name: "Azarakhsh_Proxy 4786"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -67,4 +55,18 @@ proxies:
       path: "/tr?ed"
       headers:
         Host: "fcspring.ggff.net"
+    udp: true
+  - name: "TR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "dfdse334053vuohm"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "alternative.mhjstudio.ir"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "alternative.mhjstudio.ir"
     udp: true

@@ -34,6 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
+  - name: "freeland8 CH"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 8cc4e5fa-943c-4bd7-93f1-02309c0a6b96
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ssl.fastly.com"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "bazaryabab.global.ssl.fastly.net"
+    udp: true
   - name: "free_conf_iran"
     server: "104.17.3.81"
     port: 443

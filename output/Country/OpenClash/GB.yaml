@@ -34,20 +34,80 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "MARAMBASHI GB"
+  - name: "GB GB-51.89.18.25-0100"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 9f58234c-355b-4065-ae21-d4a63099aba5
+    alterId: 64
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "www.98272029.xyz"
+    network: ws
+    ws-opts:
+      path: "/path/350432191028"
+      headers:
+        Host: "www.98272029.xyz"
+    udp: true
+  - name: "GB GB VLESS bored_vpn 1"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    uuid: 9cda451e-0adf-4df1-a5b4-7fec8f363c10
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "t1s1.rittbo.kdns.fr"
+    servername: "all27.allenshop100.ir"
     ws-opts:
-      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed=512"
+      path: "/"
       headers:
-        Host: "t1s1.rittbo.kdns.fr"
+        Host: "all27.allenshop100.ir"
+    udp: true
+  - name: "GB RouTel1"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 31fc82da-1136-4a84-a596-7fbba8026c1d
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "4gf45fdg45fd542g2in.kawaii520.icu"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "4gf45fdg45fd542g2in.kawaii520.icu"
+    udp: true
+  - name: "GB"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fd6fb48f-b324-4a82-9dcd-f8bdb1bd5301
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "lIVe-1g3MevO1-6iUGBkrj.NEwNEwComPaNyDOM1.info"
+    ws-opts:
+      path: "/ws-vlees"
+      headers:
+        Host: "lIVe-1g3MevO1-6iUGBkrj.NEwNEwComPaNyDOM1.info"
+    udp: true
+  - name: "GB GB TROJAN mehrosaboran 1"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MITIVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "164.38.155.135"
+    ws-opts:
+      path: "/MiTiVPN=De"
+      headers:
+        Host: "164.38.155.135"
     udp: true
 
 proxy-groups:
