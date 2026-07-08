@@ -1,21 +1,5 @@
 proxies:
-  - name: "RELAY-104.21.2.202-0235"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 0bf1cead-bdd4-4692-b3d4-6866ccb9f37a
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "hl112.cowjump.site"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "hl112.cowjump.site"
-    udp: true
-  - name: "By EbraSha 9869"
+  - name: "RELAY-104.16.0.0-2294"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -31,7 +15,23 @@ proxies:
       headers:
         Host: "gongyilm.dpdns.org"
     udp: true
-  - name: "By EbraSha 3810"
+  - name: "RELAY-172.67.152.227-0178"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 0bf1cead-bdd4-4692-b3d4-6866ccb9f37a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "hl112.cowjump.site"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "hl112.cowjump.site"
+    udp: true
+  - name: "By EbraSha 1858"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -46,4 +46,36 @@ proxies:
       path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
       headers:
         Host: "jp01.scpnb.top"
+    udp: true
+  - name: "By EbraSha 4467"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 893efe3a-659e-11f1-83db-920007945410
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "tr.oneping.space"
+    network: ws
+    ws-opts:
+      path: "/download"
+      headers:
+        Host: "tr.oneping.space"
+    udp: true
+  - name: "By EbraSha 8649"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 893efe3a-659e-11f1-83db-920007945410
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "pl.oneping.space"
+    network: ws
+    ws-opts:
+      path: "/user"
+      headers:
+        Host: "pl.oneping.space"
     udp: true
