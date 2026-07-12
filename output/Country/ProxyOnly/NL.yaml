@@ -1,5 +1,20 @@
 proxies:
-  - name: "oneclickvpnkeys NL"
+  - name: "oneclickvpnkeys NL 1752"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 5c05c433-cc31-53df-ac83-e7f8e6bc71a3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "api.amirv2yats.qzz.io"
+    ws-opts:
+      path: "/ws/amir"
+      headers:
+        Host: "api.amirv2yats.qzz.io"
+    udp: true
+  - name: "oneclickvpnkeys NL 1731"
     server: "104.17.3.81"
     port: 443
     type: trojan
@@ -12,4 +27,18 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.multiplydose.com"
+    udp: true
+  - name: "NewsDarya -PREMIUM NL"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "nlandif-o-nhdl.App-CloUd.IR"
+    ws-opts:
+      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=n-s-L"
+      headers:
+        Host: "n-la-nbvjad.App-CloUd.IR"
     udp: true

@@ -34,34 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "HK"
+  - name: "HK Join Telegram Farah_VPN HK 6853"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 31fc82da-1136-4a84-a596-7fbba8026c1d
+    uuid: b08562b0-dbc0-47d1-860d-9435133b25c9
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "dfs8545fads4ds5.another-appleid.ccwu.cc"
+    servername: "cfoo-146.pages.dev"
     ws-opts:
-      path: "/gateway/ws/a8d2f91c"
+      path: "/QiangLieTuiJian?ed=2560"
       headers:
-        Host: "dfs8545fads4ds5.another-appleid.ccwu.cc"
+        Host: "cfoo-146.pages.dev"
     udp: true
-  - name: "v2nodes HK"
+  - name: "HK Join Telegram Farah_VPN HK 6488"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "PI36027154"
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "moved-osprey.rooster465.autos"
+    servername: "t111.rittbo.kdns.fr"
     ws-opts:
       path: "/"
       headers:
-        Host: "moved-osprey.rooster465.autos"
+        Host: "t1s1.rittbo.kdns.fr"
     udp: true
 
 proxy-groups:

@@ -34,37 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "RELAY-104.16.0.0-2294"
+  - name: "RELAY-172.67.215.74-2308"
     type: vmess
     server: "104.17.3.81"
     port: 443
-    uuid: 95d2c461-61f5-4dae-bc74-4d10ce1f6236
+    uuid: 537a036f-a4ad-4051-80c4-011a46c62bb0
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: "gongyilm.dpdns.org"
+    servername: "jp01.scpnb.top"
     network: ws
     ws-opts:
-      path: "/ws-gongyi"
+      path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
       headers:
-        Host: "gongyilm.dpdns.org"
-    udp: true
-  - name: "RELAY-172.67.152.227-0178"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 0bf1cead-bdd4-4692-b3d4-6866ccb9f37a
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "hl112.cowjump.site"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "hl112.cowjump.site"
+        Host: "jp01.scpnb.top"
     udp: true
 
 proxy-groups:

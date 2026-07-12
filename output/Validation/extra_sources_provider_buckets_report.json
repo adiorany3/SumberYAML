@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-07-08T08:28:51Z",
+  "generated_at_utc": "2026-07-12T08:18:06Z",
   "policy": "provider-bucket-input-files-from-alive-extra-sources-by-node-name",
   "note": "Buckets are matched primarily from node names, with server/link text fallback. Supported links are vmess/vless/trojan; ss/ssr stay skipped for OpenClash compatibility.",
   "output_dir": "input",
   "files": {
     "google": {
       "file": "input/google.txt",
-      "count": 1,
+      "count": 2,
       "keywords": [
         "google",
         "gcp",
@@ -22,8 +22,14 @@
       "sample": [
         {
           "scheme": "vless",
-          "name": "♦️79@NetFlowTools",
-          "server": "147.45.78.118",
+          "name": "@v2rayngzendegimamad🕊️",
+          "server": "38.244.137.198",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@CUSTOMVPNSERVER",
+          "server": "157.173.127.225",
           "port": 443
         }
       ]
@@ -41,7 +47,7 @@
     },
     "microsoft": {
       "file": "input/microsoft.txt",
-      "count": 0,
+      "count": 1,
       "keywords": [
         "microsoft",
         "azure",
@@ -49,11 +55,18 @@
         "windowsazure",
         "azureedge"
       ],
-      "sample": []
+      "sample": [
+        {
+          "scheme": "vless",
+          "name": "",
+          "server": "news.microsoft.com",
+          "port": 443
+        }
+      ]
     },
     "amazon": {
       "file": "input/amazon.txt",
-      "count": 0,
+      "count": 35,
       "keywords": [
         "amazon",
         "aws",
@@ -61,7 +74,68 @@
         "ec2",
         "cloudfront"
       ],
-      "sample": []
+      "sample": [
+        {
+          "scheme": "vless",
+          "name": "Tel:",
+          "server": "104.16.72.101",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@meliproxyy",
+          "server": "104.16.72.101",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@hi_proxy_iran",
+          "server": "104.16.72.101",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@meliproxyy",
+          "server": "104.16.72.101",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@Ap_Ir6",
+          "server": "104.16.72.101",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@appsooner",
+          "server": "104.16.72.101",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "@matinword",
+          "server": "104.16.72.101",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "Proxy_Se7en",
+          "server": "104.16.72.101",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "Tel-@ProxyMtAlpha🍐",
+          "server": "104.16.72.101",
+          "port": 443
+        },
+        {
+          "scheme": "vless",
+          "name": "♾️𝗝𝗼𝗶𝗻➠🆔️@ATLAS_V2VPN🆓️🛜🔷️438🌐🆕️",
+          "server": "104.16.72.101",
+          "port": 443
+        }
+      ]
     },
     "digitalocean": {
       "file": "input/digitalocean.txt",

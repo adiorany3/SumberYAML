@@ -1,4 +1,19 @@
 proxies:
+  - name: "Filtershekan_channel 1 IT"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 1443b7a1-7ba9-4ec9-b904-2e867367b5d7
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "odd-violet-5440.asdgrweeee13.workers.dev"
+    ws-opts:
+      path: "/sync"
+      headers:
+        Host: "odd-violet-5440.asdgrweeee13.workers.dev"
+    udp: true
   - name: "IT RouTel1"
     server: "104.17.3.81"
     port: 443
@@ -13,4 +28,18 @@ proxies:
       path: "/eyJqdW5rIjoiWlFRWlMwRDdLakVqMyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560"
       headers:
         Host: "bpb-01c11365.hjdbcvdbkv.workers.dev"
+    udp: true
+  - name: "IT"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "e2706e57-690b-fd2e-0c53-9c34e1805162"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "purple-rain-4512.erfan22.workers.dev"
+    ws-opts:
+      path: "/sync"
+      headers:
+        Host: "purple-rain-4512.erfan22.workers.dev"
     udp: true

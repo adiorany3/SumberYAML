@@ -1,0 +1,17 @@
+proxies:
+  - name: "RELAY-104.21.77.204-6369"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: fce3d6a4-0f12-49b5-a810-84bcf0fde202
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "zt-ai.cloud"
+    network: ws
+    ws-opts:
+      path: "/v2ray"
+      headers:
+        Host: "zt-ai.cloud"
+    udp: true

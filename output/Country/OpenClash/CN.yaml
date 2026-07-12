@@ -34,35 +34,19 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "SheriffNet"
+  - name: "tootffarangi-2"
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
+    type: trojan
+    password: "521314"
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "sni.111000.v6.navy"
+    sni: "tjplay.lxdxo.kdns.fr"
     ws-opts:
-      path: "/?Telegram🇨🇳 @WangCai2="
+      path: "/Telegram🇨🇳 @WangCai2"
       headers:
-        Host: "sni.111000.v6.navy"
-    udp: true
-  - name: "FR Join Telegram Farah_VPN FR"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "sni.111000.indevs.in"
-    ws-opts:
-      path: "/?Telegram🇨🇳 @WangCai2="
-      headers:
-        Host: "sni.111000.indevs.in"
+        Host: "tjplay.lxdxo.kdns.fr"
     udp: true
 
 proxy-groups:
