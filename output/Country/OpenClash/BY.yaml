@@ -34,53 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "By EbraSha 1858"
+  - name: "By EbraSha 3098"
     type: vmess
     server: "104.17.3.81"
     port: 443
-    uuid: 537a036f-a4ad-4051-80c4-011a46c62bb0
+    uuid: fce3d6a4-0f12-49b5-a810-84bcf0fde202
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: "jp01.scpnb.top"
+    servername: "zt-ai.cloud"
     network: ws
     ws-opts:
-      path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
+      path: "/v2ray"
       headers:
-        Host: "jp01.scpnb.top"
-    udp: true
-  - name: "By EbraSha 4467"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 893efe3a-659e-11f1-83db-920007945410
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "tr.oneping.space"
-    network: ws
-    ws-opts:
-      path: "/download"
-      headers:
-        Host: "tr.oneping.space"
-    udp: true
-  - name: "By EbraSha 8649"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 893efe3a-659e-11f1-83db-920007945410
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "pl.oneping.space"
-    network: ws
-    ws-opts:
-      path: "/user"
-      headers:
-        Host: "pl.oneping.space"
+        Host: "zt-ai.cloud"
     udp: true
 
 proxy-groups:

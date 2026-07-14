@@ -29,17 +29,48 @@ proxies:
       headers:
         Host: "bpb-01c11365.hjdbcvdbkv.workers.dev"
     udp: true
-  - name: "IT"
+  - name: "Filtershekan_channel 2 IT"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "e2706e57-690b-fd2e-0c53-9c34e1805162"
+    type: vless
+    uuid: 4da8875e-a750-46fa-81d0-0ccf4610f156
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "purple-rain-4512.erfan22.workers.dev"
+    servername: "zeus-panel-zfc5oc.kingworker121212.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "zeus-panel-zfc5oc.kingworker121212.workers.dev"
+    udp: true
+  - name: "Filtershekan_channel 3 IT"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 57b0d214-8602-4147-80d3-6c6ebe0805bf
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ez-243ef9.ezaccess1529af9.workers.dev"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ez-243ef9.ezaccess1529af9.workers.dev"
+    udp: true
+  - name: "Filtershekan_channel 1 IT 5815"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7da33b25-cdd6-e481-afcf-c5d532361a70
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "ez-1bc8ab.sekiro-c18.workers.dev"
     ws-opts:
       path: "/sync"
       headers:
-        Host: "purple-rain-4512.erfan22.workers.dev"
+        Host: "ez-1bc8ab.sekiro-c18.workers.dev"
     udp: true

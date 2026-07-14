@@ -34,20 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys XX"
+  - name: "61 oneclickvpnkeys"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 073d1d50-8478-47bf-a828-7a1b381931d5
+    uuid: 07c87117-8472-41f6-bea8-ddcb012b9b41
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "octopusss.net"
+    servername: "edge-267487d0.pages.dev"
     ws-opts:
-      path: "/odiyfws"
+      path: "/"
       headers:
-        Host: "octopusss.net"
+        Host: "edge-267487d0.pages.dev"
+    udp: true
+  - name: "49 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 78b9ac78-ebdf-4e51-8114-f6b0cd6d2169
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "sErVER15.PEeKCOnF1-741.wOrkErs.Dev"
+    ws-opts:
+      path: "/eyJqdW5rIjoiOUZIcXVMV3FlbnoiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyYTAyOjg5ODoxNDY6NjQ6Ol0iLCJbMjYwMjpmYzU5OjExOjY0OjpdIiwiWzI2MDI6ZmM1OTpiMDo2NDo6XSJdfQ=="
+      headers:
+        Host: "server15.peekconf1-741.workers.dev"
     udp: true
 
 proxy-groups:
