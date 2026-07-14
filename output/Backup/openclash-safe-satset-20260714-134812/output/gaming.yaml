@@ -1,0 +1,213 @@
+# Auto generated usage profile OpenClash config
+# Output: output/gaming.yaml
+# Profile group: GAMING STABIL
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+keep-alive-idle: 600
+keep-alive-interval: 30
+external-controller: 0.0.0.0:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - 8.8.4.4
+
+proxies:
+  - name: "US 110372 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bc6e7cf0-9526-4fea-b2e3-5bcf992c565e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "blog.webex.com.yxls.eu.cc"
+    ws-opts:
+      path: "/my-kc"
+      headers:
+        Host: "blog.webex.com.yxls.eu.cc"
+    udp: true
+  - name: "EPODONIOS 8602"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b08562b0-dbc0-47d1-860d-9435133b25c9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cfoo-146.pages.dev"
+    ws-opts:
+      path: "/QiangLieTuiJian?ed=2560fp=chrome"
+      headers:
+        Host: "cfoo-146.pages.dev"
+    udp: true
+  - name: "CH NetliVPN 8519"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: e1a9891c-a70a-4021-b078-a59e00000000
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "netlivpn5639.dhslaph2727.workers.dev"
+    ws-opts:
+      path: "/NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN-NetliVPN"
+      headers:
+        Host: "netlivpn5639.dhslaph2727.workers.dev"
+    udp: true
+  - name: "37 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MiTiVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "Swdb-ueu-oe.MaQror.IR"
+    ws-opts:
+      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=SW-22"
+      headers:
+        Host: "bw--ivb-b--vvbcs.MaQror.IR"
+    udp: true
+  - name: "oneclickvpnkeys US 4691"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b08562b0-dbc0-47d1-860d-9435133b25c9
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "cfoo-146.pages.dev"
+    ws-opts:
+      path: "/QiangLieTuiJian?ed"
+      headers:
+        Host: "cfoo-146.pages.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 4298"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "VLESS"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "t1s1.rittbo.kdns.fr"
+    ws-opts:
+      path: "/fp"
+      headers:
+        Host: "t1s1.rittbo.kdns.fr"
+    udp: true
+  - name: "vistav2ray 8647"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "MITIVPN"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "Win-De-C-o.Maqror.ir"
+    ws-opts:
+      path: "/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN=WINde"
+      headers:
+        Host: "bvck-oizksj-sWin-De-C-o.Maqror.ir"
+    udp: true
+  - name: "GB 110184 Telegram t.me SOSkeyNET"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4feb7818-dc02-46cd-b985-abf3fdd0cdc5
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "edge-4cb23bf6.pages.dev"
+    ws-opts:
+      path: "/Telegram🇨🇳 @WangCai2"
+      headers:
+        Host: "edge-4cb23bf6.pages.dev"
+    udp: true
+  - name: "oneclickvpnkeys US 7019"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 4a1441b0-7bc8-4906-85cf-6b59c256b480
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "edt2.yfqh08811.ccwu.cc"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "edt2.yfqh08811.ccwu.cc"
+    udp: true
+
+proxy-groups:
+  - name: "GAMING STABIL"
+    type: fallback
+    proxies:
+      - "US 110372 Telegram t.me SOSkeyNET"
+      - "EPODONIOS 8602"
+      - "CH NetliVPN 8519"
+      - "37 oneclickvpnkeys"
+      - "oneclickvpnkeys US 4691"
+      - "oneclickvpnkeys US 4298"
+      - "VLESS"
+      - "vistav2ray 8647"
+      - "GB 110184 Telegram t.me SOSkeyNET"
+      - "oneclickvpnkeys US 7019"
+    url: http://www.gstatic.com/generate_204
+    interval: 90
+    lazy: false
+
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "GAMING STABIL"
+      - "DIRECT"
+      - "REJECT"
+
+rules:
+  - MATCH,PROXY
