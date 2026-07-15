@@ -34,76 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "JP JP VLESS megavpn_link 1"
+  - name: "JP Join Telegram Farah_VPN JP"
+    type: vmess
     server: "104.17.3.81"
     port: 443
-    type: vless
-    uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-    cipher: none
+    uuid: 537a036f-a4ad-4051-80c4-011a46c62bb0
+    alterId: 0
+    cipher: auto
     tls: true
     skip-cert-verify: true
+    servername: "jp01.scpnb.top"
     network: ws
-    servername: "134.122.194.186"
     ws-opts:
-      path: "/fp"
+      path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
       headers:
-        Host: "134.122.194.186"
-    udp: true
-  - name: "v2nodes JP"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "PI36027154"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "large-baboon.rooster465.autos"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "large-baboon.rooster465.autos"
-    udp: true
-  - name: "JP JP TROJAN free4allvpn 1"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "FDIypSwe64a3DA7un2R8DFjYXZO3NS05gKZTTOC8SxO0Fy3cqYg3EaFDA3ABaEYKNx39D"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "kuame.missionsec.us"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "kuame.missionsec.us"
-    udp: true
-  - name: "JP JP-103.125.216.68-0215"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "T9qoEuuxUEa9Dk3KxnTWrs6J8ilng9sCIf"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "103.125.216.68"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "103.125.216.68"
-    udp: true
-  - name: "JP JP-103.125.216.18-0211"
-    server: "104.17.3.81"
-    port: 443
-    type: trojan
-    password: "T9qoEuuxUEa9Dk3KxnTWrs6J8ilng9sCIf"
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    sni: "103.125.216.18"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "103.125.216.18"
+        Host: "jp01.scpnb.top"
     udp: true
 
 proxy-groups:

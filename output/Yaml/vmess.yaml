@@ -1,5 +1,21 @@
 proxies:
-  - name: "RELAY-104.21.16.184-2350"
+  - name: "RELAY-104.21.77.204-5968"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: fce3d6a4-0f12-49b5-a810-84bcf0fde202
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "zt-ai.cloud"
+    network: ws
+    ws-opts:
+      path: "/v2ray"
+      headers:
+        Host: "zt-ai.cloud"
+    udp: true
+  - name: "JP Join Telegram Farah_VPN JP"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -15,19 +31,67 @@ proxies:
       headers:
         Host: "jp01.scpnb.top"
     udp: true
-  - name: "US Join Telegram Farah_VPN US"
+  - name: "By EbraSha 1160"
     type: vmess
     server: "104.17.3.81"
     port: 443
-    uuid: fce3d6a4-0f12-49b5-a810-84bcf0fde202
+    uuid: a0449b33-d7f6-42a5-8bdc-3b5e727ec9f8
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: "zt-ai.cloud"
+    servername: "2cdn.njkrpl.com"
     network: ws
     ws-opts:
-      path: "/v2ray"
+      path: "/"
       headers:
-        Host: "zt-ai.cloud"
+        Host: "2cdn.njkrpl.com"
+    udp: true
+  - name: "By EbraSha 9841"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: a0449b33-d7f6-42a5-8bdc-3b5e727ec9f8
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "4cdn.njkrpl.com"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "4cdn.njkrpl.com"
+    udp: true
+  - name: "By EbraSha 3453"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: a0449b33-d7f6-42a5-8bdc-3b5e727ec9f8
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "8cdn.njkrpl.com"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "8cdn.njkrpl.com"
+    udp: true
+  - name: "By EbraSha 2392"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 79e0df31-8ed5-4213-9fff-292a9fbeae7b
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "vpn.cyedu.xyz"
+    network: ws
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "vpn.cyedu.xyz"
     udp: true

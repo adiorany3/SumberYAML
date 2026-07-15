@@ -34,20 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "49 NetFlowTools"
+  - name: "69 v2ray_configs_pools"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 0970324b-8c61-4ae7-8c3f-385a6f1e17e4
+    uuid: 4a1441b0-7bc8-4906-85cf-6b59c256b480
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "vpn47.cc.cd"
+    servername: "edt2.yfqh08811.ccwu.cc"
     ws-opts:
       path: "/fp=chrome"
       headers:
-        Host: "vpn47.cc.cd"
+        Host: "edt2.yfqh08811.ccwu.cc"
+    udp: true
+  - name: "74 oneclickvpnkeys"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: bc6e7cf0-9526-4fea-b2e3-5bcf992c565e
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "blog.webex.com.yxls.eu.cc"
+    ws-opts:
+      path: "/my-kc"
+      headers:
+        Host: "blog.webex.com.yxls.eu.cc"
     udp: true
 
 proxy-groups:
