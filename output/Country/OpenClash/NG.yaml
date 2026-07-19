@@ -34,20 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "v2ray1_ng FR"
+  - name: "v2ray1_ng US"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: 7e544a9d-7667-413b-bbb0-b3bb1aac6d77
+    uuid: 7968c546-02dc-4f8c-b791-934591a94cb2
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "shegeftihaaa.net"
+    servername: "hhvl.hhapp.kdns.fr"
     ws-opts:
-      path: "/rsedgws"
+      path: "/cbasur"
       headers:
-        Host: "shegeftihaaa.net"
+        Host: "hhvl.hhapp.kdns.fr"
+    udp: true
+  - name: "v2ray1_ng GB"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: b2f6aa3a-2550-4a1c-b2c0-1c94b1207217
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "terazhediii.info"
+    ws-opts:
+      path: "/hdgrbws"
+      headers:
+        Host: "terazhediii.info"
     udp: true
 
 proxy-groups:
