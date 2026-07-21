@@ -34,19 +34,35 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "outline_vpn GB"
+  - name: "V2rayNG3 GB"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "521314"
+    type: vless
+    uuid: b2f6aa3a-2550-4a1c-b2c0-1c94b1207217
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "tjplay.lxdxo.kdns.fr"
+    servername: "terazhediii.info"
     ws-opts:
-      path: "/"
+      path: "/hdgrbws"
       headers:
-        Host: "tjplay.lxdxo.kdns.fr"
+        Host: "terazhediii.info"
+    udp: true
+  - name: "GB Join Telegram Farah_VPN GB"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 8ad6f598-cd8d-4fca-848e-05fc9be15ff3
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "fosae.starriverway-milo.sbs"
+    ws-opts:
+      path: "/sea"
+      headers:
+        Host: "fosae.starriverway-milo.sbs"
     udp: true
 
 proxy-groups:

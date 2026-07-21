@@ -34,21 +34,53 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "meliproxy"
+  - name: "RELAY-104.19.230.21-0200"
     type: vmess
     server: "104.17.3.81"
     port: 443
-    uuid: 537a036f-a4ad-4051-80c4-011a46c62bb0
+    uuid: a0449b33-d7f6-42a5-8bdc-3b5e727ec9f8
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: "jp01.scpnb.top"
+    servername: "2cdn.njkrpl.com"
     network: ws
     ws-opts:
-      path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
+      path: "/"
       headers:
-        Host: "jp01.scpnb.top"
+        Host: "2cdn.njkrpl.com"
+    udp: true
+  - name: "RELAY-104.16.142.237-0206"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: a0449b33-d7f6-42a5-8bdc-3b5e727ec9f8
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "4cdn.njkrpl.com"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "4cdn.njkrpl.com"
+    udp: true
+  - name: "RELAY-172.67.161.104-0211"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: a0449b33-d7f6-42a5-8bdc-3b5e727ec9f8
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "8cdn.njkrpl.com"
+    network: ws
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "8cdn.njkrpl.com"
     udp: true
 
 proxy-groups:

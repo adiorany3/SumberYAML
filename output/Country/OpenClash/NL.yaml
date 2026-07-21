@@ -34,7 +34,52 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "oneclickvpnkeys NL 5035"
+  - name: "outline_vpn NL"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 14b59caf-a196-4ec2-8c70-c7b388062f5b
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "vangoghhh.info"
+    ws-opts:
+      path: "/rdfgtws"
+      headers:
+        Host: "vangoghhh.info"
+    udp: true
+  - name: "V2rayNG3 NL"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: 7e544a9d-7667-413b-bbb0-b3bb1aac6d77
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "shegeftihaaa.net"
+    ws-opts:
+      path: "/rsedgws"
+      headers:
+        Host: "shegeftihaaa.net"
+    udp: true
+  - name: "v2rayNG_Matsuri NL"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: fb49cbe4-2307-4784-b6d0-b714d058725a
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "mesh3.mashadiebod.org"
+    ws-opts:
+      path: "/mashdi"
+      headers:
+        Host: "mesh3.mashadiebod.org"
+    udp: true
+  - name: "oneclickvpnkeys NL 2285"
     server: "104.17.3.81"
     port: 443
     type: trojan

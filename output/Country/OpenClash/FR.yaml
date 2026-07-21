@@ -34,38 +34,7 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "mehrosaboran FR"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: a0449b33-d7f6-42a5-8bdc-3b5e727ec9f8
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "2cdn.njkrpl.com"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "2cdn.njkrpl.com"
-    udp: true
-  - name: "FR WhiteDNS FR4 4.0MB s DNSOK GPT -FR CL-FR SP-FR"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: 8ad6f598-cd8d-4fca-848e-05fc9be15ff3
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "deicl.redstone-vex.sbs"
-    ws-opts:
-      path: "/sea"
-      headers:
-        Host: "deicl.redstone-vex.sbs"
-    udp: true
-  - name: "v2nodes FR"
+  - name: "oneclickvpnkeys FR"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -80,22 +49,22 @@ proxies:
       headers:
         Host: "octopusss.net"
     udp: true
-  - name: "EPODONIOS 6530"
+  - name: "oneclickvpnkeys FR 9817"
     server: "104.17.3.81"
     port: 443
     type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
+    uuid: 8ad6f598-cd8d-4fca-848e-05fc9be15ff3
     cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    servername: "t1s1.rittbo.kdns.fr"
+    servername: "deicl.redstone-vex.sbs"
     ws-opts:
-      path: "/@generalconfiig"
+      path: "/sea"
       headers:
-        Host: "t1s1.rittbo.kdns.fr"
+        Host: "deicl.redstone-vex.sbs"
     udp: true
-  - name: "EPODONIOS 3289"
+  - name: "M4DVPN 1820"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -110,52 +79,7 @@ proxies:
       headers:
         Host: "t1s1.rittbo.kdns.fr"
     udp: true
-  - name: "EPODONIOS 6109"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "t1s1.rittbo.kdns.fr"
-    ws-opts:
-      path: "/fp=chromefp=chrome"
-      headers:
-        Host: "t1s1.rittbo.kdns.fr"
-    udp: true
-  - name: "EPODONIOS 2033"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "t1s1.rittbo.kdns.fr"
-    ws-opts:
-      path: "/?TELEGRAM-MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI?ed"
-      headers:
-        Host: "t1s1.rittbo.kdns.fr"
-    udp: true
-  - name: "EPODONIOS 7654"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: eeb6823c-b926-4ea2-866a-5542edd26e59
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "t1s1.rittbo.kdns.fr"
-    ws-opts:
-      path: "/?v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus--v2rayNplus"
-      headers:
-        Host: "t1s1.rittbo.kdns.fr"
-    udp: true
-  - name: "Arvand_soul EPODONIOS"
+  - name: "Arvand_soul 6"
     server: "104.17.3.81"
     port: 443
     type: vless
@@ -170,7 +94,21 @@ proxies:
       headers:
         Host: "t1s1.rittbo.kdns.fr"
     udp: true
-  - name: "oneclickvpnkeys FR 2890"
+  - name: "configV2rayNG FR"
+    server: "104.17.3.81"
+    port: 443
+    type: trojan
+    password: "humanity"
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    sni: "www.calmlunch.com"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.calmlunch.com"
+    udp: true
+  - name: "oneclickvpnkeys FR 7694"
     server: "104.17.3.81"
     port: 443
     type: trojan

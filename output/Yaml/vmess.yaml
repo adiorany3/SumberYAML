@@ -1,21 +1,5 @@
 proxies:
-  - name: "meliproxy"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 537a036f-a4ad-4051-80c4-011a46c62bb0
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "jp01.scpnb.top"
-    network: ws
-    ws-opts:
-      path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
-      headers:
-        Host: "jp01.scpnb.top"
-    udp: true
-  - name: "mehrosaboran FR"
+  - name: "RELAY-104.19.230.21-0200"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -31,7 +15,7 @@ proxies:
       headers:
         Host: "2cdn.njkrpl.com"
     udp: true
-  - name: "By EbraSha 8579"
+  - name: "RELAY-104.16.142.237-0206"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -47,23 +31,7 @@ proxies:
       headers:
         Host: "4cdn.njkrpl.com"
     udp: true
-  - name: "By EbraSha 2957"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 79e0df31-8ed5-4213-9fff-292a9fbeae7b
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "vpn.cyedu.xyz"
-    network: ws
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "vpn.cyedu.xyz"
-    udp: true
-  - name: "By EbraSha 2431"
+  - name: "RELAY-172.67.161.104-0211"
     type: vmess
     server: "104.17.3.81"
     port: 443
@@ -78,4 +46,36 @@ proxies:
       path: "/"
       headers:
         Host: "8cdn.njkrpl.com"
+    udp: true
+  - name: "JP Join Telegram Farah_VPN JP"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: 537a036f-a4ad-4051-80c4-011a46c62bb0
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "jp01.scpnb.top"
+    network: ws
+    ws-opts:
+      path: "/537a036f-a4ad-4051-80c4-011a46c62bb0-vm"
+      headers:
+        Host: "jp01.scpnb.top"
+    udp: true
+  - name: "By EbraSha 8126"
+    type: vmess
+    server: "104.17.3.81"
+    port: 443
+    uuid: fce3d6a4-0f12-49b5-a810-84bcf0fde202
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "zt-ai.cloud"
+    network: ws
+    ws-opts:
+      path: "/v2ray"
+      headers:
+        Host: "zt-ai.cloud"
     udp: true

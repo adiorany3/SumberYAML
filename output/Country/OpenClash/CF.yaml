@@ -34,21 +34,6 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "EPODONIOS 2520"
-    server: "104.17.3.81"
-    port: 443
-    type: vless
-    uuid: ea50b1a3-3a98-4c5e-a150-48ada40d68d7
-    cipher: none
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    servername: "cf-vless-4cf55824.aimall.fr"
-    ws-opts:
-      path: "/connect"
-      headers:
-        Host: "cf-vless-4cf55824.aimall.fr"
-    udp: true
   - name: "ip_cf FR"
     server: "104.17.3.81"
     port: 443

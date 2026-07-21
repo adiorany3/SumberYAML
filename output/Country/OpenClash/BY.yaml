@@ -34,53 +34,21 @@ dns:
     - 8.8.4.4
 
 proxies:
-  - name: "By EbraSha 8579"
+  - name: "By EbraSha 8126"
     type: vmess
     server: "104.17.3.81"
     port: 443
-    uuid: a0449b33-d7f6-42a5-8bdc-3b5e727ec9f8
+    uuid: fce3d6a4-0f12-49b5-a810-84bcf0fde202
     alterId: 0
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: "4cdn.njkrpl.com"
+    servername: "zt-ai.cloud"
     network: ws
     ws-opts:
-      path: "/"
+      path: "/v2ray"
       headers:
-        Host: "4cdn.njkrpl.com"
-    udp: true
-  - name: "By EbraSha 2957"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: 79e0df31-8ed5-4213-9fff-292a9fbeae7b
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "vpn.cyedu.xyz"
-    network: ws
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "vpn.cyedu.xyz"
-    udp: true
-  - name: "By EbraSha 2431"
-    type: vmess
-    server: "104.17.3.81"
-    port: 443
-    uuid: a0449b33-d7f6-42a5-8bdc-3b5e727ec9f8
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    servername: "8cdn.njkrpl.com"
-    network: ws
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "8cdn.njkrpl.com"
+        Host: "zt-ai.cloud"
     udp: true
 
 proxy-groups:
