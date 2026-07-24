@@ -1,15 +1,31 @@
 proxies:
-  - name: "ip_cf FR"
+  - name: "EPODONIOS 3437"
     server: "104.17.3.81"
     port: 443
-    type: trojan
-    password: "humanity"
+    type: vless
+    uuid: 5dc15e15-f285-4a9d-959b-0e4fbdd77b63
+    cipher: none
     tls: true
     skip-cert-verify: true
     network: ws
-    sni: "www.ignitelimit.com"
+    servername: "powered-by-surena.configfarsi695fcfe8a2e58.workers.dev"
     ws-opts:
-      path: "/assignment"
+      path: "/"
       headers:
-        Host: "www.ignitelimit.com"
+        Host: "powered-by-surena.configfarsi695fcfe8a2e58.workers.dev"
+    udp: true
+  - name: "EPODONIOS 5966"
+    server: "104.17.3.81"
+    port: 443
+    type: vless
+    uuid: c416332e-2bde-4806-ac02-8f021c6e8f68
+    cipher: none
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    servername: "bbc.zjxc.de5.net"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "bbc.zjxc.de5.net"
     udp: true
